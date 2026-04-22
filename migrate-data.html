@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据迁移工具</title>
+    <style>
+        body {
+            font-family: 'DM Sans', 'PingFang SC', -apple-system, sans-serif;
+            background: #0a0e14;
+            color: #f9fafb;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(17,24,39,0.96);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 32px;
+            max-width: 600px;
+            width: 100%;
+            backdrop-filter: blur(24px);
+        }
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: #ff7d00;
+            text-align: center;
+        }
+        .step {
+            margin-bottom: 24px;
+            padding: 20px;
+            background: rgba(255,125,0,0.05);
+            border: 1px solid rgba(255,125,0,0.2);
+            border-radius: 12px;
+        }
+        .step h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ff7d00;
+        }
+        .step p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            color: rgba(249,250,251,0.65);
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 42px;
+            padding: 0 20px;
+            border-radius: 16px;
+            border: 1px solid transparent;
+            font-size: 0.88rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 160ms cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, #ff7d00, #cc6400);
+            color: white;
+            box-shadow: 0 6px 28px rgba(255,125,0,0.25);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(255,125,0,0.35);
+        }
+        .btn-outline {
+            background: transparent;
+            border-color: var(--border-orange);
+            color: var(--orange-500);
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background: rgba(255,125,0,0.08);
+        }
+        .success {
+            color: #22c55e;
+            margin-top: 16px;
+            font-weight: 600;
+        }
+        .error {
+            color: #ef4444;
+            margin-top: 16px;
+            font-weight: 600;
+        }
+        .status {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+        .status.success {
+            background: rgba(34,197,94,0.1);
+            border: 1px solid rgba(34,197,94,0.2);
+        }
+        .status.error {
+            background: rgba(239,68,68,0.1);
+            border: 1px solid rgba(239,68,68,0.2);
+        }
+        .info {
+            background: rgba(0,82,255,0.08);
+            border: 1px solid rgba(0,82,255,0.2);
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 16px;
+            font-size: 0.85rem;
+            color: rgba(249,250,251,0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>数据迁移工具</h1>
+        
+        <div class="step">
+            <h3>步骤 1: 检查旧数据</h3>
+            <p>点击下方按钮检查旧网站（trea0420）的本地存储数据：</p>
+            <button class="btn" onclick="checkOldData()">检查旧数据</button>
+            <div id="old-data-status" class="status"></div>
+        </div>
+        
+        <div class="step">
+            <h3>步骤 2: 迁移数据</h3>
+            <p>如果旧数据存在，点击下方按钮将数据迁移到新网站：</p>
+            <button class="btn" onclick="migrateData()">迁移数据</button>
+            <div id="migrate-status" class="status"></div>
+        </div>
+        
+        <div class="step">
+            <h3>步骤 3: 验证迁移</h3>
+            <p>点击下方按钮验证数据是否成功迁移到新网站：</p>
+            <button class="btn" onclick="verifyData()">验证数据</button>
+            <div id="verify-status" class="status"></div>
+        </div>
+        
+        <div class="info">
+            <strong>说明：</strong> 此工具会将旧网站（trea0420）的所有数据（包括管理员、投资者、产品等）完整迁移到新网站（trea0421）。
+        </div>
+    </div>
+    
+    <script>
+        const OLD_STORAGE_KEY = "cj-capital-v2-data";
+        const NEW_STORAGE_KEY = "cj-capital-v2-data";
+        
+        function checkOldData() {
+            const status = document.getElementById('old-data-status');
+            status.innerHTML = '<span style="color: #f9fafb;">检查中...</span>';
+            
+            try {
+                const oldData = localStorage.getItem(OLD_STORAGE_KEY);
+                
+                if (oldData) {
+                    const parsed = JSON.parse(oldData);
+                    const investorCount = parsed.investors ? parsed.investors.length : 0;
+                    const adminCount = parsed.adminUsers ? parsed.adminUsers.length : 0;
+                    const productCount = parsed.products ? parsed.products.length : 0;
+                    
+                    status.innerHTML = `
+                        <div class="status success">
+                            ✓ 找到旧数据！<br>
+                            - 投资者: ${investorCount} 个<br>
+                            - 管理员: ${adminCount} 个<br>
+                            - 产品: ${productCount} 个
+                        </div>
+                    `;
+                } else {
+                    status.innerHTML = `
+                        <div class="status error">
+                            ✗ 未找到旧数据
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                status.innerHTML = `
+                    <div class="status error">
+                        ✗ 检查失败: ${error.message}
+                    </div>
+                `;
+            }
+        }
+        
+        function migrateData() {
+            const status = document.getElementById('migrate-status');
+            status.innerHTML = '<span style="color: #f9fafb;">迁移中...</span>';
+            
+            try {
+                const oldData = localStorage.getItem(OLD_STORAGE_KEY);
+                
+                if (oldData) {
+                    const parsed = JSON.parse(oldData);
+                    
+                    // 保存到新存储
+                    localStorage.setItem(NEW_STORAGE_KEY, oldData);
+                    
+                    const investorCount = parsed.investors ? parsed.investors.length : 0;
+                    const adminCount = parsed.adminUsers ? parsed.adminUsers.length : 0;
+                    const productCount = parsed.products ? parsed.products.length : 0;
+                    
+                    status.innerHTML = `
+                        <div class="status success">
+                            ✓ 数据迁移成功！<br>
+                            - 投资者: ${investorCount} 个<br>
+                            - 管理员: ${adminCount} 个<br>
+                            - 产品: ${productCount} 个
+                        </div>
+                    `;
+                } else {
+                    status.innerHTML = `
+                        <div class="status error">
+                            ✗ 未找到旧数据
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                status.innerHTML = `
+                    <div class="status error">
+                        ✗ 迁移失败: ${error.message}
+                    </div>
+                `;
+            }
+        }
+        
+        function verifyData() {
+            const status = document.getElementById('verify-status');
+            status.innerHTML = '<span style="color: #f9fafb;">验证中...</span>';
+            
+            try {
+                const newData = localStorage.getItem(NEW_STORAGE_KEY);
+                
+                if (newData) {
+                    const parsed = JSON.parse(newData);
+                    const investorCount = parsed.investors ? parsed.investors.length : 0;
+                    const adminCount = parsed.adminUsers ? parsed.adminUsers.length : 0;
+                    const productCount = parsed.products ? parsed.products.length : 0;
+                    
+                    status.innerHTML = `
+                        <div class="status success">
+                            ✓ 数据验证成功！<br>
+                            - 投资者: ${investorCount} 个<br>
+                            - 管理员: ${adminCount} 个<br>
+                            - 产品: ${productCount} 个
+                            <br>
+                            <strong>现在可以登录新网站了！</strong>
+                        </div>
+                    `;
+                } else {
+                    status.innerHTML = `
+                        <div class="status error">
+                            ✗ 新网站没有数据
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                status.innerHTML = `
+                    <div class="status error">
+                        ✗ 验证失败: ${error.message}
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>数据同步</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; margin: 5px; }
+        .section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .success { color: green; margin-top: 10px; }
+        .error { color: red; margin-top: 10px; }
+        textarea { width: 100%; height: 200px; margin: 10px 0; padding: 10px; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>数据同步工具</h1>
+        <p>使用此工具在不同端口之间同步数据。</p>
+
+        <!-- 导出数据 -->
+        <div class="section">
+            <h2>1. 导出数据</h2>
+            <p>点击下方按钮导出当前端口的所有数据。</p>
+            <button onclick="exportData()">导出数据</button>
+            <div id="export-message" class="success" style="display: none;">数据已导出！</div>
+            <textarea id="export-data" placeholder="导出的数据将显示在这里..."></textarea>
+        </div>
+
+        <!-- 导入数据 -->
+        <div class="section">
+            <h2>2. 导入数据</h2>
+            <p>将导出的数据粘贴到下方文本框，然后点击导入按钮。</p>
+            <textarea id="import-data" placeholder="在此粘贴要导入的数据..."></textarea>
+            <br>
+            <button onclick="importData()">导入数据</button>
+            <div id="import-message" class="success" style="display: none;">数据已导入！</div>
+            <div id="import-error" class="error" style="display: none;">导入失败，请检查数据格式！</div>
+        </div>
+
+        <!-- 同步说明 -->
+        <div class="section">
+            <h2>同步步骤</h2>
+            <ol>
+                <li>在 <strong>http://localhost:8891/sync-data.html</strong> 页面点击 "导出数据" 按钮</li>
+                <li>复制导出的JSON数据</li>
+                <li>在 <strong>http://localhost:8890/trea0420/sync-data.html</strong> 页面粘贴数据到 "导入数据" 文本框</li>
+                <li>点击 "导入数据" 按钮</li>
+                <li>刷新页面查看同步结果</li>
+            </ol>
+        </div>
+    </div>
+    <script>
+        // 导出数据
+        function exportData() {
+            try {
+                const data = localStorage.getItem('cj-capital-v2-data');
+                if (data) {
+                    document.getElementById('export-data').value = data;
+                    document.getElementById('export-message').style.display = 'block';
+                } else {
+                    document.getElementById('export-data').value = '{}';
+                    document.getElementById('export-message').textContent = '没有找到数据，导出空对象！';
+                    document.getElementById('export-message').style.display = 'block';
+                }
+            } catch (error) {
+                document.getElementById('export-data').value = '导出失败: ' + error.message;
+            }
+        }
+
+        // 导入数据
+        function importData() {
+            try {
+                const data = document.getElementById('import-data').value.trim();
+                if (data) {
+                    // 验证JSON格式
+                    JSON.parse(data);
+                    localStorage.setItem('cj-capital-v2-data', data);
+                    document.getElementById('import-message').style.display = 'block';
+                    document.getElementById('import-error').style.display = 'none';
+                } else {
+                    throw new Error('数据为空');
+                }
+            } catch (error) {
+                document.getElementById('import-error').textContent = '导入失败: ' + error.message;
+                document.getElementById('import-error').style.display = 'block';
+                document.getElementById('import-message').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

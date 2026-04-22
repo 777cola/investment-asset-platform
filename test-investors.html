@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Investor Password Reset</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .investor-item { border: 1px solid #ddd; padding: 10px; margin: 10px 0; }
+        button { margin: 5px; padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>投资者账号检查与重置</h1>
+        <button onclick="loadInvestors()">加载投资者数据</button>
+        <button onclick="clearLoginAttempts()">清除登录失败记录</button>
+        <div id="investors-list"></div>
+    </div>
+    <script>
+        async function loadInvestors() {
+            const response = await fetch('index.html');
+            const html = await response.text();
+            
+            // 模拟加载数据
+            const script = document.createElement('script');
+            script.textContent = `
+                // 加载配置
+                const STORAGE_KEY = "cj-capital-v2-data";
+                
+                // 加载数据
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (raw) {
+                    const data = JSON.parse(raw);
+                    displayInvestors(data.investors);
+                } else {
+                    document.getElementById('investors-list').innerHTML = '<p>没有找到投资者数据</p>';
+                }
+            `;
+            document.body.appendChild(script);
+        }
+        
+        function displayInvestors(investors) {
+            const list = document.getElementById('investors-list');
+            if (!investors || investors.length === 0) {
+                list.innerHTML = '<p>没有投资者数据</p>';
+                return;
+            }
+            
+            let html = '<h2>投资者列表</h2>';
+            investors.forEach((investor, index) => {
+                html += `
+                    <div class="investor-item">
+                        <strong>ID:</strong> ${investor.id}<br>
+                        <strong>姓名:</strong> ${investor.name}<br>
+                        <strong>用户名:</strong> ${investor.usernames ? investor.usernames.join(', ') : '无'}<br>
+                        <strong>密码哈希:</strong> ${investor.password}<br>
+                        <strong>密码长度:</strong> ${investor.password ? investor.password.length : 0}<br>
+                        <button onclick="resetPassword(${index})">重置密码为123456</button>
+                    </div>
+                `;
+            });
+            list.innerHTML = html;
+        }
+        
+        function clearLoginAttempts() {
+            localStorage.removeItem('cj-login-attempts');
+            alert('登录失败记录已清除');
+        }
+        
+        function resetPassword(index) {
+            const STORAGE_KEY = "cj-capital-v2-data";
+            const raw = localStorage.getItem(STORAGE_KEY);
+            if (raw) {
+                const data = JSON.parse(raw);
+                if (data.investors && data.investors[index]) {
+                    // 直接设置明文密码，系统会在下次加载时自动哈希
+                    data.investors[index].password = '123456';
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+                    alert(`投资者 ${data.investors[index].name} 的密码已重置为 123456`);
+                    loadInvestors(); // 重新加载
+                }
+            }
+        }
+    </script>
+</body>
+</html>

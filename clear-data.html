@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>清除数据</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .container { max-width: 400px; margin: 0 auto; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+        .success { color: green; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>清除演示数据</h1>
+        <p>点击下方按钮清除所有演示数据，包括投资者和产品信息。</p>
+        <button onclick="clearData()">清除数据</button>
+        <div id="message" class="success" style="display: none;">数据已清除！</div>
+    </div>
+    <script>
+        function clearData() {
+            // 清除localStorage中的数据
+            localStorage.removeItem('cj-capital-v2-data');
+            localStorage.removeItem('cj-capital-data'); // 可能的旧键名
+            
+            // 清除sessionStorage中的会话数据
+            sessionStorage.removeItem('cj-capital-v2-session');
+            sessionStorage.removeItem('cj-capital-session'); // 可能的旧键名
+            
+            // 显示成功消息
+            document.getElementById('message').style.display = 'block';
+            
+            // 3秒后跳转到首页
+            setTimeout(() => {
+                window.location.href = './index.html';
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
