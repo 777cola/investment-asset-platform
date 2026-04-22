@@ -15,7 +15,7 @@ export async function loadData() {
 
   // 尝试自动加载本地json文件
   try {
-    const response = await fetch('cj-capital-2026-04-21-5.json');
+    const response = await fetch('cj-capital-2026-04-22.json');
     if (response.ok) {
       const jsonData = await response.json();
       if (validateData(jsonData)) {
