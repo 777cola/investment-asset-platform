@@ -1,0 +1,120 @@
+<view class="bg-canvas">
+  <view class="bg-gradient"></view>
+  <view class="bg-grid"></view>
+</view>
+
+<view class="app-shell">
+  <header class="navbar">
+    <view class="navbar-brand">
+      <view class="brand-logo"><span>KH</span></view>
+      <view class="brand-text">
+        <view class="logo-title">恺皓资本</view>
+        <view class="logo-subtitle">KaiHao Capital</view>
+      </view>
+    </view>
+    <view class="navbar-controls">
+      <button class="icon-btn" bindtap="onBack" title="返回">
+        <text>返回</text>
+      </button>
+    </view>
+  </header>
+
+  <view id="flash-message" class="flash hidden" role="status" aria-live="polite"></view>
+
+  <main class="workspace">
+    <section id="main-view" class="content-area">
+      <view class="content-inner">
+        <view class="section-header">
+          <view>
+            <view class="section-title">用户管理</view>
+            <view class="section-subtitle">投资者信息管理</view>
+          </view>
+          <button class="btn-primary" bindtap="onAddInvestor">
+            <text>添加投资者</text>
+          </button>
+        </view>
+
+        <view class="investor-grid">
+          <view wx:for="{{investors}}" wx:key="id" class="investor-card">
+            <view class="investor-card-header">
+              <view class="investor-avatar">{{item.name.charAt(0)}}</view>
+              <view>
+                <view class="investor-card-name">{{item.name}}</view>
+                <view class="investor-card-id">{{item.id}}</view>
+              </view>
+            </view>
+            <view class="investor-card-body">
+              <view class="investor-detail">
+                <view class="detail-label">加入日期</view>
+                <view class="detail-value">{{item.joinedAt}}</view>
+              </view>
+              <view class="investor-detail">
+                <view class="detail-label">投资金额</view>
+                <view class="detail-value">¥{{item.totalInvested}}</view>
+              </view>
+              <view class="investor-detail">
+                <view class="detail-label">最新价值</view>
+                <view class="detail-value">¥{{item.totalValue}}</view>
+              </view>
+            </view>
+            <view class="investor-card-actions">
+              <button class="btn-ghost btn-sm" bindtap="onEditInvestor" data-id="{{item.id}}">
+                <text>编辑</text>
+              </button>
+              <button class="btn-ghost btn-sm" bindtap="onDeleteInvestor" data-id="{{item.id}}">
+                <text>删除</text>
+              </button>
+            </view>
+          </view>
+        </view>
+
+        <!-- 添加/编辑投资者表单 -->
+        <view wx:if="{{showForm}}" class="card" style="margin-top: 20px;">
+          <view class="card-header">
+            <view class="card-title">{{isEditing ? '编辑投资者' : '添加投资者'}}</view>
+          </view>
+          <view class="card-body">
+            <view class="form-grid">
+              <view class="form-field">
+                <label class="form-label">投资者姓名</label>
+                <input 
+                  class="text-input" 
+                  placeholder="请输入姓名" 
+                  bindinput="onNameInput"
+                  value="{{formData.name}}"
+                />
+              </view>
+              <view class="form-field">
+                <label class="form-label">密码</label>
+                <input 
+                  class="text-input" 
+                  placeholder="请输入密码" 
+                  password="true" 
+                  bindinput="onPasswordInput"
+                  value="{{formData.password}}"
+                />
+              </view>
+              <view class="form-field col-span-2">
+                <label class="form-label">加入日期</label>
+                <input 
+                  class="text-input" 
+                  placeholder="YYYY-MM-DD" 
+                  bindinput="onJoinedAtInput"
+                  value="{{formData.joinedAt}}"
+                />
+              </view>
+            </view>
+            <view class="form-actions" style="margin-top: 16px;">
+              <button class="btn-ghost" bindtap="onCancelForm">
+                <text>取消</text>
+              </button>
+              <button class="btn-primary" bindtap="onSaveInvestor">
+                <text>保存</text>
+              </button>
+            </view>
+          </view>
+        </view>
+      </view>
+    </section>
+  </main>
+</view>

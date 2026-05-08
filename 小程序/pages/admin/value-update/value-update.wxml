@@ -1,0 +1,118 @@
+<view class="bg-canvas">
+  <view class="bg-gradient"></view>
+  <view class="bg-grid"></view>
+</view>
+
+<view class="app-shell">
+  <header class="navbar">
+    <view class="navbar-brand">
+      <view class="brand-logo"><span>KH</span></view>
+      <view class="brand-text">
+        <view class="logo-title">恺皓资本</view>
+        <view class="logo-subtitle">KaiHao Capital</view>
+      </view>
+    </view>
+    <view class="navbar-controls">
+      <button class="icon-btn" bindtap="onBack" title="返回">
+        <text>返回</text>
+      </button>
+    </view>
+  </header>
+
+  <view id="flash-message" class="flash hidden" role="status" aria-live="polite"></view>
+
+  <main class="workspace">
+    <section id="main-view" class="content-area">
+      <view class="content-inner">
+        <view class="section-header">
+          <view>
+            <view class="section-title">价值更新</view>
+            <view class="section-subtitle">更新投资产品价值</view>
+          </view>
+        </view>
+
+        <view class="card">
+          <view class="card-header">
+            <view class="card-title">更新日期</view>
+          </view>
+          <view class="card-body">
+            <view class="form-grid">
+              <view class="form-field">
+                <label class="form-label">日期</label>
+                <input 
+                  class="text-input" 
+                  placeholder="YYYY-MM-DD" 
+                  bindinput="onDateInput"
+                  value="{{updateDate}}"
+                />
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="card" style="margin-top: 20px;">
+          <view class="card-header">
+            <view class="card-title">产品价值更新</view>
+          </view>
+          <view class="card-body">
+            <view wx:for="{{products}}" wx:key="id" class="form-grid" style="margin-bottom: 16px;">
+              <view class="form-field">
+                <label class="form-label">{{item.name}} ({{item.code}})</label>
+                <input 
+                  class="text-input" 
+                  placeholder="请输入最新价值" 
+                  type="number" 
+                  bindinput="onValueInput" 
+                  data-id="{{item.id}}"
+                  value="{{productValues[item.id] || ''}}"
+                />
+              </view>
+              <view class="form-field">
+                <label class="form-label">平台</label>
+                <input 
+                  class="text-input" 
+                  placeholder="平台名称" 
+                  bindinput="onPlatformInput" 
+                  data-id="{{item.id}}"
+                  value="{{item.platform}}"
+                  disabled
+                />
+              </view>
+            </view>
+            <button class="btn-primary btn-block" bindtap="onUpdateValues" style="margin-top: 16px;">
+              <text>更新价值</text>
+            </button>
+          </view>
+        </view>
+
+        <view class="card" style="margin-top: 20px;">
+          <view class="card-header">
+            <view class="card-title">更新历史</view>
+          </view>
+          <view class="card-body">
+            <view class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>产品</th>
+                    <th>日期</th>
+                    <th>价值</th>
+                    <th>变动</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr wx:for="{{updateHistory}}" wx:key="index">
+                    <td>{{item.productName}}</td>
+                    <td>{{item.date}}</td>
+                    <td>¥{{item.value}}</td>
+                    <td class="{{item.change >= 0 ? 'up' : 'down'}}">¥{{item.change}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </view>
+          </view>
+        </view>
+      </view>
+    </section>
+  </main>
+</view>

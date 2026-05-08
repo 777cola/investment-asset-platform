@@ -1,0 +1,155 @@
+<view class="bg-canvas">
+  <view class="bg-gradient"></view>
+  <view class="bg-grid"></view>
+</view>
+
+<view class="app-shell">
+  <header class="navbar">
+    <view class="navbar-brand">
+      <view class="brand-logo"><span>KH</span></view>
+      <view class="brand-text">
+        <view class="logo-title">恺皓资本</view>
+        <view class="logo-subtitle">KaiHao Capital</view>
+      </view>
+    </view>
+    <view class="navbar-controls">
+      <button class="icon-btn" bindtap="onBack" title="返回">
+        <text>返回</text>
+      </button>
+    </view>
+  </header>
+
+  <view id="flash-message" class="flash hidden" role="status" aria-live="polite"></view>
+
+  <main class="workspace">
+    <section id="main-view" class="content-area">
+      <view class="content-inner">
+        <view class="section-header">
+          <view>
+            <view class="section-title">利息发放记录</view>
+            <view class="section-subtitle">管理利息发放记录</view>
+          </view>
+          <button class="btn-primary" bindtap="onAddInterestRecord">
+            <text>添加发放记录</text>
+          </button>
+        </view>
+
+        <view class="card">
+          <view class="card-header">
+            <view class="card-title">发放记录</view>
+          </view>
+          <view class="card-body">
+            <view class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>投资者</th>
+                    <th>日期</th>
+                    <th>平台</th>
+                    <th>金额</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr wx:for="{{interestRecords}}" wx:key="id">
+                    <td>{{item.investorName}}</td>
+                    <td>{{item.date}}</td>
+                    <td>{{item.platform}}</td>
+                    <td>¥{{item.amount}}</td>
+                    <td>
+                      <button class="btn-ghost btn-sm" bindtap="onDeleteRecord" data-id="{{item.id}}">
+                        <text>删除</text>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </view>
+          </view>
+        </view>
+
+        <!-- 添加利息发放记录表单 -->
+        <view wx:if="{{showForm}}" class="card" style="margin-top: 20px;">
+          <view class="card-header">
+            <view class="card-title">添加利息发放记录</view>
+          </view>
+          <view class="card-body">
+            <view class="form-grid">
+              <view class="form-field">
+                <label class="form-label">投资者</label>
+                <picker 
+                  bindchange="onInvestorChange" 
+                  value="{{formData.investorId}}" 
+                  range="{{investors}}" 
+                  range-key="name"
+                >
+                  <view class="text-input">
+                    {{getInvestorName(formData.investorId)}}
+                  </view>
+                </picker>
+              </view>
+              <view class="form-field">
+                <label class="form-label">日期</label>
+                <input 
+                  class="text-input" 
+                  placeholder="YYYY-MM-DD" 
+                  bindinput="onDateInput"
+                  value="{{formData.date}}"
+                />
+              </view>
+              <view class="form-field">
+                <label class="form-label">平台</label>
+                <input 
+                  class="text-input" 
+                  placeholder="平台名称" 
+                  bindinput="onPlatformInput"
+                  value="{{formData.platform}}"
+                />
+              </view>
+              <view class="form-field">
+                <label class="form-label">金额</label>
+                <input 
+                  class="text-input" 
+                  placeholder="请输入金额" 
+                  type="number" 
+                  bindinput="onAmountInput"
+                  value="{{formData.amount}}"
+                />
+              </view>
+            </view>
+            <view class="form-actions" style="margin-top: 16px;">
+              <button class="btn-ghost" bindtap="onCancelForm">
+                <text>取消</text>
+              </button>
+              <button class="btn-primary" bindtap="onSaveInterestRecord">
+                <text>保存</text>
+              </button>
+            </view>
+          </view>
+        </view>
+
+        <view class="card" style="margin-top: 20px;">
+          <view class="card-header">
+            <view class="card-title">发放统计</view>
+          </view>
+          <view class="card-body">
+            <view class="info-list">
+              <view class="info-item">
+                <view class="info-label">总发放次数</view>
+                <view class="info-value">{{totalRecords}}</view>
+              </view>
+              <view class="info-item">
+                <view class="info-label">总发放金额</view>
+                <view class="info-value">¥{{totalAmount}}</view>
+              </view>
+              <view class="info-item">
+                <view class="info-label">平均每次发放</view>
+                <view class="info-value">¥{{averageAmount}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </section>
+  </main>
+</view>
