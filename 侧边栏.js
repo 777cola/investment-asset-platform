@@ -60,18 +60,12 @@ export function renderSidebar(state, t) {
         <div style="font-size: 12px; line-height: 1.4; color: var(--text-secondary);">
           <div style="margin-bottom: 8px;">
             <span style="color: var(--text-tertiary); display: block; margin-bottom: 2px;">上次更新时间</span>
-            <span style="font-family: var(--font-mono); color: var(--text-primary);">2026-04-21 23:00</span>
+            <span style="font-family: var(--font-mono); color: var(--text-primary);">2026-05-05</span>
           </div>
           <div>
             <span style="color: var(--text-tertiary); display: block; margin-bottom: 2px;">更新内容</span>
             <span style="color: var(--text-primary);">
-              • 修复登录页面切换管理员功能<br>
-              • 修复用户管理选择投资者功能<br>
-              • 修复产品管理编辑和新增交易记录功能<br>
-              • 资产全览添加投资总额列<br>
-              • 修复资产全览第一行空白问题<br>
-              • 优化密码加密存储机制<br>
-              • 增强登录安全措施，添加失败次数限制
+              • 增加了PDF数据导出模块
             </span>
           </div>
         </div>
