@@ -15,13 +15,27 @@ export function bindEvents(state, t, renderApp) {
 
   /* ── 语言切换 ── */
   document.querySelector("#lang-toggle")?.addEventListener("click", () => {
-    state.ui.lang = state.ui.lang === "zh" ? "en" : "zh";
+    const languages = ["zh", "zh-hant", "en"];
+    const currentIndex = languages.indexOf(state.ui.lang);
+    const nextIndex = (currentIndex + 1) % languages.length;
+    state.ui.lang = languages[nextIndex];
     localStorage.setItem("cj-lang", state.ui.lang);
     renderApp(state, t);
   });
 
   /* ── 全局点击委托 ── */
   document.addEventListener("click", event => {
+    /* 演示账户快速登录 */
+    if (event.target.closest("#demo-login-btn")) {
+      const userIdInput = document.querySelector("#login-investor-id");
+      const pwdInput = document.querySelector("#login-investor-pwd");
+      if (userIdInput) userIdInput.value = "演示";
+      if (pwdInput) pwdInput.value = "123456";
+      const form = document.querySelector("#login-form");
+      if (form) form.submit();
+      return;
+    }
+
     const actionElement = event.target.closest("[data-action]");
     if (!actionElement) return;
     const action = actionElement.dataset.action;
@@ -75,7 +89,7 @@ export function bindEvents(state, t, renderApp) {
 
         const transactionAmount = parseFloat(amountString);
         if (!transactionDate || isNaN(transactionAmount) || transactionAmount <= 0) {
-          setFlash(state, "请填写日期和有效金额", "error");
+          setFlash(state, t("pleaseFillDateAmount"), "error");
           return;
         }
 
@@ -89,7 +103,7 @@ export function bindEvents(state, t, renderApp) {
         });
 
         saveData(state.data);
-        setFlash(state, "出入金记录已添加", "success");
+        setFlash(state, t("fundFlowAdded"), "success");
         renderApp(state, t);
         break;
       }
@@ -99,14 +113,14 @@ export function bindEvents(state, t, renderApp) {
         const { fundId, investorId } = actionElement.dataset;
         const investor = state.data.investors.find(investorItem => investorItem.id === investorId);
         if (!investor || !fundId) return;
-        if (!confirm("确认删除此出入金记录？")) return;
+        if (!confirm(t("confirmDeleteFundFlow"))) return;
 
         if (investor.fundFlow) {
           investor.fundFlow = investor.fundFlow.filter(fundItem => fundItem.id !== fundId);
         }
 
         saveData(state.data);
-        setFlash(state, "出入金记录已删除", "success");
+        setFlash(state, t("fundFlowDeleted"), "success");
         renderApp(state, t);
         break;
       }
@@ -126,7 +140,7 @@ export function bindEvents(state, t, renderApp) {
         const netInvested = totalDeposits - totalWithdrawals;
 
         if (netInvested <= 0) {
-          setFlash(state, "请先添加出入金记录", "error");
+          setFlash(state, t("pleaseAddFundFlowFirst"), "error");
           return;
         }
 
@@ -145,7 +159,7 @@ export function bindEvents(state, t, renderApp) {
         const totalPercentage = netInvested > 0 ? Math.round((totalAllocated / netInvested) * 1000) / 10 : 0;
 
         if (unallocated < 0) {
-          setFlash(state, "分配金额超过净投入", "error");
+          setFlash(state, t("allocationExceeds"), "error");
           return;
         }
 
@@ -179,7 +193,7 @@ export function bindEvents(state, t, renderApp) {
         investor.allocations = newAllocations;
 
         saveData(state.data);
-        setFlash(state, `产品分配已更新（总计 ${totalPercentage}%）`, "success");
+        setFlash(state, t("allocationUpdated").replace("{n}", totalPercentage), "success");
         renderApp(state, t);
         break;
       }
@@ -336,8 +350,8 @@ export function bindEvents(state, t, renderApp) {
         break;
 
       case "export-pdf":
-        if (exportInvestorPDF(state)) setFlash(state, "PDF报告已导出", "success");
-        else setFlash(state, "PDF导出失败，请检查浏览器控制台日志。", "error");
+        if (exportInvestorPDF(state)) setFlash(state, t("flashExported"), "success");
+        else setFlash(state, t("flashError"), "error");
         break;
 
       case "import-data":
@@ -449,9 +463,9 @@ function recordLoginFailure(attemptsKey, attempts, loginAttempts, now, MAX_ATTEM
   
   const remainingAttempts = Math.max(0, MAX_ATTEMPTS - attempts.count);
   if (remainingAttempts > 0) {
-    return `登录失败，还有${remainingAttempts}次尝试机会`;
+    return t("loginAttemptsLeft").replace("{n}", remainingAttempts);
   } else {
-    return "登录失败次数过多，账户已被锁定5分钟";
+    return t("loginLocked");
   }
 }
 
@@ -477,7 +491,7 @@ async function handleLogin(form, state, t, renderApp) {
     const { locked, remainingTime, attemptsKey, attempts, loginAttempts, now, MAX_ATTEMPTS } = checkLoginAttempts(nameOrUsername, "investor");
     
     if (locked) {
-      setFlash(state, `账户已被锁定，请${remainingTime}分钟后再试`, "error");
+      setFlash(state, t("accountLocked").replace("{n}", remainingTime), "error");
       renderApp(state, t);
       return;
     }
@@ -512,7 +526,7 @@ async function handleLogin(form, state, t, renderApp) {
   const { locked, remainingTime, attemptsKey, attempts, loginAttempts, now, MAX_ATTEMPTS } = checkLoginAttempts(username, "admin");
   
   if (locked) {
-    setFlash(state, `账户已被锁定，请${remainingTime}分钟后再试`, "error");
+    setFlash(state, t("accountLocked").replace("{n}", remainingTime), "error");
     renderApp(state, t);
     return;
   }
@@ -614,10 +628,10 @@ function handleSaveAllocation(form, state, t, renderApp) {
   const amountInvested = parseFloat(fd.get("amountInvested") ?? "0");
   const latestValue    = parseFloat(fd.get("latestValue")    ?? "0");
   
-  if (!code) { setFlash(state, "请输入产品代码", "error"); return; }
-  if (!name) { setFlash(state, "请输入产品名称", "error"); return; }
-  if (isNaN(amountInvested) || amountInvested <= 0) { setFlash(state, "请输入有效的投资金额", "error"); return; }
-  if (isNaN(latestValue) || latestValue < 0) { setFlash(state, "请输入有效的最新价值", "error"); return; }
+  if (!code) { setFlash(state, t("pleaseEnterProductCode"), "error"); return; }
+  if (!name) { setFlash(state, t("pleaseEnterProductName"), "error"); return; }
+  if (isNaN(amountInvested) || amountInvested <= 0) { setFlash(state, t("pleaseEnterValidAmount"), "error"); return; }
+  if (isNaN(latestValue) || latestValue < 0) { setFlash(state, t("pleaseEnterValidValue"), "error"); return; }
 
   inv.allocations.push({
     id:            generateId("A"),
@@ -641,9 +655,9 @@ function handleSaveValue(form, state, t, renderApp) {
   const date       = String(fd.get("date")        ?? "").trim();
   const value      = parseFloat(fd.get("value")   ?? "");
 
-  if (!productId) { setFlash(state, "请选择产品", "error"); return; }
-  if (!date) { setFlash(state, "请选择日期", "error"); return; }
-  if (isNaN(value) || value < 0) { setFlash(state, "请输入有效的价值", "error"); return; }
+  if (!productId) { setFlash(state, t("pleaseSelectProduct"), "error"); return; }
+  if (!date) { setFlash(state, t("pleaseSelectDate"), "error"); return; }
+  if (isNaN(value) || value < 0) { setFlash(state, t("pleaseEnterValidPrice"), "error"); return; }
 
   const product = (state.data.products || []).find(p => p.id === productId);
   if (!product) { setFlash(state, t("errorProductNotFound"), "error"); return; }
@@ -667,10 +681,10 @@ function handleSaveNotice(form, state, t, renderApp) {
   const title      = String(fd.get("title")       ?? "").trim();
   const detail     = String(fd.get("detail")      ?? "").trim();
 
-  if (!investorId) { setFlash(state, "请选择投资者", "error"); return; }
-  if (!date) { setFlash(state, "请选择日期", "error"); return; }
-  if (!title) { setFlash(state, "请输入标题", "error"); return; }
-  if (!detail) { setFlash(state, "请输入详情", "error"); return; }
+  if (!investorId) { setFlash(state, t("pleaseSelectInvestor"), "error"); return; }
+  if (!date) { setFlash(state, t("pleaseSelectDate"), "error"); return; }
+  if (!title) { setFlash(state, t("pleaseEnterTitle"), "error"); return; }
+  if (!detail) { setFlash(state, t("pleaseEnterDetail"), "error"); return; }
 
   const inv = state.data.investors.find(i => i.id === investorId);
   if (!inv) { setFlash(state, t("errorInvestorNotFound"), "error"); return; }
@@ -691,7 +705,7 @@ function handleSaveProduct(form, state, t, renderApp) {
   const notes = String(fd.get("notes") ?? "").trim();
 
   if (!name) { setFlash(state, t("errorNameRequired"), "error"); return; }
-  if (!platform) { setFlash(state, "请输入平台", "error"); return; }
+  if (!platform) { setFlash(state, t("pleaseEnterPlatform"), "error"); return; }
 
   // 收集交易记录并验证
   const transactions = [];
@@ -705,11 +719,11 @@ function handleSaveProduct(form, state, t, renderApp) {
     
     if (type) {
       if (isNaN(amount) || amount <= 0) {
-        setFlash(state, `第${idx + 1}条交易记录金额无效`, "error");
+        setFlash(state, t("transactionAmountInvalid").replace("{n}", idx + 1), "error");
         return;
       }
       if (!date) {
-        setFlash(state, `第${idx + 1}条交易记录缺少日期`, "error");
+        setFlash(state, t("transactionDateMissing").replace("{n}", idx + 1), "error");
         return;
       }
       transactions.push({
@@ -762,10 +776,10 @@ function handleSaveInterest(form, state, t, renderApp) {
   const amount = parseFloat(fd.get("amount") ?? "0");
   const note = String(fd.get("note") ?? "").trim();
 
-  if (!investorId) { setFlash(state, "请选择投资者", "error"); return; }
-  if (!date) { setFlash(state, "请选择日期", "error"); return; }
-  if (!platform) { setFlash(state, "请输入平台", "error"); return; }
-  if (isNaN(amount) || amount <= 0) { setFlash(state, "请输入有效的利息金额", "error"); return; }
+  if (!investorId) { setFlash(state, t("pleaseSelectInvestor"), "error"); return; }
+  if (!date) { setFlash(state, t("pleaseSelectDate"), "error"); return; }
+  if (!platform) { setFlash(state, t("pleaseEnterPlatform"), "error"); return; }
+  if (isNaN(amount) || amount <= 0) { setFlash(state, t("pleaseEnterValidInterest"), "error"); return; }
 
   if (!state.data.interestRecords) state.data.interestRecords = [];
   state.data.interestRecords.push({
@@ -780,6 +794,6 @@ function handleSaveInterest(form, state, t, renderApp) {
   state.ui.interestSubPage = "list";
   state.ui.adminSubPage = "interest-records";
   saveData(state.data);
-  setFlash(state, "利息记录已保存", "success");
+  setFlash(state, t("interestSaved"), "success");
   renderApp(state, t);
 }

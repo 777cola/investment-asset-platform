@@ -5,7 +5,7 @@ import { renderChartPlaceholder, mountChart } from "./图表.js";
 
 export function renderInvestorPage(state, t) {
   const investor = state.data.investors.find(i => i.id === state.session?.userId);
-  if (!investor) return `<div class="empty-state"><p>投资者信息不存在，请重新登录。</p></div>`;
+  if (!investor) return `<div class="empty-state"><p>${t("investorNotFound")}</p></div>`;
 
   const summary = getInvestorSummary(investor, state.data.products);
 
@@ -57,10 +57,10 @@ export function renderInvestorPage(state, t) {
       </div>
       <div class="alloc-bar"><div class="alloc-bar-fill" style="width:${weight.toFixed(1)}%"></div></div>
       <div class="alloc-metrics">
-        <div><div class="alloc-metric-label">投入</div><div class="alloc-metric-value">${fmtCurrencyCompact(allocationInvested)}</div></div>
-        <div><div class="alloc-metric-label">估值</div><div class="alloc-metric-value">${fmtCurrencyCompact(allocationValue)}</div></div>
-        <div><div class="alloc-metric-label">占比</div><div class="alloc-metric-value">${weight.toFixed(1)}%</div></div>
-        <div><div class="alloc-metric-label">收益</div><div class="alloc-metric-value ${perfClass(retRate)}">${fmtSignedPct(retRate)}</div></div>
+        <div><div class="alloc-metric-label">${t("invested")}</div><div class="alloc-metric-value">${fmtCurrencyCompact(allocationInvested)}</div></div>
+        <div><div class="alloc-metric-label">${t("valuation")}</div><div class="alloc-metric-value">${fmtCurrencyCompact(allocationValue)}</div></div>
+        <div><div class="alloc-metric-label">${t("percentage")}</div><div class="alloc-metric-value">${weight.toFixed(1)}%</div></div>
+        <div><div class="alloc-metric-label">${t("return")}</div><div class="alloc-metric-value ${perfClass(retRate)}">${fmtSignedPct(retRate)}</div></div>
       </div>
     </div>`;
   }).join("") || `<div class="empty-state"><p>${t("noAllocations")}</p></div>`;
@@ -157,7 +157,7 @@ export function renderInvestorPage(state, t) {
               background: #6366f1;
               animation: pulse 2s infinite;
             "></div>
-            <span style="font-size: 0.82rem; font-weight: 600; color: #8b5cf6;">管理员查看模式</span>
+            <span style="font-size: 0.82rem; font-weight: 600; color: #8b5cf6;">${t("adminViewMode")}</span>
             <button class="btn-primary btn-sm" data-action="return-to-admin" style="
               background: linear-gradient(135deg, #6366f1, #8b5cf6);
               box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
@@ -166,13 +166,13 @@ export function renderInvestorPage(state, t) {
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;">
                 <path d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
               </svg>
-              返回管理后台
+              ${t("backToAdmin")}
             </button>
           </div>
         ` : ''}
-        <span style="font-size:.78rem;color:var(--text-tertiary)">数据更新日期：${latestUpdateDate}</span>
+        <span style="font-size:.78rem;color:var(--text-tertiary)">${t("dataUpdateDate")}${latestUpdateDate}</span>
         <button class="btn-primary btn-sm" data-action="export-pdf" style="margin-left:12px;">
-          导出PDF报告
+          ${t("exportPDF")}
         </button>
         <button class="btn-ghost btn-sm" data-action="logout">${t("logout")}</button>
       </div>
@@ -202,29 +202,29 @@ export function renderInvestorPage(state, t) {
     ${totalInterest > 0 ? `
     <div class="kpi-grid-2 fade-in-1">
       <div class="kpi-card">
-        <div class="kpi-label">累计发放利息</div>
+        <div class="kpi-label">${t("totalInterestPaid")}</div>
         <div class="kpi-value text-green">${fmtCurrencyCompact(totalInterest)}</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-label">利息发放次数</div>
+        <div class="kpi-label">${t("interestCount")}</div>
         <div class="kpi-value">${investorInterestRecords.length}</div>
       </div>
     </div>` : ''}
 
     <!-- 投资分布饼状图 -->
     <div class="card fade-in-1">
-      <div class="card-header"><div><div class="card-title">资金分布</div><div class="card-subtitle">投资组合占比</div></div></div>
+      <div class="card-header"><div><div class="card-title">${t("fundDistribution")}</div><div class="card-subtitle">${t("portfolioAllocation")}</div></div></div>
       <div class="card-body">
         ${pieData.length > 0 ? `
           <canvas id="allocation-pie-chart" style="max-height:300px"></canvas>
-        ` : `<div class="empty-state"><p>暂无投资数据</p></div>`}
+        ` : `<div class="empty-state"><p>${t("noInvestmentData")}</p></div>`}
       </div>
     </div>
 
     <!-- 利息发放趋势 -->
     ${investorInterestRecords.length > 0 ? `
     <div class="card fade-in-2">
-      <div class="card-header"><div><div class="card-title">利息发放趋势</div><div class="card-subtitle">累计利息走势</div></div></div>
+      <div class="card-header"><div><div class="card-title">${t("interestTrend")}</div><div class="card-subtitle">${t("cumulativeInterest")}</div></div></div>
       <div class="card-body">
         <canvas id="interest-trend-chart" style="max-height:280px"></canvas>
       </div>
@@ -233,7 +233,7 @@ export function renderInvestorPage(state, t) {
     <!-- 产品波动曲线图 -->
     ${productData.length > 0 ? `
     <div class="card fade-in-2">
-      <div class="card-header"><div><div class="card-title">产品波动</div><div class="card-subtitle">各产品价值变化趋势</div></div></div>
+      <div class="card-header"><div><div class="card-title">${t("productVolatility")}</div><div class="card-subtitle">${t("productValueTrend")}</div></div></div>
       <div class="card-body">
         <div class="grid-2 gap-16">
           ${productData.map((product, index) => `
@@ -244,9 +244,9 @@ export function renderInvestorPage(state, t) {
                   <span class="badge badge-orange">${product.platform}</span>
                   ${product.name === "期货" ? `
                     <select class="text-input text-input-sm" id="phase-select-${product.id}" style="width:auto;min-width:110px;font-size:0.75rem;">
-                      <option value="all">全部阶段</option>
-                      <option value="phase2" selected>第二阶段</option>
-                      <option value="phase1">第一阶段</option>
+                      <option value="all">${t("allPhases")}</option>
+                      <option value="phase2" selected>${t("phase2")}</option>
+                      <option value="phase1">${t("phase1")}</option>
                     </select>
                   ` : ''}
                 </div>
@@ -257,26 +257,26 @@ export function renderInvestorPage(state, t) {
         </div>
       </div>
     </div>
-    ` : `<div class="card fade-in-2"><div class="card-body"><div class="empty-state"><p>暂无产品数据</p></div></div></div>`}
+    ` : `<div class="card fade-in-2"><div class="card-body"><div class="empty-state"><p>${t("noProductData")}</p></div></div></div>`}
 
     <!-- 投资表现概览 -->
     <div class="card fade-in-2">
-      <div class="card-header"><div><div class="card-title">投资表现</div><div class="card-subtitle">各产品收益分析</div></div></div>
+      <div class="card-header"><div><div class="card-title">${t("investmentPerformance")}</div><div class="card-subtitle">${t("productReturnAnalysis")}</div></div></div>
       <div class="card-body stack" style="gap:12px">${allocations}</div>
     </div>
 
     <!-- 利息发放记录 -->
     ${investorInterestRecords.length > 0 ? `
     <div class="card fade-in-3">
-      <div class="card-header"><div><div class="card-title">利息发放记录</div><div class="card-subtitle">最近发放明细</div></div></div>
+      <div class="card-header"><div><div class="card-title">${t("interestRecords")}</div><div class="card-subtitle">${t("recentInterestDetails")}</div></div></div>
       <div class="card-body">
         <div class="table-wrap">
           <table>
             <thead><tr>
-              <th>发放日期</th>
-              <th>发放平台</th>
-              <th>利息金额</th>
-              <th>备注</th>
+              <th>${t("paymentDate")}</th>
+              <th>${t("paymentPlatform")}</th>
+              <th>${t("interestAmount")}</th>
+              <th>${t("remark")}</th>
             </tr></thead>
             <tbody>
               ${investorInterestRecords.sort((a, b) => b.date.localeCompare(a.date)).map(r => `
@@ -295,43 +295,43 @@ export function renderInvestorPage(state, t) {
 
     <!-- 投资组合分析 -->
     <div class="card fade-in-3">
-      <div class="card-header"><div><div class="card-title">组合分析</div><div class="card-subtitle">风险与收益评估</div></div></div>
+      <div class="card-header"><div><div class="card-title">${t("portfolioAnalysis")}</div><div class="card-subtitle">${t("riskReturnAssessment")}</div></div></div>
       <div class="card-body">
         <div class="grid-2 gap-12">
           <div class="info-list">
             <div class="info-item">
-              <span class="info-label">投资产品数</span>
+              <span class="info-label">${t("investmentProductCount")}</span>
               <span class="info-value">${(investor.allocations || []).filter(a => (a.amount || 0) > 0).length || 0}</span>
             </div>
             <div class="info-item">
-              <span class="info-label">平均收益率</span>
+              <span class="info-label">${t("averageReturn")}</span>
               <span class="info-value ${perfClass(summary.returnRate)}">${fmtSignedPct(summary.returnRate)}</span>
             </div>
             <div class="info-item">
-              <span class="info-label">最高收益产品</span>
+              <span class="info-label">${t("bestPerformingProduct")}</span>
               <span class="info-value">${summary.bestAllocation?.name ?? "—"}</span>
             </div>
             <div class="info-item">
-              <span class="info-label">最近更新</span>
+              <span class="info-label">${t("lastUpdated")}</span>
               <span class="info-value">${investor.lastReview}</span>
             </div>
           </div>
           <div class="info-list">
             <div class="info-item">
-              <span class="info-label">总投入</span>
+              <span class="info-label">${t("totalInvested")}</span>
               <span class="info-value">${fmtCurrency(summary.totalInvested)}</span>
             </div>
             <div class="info-item">
-              <span class="info-label">总估值</span>
+              <span class="info-label">${t("totalValue")}</span>
               <span class="info-value">${fmtCurrency(summary.totalValue)}</span>
             </div>
             <div class="info-item">
-              <span class="info-label">总收益</span>
+              <span class="info-label">${t("totalProfit")}</span>
               <span class="info-value ${perfClass(summary.profit)}">${summary.profit >= 0 ? "+" : ""}${fmtCurrency(Math.abs(summary.profit))}</span>
             </div>
             <div class="info-item">
-              <span class="info-label">投资期限</span>
-              <span class="info-value">${calculateInvestmentDays(investor.joinedAt)} 天</span>
+              <span class="info-label">${t("investmentPeriod")}</span>
+              <span class="info-value">${calculateInvestmentDays(investor.joinedAt)} ${t("days")}</span>
             </div>
           </div>
         </div>
@@ -340,7 +340,7 @@ export function renderInvestorPage(state, t) {
 
     <!-- 沟通纪要 -->
     <div class="card fade-in-3">
-      <div class="card-header"><div><div class="card-title">${t("notices")}</div><div class="card-subtitle">最近沟通纪要</div></div></div>
+      <div class="card-header"><div><div class="card-title">${t("notices")}</div><div class="card-subtitle">${t("recentNotices")}</div></div></div>
       <div class="card-body stack" style="gap:10px">${notices}</div>
     </div>
   </div>`;

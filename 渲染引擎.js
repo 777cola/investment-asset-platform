@@ -57,6 +57,18 @@ function deepEqual(obj1, obj2) {
   return true;
 }
 
+function updateLangLabel(state) {
+  const langLabel = document.querySelector("#lang-label");
+  if (!langLabel) return;
+  
+  const langMap = {
+    "zh": "简体",
+    "zh-hant": "繁体",
+    "en": "EN"
+  };
+  langLabel.textContent = langMap[state.ui.lang] || "简体";
+}
+
 export function renderApp(state, t) {
   // 渲染公共组件
   renderSidebar(state, t);
@@ -155,9 +167,4 @@ function renderAdminView(state, t) {
   if (sub === "data-management") return renderDataManagement(state, t);
 
   return renderAdminMenu(state, t);
-}
-
-export function updateLangLabel(state) {
-  const el = document.querySelector("#lang-label");
-  if (el) el.textContent = state.ui.lang === "zh" ? "EN" : "中";
 }

@@ -130,7 +130,7 @@ export function renderLoginPage(state, t) {
               <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
               <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
             </svg>
-            <input id="login-admin-pwd" class="text-input" type="password" name="password" placeholder="密码" required style="padding-left: 42px;" />
+            <input id="login-admin-pwd" class="text-input" type="password" name="password" placeholder="${t("password")}" required style="padding-left: 42px;" />
           </div>
         </div>`}
 
@@ -149,6 +149,55 @@ export function renderLoginPage(state, t) {
       `}">
         ${t("login")}
       </button>
+
+      <!-- 演示账户快捷登录 -->
+      ${isInvestor ? `
+      <div style="
+        margin-top: 16px;
+        padding: 14px;
+        background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(34, 197, 94, 0.04));
+        border: 1px solid rgba(34, 197, 94, 0.2);
+        border-radius: var(--radius);
+      ">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <span style="font-size: 0.8rem; font-weight: 500; color: var(--text-secondary);">${t("demoAccount")}</span>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="display: flex; gap: 16px;">
+            <div>
+              <span style="font-size: 0.7rem; color: var(--text-tertiary);">${t("username")}</span>
+              <div style="font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600; color: var(--text-primary);">${t("demoAccount")}</div>
+            </div>
+            <div>
+              <span style="font-size: 0.7rem; color: var(--text-tertiary);">${t("password")}</span>
+              <div style="font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600; color: var(--text-primary);">123456</div>
+            </div>
+          </div>
+          <button 
+            id="demo-login-btn" 
+            style="
+              padding: 6px 14px;
+              background: rgba(34, 197, 94, 0.12);
+              border: 1px solid rgba(34, 197, 94, 0.3);
+              border-radius: 6px;
+              color: #22c55e;
+              font-size: 0.75rem;
+              font-weight: 600;
+              cursor: pointer;
+              transition: all 0.2s;
+            "
+            onmouseover="this.style.background='rgba(34, 197, 94, 0.2)'"
+            onmouseout="this.style.background='rgba(34, 197, 94, 0.12)'"
+          >
+            ${t("login")}
+          </button>
+        </div>
+      </div>
+      ` : ''}
     </form>
   </div>`;
 }

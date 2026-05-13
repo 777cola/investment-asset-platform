@@ -34,7 +34,7 @@ export function renderSidebar(state, t) {
     <div class="sidebar-scroll">
 
       <div class="sidebar-section">
-        <div class="sidebar-label">版本更新记录</div>
+        <div class="sidebar-label">${t("versionHistory")}</div>
         <div class="info-list">
           ${VERSION_HISTORY.map((item, index) => `
             <div class="info-item" style="
@@ -70,7 +70,7 @@ export function renderSidebar(state, t) {
       </div>
 
       <div class="sidebar-section">
-        <div class="sidebar-label">数据更新记录</div>
+        <div class="sidebar-label">${t("dataUpdateRecord")}</div>
         <div class="info-list">
           <div class="info-item" style="
             flex-direction: column;
@@ -88,7 +88,7 @@ export function renderSidebar(state, t) {
                 flex-shrink: 0;
                 box-shadow: 0 0 0 3px rgba(63,185,80,0.15);
               "></span>
-              <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-primary);">净值 &amp; 资产数据</span>
+              <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-primary);">${t("netAssetData")}</span>
             </div>
             <div style="
               display: flex;
@@ -97,7 +97,7 @@ export function renderSidebar(state, t) {
               width: 100%;
               gap: 12px;
             ">
-              <span style="font-size: 0.78rem; color: var(--text-secondary);">上次更新时间</span>
+              <span style="font-size: 0.78rem; color: var(--text-secondary);">${t("lastUpdateTime")}</span>
               ${isAdmin ? `
                 <div style="display: flex; align-items: center; gap: 8px;">
                   <input 
@@ -131,7 +131,7 @@ export function renderSidebar(state, t) {
                     "
                     onmouseover="this.style.boxShadow='0 4px 12px rgba(0,82,255,0.3)'"
                     onmouseout="this.style.boxShadow='none'"
-                  >保存</button>
+                  >${t("save")}</button>
                 </div>
               ` : `
                 <span style="
@@ -151,11 +151,11 @@ export function renderSidebar(state, t) {
   `;
 
   if (isAdmin) {
-    setupSnapshotDateHandler(state);
+    setupSnapshotDateHandler(state, t);
   }
 }
 
-function setupSnapshotDateHandler(state) {
+function setupSnapshotDateHandler(state, t) {
   const saveBtn = document.querySelector("#save-snapshot-date");
   const dateInput = document.querySelector("#snapshot-date-input");
   
@@ -169,7 +169,7 @@ function setupSnapshotDateHandler(state) {
         });
         const flashEl = document.querySelector("#flash-message");
         if (flashEl) {
-          flashEl.textContent = "数据更新时间已保存";
+          flashEl.textContent = t("snapshotDateSaved");
           flashEl.className = "flash flash.success";
           flashEl.classList.remove("hidden");
           setTimeout(() => {
