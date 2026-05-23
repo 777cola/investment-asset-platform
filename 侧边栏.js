@@ -3,6 +3,7 @@
 import { fmtCurrencyCompact, getPlatformSummary } from './工具函数.js';
 
 const VERSION_HISTORY = [
+  { version: "v1.4", date: "2026-05-23", note: "新增历史利润模块" },
   { version: "v1.3", date: "2026-05-05", note: "新增PDF数据导出" },
   { version: "v1.2", date: "2026-04-27", note: "网络平台上线" },
   { version: "v1.1", date: "2026-04-17", note: "投资者页面新增图表" },

@@ -5,23 +5,21 @@ import { downloadBlob, hashPassword, generateInvestorId } from "./工具函数.j
 
 /* ── 数据加载 ── */
 export async function loadData() {
-  const remoteData = await fetchRemoteData();
+  const localData = await loadStoredData();
+  const remoteData = await fetchRemoteData(localData);
   if (remoteData) return remoteData;
 
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) {
-      const parsed = JSON.parse(raw);
-      if (validateData(parsed)) return await normalizeData(parsed);
-    }
-  } catch (_) { /* 忽略解析错误 */ }
+  if (localData) return localData;
 
   const emptyData = {
     platformName: "恺皓资本资产平台",
     snapshotDate: new Date().toISOString().slice(0, 10),
     adminUsers: [],
     investors: [],
-    products: []
+    products: [],
+    interestRecords: [],
+    commissionRecords: [],
+    profitRecords: []
   };
   const normalizedEmptyData = await normalizeData(emptyData);
   saveData(normalizedEmptyData);
@@ -29,17 +27,28 @@ export async function loadData() {
 }
 
 export function saveData(data) {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) { console.error("Save failed:", e); }
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(ensureRecordCollections(data))); } catch (e) { console.error("Save failed:", e); }
 }
 
 export async function syncLatestData(state) {
-  const remoteData = await fetchRemoteData();
+  const localData = state?.data || await loadStoredData();
+  const remoteData = await fetchRemoteData(localData);
   if (!remoteData) return false;
   if (state) state.data = remoteData;
   return true;
 }
 
-async function fetchRemoteData() {
+async function loadStoredData() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (validateData(parsed)) return await normalizeData(parsed);
+  } catch (_) { /* 忽略解析错误 */ }
+  return null;
+}
+
+async function fetchRemoteData(localData = null) {
   try {
     const url = withCacheBust(REMOTE_DATA_URL);
     const response = await fetch(url, { cache: "no-store" });
@@ -50,8 +59,9 @@ async function fetchRemoteData() {
       return null;
     }
     const normalizedData = await normalizeData(jsonData);
-    saveData(normalizedData);
-    return normalizedData;
+    const mergedData = mergeLocalRecords(normalizedData, localData);
+    saveData(mergedData);
+    return mergedData;
   } catch (err) {
     console.log("拉取远程最新数据失败，回退到本地缓存:", err);
     return null;
@@ -61,6 +71,40 @@ async function fetchRemoteData() {
 function withCacheBust(url) {
   const separator = url.includes("?") ? "&" : "?";
   return `${url}${separator}t=${Date.now()}`;
+}
+
+function ensureRecordCollections(data) {
+  return {
+    ...data,
+    interestRecords: Array.isArray(data?.interestRecords) ? data.interestRecords : [],
+    commissionRecords: Array.isArray(data?.commissionRecords) ? data.commissionRecords : [],
+    profitRecords: Array.isArray(data?.profitRecords) ? data.profitRecords : []
+  };
+}
+
+function mergeLocalRecords(remoteData, localData) {
+  const mergedData = ensureRecordCollections(remoteData);
+  if (!localData) return mergedData;
+
+  for (const key of ["interestRecords", "commissionRecords", "profitRecords"]) {
+    mergedData[key] = mergeRecordsById(mergedData[key], localData[key]);
+  }
+
+  return mergedData;
+}
+
+function mergeRecordsById(remoteRecords = [], localRecords = []) {
+  const merged = Array.isArray(remoteRecords) ? [...remoteRecords] : [];
+  if (!Array.isArray(localRecords)) return merged;
+
+  const seenIds = new Set(merged.map(record => record?.id).filter(Boolean));
+  for (const record of localRecords) {
+    if (!record?.id || seenIds.has(record.id)) continue;
+    merged.push(record);
+    seenIds.add(record.id);
+  }
+
+  return merged;
 }
 
 /* ── 会话 ── */
@@ -166,6 +210,28 @@ function validateData(d) {
     }
   }
   
+  // 验证佣金发放记录（如果存在）
+  if (d.commissionRecords && Array.isArray(d.commissionRecords)) {
+    for (const record of d.commissionRecords) {
+      if (!record || typeof record !== 'object') return false;
+      if (typeof record.id !== 'string') return false;
+      if (typeof record.date !== 'string') return false;
+      if (typeof record.platform !== 'string' || record.platform.trim() === '') return false;
+      if (typeof record.amount !== 'number' || record.amount <= 0) return false;
+    }
+  }
+  
+  // 验证利润提取记录（如果存在）
+  if (d.profitRecords && Array.isArray(d.profitRecords)) {
+    for (const record of d.profitRecords) {
+      if (!record || typeof record !== 'object') return false;
+      if (typeof record.id !== 'string') return false;
+      if (typeof record.productId !== 'string') return false;
+      if (typeof record.date !== 'string') return false;
+      if (typeof record.amount !== 'number' || record.amount <= 0) return false;
+    }
+  }
+  
   return true;
 }
 
@@ -220,14 +286,16 @@ async function normalizeData(d) {
       transactions: Array.isArray(product.transactions) ? product.transactions : [],
       valueHistory:  [...(Array.isArray(product.valueHistory) ? product.valueHistory : [])].sort((a, b) => a.date.localeCompare(b.date))
     })),
-    interestRecords: Array.isArray(d.interestRecords) ? d.interestRecords : []
+    interestRecords: Array.isArray(d.interestRecords) ? d.interestRecords : [],
+    commissionRecords: Array.isArray(d.commissionRecords) ? d.commissionRecords : [],
+    profitRecords: Array.isArray(d.profitRecords) ? d.profitRecords : []
   };
 }
 
 /* ── 导出 ── */
 export function exportJSON(data) {
   const filename = "latest.json";
-  downloadBlob(JSON.stringify(data, null, 2), filename);
+  downloadBlob(JSON.stringify(ensureRecordCollections(data), null, 2), filename);
 }
 
 /* ── 导入 JSON ── */
@@ -284,14 +352,18 @@ export function parseImportedExcel(arrayBuffer) {
 }
 
 /* ── 重置 ── */
-export function resetToDefault() {
+export async function resetToDefault() {
   const emptyData = {
     platformName: "恺皓资本资产平台",
     snapshotDate: new Date().toISOString().slice(0, 10),
     adminUsers: [],
     investors: [],
-    products: []
+    products: [],
+    interestRecords: [],
+    commissionRecords: [],
+    profitRecords: []
   };
-  saveData(emptyData);
-  return emptyData;
+  const normalizedData = await normalizeData(emptyData);
+  saveData(normalizedData);
+  return normalizedData;
 }

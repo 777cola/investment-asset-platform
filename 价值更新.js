@@ -1,71 +1,67 @@
 // 价值更新页面
 
 import { fmtCurrency, fmtPct, perfClass } from "./工具函数.js";
-import { renderChartPlaceholder, mountChart } from "./图表.js";
 
 export function renderValueUpdate(state, t) {
   const products = state.data.products || [];
-  const hasValueHistory = products.some(p => p.valueHistory && p.valueHistory.length > 0);
+  const profitRecords = state.data.profitRecords || [];
+  const totalProfit = profitRecords.reduce((sum, r) => sum + (r.amount || 0), 0);
+
+  const activeTab = state.ui.valueUpdateTab || 'value';
 
   return `
   <div class="content-inner stack">
     <div class="section-header">
       <div>
         <div class="section-title">价值更新</div>
-        <div class="section-subtitle">更新产品的最新总价值</div>
+        <div class="section-subtitle">更新产品的最新总价值，提取投资利润</div>
       </div>
       <button class="btn-ghost btn-sm" data-action="admin-goto" data-page="menu">
         ${t("backToMenu")}
       </button>
     </div>
 
-    <div class="grid-2 gap-20" style="align-items:start">
-      <div class="card">
-        <div class="card-header"><div><div class="card-title">更新价值</div><div class="card-subtitle">录入产品最新净值</div></div></div>
-        <div class="card-body">
-          <form id="value-form" class="stack">
-            <div class="form-field">
-              <label class="form-label">选择产品</label>
-              <select class="text-input" name="productId" required>
-                <option value="">选择产品</option>
-                ${products.map(product => `
-                  <option value="${product.id}">${product.name} (${product.platform})</option>
-                `).join("")}
-              </select>
-            </div>
+    <!-- 标签切换 -->
+    <div style="display:flex;gap:8px;margin-bottom:24px;">
+      <button ${activeTab === 'value' ? 'class="btn-primary"' : 'class="btn-secondary"'} 
+              data-action="switch-value-tab" data-tab="value">
+        更新价值
+      </button>
+      <button ${activeTab === 'profit' ? 'class="btn-primary"' : 'class="btn-secondary"'} 
+              data-action="switch-value-tab" data-tab="profit">
+        提取利润
+      </button>
+    </div>
 
-            <div class="form-field">
-              <label class="form-label">更新日期</label>
-              <input class="text-input" type="date" name="date" required />
-            </div>
+    ${activeTab === 'value' ? `
+    <div class="card">
+      <div class="card-header"><div><div class="card-title">更新价值</div><div class="card-subtitle">录入产品最新净值</div></div></div>
+      <div class="card-body">
+        <form id="value-form" class="stack">
+          <div class="form-field">
+            <label class="form-label">选择产品</label>
+            <select class="text-input" name="productId" required>
+              <option value="">选择产品</option>
+              ${products.map(product => `
+                <option value="${product.id}">${product.name} (${product.platform})</option>
+              `).join("")}
+            </select>
+          </div>
 
-            <div class="form-field">
-              <label class="form-label">最新总价值</label>
-              <input class="text-input" type="number" step="0.01" name="value" placeholder="0.00" required />
-            </div>
+          <div class="form-field">
+            <label class="form-label">更新日期</label>
+            <input class="text-input" type="date" name="date" required />
+          </div>
 
-            <div class="form-actions">
-              <button type="submit" class="btn-primary">保存价值</button>
-            </div>
-          </form>
-        </div>
-      </div>
+          <div class="form-field">
+            <label class="form-label">最新总价值</label>
+            <input class="text-input" type="number" step="0.01" name="value" placeholder="0.00" required />
+          </div>
 
-      <div class="card">
-        <div class="card-header"><div><div class="card-title">产品波动</div><div class="card-subtitle">选择产品的价值变化趋势</div></div></div>
-        <div class="card-body" id="value-product-chart-container">
-          ${products.length > 0 ? `
-            <div style="margin-bottom:16px">
-              <select class="text-input" id="value-chart-product-select">
-                <option value="">选择产品查看波动</option>
-                ${products.map(p => `<option value="${p.id}">${p.name}</option>`).join("")}
-              </select>
-            </div>
-            <div id="value-chart-area">
-              ${hasValueHistory ? `<canvas id="value-trend-chart" style="max-height:280px"></canvas>` : `<div class="empty-state"><p>暂无净值数据</p></div>`}
-            </div>
-          ` : `<div class="empty-state"><p>暂无产品</p></div>`}
-        </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">保存价值</button>
+          </div>
+        </form>
       </div>
     </div>
 
@@ -77,6 +73,105 @@ export function renderValueUpdate(state, t) {
         <div class="empty-state">请选择产品查看价值历史</div>
       </div>
     </div>
+    ` : `
+    <!-- 提取利润模块 -->
+    <div class="grid-2 gap-20" style="align-items:start">
+      <div class="card">
+        <div class="card-header"><div><div class="card-title">提取利润</div><div class="card-subtitle">从产品盈利中提取利润</div></div></div>
+        <div class="card-body">
+          <form id="profit-form" class="stack">
+            <div class="form-field">
+              <label class="form-label">选择产品</label>
+              <select class="text-input" name="productId" required>
+                <option value="">选择产品</option>
+                ${products.filter(p => p.name !== "现金").map(product => `
+                  <option value="${product.id}">${product.name} (${product.platform})</option>
+                `).join("")}
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label">提取日期</label>
+              <input class="text-input" type="date" name="date" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-label">提取金额</label>
+              <input class="text-input" type="number" step="0.01" name="amount" placeholder="0.00" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-label">备注</label>
+              <textarea class="text-input" name="note" placeholder="可选：备注信息" rows="3"></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">提取利润</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><div><div class="card-title">提取统计</div><div class="card-subtitle">累计提取利润</div></div></div>
+        <div class="card-body">
+          <div class="kpi-card highlighted" style="margin-bottom:16px">
+            <div class="kpi-label">累计提取利润</div>
+            <div class="kpi-value">${fmtCurrency(totalProfit)}</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">提取记录数</div>
+            <div class="kpi-value">${profitRecords.length}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 提取利润记录 -->
+    <div class="card">
+      <div class="card-header">
+        <div><div class="card-title">提取利润记录</div><div class="card-subtitle">按提取日期倒序排列</div></div>
+      </div>
+      <div class="card-body" style="padding-top:0">
+        ${profitRecords.length > 0 ? `
+        <div class="table-wrap">
+          <table>
+            <thead><tr>
+              <th>提取日期</th>
+              <th>产品名称</th>
+              <th>提取金额</th>
+              <th>备注</th>
+              <th>${t("actions")}</th>
+            </tr></thead>
+            <tbody>
+              ${(() => {
+                let rows = '';
+                const sorted = [...profitRecords].sort((a, b) => b.date.localeCompare(a.date));
+                for (const r of sorted) {
+                  const product = state.data.products.find(p => p.id === r.productId);
+                  rows += `
+                  <tr>
+                    <td class="mono">${r.date}</td>
+                    <td style="font-weight:600">${product ? product.name : r.productId}</td>
+                    <td class="mono text-green">+${fmtCurrency(r.amount)}</td>
+                    <td style="color:var(--text-secondary);font-size:.82rem">${r.note || "-"}</td>
+                    <td>
+                      <div class="btn-group">
+                        <button class="btn-ghost btn-sm" data-action="delete-profit" data-record-id="${r.id}">${t("delete")}</button>
+                      </div>
+                    </td>
+                  </tr>
+                  `;
+                }
+                return rows;
+              })()}
+            </tbody>
+          </table>
+        </div>
+        ` : `<div class="empty-state"><p>暂无提取利润记录</p></div>`}
+      </div>
+    </div>
+    `}
   </div>
   `;
 }
@@ -125,83 +220,4 @@ export function afterRenderValueUpdate(state, t) {
       }
     });
   }
-
-  const chartProductSelect = document.querySelector("#value-chart-product-select");
-  if (chartProductSelect) {
-    chartProductSelect.addEventListener("change", function() {
-      const productId = this.value;
-      const chartArea = document.querySelector("#value-chart-area");
-      if (!chartArea) return;
-
-      if (!productId) {
-        chartArea.innerHTML = `<div class="empty-state"><p>请选择产品查看波动</p></div>`;
-        return;
-      }
-
-      const product = (state.data.products || []).find(p => p.id === productId);
-      if (product && product.valueHistory && product.valueHistory.length > 0) {
-        chartArea.innerHTML = `<canvas id="value-trend-chart" style="max-height:280px"></canvas>`;
-        setTimeout(() => mountValueTrendChart(product), 50);
-      } else {
-        chartArea.innerHTML = `<div class="empty-state"><p>该产品暂无净值数据</p></div>`;
-      }
-    });
-  }
-}
-
-function mountValueTrendChart(product) {
-  const canvas = document.querySelector("#value-trend-chart");
-  if (!canvas || !window.Chart) return;
-
-  const sortedHistory = [...product.valueHistory].sort((a, b) => a.date.localeCompare(b.date));
-  const labels = sortedHistory.map(item => item.date.replace("-", "."));
-  const values = sortedHistory.map(item => item.value);
-
-  const isDark = document.documentElement.getAttribute("data-theme") !== "light";
-  const gridColor = isDark ? "rgba(255,255,255,0.08)" : "rgba(15,23,42,0.08)";
-  const textColor = isDark ? "rgba(249,250,251,0.65)" : "rgba(15,23,42,0.65)";
-  const lineColor = "#0052ff";
-  const fillColor = isDark ? "rgba(0,82,255,0.12)" : "rgba(0,82,255,0.07)";
-
-  new window.Chart(canvas, {
-    type: "line",
-    data: {
-      labels: labels,
-      datasets: [{
-        label: product.name,
-        data: values,
-        borderColor: lineColor,
-        backgroundColor: fillColor,
-        borderWidth: 2.5,
-        pointBackgroundColor: lineColor,
-        pointRadius: 3.5,
-        pointHoverRadius: 6,
-        fill: true,
-        tension: 0.35
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: true,
-      animation: { duration: 600 },
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: ctx => " " + ctx.parsed.y.toLocaleString()
-          }
-        }
-      },
-      scales: {
-        x: {
-          grid: { color: gridColor },
-          ticks: { color: textColor, maxTicksLimit: 7, font: { family: "'DM Mono', monospace", size: 11 } }
-        },
-        y: {
-          grid: { color: gridColor },
-          ticks: { color: textColor, font: { family: "'DM Mono', monospace", size: 11 }, callback: v => '¥' + v.toLocaleString() }
-        }
-      }
-    }
-  });
 }

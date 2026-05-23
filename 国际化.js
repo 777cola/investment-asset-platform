@@ -120,6 +120,7 @@ const i18n = {
     transactionDateMissing: "第{n}条交易记录缺少日期",
     pleaseEnterValidInterest: "请输入有效的利息金额",
     interestSaved: "利息记录已保存",
+    commissionSaved: "佣金记录已保存",
     demoAccount: "演示",
     viewInvestorView: "查看投资者视角",
     backToAdminView: "返回管理员视角",

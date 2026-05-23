@@ -10,7 +10,7 @@ export function renderAdminMenu(state, t) {
     { icon: "📦", key: "product-management", title: t("productManagement"), desc: t("productManagementDesc") },
     { icon: "📊", key: "asset-overview", title: "资产全览", desc: "所有产品的综合表现与资产概览" },
     { icon: "📈", key: "value-update",      title: "价值更新",       desc: "更新产品的最新总价值" },
-    { icon: "💵", key: "interest-records", title: "利息发放", desc: "记录投资者利息发放情况" },
+    { icon: "💵", key: "interest-records", title: "利息佣金发放", desc: "记录投资者利息,管理人佣金发放情况" },
     { icon: "💾", key: "data-management", title: t("dataManagement"),  desc: t("dataManagementDesc") },
   ];
 

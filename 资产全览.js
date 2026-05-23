@@ -5,6 +5,7 @@ import { fmtCurrency, fmtCurrencyCompact, fmtPct, perfClass } from "./工具函�
 export function renderAssetOverview(state, t) {
   const products = state.data.products || [];
   const summary = calculateAssetSummary(products);
+  const profitSummary = calculateProfitSummary(state.data);
 
   const pieData = products.filter(p => p.name !== "现金").map(p => {
     let latestValue = 0;
@@ -31,19 +32,102 @@ export function renderAssetOverview(state, t) {
     return null;
   }).filter(Boolean);
 
-  return `
+  const activeTab = state.ui.assetOverviewTab || 'current';
+
+  let html = `
   <div class="content-inner stack">
     <div class="section-header">
       <div>
         <div class="section-title">资产全览</div>
-        <div class="section-subtitle">所有产品的综合表现与资产概览</div>
+        <div class="section-subtitle">管理所有产品的综合表现</div>
       </div>
       <button class="btn-ghost btn-sm" data-action="admin-goto" data-page="menu">
         ${t("backToMenu")}
       </button>
     </div>
 
-    <!-- 资产概览 KPI -->
+    <!-- 标签切换 -->
+    <div class="page-tabs">
+      <button class="page-tab ${activeTab === 'current' ? 'active' : ''}" data-action="switch-asset-tab" data-tab="current">
+        <span class="tab-icon">📊</span>
+        <span class="tab-label">当前资产</span>
+      </button>
+      <button class="page-tab ${activeTab === 'history' ? 'active' : ''}" data-action="switch-asset-tab" data-tab="history">
+        <span class="tab-icon">💰</span>
+        <span class="tab-label">历史利润</span>
+      </button>
+    </div>
+  `;
+
+  if (activeTab === 'current') {
+    html += renderCurrentAssets(state, t, products, summary, pieData, productData);
+  } else {
+    html += renderHistoryProfitPage(state, t, profitSummary);
+  }
+
+  html += `</div>`;
+  return html;
+}
+
+function renderCurrentAssets(state, t, products, summary, pieData, productData) {
+  let chartsHtml = '';
+  if (productData.length > 0) {
+    let chartCards = '';
+    for (const product of productData) {
+      const phaseSelect = product.name === "期货" ? `
+        <select class="text-input text-input-sm" id="asset-phase-select-${product.id}" style="width:auto;min-width:110px;font-size:0.75rem;">
+          <option value="all">全部阶段</option>
+          <option value="phase2" selected>第二阶段</option>
+          <option value="phase1">第一阶段</option>
+        </select>
+      ` : '';
+      
+      chartCards += `
+        <div class="product-chart-container">
+          <div style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="font-size: 0.9rem; font-weight: 700;">${product.name}</h4>
+            <div style="display:flex;gap:8px;align-items:center;">
+              <span class="badge badge-orange">${product.platform}</span>
+              ${phaseSelect}
+            </div>
+          </div>
+          <canvas id="asset-product-chart-${product.id}" style="max-height:220px"></canvas>
+        </div>
+      `;
+    }
+    chartsHtml = `
+    <div class="card fade-in-2">
+      <div class="card-header"><div><div class="card-title">产品波动</div><div class="card-subtitle">各产品价值变化趋势</div></div></div>
+      <div class="card-body">
+        <div class="grid-2 gap-16">
+          ${chartCards}
+        </div>
+      </div>
+    </div>
+    `;
+  }
+
+  let productRows = '';
+  const validProducts = products.filter(p => p.name !== "现金" && p.valueHistory && p.valueHistory.length > 0);
+  if (validProducts.length > 0) {
+    for (const p of validProducts) {
+      const productSummary = calculateProductSummary(p);
+      productRows += `<tr>
+        <td style="font-weight:600">${p.name}</td>
+        <td>${p.platform}</td>
+        <td class="mono">${typeof productSummary.netAmount === "number" ? fmtCurrency(productSummary.netAmount) : "-"}</td>
+        <td class="mono">${typeof productSummary.latestValue === "number" ? fmtCurrency(productSummary.latestValue) : "-"}</td>
+        <td>${productSummary.latestValueDate || "-"}</td>
+        <td class="mono ${perfClass(productSummary.returnRate)}">${fmtPct(productSummary.returnRate)}</td>
+      </tr>`;
+    }
+  } else {
+    productRows = `<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--text-tertiary)">暂无产品净值数据</td></tr>`;
+  }
+
+  const pieChartHtml = pieData.length > 0 ? `<canvas id="asset-pie-chart" style="max-height:300px"></canvas>` : `<div class="empty-state"><p>暂无产品数据</p></div>`;
+
+  return `
     <div class="kpi-grid-4 fade-in-1">
       <div class="kpi-card highlighted">
         <div class="kpi-label">产品数量</div>
@@ -64,46 +148,15 @@ export function renderAssetOverview(state, t) {
       </div>
     </div>
 
-    <!-- 资金分布饼状图 -->
     <div class="card fade-in-1">
       <div class="card-header"><div><div class="card-title">资金分布</div><div class="card-subtitle">各产品当前价值占比</div></div></div>
       <div class="card-body">
-        ${pieData.length > 0 ? `
-          <canvas id="asset-pie-chart" style="max-height:300px"></canvas>
-        ` : `<div class="empty-state"><p>暂无产品数据</p></div>`}
+        ${pieChartHtml}
       </div>
     </div>
 
-    <!-- 产品波动曲线图 -->
-    ${productData.length > 0 ? `
-    <div class="card fade-in-2">
-      <div class="card-header"><div><div class="card-title">产品波动</div><div class="card-subtitle">各产品价值变化趋势</div></div></div>
-      <div class="card-body">
-        <div class="grid-2 gap-16">
-          ${productData.map((product, index) => `
-            <div class="product-chart-container">
-              <div style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
-                <h4 style="font-size: 0.9rem; font-weight: 700;">${product.name}</h4>
-                <div style="display:flex;gap:8px;align-items:center;">
-                  <span class="badge badge-orange">${product.platform}</span>
-                  ${product.name === "期货" ? `
-                    <select class="text-input text-input-sm" id="asset-phase-select-${product.id}" style="width:auto;min-width:110px;font-size:0.75rem;">
-                      <option value="all">全部阶段</option>
-                      <option value="phase2" selected>第二阶段</option>
-                      <option value="phase1">第一阶段</option>
-                    </select>
-                  ` : ''}
-                </div>
-              </div>
-              <canvas id="asset-product-chart-${product.id}" style="max-height:220px"></canvas>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-    </div>
-    ` : `<div class="card fade-in-2"><div class="card-body"><div class="empty-state"><p>暂无产品净值数据</p></div></div></div>`}
+    ${chartsHtml}
 
-    <!-- 产品详细列表 -->
     <div class="card fade-in-3">
       <div class="card-header">
         <div><div class="card-title">产品表现</div><div class="card-subtitle">按净值日期倒序排序</div></div>
@@ -120,23 +173,197 @@ export function renderAssetOverview(state, t) {
               <th>累计收益率</th>
             </tr></thead>
             <tbody>
-              ${products.filter(p => p.name !== "现金" && p.valueHistory && p.valueHistory.length > 0).length ? products.filter(p => p.name !== "现金" && p.valueHistory && p.valueHistory.length > 0).map(p => {
-                const productSummary = calculateProductSummary(p);
-                return `<tr>
-                  <td style="font-weight:600">${p.name}</td>
-                  <td>${p.platform}</td>
-                  <td class="mono">${typeof productSummary.netAmount === "number" ? fmtCurrency(productSummary.netAmount) : "-"}</td>
-                  <td class="mono">${typeof productSummary.latestValue === "number" ? fmtCurrency(productSummary.latestValue) : "-"}</td>
-                  <td>${productSummary.latestValueDate || "-"}</td>
-                  <td class="mono ${perfClass(productSummary.returnRate)}">${fmtPct(productSummary.returnRate)}</td>
-                </tr>`;
-              }).join("") : `<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--text-tertiary)">暂无产品净值数据</td></tr>`}
+              ${productRows}
             </tbody>
           </table>
         </div>
       </div>
     </div>
-  </div>
+  `;
+}
+
+function renderHistoryProfitPage(state, t, profitSummary) {
+  const profitRecords = state.data.profitRecords || [];
+  const commissionRecords = state.data.commissionRecords || [];
+  const interestRecords = state.data.interestRecords || [];
+  const payoutTotal = profitSummary.totalCommission + profitSummary.totalInterest;
+  const retainedRate = profitSummary.totalProfit ? profitSummary.surplus / profitSummary.totalProfit : 0;
+
+  let profitRows = '';
+  if (profitRecords.length > 0) {
+    const sorted = [...profitRecords].sort((a, b) => b.date.localeCompare(a.date));
+    for (const r of sorted) {
+      const product = state.data.products.find(p => p.id === r.productId);
+      profitRows += `<tr>
+        <td><span class="record-date">${r.date}</span></td>
+        <td><span class="record-name">${product ? product.name : r.productId}</span></td>
+        <td class="mono text-green record-amount">+${fmtCurrency(r.amount)}</td>
+        <td class="record-note">${r.note || "-"}</td>
+      </tr>`;
+    }
+  }
+
+  let commissionRows = '';
+  if (commissionRecords.length > 0) {
+    const sorted = [...commissionRecords].sort((a, b) => b.date.localeCompare(a.date));
+    for (const r of sorted) {
+      commissionRows += `<tr>
+        <td><span class="record-date">${r.date}</span></td>
+        <td><span class="record-name">${r.managerName || "黄斐斐"}</span></td>
+        <td class="mono text-orange record-amount">-${fmtCurrency(r.amount)}</td>
+        <td class="record-note">${r.note || "-"}</td>
+      </tr>`;
+    }
+  }
+
+  let interestRows = '';
+  if (interestRecords.length > 0) {
+    const sorted = [...interestRecords].sort((a, b) => b.date.localeCompare(a.date));
+    for (const r of sorted) {
+      const investor = state.data.investors.find(i => i.id === r.investorId);
+      interestRows += `<tr>
+        <td><span class="record-date">${r.date}</span></td>
+        <td><span class="record-name">${investor ? investor.name : r.investorId}</span></td>
+        <td class="mono text-cyan record-amount">-${fmtCurrency(r.amount)}</td>
+        <td class="record-note">${r.note || "-"}</td>
+      </tr>`;
+    }
+  }
+
+  const renderRecordPanel = ({ type, title, subtitle, count, columns, rows }) => `
+    <div class="profit-record-panel ${type}">
+      <div class="profit-record-header">
+        <div>
+          <div class="profit-record-title">${title}</div>
+          <div class="profit-record-subtitle">${subtitle}</div>
+        </div>
+        <span class="profit-record-count">${count} 笔</span>
+      </div>
+      <div class="profit-record-body">
+        ${rows ? `
+          <div class="history-table-wrap">
+            <table class="history-profit-table">
+              <thead><tr>${columns.map(column => `<th>${column}</th>`).join("")}</tr></thead>
+              <tbody>${rows}</tbody>
+            </table>
+          </div>
+        ` : `
+          <div class="profit-empty-state">
+            <span class="profit-empty-line"></span>
+            <span>暂无记录</span>
+          </div>
+        `}
+      </div>
+    </div>
+  `;
+
+  return `
+    <div class="history-profit-section">
+      <div class="profit-overview-panel">
+        <div class="profit-overview-main">
+          <div class="profit-eyebrow">历史利润净额</div>
+          <div class="profit-net-value ${profitSummary.surplus >= 0 ? 'text-green' : 'text-red'}">
+            ${profitSummary.surplus >= 0 ? '+' : ''}${fmtCurrency(profitSummary.surplus)}
+          </div>
+          <div class="profit-net-caption">
+            提取利润 ${fmtCurrencyCompact(profitSummary.totalProfit)}，已发放 ${fmtCurrencyCompact(payoutTotal)}
+          </div>
+          <div class="profit-ratio-track" aria-hidden="true">
+            <span style="width:${Math.max(0, Math.min(100, retainedRate * 100))}%"></span>
+          </div>
+          <div class="profit-ratio-meta">
+            <span>留存率</span>
+            <strong class="${retainedRate >= 0 ? 'text-green' : 'text-red'}">${fmtPct(retainedRate)}</strong>
+          </div>
+        </div>
+
+        <div class="profit-flow-grid">
+          <div class="profit-flow-item income">
+            <div class="profit-flow-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 17L10 12L13 15L19 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 8H19V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="profit-flow-label">提取利润</div>
+              <div class="profit-flow-value text-green">+${fmtCurrencyCompact(profitSummary.totalProfit)}</div>
+              <div class="profit-flow-meta">${profitRecords.length} 笔收入</div>
+            </div>
+          </div>
+
+          <div class="profit-flow-item commission">
+            <div class="profit-flow-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 6V18M8 9.5C8 7.57 9.79 6 12 6C14.21 6 16 7.12 16 8.5C16 12 8 10.5 8 15C8 16.66 9.79 18 12 18C14.21 18 16 16.66 16 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="profit-flow-label">发放佣金</div>
+              <div class="profit-flow-value text-orange">-${fmtCurrencyCompact(profitSummary.totalCommission)}</div>
+              <div class="profit-flow-meta">${commissionRecords.length} 笔支出</div>
+            </div>
+          </div>
+
+          <div class="profit-flow-item interest">
+            <div class="profit-flow-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 7H20M7 7V17M17 7V17M5 17H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 12H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="profit-flow-label">发放利息</div>
+              <div class="profit-flow-value text-cyan">-${fmtCurrencyCompact(profitSummary.totalInterest)}</div>
+              <div class="profit-flow-meta">${interestRecords.length} 笔支出</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="profit-equation-strip">
+        <div class="equation-chip income">
+          <span>提取利润</span>
+          <strong>${fmtCurrencyCompact(profitSummary.totalProfit)}</strong>
+        </div>
+        <span class="equation-symbol">-</span>
+        <div class="equation-chip commission">
+          <span>佣金</span>
+          <strong>${fmtCurrencyCompact(profitSummary.totalCommission)}</strong>
+        </div>
+        <span class="equation-symbol">-</span>
+        <div class="equation-chip interest">
+          <span>利息</span>
+          <strong>${fmtCurrencyCompact(profitSummary.totalInterest)}</strong>
+        </div>
+        <span class="equation-symbol">=</span>
+        <div class="equation-chip result ${profitSummary.surplus >= 0 ? 'positive' : 'negative'}">
+          <span>实际盈余</span>
+          <strong>${profitSummary.surplus >= 0 ? '+' : ''}${fmtCurrencyCompact(profitSummary.surplus)}</strong>
+        </div>
+      </div>
+
+      <div class="profit-record-grid">
+        ${renderRecordPanel({
+          type: "income",
+          title: "提取利润记录",
+          subtitle: "来自产品盈利的历史提取",
+          count: profitRecords.length,
+          columns: ["日期", "产品", "金额", "备注"],
+          rows: profitRows
+        })}
+
+        ${renderRecordPanel({
+          type: "commission",
+          title: "佣金发放记录",
+          subtitle: "管理人佣金支付明细",
+          count: commissionRecords.length,
+          columns: ["日期", "管理人", "金额", "备注"],
+          rows: commissionRows
+        })}
+
+        ${renderRecordPanel({
+          type: "interest",
+          title: "利息发放记录",
+          subtitle: "投资者利息支付明细",
+          count: interestRecords.length,
+          columns: ["日期", "投资者", "金额", "备注"],
+          rows: interestRows
+        })}
+      </div>
+    </div>
   `;
 }
 
@@ -145,7 +372,7 @@ function calculateAssetSummary(products) {
   let totalInvested = 0;
 
   products.forEach(p => {
-    if (p.name === "现金") return; // 跳过现金产品
+    if (p.name === "现金") return;
     const ps = calculateProductSummary(p);
     totalValue += ps.latestValue || 0;
     totalInvested += ps.netAmount || 0;
@@ -160,6 +387,20 @@ function calculateAssetSummary(products) {
     totalInvested,
     totalProfit,
     totalReturnRate
+  };
+}
+
+function calculateProfitSummary(data) {
+  const totalProfit = (data.profitRecords || []).reduce((sum, r) => sum + (r.amount || 0), 0);
+  const totalCommission = (data.commissionRecords || []).reduce((sum, r) => sum + (r.amount || 0), 0);
+  const totalInterest = (data.interestRecords || []).reduce((sum, r) => sum + (r.amount || 0), 0);
+  const surplus = totalProfit - totalCommission - totalInterest;
+
+  return {
+    totalProfit,
+    totalCommission,
+    totalInterest,
+    surplus
   };
 }
 
@@ -189,9 +430,11 @@ function calculateProductSummary(product) {
 }
 
 export function afterRenderAssetOverview(state, t) {
-  mountAssetPieChart(state);
-  mountAssetProductTrendChart(state);
-  bindAssetPhaseSelector(state);
+  if (state.ui.assetOverviewTab !== 'history') {
+    mountAssetPieChart(state);
+    mountAssetProductTrendChart(state);
+    bindAssetPhaseSelector(state);
+  }
 }
 
 function mountAssetPieChart(state) {
@@ -249,7 +492,7 @@ function mountAssetPieChart(state) {
               const value = context.parsed || 0;
               const total = context.dataset.data.reduce((a, b) => a + b, 0);
               const percentage = total > 0 ? ((value / total) * 100).toFixed(1) : 0;
-              return `${label}: ¥${value.toLocaleString()} (${percentage}%)`;
+              return label + ": " + value.toLocaleString() + " (" + percentage + "%)";
             }
           }
         }
@@ -270,7 +513,6 @@ function getFilteredHistory(history, phase, productName) {
       return history.filter(h => h.date < phase2StartDate);
     case "phase2":
       return history.filter(h => h.date >= phase2StartDate);
-    case "all":
     default:
       return history;
   }
@@ -298,7 +540,7 @@ function mountAssetProductTrendChart(state, phase = "phase2") {
   const lineColors = ['#0052ff', '#ff7d00', '#22c55e', '#ef4444', '#8b5cf6', '#06b6d4'];
 
   productData.forEach((product, index) => {
-    const canvas = document.querySelector(`#asset-product-chart-${product.id}`);
+    const canvas = document.querySelector("#asset-product-chart-" + product.id);
     if (!canvas || !window.Chart) return;
 
     if (window.assetProductCharts && window.assetProductCharts[product.id]) {
@@ -318,7 +560,7 @@ function mountAssetProductTrendChart(state, phase = "phase2") {
           label: product.name,
           data: values,
           borderColor: color,
-          backgroundColor: `${color}20`,
+          backgroundColor: color + "20",
           borderWidth: 2,
           pointBackgroundColor: color,
           pointRadius: 3,
@@ -337,7 +579,7 @@ function mountAssetProductTrendChart(state, phase = "phase2") {
             callbacks: {
               label: function(context) {
                 const value = context.parsed.y || 0;
-                return `价值: ¥${value.toLocaleString()}`;
+                return "价值: " + value.toLocaleString();
               }
             }
           }
@@ -349,7 +591,7 @@ function mountAssetProductTrendChart(state, phase = "phase2") {
           },
           y: {
             grid: { color: gridColor },
-            ticks: { color: textColor, font: { family: "'DM Mono', monospace", size: 10 }, callback: v => '¥' + v.toLocaleString() }
+            ticks: { color: textColor, font: { family: "'DM Mono', monospace", size: 10 }, callback: function(v) { return '¥' + v.toLocaleString(); } }
           }
         }
       }

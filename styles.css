@@ -383,10 +383,405 @@ button { cursor: pointer; }
 .section-subtitle { font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px; }
 
 /* ── TABS ── */
-.tab-bar { display: inline-flex; align-items: center; gap: 4px; padding: 4px; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--r-lg); }
-.tab-btn { height: 34px; padding: 0 16px; border-radius: var(--r-md); border: 1px solid transparent; background: transparent; color: var(--text-secondary); font-size: 0.84rem; font-weight: 600; cursor: pointer; transition: all var(--t-fast); }
+.tab-bar { display: inline-flex; align-items: center; gap: 8px; padding: 8px; background: var(--surface-2); border: 2px solid var(--border); border-radius: 16px; margin-bottom: 24px; width: 100%; max-width: 400px; }
+.tab-btn { height: 44px; padding: 0 20px; border-radius: 12px; border: 1px solid transparent; background: transparent; color: var(--text-secondary); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all var(--t-fast); }
 .tab-btn.active { background: linear-gradient(135deg, var(--orange-500), var(--blue-500)); color: white; box-shadow: var(--shadow-orange); }
-.tab-btn:not(.active):hover { background: rgba(255,125,0,0.08); color: var(--orange-500); }
+.tab-btn:not(.active):hover { background: rgba(255,125,0,0.12); color: var(--orange-500); }
+
+.tab-item { flex: 1; height: 48px; padding: 0 16px; border-radius: 12px; border: 2px solid transparent; background: transparent; color: var(--text-secondary); font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all var(--t-fast); text-align: center; }
+.tab-item.active { background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: white; box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4); border-color: transparent; transform: translateY(-1px); }
+.tab-item:not(.active):hover { background: rgba(59, 130, 246, 0.1); color: #3b82f6; border-color: rgba(59, 130, 246, 0.3); }
+.tab-item:not(.active) { border-color: var(--border); }
+
+/* 页面标签 */
+.page-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.page-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-1);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.page-tab:hover {
+  background: var(--surface-2);
+  color: var(--text-primary);
+}
+
+.page-tab.active {
+  background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.page-tab .tab-icon {
+  font-size: 1.1rem;
+}
+
+/* 历史利润 */
+.history-profit-section {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.profit-overview-panel {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.86fr) 1.14fr;
+  gap: 18px;
+  padding: 22px;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(135deg, rgba(0,82,255,0.12), transparent 38%),
+    linear-gradient(315deg, rgba(255,125,0,0.10), transparent 34%),
+    var(--card-bg);
+  box-shadow: var(--shadow-sm);
+}
+
+.profit-overview-main {
+  min-height: 230px;
+  padding: 24px;
+  border-radius: var(--r-md);
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(10,14,20,0.30);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profit-eyebrow {
+  margin-bottom: 10px;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.profit-net-value {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 5vw, 3.3rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.profit-net-caption {
+  margin-top: 12px;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+}
+
+.profit-ratio-track {
+  height: 10px;
+  margin-top: 22px;
+  overflow: hidden;
+  border-radius: var(--r-full);
+  background: rgba(255,255,255,0.10);
+}
+
+.profit-ratio-track span {
+  display: block;
+  height: 100%;
+  min-width: 6px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #22c55e, var(--orange-500));
+}
+
+.profit-ratio-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  color: var(--text-tertiary);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.profit-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.profit-flow-item {
+  min-height: 230px;
+  padding: 20px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform var(--t-fast), border-color var(--t-fast), background var(--t-fast);
+}
+
+.profit-flow-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-blue);
+  background: var(--surface-2);
+}
+
+.profit-flow-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-sm);
+  color: var(--text-primary);
+  background: var(--surface-2);
+}
+
+.profit-flow-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.profit-flow-item.income .profit-flow-icon { color: #22c55e; background: rgba(34,197,94,0.14); }
+.profit-flow-item.commission .profit-flow-icon { color: #f59e0b; background: rgba(245,158,11,0.15); }
+.profit-flow-item.interest .profit-flow-icon { color: #06b6d4; background: rgba(6,182,212,0.14); }
+
+.profit-flow-label {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.profit-flow-value {
+  margin-top: 8px;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 900;
+  font-family: var(--font-mono);
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.profit-flow-meta {
+  margin-top: 8px;
+  color: var(--text-tertiary);
+  font-size: 0.78rem;
+}
+
+.profit-equation-strip {
+  display: grid;
+  grid-template-columns: minmax(140px, 1fr) auto minmax(120px, 0.8fr) auto minmax(120px, 0.8fr) auto minmax(150px, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+}
+
+.equation-chip {
+  min-height: 62px;
+  padding: 11px 14px;
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.equation-chip span {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--text-secondary);
+  font-size: 0.73rem;
+  font-weight: 800;
+}
+
+.equation-chip strong {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+.equation-chip.income { border-color: rgba(34,197,94,0.28); }
+.equation-chip.commission { border-color: rgba(245,158,11,0.30); }
+.equation-chip.interest { border-color: rgba(6,182,212,0.30); }
+.equation-chip.result.positive { border-color: rgba(34,197,94,0.45); background: rgba(34,197,94,0.10); }
+.equation-chip.result.negative { border-color: rgba(239,68,68,0.42); background: rgba(239,68,68,0.09); }
+
+.equation-symbol {
+  color: var(--text-tertiary);
+  font-size: 1.25rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.profit-record-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.profit-record-panel {
+  min-width: 0;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  overflow: hidden;
+}
+
+.profit-record-panel.income { border-top: 3px solid #22c55e; }
+.profit-record-panel.commission { border-top: 3px solid #f59e0b; }
+.profit-record-panel.interest { border-top: 3px solid #06b6d4; }
+
+.profit-record-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.profit-record-title {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+.profit-record-subtitle {
+  margin-top: 5px;
+  color: var(--text-secondary);
+  font-size: 0.76rem;
+}
+
+.profit-record-count {
+  white-space: nowrap;
+  padding: 4px 9px;
+  border-radius: var(--r-sm);
+  color: var(--text-secondary);
+  background: var(--surface-2);
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.profit-record-body { min-height: 210px; }
+
+.history-table-wrap {
+  max-height: 330px;
+  overflow: auto;
+}
+
+.history-profit-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history-profit-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  text-align: left;
+  padding: 11px 14px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--border);
+  background: var(--card-bg);
+}
+
+.history-profit-table tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.82rem;
+  vertical-align: top;
+}
+
+.history-profit-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.history-profit-table tbody tr:hover {
+  background: var(--surface-2);
+}
+
+.record-date {
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.record-name {
+  color: var(--text-primary);
+  font-weight: 750;
+}
+
+.record-amount {
+  white-space: nowrap;
+  font-weight: 850;
+}
+
+.record-note {
+  max-width: 180px;
+  color: var(--text-tertiary);
+}
+
+.profit-empty-state {
+  min-height: 210px;
+  display: grid;
+  place-items: center;
+  color: var(--text-tertiary);
+  font-size: 0.84rem;
+  gap: 12px;
+}
+
+.profit-empty-line {
+  width: 42px;
+  height: 2px;
+  border-radius: var(--r-full);
+  background: currentColor;
+}
+
+@media (max-width: 1000px) {
+  .profit-overview-panel { grid-template-columns: 1fr; }
+  .profit-record-grid { grid-template-columns: 1fr; }
+  .profit-record-body { min-height: 0; }
+}
+
+@media (max-width: 760px) {
+  .profit-flow-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profit-flow-item {
+    min-height: 130px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+  }
+
+  .profit-equation-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .equation-symbol {
+    display: none;
+  }
+
+  .profit-overview-panel,
+  .profit-overview-main {
+    padding: 16px;
+  }
+}
 
 /* ── RANGE CHIPS ── */
 .range-bar { display: flex; gap: 6px; }

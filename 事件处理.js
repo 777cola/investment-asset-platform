@@ -278,6 +278,70 @@ export function bindEvents(state, t, renderApp) {
         break;
       }
 
+      /* 利息佣金标签切换 */
+      case "switch-interest-tab": {
+        const tab = actionElement.dataset.tab;
+        state.ui.interestSubPage = tab;
+        state.ui.adminSubPage = "interest-records";
+        renderApp(state, t);
+        break;
+      }
+
+      /* 价值更新标签切换 */
+      case "switch-value-tab": {
+        const tab = actionElement.dataset.tab;
+        state.ui.valueUpdateTab = tab;
+        state.ui.adminSubPage = "value-update";
+        renderApp(state, t);
+        break;
+      }
+
+      /* 资产全览标签切换 */
+      case "switch-asset-tab": {
+        const tab = actionElement.dataset.tab;
+        state.ui.assetOverviewTab = tab;
+        state.ui.adminSubPage = "asset-overview";
+        renderApp(state, t);
+        break;
+      }
+
+      /* 删除利息/佣金记录 */
+      case "delete-interest": {
+        const recordId = actionElement.dataset.recordId;
+        const recordType = actionElement.dataset.type || "interest";
+        if (!recordId) return;
+        
+        if (recordType === "interest") {
+          if (!confirm(t("confirmDeleteFundFlow"))) return;
+          if (state.data.interestRecords) {
+            state.data.interestRecords = state.data.interestRecords.filter(r => r.id !== recordId);
+          }
+        } else {
+          if (!confirm("确认删除此佣金记录？")) return;
+          if (state.data.commissionRecords) {
+            state.data.commissionRecords = state.data.commissionRecords.filter(r => r.id !== recordId);
+          }
+        }
+        
+        saveData(state.data);
+        setFlash(state, t("flashDeleted"), "success");
+        renderApp(state, t);
+        break;
+      }
+
+      /* 删除利润记录 */
+      case "delete-profit": {
+        const recordId = actionElement.dataset.recordId;
+        if (!recordId || !confirm("确认删除此利润提取记录？")) return;
+        if (state.data.profitRecords) {
+          state.data.profitRecords = state.data.profitRecords.filter(r => r.id !== recordId);
+        }
+        saveData(state.data);
+        setFlash(state, t("flashDeleted"), "success");
+        renderApp(state, t);
+        break;
+      }
+
       /* 添加交易记录 */
       case "add-transaction": {
         const editingProductId = state.ui.editingProductId;
@@ -379,6 +443,8 @@ export function bindEvents(state, t, renderApp) {
       case "notice-form":           handleSaveNotice(form, state, t, renderApp);    break;
       case "product-form":          handleSaveProduct(form, state, t, renderApp);    break;
       case "interest-form":         handleSaveInterest(form, state, t, renderApp); break;
+      case "commission-form":      handleSaveCommission(form, state, t, renderApp); break;
+      case "profit-form":         handleSaveProfit(form, state, t, renderApp); break;
     }
   });
 
@@ -791,9 +857,66 @@ function handleSaveInterest(form, state, t, renderApp) {
     note
   });
 
-  state.ui.interestSubPage = "list";
+  state.ui.interestSubPage = "interest-list";
   state.ui.adminSubPage = "interest-records";
   saveData(state.data);
   setFlash(state, t("interestSaved"), "success");
+  renderApp(state, t);
+}
+
+function handleSaveCommission(form, state, t, renderApp) {
+  const fd = new FormData(form);
+  const managerName = String(fd.get("managerName") ?? "").trim();
+  const date = String(fd.get("date") ?? "").trim();
+  const platform = String(fd.get("platform") ?? "").trim();
+  const amount = parseFloat(fd.get("amount") ?? "0");
+  const note = String(fd.get("note") ?? "").trim();
+
+  if (!managerName) { setFlash(state, "请填写管理人", "error"); return; }
+  if (!date) { setFlash(state, t("pleaseSelectDate"), "error"); return; }
+  if (!platform) { setFlash(state, t("pleaseEnterPlatform"), "error"); return; }
+  if (isNaN(amount) || amount <= 0) { setFlash(state, t("pleaseEnterValidInterest"), "error"); return; }
+
+  if (!state.data.commissionRecords) state.data.commissionRecords = [];
+  state.data.commissionRecords.push({
+    id: generateId("COM"),
+    managerName,
+    date,
+    platform,
+    amount,
+    note
+  });
+
+  state.ui.interestSubPage = "commission-list";
+  state.ui.adminSubPage = "interest-records";
+  saveData(state.data);
+  setFlash(state, t("commissionSaved"), "success");
+  renderApp(state, t);
+}
+
+function handleSaveProfit(form, state, t, renderApp) {
+  const fd = new FormData(form);
+  const productId = String(fd.get("productId") ?? "").trim();
+  const date = String(fd.get("date") ?? "").trim();
+  const amount = parseFloat(fd.get("amount") ?? "0");
+  const note = String(fd.get("note") ?? "").trim();
+
+  if (!productId) { setFlash(state, t("pleaseSelectProduct"), "error"); return; }
+  if (!date) { setFlash(state, t("pleaseSelectDate"), "error"); return; }
+  if (isNaN(amount) || amount <= 0) { setFlash(state, "请输入有效的提取金额", "error"); return; }
+
+  if (!state.data.profitRecords) state.data.profitRecords = [];
+  state.data.profitRecords.push({
+    id: generateId("PROF"),
+    productId,
+    date,
+    amount,
+    note
+  });
+
+  state.ui.valueUpdateTab = "profit";
+  state.ui.adminSubPage = "value-update";
+  saveData(state.data);
+  setFlash(state, "利润提取记录已保存", "success");
   renderApp(state, t);
 }

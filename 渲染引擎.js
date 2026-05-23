@@ -157,9 +157,15 @@ function renderAdminView(state, t) {
 
   if (sub === "value-update") return renderValueUpdate(state, t);
   if (sub === "asset-overview") return renderAssetOverview(state, t);
-  if (sub === "interest-records" || sub === "interest-records-add") {
-    if (sub === "interest-records-add") {
-      state.ui.interestSubPage = "add";
+  if (sub === "interest-records" || sub === "interest-records-add" || sub === "interest-records-interest-add" || sub === "interest-records-commission-add" || sub === "interest-records-commission-list") {
+    if (sub === "interest-records-add" || sub === "interest-records-interest-add") {
+      state.ui.interestSubPage = "interest-add";
+      state.ui.adminSubPage = "interest-records";
+    } else if (sub === "interest-records-commission-add") {
+      state.ui.interestSubPage = "commission-add";
+      state.ui.adminSubPage = "interest-records";
+    } else if (sub === "interest-records-commission-list") {
+      state.ui.interestSubPage = "commission-list";
       state.ui.adminSubPage = "interest-records";
     }
     return renderInterestRecords(state, t);
