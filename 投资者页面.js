@@ -347,11 +347,11 @@ export function renderInvestorPage(state, t) {
 }
 
 /** 渲染后挂载 Chart.js 实例 */
-export function afterRenderInvestor(state) {
+export function afterRenderInvestor(state, t = key => key) {
   mountAllocationPieChart(state);
-  mountProductTrendChart(state);
-  mountInterestTrendChart(state);
-  bindPhaseSelector(state);
+  mountProductTrendChart(state, "phase2", t);
+  mountInterestTrendChart(state, t);
+  bindPhaseSelector(state, t);
 }
 
 // 辅助函数：获取产品名称
@@ -465,7 +465,7 @@ function getFilteredHistory(history, phase, productName) {
 }
 
 // 挂载产品波动曲线图
-function mountProductTrendChart(state, phase = "phase2") {
+function mountProductTrendChart(state, phase = "phase2", t = key => key) {
   const investor = state.data.investors.find(i => i.id === state.session?.userId);
   if (!investor) return;
 
@@ -535,7 +535,7 @@ function mountProductTrendChart(state, phase = "phase2") {
             callbacks: {
               label: function(context) {
                 const value = context.parsed.y || 0;
-                return `价值: ¥${value.toLocaleString()}`;
+                return `${t("totalValueColumn")}: ¥${value.toLocaleString()}`;
               }
             }
           }
@@ -569,16 +569,16 @@ function mountProductTrendChart(state, phase = "phase2") {
 }
 
 // 添加阶段选择事件监听
-export function bindPhaseSelector(state) {
+export function bindPhaseSelector(state, t = key => key) {
   document.querySelectorAll("[id^='phase-select-']").forEach(select => {
     select.addEventListener("change", function() {
-      mountProductTrendChart(state, this.value);
+      mountProductTrendChart(state, this.value, t);
     });
   });
 }
 
 // 挂载利息发放趋势图
-function mountInterestTrendChart(state) {
+function mountInterestTrendChart(state, t = key => key) {
   const investor = state.data.investors.find(i => i.id === state.session?.userId);
   if (!investor) return;
 
@@ -611,7 +611,7 @@ function mountInterestTrendChart(state) {
       labels: cumulativeData.map(d => d.date),
       datasets: [
         {
-          label: "单笔利息",
+          label: t("interestAmount"),
           data: cumulativeData.map(d => d.amount),
           borderColor: '#22c55e',
           backgroundColor: 'rgba(34, 197, 94, 0.1)',
@@ -624,7 +624,7 @@ function mountInterestTrendChart(state) {
           yAxisID: 'y1'
         },
         {
-          label: "累计利息",
+          label: t("cumulativeInterest"),
           data: cumulativeData.map(d => d.cumulative),
           borderColor: '#0052ff',
           backgroundColor: 'rgba(0, 82, 255, 0.1)',
@@ -680,7 +680,7 @@ function mountInterestTrendChart(state) {
           },
           title: {
             display: true,
-            text: '累计利息',
+            text: t("cumulativeInterest"),
             color: textColor,
             font: { family: "'DM Sans', sans-serif", size: 11 }
           }
@@ -697,7 +697,7 @@ function mountInterestTrendChart(state) {
           },
           title: {
             display: true,
-            text: '单笔利息',
+            text: t("interestAmount"),
             color: textColor,
             font: { family: "'DM Sans', sans-serif", size: 11 }
           }

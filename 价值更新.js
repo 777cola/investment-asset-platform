@@ -13,8 +13,8 @@ export function renderValueUpdate(state, t) {
   <div class="content-inner stack">
     <div class="section-header">
       <div>
-        <div class="section-title">价值更新</div>
-        <div class="section-subtitle">更新产品的最新总价值，提取投资利润</div>
+        <div class="section-title">${t("valueUpdate")}</div>
+        <div class="section-subtitle">${t("valueUpdateDesc")}</div>
       </div>
       <button class="btn-ghost btn-sm" data-action="admin-goto" data-page="menu">
         ${t("backToMenu")}
@@ -25,23 +25,23 @@ export function renderValueUpdate(state, t) {
     <div style="display:flex;gap:8px;margin-bottom:24px;">
       <button ${activeTab === 'value' ? 'class="btn-primary"' : 'class="btn-secondary"'} 
               data-action="switch-value-tab" data-tab="value">
-        更新价值
+        ${t("updateValue")}
       </button>
       <button ${activeTab === 'profit' ? 'class="btn-primary"' : 'class="btn-secondary"'} 
               data-action="switch-value-tab" data-tab="profit">
-        提取利润
+        ${t("extractProfit")}
       </button>
     </div>
 
     ${activeTab === 'value' ? `
     <div class="card">
-      <div class="card-header"><div><div class="card-title">更新价值</div><div class="card-subtitle">录入产品最新净值</div></div></div>
+      <div class="card-header"><div><div class="card-title">${t("updateValue")}</div><div class="card-subtitle">${t("recordLatestNav")}</div></div></div>
       <div class="card-body">
         <form id="value-form" class="stack">
           <div class="form-field">
-            <label class="form-label">选择产品</label>
+            <label class="form-label">${t("pleaseSelectProduct")}</label>
             <select class="text-input" name="productId" required>
-              <option value="">选择产品</option>
+              <option value="">${t("pleaseSelectProduct")}</option>
               ${products.map(product => `
                 <option value="${product.id}">${product.name} (${product.platform})</option>
               `).join("")}
@@ -49,17 +49,17 @@ export function renderValueUpdate(state, t) {
           </div>
 
           <div class="form-field">
-            <label class="form-label">更新日期</label>
+            <label class="form-label">${t("updateDate")}</label>
             <input class="text-input" type="date" name="date" required />
           </div>
 
           <div class="form-field">
-            <label class="form-label">最新总价值</label>
+            <label class="form-label">${t("latestTotalValue")}</label>
             <input class="text-input" type="number" step="0.01" name="value" placeholder="0.00" required />
           </div>
 
           <div class="form-actions">
-            <button type="submit" class="btn-primary">保存价值</button>
+            <button type="submit" class="btn-primary">${t("saveValue")}</button>
           </div>
         </form>
       </div>
@@ -67,23 +67,23 @@ export function renderValueUpdate(state, t) {
 
     <div class="card">
       <div class="card-header">
-        <div><div class="card-title">价值历史</div><div class="card-subtitle">查看产品的价值更新历史</div></div>
+        <div><div class="card-title">${t("valueHistory")}</div><div class="card-subtitle">${t("valueHistoryDesc")}</div></div>
       </div>
       <div class="card-body" style="padding-top:0" id="value-history-container">
-        <div class="empty-state">请选择产品查看价值历史</div>
+        <div class="empty-state">${t("selectProductToViewValueHistory")}</div>
       </div>
     </div>
     ` : `
     <!-- 提取利润模块 -->
     <div class="grid-2 gap-20" style="align-items:start">
       <div class="card">
-        <div class="card-header"><div><div class="card-title">提取利润</div><div class="card-subtitle">从产品盈利中提取利润</div></div></div>
+        <div class="card-header"><div><div class="card-title">${t("extractProfit")}</div><div class="card-subtitle">${t("extractProfitDesc")}</div></div></div>
         <div class="card-body">
           <form id="profit-form" class="stack">
             <div class="form-field">
-              <label class="form-label">选择产品</label>
+              <label class="form-label">${t("pleaseSelectProduct")}</label>
               <select class="text-input" name="productId" required>
-                <option value="">选择产品</option>
+                <option value="">${t("pleaseSelectProduct")}</option>
                 ${products.filter(p => p.name !== "现金").map(product => `
                   <option value="${product.id}">${product.name} (${product.platform})</option>
                 `).join("")}
@@ -91,36 +91,36 @@ export function renderValueUpdate(state, t) {
             </div>
 
             <div class="form-field">
-              <label class="form-label">提取日期</label>
+              <label class="form-label">${t("extractDate")}</label>
               <input class="text-input" type="date" name="date" required />
             </div>
 
             <div class="form-field">
-              <label class="form-label">提取金额</label>
+              <label class="form-label">${t("extractAmount")}</label>
               <input class="text-input" type="number" step="0.01" name="amount" placeholder="0.00" required />
             </div>
 
             <div class="form-field">
-              <label class="form-label">备注</label>
-              <textarea class="text-input" name="note" placeholder="可选：备注信息" rows="3"></textarea>
+              <label class="form-label">${t("note")}</label>
+              <textarea class="text-input" name="note" placeholder="${t("optionalNote")}" rows="3"></textarea>
             </div>
 
             <div class="form-actions">
-              <button type="submit" class="btn-primary">提取利润</button>
+              <button type="submit" class="btn-primary">${t("extractProfit")}</button>
             </div>
           </form>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-header"><div><div class="card-title">提取统计</div><div class="card-subtitle">累计提取利润</div></div></div>
+        <div class="card-header"><div><div class="card-title">${t("extractionStats")}</div><div class="card-subtitle">${t("extractedProfit")}</div></div></div>
         <div class="card-body">
           <div class="kpi-card highlighted" style="margin-bottom:16px">
-            <div class="kpi-label">累计提取利润</div>
+            <div class="kpi-label">${t("extractedProfit")}</div>
             <div class="kpi-value">${fmtCurrency(totalProfit)}</div>
           </div>
           <div class="kpi-card">
-            <div class="kpi-label">提取记录数</div>
+            <div class="kpi-label">${t("extractionCount")}</div>
             <div class="kpi-value">${profitRecords.length}</div>
           </div>
         </div>
@@ -130,17 +130,17 @@ export function renderValueUpdate(state, t) {
     <!-- 提取利润记录 -->
     <div class="card">
       <div class="card-header">
-        <div><div class="card-title">提取利润记录</div><div class="card-subtitle">按提取日期倒序排列</div></div>
+        <div><div class="card-title">${t("profitExtractionRecords")}</div><div class="card-subtitle">${t("productPerformanceDesc")}</div></div>
       </div>
       <div class="card-body" style="padding-top:0">
         ${profitRecords.length > 0 ? `
         <div class="table-wrap">
           <table>
             <thead><tr>
-              <th>提取日期</th>
-              <th>产品名称</th>
-              <th>提取金额</th>
-              <th>备注</th>
+              <th>${t("extractionDate")}</th>
+              <th>${t("productName")}</th>
+              <th>${t("extractAmount")}</th>
+              <th>${t("note")}</th>
               <th>${t("actions")}</th>
             </tr></thead>
             <tbody>
@@ -168,7 +168,7 @@ export function renderValueUpdate(state, t) {
             </tbody>
           </table>
         </div>
-        ` : `<div class="empty-state"><p>暂无提取利润记录</p></div>`}
+        ` : `<div class="empty-state"><p>${t("noProfitRecords")}</p></div>`}
       </div>
     </div>
     `}
@@ -189,7 +189,7 @@ export function afterRenderValueUpdate(state, t) {
           valueHistoryContainer.innerHTML = `
             <div class="table-wrap">
               <table>
-                <thead><tr><th>日期</th><th>总价值</th><th>环比变化</th><th>操作</th></tr></thead>
+                <thead><tr><th>${t("date")}</th><th>${t("totalValueColumn")}</th><th>${t("periodChange")}</th><th>${t("actions")}</th></tr></thead>
                 <tbody>
                   ${history.map((h, idx) => {
                     const prev = history[idx + 1];
@@ -203,7 +203,7 @@ export function afterRenderValueUpdate(state, t) {
                                 data-product-id="${product.id}" 
                                 data-date="${h.date}" 
                                 data-value="${h.value}">
-                          编辑
+                          ${t("edit")}
                         </button>
                       </td>
                     </tr>`;
@@ -213,10 +213,10 @@ export function afterRenderValueUpdate(state, t) {
             </div>
           `;
         } else {
-          valueHistoryContainer.innerHTML = `<div class="empty-state">暂无价值历史</div>`;
+          valueHistoryContainer.innerHTML = `<div class="empty-state">${t("noValueHistory")}</div>`;
         }
       } else {
-        valueHistoryContainer.innerHTML = `<div class="empty-state">请选择产品查看价值历史</div>`;
+        valueHistoryContainer.innerHTML = `<div class="empty-state">${t("selectProductToViewValueHistory")}</div>`;
       }
     });
   }

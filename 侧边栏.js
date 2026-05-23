@@ -3,11 +3,11 @@
 import { fmtCurrencyCompact, getPlatformSummary } from './工具函数.js';
 
 const VERSION_HISTORY = [
-  { version: "v1.4", date: "2026-05-23", note: "新增历史利润模块" },
-  { version: "v1.3", date: "2026-05-05", note: "新增PDF数据导出" },
-  { version: "v1.2", date: "2026-04-27", note: "网络平台上线" },
-  { version: "v1.1", date: "2026-04-17", note: "投资者页面新增图表" },
-  { version: "v1.0", date: "2026-04-13", note: "本地网页搭建" },
+  { version: "v1.4", date: "2026-05-23", noteKey: "versionNoteHistoryProfit" },
+  { version: "v1.3", date: "2026-05-05", noteKey: "versionNotePDF" },
+  { version: "v1.2", date: "2026-04-27", noteKey: "versionNoteOnline" },
+  { version: "v1.1", date: "2026-04-17", noteKey: "versionNoteInvestorChart" },
+  { version: "v1.0", date: "2026-04-13", noteKey: "versionNoteLocalBuild" },
 ];
 
 export function renderSidebar(state, t) {
@@ -64,7 +64,7 @@ export function renderSidebar(state, t) {
                 font-size: 0.78rem;
                 color: var(--text-secondary);
                 line-height: 1.5;
-              ">${item.note}</span>
+              ">${t(item.noteKey)}</span>
             </div>
           `).join("")}
         </div>

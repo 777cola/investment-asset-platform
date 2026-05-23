@@ -133,7 +133,7 @@ function renderUserList(state, t) {
     <div class="grid-2 gap-20" style="align-items:start; grid-template-columns: 280px 1fr;">
       <!-- 左侧：投资者列表 -->
       <div class="card fade-in-1">
-        <div class="card-header"><div><div class="card-title">投资者列表</div><div class="card-subtitle">${investors.length} 位</div></div></div>
+        <div class="card-header"><div><div class="card-title">${t("investorList")}</div><div class="card-subtitle">${investors.length} ${t("investorCount")}</div></div></div>
         <div class="card-body" style="padding-top:0; padding-bottom:8px;">
           <div class="investor-list">
             ${investors.map(inv => `
@@ -158,15 +158,15 @@ function renderUserList(state, t) {
           <!-- 投资者KPI -->
           <div class="kpi-grid-3">
             <div class="kpi-card">
-              <div class="kpi-label">当前投资总额</div>
+              <div class="kpi-label">${t("currentInvestmentTotal")}</div>
               <div class="kpi-value">${fmtCurrencyCompact(netInvested)}</div>
             </div>
             <div class="kpi-card">
-              <div class="kpi-label">当前资产价值</div>
+              <div class="kpi-label">${t("currentAssetValue")}</div>
               <div class="kpi-value">${fmtCurrencyCompact(totalValue)}</div>
             </div>
             <div class="kpi-card">
-              <div class="kpi-label">当前收益率</div>
+              <div class="kpi-label">${t("currentReturnRate")}</div>
               <div class="kpi-value ${perfClass(returnRate)}">${fmtSignedPct(returnRate)}</div>
             </div>
           </div>
@@ -188,41 +188,41 @@ function renderUserList(state, t) {
                 <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                 <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
               </svg>
-              查看投资者视角
+              ${t("viewInvestorView")}
             </button>
           </div>
 
           <!-- 出入金情况 -->
           <div class="card">
-            <div class="card-header"><div><div class="card-title">出入金情况</div><div class="card-subtitle">出入金统计与记录</div></div></div>
+            <div class="card-header"><div><div class="card-title">${t("fundFlowStatus")}</div><div class="card-subtitle">${t("fundFlowStatsRecords")}</div></div></div>
             <div class="card-body">
               <div class="grid-3 gap-12" style="margin-bottom:16px">
                 <div style="text-align:center;padding:12px;background:rgba(34,197,94,0.08);border-radius:var(--radius)">
-                  <div style="font-size:.72rem;color:var(--text-secondary);margin-bottom:4px">累计入金</div>
+                  <div style="font-size:.72rem;color:var(--text-secondary);margin-bottom:4px">${t("totalDeposit")}</div>
                   <div style="font-size:1.1rem;font-weight:800;color:#22c55e;font-family:var(--font-mono)">+${fmtCurrencyCompact(totalDeposits)}</div>
                 </div>
                 <div style="text-align:center;padding:12px;background:rgba(239,68,68,0.08);border-radius:var(--radius)">
-                  <div style="font-size:.72rem;color:var(--text-secondary);margin-bottom:4px">累计出金</div>
+                  <div style="font-size:.72rem;color:var(--text-secondary);margin-bottom:4px">${t("totalWithdrawal")}</div>
                   <div style="font-size:1.1rem;font-weight:800;color:#ef4444;font-family:var(--font-mono)">-${fmtCurrencyCompact(totalWithdrawals)}</div>
                 </div>
                 <div style="text-align:center;padding:12px;background:var(--bg-secondary);border-radius:var(--radius)">
-                  <div style="font-size:.72rem;color:var(--text-secondary);margin-bottom:4px">净投入</div>
+                  <div style="font-size:.72rem;color:var(--text-secondary);margin-bottom:4px">${t("netAmount")}</div>
                   <div style="font-size:1.1rem;font-weight:800;font-family:var(--font-mono)">${fmtCurrencyCompact(netInvested)}</div>
                 </div>
               </div>
 
               <!-- 内联添加出入金表单 -->
               <div style="padding:12px;background:var(--bg-secondary);border-radius:var(--radius);margin-bottom:12px;">
-                <div style="font-size:.8rem;color:var(--text-tertiary);margin-bottom:8px;font-weight:500;">添加出入金记录</div>
+                <div style="font-size:.8rem;color:var(--text-tertiary);margin-bottom:8px;font-weight:500;">${t("addFundFlowRecord")}</div>
                 <div style="display:flex;gap:8px;flex-wrap:wrap;">
                   <select id="ff-type-${selectedInvestor.id}" class="text-input" style="flex:0 0 100px;">
-                    <option value="deposit">入金</option>
-                    <option value="withdrawal">出金</option>
+                    <option value="deposit">${t("deposit")}</option>
+                    <option value="withdrawal">${t("withdrawal")}</option>
                   </select>
                   <input type="date" id="ff-date-${selectedInvestor.id}" class="text-input" style="flex:0 0 140px;" value="${new Date().toISOString().slice(0,10)}">
-                  <input type="number" id="ff-amt-${selectedInvestor.id}" class="text-input" style="flex:1;min-width:100px;" placeholder="金额">
-                  <input type="text" id="ff-note-${selectedInvestor.id}" class="text-input" style="flex:1;min-width:120px;" placeholder="备注（可选）">
-                  <button class="btn-primary" data-action="add-fund-flow-inline" data-investor-id="${selectedInvestor.id}">添加</button>
+                  <input type="number" id="ff-amt-${selectedInvestor.id}" class="text-input" style="flex:1;min-width:100px;" placeholder="${t("amount")}">
+                  <input type="text" id="ff-note-${selectedInvestor.id}" class="text-input" style="flex:1;min-width:120px;" placeholder="${t("optionalNoteShort")}">
+                  <button class="btn-primary" data-action="add-fund-flow-inline" data-investor-id="${selectedInvestor.id}">${t("add")}</button>
                 </div>
               </div>
 
@@ -231,32 +231,32 @@ function renderUserList(state, t) {
                 <div style="max-height:180px;overflow-y:auto;">
                   <table style="width:100%;font-size:.8rem;">
                     <thead><tr style="color:var(--text-tertiary);">
-                      <th style="text-align:left;padding:6px 8px;">日期</th>
-                      <th style="text-align:left;padding:6px 8px;">类型</th>
-                      <th style="text-align:right;padding:6px 8px;">金额</th>
-                      <th style="text-align:left;padding:6px 8px;">备注</th>
+                      <th style="text-align:left;padding:6px 8px;">${t("date")}</th>
+                      <th style="text-align:left;padding:6px 8px;">${t("type")}</th>
+                      <th style="text-align:right;padding:6px 8px;">${t("amount")}</th>
+                      <th style="text-align:left;padding:6px 8px;">${t("note")}</th>
                       <th style="padding:6px 8px;"></th>
                     </tr></thead>
                     <tbody>
                       ${fundFlowList.map(f => `
                         <tr style="border-top:1px solid var(--border);">
                           <td style="padding:7px;font-family:var(--font-mono);">${f.date}</td>
-                          <td style="padding:7px;"><span class="badge ${f.type === 'deposit' ? 'badge-green' : 'badge-red'}" style="font-size:.7rem;padding:2px 8px;">${f.type === 'deposit' ? '入金' : '出金'}</span></td>
+                          <td style="padding:7px;"><span class="badge ${f.type === 'deposit' ? 'badge-green' : 'badge-red'}" style="font-size:.7rem;padding:2px 8px;">${f.type === 'deposit' ? t("deposit") : t("withdrawal")}</span></td>
                           <td style="padding:7px;text-align:right;font-family:var(--font-mono);color:${f.type === 'deposit' ? '#22c55e' : '#ef4444'}">${f.type === 'deposit' ? '+' : '-'}${fmtCurrency(f.amount)}</td>
                           <td style="padding:7px;color:var(--text-secondary);">${f.note || '-'}</td>
-                          <td style="padding:7px;"><button class="btn-ghost btn-sm" data-action="delete-fund-flow" data-fund-id="${f.id}" data-investor-id="${selectedInvestor.id}">删除</button></td>
+                          <td style="padding:7px;"><button class="btn-ghost btn-sm" data-action="delete-fund-flow" data-fund-id="${f.id}" data-investor-id="${selectedInvestor.id}">${t("delete")}</button></td>
                         </tr>
                       `).join("")}
                     </tbody>
                   </table>
                 </div>
-              ` : `<div class="empty-state" style="padding:12px;"><p>暂无出入金记录</p></div>`}
+              ` : `<div class="empty-state" style="padding:12px;"><p>${t("noFundFlowRecords")}</p></div>`}
             </div>
           </div>
 
           <!-- 产品分配情况 -->
           <div class="card">
-            <div class="card-header"><div><div class="card-title">产品分配</div><div class="card-subtitle">投资分布（总和100%）</div></div></div>
+            <div class="card-header"><div><div class="card-title">${t("productAllocation")}</div><div class="card-subtitle">${t("investmentDistributionTotal100")}</div></div></div>
             <div class="card-body">
               ${allocationList.filter(a => a.amount > 0).length > 0 ? `
                 <div class="alloc-detail-list">
@@ -275,21 +275,21 @@ function renderUserList(state, t) {
                       <div style="display:flex;justify-content:space-between;font-size:.75rem;color:var(--text-secondary)">
                         <span>${fmtCurrencyCompact(a.productValue || 0)}</span>
                         <div style="display:flex;gap:12px">
-                          <span>自身占比: ${a.percentage}%</span>
+                          <span>${t("ownShare")}: ${a.percentage}%</span>
                           ${a.productId ? `
-                            <span style="color:var(--text-tertiary)">产品占比: ${calculateProductPercentage(a.productId, a.amount, state.data)}%</span>
+                            <span style="color:var(--text-tertiary)">${t("productShare")}: ${calculateProductPercentage(a.productId, a.amount, state.data)}%</span>
                           ` : ''}
                         </div>
                       </div>
                     </div>
                   `).join("")}
                 </div>
-              ` : `<div class="empty-state"><p>暂无产品分配</p></div>`}
+              ` : `<div class="empty-state"><p>${t("noProductAllocation")}</p></div>`}
 
               <!-- 内联调整分配表单 -->
               <div style="margin-top:16px;padding:12px;background:var(--bg-secondary);border-radius:var(--radius);">
-                <div style="font-size:.8rem;color:var(--text-tertiary);margin-bottom:8px;font-weight:500;">调整投资分配</div>
-                <div style="font-size:.75rem;color:var(--text-secondary);margin-bottom:12px;">当前投资总额: <strong>${fmtCurrency(netInvested)}</strong></div>
+                <div style="font-size:.8rem;color:var(--text-tertiary);margin-bottom:8px;font-weight:500;">${t("adjustInvestmentAllocation")}</div>
+                <div style="font-size:.75rem;color:var(--text-secondary);margin-bottom:12px;">${t("currentInvestmentTotal")}: <strong>${fmtCurrency(netInvested)}</strong></div>
                 <form id="alloc-form-${selectedInvestor.id}" style="display:flex;flex-direction:column;gap:8px;">
                   ${(state.data.products || []).map(product => {
                     const currentAlloc = selectedInvestor.allocations?.find(a => a.productId === product.id);
@@ -335,7 +335,7 @@ function renderUserList(state, t) {
                   }).join("")}
                   <div style="display:flex;gap:8px;align-items:center;justify-content:flex-end;margin-top:4px;">
                     <span id="alloc-summary-${selectedInvestor.id}" style="font-size:.75rem;color:var(--text-tertiary);"></span>
-                    <button type="button" class="btn-primary" data-action="save-allocation" data-investor-id="${selectedInvestor.id}">保存分配</button>
+                    <button type="button" class="btn-primary" data-action="save-allocation" data-investor-id="${selectedInvestor.id}">${t("saveAllocation")}</button>
                   </div>
                 </form>
               </div>
@@ -343,7 +343,7 @@ function renderUserList(state, t) {
               <!-- 分配可视化 -->
               ${allocationList.filter(a => a.amount > 0).length > 0 ? `
                 <div style="margin-top:16px;padding:12px;background:var(--bg-secondary);border-radius:var(--radius)">
-                  <div style="font-size:.75rem;color:var(--text-tertiary);margin-bottom:8px">分配占比</div>
+                  <div style="font-size:.75rem;color:var(--text-tertiary);margin-bottom:8px">${t("allocationRatio")}</div>
                   <div style="display:flex;height:24px;border-radius:var(--radius);overflow:hidden">
                     ${allocationList.filter(a => a.amount > 0).map((a, i) => {
                       const colors = ['#0052ff', '#ff7d00', '#22c55e', '#ef4444', '#8b5cf6', '#06b6d4'];
@@ -369,7 +369,7 @@ function renderUserList(state, t) {
           <div class="card">
             <div class="card-body">
               <div class="btn-group" style="display:flex;gap:8px">
-                <button class="btn-secondary" data-action="edit-investor" data-investor-id="${selectedInvestor.id}">${t("edit")} 投资者</button>
+                <button class="btn-secondary" data-action="edit-investor" data-investor-id="${selectedInvestor.id}">${t("edit")} ${t("investorId")}</button>
                 <button class="btn-ghost btn-sm" data-action="delete-investor" data-investor-id="${selectedInvestor.id}">${t("delete")}</button>
               </div>
             </div>
@@ -378,7 +378,7 @@ function renderUserList(state, t) {
           <div class="card">
             <div class="card-body">
               <div class="empty-state">
-                <p>请从左侧选择一个投资者查看详情</p>
+                <p>${t("selectInvestorForDetails")}</p>
               </div>
             </div>
           </div>
@@ -438,7 +438,7 @@ function renderAddUser(state, t) {
         </div>
 
         <div class="form-field">
-          <label class="form-label">产品投资比例</label>
+          <label class="form-label">${t("productAllocationRatio")}</label>
           <div style="border:1px solid var(--border);border-radius:var(--radius);padding:16px">
             ${products.length ? products.map((product) => {
               const allocation = editing?.allocations?.find(a => a.productId === product.id);
@@ -450,9 +450,9 @@ function renderAddUser(state, t) {
                   <div style="flex:1;text-align:right">%</div>
                 </div>
               `;
-            }).join("") : `<div style="text-align:center;color:var(--text-tertiary);padding:20px">暂无产品</div>`}
+            }).join("") : `<div style="text-align:center;color:var(--text-tertiary);padding:20px">${t("noProducts")}</div>`}
 
-            ${products.length ? `<div style="margin-top:16px;color:var(--text-secondary);font-size:14px">提示：所有产品的投资比例总和应等于 100%</div>` : ""}
+            ${products.length ? `<div style="margin-top:16px;color:var(--text-secondary);font-size:14px">${t("allocationTip")}</div>` : ""}
           </div>
         </div>
       </div>
@@ -464,7 +464,7 @@ function renderAddUser(state, t) {
   `;
 }
 
-export function afterRenderUserManagement(state) {
+export function afterRenderUserManagement(state, t = key => key) {
   // 分配金额输入实时更新
   document.querySelectorAll(".alloc-input").forEach(input => {
     input.addEventListener("input", function() {
@@ -488,7 +488,7 @@ export function afterRenderUserManagement(state) {
 
       const summaryEl = document.getElementById(`alloc-summary-${investorId}`);
       if (summaryEl) {
-        summaryEl.innerHTML = `已分配: ${fmtCurrencyCompact(totalAllocated)} (${allocPct}%), 未定: ${fmtCurrencyCompact(undecided)} (${undecidedPct}%)`;
+        summaryEl.innerHTML = `${t("allocated")}: ${fmtCurrencyCompact(totalAllocated)} (${allocPct}%), ${t("undefined")}: ${fmtCurrencyCompact(undecided)} (${undecidedPct}%)`;
       }
     });
   });

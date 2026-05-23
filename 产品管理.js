@@ -37,8 +37,8 @@ function renderProductList(state, t) {
             <thead><tr>
               <th>${t("productName")}</th>
               <th>${t("platform")}</th>
-              <th>当前投资总额</th>
-              <th>当前资产价值</th>
+              <th>${t("currentInvestmentTotalHeader")}</th>
+              <th>${t("currentAssetValueHeader")}</th>
               <th>${t("returnRate")}</th>
               <th>${t("actions")}</th>
             </tr></thead>
@@ -73,7 +73,7 @@ function renderProductList(state, t) {
             </tbody>
             <tfoot>
               <tr style="background:var(--bg-secondary);font-weight:600">
-                <td colspan="2">汇总（不含现金）</td>
+                <td colspan="2">${t("summaryExcludingCash")}</td>
                 <td class="mono">${fmtCurrencyCompact(products.filter(p => p.name !== "现金").reduce((sum, p) => {
                   const totalDeposits = p.transactions?.filter(t => t.type === "deposit").reduce((s, t) => s + t.amount, 0) || 0;
                   const totalWithdrawals = p.transactions?.filter(t => t.type === "withdrawal").reduce((s, t) => s + t.amount, 0) || 0;
@@ -90,7 +90,7 @@ function renderProductList(state, t) {
               </tr>
               ${products.some(p => p.name === "现金") ? `
                 <tr style="background:var(--bg-secondary);font-weight:600;color:var(--text-tertiary)">
-                  <td colspan="2">现金</td>
+                  <td colspan="2">${t("cash")}</td>
                   <td class="mono">${fmtCurrencyCompact(products.filter(p => p.name === "现金").reduce((sum, p) => {
                     const totalDeposits = p.transactions?.filter(t => t.type === "deposit").reduce((s, t) => s + t.amount, 0) || 0;
                     const totalWithdrawals = p.transactions?.filter(t => t.type === "withdrawal").reduce((s, t) => s + t.amount, 0) || 0;

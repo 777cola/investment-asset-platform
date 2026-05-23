@@ -38,8 +38,8 @@ export function renderAssetOverview(state, t) {
   <div class="content-inner stack">
     <div class="section-header">
       <div>
-        <div class="section-title">资产全览</div>
-        <div class="section-subtitle">管理所有产品的综合表现</div>
+        <div class="section-title">${t("assetOverview")}</div>
+        <div class="section-subtitle">${t("assetOverviewDesc")}</div>
       </div>
       <button class="btn-ghost btn-sm" data-action="admin-goto" data-page="menu">
         ${t("backToMenu")}
@@ -50,11 +50,11 @@ export function renderAssetOverview(state, t) {
     <div class="page-tabs">
       <button class="page-tab ${activeTab === 'current' ? 'active' : ''}" data-action="switch-asset-tab" data-tab="current">
         <span class="tab-icon">📊</span>
-        <span class="tab-label">当前资产</span>
+        <span class="tab-label">${t("currentAssets")}</span>
       </button>
       <button class="page-tab ${activeTab === 'history' ? 'active' : ''}" data-action="switch-asset-tab" data-tab="history">
         <span class="tab-icon">💰</span>
-        <span class="tab-label">历史利润</span>
+        <span class="tab-label">${t("historicalProfit")}</span>
       </button>
     </div>
   `;
@@ -76,9 +76,9 @@ function renderCurrentAssets(state, t, products, summary, pieData, productData) 
     for (const product of productData) {
       const phaseSelect = product.name === "期货" ? `
         <select class="text-input text-input-sm" id="asset-phase-select-${product.id}" style="width:auto;min-width:110px;font-size:0.75rem;">
-          <option value="all">全部阶段</option>
-          <option value="phase2" selected>第二阶段</option>
-          <option value="phase1">第一阶段</option>
+          <option value="all">${t("allPhases")}</option>
+          <option value="phase2" selected>${t("phase2")}</option>
+          <option value="phase1">${t("phase1")}</option>
         </select>
       ` : '';
       
@@ -97,7 +97,7 @@ function renderCurrentAssets(state, t, products, summary, pieData, productData) 
     }
     chartsHtml = `
     <div class="card fade-in-2">
-      <div class="card-header"><div><div class="card-title">产品波动</div><div class="card-subtitle">各产品价值变化趋势</div></div></div>
+      <div class="card-header"><div><div class="card-title">${t("productVolatility")}</div><div class="card-subtitle">${t("productValueTrend")}</div></div></div>
       <div class="card-body">
         <div class="grid-2 gap-16">
           ${chartCards}
@@ -122,34 +122,34 @@ function renderCurrentAssets(state, t, products, summary, pieData, productData) 
       </tr>`;
     }
   } else {
-    productRows = `<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--text-tertiary)">暂无产品净值数据</td></tr>`;
+    productRows = `<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--text-tertiary)">${t("noProductNavData")}</td></tr>`;
   }
 
-  const pieChartHtml = pieData.length > 0 ? `<canvas id="asset-pie-chart" style="max-height:300px"></canvas>` : `<div class="empty-state"><p>暂无产品数据</p></div>`;
+  const pieChartHtml = pieData.length > 0 ? `<canvas id="asset-pie-chart" style="max-height:300px"></canvas>` : `<div class="empty-state"><p>${t("noProductData")}</p></div>`;
 
   return `
     <div class="kpi-grid-4 fade-in-1">
       <div class="kpi-card highlighted">
-        <div class="kpi-label">产品数量</div>
+        <div class="kpi-label">${t("productCount")}</div>
         <div class="kpi-value">${summary.productCount}</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-label">当前投资总额</div>
+        <div class="kpi-label">${t("currentInvestmentTotal")}</div>
         <div class="kpi-value">${fmtCurrencyCompact(summary.totalValue)}</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-label">累计收益</div>
+        <div class="kpi-label">${t("cumulativeReturn")}</div>
         <div class="kpi-value ${perfClass(summary.totalReturnRate)}">${fmtCurrencyCompact(Math.abs(summary.totalProfit))}</div>
         <div class="kpi-caption ${perfClass(summary.totalReturnRate)}">${summary.totalProfit >= 0 ? "+" : "-"}${fmtPct(Math.abs(summary.totalReturnRate))}</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-label">投资者数量</div>
+        <div class="kpi-label">${t("investorQuantity")}</div>
         <div class="kpi-value">${state.data.investors?.length || 0}</div>
       </div>
     </div>
 
     <div class="card fade-in-1">
-      <div class="card-header"><div><div class="card-title">资金分布</div><div class="card-subtitle">各产品当前价值占比</div></div></div>
+      <div class="card-header"><div><div class="card-title">${t("fundDistribution")}</div><div class="card-subtitle">${t("portfolioAllocation")}</div></div></div>
       <div class="card-body">
         ${pieChartHtml}
       </div>
@@ -159,18 +159,18 @@ function renderCurrentAssets(state, t, products, summary, pieData, productData) 
 
     <div class="card fade-in-3">
       <div class="card-header">
-        <div><div class="card-title">产品表现</div><div class="card-subtitle">按净值日期倒序排序</div></div>
+        <div><div class="card-title">${t("productPerformance")}</div><div class="card-subtitle">${t("productPerformanceDesc")}</div></div>
       </div>
       <div class="card-body" style="padding-top:0">
         <div class="table-wrap">
           <table>
             <thead><tr>
-              <th>产品名称</th>
-              <th>投资平台</th>
-              <th>投资总额</th>
-              <th>当前价值</th>
-              <th>价值日期</th>
-              <th>累计收益率</th>
+              <th>${t("productName")}</th>
+              <th>${t("platform")}</th>
+              <th>${t("totalInvested")}</th>
+              <th>${t("currentAssetValue")}</th>
+              <th>${t("valueDate")}</th>
+              <th>${t("returnRate")}</th>
             </tr></thead>
             <tbody>
               ${productRows}
@@ -237,7 +237,7 @@ function renderHistoryProfitPage(state, t, profitSummary) {
           <div class="profit-record-title">${title}</div>
           <div class="profit-record-subtitle">${subtitle}</div>
         </div>
-        <span class="profit-record-count">${count} 笔</span>
+        <span class="profit-record-count">${t("recordCount").replace("{n}", count)}</span>
       </div>
       <div class="profit-record-body">
         ${rows ? `
@@ -250,7 +250,7 @@ function renderHistoryProfitPage(state, t, profitSummary) {
         ` : `
           <div class="profit-empty-state">
             <span class="profit-empty-line"></span>
-            <span>暂无记录</span>
+            <span>${t("noRecords")}</span>
           </div>
         `}
       </div>
@@ -261,18 +261,18 @@ function renderHistoryProfitPage(state, t, profitSummary) {
     <div class="history-profit-section">
       <div class="profit-overview-panel">
         <div class="profit-overview-main">
-          <div class="profit-eyebrow">历史利润净额</div>
+          <div class="profit-eyebrow">${t("historicalProfitNet")}</div>
           <div class="profit-net-value ${profitSummary.surplus >= 0 ? 'text-green' : 'text-red'}">
             ${profitSummary.surplus >= 0 ? '+' : ''}${fmtCurrency(profitSummary.surplus)}
           </div>
           <div class="profit-net-caption">
-            提取利润 ${fmtCurrencyCompact(profitSummary.totalProfit)}，已发放 ${fmtCurrencyCompact(payoutTotal)}
+            ${t("extractedProfit")} ${fmtCurrencyCompact(profitSummary.totalProfit)} · ${t("paidOut")} ${fmtCurrencyCompact(payoutTotal)}
           </div>
           <div class="profit-ratio-track" aria-hidden="true">
             <span style="width:${Math.max(0, Math.min(100, retainedRate * 100))}%"></span>
           </div>
           <div class="profit-ratio-meta">
-            <span>留存率</span>
+            <span>${t("retentionRate")}</span>
             <strong class="${retainedRate >= 0 ? 'text-green' : 'text-red'}">${fmtPct(retainedRate)}</strong>
           </div>
         </div>
@@ -283,31 +283,31 @@ function renderHistoryProfitPage(state, t, profitSummary) {
               <svg viewBox="0 0 24 24" fill="none"><path d="M5 17L10 12L13 15L19 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 8H19V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <div>
-              <div class="profit-flow-label">提取利润</div>
+              <div class="profit-flow-label">${t("extractProfit")}</div>
               <div class="profit-flow-value text-green">+${fmtCurrencyCompact(profitSummary.totalProfit)}</div>
-              <div class="profit-flow-meta">${profitRecords.length} 笔收入</div>
+              <div class="profit-flow-meta">${t("profitIncomeCount").replace("{n}", profitRecords.length)}</div>
             </div>
           </div>
 
           <div class="profit-flow-item commission">
             <div class="profit-flow-icon">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 6V18M8 9.5C8 7.57 9.79 6 12 6C14.21 6 16 7.12 16 8.5C16 12 8 10.5 8 15C8 16.66 9.79 18 12 18C14.21 18 16 16.66 16 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 19V9M12 19V5M19 19v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M3.5 19h17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8.5 9.5L12 5l3.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <div>
-              <div class="profit-flow-label">发放佣金</div>
+              <div class="profit-flow-label">${t("commissionPayout")}</div>
               <div class="profit-flow-value text-orange">-${fmtCurrencyCompact(profitSummary.totalCommission)}</div>
-              <div class="profit-flow-meta">${commissionRecords.length} 笔支出</div>
+              <div class="profit-flow-meta">${t("payoutCount").replace("{n}", commissionRecords.length)}</div>
             </div>
           </div>
 
           <div class="profit-flow-item interest">
             <div class="profit-flow-icon">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 7H20M7 7V17M17 7V17M5 17H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 12H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 11h8M8 14h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 7V5h10v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </div>
             <div>
-              <div class="profit-flow-label">发放利息</div>
+              <div class="profit-flow-label">${t("interestPayout")}</div>
               <div class="profit-flow-value text-cyan">-${fmtCurrencyCompact(profitSummary.totalInterest)}</div>
-              <div class="profit-flow-meta">${interestRecords.length} 笔支出</div>
+              <div class="profit-flow-meta">${t("payoutCount").replace("{n}", interestRecords.length)}</div>
             </div>
           </div>
         </div>
@@ -315,22 +315,22 @@ function renderHistoryProfitPage(state, t, profitSummary) {
 
       <div class="profit-equation-strip">
         <div class="equation-chip income">
-          <span>提取利润</span>
+          <span>${t("extractProfit")}</span>
           <strong>${fmtCurrencyCompact(profitSummary.totalProfit)}</strong>
         </div>
         <span class="equation-symbol">-</span>
         <div class="equation-chip commission">
-          <span>佣金</span>
+          <span>${t("commission")}</span>
           <strong>${fmtCurrencyCompact(profitSummary.totalCommission)}</strong>
         </div>
         <span class="equation-symbol">-</span>
         <div class="equation-chip interest">
-          <span>利息</span>
+          <span>${t("interest")}</span>
           <strong>${fmtCurrencyCompact(profitSummary.totalInterest)}</strong>
         </div>
         <span class="equation-symbol">=</span>
         <div class="equation-chip result ${profitSummary.surplus >= 0 ? 'positive' : 'negative'}">
-          <span>实际盈余</span>
+          <span>${t("actualSurplus")}</span>
           <strong>${profitSummary.surplus >= 0 ? '+' : ''}${fmtCurrencyCompact(profitSummary.surplus)}</strong>
         </div>
       </div>
@@ -338,28 +338,28 @@ function renderHistoryProfitPage(state, t, profitSummary) {
       <div class="profit-record-grid">
         ${renderRecordPanel({
           type: "income",
-          title: "提取利润记录",
-          subtitle: "来自产品盈利的历史提取",
+          title: t("profitExtractionRecords"),
+          subtitle: t("profitExtractionRecordsDesc"),
           count: profitRecords.length,
-          columns: ["日期", "产品", "金额", "备注"],
+          columns: [t("date"), t("product"), t("amount"), t("note")],
           rows: profitRows
         })}
 
         ${renderRecordPanel({
           type: "commission",
-          title: "佣金发放记录",
-          subtitle: "管理人佣金支付明细",
+          title: t("commissionPayoutRecords"),
+          subtitle: t("commissionPayoutRecordsDesc"),
           count: commissionRecords.length,
-          columns: ["日期", "管理人", "金额", "备注"],
+          columns: [t("date"), t("manager"), t("amount"), t("note")],
           rows: commissionRows
         })}
 
         ${renderRecordPanel({
           type: "interest",
-          title: "利息发放记录",
-          subtitle: "投资者利息支付明细",
+          title: t("interestPayoutRecords"),
+          subtitle: t("interestPayoutRecordsDesc"),
           count: interestRecords.length,
-          columns: ["日期", "投资者", "金额", "备注"],
+          columns: [t("date"), t("investorId"), t("amount"), t("note")],
           rows: interestRows
         })}
       </div>
@@ -432,8 +432,8 @@ function calculateProductSummary(product) {
 export function afterRenderAssetOverview(state, t) {
   if (state.ui.assetOverviewTab !== 'history') {
     mountAssetPieChart(state);
-    mountAssetProductTrendChart(state);
-    bindAssetPhaseSelector(state);
+    mountAssetProductTrendChart(state, "phase2", t);
+    bindAssetPhaseSelector(state, t);
   }
 }
 
@@ -518,7 +518,7 @@ function getFilteredHistory(history, phase, productName) {
   }
 }
 
-function mountAssetProductTrendChart(state, phase = "phase2") {
+function mountAssetProductTrendChart(state, phase = "phase2", t = key => key) {
   const products = state.data.products || [];
   const productData = products.filter(p => p.name !== "现金").map(p => {
     if (p.valueHistory && p.valueHistory.length > 0) {
@@ -579,7 +579,7 @@ function mountAssetProductTrendChart(state, phase = "phase2") {
             callbacks: {
               label: function(context) {
                 const value = context.parsed.y || 0;
-                return "价值: " + value.toLocaleString();
+                return t("totalValueColumn") + ": " + value.toLocaleString();
               }
             }
           }
@@ -602,10 +602,10 @@ function mountAssetProductTrendChart(state, phase = "phase2") {
   });
 }
 
-function bindAssetPhaseSelector(state) {
+function bindAssetPhaseSelector(state, t = key => key) {
   document.querySelectorAll("[id^='asset-phase-select-']").forEach(select => {
     select.addEventListener("change", function() {
-      mountAssetProductTrendChart(state, this.value);
+      mountAssetProductTrendChart(state, this.value, t);
     });
   });
 }

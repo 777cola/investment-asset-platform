@@ -59,14 +59,41 @@ function deepEqual(obj1, obj2) {
 
 function updateLangLabel(state) {
   const langLabel = document.querySelector("#lang-label");
-  if (!langLabel) return;
+  const lang = state.ui.lang;
   
   const langMap = {
     "zh": "简体",
     "zh-hant": "繁体",
     "en": "EN"
   };
-  langLabel.textContent = langMap[state.ui.lang] || "简体";
+  if (langLabel) langLabel.textContent = langMap[lang] || "简体";
+
+  const localized = {
+    zh: {
+      title: "恺皓资本 · 资产管理平台",
+      brand: "恺皓资本",
+      theme: "切换主题",
+      language: "语言"
+    },
+    "zh-hant": {
+      title: "愷皓資本 · 資產管理平台",
+      brand: "愷皓資本",
+      theme: "切換主題",
+      language: "語言"
+    },
+    en: {
+      title: "KaiHao Capital · Asset Management Platform",
+      brand: "KaiHao Capital",
+      theme: "Switch Theme",
+      language: "Language"
+    }
+  }[lang] || {};
+
+  if (localized.title) document.title = localized.title;
+  const logoTitle = document.querySelector(".logo-title");
+  if (logoTitle && localized.brand) logoTitle.textContent = localized.brand;
+  document.querySelector("#theme-toggle")?.setAttribute("title", localized.theme || "切换主题");
+  document.querySelector("#lang-toggle")?.setAttribute("title", localized.language || "语言");
 }
 
 export function renderApp(state, t) {
@@ -103,7 +130,7 @@ export function renderApp(state, t) {
     main.innerHTML = renderAdminView(state, t);
     // 只在页面变化时执行afterRender
     if (state.ui.adminSubPage === "user-management") {
-      requestAnimationFrame(() => afterRenderUserManagement(state));
+      requestAnimationFrame(() => afterRenderUserManagement(state, t));
     } else if (state.ui.adminSubPage === "product-management") {
       requestAnimationFrame(() => afterRenderProductManagement(state));
     } else if (state.ui.adminSubPage === "value-update") {
@@ -116,7 +143,7 @@ export function renderApp(state, t) {
   } else {
     // 投资者视图
     main.innerHTML = renderInvestorView(state, t);
-    requestAnimationFrame(() => afterRenderInvestor(state));
+    requestAnimationFrame(() => afterRenderInvestor(state, t));
   }
   
   // 更新上一次的状态
