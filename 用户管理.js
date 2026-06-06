@@ -2,6 +2,20 @@
 
 import { fmtCurrency, fmtCurrencyCompact, fmtPct, fmtSignedPct, perfClass } from "./工具函数.js";
 
+// 计算累计应付利息（管理后台用）
+function calcAdminCumulativeInterest(investor) {
+  if (!investor || investor.fixedRate == null || !investor.joinedAt) return 0;
+  const fundFlow = investor.fundFlow || [];
+  const totalDeposits = fundFlow.filter(f => f.type === "deposit").reduce((sum, f) => sum + f.amount, 0);
+  const totalWithdrawals = fundFlow.filter(f => f.type === "withdrawal").reduce((sum, f) => sum + f.amount, 0);
+  const netInvested = totalDeposits - totalWithdrawals;
+  if (netInvested <= 0) return 0;
+  const joinDate = new Date(investor.joinedAt);
+  const today = new Date();
+  const diffDays = Math.max(0, Math.ceil((today - joinDate) / (1000 * 60 * 60 * 24)));
+  return netInvested * investor.fixedRate * diffDays / 365;
+}
+
 function calculateProductPercentage(productId, investorAmount, data) {
   // 计算产品总投资
   const product = data.products?.find(p => p.id === productId);
@@ -360,6 +374,37 @@ function renderUserList(state, t) {
                       </div>`;
                     }).join("")}
                   </div>
+                </div>
+              ` : ''}
+            </div>
+          </div>
+
+          <!-- 固定利息设置 -->
+          <div class="card">
+            <div class="card-header"><div><div class="card-title">${t("fixedInterestSettings") || "固定利息设置"}</div><div class="card-subtitle">${t("fixedInterestSettingsDesc") || "设置投资人固定年利率，按日计息"}</div></div></div>
+            <div class="card-body">
+              <div style="display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap;">
+                <div style="flex:1;min-width:200px;">
+                  <label class="form-label" style="font-size:.78rem;margin-bottom:4px;">${t("fixedAnnualRate") || "固定年利率"}</label>
+                  <div style="display:flex;gap:8px;align-items:center;">
+                    <input type="number" id="fixed-rate-${selectedInvestor.id}" class="text-input" step="0.01" min="0" max="100" 
+                      value="${selectedInvestor.fixedRate != null ? (selectedInvestor.fixedRate * 100).toFixed(2) : ''}" 
+                      placeholder="例如 8.00" style="width:120px;">
+                    <span style="font-size:.85rem;color:var(--text-secondary);">%</span>
+                  </div>
+                </div>
+                <div style="flex:1;min-width:200px;">
+                  <div style="font-size:.78rem;color:var(--text-tertiary);margin-bottom:4px;">${t("cumulativeInterestDue") || "累计应付利息"}</div>
+                  <div style="font-size:1.1rem;font-weight:700;color:#22c55e;font-family:var(--font-mono);">
+                    ${fmtCurrencyCompact(calcAdminCumulativeInterest(selectedInvestor))}
+                  </div>
+                </div>
+                <button class="btn-primary btn-sm" data-action="save-fixed-rate" data-investor-id="${selectedInvestor.id}">${t("save")}</button>
+              </div>
+              ${selectedInvestor.fixedRate != null ? `
+                <div style="margin-top:10px;font-size:.75rem;color:var(--text-tertiary);">
+                  ${t("currentRate") || "当前利率"}: <strong>${(selectedInvestor.fixedRate * 100).toFixed(2)}%</strong>
+                  ${selectedInvestor.rateUpdatedAt ? ` · ${t("lastUpdated") || "上次更新"}: ${selectedInvestor.rateUpdatedAt}` : ''}
                 </div>
               ` : ''}
             </div>

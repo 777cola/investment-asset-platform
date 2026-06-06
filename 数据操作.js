@@ -256,6 +256,8 @@ async function normalizeData(d) {
     usernames:   Array.isArray(inv.usernames) ? inv.usernames : [],
     joinedAt:    inv.joinedAt   ?? "",
     lastReview:  inv.lastReview ?? d.snapshotDate ?? "",
+    fixedRate:   inv.fixedRate ?? null,
+    rateUpdatedAt: inv.rateUpdatedAt ?? null,
     allocations: Array.isArray(inv.allocations) ? inv.allocations.map(alloc => ({
       id:            alloc.id            ?? "",
       code:          alloc.code          ?? "",

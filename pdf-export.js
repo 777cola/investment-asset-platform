@@ -1,283 +1,36 @@
-// PDF导出模块
+// PDF导出模块 — 所见即所得，使用 html2canvas 截取页面实际渲染内容（含图表和样式）
 
-import { getInvestorSummary, fmtCurrency, fmtCurrencyCompact, fmtSignedPct } from "./工具函数.js";
-
-export function exportInvestorPDF(state) {
+export async function exportInvestorPDF(state) {
   try {
     const investor = state.data.investors.find(i => i.id === state.session?.userId);
+    if (!investor) { console.error("PDF导出失败：未找到当前投资者"); return false; }
+    if (!window.jspdf?.jsPDF) { console.error("PDF导出失败：jsPDF库未加载"); return false; }
+    if (!window.html2canvas) { console.error("PDF导出失败：html2canvas库未加载"); return false; }
 
-    if (!investor) {
-      console.error("PDF导出失败：未找到当前投资者");
-      return false;
+    const headerEl = document.querySelector("#main-view .investor-header");
+    const contentEl = document.querySelector("#main-view .content-inner");
+    if (!contentEl) { console.error("PDF导出失败：未找到投资者页面内容"); return false; }
+
+    await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+
+    const htmlEl = document.documentElement;
+    const originalTheme = htmlEl.getAttribute("data-theme");
+
+    // 切换到浅色主题
+    htmlEl.setAttribute("data-theme", "light");
+    await new Promise(r => requestAnimationFrame(r));
+
+    // ★ 关键：让所有 Chart.js 图表用新主题颜色重新渲染
+    _refreshAllCharts();
+    await new Promise(r => setTimeout(r, 600));
+
+    try {
+      await _generatePDF(headerEl, contentEl, investor, state);
+    } finally {
+      htmlEl.setAttribute("data-theme", originalTheme);
+      // 恢复后也要刷新图表颜色
+      _refreshAllCharts();
     }
-
-    if (!window.jspdf?.jsPDF) {
-      console.error("PDF导出失败：jsPDF库未加载");
-      return false;
-    }
-
-    const jsPDF = window.jspdf.jsPDF;
-    const doc = new jsPDF({ orientation: "p", unit: "mm", format: "a4" });
-
-    if (typeof doc.autoTable !== "function") {
-      console.error("PDF导出失败：AutoTable 插件未加载");
-      return false;
-    }
-
-    const margin = 14;
-    const pageWidth = doc.internal.pageSize.getWidth();
-    const pageHeight = doc.internal.pageSize.getHeight();
-    let y = 20;
-
-    const summary = getInvestorSummary(investor, state.data.products || []);
-    const interestRecords = (state.data.interestRecords || []).filter(r => r.investorId === investor.id);
-    const allocations = (investor.allocations || []).filter(a => (a.amount || 0) > 0);
-    const notices = (investor.notices || []).slice(0, 10);
-    const fundFlow = investor.fundFlow || [];
-
-    const platformName = state.data.platformName || "KaiHao Capital";
-    const snapshotDate = state.data.snapshotDate || new Date().toISOString().slice(0, 10);
-
-    doc.setFontSize(16);
-    doc.text(platformName, margin, y);
-    doc.setFontSize(10);
-    doc.text("Investment Report", pageWidth - margin, y, { align: "right" });
-    y += 6;
-    doc.setFontSize(9);
-    doc.text("Date: " + snapshotDate, pageWidth - margin, y, { align: "right" });
-    y += 10;
-
-    doc.setLineWidth(1);
-    doc.line(margin, y, pageWidth - margin, y);
-    y += 12;
-
-    doc.setFontSize(14);
-    doc.text("Investor Info", margin, y);
-    y += 8;
-
-    doc.setFillColor(245, 245, 250);
-    doc.setLineWidth(0.5);
-    doc.rect(margin, y, pageWidth - margin * 2, 50, "FD");
-
-    doc.setFontSize(16);
-    doc.text(safeText(investor.name || "N/A"), margin + 12, y + 15);
-
-    doc.setFontSize(10);
-    doc.text("ID: " + safeText(investor.id || "N/A"), margin + 12, y + 28);
-    doc.text("Joined: " + safeText(investor.joinedAt || "N/A"), margin + 12, y + 40);
-
-    y += 60;
-
-    doc.setFontSize(14);
-    doc.text("Portfolio Summary", margin, y);
-    y += 8;
-
-    const kpiWidth = (pageWidth - margin * 2 - 12) / 2;
-    const kpiHeight = 36;
-
-    doc.setFillColor(248);
-    doc.setLineWidth(0.5);
-    doc.rect(margin, y, kpiWidth, kpiHeight, "FD");
-    doc.setFontSize(9);
-    doc.text("Total Invested", margin + 8, y + 10);
-    doc.setFontSize(13);
-    doc.text(fmtCurrencyCompact(summary.totalInvested), margin + 8, y + 26);
-
-    doc.setFillColor(248);
-    doc.setLineWidth(0.5);
-    doc.rect(margin + kpiWidth + 6, y, kpiWidth, kpiHeight, "FD");
-    doc.setFontSize(9);
-    doc.text("Latest Value", margin + kpiWidth + 14, y + 10);
-    doc.setFontSize(13);
-    doc.text(fmtCurrencyCompact(summary.totalValue), margin + kpiWidth + 14, y + 26);
-
-    y += kpiHeight + 8;
-
-    doc.setFillColor(248);
-    doc.setLineWidth(0.5);
-    doc.rect(margin, y, kpiWidth, kpiHeight, "FD");
-    doc.setFontSize(9);
-    doc.text("Profit", margin + 8, y + 10);
-    doc.setFontSize(13);
-    doc.text((summary.profit >= 0 ? "+" : "") + fmtCurrencyCompact(summary.profit), margin + 8, y + 26);
-
-    doc.setFillColor(248);
-    doc.setLineWidth(0.5);
-    doc.rect(margin + kpiWidth + 6, y, kpiWidth, kpiHeight, "FD");
-    doc.setFontSize(9);
-    doc.text("Return Rate", margin + kpiWidth + 14, y + 10);
-    doc.setFontSize(13);
-    doc.text(fmtSignedPct(summary.returnRate), margin + kpiWidth + 14, y + 26);
-
-    y += kpiHeight + 10;
-
-    if (allocations.length > 0) {
-      doc.setFontSize(14);
-      doc.text("Allocations", margin, y);
-      y += 8;
-
-      const allocationRows = allocations.map(allocation => {
-        const invested = allocation.amount || 0;
-        const product = allocation.productId ? state.data.products.find(p => p.id === allocation.productId) : null;
-
-        let estimatedValue = 0;
-        if (product) {
-          const deposits = (product.transactions || []).filter(tx => tx.type === "deposit").reduce((sum, tx) => sum + (tx.amount || 0), 0);
-          const withdrawals = (product.transactions || []).filter(tx => tx.type === "withdrawal").reduce((sum, tx) => sum + (tx.amount || 0), 0);
-          const productTotal = deposits - withdrawals;
-          const latestValue = product.valueHistory?.length
-            ? [...product.valueHistory].sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")))[0]?.value || 0
-            : 0;
-
-          if (productTotal > 0) {
-            estimatedValue = (latestValue * invested) / productTotal;
-          }
-        }
-
-        const weight = summary.totalInvested > 0 ? ((invested / summary.totalInvested) * 100).toFixed(1) : "0.0";
-        const returnRate = invested > 0 ? (estimatedValue - invested) / invested : 0;
-
-        return [
-          safeText(enText(allocation.name || product?.name || allocation.productId || "-")),
-          safeText(enText(product?.platform || allocation.focus || "-")),
-          fmtCurrency(invested),
-          fmtCurrency(Math.round(estimatedValue)),
-          weight + "%",
-          (returnRate >= 0 ? "+" : "") + (returnRate * 100).toFixed(2) + "%"
-        ];
-      });
-
-      doc.autoTable({
-        startY: y,
-        margin: { left: margin, right: margin },
-        theme: "grid",
-        styles: { fontSize: 9, cellPadding: 3 },
-        headStyles: { fillColor: [99, 102, 241], textColor: [255, 255, 255] },
-        columnStyles: {
-          0: { cellWidth: 40 },
-          1: { cellWidth: 26 },
-          2: { cellWidth: 28 },
-          3: { cellWidth: 28 },
-          4: { cellWidth: 18 },
-          5: { cellWidth: 20 }
-        },
-        head: [["Product", "Platform", "Invested", "Value", "Weight", "Return"]],
-        body: allocationRows
-      });
-      y = doc.lastAutoTable ? doc.lastAutoTable.finalY + 6 : y + 10;
-    }
-
-    if (interestRecords.length > 0) {
-      doc.setFontSize(14);
-      doc.text("Interest Records", margin, y);
-      y += 8;
-
-      const interestRows = interestRecords
-        .slice()
-        .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")))
-        .slice(0, 15)
-        .map(record => [
-          safeText(record.date || "-"),
-          safeText(enText(record.platform || "-")),
-          "+" + fmtCurrency(record.amount || 0),
-          safeText(enText(record.note || "-"))
-        ]);
-
-      doc.autoTable({
-        startY: y,
-        margin: { left: margin, right: margin },
-        theme: "grid",
-        styles: { fontSize: 9, cellPadding: 3 },
-        headStyles: { fillColor: [34, 197, 94], textColor: [255, 255, 255] },
-        columnStyles: {
-          0: { cellWidth: 32 },
-          1: { cellWidth: 36 },
-          2: { cellWidth: 30 },
-          3: { cellWidth: 60 }
-        },
-        head: [["Date", "Platform", "Amount", "Note"]],
-        body: interestRows
-      });
-      y = doc.lastAutoTable ? doc.lastAutoTable.finalY + 6 : y + 10;
-    }
-
-    if (fundFlow.length > 0) {
-      doc.setFontSize(14);
-      doc.text("Fund Transactions", margin, y);
-      y += 8;
-
-      const fundFlowRows = fundFlow
-        .slice()
-        .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")))
-        .slice(0, 15)
-        .map(record => {
-          const type = record.type === "deposit" ? "Deposit" : "Withdrawal";
-          const amount = record.type === "deposit" ? "+" + fmtCurrency(record.amount || 0) : "-" + fmtCurrency(record.amount || 0);
-          return [
-            safeText(record.date || "-"),
-            type,
-            amount,
-            safeText(enText(record.note || "-"))
-          ];
-        });
-
-      doc.autoTable({
-        startY: y,
-        margin: { left: margin, right: margin },
-        theme: "grid",
-        styles: { fontSize: 9, cellPadding: 3 },
-        headStyles: { fillColor: [99, 102, 241], textColor: [255, 255, 255] },
-        columnStyles: {
-          0: { cellWidth: 32 },
-          1: { cellWidth: 36 },
-          2: { cellWidth: 30 },
-          3: { cellWidth: 60 }
-        },
-        head: [["Date", "Type", "Amount", "Note"]],
-        body: fundFlowRows
-      });
-      y = doc.lastAutoTable ? doc.lastAutoTable.finalY + 6 : y + 10;
-    }
-
-    if (notices.length > 0) {
-      doc.setFontSize(14);
-      doc.text("Communications", margin, y);
-      y += 8;
-
-      notices.forEach((notice, index) => {
-        if (y > pageHeight - 40) {
-          doc.addPage();
-          y = 20;
-        }
-
-        doc.setFontSize(10);
-        doc.text((index + 1) + ". " + safeText(enText(notice.title || "-")), margin, y);
-        doc.setFontSize(9);
-        doc.text("Date: " + safeText(notice.date || "-"), margin, y + 6);
-
-        const detailText = safeText(enText(notice.detail || "-"));
-        if (detailText.length > 80) {
-          doc.text(detailText.substring(0, 80) + "...", margin, y + 14);
-        } else {
-          doc.text(detailText, margin, y + 14);
-        }
-
-        y += 24;
-      });
-    }
-
-    const pageCount = doc.getNumberOfPages();
-    for (let i = 1; i <= pageCount; i++) {
-      doc.setPage(i);
-      doc.setLineWidth(0.3);
-      doc.line(margin, pageHeight - 12, pageWidth - margin, pageHeight - 12);
-      doc.setFontSize(8);
-      doc.text("KaiHao Capital Asset Platform", margin, pageHeight - 8);
-      doc.text("Page " + i + " / " + pageCount, pageWidth - margin, pageHeight - 8, { align: "right" });
-    }
-
-    const filename = "investment-report-" + safeFilename(investor.id || investor.name || "investor") + "-" + snapshotDate + ".pdf";
-    doc.save(filename);
     return true;
   } catch (error) {
     console.error("PDF导出失败:", error);
@@ -285,39 +38,280 @@ export function exportInvestorPDF(state) {
   }
 }
 
-function safeText(value) {
-  return String(value ?? "-").replace(/\s+/g, " ").trim() || "-";
+// ─── 刷新所有 Chart.js 实例（切换主题后调用）───
+function _refreshAllCharts() {
+  document.querySelectorAll("canvas").forEach(canvas => {
+    const chart = window.Chart?.getChart?.(canvas);
+    if (chart) {
+      const isDark = document.documentElement.getAttribute("data-theme") !== "light";
+      const gridColor = isDark ? "rgba(255,255,255,0.08)" : "rgba(15,23,42,0.08)";
+      const textColor = isDark ? "rgba(249,250,251,0.65)" : "rgba(15,23,42,0.65)";
+      const bg = isDark ? "rgba(17,24,39,0.98)" : "#ffffff";
+
+      // 更新图表颜色
+      if (chart.options.scales?.x) {
+        chart.options.scales.x.grid = { ...chart.options.scales.x.grid, color: gridColor };
+        chart.options.scales.x.ticks = { ...chart.options.scales.x.ticks, color: textColor };
+      }
+      if (chart.options.scales?.y) {
+        chart.options.scales.y.grid = { ...chart.options.scales.y.grid, color: gridColor };
+        chart.options.scales.y.ticks = { ...chart.options.scales.y.ticks, color: textColor };
+        if (chart.options.scales.y.title) chart.options.scales.y.title.color = textColor;
+      }
+      if (chart.options.scales?.y1) {
+        chart.options.scales.y1.ticks = { ...chart.options.scales.y1.ticks, color: textColor };
+        if (chart.options.scales.y1.title) chart.options.scales.y1.title.color = textColor;
+      }
+      if (chart.options.plugins?.legend?.labels) {
+        chart.options.plugins.legend.labels.color = textColor;
+      }
+
+      chart.update("none");
+    }
+  });
 }
 
-function safeFilename(value) {
-  return String(value)
-    .trim()
-    .replace(/[^a-zA-Z0-9_-]+/g, "-")
-    .replace(/^-+|-+$/g, "") || "investor";
+// ─── 生成 PDF ───
+async function _generatePDF(headerEl, contentEl, investor, state) {
+  const jsPDF = window.jspdf.jsPDF;
+  const doc = new jsPDF({ orientation: "p", unit: "mm", format: "a4" });
+
+  const pageW = doc.internal.pageSize.getWidth();
+  const pageH = doc.internal.pageSize.getHeight();
+  const margin = 10;
+  const contentW = pageW - margin * 2;
+  const footerH = 10;
+  const disclaimerH = 22;
+
+  const snapshotDate = state.data.snapshotDate || new Date().toISOString().slice(0, 10);
+  const platformName = state.data.platformName || "恺皓资本";
+
+  // 预渲染页脚和免责声明（html2canvas 方式，支持中文）
+  const footerImgData = await _renderFooterImage(`${platformName} · 投资报告 · ${snapshotDate}`);
+  const disclaimerImgData = await _renderDisclaimerImage(
+    '本报告仅供个人查看，未经授权不得转发或对外披露。'
+  );
+
+  // ─── 收集要渲染的区块 ───
+  const sections = [];
+  if (headerEl) sections.push({ el: headerEl, label: "header" });
+  const children = contentEl.children;
+  for (let i = 0; i < children.length; i++) {
+    if (children[i].offsetHeight === 0) continue;
+    sections.push({ el: children[i], label: "section-" + i });
+  }
+  if (sections.length === 0) return;
+
+  // ─── html2canvas 截取各区块 ───
+  const capturedImages = [];
+  for (const section of sections) {
+    try {
+      const canvas = await html2canvas(section.el, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: "#ffffff",
+        logging: false,
+        onclone: (clonedDoc) => {
+          clonedDoc.querySelectorAll('[class*="fade-in"]').forEach(el => {
+            el.style.opacity = "1";
+            el.style.transform = "none";
+          });
+        }
+      });
+      capturedImages.push({
+        imgData: canvas.toDataURL("image/png"),
+        heightMM: (canvas.height / canvas.width) * contentW,
+        label: section.label
+      });
+    } catch (err) {
+      console.warn("截取区块失败:", section.label, err);
+    }
+  }
+  if (capturedImages.length === 0) return;
+
+  // ─── 分页拼装 PDF ───
+  let currentY = margin;
+
+  for (const img of capturedImages) {
+    const availableH = pageH - currentY - margin - footerH;
+
+    // 放不下 → 整体移到下一页（不会切割区块）
+    if (img.heightMM > availableH) {
+      _addFooterToPage(doc, footerImgData, pageW, pageH, margin, footerH);
+      doc.addPage();
+      currentY = margin;
+    }
+
+    const maxSliceH = pageH - margin * 2 - footerH;
+
+    if (img.heightMM > maxSliceH) {
+      // 超高区块分片绘制
+      await _drawSlicedImage(doc, img.imgData, img.heightMM, margin, currentY,
+        contentW, pageW, pageH, margin, footerH, footerImgData);
+      currentY = margin + (img.heightMM % maxSliceH);
+    } else {
+      doc.setFillColor(255, 255, 255);
+      doc.rect(margin, currentY, contentW, img.heightMM, "F");
+      doc.addImage(img.imgData, "PNG", margin, currentY, contentW, img.heightMM);
+      currentY += img.heightMM;
+    }
+  }
+
+  // ─── 免责声明 ───
+  const remaining = pageH - currentY - margin - footerH;
+  if (remaining < disclaimerH + 10) {
+    _addFooterToPage(doc, footerImgData, pageW, pageH, margin, footerH);
+    doc.addPage();
+    currentY = margin;
+  }
+  currentY += 8;
+  doc.setDrawColor(210);
+  doc.setLineWidth(0.3);
+  doc.line(margin, currentY, pageW - margin, currentY);
+  currentY += 5;
+  doc.addImage(disclaimerImgData, "PNG", margin, currentY, 140, 10);
+
+  // 最后一页页脚
+  _addFooterToPage(doc, footerImgData, pageW, pageH, margin, footerH);
+
+  // ─── 页码 ───
+  const totalPages = doc.getNumberOfPages();
+  const pageImgCache = {};
+  for (let p = 1; p <= totalPages; p++) {
+    doc.setPage(p);
+    const key = `${p}/${totalPages}`;
+    if (!pageImgCache[key]) {
+      pageImgCache[key] = await _renderPageNumberImage(key);
+    }
+    doc.addImage(pageImgCache[key], "PNG", pageW - margin - 24, pageH - footerH + 2, 24, 6);
+  }
+
+  const safeName = String(investor.name || investor.id || "investor")
+    .replace(/[^a-zA-Z0-9\u4e00-\u9fff_-]+/g, "");
+  doc.save(`恺皓资本-投资报告-${safeName}-${snapshotDate}.pdf`);
 }
 
-function enText(text) {
-  const mapping = {
-    "恺皓资本": "KaiHao Capital",
-    "招商银行": "China Merchants Bank",
-    "工商银行": "ICBC",
-    "建设银行": "CCB",
-    "农业银行": "ABC",
-    "中国银行": "BOC",
-    "浦发银行": "SPDB",
-    "中信银行": "CITIC",
-    "民生银行": "CMBC",
-    "兴业银行": "CIB",
-    "平安银行": "Ping An Bank",
-    "华夏银行": "Huaxia Bank",
-    "光大银行": "CEB",
-    "北京银行": "Bank of Beijing",
-    "上海银行": "Bank of Shanghai",
-    "宁波银行": "Bank of Ningbo",
-    "南京银行": "Bank of Nanjing",
-    "入金": "Deposit",
-    "出金": "Withdrawal",
-    "已验证": "Verified"
-  };
-  return mapping[text] || text;
+// ───────────────────────────────────────────────────
+// 辅助函数
+// ───────────────────────────────────────────────────
+
+function _addFooterToPage(doc, footerImgData, pageW, pageH, margin, footerH) {
+  doc.setDrawColor(200);
+  doc.setLineWidth(0.3);
+  doc.line(margin, pageH - footerH, pageW - margin, pageH - footerH);
+  doc.addImage(footerImgData, "PNG", margin, pageH - footerH + 2, 120, 6);
+}
+
+async function _drawSlicedImage(doc, imgData, totalHMM, margin, startY, contentW, pageW, pageH, m, footerH, footerImgData) {
+  const maxSliceH = pageH - m * 2 - footerH;
+  let remainingHeight = totalHMM;
+  let srcY = 0;
+  let currentY = startY;
+  const origCanvas = await _loadImageToCanvas(imgData);
+
+  while (remainingHeight > 0) {
+    const availableH = pageH - currentY - m - footerH;
+    if (availableH < 10) {
+      _addFooterToPage(doc, footerImgData, pageW, pageH, m, footerH);
+      doc.addPage();
+      currentY = m;
+      continue;
+    }
+
+    const sliceH = Math.min(remainingHeight, availableH, maxSliceH);
+    const tempCanvas = document.createElement("canvas");
+    const srcW = origCanvas.width;
+    const srcH = origCanvas.height;
+    const sliceSrcH = Math.round(srcH * (sliceH / totalHMM));
+    const sliceSrcY = Math.round(srcH * (srcY / totalHMM));
+
+    tempCanvas.width = srcW;
+    tempCanvas.height = sliceSrcH;
+    const ctx = tempCanvas.getContext("2d");
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, srcW, sliceSrcH);
+    ctx.drawImage(origCanvas, 0, sliceSrcY, srcW, sliceSrcH, 0, 0, srcW, sliceSrcH);
+
+    doc.setFillColor(255, 255, 255);
+    doc.rect(m, currentY, contentW, sliceH, "F");
+    doc.addImage(tempCanvas.toDataURL("image/png"), "PNG", m, currentY, contentW, sliceH);
+
+    currentY += sliceH;
+    remainingHeight -= sliceH;
+    srcY += sliceH;
+
+    if (remainingHeight > 0.5) {
+      _addFooterToPage(doc, footerImgData, pageW, pageH, m, footerH);
+      doc.addPage();
+      currentY = m;
+    }
+  }
+}
+
+// ─── 用 html2canvas 渲染中文文本为图片（临时 DOM 元素方式）───
+
+async function _renderFooterImage(text) {
+  return _renderTextBlock(text, {
+    fontSize: "9px",
+    color: "#8c8c8c",
+    width: "500px",
+    height: "18px"
+  });
+}
+
+async function _renderDisclaimerImage(text) {
+  return _renderTextBlock(text, {
+    fontSize: "10px",
+    color: "#999999",
+    width: "800px",
+    height: "20px"
+  });
+}
+
+async function _renderPageNumberImage(text) {
+  return _renderTextBlock(text, {
+    fontSize: "9px",
+    color: "#8c8c8c",
+    width: "120px",
+    height: "16px",
+    textAlign: "right"
+  });
+}
+
+async function _renderTextBlock(text, { fontSize, color, width, height, textAlign }) {
+  const el = document.createElement("div");
+  Object.assign(el.style, {
+    position: "fixed", left: "-9999px", top: "0", zIndex: "-1",
+    font: `${fontSize} "Microsoft YaHei", "PingFang SC", "Helvetica Neue", sans-serif`,
+    color: color, width: width, height: height,
+    whiteSpace: "nowrap", lineHeight: height,
+    textAlign: textAlign || "left"
+  });
+  el.textContent = text;
+  document.body.appendChild(el);
+
+  try {
+    const canvas = await html2canvas(el, {
+      scale: 3, backgroundColor: null, logging: false
+    });
+    return canvas.toDataURL("image/png");
+  } finally {
+    document.body.removeChild(el);
+  }
+}
+
+function _loadImageToCanvas(base64Data) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+      canvas.getContext("2d").drawImage(img, 0, 0);
+      resolve(canvas);
+    };
+    img.onerror = reject;
+    img.src = base64Data;
+  });
 }

@@ -413,10 +413,22 @@ export function bindEvents(state, t, renderApp) {
         setFlash(state, t("flashExported"), "success");
         break;
 
-      case "export-pdf":
-        if (exportInvestorPDF(state)) setFlash(state, t("flashExported"), "success");
-        else setFlash(state, t("flashError"), "error");
+      case "export-pdf": {
+        const btn = actionElement;
+        const origText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = "导出中…";
+        exportInvestorPDF(state).then(ok => {
+          if (ok) setFlash(state, t("flashExported"), "success");
+          else setFlash(state, t("flashError"), "error");
+        }).catch(() => {
+          setFlash(state, t("flashError"), "error");
+        }).finally(() => {
+          btn.disabled = false;
+          btn.textContent = origText;
+        });
         break;
+      }
 
       case "import-data":
         document.querySelector("#import-file")?.click();
@@ -425,6 +437,29 @@ export function bindEvents(state, t, renderApp) {
       case "import-excel":
         document.querySelector("#import-excel-file")?.click();
         break;
+
+      /* 保存固定年利率 */
+      case "save-fixed-rate": {
+        const investorId = actionElement.dataset.investorId;
+        const investor = state.data.investors.find(inv => inv.id === investorId);
+        if (!investor) return;
+
+        const rateInput = document.getElementById(`fixed-rate-${investorId}`);
+        if (!rateInput) return;
+
+        const ratePercent = parseFloat(rateInput.value);
+        if (isNaN(ratePercent) || ratePercent < 0 || ratePercent > 100) {
+          setFlash(state, t("pleaseEnterValidRate") || "请输入有效的利率（0-100）", "error");
+          return;
+        }
+
+        investor.fixedRate = ratePercent / 100;
+        investor.rateUpdatedAt = new Date().toISOString().slice(0, 10);
+        saveData(state.data);
+        setFlash(state, t("fixedRateSaved") || "固定年利率已保存", "success");
+        renderApp(state, t);
+        break;
+      }
     }
   });
 
