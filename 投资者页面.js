@@ -3,59 +3,7 @@
 import { getInvestorSummary, fmtCurrency, fmtCurrencyCompact, fmtSignedPct, perfClass } from "./工具函数.js";
 import { renderChartPlaceholder, mountChart } from "./图表.js";
 
-// ── 私募CTA产品净值数据（基金净值汇总_20260606_180725.csv）──
-const CTA_NAV_DATA = [
-  { date: "2025-12-05", value: 0.9107 },
-  { date: "2025-12-10", value: 0.8967 },
-  { date: "2025-12-12", value: 0.8948 },
-  { date: "2025-12-17", value: 0.8844 },
-  { date: "2025-12-19", value: 0.8998 },
-  { date: "2025-12-24", value: 0.9209 },
-  { date: "2025-12-26", value: 0.9214 },
-  { date: "2025-12-31", value: 0.9315 },
-  { date: "2026-01-07", value: 1.0004 },
-  { date: "2026-01-09", value: 0.991 },
-  { date: "2026-01-14", value: 1.015 },
-  { date: "2026-01-16", value: 0.9985 },
-  { date: "2026-01-21", value: 0.9737 },
-  { date: "2026-01-23", value: 1.0211 },
-  { date: "2026-01-28", value: 1.0072 },
-  { date: "2026-01-30", value: 1.001 },
-  { date: "2026-02-04", value: 0.9894 },
-  { date: "2026-02-06", value: 0.9915 },
-  { date: "2026-02-11", value: 0.9848 },
-  { date: "2026-02-13", value: 0.9707 },
-  { date: "2026-02-24", value: 0.967 },
-  { date: "2026-02-25", value: 0.9605 },
-  { date: "2026-02-27", value: 0.956 },
-  { date: "2026-03-04", value: 0.93535786 },
-  { date: "2026-03-06", value: 0.8977 },
-  { date: "2026-03-11", value: 0.92599867 },
-  { date: "2026-03-13", value: 0.9697 },
-  { date: "2026-03-18", value: 0.9853 },
-  { date: "2026-03-20", value: 0.9982 },
-  { date: "2026-03-25", value: 1.0019 },
-  { date: "2026-03-27", value: 1.0068 },
-  { date: "2026-04-01", value: 0.9776 },
-  { date: "2026-04-03", value: 0.9622 },
-  { date: "2026-04-08", value: 0.9525 },
-  { date: "2026-04-10", value: 0.9109 },
-  { date: "2026-04-15", value: 0.9055 },
-  { date: "2026-04-17", value: 0.9131 },
-  { date: "2026-04-22", value: 0.9128 },
-  { date: "2026-04-24", value: 0.9057 },
-  { date: "2026-04-29", value: 0.8907 },
-  { date: "2026-04-30", value: 0.891 },
-  { date: "2026-05-06", value: 0.9096 },
-  { date: "2026-05-08", value: 0.942 },
-  { date: "2026-05-13", value: 0.9438 },
-  { date: "2026-05-15", value: 0.9426 },
-  { date: "2026-05-20", value: 0.9162 },
-  { date: "2026-05-22", value: 0.9278 },
-  { date: "2026-05-27", value: 0.921 },
-  { date: "2026-05-29", value: 0.924 },
-  { date: "2026-06-03", value: 0.8998 }
-];
+// ── 私募CTA产品净值数据从 state.data.ctaNavData 读取（存储在 latest.json 中）──
 
 const PHASE2_START = "2026-05-05";
 
@@ -841,12 +789,13 @@ function mountCTAComparisonChart(state, phase = "phase2", t = key => key) {
 
   // CTA日期 -> 净值映射
   const ctaMap = {};
-  CTA_NAV_DATA.forEach(d => {
+  const ctaNavData = state.data.ctaNavData || [];
+  ctaNavData.forEach(d => {
     ctaMap[d.date] = d.value;
   });
 
   // 获取共同日期（只保留两个产品都有数据的日期）
-  const ctaDates = CTA_NAV_DATA.map(d => d.date);
+  const ctaDates = ctaNavData.map(d => d.date);
   const commonDates = ctaDates.filter(d => futuresMap[d] != null).sort();
 
   if (commonDates.length === 0) return;
