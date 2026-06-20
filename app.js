@@ -14,6 +14,12 @@ const APP_VERSION_KEY = "cj-app-version";
 async function bootstrap() {
   clearObsoleteCache();
   applyTheme();
+  // Read lang from URL if present (coming from landing page)
+  var urlParams = new URLSearchParams(window.location.search);
+  var urlLang = urlParams.get('lang');
+  if (urlLang && ['zh', 'zh-hant', 'en'].indexOf(urlLang) >= 0) {
+    localStorage.setItem('cj-lang', urlLang);
+  }
   state = await createInitialState();
   renderApp(state, t);
   bindEvents(state, t, renderApp);

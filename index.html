@@ -653,6 +653,14 @@ function switchLang() {
   const next = langs[idx];
   localStorage.setItem(LANG_KEY, next);
   applyLang(next);
+  updateAppLinks(next);
+}
+
+function updateAppLinks(lang) {
+  var links = document.querySelectorAll('a[href^="./app.html"]');
+  for (var i = 0; i < links.length; i++) {
+    links[i].href = './app.html?lang=' + lang;
+  }
 }
 
 function switchTheme() {
@@ -662,8 +670,13 @@ function switchTheme() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+  var urlLang = new URLSearchParams(window.location.search).get('lang');
+  if (urlLang && ['zh', 'zh-hant', 'en'].indexOf(urlLang) >= 0) {
+    localStorage.setItem(LANG_KEY, urlLang);
+  }
   var savedLang = localStorage.getItem(LANG_KEY) || "zh";
   applyLang(savedLang);
+  updateAppLinks(savedLang);
   var savedTheme = localStorage.getItem(THEME_KEY) || "dark";
   applyTheme(savedTheme);
   document.getElementById("theme-toggle").addEventListener("click", switchTheme);
