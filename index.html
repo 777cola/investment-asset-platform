@@ -1,90 +1,658 @@
 <!DOCTYPE html>
 <html lang="zh-CN" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <title>恺皓资本 · 资产管理平台</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <script>
-      (async function() {
-        // ============================================================
-        // 【版本号管理】
-        // 每次更新代码后，请修改此版本号以触发自动缓存刷新
-        // 格式：年份+月份+日期+修订号，例如：20260510.1
-        // 修改后用户访问时会自动清除 localStorage/sessionStorage 并刷新页面
-        // ============================================================
-        const CURRENT_VERSION = "20260510.1";
-        const CACHE_KEY = "kh-capital-version";
-        
-        const savedVersion = localStorage.getItem(CACHE_KEY);
-        
-        if (savedVersion !== CURRENT_VERSION) {
-          localStorage.clear();
-          sessionStorage.clear();
-          localStorage.setItem(CACHE_KEY, CURRENT_VERSION);
-          window.location.href = window.location.href + '?v=' + CURRENT_VERSION;
-          return;
-        }
-        
-        window.__ASSET_VERSION__ = CURRENT_VERSION;
-        const stylesheet = document.createElement("link");
-        stylesheet.rel = "stylesheet";
-        stylesheet.href = `./styles.css?v=${window.__ASSET_VERSION__}`;
-        document.head.appendChild(stylesheet);
-      })();
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  </head>
-  <body>
-    <div class="bg-canvas" aria-hidden="true">
-      <div class="bg-gradient"></div>
-      <div class="bg-grid"></div>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">恺皓资本 · 投资资产管理平台</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --blue-300: #66a3ff;
+      --blue-400: #3385ff;
+      --blue-500: #0052ff;
+      --blue-600: #0041c7;
+      --blue-700: #003194;
+      --orange-300: #ffb366;
+      --orange-400: #ff9933;
+      --orange-500: #ff7d00;
+      --orange-600: #cc6400;
+      --font-body: 'DM Sans','Microsoft YaHei',sans-serif;
+      --font-mono: 'DM Mono','Times New Roman',monospace;
+      --r-sm: 8px;
+      --r-md: 12px;
+      --r-lg: 16px;
+      --r-xl: 24px;
+      --r-full: 9999px;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md: 0 6px 24px rgba(0,0,0,0.12);
+      --shadow-lg: 0 16px 56px rgba(0,0,0,0.18);
+      --shadow-blue: 0 6px 28px rgba(0,82,255,0.3);
+      --shadow-orange: 0 6px 28px rgba(255,125,0,0.25);
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+      --t-fast: 160ms var(--ease);
+      --t-mid: 260ms var(--ease);
+      --max-w: 1480px;
+      --navbar-h: 68px;
+    }
+    [data-theme="dark"] {
+      --bg: #0a0e14;
+      --bg-2: #111827;
+      --surface: rgba(17,24,39,0.96);
+      --surface-2: rgba(31,41,55,0.88);
+      --surface-hover: rgba(0,82,255,0.06);
+      --border: rgba(255,255,255,0.1);
+      --border-blue: rgba(0,82,255,0.45);
+      --border-orange: rgba(255,125,0,0.4);
+      --text-primary: #f9fafb;
+      --text-secondary: rgba(249,250,251,0.65);
+      --text-tertiary: rgba(249,250,251,0.35);
+      --card-bg: rgba(17,24,39,0.98);
+      --card-bg-alt: rgba(10,14,20,0.98);
+      --up: #22c55e;
+      --down: #ef4444;
+      --orb-1: rgba(0,82,255,0.12);
+      --orb-2: rgba(255,125,0,0.08);
+      --orb-3: rgba(255,153,51,0.06);
+      --navbar-bg: rgba(10,14,20,0.9);
+      color-scheme: dark;
+    }
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --bg-2: #e2e8f0;
+      --surface: rgba(255,255,255,0.98);
+      --surface-2: rgba(248,250,252,0.95);
+      --surface-hover: rgba(0,82,255,0.04);
+      --border: rgba(15,23,42,0.1);
+      --border-blue: rgba(0,82,255,0.3);
+      --border-orange: rgba(255,125,0,0.28);
+      --text-primary: #0f172a;
+      --text-secondary: rgba(15,23,42,0.6);
+      --text-tertiary: rgba(15,23,42,0.35);
+      --card-bg: #ffffff;
+      --card-bg-alt: rgba(248,250,252,0.98);
+      --up: #16a34a;
+      --down: #dc2626;
+      --orb-1: rgba(0,82,255,0.06);
+      --orb-2: rgba(255,125,0,0.04);
+      --orb-3: rgba(255,153,51,0.03);
+      --navbar-bg: rgba(255,255,255,0.95);
+      color-scheme: light;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{font-size:16px;-webkit-font-smoothing:antialiased;scroll-behavior:smooth;transition:background var(--t-mid),color var(--t-mid)}
+    body{
+      font-family:var(--font-body);
+      background:var(--bg);
+      color:var(--text-primary);
+      min-height:100vh;
+      line-height:1.6;
+      overflow-x:hidden;
+      transition:background var(--t-mid),color var(--t-mid)
+    }
+    a{color:inherit;text-decoration:none}
+    button{cursor:pointer}
 
-    <div class="app-shell">
-      <header class="navbar">
-        <div class="navbar-brand">
-          <div class="brand-logo"><span></span>KH</span></div>
-          <div class="brand-text">
-            <div class="logo-title">恺皓资本</div>
-            <div class="logo-subtitle">KaiHao Capital</div>
+    .bg-canvas{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+    .bg-gradient{
+      position:absolute;inset:0;
+      background:radial-gradient(ellipse 70% 45% at 20% -10%,var(--orb-1),transparent),
+                 radial-gradient(ellipse 55% 40% at 90% 20%,var(--orb-2),transparent),
+                 radial-gradient(ellipse 50% 35% at 60% 110%,var(--orb-3),transparent)
+    }
+    .bg-grid{
+      position:absolute;inset:0;
+      background-image:linear-gradient(var(--border) 1px,transparent 1px),
+                      linear-gradient(90deg,var(--border) 1px,transparent 1px);
+      background-size:48px 48px;opacity:0.3
+    }
+
+    .app-shell{
+      position:relative;z-index:1;
+      width:min(calc(100% - 56px),var(--max-w));
+      margin:0 auto;
+    }
+
+    .navbar{
+      display:flex;align-items:center;gap:20px;
+      height:var(--navbar-h);padding:0 24px;
+      margin:20px 0 24px;
+      background:var(--navbar-bg);
+      border:1px solid var(--border);
+      border-radius:var(--r-xl);
+      backdrop-filter:blur(24px);
+      box-shadow:var(--shadow-md);
+      transition:background var(--t-mid),border var(--t-mid)
+    }
+    .navbar-brand{display:flex;align-items:center;gap:14px;flex-shrink:0}
+    .brand-logo{
+      display:flex;align-items:center;justify-content:center;
+      width:44px;height:44px;
+      border-radius:var(--r-lg);
+      background:linear-gradient(135deg,var(--blue-500),var(--orange-500));
+      position:relative;overflow:hidden;
+      color:#fff;font-weight:800;font-size:1rem;letter-spacing:0.04em;z-index:1;
+      flex-shrink:0
+    }
+    .brand-logo::before{
+      content:'';position:absolute;inset:-30%;
+      background:linear-gradient(45deg,transparent 40%,rgba(255,125,0,0.3) 50%,transparent 60%);
+      transform:translateX(-100%) rotate(25deg);
+      animation:shimmer 3.5s infinite
+    }
+    @keyframes shimmer{0%{transform:translateX(-100%) rotate(25deg)}20%,100%{transform:translateX(100%) rotate(25deg)}}
+    .logo-title{font-size:1.05rem;font-weight:800;letter-spacing:-0.02em}
+    .logo-subtitle{font-size:0.68rem;color:var(--text-tertiary);letter-spacing:0.08em;text-transform:uppercase}
+    .navbar-links{display:flex;align-items:center;gap:12px;margin-left:auto}
+    .navbar-links a{font-size:0.85rem;color:var(--text-secondary);transition:color var(--t-fast);font-weight:600}
+    .navbar-links a:hover{color:var(--text-primary)}
+    .icon-btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:38px;height:38px;
+      border-radius:var(--r-md);
+      border:1px solid var(--border);
+      background:var(--surface-2);
+      color:var(--text-secondary);
+      transition:all var(--t-fast)
+    }
+    .icon-btn:hover{background:rgba(255,125,0,0.08);color:var(--orange-500);border-color:var(--border-orange)}
+    .icon-btn svg{width:16px;height:16px}
+    [data-theme="dark"] .icon-sun{display:none}
+    [data-theme="dark"] .icon-moon{display:block}
+    [data-theme="light"] .icon-sun{display:block}
+    [data-theme="light"] .icon-moon{display:none}
+
+    .btn-primary,.btn-orange{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      height:42px;padding:0 20px;
+      border-radius:var(--r-lg);
+      border:1px solid transparent;
+      font-size:0.88rem;font-weight:700;
+      transition:all var(--t-fast);
+      white-space:nowrap;color:#fff
+    }
+    .btn-primary{background:linear-gradient(135deg,var(--blue-500),var(--blue-600));box-shadow:var(--shadow-blue)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,82,255,0.4)}
+    .btn-orange{background:linear-gradient(135deg,var(--orange-500),var(--orange-600));box-shadow:var(--shadow-orange)}
+    .btn-orange:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,125,0,0.35)}
+    .btn-lg{height:50px;padding:0 28px;font-size:0.98rem;border-radius:var(--r-xl)}
+
+    .hero{padding:40px 0 60px}
+    .hero-inner{display:grid;grid-template-columns:1.2fr 0.8fr;gap:32px;align-items:center}
+
+    .auth-hero{
+      padding:48px 42px;
+      background:linear-gradient(145deg,rgba(0,82,255,0.08),rgba(255,125,0,0.04));
+      border:1px solid var(--border-blue);
+      border-radius:var(--r-xl);
+      position:relative;overflow:hidden
+    }
+    .auth-hero::before{
+      content:'';position:absolute;top:-40%;right:-20%;width:300px;height:300px;
+      background:radial-gradient(circle,rgba(255,125,0,0.08),transparent 70%);
+      pointer-events:none
+    }
+    .auth-hero-badge{
+      display:inline-flex;align-items:center;gap:10px;height:38px;padding:0 16px;
+      border-radius:var(--r-full);
+      border:1px solid rgba(34,197,94,0.35);
+      background:rgba(34,197,94,0.1);
+      font-size:0.84rem;color:var(--up);margin-bottom:18px
+    }
+    .auth-hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--up);flex-shrink:0}
+    .auth-hero-title{font-size:clamp(1.9rem,3.8vw,3rem);font-weight:900;letter-spacing:-0.05em;line-height:1.05;margin-bottom:18px}
+    .auth-hero-title .hl-blue{background:linear-gradient(135deg,var(--blue-400),var(--blue-600));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .auth-hero-title .hl-orange{background:linear-gradient(135deg,var(--orange-400),var(--orange-600));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .auth-hero-desc{font-size:0.98rem;color:var(--text-secondary);line-height:1.75;margin-bottom:24px}
+
+    .card{
+      border-radius:var(--r-lg);
+      border:1px solid var(--border);
+      background:var(--card-bg);
+      overflow:hidden;
+      transition:all var(--t-fast)
+    }
+    .card-body{padding:22px 24px}
+    .card-header{padding:20px 24px 0;margin-bottom:16px}
+    .card-title{font-size:1rem;font-weight:800;color:var(--text-primary)}
+    .card-subtitle{font-size:0.82rem;color:var(--text-secondary);margin-top:4px}
+
+    .kpi-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .kpi-card{
+      padding:18px 20px;
+      border-radius:var(--r-lg);
+      border:1px solid var(--border);
+      background:var(--card-bg);
+      transition:all var(--t-fast);
+      position:relative;overflow:hidden
+    }
+    .kpi-card::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:3px;
+      background:linear-gradient(90deg,var(--blue-500),var(--orange-500));
+      opacity:0;
+      transition:opacity var(--t-fast)
+    }
+    .kpi-card:hover{border-color:var(--border-orange);transform:translateY(-3px);box-shadow:var(--shadow-md)}
+    .kpi-card:hover::before{opacity:1}
+    .kpi-card.highlighted{border-color:var(--border-orange);background:linear-gradient(145deg,rgba(0,82,255,0.06),var(--card-bg))}
+    .kpi-card.highlighted::before{opacity:1}
+    .kpi-label{font-size:0.75rem;font-weight:700;color:var(--text-tertiary);letter-spacing:0.05em;text-transform:uppercase;margin-bottom:10px}
+    .kpi-value{font-size:clamp(1.3rem,2.4vw,1.75rem);font-weight:800;letter-spacing:-0.04em;line-height:1;font-family:var(--font-mono)}
+    .kpi-caption{margin-top:8px;font-size:0.78rem;color:var(--text-tertiary)}
+
+    .sec{padding:60px 0}
+    .sec-label{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:0.75rem;font-weight:700;color:var(--text-tertiary);
+      letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px
+    }
+    .sec-title{font-size:1.5rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:12px}
+    .sec-desc{font-size:0.9rem;color:var(--text-secondary);max-width:580px;line-height:1.7;margin-bottom:32px}
+
+    .f-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .f-card{
+      background:var(--card-bg);
+      border:1px solid var(--border);
+      border-radius:var(--r-lg);
+      padding:22px 24px;
+      transition:all var(--t-fast)
+    }
+    .f-card:hover{border-color:var(--border-orange);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+    .f-icon{
+      width:38px;height:38px;
+      background:var(--surface-hover);
+      border-radius:var(--r-md);
+      display:flex;align-items:center;justify-content:center;
+      margin-bottom:14px
+    }
+    .f-icon svg{width:18px;height:18px;stroke:var(--blue-400)}
+    .f-card h3{font-size:0.95rem;font-weight:700;margin-bottom:8px}
+    .f-card p{font-size:0.82rem;color:var(--text-secondary);line-height:1.6}
+
+    .ab-wrap{max-width:700px;margin:0 auto;text-align:center}
+    .ab-wrap p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin-bottom:16px}
+    .ab-values{display:flex;justify-content:center;gap:48px;margin-top:36px;flex-wrap:wrap}
+    .ab-v{text-align:center}
+    .ab-v-num{font-size:1.6rem;font-weight:800;font-family:var(--font-mono);background:linear-gradient(135deg,var(--blue-400),var(--blue-600));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .ab-v-lbl{font-size:0.82rem;color:var(--text-tertiary);margin-top:4px}
+
+    .cta-section{text-align:center;padding:60px 0}
+    .cta-section h2{font-size:1.6rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:12px}
+    .cta-section p{font-size:0.92rem;color:var(--text-secondary);margin-bottom:28px}
+
+    .ft{
+      padding:24px 0 40px;
+      border-top:1px solid var(--border);
+      display:flex;justify-content:space-between;align-items:center;
+      font-size:0.78rem;color:var(--text-tertiary)
+    }
+
+    .fi{opacity:0;transform:translateY(16px);animation:fadeIn 0.5s var(--ease) forwards}
+    .fi-1{animation-delay:60ms}.fi-2{animation-delay:120ms}
+    @keyframes fadeIn{to{opacity:1;transform:translateY(0)}}
+
+    @media(max-width:1000px){
+      .hero-inner{grid-template-columns:1fr;gap:24px}
+      .f-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:600px){
+      .f-grid{grid-template-columns:1fr}
+      .kpi-grid-2{grid-template-columns:1fr}
+      .ft{flex-direction:column;gap:8px;text-align:center}
+      .hero{padding:0 0 40px}
+      .navbar-links a[href="#features"],.navbar-links a[href="#about"]{display:none}
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg-canvas">
+  <div class="bg-gradient"></div>
+  <div class="bg-grid"></div>
+</div>
+
+<div class="app-shell">
+
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="brand-logo">KH</div>
+      <div>
+        <div class="logo-title" id="brand-name">恺皓资本</div>
+        <div class="logo-subtitle">KaiHao Capital</div>
+      </div>
+    </div>
+    <div class="navbar-links">
+      <a href="#features" id="nav-features">功能概述</a>
+      <a href="#about" id="nav-about">关于我们</a>
+      <button class="icon-btn" id="theme-toggle" title="切换主题">
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <button class="icon-btn" id="lang-toggle" title="语言">
+        <span id="lang-label" style="font-size:0.75rem;font-weight:700">简体</span>
+      </button>
+      <a href="./app.html" class="btn-primary" id="nav-enter">进入平台 →</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="fi">
+        <div class="auth-hero">
+          <div class="auth-hero-badge">
+            <span class="auth-hero-badge-dot"></span>
+            <span id="hero-badge-text">投资资产管理平台</span>
+          </div>
+          <div class="auth-hero-title" id="hero-title-top">
+            专业管理<br>
+            <span class="hl-blue">投资资产</span><span class="hl-orange">，稳健增值</span>
+          </div>
+          <div class="auth-hero-desc" id="hero-desc">
+            恺皓资本 — 为投资者提供清晰透明的资产查询入口，随时随地查看投资概况、收益动态与产品明细。
+          </div>
+          <a href="./app.html" class="btn-primary btn-lg" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px" id="hero-btn">
+            进入平台
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="fi fi-1">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title" id="card-title-text">资产概览</div>
+              <div class="card-subtitle" id="card-subtitle-text">截至 2026-06-20</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="kpi-grid-2">
+              <div class="kpi-card highlighted">
+                <div class="kpi-label" id="kpi-label-1">累计管理本金</div>
+                <div class="kpi-value">¥5,750,000</div>
+                <div class="kpi-caption" id="kpi-caption-1">平台总管理规模</div>
+              </div>
+              <div class="kpi-card highlighted">
+                <div class="kpi-label" id="kpi-label-2">投资者数量</div>
+                <div class="kpi-value" id="kpi-value-2">6 位</div>
+                <div class="kpi-caption" id="kpi-caption-2">持续增长中</div>
+              </div>
+            </div>
           </div>
         </div>
-        <div id="topbar-meta" class="topbar-meta"></div>
-        <div class="navbar-controls">
-          <button id="theme-toggle" class="icon-btn" title="切换主题">
-            <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-            <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          </button>
-          <button id="lang-toggle" class="icon-btn" title="语言">
-            <span id="lang-label">简体</span>
-          </button>
-          <div id="session-area"></div>
-        </div>
-      </header>
-
-      <div id="flash-message" class="flash hidden" role="status" aria-live="polite"></div>
-
-      <main class="workspace">
-        <aside id="sidebar" class="sidebar"></aside>
-        <section id="main-view" class="content-area"></section>
-      </main>
+      </div>
     </div>
+  </section>
 
-    <input type="file" id="import-file" accept=".json" style="display:none" />
-    <input type="file" id="import-excel-file" accept=".xlsx,.xls" style="display:none" />
+  <section class="sec" id="features">
+    <div class="sec-label" id="sec-features-label">核心功能</div>
+    <h2 class="sec-title" id="sec-features-title">投资者可以做什么</h2>
+    <p class="sec-desc" id="sec-features-desc">登录平台后，您可以清晰地了解自己的投资情况，实时跟踪资产变化。</p>
+    <div class="f-grid">
+      <div class="f-card">
+        <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></div>
+        <h3 id="f1-title">资产全景</h3>
+        <p id="f1-desc">登录后即可查看您的投资总览，包括累计投入、最新估值、累计收益等关键数据。</p>
+      </div>
+      <div class="f-card">
+        <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+        <h3 id="f2-title">投资方向</h3>
+        <p id="f2-desc">清晰展示您的资金在不同产品中的分配比例，了解每一笔投资的具体去向。</p>
+      </div>
+      <div class="f-card">
+        <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3 id="f3-title">收益动态</h3>
+        <p id="f3-desc">实时查看各投资产品的净值变化与收益率，掌握资产的增长情况。</p>
+      </div>
+      <div class="f-card">
+        <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 12 15 20 7"/><polyline points="4 15 12 23 20 15"/></svg></div>
+        <h3 id="f4-title">利息记录</h3>
+        <p id="f4-desc">查看历史利息发放明细，每一笔都清晰可追溯，收益心中有数。</p>
+      </div>
+      <div class="f-card">
+        <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        <h3 id="f5-title">沟通纪要</h3>
+        <p id="f5-desc">查看投资顾问与您沟通的历史记录，重要事项不遗漏。</p>
+      </div>
+      <div class="f-card">
+        <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3 id="f6-title">随时访问</h3>
+        <p id="f6-desc">打开浏览器即可登录，无需安装任何软件，随时随地查看您的资产状况。</p>
+      </div>
+    </div>
+  </section>
 
-    <script type="module">
-      await import(`./app.js?v=${window.__ASSET_VERSION__}`);
-    </script>
-  </body>
+  <section class="sec" id="about">
+    <div class="sec-label" id="sec-about-label">关于我们</div>
+    <div class="ab-wrap">
+      <h2 class="sec-title" id="sec-about-title">恺皓资本</h2>
+      <p id="about-p1">恺皓资本专注于为投资者提供专业、透明、便捷的资产管理服务。我们深知每一笔投资背后都是信任，因此始终将投资者的利益放在首位。</p>
+      <p id="about-p2">通过恺皓资本资产管理平台，每位投资者可以随时登录查看自己的资产配置、收益情况和历史记录。我们坚信，信息的透明是良好合作的基石。</p>
+      <div class="ab-values">
+        <div class="ab-v">
+          <div class="ab-v-num" id="v1-num">专业</div>
+          <div class="ab-v-lbl" id="v1-lbl">严谨的投资管理流程</div>
+        </div>
+        <div class="ab-v">
+          <div class="ab-v-num" id="v2-num">透明</div>
+          <div class="ab-v-lbl" id="v2-lbl">数据实时可查</div>
+        </div>
+        <div class="ab-v">
+          <div class="ab-v-num" id="v3-num">便捷</div>
+          <div class="ab-v-lbl" id="v3-lbl">随时随地在线查看</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2 id="cta-title">立即登录，查看您的资产</h2>
+    <p id="cta-desc">已注册的投资者可直接登录，查看您的投资详情与最新收益。</p>
+    <a href="./app.html" class="btn-primary btn-lg" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none" id="cta-btn">
+      进入管理平台
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+  </section>
+
+  <footer class="ft">
+    <span>© 2026 恺皓资本 KaiHao Capital</span>
+    <span id="footer-tag">投资资产管理平台</span>
+  </footer>
+
+</div>
+
+<script>
+const LANG_KEY = "cj-lang";
+const THEME_KEY = "cj-theme";
+
+const i18n = {
+  zh: {
+    langLabel: "简体",
+    pageTitle: "恺皓资本 · 投资资产管理平台",
+    brandName: "恺皓资本",
+    navFeatures: "功能概述",
+    navAbout: "关于我们",
+    navEnter: "进入平台 →",
+    heroBadge: "投资资产管理平台",
+    heroTitle: '专业管理<br><span class="hl-blue">投资资产</span><span class="hl-orange">，稳健增值</span>',
+    heroDesc: "恺皓资本 — 为投资者提供清晰透明的资产查询入口，随时随地查看投资概况、收益动态与产品明细。",
+    heroBtn: "进入平台",
+    cardTitle: "资产概览",
+    cardSubtitle: "截至 2026-06-20",
+    kpiLabel1: "累计管理本金",
+    kpiCaption1: "平台总管理规模",
+    kpiLabel2: "投资者数量",
+    kpiValue2: "6 位",
+    kpiCaption2: "持续增长中",
+    secFeaturesLabel: "核心功能",
+    secFeaturesTitle: "投资者可以做什么",
+    secFeaturesDesc: "登录平台后，您可以清晰地了解自己的投资情况，实时跟踪资产变化。",
+    f1Title: "资产全景",
+    f1Desc: "登录后即可查看您的投资总览，包括累计投入、最新估值、累计收益等关键数据。",
+    f2Title: "投资方向",
+    f2Desc: "清晰展示您的资金在不同产品中的分配比例，了解每一笔投资的具体去向。",
+    f3Title: "收益动态",
+    f3Desc: "实时查看各投资产品的净值变化与收益率，掌握资产的增长情况。",
+    f4Title: "利息记录",
+    f4Desc: "查看历史利息发放明细，每一笔都清晰可追溯，收益心中有数。",
+    f5Title: "沟通纪要",
+    f5Desc: "查看投资顾问与您沟通的历史记录，重要事项不遗漏。",
+    f6Title: "随时访问",
+    f6Desc: "打开浏览器即可登录，无需安装任何软件，随时随地查看您的资产状况。",
+    secAboutLabel: "关于我们",
+    secAboutTitle: "恺皓资本",
+    aboutP1: "恺皓资本专注于为投资者提供专业、透明、便捷的资产管理服务。我们深知每一笔投资背后都是信任，因此始终将投资者的利益放在首位。",
+    aboutP2: "通过恺皓资本资产管理平台，每位投资者可以随时登录查看自己的资产配置、收益情况和历史记录。我们坚信，信息的透明是良好合作的基石。",
+    v1Num: "专业",
+    v1Lbl: "严谨的投资管理流程",
+    v2Num: "透明",
+    v2Lbl: "数据实时可查",
+    v3Num: "便捷",
+    v3Lbl: "随时随地在线查看",
+    ctaTitle: "立即登录，查看您的资产",
+    ctaDesc: "已注册的投资者可直接登录，查看您的投资详情与最新收益。",
+    ctaBtn: "进入管理平台",
+    footerTag: "投资资产管理平台",
+  },
+  "zh-hant": {
+    langLabel: "繁體",
+    pageTitle: "愷皓資本 · 投資資產管理平台",
+    brandName: "愷皓資本",
+    navFeatures: "功能概述",
+    navAbout: "關於我們",
+    navEnter: "進入平台 →",
+    heroBadge: "投資資產管理平台",
+    heroTitle: '專業管理<br><span class="hl-blue">投資資產</span><span class="hl-orange">，穩健增值</span>',
+    heroDesc: "愷皓資本 — 為投資者提供清晰透明的資產查詢入口，隨時隨地查看投資概況、收益動態與產品明細。",
+    heroBtn: "進入平台",
+    cardTitle: "資產概覽",
+    cardSubtitle: "截至 2026-06-20",
+    kpiLabel1: "累計管理本金",
+    kpiCaption1: "平台總管理規模",
+    kpiLabel2: "投資者數量",
+    kpiValue2: "6 位",
+    kpiCaption2: "持續增長中",
+    secFeaturesLabel: "核心功能",
+    secFeaturesTitle: "投資者可以做什麼",
+    secFeaturesDesc: "登錄平台後，您可以清晰地了解自己的投資情況，即時跟蹤資產變化。",
+    f1Title: "資產全景",
+    f1Desc: "登錄後即可查看您的投資總覽，包括累計投入、最新估值、累計收益等關鍵數據。",
+    f2Title: "投資方向",
+    f2Desc: "清晰展示您的資金在不同產品中的分配比例，了解每一筆投資的具體去向。",
+    f3Title: "收益動態",
+    f3Desc: "即時查看各投資產品的淨值變化與收益率，掌握資產的增長情況。",
+    f4Title: "利息記錄",
+    f4Desc: "查看歷史利息發放明細，每一筆都清晰可追溯，收益心中有數。",
+    f5Title: "溝通紀要",
+    f5Desc: "查看投資顧問與您溝通的歷史記錄，重要事項不遺漏。",
+    f6Title: "隨時訪問",
+    f6Desc: "打開瀏覽器即可登錄，無需安裝任何軟件，隨時隨地查看您的資產狀況。",
+    secAboutLabel: "關於我們",
+    secAboutTitle: "愷皓資本",
+    aboutP1: "愷皓資本專注於為投資者提供專業、透明、便捷的資產管理服務。我們深知每一筆投資背後都是信任，因此始終將投資者的利益放在首位。",
+    aboutP2: "通過愷皓資本資產管理平台，每位投資者可以隨時登錄查看自己的資產配置、收益情況和歷史記錄。我們堅信，資訊的透明是良好合作的基石。",
+    v1Num: "專業",
+    v1Lbl: "嚴謹的投資管理流程",
+    v2Num: "透明",
+    v2Lbl: "數據即時可查",
+    v3Num: "便捷",
+    v3Lbl: "隨時隨地在線查看",
+    ctaTitle: "立即登錄，查看您的資產",
+    ctaDesc: "已註冊的投資者可直接登錄，查看您的投資詳情與最新收益。",
+    ctaBtn: "進入管理平台",
+    footerTag: "投資資產管理平台",
+  },
+  en: {
+    langLabel: "EN",
+    pageTitle: "KaiHao Capital · Asset Management Platform",
+    brandName: "KaiHao Capital",
+    navFeatures: "Features",
+    navAbout: "About",
+    navEnter: "Enter Platform →",
+    heroBadge: "Investment Asset Platform",
+    heroTitle: 'Professional<br><span class="hl-blue">Asset Management</span><span class="hl-orange">, Steady Growth</span>',
+    heroDesc: "KaiHao Capital — A clear and transparent asset portal for investors. View your portfolio overview, performance, and product details anytime.",
+    heroBtn: "Enter Platform",
+    cardTitle: "Portfolio Overview",
+    cardSubtitle: "As of 2026-06-20",
+    kpiLabel1: "Total Principal",
+    kpiCaption1: "Total AUM",
+    kpiLabel2: "Investors",
+    kpiValue2: "6",
+    kpiCaption2: "Growing",
+    secFeaturesLabel: "Features",
+    secFeaturesTitle: "What You Can Do",
+    secFeaturesDesc: "Log in to clearly see your investment details and track asset changes in real time.",
+    f1Title: "Portfolio View",
+    f1Desc: "View your investment summary including total invested, latest valuation, and cumulative returns.",
+    f2Title: "Allocations",
+    f2Desc: "See how your funds are allocated across different products and where each investment goes.",
+    f3Title: "Performance",
+    f3Desc: "Track NAV changes and returns of each investment product in real time.",
+    f4Title: "Interest Records",
+    f4Desc: "View detailed history of interest distributions — every payment is traceable.",
+    f5Title: "Meeting Notes",
+    f5Desc: "Review communication history with your investment advisor. Never miss a detail.",
+    f6Title: "Access Anywhere",
+    f6Desc: "Log in from any browser. No installation needed. Check your assets anytime.",
+    secAboutLabel: "About Us",
+    secAboutTitle: "KaiHao Capital",
+    aboutP1: "KaiHao Capital is dedicated to providing professional, transparent, and convenient asset management services. We understand that every investment is built on trust.",
+    aboutP2: "Through our platform, every investor can log in anytime to view their asset allocation, performance, and history. Transparency is the foundation of a strong partnership.",
+    v1Num: "Professional",
+    v1Lbl: "Rigorous investment process",
+    v2Num: "Transparent",
+    v2Lbl: "Real-time data access",
+    v3Num: "Convenient",
+    v3Lbl: "Access online anytime",
+    ctaTitle: "Log In & View Your Assets",
+    ctaDesc: "Registered investors can log in directly to view your investment details and latest returns.",
+    ctaBtn: "Enter Platform",
+    footerTag: "Asset Management Platform",
+  }
+};
+
+function applyLang(lang) {
+  const t = i18n[lang] || i18n.zh;
+  for (const [key, val] of Object.entries(t)) {
+    const el = document.getElementById(key);
+    if (el) el.innerHTML = val;
+  }
+  document.getElementById("lang-label").textContent = t.langLabel;
+  document.documentElement.lang = lang === "zh-hant" ? "zh-TW" : lang === "en" ? "en" : "zh-CN";
+}
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem(THEME_KEY, theme);
+}
+
+function switchLang() {
+  const langs = ["zh", "zh-hant", "en"];
+  const current = localStorage.getItem(LANG_KEY) || "zh";
+  const idx = (langs.indexOf(current) + 1) % langs.length;
+  const next = langs[idx];
+  localStorage.setItem(LANG_KEY, next);
+  applyLang(next);
+}
+
+function switchTheme() {
+  const current = document.documentElement.getAttribute("data-theme");
+  const next = current === "dark" ? "light" : "dark";
+  applyTheme(next);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // restore lang
+  const savedLang = localStorage.getItem(LANG_KEY) || "zh";
+  applyLang(savedLang);
+  // restore theme
+  const savedTheme = localStorage.getItem(THEME_KEY) || "dark";
+  applyTheme(savedTheme);
+
+  document.getElementById("theme-toggle").addEventListener("click", switchTheme);
+  document.getElementById("lang-toggle").addEventListener("click", switchLang);
+});
+</script>
+</body>
 </html>
