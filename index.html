@@ -342,9 +342,9 @@
         <div class="auth-hero">
           <div class="auth-hero-badge">
             <span class="auth-hero-badge-dot"></span>
-            <span id="hero-badge-text">投资资产管理平台</span>
+            <span id="hero-badge">投资资产管理平台</span>
           </div>
-          <div class="auth-hero-title" id="hero-title-top">
+          <div class="auth-hero-title" id="hero-title">
             专业管理<br>
             <span class="hl-blue">投资资产</span><span class="hl-orange">，稳健增值</span>
           </div>
@@ -361,21 +361,21 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-title" id="card-title-text">资产概览</div>
-              <div class="card-subtitle" id="card-subtitle-text">截至 2026-06-20</div>
+              <div class="card-title" id="card-title">资产概览</div>
+              <div class="card-subtitle" id="card-subtitle">截至 2026-06-20</div>
             </div>
           </div>
           <div class="card-body">
             <div class="kpi-grid-2">
               <div class="kpi-card highlighted">
-                <div class="kpi-label" id="kpi-label-1">累计管理本金</div>
+                <div class="kpi-label" id="kpi-label1">累计管理本金</div>
                 <div class="kpi-value">¥5,750,000</div>
-                <div class="kpi-caption" id="kpi-caption-1">平台总管理规模</div>
+                <div class="kpi-caption" id="kpi-caption1">平台总管理规模</div>
               </div>
               <div class="kpi-card highlighted">
-                <div class="kpi-label" id="kpi-label-2">投资者数量</div>
-                <div class="kpi-value" id="kpi-value-2">6 位</div>
-                <div class="kpi-caption" id="kpi-caption-2">持续增长中</div>
+                <div class="kpi-label" id="kpi-label2">投资者数量</div>
+                <div class="kpi-value" id="kpi-value2">6 位</div>
+                <div class="kpi-caption" id="kpi-caption2">持续增长中</div>
               </div>
             </div>
           </div>
@@ -614,10 +614,30 @@ const i18n = {
 
 function applyLang(lang) {
   const t = i18n[lang] || i18n.zh;
+  const map = {
+    langLabel: 'lang-label', pageTitle: 'page-title', brandName: 'brand-name',
+    navFeatures: 'nav-features', navAbout: 'nav-about', navEnter: 'nav-enter',
+    heroBadge: 'hero-badge', heroTitle: 'hero-title', heroDesc: 'hero-desc', heroBtn: 'hero-btn',
+    cardTitle: 'card-title', cardSubtitle: 'card-subtitle',
+    kpiLabel1: 'kpi-label1', kpiCaption1: 'kpi-caption1',
+    kpiLabel2: 'kpi-label2', kpiValue2: 'kpi-value2', kpiCaption2: 'kpi-caption2',
+    secFeaturesLabel: 'sec-features-label', secFeaturesTitle: 'sec-features-title', secFeaturesDesc: 'sec-features-desc',
+    f1Title: 'f1-title', f1Desc: 'f1-desc', f2Title: 'f2-title', f2Desc: 'f2-desc',
+    f3Title: 'f3-title', f3Desc: 'f3-desc', f4Title: 'f4-title', f4Desc: 'f4-desc',
+    f5Title: 'f5-title', f5Desc: 'f5-desc', f6Title: 'f6-title', f6Desc: 'f6-desc',
+    secAboutLabel: 'sec-about-label', secAboutTitle: 'sec-about-title',
+    aboutP1: 'about-p1', aboutP2: 'about-p2',
+    v1Num: 'v1-num', v1Lbl: 'v1-lbl', v2Num: 'v2-num', v2Lbl: 'v2-lbl', v3Num: 'v3-num', v3Lbl: 'v3-lbl',
+    ctaTitle: 'cta-title', ctaDesc: 'cta-desc', ctaBtn: 'cta-btn', footerTag: 'footer-tag'
+  };
   for (const [key, val] of Object.entries(t)) {
-    const el = document.getElementById(key);
+    const id = map[key] || key;
+    const el = document.getElementById(id);
     if (el) el.innerHTML = val;
   }
+  document.getElementById('lang-label').textContent = t.langLabel;
+  document.documentElement.lang = lang === 'zh-hant' ? 'zh-TW' : lang === 'en' ? 'en' : 'zh-CN';
+}
   document.getElementById("lang-label").textContent = t.langLabel;
   document.documentElement.lang = lang === "zh-hant" ? "zh-TW" : lang === "en" ? "en" : "zh-CN";
 }
