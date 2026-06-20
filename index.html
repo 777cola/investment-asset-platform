@@ -612,32 +612,31 @@ const i18n = {
   }
 };
 
+// key -> element id mapping
+const keyToId = {
+  langLabel: "lang-label", pageTitle: "page-title", brandName: "brand-name",
+  navFeatures: "nav-features", navAbout: "nav-about", navEnter: "nav-enter",
+  heroBadge: "hero-badge", heroTitle: "hero-title", heroDesc: "hero-desc", heroBtn: "hero-btn",
+  cardTitle: "card-title", cardSubtitle: "card-subtitle",
+  kpiLabel1: "kpi-label1", kpiCaption1: "kpi-caption1",
+  kpiLabel2: "kpi-label2", kpiValue2: "kpi-value2", kpiCaption2: "kpi-caption2",
+  secFeaturesLabel: "sec-features-label", secFeaturesTitle: "sec-features-title", secFeaturesDesc: "sec-features-desc",
+  f1Title: "f1-title", f1Desc: "f1-desc", f2Title: "f2-title", f2Desc: "f2-desc",
+  f3Title: "f3-title", f3Desc: "f3-desc", f4Title: "f4-title", f4Desc: "f4-desc",
+  f5Title: "f5-title", f5Desc: "f5-desc", f6Title: "f6-title", f6Desc: "f6-desc",
+  secAboutLabel: "sec-about-label", secAboutTitle: "sec-about-title",
+  aboutP1: "about-p1", aboutP2: "about-p2",
+  v1Num: "v1-num", v1Lbl: "v1-lbl", v2Num: "v2-num", v2Lbl: "v2-lbl", v3Num: "v3-num", v3Lbl: "v3-lbl",
+  ctaTitle: "cta-title", ctaDesc: "cta-desc", ctaBtn: "cta-btn", footerTag: "footer-tag"
+};
+
 function applyLang(lang) {
   const t = i18n[lang] || i18n.zh;
-  const map = {
-    langLabel: 'lang-label', pageTitle: 'page-title', brandName: 'brand-name',
-    navFeatures: 'nav-features', navAbout: 'nav-about', navEnter: 'nav-enter',
-    heroBadge: 'hero-badge', heroTitle: 'hero-title', heroDesc: 'hero-desc', heroBtn: 'hero-btn',
-    cardTitle: 'card-title', cardSubtitle: 'card-subtitle',
-    kpiLabel1: 'kpi-label1', kpiCaption1: 'kpi-caption1',
-    kpiLabel2: 'kpi-label2', kpiValue2: 'kpi-value2', kpiCaption2: 'kpi-caption2',
-    secFeaturesLabel: 'sec-features-label', secFeaturesTitle: 'sec-features-title', secFeaturesDesc: 'sec-features-desc',
-    f1Title: 'f1-title', f1Desc: 'f1-desc', f2Title: 'f2-title', f2Desc: 'f2-desc',
-    f3Title: 'f3-title', f3Desc: 'f3-desc', f4Title: 'f4-title', f4Desc: 'f4-desc',
-    f5Title: 'f5-title', f5Desc: 'f5-desc', f6Title: 'f6-title', f6Desc: 'f6-desc',
-    secAboutLabel: 'sec-about-label', secAboutTitle: 'sec-about-title',
-    aboutP1: 'about-p1', aboutP2: 'about-p2',
-    v1Num: 'v1-num', v1Lbl: 'v1-lbl', v2Num: 'v2-num', v2Lbl: 'v2-lbl', v3Num: 'v3-num', v3Lbl: 'v3-lbl',
-    ctaTitle: 'cta-title', ctaDesc: 'cta-desc', ctaBtn: 'cta-btn', footerTag: 'footer-tag'
-  };
   for (const [key, val] of Object.entries(t)) {
-    const id = map[key] || key;
+    const id = keyToId[key] || key;
     const el = document.getElementById(id);
     if (el) el.innerHTML = val;
   }
-  document.getElementById('lang-label').textContent = t.langLabel;
-  document.documentElement.lang = lang === 'zh-hant' ? 'zh-TW' : lang === 'en' ? 'en' : 'zh-CN';
-}
   document.getElementById("lang-label").textContent = t.langLabel;
   document.documentElement.lang = lang === "zh-hant" ? "zh-TW" : lang === "en" ? "en" : "zh-CN";
 }
@@ -662,14 +661,11 @@ function switchTheme() {
   applyTheme(next);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  // restore lang
-  const savedLang = localStorage.getItem(LANG_KEY) || "zh";
+document.addEventListener("DOMContentLoaded", function() {
+  var savedLang = localStorage.getItem(LANG_KEY) || "zh";
   applyLang(savedLang);
-  // restore theme
-  const savedTheme = localStorage.getItem(THEME_KEY) || "dark";
+  var savedTheme = localStorage.getItem(THEME_KEY) || "dark";
   applyTheme(savedTheme);
-
   document.getElementById("theme-toggle").addEventListener("click", switchTheme);
   document.getElementById("lang-toggle").addEventListener("click", switchLang);
 });
