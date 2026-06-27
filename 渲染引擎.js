@@ -11,6 +11,7 @@ import { renderProductManagement, afterRenderProductManagement } from "./产品�
 import { renderValueUpdate, afterRenderValueUpdate } from "./价值更新.js";
 import { renderAssetOverview, afterRenderAssetOverview } from "./资产全览.js";
 import { renderInterestRecords, afterRenderInterestRecords } from "./利息发放记录.js";
+import { initMobileNavigation, syncBottomNavFromState } from "./手机端导航.js";
 
 // 存储上一次的状态，用于比较变化
 let previousState = null;
@@ -97,11 +98,22 @@ function updateLangLabel(state) {
 }
 
 export function renderApp(state, t) {
+  // 手机端导航初始化（只执行一次）
+  if (!window.__mobileNavInitialized) {
+    initMobileNavigation(state, t, renderApp);
+    window.__mobileNavInitialized = true;
+  }
+
   // 渲染公共组件
   renderSidebar(state, t);
   renderTopbar(state, t);
   renderFlash(state);
   updateLangLabel(state);
+
+  // 关闭手机侧栏抽屉（重新渲染时自动收回）
+  if (window.__closeMobileSidebar) {
+    window.__closeMobileSidebar();
+  }
 
   const main = document.querySelector("#main-view");
   if (!main) return;
@@ -148,6 +160,9 @@ export function renderApp(state, t) {
   
   // 更新上一次的状态
   previousState = JSON.parse(JSON.stringify(state));
+
+  // 同步底部导航高亮
+  syncBottomNavFromState(state);
 }
 
 function renderInvestorView(state, t) {
