@@ -32,10 +32,17 @@ export function renderSidebar(state, t) {
   const sidebarEl = document.querySelector("#sidebar");
   if (!sidebarEl) return;
 
+  // 标记登录页状态，供手机端 CSS 使用
+  if (state.session) {
+    sidebarEl.classList.remove("sidebar-login");
+  } else {
+    sidebarEl.classList.add("sidebar-login");
+  }
+
   sidebarEl.innerHTML = `
     <div class="sidebar-scroll">
 
-      <div class="sidebar-section">
+      <div class="sidebar-section sidebar-section-version">
         <div class="sidebar-label">${t("versionHistory")}</div>
         <div class="info-list">
           ${VERSION_HISTORY.map((item, index) => `
@@ -71,7 +78,7 @@ export function renderSidebar(state, t) {
         </div>
       </div>
 
-      <div class="sidebar-section">
+      <div class="sidebar-section sidebar-section-data">
         <div class="sidebar-label">${t("dataUpdateRecord")}</div>
         <div class="info-list">
           <div class="info-item" style="
