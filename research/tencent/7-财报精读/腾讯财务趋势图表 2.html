@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>腾讯财务趋势图表 FY2021-FY2025</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f7fa; color: #333; line-height: 1.8; font-size: 15px; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 50px 0 40px; text-align: center; }
+.header h1 { font-size: 28px; font-weight: 900; letter-spacing: 1px; margin-bottom: 8px; }
+.header .subtitle { font-size: 16px; font-weight: 300; opacity: 0.85; }
+.header .meta { margin-top: 14px; font-size: 13px; opacity: 0.7; }
+.container { max-width: 1100px; margin: 0 auto; padding: 30px 24px; }
+.card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 24px 28px; margin-bottom: 28px; }
+.card h2 { font-size: 22px; font-weight: 700; color: #1A4B8C; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid #1A4B8C; display: inline-block; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; }
+
+/* Extra styles for chart content */
+.summary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; margin: 0 0 28px; }
+.summary-item { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 20px 16px; text-align: center; }
+.summary-item .big { font-size: 1.6em; font-weight: 700; color: #1A4B8C; }
+.summary-item .label { font-size: 0.8em; color: #666; margin-top: 4px; }
+.summary-item .trend { font-size: 0.85em; margin-top: 4px; }
+.up { color: #10B981; }
+.down { color: #EF4444; }
+.chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.chart-card { background: #fff; border: 1px solid #e8ecf1; border-radius: 10px; padding: 20px; }
+.chart-card.full { grid-column: 1 / -1; }
+.chart-card h3 { font-size: 0.95em; color: #333; margin-bottom: 12px; text-align: center; }
+.chart-wrapper { position: relative; height: 300px; }
+.chart-wrapper.tall { height: 360px; }
+.insight-box { background: #f8f9fb; border-radius: 10px; padding: 16px 20px; margin: 16px 0; border-left: 3px solid #1A4B8C; font-size: 0.9em; }
+.insight-box strong { color: #1A4B8C; }
+
+@media (max-width: 768px) {
+  .header { padding: 36px 16px 30px; }
+  .header h1 { font-size: 22px; }
+  .container { padding: 20px 12px; }
+  .card { padding: 16px; }
+  .chart-grid { grid-template-columns: 1fr; gap: 16px; }
+  .summary-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .summary-item { padding: 14px; }
+  .summary-item .big { font-size: 1.3em; }
+  .chart-wrapper { height: 240px; }
+  .chart-wrapper.tall { height: 280px; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <h1>腾讯财务趋势图表 FY2021 — FY2025</h1>
+  <div class="subtitle">数据来源：腾讯年报 | 单位：亿元人民币（除特别标注外）</div>
+</header>
+
+<div class="container">
+
+<!-- 速览卡片 -->
+<div class="summary-grid">
+  <div class="summary-item">
+    <div class="big">7,518亿</div>
+    <div class="label">FY2025总收入</div>
+    <div class="trend up">▲ +13.9% YoY</div>
+  </div>
+  <div class="summary-item">
+    <div class="big">56.3%</div>
+    <div class="label">FY2025毛利率</div>
+    <div class="trend up">▲ +12.9pp 五年</div>
+  </div>
+  <div class="summary-item">
+    <div class="big">2,248亿</div>
+    <div class="label">FY2025归母净利润</div>
+    <div class="trend up">▲ +15.9% YoY</div>
+  </div>
+  <div class="summary-item">
+    <div class="big">95.9%</div>
+    <div class="label">FCF/净利润比率</div>
+    <div class="trend" style="color:#F59E0B">▼ -4.9pp YoY</div>
+  </div>
+  <div class="summary-item">
+    <div class="big">20.51%</div>
+    <div class="label">ROE</div>
+    <div class="trend up">▲ 高质量回报</div>
+  </div>
+</div>
+
+<!-- 图表1+2：收入与利润 -->
+<div class="card">
+  <h2>收入与利润趋势</h2>
+  <div class="chart-grid">
+    <div class="chart-card">
+      <h3>总收入（亿元）</h3>
+      <div class="chart-wrapper"><canvas id="chartRevenue"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>毛利润 vs 净利润（亿元）</h3>
+      <div class="chart-wrapper"><canvas id="chartProfit"></canvas></div>
+    </div>
+  </div>
+  <div class="insight-box">
+    <strong>洞察：</strong> 收入从FY2021的5,601亿增长至FY2025的7,518亿（+34%）。毛利润增速（+87%至4,229亿）远超收入增速，是毛利率结构性提升的直接体现。净利润因FY2021含大量投资收益、FY2022-23受投资公允价值下跌影响，波动较大，但FY2024-25已回归健康的经营性增长。
+  </div>
+</div>
+
+<!-- 图表3+4：利润率 -->
+<div class="card">
+  <h2>利润率演进</h2>
+  <div class="chart-grid">
+    <div class="chart-card">
+      <h3>毛利率与净利率</h3>
+      <div class="chart-wrapper"><canvas id="chartMargin"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>营业利润率与EBITDA利润率</h3>
+      <div class="chart-wrapper"><canvas id="chartOpMargin"></canvas></div>
+    </div>
+  </div>
+  <div class="insight-box">
+    <strong>洞察：</strong> 毛利率五年提升近13pp（43.4%→56.3%），是腾讯基本面的最大结构性变化。净利率因投资收益波动出现较大起伏，但FY2025的29.9%净利率已经接近历史高位（FY2021的40.1%含大量非经常性收益，不可比）。
+  </div>
+</div>
+
+<!-- 图表5+6：现金流与FCF -->
+<div class="card">
+  <h2>现金流趋势</h2>
+  <div class="chart-grid">
+    <div class="chart-card">
+      <h3>自由现金流（亿元）</h3>
+      <div class="chart-wrapper"><canvas id="chartFCF"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>FCF/净利润比率</h3>
+      <div class="chart-wrapper"><canvas id="chartFCFRatio"></canvas></div>
+    </div>
+  </div>
+  <div class="insight-box">
+    <strong>洞察：</strong> FCF从FY2021的~1,480亿增长至FY2025的2,156亿（+46%）。FCF/净利润比率一直保持在~90-100%的极高水平，说明腾讯的利润含金量极高。FY2025小幅下降至95.9%，主要因主动增加的AI相关CapEx。
+  </div>
+</div>
+
+<!-- 图表7：ROE趋势 -->
+<div class="card">
+  <h2>盈利能力（ROE/ROIC）</h2>
+  <div class="chart-grid">
+    <div class="chart-card full">
+      <h3>ROE 与 ROIC 趋势</h3>
+      <div class="chart-wrapper tall"><canvas id="chartROE"></canvas></div>
+    </div>
+  </div>
+  <div class="insight-box">
+    <strong>洞察：</strong> ROE从FY2021的~23%（含大量投资收益）回落到FY2023的~11%后，FY2024-5强劲回升至20.51%，高于一般互联网公司15%的优秀线。ROIC达17.57%，远高于融资成本（~3-4%），每投入1元资本创造~0.18元回报。
+  </div>
+</div>
+
+<!-- 图表8：板块增长 -->
+<div class="card">
+  <h2>业务板块结构</h2>
+  <div class="chart-grid">
+    <div class="chart-card full">
+      <h3>收入板块构成（估算，亿元）</h3>
+      <div class="chart-wrapper tall"><canvas id="chartSegment"></canvas></div>
+    </div>
+  </div>
+  <div class="insight-box">
+    <strong>洞察：</strong> 增值服务（VAS）仍是最大收入来源但占比逐步下降（~55%→~48%）；网络广告占比从~15%提升至~18%，且增速最快；企业服务从~6%提升至~9%，成为第三增长极。结构优化是毛利率提升的核心驱动力。
+  </div>
+</div>
+
+</div>
+
+<footer class="footer">
+  <p>数据来源：腾讯FY2021-FY2025年报 | FY2021-FY2023部分数据为近似值</p>
+  <p>可视化生成时间：2026-07-07 | Powered by Chart.js</p>
+</footer>
+
+<script>
+// Color palette
+const colors = {
+  primary: '#1A4B8C',
+  primaryLight: '#2A6BBF',
+  primaryLighter: '#6B9FD2',
+  accent: '#E8A838',
+  accentLight: '#F5D68A',
+  green: '#10B981',
+  greenLight: '#6EE7B7',
+  red: '#EF4444',
+  purple: '#8B5CF6',
+  gray: '#94A3B8',
+};
+
+// === DATA ===
+const years = ['FY2021', 'FY2022', 'FY2023', 'FY2024', 'FY2025'];
+
+// Revenue & profit
+const revenue = [5601, 5546, 6090, 6603, 7518];
+const grossProfit = [2431, 2363, 2930, 3493, 4229];
+const operatingProfit = [1526, 1305, 1602, 2080, 2456];
+const netProfit = [2248, 1882, 1580, 1941, 2248];
+
+// Margins
+const grossMargin = [43.4, 42.6, 48.1, 52.9, 56.3];
+const netMargin = [40.1, 33.9, 25.9, 29.4, 29.9];
+const opMargin = [27.2, 23.5, 26.3, 31.5, 32.7];
+const ebitdaMargin = [33.5, 30.2, 32.0, 34.9, 36.4];
+
+// FCF
+const fcf = [1480, 1350, 1680, 1956, 2156];
+const fcfRatio = [65.8, 71.7, 106.3, 100.8, 95.9];
+
+// ROE/ROIC
+const roe = [23.2, 14.8, 11.3, 18.0, 20.51];
+const roic = [18.5, 12.0, 9.5, 15.0, 17.57];
+
+// Segment data (estimated)
+const segmentData = [
+  [3080, 2950, 3100, 3300, 3600],   // VAS
+  [840, 860, 1015, 1188, 1430],       // Ad
+  [1400, 1420, 1500, 1550, 1650],     // FinTech
+  [281, 316, 475, 565, 838]           // Enterprise
+];
+
+// === CHART CONFIG ===
+function createConfig(type, labels, datasets, options = {}) {
+  return {
+    type: type,
+    data: { labels: labels, datasets: datasets },
+    options: Object.assign({
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { usePointStyle: true, padding: 16, font: { size: 11 } } },
+        tooltip: { backgroundColor: '#1A1A2E', titleFont: { size: 12 }, bodyFont: { size: 12 }, padding: 10, cornerRadius: 8 }
+      },
+      scales: {
+        y: { beginAtZero: true, ticks: { font: { size: 11 } }, grid: { color: '#F1F5F9' } },
+        x: { ticks: { font: { size: 11 } }, grid: { display: false } }
+      }
+    }, options)
+  };
+}
+
+// 1. Revenue
+new Chart(document.getElementById('chartRevenue'), createConfig('bar', years, [{
+  label: '总收入（亿元）',
+  data: revenue,
+  backgroundColor: colors.primary,
+  borderRadius: 4,
+}], {
+  scales: { y: { beginAtZero: false, min: 5000 } }
+}));
+
+// 2. Gross Profit vs Net Profit
+new Chart(document.getElementById('chartProfit'), createConfig('line', years, [
+  { label: '毛利润', data: grossProfit, borderColor: colors.green, backgroundColor: colors.greenLight, fill: false, tension: 0.3, pointRadius: 5, pointBackgroundColor: colors.green },
+  { label: '净利润（归母）', data: netProfit, borderColor: colors.primary, backgroundColor: colors.primaryLighter, fill: false, tension: 0.3, pointRadius: 5, pointBackgroundColor: colors.primary },
+], { scales: { y: { beginAtZero: false, min: 1000 } } }));
+
+// 3. Margins
+new Chart(document.getElementById('chartMargin'), createConfig('line', years, [
+  { label: '毛利率', data: grossMargin, borderColor: colors.primary, backgroundColor: colors.primary, fill: false, tension: 0.3, pointRadius: 5, pointBackgroundColor: colors.primary },
+  { label: '净利率', data: netMargin, borderColor: colors.accent, backgroundColor: colors.accent, fill: false, tension: 0.3, pointRadius: 5, pointBackgroundColor: colors.accent },
+], { scales: { y: { min: 20, max: 60, ticks: { callback: v => v + '%' } } } }));
+
+// 4. Operating Margin
+new Chart(document.getElementById('chartOpMargin'), createConfig('line', years, [
+  { label: '营业利润率', data: opMargin, borderColor: colors.green, backgroundColor: colors.green, fill: false, tension: 0.3, pointRadius: 5, pointBackgroundColor: colors.green },
+  { label: 'EBITDA利润率', data: ebitdaMargin, borderColor: colors.purple, backgroundColor: colors.purple, fill: false, tension: 0.3, pointRadius: 5, pointBackgroundColor: colors.purple, borderDash: [5, 3] },
+], { scales: { y: { min: 20, max: 40, ticks: { callback: v => v + '%' } } } }));
+
+// 5. FCF
+new Chart(document.getElementById('chartFCF'), createConfig('bar', years, [{
+  label: '自由现金流（亿元）',
+  data: fcf,
+  backgroundColor: fcf.map(v => v >= 1800 ? colors.green : colors.primaryLighter),
+  borderRadius: 4,
+}], { scales: { y: { beginAtZero: false, min: 1000 } } }));
+
+// 6. FCF Ratio
+new Chart(document.getElementById('chartFCFRatio'), createConfig('line', years, [{
+  label: 'FCF/净利润',
+  data: fcfRatio,
+  borderColor: colors.accent,
+  backgroundColor: colors.accentLight,
+  fill: true,
+  tension: 0.3,
+  pointRadius: 6,
+  pointBackgroundColor: fcfRatio.map(v => v >= 95 ? colors.green : colors.red),
+}], {
+  scales: { y: { min: 50, max: 120, ticks: { callback: v => v + '%' } } }
+}));
+
+// 7. ROE/ROIC
+new Chart(document.getElementById('chartROE'), createConfig('bar', years, [
+  { label: 'ROE', data: roe, backgroundColor: colors.primary, borderRadius: 4 },
+  { label: 'ROIC', data: roic, backgroundColor: colors.green, borderRadius: 4 },
+], {
+  scales: { y: { min: 0, max: 28, ticks: { callback: v => v + '%' } } }
+}));
+
+// 8. Segment stacked bar
+new Chart(document.getElementById('chartSegment'), createConfig('bar', years, [
+  { label: '增值服务', data: segmentData[0], backgroundColor: colors.primary },
+  { label: '网络广告', data: segmentData[1], backgroundColor: colors.accent },
+  { label: '金融科技', data: segmentData[2], backgroundColor: colors.green },
+  { label: '企业服务', data: segmentData[3], backgroundColor: colors.purple },
+], {
+  scales: {
+    x: { stacked: true },
+    y: { stacked: true, beginAtZero: false, min: 5000 }
+  }
+}));
+</script>
+
+</body>
+</html>

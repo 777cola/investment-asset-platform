@@ -35,7 +35,7 @@ function t(key) {
 
 /* ── 主题初始化 ── */
 function applyTheme() {
-  const saved = localStorage.getItem("cj-theme") || "dark";
+  const saved = localStorage.getItem("cj-theme") || "light";
   document.documentElement.setAttribute("data-theme", saved);
 }
 
