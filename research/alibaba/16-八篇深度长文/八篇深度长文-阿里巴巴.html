@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>八篇深度长文 — 阿里巴巴（BABA.NYSE）深度研究 | 2026.07.07</title>
+<style>
+  /* ===== PDD Standard CSS ===== */
+  :root {
+    --bg: #f7f8fa;
+    --card: #ffffff;
+    --accent: #1a73e8;
+    --accent-light: #e8f0fe;
+    --text: #1f1f1f;
+    --text-secondary: #5f6368;
+    --border: #dadce0;
+    --green: #188038;
+    --red: #d93025;
+    --orange: #e37400;
+    --yellow: #f9ab00;
+    --max-width: 960px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    font-size: 16px;
+  }
+
+  /* ===== Header ===== */
+  .header {
+    background: var(--accent);
+    color: #fff;
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  .header .subtitle { font-size: 16px; opacity: .85; }
+  .header .meta { font-size: 14px; opacity: .7; margin-top: 6px; }
+
+  /* ===== Navigation ===== */
+  .nav-bar {
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px;
+    position: sticky; top: 0; z-index: 100;
+    display: flex; flex-wrap: wrap; gap: 6px;
+    justify-content: center;
+  }
+  .nav-bar a {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background .2s;
+    white-space: nowrap;
+  }
+  .nav-bar a:hover { background: #d2e3fc; }
+  .nav-bar a.all-toggle {
+    background: var(--accent);
+    color: #fff;
+  }
+  .nav-bar a.all-toggle:hover { opacity: .85; }
+
+  /* ===== Container ===== */
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 24px 16px; }
+
+  /* ===== Article Card ===== */
+  .article {
+    background: var(--card);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: box-shadow .2s;
+  }
+  .article:hover { box-shadow: 0 1px 6px rgba(0,0,0,.08); }
+
+  /* ===== Article Header (clickable toggle) ===== */
+  .article-header {
+    padding: 18px 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    border-bottom: 0;
+    transition: background .15s;
+  }
+  .article-header:hover { background: #f8f9fa; }
+  .article-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accent);
+    flex: 1;
+  }
+  .article-header .badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 12px;
+    margin-right: 12px;
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+  .toggle-icon {
+    font-size: 20px;
+    color: var(--text-secondary);
+    transition: transform .25s ease;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+  .article.collapsed .toggle-icon { transform: rotate(-90deg); }
+
+  /* ===== Article Body (collapsible) ===== */
+  .article-body {
+    padding: 0 24px 24px;
+    display: block;
+    overflow: hidden;
+  }
+  .article.collapsed .article-body { display: none; }
+
+  /* ===== Content Styling ===== */
+  .article-body h3 {
+    font-size: 18px;
+    margin: 28px 0 12px;
+    color: var(--text);
+    border-left: 4px solid var(--accent);
+    padding-left: 12px;
+  }
+  .article-body h4 {
+    font-size: 16px;
+    margin: 20px 0 10px;
+    color: var(--text);
+  }
+  .article-body p { margin: 0 0 14px; }
+  .article-body blockquote {
+    background: var(--accent-light);
+    border-left: 4px solid var(--accent);
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    color: var(--text-secondary);
+    font-size: 15px;
+  }
+  .article-body blockquote strong { color: var(--text); }
+  .article-body ul, .article-body ol { margin: 8px 0 14px; padding-left: 24px; }
+  .article-body li { margin-bottom: 6px; }
+
+  /* ===== Tables ===== */
+  .article-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+    overflow-x: auto;
+    display: block;
+  }
+  .article-body table th,
+  .article-body table td {
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .article-body table th {
+    background: #f1f3f4;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .article-body table tr:nth-child(even) { background: #f8f9fa; }
+
+  /* ===== Horizontal rules ===== */
+  .article-body hr {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 24px 0;
+  }
+
+  /* ===== Code / pre ===== */
+  .article-body code {
+    background: #f1f3f4;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  .article-body pre {
+    background: #f1f3f4;
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 16px 0;
+  }
+
+  /* ===== Highlight boxes ===== */
+  .highlight-box {
+    background: #e8f5e9;
+    border-left: 4px solid var(--green);
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+  }
+  .highlight-box.red {
+    background: #fce8e6;
+    border-left-color: var(--red);
+  }
+  .highlight-box.orange {
+    background: #fef7e0;
+    border-left-color: var(--orange);
+  }
+
+  /* ===== Summary Tags ===== */
+  .tag { display: inline-block; font-size: 12px; padding: 2px 8px; border-radius: 4px; margin: 2px; }
+  .tag.green { background: #e6f4ea; color: #137333; }
+  .tag.red { background: #fce8e6; color: #c5221f; }
+  .tag.orange { background: #fef7e0; color: #b06000; }
+  .tag.blue { background: var(--accent-light); color: var(--accent); }
+
+  /* ===== Author Footer ===== */
+  .footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    margin-top: 24px;
+  }
+  .footer a { color: var(--accent); }
+
+  /* ===== Mobile ===== */
+  @media (max-width: 600px) {
+    .header h1 { font-size: 22px; }
+    .article-header { padding: 14px 16px; }
+    .article-body { padding: 0 16px 16px; }
+    .article-header h2 { font-size: 16px; }
+    .nav-bar a { font-size: 12px; padding: 4px 10px; }
+    .article-body table { font-size: 12px; }
+    .article-body table th,
+    .article-body table td { padding: 4px 6px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <h1>📘 八篇深度长文 · 阿里巴巴</h1>
+  <div class="subtitle">BABA.NYSE ｜ 2026.07.07 ｜ 股价 $98.40 ｜ 市值 ~$2,250亿</div>
+  <div class="meta">PE 15.35x ｜ PB 0.22x ｜ 深度研究 · 非投资建议</div>
+</div>
+
+<!-- ===== NAVIGATION ===== -->
+<div class="nav-bar">
+  <a href="#" class="all-toggle" onclick="toggleAll(event)">展开/全部折叠</a>
+  <a href="#art1">① 认知重置</a>
+  <a href="#art2">② 电商战场</a>
+  <a href="#art3">③ 阿里云</a>
+  <a href="#art4">④ 管理层</a>
+  <a href="#art5">⑤ 财务解剖</a>
+  <a href="#art6">⑥ 估值判断</a>
+  <a href="#art7">⑦ 三英对比</a>
+  <a href="#art8">⑧ 投资决策</a>
+</div>
+
+<div class="container">
+
+<!-- ============================================================ -->
+<!-- ARTICLE 1 -->
+<!-- ============================================================ -->
+<div class="article" id="art1">
+  <div class="article-header" onclick="toggleArticle(this)">
+    <span><span class="badge">第一篇</span><h2>认知重置：阿里巴巴到底是一家什么公司？</h2></span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div class="article-body">
+    <blockquote><strong>研究日期：</strong>2026/07/07 ｜ <strong>股价：</strong>$98.40 ｜ <strong>市值：</strong>~$2,250亿</blockquote>
+
+    <h3>一、引言：认知滞后于事实</h3>
+    <p>当投资者打开阿里巴巴的股票代码（BABA.NYSE），大多数人脑海中浮现的第一个词是"电商公司"。这是阿里巴巴的"原罪"——淘宝和天猫太成功了，以至于整个市场用20年前的定义来理解这家公司。</p>
+    <p>但数据不会说谎。FY2026，阿里巴巴1.02万亿人民币的营收中，淘天集团（核心电商）占比约54%，而5年前这个数字是70%以上。阿里云贡献了超过1,200亿营收，菜鸟约800亿，国际业务约700亿，本地生活约500亿——阿里的"电商"外壳之下，早已生长出完全不同的业务骨架。</p>
+    <p>认知重置的第一课：<strong>你看到的"电商公司"只是一个剪影</strong>。真正的阿里巴巴是一个由六块截然不同的业务拼合而成的数字经济体，每块业务的行业属性、生命周期、估值逻辑都不相同。</p>
+
+    <hr>
+
+    <h3>二、资产全景：六大板块的地图</h3>
+
+    <h4>2.1 淘天集团 — 现金牛（但正在变瘦）</h4>
+    <p>淘天（淘宝+天猫+1688+闲鱼）是阿里生态的"发动机"，贡献了约54%的营收和超过70%的经营利润。FY2026淘天收入约5,500亿，增速仅2-3%，与社零增速基本持平。</p>
+    <p><strong>关键特征</strong>：中国最大电商平台，GMV约8万亿人民币；货币化率约3.5%——介于拼多多（~4.5%）和京东平台（~1%）之间；品牌旗舰店的"品牌心智"仍是阿里最强的护城河之一；但份额从2020年的~70%下降到2025年的~45%，趋势未逆转。</p>
+
+    <h4>2.2 阿里云 — 第二曲线（正在大赌）</h4>
+    <p>阿里云FY2026收入约1,200亿人民币，增速约3%。中国IaaS+PaaS市场份额约34%（排名第一）；全球排名#4（~4%份额）；FY2026盈利但利润率为个位数。资本支出现金消耗1,261亿中大部分投向AI/云基础设施。</p>
+
+    <h4>2.3 菜鸟 — 物流基础设施（独立化中）</h4>
+    <p>菜鸟FY2026收入约800亿人民币（增速约15%），日均处理包裹约8,000万个。独特价值在于"轻资产运营模式"——不拥有仓库和快递员，而是通过数据和技术连接各物流公司。</p>
+
+    <h4>2.4 国际业务 — 成长引擎（正在烧钱）</h4>
+    <p>国际数字商业（Lazada/AliExpress/Trendyol/Daraz）FY2026收入约700亿人民币，增速约20%。这是阿里增速最快的板块之一，但目前仍处于"烧钱换规模"阶段，亏损规模在100-150亿之间。</p>
+
+    <h4>2.5 本地生活 — 战术布局（战略性亏损）</h4>
+    <p>饿了么+高德+飞猪+口碑的本地生活板块FY2026收入约500亿，亏损约100亿。阿里已从"正面硬扛"转向"差异化打法"——聚焦高德的地图生态引流而非补贴大战。</p>
+
+    <h4>2.6 大文娱 — 边缘资产（随时可能剥离）</h4>
+    <p>优酷+阿里影业+大麦营收约200-300亿，规模最小，亏损持续但已在收窄。市场对大文娱的估值基本为零。</p>
+
+    <hr>
+
+    <h3>三、为什么人们总误解阿里？</h3>
+    <p><strong>误解一：阿里是"中国亚马逊"</strong>——亚马逊是"自营"逻辑，买进卖出吃进销差价；阿里是"平台"逻辑，连接买卖双方吃交易佣金/广告费。</p>
+    <p><strong>误解二：阿里是"中国eBay"</strong>——eBay只是一个简单的C2C拍卖平台，而阿里的生态已远远超出"电商"范畴。</p>
+    <p><strong>误解三：阿里已经是"夕阳公司"</strong>——阿里面临的核心问题是"增长放缓"和"效率下降"，而非"业务死亡"。1.02万亿的营收体量、40%的毛利率、净现金569亿——这些数字在任何行业都是"巨头"而非"夕阳"。</p>
+
+    <hr>
+
+    <h3>四、一个更准确的标签：数字经济基础设施运营商</h3>
+    <p>对比腾讯（社交+游戏）、拼多多（极致低价电商）、京东（自营零售+物流），阿里是唯一一个覆盖了"交易（电商）+ 计算（云）+ 支付（蚂蚁）+ 物流（菜鸟）+ 位置（高德）+ 内容（文娱）"全链路数字经济的公司。</p>
+    <p>投资者的核心判断在于：<strong>"全面"是否会转化为"全能"？</strong></p>
+
+    <hr>
+
+    <h3>五、认知重置的操作清单</h3>
+    <ol>
+      <li><strong>停止用"电商股"的框架看阿里</strong></li>
+      <li><strong>接受"慢速增长"作为新常态</strong></li>
+      <li><strong>区分"公司质量"和"股票质量"</strong></li>
+    </ol>
+
+    <hr>
+    <p style="color: var(--text-secondary); font-size: 14px;"><em>© 2026 深度长文系列 · 阿里巴巴专题研究 · 投资研究用途，非投资建议</em></p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ARTICLE 2 -->
+<!-- ============================================================ -->
+<div class="article" id="art2">
+  <div class="article-header" onclick="toggleArticle(this)">
+    <span><span class="badge">第二篇</span><h2>电商战场：阿里如何打一场守城之战？</h2></span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div class="article-body">
+    <blockquote>关键词：拼多多、抖音电商、京东、市场份额、低价战略、直播电商</blockquote>
+
+    <h3>一、引子：从"独孤求败"到"四面楚歌"</h3>
+    <p>2019年，阿里的电商市场份额约65%——一家独大。五年后的2025年，这一数字下降至约45%，拼多多和抖音电商分别抢走了约20%和17%的份额。20个百分点的份额流失背后，是中国电商史上最激烈的竞争格局重塑。<strong>阿里从"攻方"变成了"守方"</strong>。</p>
+
+    <hr>
+
+    <h3>二、三面夹击：阿里面对的三种"电商物种"</h3>
+
+    <h4>2.1 拼多多：价格战的心智战争</h4>
+    <p>拼多多对阿里造成的<strong>最大伤害不是份额的流失，而是价格锚点的重置</strong>。拼多多=极致低价的用户心智一旦建立，阿里面临两难：跟（降价→品牌商关系受损）或不跟（用户流失→份额加速下降）。</p>
+    <p>拼多多的结构性优势：C2M（工厂直连消费者）模式、微信社交裂变、极致的组织效率（1.3万员工 vs 阿里13万员工）。</p>
+
+    <h4>2.2 抖音电商：另一种电商逻辑</h4>
+    <p>传统电商（淘宝/京东）= <strong>"搜索-比较-购买"</strong>；直播电商（抖音）= <strong>"刷到-种草-冲动下单"</strong>。抖音电商2025年GMV已突破3.5万亿，增速是阿里增速的10倍以上。</p>
+
+    <h4>2.3 京东：老朋友，新威胁</h4>
+    <p>京东从2024年起发力"百亿补贴"，当阿里向上打（天猫品牌化）和向下打（淘特、低价）双线作战时，京东守着自己的中端价位段伺机而动。</p>
+
+    <hr>
+
+    <h3>三、淘宝"低价战略"的得与失</h3>
+    <p>2023年，马云提出"回归淘宝、回归用户、回归互联网"。低价战略守住了GMV但代价是货币化率的下降和品牌商关系的损害。核心矛盾：阿里想用低价战略"防守"，但这个战略增加了防守成本、动摇了品牌商优势、让防守者变成了"跟随者"。</p>
+
+    <hr>
+
+    <h3>四、直播电商：货架电商的结构性危机</h3>
+    <p>中国直播电商GMV从2020年的约1万亿增长到2025年的约5万亿，占电商总GMV的比例从约8%上升到约25%。淘宝直播可以作为一个防御性工具，但很难在直播电商领域主动进攻——推荐算法不如抖音、内容生态不足、流量成本高。</p>
+
+    <hr>
+
+    <h3>五、结论：守城之战能赢吗？</h3>
+    <table>
+      <tr><th>时间维度</th><th>判断</th><th>核心条件</th></tr>
+      <tr><td>短期（1年）</td><td>份额继续下降至~42-43%</td><td>拼多多和抖音增速仍快于阿里</td></tr>
+      <tr><td>中期（2-3年）</td><td>份额趋稳至~40-42%</td><td>AI+组织改革提升效率</td></tr>
+      <tr><td>长期（3-5年）</td><td>不确定</td><td>AI个性化购物、跨境电商等新形态</td></tr>
+    </table>
+    <p><strong>基本判断</strong>：份额还会继续下降，但下降斜率会趋缓。关键在于份额稳定后利润率的恢复——如果经营利润率能回到12-15%，即使份额只有40%，阿里电商仍然是一门非常好的生意。</p>
+
+    <hr>
+    <p style="color: var(--text-secondary); font-size: 14px;"><em>© 2026 深度长文系列 · 阿里巴巴专题研究</em></p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ARTICLE 3 -->
+<!-- ============================================================ -->
+<div class="article" id="art3">
+  <div class="article-header" onclick="toggleArticle(this)">
+    <span><span class="badge">第三篇</span><h2>阿里云：第二曲线还是资金黑洞？</h2></span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div class="article-body">
+    <blockquote>关键词：云计算、AI大模型、通义千问、CapEx、盈亏平衡</blockquote>
+
+    <h3>一、引言：一场1,261亿的豪赌</h3>
+    <p>FY2026资本支出暴增至1,261亿人民币——同比上涨46.6%，是FY2023的3.7倍。1,261亿相当于阿里当年归母净利润的119%，超过拼多多全年的营收。</p>
+
+    <hr>
+
+    <h3>二、中国云计算市场：阿里云的"基本盘"</h3>
+    <table>
+      <tr><th>排名</th><th>云厂商</th><th>IaaS+PaaS份额</th><th>增速</th></tr>
+      <tr><td>#1</td><td>阿里云</td><td>~34%</td><td>~3%</td></tr>
+      <tr><td>#2</td><td>华为云</td><td>~19%</td><td>~20%+</td></tr>
+      <tr><td>#3</td><td>腾讯云</td><td>~15%</td><td>~10%</td></tr>
+      <tr><td>#4-#6</td><td>三大运营商云</td><td>~21%（合计）</td><td>~40%+</td></tr>
+    </table>
+    <p>阿里云经营利润率仅在个位数，对比AWS的~30%经营利润率差距巨大。低利润率原因：价格战、政企市场劣势、定制化成本高、规模效应未完全释放。</p>
+
+    <hr>
+
+    <h3>三、AI大模型：阿里云的"X因子"</h3>
+    <p>通义千问位于中文大模型第一梯队。阿里在AI上的独特优势：电商垂直数据（竞争对手无法获取）、云+AI的闭环、应用场景丰富。</p>
+    <p>AI相关收入估算：FY2026约200亿（占比~17%），增速~100%+。但AI收入的毛利率偏低（AI算力仅10-15%），整体AI业务毛利率~25-30%，低于传统IaaS的~35-40%。</p>
+
+    <hr>
+
+    <h3>四、1,261亿CapEx的合理性分析</h3>
+    <p>CapEx分配：数据中心建设~40%、GPU服务器~45%、网络设备~15%。投入产出比（CIR）约1.5-2x（对标AWS历史CIR 2-3x）。</p>
+    <p>值得警惕的信号：CapEx/收入从FY2023的~4%飙升至FY2026的~12.3%。如果CapEx无法在3-5年内转化为同比例利润增长，阿里将从"轻资产平台"滑向"重资产基础设施商"。</p>
+
+    <hr>
+
+    <h3>五、结论：阿里云是"赌对了"还是"赌大了"？</h3>
+    <table>
+      <tr><th>情景</th><th>概率</th><th>描述</th><th>阿里云价值</th></tr>
+      <tr><td>乐观</td><td>~30%</td><td>AI需求爆发，收入年增30%+</td><td>$800-1,000亿</td></tr>
+      <tr><td>中性</td><td>~50%</td><td>AI需求温和增长，收入年增15-20%</td><td>$400-600亿</td></tr>
+      <tr><td>悲观</td><td>~20%</td><td>AI需求低于预期，CapEx成为沉没成本</td><td>$200-300亿</td></tr>
+    </table>
+    <p><strong>基本判断</strong>：阿里云的"AI大赌"方向正确。但跟踪指标不是CapEx绝对值，而是"AI收入占比"和"云业务经营利润率"。</p>
+
+    <hr>
+    <p style="color: var(--text-secondary); font-size: 14px;"><em>© 2026 深度长文系列 · 阿里巴巴专题研究</em></p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ARTICLE 4 -->
+<!-- ============================================================ -->
+<div class="article" id="art4">
+  <div class="article-header" onclick="toggleArticle(this)">
+    <span><span class="badge">第四篇</span><h2>管理层风云：从马云到蔡崇信到吴泳铭</h2></span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div class="article-body">
+    <blockquote>关键词：蔡崇信、吴泳铭、1+6+N、合伙人制度、公司治理</blockquote>
+
+    <h3>一、引言：阿里管理层的"基因密码"</h3>
+    <p>阿里巴巴历来是一家"人治"重于"制度"的公司。三个基因密码：创始人文化、合伙人制度、从"中央集权"到"分权→再集权"的组织演变。</p>
+
+    <hr>
+
+    <h3>二、马云时代（1999-2013）：创立与奠基</h3>
+    <p>马云的三个核心决定：1999年拒绝MBO方案坚持做平台；2003年创立淘宝对抗eBay中国；2008年决定做阿里云。</p>
+
+    <hr>
+
+    <h3>三、后马云时代（2013-2023）：职业经理人的试错</h3>
+    <p>张勇是阿里历史上最成功的职业经理人CEO——主导了"All in 无线"、创办天猫双11、推动阿里云商业化、推出"1+6+N"组织拆分。但致命错误：对拼多多崛起反应太慢、组织越管越复杂、投资战线拉得太长。</p>
+
+    <hr>
+
+    <h3>四、蔡崇信+吴泳铭（2023-至今）：双核时代的回归</h3>
+    <table>
+      <tr><th>维度</th><th>蔡崇信（董事会主席）</th><th>吴泳铭（CEO）</th></tr>
+      <tr><td>核心专长</td><td>资本运作、法律、全球关系</td><td>技术架构、产品、组织管理</td></tr>
+      <tr><td>教育背景</td><td>耶鲁大学+耶鲁法学院JD</td><td>浙江工业大学计算机</td></tr>
+      <tr><td>加入阿里</td><td>1999（第19号员工）</td><td>1999（18罗汉之一）</td></tr>
+      <tr><td>对外能力</td><td>★★★★★</td><td>★★★☆☆</td></tr>
+    </table>
+    <p>吴泳铭的"三大纠错"：取消"1+6+N"分拆、非核心资产清退、聚焦"AI+云"。</p>
+
+    <hr>
+
+    <h3>五、组织架构的演变："分→合"的轮回</h3>
+    <table>
+      <tr><th>时期</th><th>架构模式</th><th>结果</th></tr>
+      <tr><td>1999-2011</td><td>中央集权</td><td>✅ 从0到1</td></tr>
+      <tr><td>2011-2015</td><td>七大事业群</td><td>⚠️ 部门墙出现</td></tr>
+      <tr><td>2015-2020</td><td>大中台+小前台</td><td>✅ 效率提升，灵活性下降</td></tr>
+      <tr><td>2020-2023</td><td>1+6+N分拆</td><td>❌ 过度分权</td></tr>
+      <tr><td>2024-至今</td><td>三大板块</td><td>⏳ 验证中</td></tr>
+    </table>
+
+    <hr>
+
+    <h3>六、管理层评分卡</h3>
+    <table>
+      <tr><th>维度</th><th>评分</th></tr>
+      <tr><td>战略清晰度</td><td>🟢 7/10</td></tr>
+      <tr><td>纠错能力</td><td>🟢 8/10</td></tr>
+      <tr><td>执行力</td><td>🟡 5/10</td></tr>
+      <tr><td>治理透明度</td><td>🟡 5/10</td></tr>
+      <tr><td>继任计划</td><td>🔴 3/10</td></tr>
+      <tr><td>股东利益一致性</td><td>🟡 5/10</td></tr>
+      <tr><td><strong>综合</strong></td><td><strong>🟡 5.5/10</strong></td></tr>
+    </table>
+
+    <hr>
+    <p style="color: var(--text-secondary); font-size: 14px;"><em>© 2026 深度长文系列 · 阿里巴巴专题研究</em></p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ARTICLE 5 -->
+<!-- ============================================================ -->
+<div class="article" id="art5">
+  <div class="article-header" onclick="toggleArticle(this)">
+    <span><span class="badge">第五篇</span><h2>财务解剖：FY2026到底发生了什么？</h2></span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div class="article-body">
+    <blockquote>关键词：SG&A暴增、利息收入异常、FCF转负、回购缩减</blockquote>
+
+    <h3>一、引言：一份"让人不舒服"的财报</h3>
+    <p>FY2026营收1.02万亿（+2.74%），归母净利润1,059亿（-18.2%），经营利润率4.90%（前一年14.14%）。但这些表面数字背后藏着更深层的故事。</p>
+
+    <hr>
+
+    <h3>二、信号一：SG&A暴增47.7%</h3>
+    <p>FY2026 SG&A费用：2,781亿人民币，同比增加约899亿（+47.7%）。SG&A增速是营收增速的20倍。</p>
+    <table>
+      <tr><th>构成</th><th>增量估算</th></tr>
+      <tr><td>员工薪酬及福利</td><td>~+350亿</td></tr>
+      <tr><td>营销推广费用</td><td>~+250亿</td></tr>
+      <tr><td>物业/设备/IT</td><td>~+120亿</td></tr>
+      <tr><td>其他（组织重组等）</td><td>~+200亿</td></tr>
+      <tr><td><strong>合计</strong></td><td><strong>~+899亿</strong></td></tr>
+    </table>
+    <p><strong>判断</strong>：约60%的SG&A增量可能是结构性的。经营利润率的恢复是一个缓慢过程。</p>
+
+    <hr>
+
+    <h3>三、信号二：利息收入875亿</h3>
+    <p>利息收入相当于归母净利润的82.6%——阿里超过八成的净利润来自"躺赚"的利息。投资者应关注"剔除利息收入后的经营利润"。</p>
+
+    <hr>
+
+    <h3>四、信号三：FCF转负</h3>
+    <table>
+      <tr><th>财年</th><th>CapEx（亿）</th><th>CapEx/营收</th><th>FCF（亿）</th></tr>
+      <tr><td>FY2022</td><td>533</td><td>6.2%</td><td>895</td></tr>
+      <tr><td>FY2023</td><td>343</td><td>3.9%</td><td>1,654</td></tr>
+      <tr><td>FY2024</td><td>321</td><td>3.4%</td><td>1,505</td></tr>
+      <tr><td>FY2025</td><td>860</td><td>8.6%</td><td>775</td></tr>
+      <tr><td><strong>FY2026</strong></td><td><strong>1,261</strong></td><td><strong>12.3%</strong></td><td><strong>-499</strong></td></tr>
+    </table>
+    <p>阿里偏向"好的FCF为负"——CapEx增长主要投向AI/云基础设施，但风险在于：如果投资不能产生预期回报，1,261亿可能成为沉没成本。</p>
+
+    <hr>
+
+    <h3>五、信号四：回购从867亿暴跌至76亿</h3>
+    <p>回购下降91.2%，这是阿里给市场的最强烈信号。三个可能原因：现金流紧张、投资优先、管理层信心不足。</p>
+
+    <hr>
+
+    <h3>六、结论：三个临界点</h3>
+    <ol>
+      <li>经营利润率能否回到10%以上</li>
+      <li>自由现金流能否回正</li>
+      <li>有息负债/净现金的比例——净现金从FY2024的4,003亿下降到FY2026的569亿，下降了86%</li>
+    </ol>
+    <p><strong>核心观点</strong>：FY2026不是一个"常态年份"，但即使是"失真"的财报也揭示了一个清晰的信号——阿里正处在一个转型的十字路口。</p>
+
+    <hr>
+    <p style="color: var(--text-secondary); font-size: 14px;"><em>© 2026 深度长文系列 · 阿里巴巴专题研究</em></p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ARTICLE 6 -->
+<!-- ============================================================ -->
+<div class="article" id="art6">
+  <div class="article-header" onclick="toggleArticle(this)">
+    <span><span class="badge">第六篇</span><h2>估值判断：PE 15x的阿里是便宜还是价值陷阱？</h2></span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div class="article-body">
+    <blockquote>关键词：PE、PB、SOTP分拆估值、安全边际、全球对标</blockquote>
+
+    <h3>一、引言：最便宜的科技巨头？</h3>
+    <p>PE 15x——低于腾讯（~20x）、亚马逊（~40x）；PB 0.22——科技公司中罕见的"破净"。但市场定价的是"合理悲观"还是"过度悲观"？</p>
+
+    <hr>
+
+    <h3>二、PE 15x在全球电商中的位置</h3>
+    <table>
+      <tr><th>公司</th><th>PE(TTM)</th><th>营收增速</th><th>FCF利润率</th></tr>
+      <tr><td>阿里巴巴</td><td>15.4x</td><td>2.7%</td><td>-4.9%</td></tr>
+      <tr><td>亚马逊</td><td>~40x</td><td>~12%</td><td>~15%</td></tr>
+      <tr><td>拼多多</td><td>~10x</td><td>~15%</td><td>~20%</td></tr>
+      <tr><td>京东</td><td>~12x</td><td>~5%</td><td>~3%</td></tr>
+    </table>
+    <p>PE 15.4x对应的隐含增速约为3-4%——<strong>市场"精确地"定价了阿里的当前增速</strong>。但如果经营利润率恢复正常，实际PE可能比表面看到的更低。</p>
+
+    <hr>
+
+    <h3>三、PB 0.22：破净的深层含义</h3>
+    <p>PB 0.22意味着市场给阿里1万亿人民币的归母权益只打了2.2折。在科技公司中极端罕见（腾讯PB ~4.5x，拼多多PB ~7x）。</p>
+    <p>阿里6,567亿长期投资中：蚂蚁集团股份约3,000-4,000亿、菜鸟股份约800-1,000亿、其他约1,500-2,000亿——合计可变现价值约5,300-7,000亿，与账面价值大致匹配。</p>
+
+    <hr>
+
+    <h3>四、SOTP分拆估值</h3>
+    <table>
+      <tr><th>业务板块</th><th>年收入（亿¥）</th><th>PS倍数</th><th>估值（亿¥）</th><th>估值（US$B）</th></tr>
+      <tr><td>淘天集团</td><td>5,500</td><td>2.5-3x</td><td>13,750-16,500</td><td>$190-230</td></tr>
+      <tr><td>阿里云</td><td>1,200</td><td>3-5x</td><td>3,600-6,000</td><td>$50-83</td></tr>
+      <tr><td>菜鸟</td><td>800</td><td>1.5-2x</td><td>1,200-1,600</td><td>$17-22</td></tr>
+      <tr><td>国际电商</td><td>700</td><td>2-3x</td><td>1,400-2,100</td><td>$19-29</td></tr>
+      <tr><td>本地生活</td><td>500</td><td>1.5-2x</td><td>750-1,000</td><td>$10-14</td></tr>
+      <tr><td>大文娱</td><td>250</td><td>1-1.5x</td><td>250-375</td><td>$3-5</td></tr>
+      <tr><td>蚂蚁集团（33%）</td><td>-</td><td>-</td><td>3,000-4,000</td><td>$42-56</td></tr>
+      <tr><td>净现金+其他投资</td><td>-</td><td>-</td><td>3,069-3,569</td><td>$43-50</td></tr>
+      <tr><td><strong>总计</strong></td><td></td><td></td><td><strong>26,869-33,145</strong></td><td><strong>$374-461</strong></td></tr>
+    </table>
+    <p>考虑20%控股折价后，合理市值约$2,990-3,689亿（$130-160/股）。当前市值比保守SOTP低40-60%。</p>
+
+    <hr>
+
+    <h3>五、安全边际与风险收益比</h3>
+    <p><strong>下行空间</strong>：最坏情况~25-35%（到$65-75）<br>
+    <strong>上行空间</strong>：乐观情况~78-122%（到$175-200）<br>
+    <strong>风险收益比</strong>：~1:3.5——不错但不是极好</p>
+
+    <hr>
+
+    <h3>六、结论：便宜，但不是"躺赚"</h3>
+    <p><strong>核心判断</strong>：PE 15x的阿里是便宜的。投资者能否在$98的位置赚钱取决于两个前提：阿里能否在FY2027-FY2028实现FCF回正（估值的"锚"），以及AI+云的投资是否能转化为可观的增量收入（估值的"帆"）。</p>
+
+    <hr>
+    <p style="color: var(--text-secondary); font-size: 14px;"><em>© 2026 深度长文系列 · 阿里巴巴专题研究</em></p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ARTICLE 7 -->
+<!-- ============================================================ -->
+<div class="article" id="art7">
+  <div class="article-header" onclick="toggleArticle(this)">
+    <span><span class="badge">第七篇</span><h2>三英战吕布：阿里 vs 腾讯 vs 拼多多</h2></span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div class="article-body">
+    <blockquote>关键词：财务对比、竞争优势、投资优先级</blockquote>
+
+    <h3>一、财务对比表</h3>
+    <table>
+      <tr><th>指标（FY2026）</th><th>阿里巴巴</th><th>腾讯</th><th>拼多多</th></tr>
+      <tr><td>营收（亿¥）</td><td>10,237</td><td>~7,500</td><td>~5,300</td></tr>
+      <tr><td>营收增速</td><td>+2.74%</td><td>~+8-10%</td><td>~+15%</td></tr>
+      <tr><td>毛利率</td><td>39.8%</td><td>~48%</td><td>~56%</td></tr>
+      <tr><td>经营利润率</td><td><strong>4.9%</strong></td><td><strong>~37%</strong></td><td><strong>~23.5%</strong></td></tr>
+      <tr><td>自由现金流（亿¥）</td><td><strong>-499</strong></td><td><strong>~2,305</strong></td><td><strong>~1,440</strong></td></tr>
+      <tr><td>PE（TTM）</td><td>15.4x</td><td>~20x</td><td>~10x</td></tr>
+      <tr><td>PB</td><td>0.22x</td><td>~4.5x</td><td>~7x</td></tr>
+    </table>
+
+    <hr>
+
+    <h3>二、核心竞争力对比</h3>
+    <p><strong>腾讯</strong>：社交网络效应——微信12亿月活用户的"关系链锁定"。优势是"稳"（FCF超2,300亿），隐忧是增长驱动力在哪里。</p>
+    <p><strong>拼多多</strong>：极致低价的用户心智。效率惊人（1.3万员工 vs 阿里13万），FCF 1,440亿且几乎零CapEx。隐忧在于TEMU风险和增长天花板。</p>
+    <p><strong>阿里巴巴</strong>：最完整的生态——电商+云+物流+支付+本地生活；最大的"想象空间"——AI+云能否成为新引擎。</p>
+
+    <hr>
+
+    <h3>三、加权评分</h3>
+    <table>
+      <tr><th>指标（权重）</th><th>阿里</th><th>腾讯</th><th>拼多多</th></tr>
+      <tr><td>增速（20%）</td><td>1.5</td><td>3.5</td><td>5.0</td></tr>
+      <tr><td>盈利能力（20%）</td><td>3.0</td><td>5.0</td><td>4.5</td></tr>
+      <tr><td>现金流质量（20%）</td><td>1.0</td><td>5.0</td><td>5.0</td></tr>
+      <tr><td>护城河（15%）</td><td>3.5</td><td>5.0</td><td>4.0</td></tr>
+      <tr><td>估值（15%）</td><td>4.5</td><td>3.0</td><td>5.0</td></tr>
+      <tr><td>管理层（10%）</td><td>3.0</td><td>4.0</td><td>4.0</td></tr>
+      <tr><td><strong>加权总分</strong></td><td><strong>2.7</strong></td><td><strong>4.2</strong></td><td><strong>4.6</strong></td></tr>
+    </table>
+
+    <hr>
+
+    <h3>四、结论：三家公司分别是什么性质的标的？</h3>
+    <table>
+      <tr><th>公司</th><th>投资性质</th><th>一句话总结</th></tr>
+      <tr><td>腾讯</td><td>核心持仓</td><td>中国互联网的"国库券"——高确定性、中低增速</td></tr>
+      <tr><td>拼多多</td><td>成长型核心</td><td>效率之王——增速最快、估值最低，需承担TEMU风险</td></tr>
+      <tr><td>阿里巴巴</td><td>逆向价值</td><td>高折价+多催化——资产价值被严重低估</td></tr>
+    </table>
+
+    <hr>
+    <p style="color: var(--text-secondary); font-size: 14px;"><em>© 2026 深度长文系列 · 阿里巴巴专题研究</em></p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ARTICLE 8 -->
+<!-- ============================================================ -->
+<div class="article" id="art8">
+  <div class="article-header" onclick="toggleArticle(this)">
+    <span><span class="badge">第八篇（终篇）</span><h2>投资决策：现在应该买阿里巴巴吗？</h2></span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div class="article-body">
+    <blockquote>关键词：买入条件、卖出信号、仓位建议、投资备忘录</blockquote>
+
+    <h3>一、全文结论浓缩</h3>
+    <p><strong>三大优势</strong>：资产价值严重被低估（PB 0.22x、SOTP折价40-60%）；AI+云闭环真实存在；管理层在做正确的事。</p>
+    <p><strong>三大劣势</strong>：FCF为负是硬伤（-499亿）；电商份额持续流失；SG&A狂飙背后的组织效率问题。</p>
+
+    <div class="highlight-box">
+      <strong>一句话总结：</strong>阿里巴巴是一个"便宜但有硬伤"的标的——资产价值被严重低估，但经营效率的恶化可能抵消资产折价的安全边际。当前适合小仓位持有等待信号，不适合重仓抄底。
+    </div>
+
+    <hr>
+
+    <h3>二、买入的3个条件</h3>
+    <table>
+      <tr><th>条件</th><th>当前</th><th>目标</th><th>优先级</th></tr>
+      <tr><td>自由现金流回正</td><td>❌ -499亿</td><td>FY2027 FCF &gt; 0</td><td><span class="tag red">P0</span></td></tr>
+      <tr><td>经营利润率≥10%</td><td>❌ 4.90%</td><td>10%+</td><td><span class="tag orange">P1</span></td></tr>
+      <tr><td>电商份额止跌企稳</td><td>❌ 仍在下降</td><td>GMV增速≥社零增速</td><td><span class="tag blue">P2</span></td></tr>
+    </table>
+
+    <hr>
+
+    <h3>三、卖出的3个信号</h3>
+    <ol>
+      <li><strong>AI/云投资回报率持续低于预期</strong>——FY2027-FY2028阿里云收入增速仍低于10%</li>
+      <li><strong>电商份额加速下滑至35%以下</strong>——网络效应螺旋启动逆转</li>
+      <li><strong>净现金归零或转负</strong>——财务弹性丧失</li>
+    </ol>
+
+    <hr>
+
+    <h3>四、仓位建议</h3>
+    <table>
+      <tr><th>情况</th><th>建议仓位</th></tr>
+      <tr><td>当前（0条件满足）</td><td><strong>0-5%</strong> 观察仓</td></tr>
+      <tr><td>1个条件满足</td><td>5-10%</td></tr>
+      <tr><td>2个条件满足</td><td>10-15%</td></tr>
+      <tr><td>3个条件全部满足</td><td>15-25%</td></tr>
+      <tr><td>股价跌至$65-75</td><td>+10% 加仓</td></tr>
+    </table>
+
+    <hr>
+
+    <h3>五、关键跟踪指标</h3>
+    <table>
+      <tr><th>指标</th><th>当前值</th><th>目标值</th></tr>
+      <tr><td>自由现金流（亿）</td><td>-499</td><td>正数</td></tr>
+      <tr><td>经营利润率</td><td>4.90%</td><td>≥10%</td></tr>
+      <tr><td>SG&A（亿）</td><td>2,781</td><td>&lt;2,200</td></tr>
+      <tr><td>淘天GMV增速</td><td>~2-3%</td><td>≥社零增速</td></tr>
+      <tr><td>阿里云收入增速</td><td>~3%</td><td>≥15%</td></tr>
+      <tr><td>回购（亿/年）</td><td>76</td><td>≥300</td></tr>
+      <tr><td>净现金（亿）</td><td>569</td><td>&gt;0</td></tr>
+    </table>
+
+    <hr>
+
+    <h3>六、概率与赔率</h3>
+    <table>
+      <tr><th>情景</th><th>概率</th><th>3年回报率</th></tr>
+      <tr><td>乐观（AI成功+效率修复）</td><td>30%</td><td>+80~120%</td></tr>
+      <tr><td>中性（缓慢修复）</td><td>40%</td><td>+20~50%</td></tr>
+      <tr><td>悲观（持续恶化）</td><td>20%</td><td>-25~-40%</td></tr>
+      <tr><td>最坏（黑天鹅事件）</td><td>10%</td><td>-50~-70%</td></tr>
+      <tr><td><strong>数学期望</strong></td><td></td><td><strong>+22~41%</strong></td></tr>
+    </table>
+
+    <div class="highlight-box orange">
+      <strong>最终一句话：</strong>阿里巴巴不是在"便宜"和"贵"之间做选择，而是在"确定性"和"赔率"之间做选择。如果你要确定性——选腾讯。如果你要赔率——阿里可以是一个小赌注。但前提是：你能等得起，而且输得起。
+    </div>
+
+    <hr>
+    <p style="color: var(--text-secondary); font-size: 14px;"><em>全文完｜八篇深度长文系列 · 阿里巴巴专题研究 · 投资研究用途，不构成投资建议</em></p>
+  </div>
+</div>
+
+</div><!-- /.container -->
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+  <p>八篇深度长文 · 阿里巴巴（BABA.NYSE）深度研究系列</p>
+  <p>研究日期：2026/07/07 ｜ 生成工具：Hermes Agent ｜ 仅供参考，不构成投资建议</p>
+  <p style="margin-top: 8px;">
+    <span class="tag green">第一篇 认知重置</span>
+    <span class="tag blue">第二篇 电商战场</span>
+    <span class="tag orange">第三篇 阿里云</span>
+    <span class="tag red">第四篇 管理层</span>
+    <span class="tag green">第五篇 财务解剖</span>
+    <span class="tag blue">第六篇 估值判断</span>
+    <span class="tag orange">第七篇 三英对比</span>
+    <span class="tag red">第八篇 投资决策</span>
+  </p>
+</div>
+
+<script>
+// Toggle single article
+function toggleArticle(headerEl) {
+  const article = headerEl.closest('.article');
+  article.classList.toggle('collapsed');
+}
+
+// Toggle all articles
+function toggleAll(e) {
+  e.preventDefault();
+  const articles = document.querySelectorAll('.article');
+  const anyExpanded = Array.from(articles).some(a => !a.classList.contains('collapsed'));
+  articles.forEach(a => {
+    if (anyExpanded) {
+      a.classList.add('collapsed');
+    } else {
+      a.classList.remove('collapsed');
+    }
+  });
+}
+
+// Open article from nav anchor
+document.querySelectorAll('.nav-bar a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    // Don't toggle on the "展开/全部折叠" button
+    if (this.classList.contains('all-toggle')) return;
+    const id = this.getAttribute('href').substring(1);
+    const article = document.getElementById(id);
+    if (article) {
+      // Expand the target
+      article.classList.remove('collapsed');
+      // Scroll with offset for sticky nav
+      const navHeight = document.querySelector('.nav-bar').offsetHeight;
+      const top = article.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+// Default: all collapsed on load
+document.addEventListener('DOMContentLoaded', function() {
+  // Don't auto-collapse on load so first-time visitors see the first article
+  // Actually let's keep them expanded initially for better UX
+});
+</script>
+
+</body>
+</html>

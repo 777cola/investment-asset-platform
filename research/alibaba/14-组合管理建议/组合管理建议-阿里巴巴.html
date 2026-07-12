@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>组合管理建议 — 阿里巴巴 | 腾讯 | 拼多多 三公司组合管理</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f5f7fa; color: #1a2332; line-height: 1.8;
+    padding: 0;
+  }
+  .hero {
+    background: linear-gradient(135deg, #8B0000 0%, #B22222 100%);
+    color: #fff; padding: 64px 24px 48px; text-align: center;
+  }
+  .hero h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: 2px; }
+  .hero .subtitle { font-size: 1rem; font-weight: 300; margin-top: 8px; opacity: .85; }
+  .hero .quote { margin-top: 20px; font-size: .85rem; font-style: italic; opacity: .8; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .container { max-width: 920px; margin: 0 auto; padding: 32px 20px 64px; }
+  .card {
+    background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    padding: 28px 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 1.3rem; font-weight: 700; color: #8B0000;
+    border-left: 4px solid #8B0000; padding-left: 14px; margin-bottom: 18px;
+  }
+  .card h3 { font-size: 1rem; font-weight: 600; color: #2c3e50; margin: 16px 0 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: .85rem; margin: 12px 0; }
+  th { background: #f0e6e6; color: #8B0000; font-weight: 600; padding: 10px 8px; text-align: center; border: 1px solid #dce4ed; }
+  td { padding: 10px 8px; text-align: center; border: 1px solid #e8edf3; }
+  tr:nth-child(even) { background: #fdfafa; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: .75rem; font-weight: 600; }
+  .tag-green { background: #e8f5e9; color: #27ae60; }
+  .tag-yellow { background: #fff3e0; color: #e67e22; }
+  .tag-red { background: #fee; color: #c0392b; }
+  .tag-blue { background: #e3f2fd; color: #1976d2; }
+  .tag-gray { background: #f0f0f0; color: #666; }
+  .role-box { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+  .role-item { flex: 1; min-width: 180px; background: #f9fbfd; border-radius: 8px; padding: 16px; text-align: center; }
+  .role-item .role-label { font-size: .8rem; color: #7f8c8d; }
+  .role-item .role-value { font-size: 1.2rem; font-weight: 700; margin-top: 4px; }
+  .alert-box { border-radius: 8px; padding: 16px; margin: 8px 0; font-size: .85rem; }
+  .alert-red { background: #fee; border-left: 4px solid #c0392b; }
+  .alert-yellow { background: #fff3e0; border-left: 4px solid #e67e22; }
+  .alert-green { background: #e8f5e9; border-left: 4px solid #27ae60; }
+  .alert-blue { background: #e3f2fd; border-left: 4px solid #1976d2; }
+  .summary-box {
+    background: linear-gradient(135deg, #fce4e4, #fff0f0);
+    border: 2px solid #8B0000; border-radius: 12px;
+    padding: 24px; text-align: center;
+  }
+  .summary-box .big { font-size: 1.3rem; font-weight: 700; color: #8B0000; }
+  .summary-box .small { font-size: .85rem; color: #555; margin-top: 8px; }
+  .compare-grid { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+  .compare-item { flex: 1; min-width: 240px; border-radius: 10px; padding: 18px; }
+  .compare-item h4 { font-size: .95rem; font-weight: 700; margin-bottom: 8px; }
+  .compare-item ul { list-style: none; padding: 0; font-size: .8rem; }
+  .compare-item ul li { padding: 4px 0; border-bottom: 1px solid rgba(0,0,0,.05); }
+  .compare-item ul li:last-child { border-bottom: none; }
+  .compare-tencent { background: #e3f2fd; border: 2px solid #1976d2; }
+  .compare-pdd { background: #e8f5e9; border: 2px solid #27ae60; }
+  .compare-baba { background: #fce4e4; border: 2px solid #c0392b; }
+  .verdict-box {
+    background: linear-gradient(135deg, #e3f2fd, #e8f5e9);
+    border: 2px solid #1976d2; border-radius: 12px;
+    padding: 24px; text-align: center;
+  }
+  .verdict-box .big { font-size: 1.5rem; font-weight: 900; color: #1976d2; }
+  .verdict-box .small { font-size: .85rem; color: #555; margin-top: 8px; }
+  .footer { text-align: center; font-size: .8rem; color: #95a5a6; padding: 32px 20px; border-top: 1px solid #e8edf3; }
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.5rem; }
+    .container { padding: 16px 12px 48px; }
+    .card { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>📊 组合管理建议 — 三公司中国互联网组合</h1>
+  <div class="subtitle">阿里巴巴 (BABA) ｜ 腾讯 (0700.HK) ｜ 拼多多 (PDD) ｜ 侦察日期 2026/07/07</div>
+  <div class="quote">"分散投资是对无知的保护。如果你知道自己在做什么，分散投资就没有意义。" — 巴菲特<br>"我这辈子见过的真正好的投资机会，十个手指就数得完。" — 李录</div>
+</div>
+<div class="container">
+
+  <!-- 核心问题1：如果只能买一家 -->
+  <div class="card">
+    <h2>🎯 一、如果只能买一家中国互联网公司，选谁？</h2>
+    <div class="verdict-box">
+      <div class="big">🏆 首选：腾讯控股 (0700.HK)</div>
+      <div class="small">不是估值最低的（PDD PE~9x更低），不是看起来最便宜的（BABA PB~0.22），而是确定性最高的。</div>
+    </div>
+    <h3>为什么是腾讯？</h3>
+    <table>
+      <tr><th>维度</th><th>腾讯</th><th>阿里巴巴</th><th>拼多多</th></tr>
+      <tr><td>护城河</td><td><span class="tag tag-blue">★★★★★ 极宽</span><br>微信生态不可替代</td><td><span class="tag tag-yellow">★★★☆☆ 被侵蚀</span><br>电商份额被蚕食</td><td><span class="tag tag-green">★★★★☆ 较宽</span><br>下沉市场统治力</td></tr>
+      <tr><td>盈利质量</td><td><span class="tag tag-blue">★★★★★ 优秀</span><br>经营利润率~30%</td><td><span class="tag tag-red">★★☆☆☆ 恶化</span><br>利润率从14%→5%</td><td><span class="tag tag-green">★★★★☆ 良好</span><br>净利率~23%</td></tr>
+      <tr><td>FCF</td><td><span class="tag tag-blue">★★★★★ ¥2,305亿</span><br>充裕的现金生成</td><td><span class="tag tag-red">★☆☆☆☆ 转负</span><br>-¥498.5亿</td><td><span class="tag tag-green">★★★★★ ¥1,000亿+</span><br>印钞机级</td></tr>
+      <tr><td>股东回报</td><td><span class="tag tag-blue">★★★★★ 千亿回购</span><br>慷慨且持续</td><td><span class="tag tag-red">★★☆☆☆ 回购崩落</span><br>-91.2%至¥76亿</td><td><span class="tag tag-yellow">★★★☆☆ 一般</span><br>回购力度不足</td></tr>
+      <tr><td>管理层确定性</td><td><span class="tag tag-blue">★★★★☆ 中高</span><br>小马哥稳定领导</td><td><span class="tag tag-yellow">★★★☆☆ 不确定</span><br>更迭中+战略摇摆</td><td><span class="tag tag-green">★★★★☆ 高</span><br>黄峥主导聚焦</td></tr>
+      <tr><td>成长确定性</td><td><span class="tag tag-blue">★★★★☆ 高</span><br>AI+出海催化剂</td><td><span class="tag tag-yellow">★★★☆☆ 中等</span><br>云AI方向对但烧钱</td><td><span class="tag tag-yellow">★★★☆☆ 有分歧</span><br>Temu成败未定</td></tr>
+    </table>
+    <div class="alert-box alert-blue">
+      <strong>核心论断：</strong>腾讯在"好生意"（高ROE+宽护城河）、"好管理"（稳定+股东友好）、"好价格"（PE~15x历史低位）三个维度同时达标，这在当前中国互联网公司中独一无二。拼多多是更好的"深度价值+看涨期权"标的，但纯看生意确定性，腾讯最优。
+    </div>
+  </div>
+
+  <!-- 三维对比概览 -->
+  <div class="card">
+    <h2>📊 二、三公司三维对比总览</h2>
+    <table>
+      <tr><th>指标</th><th>阿里巴巴 (BABA)</th><th>腾讯 (0700.HK)</th><th>拼多多 (PDD)</th></tr>
+      <tr><td><strong>PE (TTM)</strong></td><td>~15.35x</td><td>~15.19x</td><td>~9x</td></tr>
+      <tr><td><strong>PB</strong></td><td>~0.22x ⚠️ 破净</td><td>~4.8x</td><td>~4.0x</td></tr>
+      <tr><td><strong>经营利润率</strong></td><td>4.90% 🔴 崩塌</td><td>~30% ✅ 行业标杆</td><td>~28% ✅ 优秀</td></tr>
+      <tr><td><strong>FCF (CNY)</strong></td><td>-498.5亿 🔴 转负</td><td>+2,305亿 ✅ 充沛</td><td>+1,000亿+ ✅ 强劲</td></tr>
+      <tr><td><strong>净现金 (CNY)</strong></td><td>569亿 ⚠️ 急剧消耗</td><td>充沛 ✅</td><td>占市值~50% ✅ 极厚</td></tr>
+      <tr><td><strong>收入增速</strong></td><td>+2.74% 🔴 停滞</td><td>~+10% ✅ 稳健</td><td>~+50%+ ✅ 高增</td></tr>
+      <tr><td><strong>SG&A/营收</strong></td><td>27.2% 🔴 失控</td><td>~10% ✅ 控制好</td><td>~35% ⚠️ 偏高但有效</td></tr>
+      <tr><td><strong>护城河宽度</strong></td><td>被侵蚀中</td><td>社交堡垒稳固</td><td>下沉市场统治力</td></tr>
+      <tr><td><strong>股东回报</strong></td><td>❌ 回购大降91%</td><td>✅ 千亿回购</td><td>⚠️ 有限回购</td></tr>
+      <tr><td><strong>组合角色</strong></td><td><span class="tag tag-red">困境反转型</span></td><td><span class="tag tag-blue">核心持有型</span></td><td><span class="tag tag-green">深度价值+期权</span></td></tr>
+    </table>
+    <div class="alert-box alert-yellow">
+      <strong>关键发现：</strong>阿里的PE看起来和腾讯相当（~15x），但盈利质量差异巨大——腾讯的15x是优质利润的15x，阿里的15x是FCF转负、经营利润率只剩5%的15x。用<strong>P/FCF</strong>衡量，腾讯~22x，阿里则为负数（负FCF）。<strong style="color:#c0392b;">阿里并不比腾讯便宜。</strong>
+    </div>
+  </div>
+
+  <!-- 仓位分配 -->
+  <div class="card">
+    <h2>⚖️ 三、三公司仓位分配方案</h2>
+
+    <h3>组合定位框架</h3>
+    <table>
+      <tr><th>公司</th><th>组合角色</th><th>核心逻辑</th></tr>
+      <tr>
+        <td><strong>腾讯 (0700.HK)</strong></td>
+        <td><span class="tag tag-blue">🏛️ 核心持有</span></td>
+        <td>最佳生意质量 — 护城河最宽、盈利最稳、股东回报最慷慨。组合的"压舱石"。</td>
+      </tr>
+      <tr>
+        <td><strong>拼多多 (PDD)</strong></td>
+        <td><span class="tag tag-green">🎯 深度价值+成长期权</span></td>
+        <td>极低估值提供安全垫（PE~9x）+ 净现金占市值50%。Temu是免费看涨期权。</td>
+      </tr>
+      <tr>
+        <td><strong>阿里巴巴 (BABA)</strong></td>
+        <td><span class="tag tag-red">🔄 困境反转型</span></td>
+        <td>PB~0.22极端低估但FCF转负+竞争恶化。需看SG&A能否控制和FCF能否转正。</td>
+      </tr>
+    </table>
+
+    <h3>建议仓位分配</h3>
+    <table>
+      <tr><th>投资者类型</th><th>腾讯</th><th>拼多多</th><th>阿里巴巴</th><th>中国互联网合计</th></tr>
+      <tr><td>🟢 保守型</td><td><strong>8-10%</strong></td><td><strong>5-8%</strong></td><td><strong>3-5%</strong></td><td><strong>16-23%</strong></td></tr>
+      <tr><td>🟡 平衡型</td><td><strong>12-15%</strong></td><td><strong>10-12%</strong></td><td><strong>5-8%</strong></td><td><strong>27-35%</strong></td></tr>
+      <tr><td>🔴 进取型</td><td><strong>15-20%</strong></td><td><strong>12-15%</strong></td><td><strong>8-10%</strong></td><td><strong>35-45%</strong></td></tr>
+    </table>
+
+    <div class="alert-box alert-red">
+      <strong>⚠️ 硬约束：</strong>中国互联网三家公司合计仓位不应超过总组合的<strong>40%</strong>（进取型）~ <strong>25%</strong>（保守型）。中国互联网受共同宏观因素（政策、经济、地缘政治）驱动，市场风险高度同质化，过度集中将失去分散化意义。
+    </div>
+
+    <h3>权重逻辑说明</h3>
+    <table>
+      <tr><th>排序</th><th>公司</th><th>权重比例（平衡型）</th><th>逻辑</th></tr>
+      <tr><td>🥇 最大</td><td>腾讯</td><td>12-15%</td><td>确定性最高+盈利质量最好。在"选择一家"框架中首选。</td></tr>
+      <tr><td>🥈 第二大</td><td>拼多多</td><td>10-12%</td><td>赔率最高（极低估值+巨大上行空间）。用低确定性换高赔率。</td></tr>
+      <tr><td>🥉 最小</td><td>阿里巴巴</td><td>5-8%</td><td>困境反转逻辑。PB~0.22是极端低估的信号，但不是买入的理由——需等基本面企稳。</td></tr>
+    </table>
+
+    <div class="alert-box alert-yellow">
+      <strong>阿里的仓位应该比腾讯大还是小？</strong><br><br>
+      <strong>小，而且应该小得多。</strong>建议比例：<strong>腾讯 : 阿里 = 2:1 ~ 3:1</strong>。<br><br>
+      <strong>理由：</strong><br>
+      ① 盈利质量：腾讯经营利润率~30%，阿里仅4.9%——阿里需要2-3年才可能回到腾讯的盈利水平<br>
+      ② FCF：腾讯FCF¥2,305亿，阿里FCF为负——阿里在"烧钱"，腾讯在"印钱"<br>
+      ③ 确定性：腾讯的微信生态护城河未受影响，阿里的电商壁垒正在被拼多多和抖音侵蚀<br>
+      ④ 股东回报：腾讯千亿回购推高每股内在价值，阿里回购大降91%<br>
+      ⑤ 阿里唯一的优势是PB~0.22倍的极端低价，但低PB本身不值得投资——它必须有基本面修复作为催化剂<br><br>
+      <strong>底线：</strong>给阿里仓位超过腾讯的逻辑基础不成立。除非阿里的SG&A回归正常水平（从27%降至<18%）且FCF转正，否则阿里只能作为"小仓位困境反转对赌"。
+    </div>
+  </div>
+
+  <!-- 集中度管理 -->
+  <div class="card">
+    <h2>🎯 四、整体组合集中度管理</h2>
+
+    <h3>集中度约束框架</h3>
+    <table>
+      <tr><th>层级</th><th>约束</th><th>说明</th></tr>
+      <tr><td>单只股票上限</td><td><strong>≤ 20%</strong></td><td>即使极度看好，也要保留"万一错了"的余地</td></tr>
+      <tr><td>中国互联网合计</td><td><strong>≤ 40%</strong></td><td>宏观同质化（政策、经济、地缘政治三重驱动）</td></tr>
+      <tr><td>中概股（含港股通）</td><td><strong>≤ 50%</strong></td><td>中概股特殊风险：退市风险、资本管制、信息不对称</td></tr>
+      <tr><td>单一行业暴露</td><td><strong>≤ 40%</strong></td><td>电商+社交+广告高度互相关联</td></tr>
+    </table>
+
+    <h3>相关性矩阵与风险管理</h3>
+    <table>
+      <tr><th></th><th>腾讯</th><th>拼多多</th><th>阿里巴巴</th><th>建议对冲</th></tr>
+      <tr><td><strong>腾讯</strong></td><td>1.00</td><td>0.55~0.65</td><td>0.65~0.75</td><td>搭配A股消费龙头(茅台/五粮液)、美债</td></tr>
+      <tr><td><strong>拼多多</strong></td><td>0.55~0.65</td><td>1.00</td><td>0.70~0.80</td><td>搭配美股科技(Meta/Google)、防御股</td></tr>
+      <tr><td><strong>阿里巴巴</strong></td><td>0.65~0.75</td><td>0.70~0.80</td><td>1.00</td><td>搭配云计算ETF(SKYY)、纳指100</td></tr>
+    </table>
+    <p style="font-size:.8rem;color:#666;margin-top:4px;">注：相关性系0.6+属于高相关，将降低分散化效果。三家公司齐跌的风险真实存在，必须用宏观对冲管理。</p>
+
+    <h3>互补资产建议</h3>
+    <table>
+      <tr><th>互补方向</th><th>标的建议</th><th>互补逻辑</th></tr>
+      <tr><td>A股消费龙头</td><td>贵州茅台、五粮液</td><td>中国互联网+实体消费双核心，相关性~0.35</td></tr>
+      <tr><td>美股科技平台</td><td>Meta、Google、Amazon</td><td>分散中概股集中风险，同属全球数字广告获益者</td></tr>
+      <tr><td>港股高股息</td><td>中移动、中海油</td><td>高息低波动，对冲成长型波动</td></tr>
+      <tr><td>美债/国债</td><td>短期国债、TIPS</td><td>极端风险下提供组合缓冲垫</td></tr>
+    </table>
+  </div>
+
+  <!-- 各公司再平衡条件 -->
+  <div class="card">
+    <h2>🔄 五、各公司再平衡条件</h2>
+
+    <h3>腾讯 — 再平衡条件</h3>
+    <table>
+      <tr><th>情景</th><th>操作</th><th>说明</th></tr>
+      <tr><td>PE跌至≤12x（~HK$390以下）</td><td><span class="tag tag-green">加仓至上限20%</span></td><td>历史底部区间，逆向投资甜蜜点</td></tr>
+      <tr><td>PE升至18-20x（~HK$580-650）</td><td><span class="tag tag-yellow">维持中枢仓位</span></td><td>估值正常化，继续持有</td></tr>
+      <tr><td>PE升至≥22x（~HK$700+）</td><td><span class="tag tag-yellow">减至8-10%</span></td><td>乐观情景达标，锁定部分利润</td></tr>
+      <tr><td>回撤≥20%（从成本价）</td><td><span class="tag tag-yellow">启动复盘</span></td><td>检查基本面是否恶化</td></tr>
+      <tr><td>AI变现连续2季超预期</td><td><span class="tag tag-green">加仓2-3%</span></td><td>成长性重估驱动</td></tr>
+      <tr><td>美国制裁实体清单</td><td><span class="tag tag-red">立即清仓</span></td><td>极端尾部风险</td></tr>
+    </table>
+
+    <h3>拼多多 — 再平衡条件</h3>
+    <table>
+      <tr><th>情景</th><th>操作</th><th>说明</th></tr>
+      <tr><td>股价涨至$120+</td><td><span class="tag tag-yellow">减至基准仓位</span></td><td>PE~13x，估值修复基本完成</td></tr>
+      <tr><td>股价跌至$50-60</td><td><span class="tag tag-green">加仓至上限</span></td><td>PE~5-6x，净现金占比超70%，极度低估</td></tr>
+      <tr><td>Temu盈利超预期</td><td><span class="tag tag-green">加仓至上限</span></td><td>第二增长曲线确认</td></tr>
+      <tr><td>国内盈利持续下滑</td><td><span class="tag tag-red">减仓</span></td><td>核心业务恶化，需重审论文</td></tr>
+      <tr><td>PE修复至20x+</td><td><span class="tag tag-yellow">减至半仓</span></td><td>估值已充分反映价值</td></tr>
+    </table>
+
+    <h3>阿里巴巴 — 再平衡条件</h3>
+    <table>
+      <tr><th>情景</th><th>操作</th><th>说明</th></tr>
+      <tr><td>SG&A/营收从27%降至<20%（连续2季）</td><td><span class="tag tag-green">加仓至10%</span></td><td>管理层证明了成本控制能力</td></tr>
+      <tr><td>FCF从负数转正</td><td><span class="tag tag-green">加仓至12%</span></td><td>基本面拐点确认</td></tr>
+      <tr><td>股价跌至$60以下（PB<0.15）</td><td><span class="tag tag-yellow">小量加仓（<3%）</span></td><td>极端低估，但需控制风险暴露</td></tr>
+      <tr><td>淘天GMV增速连续2季>5%</td><td><span class="tag tag-green">加仓2-3%</span></td><td>核心电商企稳信号</td></tr>
+      <tr><td>净现金进一步消耗至<¥200亿</td><td><span class="tag tag-red">减仓至零</span></td><td>资产负债表安全垫消失</td></tr>
+      <tr><td>回购恢复至¥500亿+/年</td><td><span class="tag tag-green">加仓至10%+</span></td><td>管理层利益与股东一致</td></tr>
+      <tr><td>大文娱/非核心资产继续拖累</td><td><span class="tag tag-red">减仓至<5%</span></td><td>管理层战略执行能力存疑</td></tr>
+    </table>
+
+    <div class="alert-box alert-red">
+      <strong>🚨 阿里最关键的两个观察指标：</strong><br>
+      ① <strong>SG&A/营收率</strong>：当前27.2%，必须降至<20%。这是管理层成本控制能力的终极测试。<br>
+      ② <strong>FCF方向</strong>：当前-¥498.5亿，必须转正。如果12个月内无法转正，阿里的"净现金"（¥569亿）将在2年内耗尽。
+    </div>
+  </div>
+
+  <!-- 各公司投资论文与催化剂 -->
+  <div class="card">
+    <h2>📜 六、各公司投资论文与催化剂监控</h2>
+
+    <table>
+      <tr><th>维度</th><th>腾讯</th><th>拼多多</th><th>阿里巴巴</th></tr>
+      <tr>
+        <td><strong>投资论文</strong></td>
+        <td>微信生态壁垒不可替代 + AI变现加速 + 千亿回购推升每股价值</td>
+        <td>国内FCF印钞机 + 净现金50%市值安全垫 + Temu免费看涨期权</td>
+        <td>PB~0.22极端低估困境反转。需SG&A回归+FCF转正</td>
+      </tr>
+      <tr>
+        <td><strong>催化剂</strong></td>
+        <td>①混元大模型商业化超预期<br>②视频号广告增量<br>③游戏版号常态化+爆款<br>④美联储降息推升中概</td>
+        <td>①Temu首次盈利<br>②国内利润持续超预期<br>③回购力度加大<br>④被纳入港股通/指数</td>
+        <td>①SG&A大幅下降<br>②FCF转正<br>③阿里云AI收入超预期<br>④分拆/剥离非核心资产</td>
+      </tr>
+      <tr>
+        <td><strong>核心风险</strong></td>
+        <td>宏观疲软+监管回潮+AI投入回报周期长</td>
+        <td>Temu持续烧钱+地缘政治（TikTok模式风险）</td>
+        <td>价值陷阱（SG&A降不下来）+竞争加剧+净现金耗尽</td>
+      </tr>
+      <tr>
+        <td><strong>论文失效信号</strong></td>
+        <td>微信MAU连续下降2季</td>
+        <td>国内业务经营利润率<15%</td>
+        <td>SG&A在20%以上连续4季</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 综合建议 -->
+  <div class="card">
+    <h2>💡 七、综合建议</h2>
+
+    <div class="verdict-box">
+      <div class="big">腾讯核心持有 + 拼多多价值底仓 + 阿里巴巴困境小仓</div>
+      <div class="small">平衡型建议仓位：腾讯 12-15% ｜ 拼多多 10-12% ｜ 阿里巴巴 5-8%</div>
+    </div>
+
+    <h3>操作路线图</h3>
+    <div style="background:#f8f9fb;border:1px solid #e8ecf1;border-radius:8px;padding:16px;font-family:monospace;font-size:.85rem;line-height:2;white-space:pre;overflow-x:auto;margin:12px 0;">
+三公司组合管理路线图（未来12个月）：
+
+腾讯 (PE~15x) ──→ 持有为主，逢低（PE&lt;12x）加仓至20%
+     ├─ AI变现信号明确 → 不受PE限制继续持有
+     └─ PE升至22x+ → 减仓至8-10%
+
+拼多多 (PE~9x) ──→ 耐心持有，利用波动加仓
+     ├─ Temu盈利确认 → 加仓至上限20%
+     └─ 估值修复至PE 15x+ → 减至半仓
+
+阿里巴巴 (PE~15x, FCF负数) ──→ 小仓观察，等待拐点
+     ├─ SG&A/营收降至&lt;20% + FCF转正 → 加仓至10-12%
+     └─ 12个月无改善 → 减仓至零（避免价值陷阱）
+    </div>
+
+    <h3>再平衡纪律</h3>
+    <table>
+      <tr><th>触发类型</th><th>频率/条件</th><th>行动</th></tr>
+      <tr><td>⏰ 半年度检查</td><td>每6个月</td><td>审视三家公司投资论文是否仍然成立</td></tr>
+      <tr><td>💰 价格触发</td><td>单只股票涨跌>50%</td><td>重新评估该公司的风险回报比</td></tr>
+      <tr><td>📢 事件触发</td><td>财报公布后</td><td>根据SG&A（阿里）/ Temu（拼多多）/ AI变现（腾讯）等关键指标调整</td></tr>
+      <tr><td>🌍 宏观触发</td><td>重大政策/地缘变化</td><td>整体降低中概/中国互联网敞口</td></tr>
+    </table>
+
+    <div class="alert-box alert-green" style="margin-top:16px;">
+      <strong>最终建议：</strong><br><br>
+      ① <strong>腾讯是组合的基石</strong> — 在三个标的中确定性最高，建议作为最大仓位（12-15%），长期持有。<br>
+      ② <strong>拼多多是赔率引擎</strong> — 极低估值（PE~9x）+ 高增长（收入+50%+）+ 净现金安全垫，提供超额回报潜力。用较低确定性换取高赔率。<br>
+      ③ <strong>阿里巴巴是小仓位困境对赌</strong> — PB~0.22的极端低估值得小仓参与，但必须严格监控FCF和SG&A两个关键指标。如果12个月看不到改善，果断退出。<br>
+      ④ <strong>三者合计不超过40%</strong> — 中国互联网的宏观相关性高，必须用非中国资产（美国科技、A股消费、美债）分散风险。<br>
+      ⑤ <strong>不要因为阿里"看起来便宜"就给它大仓位</strong> — 低PB不等于好投资，尤其是在盈利能力和FCF都在恶化的时候。等基本面改善后再加仓，远比在下跌中"抄底"安全。
+    </div>
+  </div>
+
+  <!-- 补充材料 -->
+  <div class="card">
+    <h2>📎 八、补充材料</h2>
+    <p>详见 <a href="阿里vs腾讯vs拼多多-三维对比.md" style="color:#8B0000;text-decoration:none;font-weight:500;">阿里vs腾讯vs拼多多-三维对比.md</a> — 包含更详细的三公司对比数据与情景分析。</p>
+    <p style="margin-top:8px;">参考文档：</p>
+    <ul style="font-size:.85rem;color:#555;padding-left:20px;">
+      <li>拼多多组合管理建议（2026/07/05）</li>
+      <li>腾讯组合管理分析（2026/07/07）</li>
+      <li>阿里巴巴商业模式拆解（2026/07/07）</li>
+      <li>阿里巴巴FY2026年报数据汇总（2026/07/07）</li>
+    </ul>
+  </div>
+
+  <div style="font-size:.8rem;color:#95a5a6;text-align:center;margin-top:12px;">*本分析基于假设持仓，仅供研究参考，不构成投资建议。实际配置需结合个人情况。*</div>
+
+</div>
+<div class="footer">AI-Berkshire ｜ 中国互联网三公司组合管理建议 ｜ 2026/07/07</div>
+</body>
+</html>

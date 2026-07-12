@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>研究报告 · 恺皓资本</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue-300: #66a3ff;
+  --blue-400: #3385ff;
+  --blue-500: #0052ff;
+  --blue-600: #0041c7;
+  --orange-300: #ffb366;
+  --orange-400: #ff9933;
+  --orange-500: #ff7d00;
+  --font-body: 'DM Sans','Noto Sans SC','Microsoft YaHei',sans-serif;
+  --font-mono: 'DM Mono','Times New Roman',monospace;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --t-fast: 160ms var(--ease);
+  --max-w: 1100px;
+}
+[data-theme="dark"] {
+  --bg: #0a0e14;
+  --bg-2: #111827;
+  --surface: rgba(17,24,39,0.96);
+  --surface-2: rgba(31,41,55,0.8);
+  --border: rgba(255,255,255,0.08);
+  --border-hover: rgba(0,82,255,0.35);
+  --text-primary: #f9fafb;
+  --text-secondary: rgba(255,255,255,0.55);
+  --text-tertiary: rgba(255,255,255,0.35);
+  --text-dim: rgba(255,255,255,0.25);
+  --header-bg: linear-gradient(135deg, #0a0e14 0%, #111827 100%);
+  --header-border: rgba(255,255,255,0.06);
+  --card-bg: rgba(17,24,39,0.96);
+  --card-border: rgba(255,255,255,0.08);
+  --orb-1: rgba(0,82,255,0.12);
+  --orb-2: rgba(255,125,0,0.08);
+  --back-color: rgba(255,255,255,0.5);
+  --back-hover: #66a3ff;
+  --brand-color: rgba(255,255,255,0.35);
+  --stat-color: #66a3ff;
+  --stat-lbl: rgba(255,255,255,0.4);
+  --mvalue-color: #e5e7eb;
+}
+[data-theme="light"] {
+  --bg: #f8fafc;
+  --bg-2: #e2e8f0;
+  --surface: rgba(255,255,255,0.98);
+  --surface-2: rgba(248,250,252,0.95);
+  --border: rgba(15,23,42,0.1);
+  --border-hover: rgba(0,82,255,0.3);
+  --text-primary: #0f172a;
+  --text-secondary: rgba(15,23,42,0.55);
+  --text-tertiary: rgba(15,23,42,0.4);
+  --text-dim: rgba(15,23,42,0.25);
+  --header-bg: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  --header-border: rgba(15,23,42,0.08);
+  --card-bg: #ffffff;
+  --card-border: rgba(15,23,42,0.08);
+  --orb-1: rgba(0,82,255,0.05);
+  --orb-2: rgba(255,125,0,0.03);
+  --back-color: rgba(15,23,42,0.5);
+  --back-hover: #0052ff;
+  --brand-color: rgba(15,23,42,0.4);
+  --stat-color: #0052ff;
+  --stat-lbl: rgba(15,23,42,0.45);
+  --mvalue-color: #1e293b;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg); color: var(--text-primary);
+  line-height: 1.7; min-height: 100vh;
+  transition: background var(--t-fast), color var(--t-fast);
+}
+
+/* === Header === */
+.header {
+  position: relative; overflow: hidden;
+  padding: 2.5rem 2rem; text-align: center;
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--header-border);
+  transition: background var(--t-fast), border var(--t-fast);
+}
+.header::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 40% at 20% -10%, var(--orb-1), transparent),
+             radial-gradient(ellipse 50% 35% at 90% 20%, var(--orb-2), transparent);
+  pointer-events: none;
+}
+.header > * { position: relative; z-index: 1; }
+.header-top {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: var(--max-w); margin: 0 auto 1.2rem; gap: 8px;
+}
+.header-top .back { margin-bottom: 0; }
+.header-top .icon-btn { margin-bottom: 0; }
+.header-actions { display: flex; align-items: center; gap: 8px; }
+.header .back {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--back-color); text-decoration: none; font-size: 0.82rem;
+  transition: color 0.2s ease;
+}
+.header .back:hover { color: var(--back-hover); }
+.icon-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface); color: var(--text-tertiary);
+  cursor: pointer; transition: all var(--t-fast);
+  flex-shrink: 0;
+}
+.icon-btn:hover { border-color: rgba(0,82,255,0.3); color: var(--blue-400); }
+.icon-btn svg { width: 16px; height: 16px; }
+[data-theme="dark"] .icon-sun { display: none; }
+[data-theme="dark"] .icon-moon { display: block; }
+[data-theme="light"] .icon-sun { display: block; }
+[data-theme="light"] .icon-moon { display: none; }
+.header .brand { font-size: 0.78rem; color: var(--brand-color); letter-spacing: 0.06em; margin-bottom: 0.4rem; }
+.header h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; }
+.header h1 .hl-blue { color: var(--blue-400); }
+.header .subtitle { font-size: 0.9rem; color: var(--text-tertiary); font-weight: 300; margin-top: 0.3rem; }
+
+/* === Container === */
+.container { max-width: var(--max-w); margin: 0 auto; padding: 3rem 2rem; }
+
+/* === Stats bar === */
+.stats { display: flex; justify-content: center; gap: 3rem; margin-bottom: 3rem; flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat-num { font-family: var(--font-mono); font-size: 1.6rem; font-weight: 700; color: var(--stat-color); font-variant-numeric: tabular-nums; }
+.stat-lbl { font-size: 0.78rem; color: var(--stat-lbl); margin-top: 2px; letter-spacing: 0.04em; }
+
+/* === Company grid === */
+.company-grid { display: grid; gap: 1.2rem; }
+
+.company-card {
+  display: flex; text-decoration: none; color: inherit;
+  border-radius: 16px; overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  transition: all 0.3s var(--ease);
+  position: relative;
+  min-height: 160px;
+}
+.company-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+/* Logo area */
+.card-logo {
+  width: 180px; min-height: 160px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  background: var(--surface-2);
+}
+.card-logo img {
+  width: 100%; height: 100%; object-fit: contain;
+  padding: 1.8rem;
+  position: relative; z-index: 1;
+  transition: transform 0.3s ease;
+}
+.company-card:hover .card-logo img { transform: scale(1.06); }
+.card-logo::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 60%, var(--card-bg) 100%);
+  pointer-events: none; z-index: 2;
+}
+
+/* Content area */
+.card-body {
+  flex: 1; padding: 1.3rem 1.8rem;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; z-index: 1; min-width: 0;
+}
+.card-top { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.4rem; flex-wrap: wrap; }
+.card-ticker {
+  font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700;
+  color: var(--blue-400); letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.card-company { font-size: 1.2rem; font-weight: 700; white-space: nowrap; }
+.card-date { font-size: 0.75rem; color: var(--text-dim); margin-left: auto; white-space: nowrap; }
+.card-tags { display: flex; gap: 0.4rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+.tag {
+  display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px;
+  font-size: 0.7rem; font-weight: 600;
+}
+.tag-green { background: rgba(34,197,94,0.12); color: #22c55e; }
+.tag-yellow { background: rgba(255,183,77,0.12); color: #d97706; }
+.tag-blue { background: rgba(102,163,255,0.12); color: var(--blue-300); }
+.card-metrics { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+.metric { }
+.metric .mlabel { font-size: 0.68rem; color: var(--text-dim); letter-spacing: 0.03em; }
+.metric .mvalue { font-family: var(--font-mono); font-size: 0.92rem; font-weight: 600; color: var(--mvalue-color); font-variant-numeric: tabular-nums; }
+.metric .mvalue .green { color: #22c55e; }
+.card-summary { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6; }
+
+/* Arrow indicator */
+.card-arrow {
+  display: flex; align-items: center; padding: 0 1.8rem;
+  color: var(--text-dim);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+.company-card:hover .card-arrow { color: var(--blue-400); transform: translateX(4px); }
+.card-arrow svg { width: 20px; height: 20px; }
+
+/* === Footer === */
+.footer {
+  text-align: center; padding: 2rem;
+  color: var(--text-dim); font-size: 0.78rem;
+  border-top: 1px solid var(--header-border);
+}
+
+/* === Responsive === */
+@media (max-width: 900px) {
+  .card-logo { width: 120px; min-height: 130px; }
+  .card-logo img { padding: 1.2rem; }
+  .card-body { padding: 1rem 1.2rem; }
+  .card-arrow { display: none; }
+  .card-metrics { gap: 0.8rem; }
+}
+@media (max-width: 640px) {
+  .container { padding: 1.5rem 1rem; }
+  .header { padding: 1.5rem 1rem; }
+  .header h1 { font-size: 1.5rem; }
+  .stats { gap: 1.5rem; margin-bottom: 2rem; }
+  .stat-num { font-size: 1.2rem; }
+  .company-card { flex-direction: column; min-height: auto; }
+  .card-logo { width: 100%; min-height: 100px; }
+  .card-logo img { padding: 1rem; max-height: 60px; }
+  .card-logo::after { background: linear-gradient(0deg, transparent 60%, var(--card-bg) 100%); }
+  .card-top { gap: 0.5rem; }
+  .card-ticker { font-size: 0.95rem; }
+  .card-company { font-size: 1rem; }
+  .card-date { margin-left: 0; }
+  .card-summary { font-size: 0.78rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <a href="../index.html" class="back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      <span id="back-text">返回首页</span>
+    </a>
+    <div class="header-actions">
+    <button class="icon-btn" id="theme-toggle" title="切换主题">
+      <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <button class="icon-btn" id="lang-toggle" title="语言">
+      <span id="lang-label" style="font-size:0.75rem;font-weight:700">简体</span>
+    </button>
+    </div>
+  </div>
+  <div class="brand" id="brand-text">恺皓资本 · 研究驱动 资产管理</div>
+  <h1 id="page-title">研究<span class="hl-blue">报告</span></h1>
+  <div class="subtitle" id="page-subtitle">基于价值投资框架的深度公司分析 · 17个维度 · 持续更新</div>
+</div>
+
+<div class="container">
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">4</div><div class="stat-lbl" id="stat-co">已研究公司</div></div>
+    <div class="stat"><div class="stat-num">17</div><div class="stat-lbl" id="stat-dim">分析维度</div></div>
+    <div class="stat"><div class="stat-num">68+</div><div class="stat-lbl" id="stat-reports">独立报告</div></div>
+    <div class="stat"><div class="stat-num" id="stat-progress-num">持续中</div><div class="stat-lbl" id="stat-progress">研究进度</div></div>
+  </div>
+
+  <div class="company-grid">
+
+    <!-- Alibaba (newest) -->
+    <a href="alibaba/00-阿里巴巴研究报告总目录.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://companieslogo.com/img/orig/BABA-2884ac04.png?t=1720244490" alt="Alibaba logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">BABA</span>
+          <span class="card-company">阿里巴巴</span>
+          <span class="card-date">2026/07/07</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-blue">估值合理偏低</span>
+          <span class="tag tag-yellow">竞争加剧</span>
+          <span class="tag tag-blue">云业务反弹</span>
+        </div>
+        <div class="card-metrics">
+          <div class="metric"><div class="mlabel">股价</div><div class="mvalue">$81.00</div></div>
+          <div class="metric"><div class="mlabel">PE</div><div class="mvalue">~12x</div></div>
+          <div class="metric"><div class="mlabel">FCF Yield</div><div class="mvalue">~10%</div></div>
+          <div class="metric"><div class="mlabel">净现金</div><div class="mvalue">~$650亿</div></div>
+        </div>
+        <div class="card-summary">电商+云计算双引擎，云业务重回增长。核心电商面临拼多多和抖音竞争，但AliExpress+Temu差异化出海。</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+
+    <!-- Tencent -->
+    <a href="tencent/00-腾讯研究报告总目录.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://companieslogo.com/img/orig/TCEHY-8aa1e38d.png?t=1720244494" alt="Tencent logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">00700</span>
+          <span class="card-company">腾讯</span>
+          <span class="card-date">2026/07/07</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-green">护城河极深</span>
+          <span class="tag tag-yellow">游戏周期</span>
+          <span class="tag tag-blue">视频号增长</span>
+        </div>
+        <div class="card-metrics">
+          <div class="metric"><div class="mlabel">股价</div><div class="mvalue">HKD 418</div></div>
+          <div class="metric"><div class="mlabel">PE</div><div class="mvalue">~18x</div></div>
+          <div class="metric"><div class="mlabel">投资组合</div><div class="mvalue">~$1,500亿</div></div>
+          <div class="metric"><div class="mlabel">回购</div><div class="mvalue">持续</div></div>
+        </div>
+        <div class="card-summary">微信生态护城河极深，视频号广告+小游戏贡献增量。游戏业务周期性波动，全球布局稳固。投资组合隐含巨大折价。</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+
+    <!-- Meituan -->
+    <a href="meituan/00-美团研究报告总目录.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://companieslogo.com/img/orig/3690.HK-a1f4c236.png?t=1720244490" alt="Meituan logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">03690</span>
+          <span class="card-company">美团</span>
+          <span class="card-date">2026/07/07</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-blue">壁垒深厚</span>
+          <span class="tag tag-yellow">到店竞争</span>
+          <span class="tag tag-green">新业务减亏</span>
+        </div>
+        <div class="card-metrics">
+          <div class="metric"><div class="mlabel">股价</div><div class="mvalue">HKD 125</div></div>
+          <div class="metric"><div class="mlabel">PE</div><div class="mvalue">~22x</div></div>
+          <div class="metric"><div class="mlabel">营收增长</div><div class="mvalue">~20%</div></div>
+          <div class="metric"><div class="mlabel">到店竞争</div><div class="mvalue">抖音</div></div>
+        </div>
+        <div class="card-summary">本地生活绝对龙头，外卖+到店双轮驱动。面临抖音到店业务冲击，但配送网络壁垒难以复制。新业务减亏见效。</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+
+    <!-- PDD (oldest) -->
+    <a href="pdd/00-拼多多研究报告总目录.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://companieslogo.com/img/orig/PDD-8d01fe07.png?t=1720244493" alt="PDD Holdings logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">PDD</span>
+          <span class="card-company">拼多多</span>
+          <span class="card-date">2026/07/05</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-green">极度低估</span>
+          <span class="tag tag-yellow">Temu期权</span>
+          <span class="tag tag-green">安全边际充裕</span>
+        </div>
+        <div class="card-metrics">
+          <div class="metric"><div class="mlabel">股价</div><div class="mvalue">$82.39</div></div>
+          <div class="metric"><div class="mlabel">PE</div><div class="mvalue">8.98x <span class="green">低估</span></div></div>
+          <div class="metric"><div class="mlabel">FCF Yield</div><div class="mvalue">17.8%</div></div>
+          <div class="metric"><div class="mlabel">净现金/市值</div><div class="mvalue">~50%</div></div>
+        </div>
+        <div class="card-summary">净现金占总市值一半，FCF年超千亿。三情景估值$84.9–$209.2，下行有限上行可期。</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<div class="footer">
+  <span id="footer-text">© 2026 恺皓资本 KaiHao Capital · 研究报告仅供参考，不构成投资建议</span>
+</div>
+
+<script>
+(function() {
+  // Theme
+  const THEME_KEY = "cj-theme";
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem(THEME_KEY, theme);
+  }
+  function switchTheme() {
+    var current = document.documentElement.getAttribute("data-theme");
+    applyTheme(current === "dark" ? "light" : "dark");
+  }
+
+  // i18n
+  const LANG_KEY = "cj-lang";
+  const langLabel = {zh:"简体", "zh-hant":"繁體", en:"EN"};
+  const pageTitles = {zh:"研究报告 · 恺皓资本", "zh-hant":"研究報告 · 愷皓資本", en:"Research Reports · KaiHao Capital"};
+  const i18n = {
+    zh: {
+      brandText: "恺皓资本 · 研究驱动 资产管理",
+      pageTitle: '研究<span class="hl-blue">报告</span>',
+      pageSubtitle: "基于价值投资框架的深度公司分析 · 17个维度 · 持续更新",
+      backText: "返回首页",
+      statCo: "已研究公司", statDim: "分析维度", statReports: "独立报告", statProgress: "研究进度", statProgressNum: "持续中",
+      footerText: "© 2026 恺皓资本 KaiHao Capital · 研究报告仅供参考，不构成投资建议",
+    },
+    "zh-hant": {
+      brandText: "愷皓資本 · 研究驅動 資產管理",
+      pageTitle: '研究<span class="hl-blue">報告</span>',
+      pageSubtitle: "基於價值投資框架的深度公司分析 · 17個維度 · 持續更新",
+      backText: "返回首頁",
+      statCo: "已研究公司", statDim: "分析維度", statReports: "獨立報告", statProgress: "研究進度", statProgressNum: "持續中",
+      footerText: "© 2026 愷皓資本 KaiHao Capital · 研究報告僅供參考，不構成投資建議",
+    },
+    en: {
+      brandText: "KaiHao Capital · Research-Driven Asset Management",
+      pageTitle: 'Research <span class="hl-blue">Reports</span>',
+      pageSubtitle: "Deep company analysis powered by value investing framework · 17 dimensions · Continuously updated",
+      backText: "Back to Home",
+      statCo: "Companies", statDim: "Dimensions", statReports: "Reports", statProgress: "In Progress", statProgressNum: "Ongoing",
+      footerText: "© 2026 KaiHao Capital · Research reports are for reference only and do not constitute investment advice",
+    }
+  };
+  const idMap = {
+    brandText:"brand-text", pageTitle:"page-title", pageSubtitle:"page-subtitle", backText:"back-text",
+    statCo:"stat-co", statDim:"stat-dim", statReports:"stat-reports", statProgress:"stat-progress", statProgressNum:"stat-progress-num",
+    footerText:"footer-text"
+  };
+
+  function applyLang(lang) {
+    var t = i18n[lang] || i18n.zh;
+    for (var key in t) {
+      var id = idMap[key] || key;
+      var el = document.getElementById(id);
+      if (el) el.innerHTML = t[key];
+    }
+    document.getElementById("lang-label").textContent = langLabel[lang] || "简体";
+    document.title = pageTitles[lang] || pageTitles.zh;
+    document.documentElement.lang = lang === "zh-hant" ? "zh-TW" : lang === "en" ? "en" : "zh-CN";
+  }
+
+  function switchLang() {
+    var langs = ["zh", "zh-hant", "en"];
+    var current = localStorage.getItem(LANG_KEY) || "zh";
+    var idx = (langs.indexOf(current) + 1) % langs.length;
+    var next = langs[idx];
+    localStorage.setItem(LANG_KEY, next);
+    applyLang(next);
+  }
+
+  // Init
+  var savedTheme = localStorage.getItem(THEME_KEY) || "dark";
+  applyTheme(savedTheme);
+  var savedLang = localStorage.getItem(LANG_KEY) || "zh";
+  applyLang(savedLang);
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var tb = document.getElementById("theme-toggle");
+    if (tb) tb.addEventListener("click", switchTheme);
+    var lb = document.getElementById("lang-toggle");
+    if (lb) lb.addEventListener("click", switchLang);
+  });
+})();
+</script>
+</body>
+</html>

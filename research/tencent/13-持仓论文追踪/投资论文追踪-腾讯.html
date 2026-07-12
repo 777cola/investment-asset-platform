@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>投资论文追踪 — 腾讯控股 (00700.HK)</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f7fa; color: #333; line-height: 1.8; font-size: 15px; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 50px 0 40px; text-align: center; }
+.header h1 { font-size: 28px; font-weight: 900; letter-spacing: 1px; margin-bottom: 8px; }
+.header .subtitle { font-size: 16px; font-weight: 300; opacity: 0.85; }
+.header .meta { margin-top: 14px; font-size: 13px; opacity: 0.7; }
+.header .meta-bar { margin-top: 16px; font-size: 13px; opacity: 0.85; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.header .meta-bar .item { display: inline-flex; align-items: center; gap: 4px; }
+.header .meta-bar .label { opacity: 0.7; }
+.container { max-width: 920px; margin: 0 auto; padding: 30px 24px; }
+.card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 32px 36px; margin-bottom: 28px; }
+.card h2 { font-size: 22px; font-weight: 700; color: #1A4B8C; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid #1A4B8C; display: inline-block; }
+.card h3 { font-size: 17px; font-weight: 600; color: #2c3e50; margin: 20px 0 10px; }
+.card p, .card ul, .card ol { margin-bottom: 12px; color: #444; }
+.card ul, .card ol { padding-left: 22px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+thead th { background: #1A4B8C; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
+thead th:first-child { border-radius: 6px 0 0 0; }
+thead th:last-child { border-radius: 0 6px 0 0; }
+tbody td { padding: 10px 12px; border-bottom: 1px solid #e8ecf1; }
+tbody tr:nth-child(even) { background: #f8f9fb; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; }
+
+/* File-specific extras */
+.weight-badge { display: inline-block; background: #1A4B8C; color: #fff; border-radius: 20px; padding: 3px 12px; font-size: 13px; font-weight: 600; }
+.verdict { display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; }
+.verdict.pass { background: #e8f5e9; color: #27ae60; }
+.verdict.hold { background: #fff8e1; color: #f57f17; }
+.verdict.fail { background: #ffebee; color: #c62828; }
+.verdict.improve { background: #e3f2fd; color: #1565c0; }
+.metrics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin: 16px 0; }
+.metric-card { background: #f8f9fb; border-radius: 8px; padding: 16px; text-align: center; border: 1px solid #e8ecf1; }
+.metric-card .value { font-size: 18px; font-weight: 700; color: #1A4B8C; }
+.metric-card .label { font-size: 12px; color: #999; margin-top: 4px; }
+.metric-card .trend { font-size: 12px; margin-top: 2px; }
+.trend.up { color: #27ae60; }
+.trend.down { color: #c62828; }
+.trend.stable { color: #999; }
+.risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+.risk-item { background: #f8f9fb; border-radius: 8px; padding: 16px; border-left: 4px solid; font-size: 14px; }
+.risk-item.high { border-color: #c62828; }
+.risk-item.medium { border-color: #f57f17; }
+.risk-item.low { border-color: #27ae60; }
+.risk-item .risk-label { font-weight: 600; color: #333; }
+.risk-item .risk-desc { color: #666; margin-top: 4px; font-size: 13px; }
+.risk-tag { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 12px; font-weight: 600; }
+.risk-tag.high { background: #ffebee; color: #c62828; }
+.risk-tag.medium { background: #fff8e1; color: #f57f17; }
+.risk-tag.low { background: #e8f5e9; color: #27ae60; }
+.drift-row { padding: 14px 0; border-bottom: 1px solid #e8ecf1; display: grid; grid-template-columns: 1fr 2fr 2fr 70px; gap: 12px; align-items: start; font-size: 14px; }
+.drift-row:last-child { border-bottom: none; }
+.drift-row .drift-label { font-weight: 600; }
+.drift-row .drift-old { color: #999; }
+.drift-row .drift-new { color: #333; }
+.drift-badge { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 13px; font-weight: 600; text-align: center; }
+.drift-badge.positive { background: #e8f5e9; color: #27ae60; }
+.drift-badge.negative { background: #ffebee; color: #c62828; }
+.drift-badge.neutral { background: #f1f5f9; color: #999; }
+.conclusion-box { background: #eef3fc; border: 2px solid #1A4B8C; border-radius: 10px; padding: 28px; margin: 16px 0; }
+.conclusion-box h3 { color: #1A4B8C; font-size: 18px; margin-bottom: 12px; }
+.score-ring { display: inline-flex; align-items: center; justify-content: center; width: 80px; height: 80px; border-radius: 50%; font-size: 24px; font-weight: 700; color: #fff; background: #1A4B8C; flex-shrink: 0; }
+.score-row { display: flex; align-items: center; gap: 20px; padding: 10px 0; }
+.score-row .score-info { flex: 1; }
+.score-row .score-title { font-weight: 600; }
+.score-row .score-desc { font-size: 13px; color: #666; }
+.prob-low { color: #27ae60; font-weight: 600; }
+.prob-medium { color: #f57f17; font-weight: 600; }
+.prob-high { color: #c62828; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>📋 投资论文追踪</h1>
+<div class="subtitle">腾讯控股 · 00700.HK / TCEHY</div>
+<div class="meta-bar">
+<span class="item"><span class="label">追踪日期</span> 2026-07-07</span>
+<span class="item"><span class="label">股价</span> HK$463.60 / US$57.73</span>
+<span class="item"><span class="label">市值</span> HK$4.22万亿</span>
+<span class="item"><span class="label">PE(TTM)</span> 15.19x</span>
+<span class="item"><span class="label">Forward PE</span> 12.87x</span>
+</div>
+</div>
+
+<div class="container">
+
+<!-- Section 1: Buy Thesis -->
+<div class="card">
+<h2>一、持仓买入论文（核心逻辑）</h2>
+<table>
+<thead>
+<tr>
+<th style="width:40px">#</th>
+<th>买入论文</th>
+<th style="width:80px">权重</th>
+<th>建仓理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="font-weight:700;color:#1A4B8C;">①</td>
+<td><strong>中国互联网基础设施垄断</strong><br><span style="font-size:13px;color:#999;">微信13亿MAU · 社交+支付+小程序生态</span></td>
+<td><span class="weight-badge">35%</span></td>
+<td style="font-size:13px;">护城河评估为"极宽"，网络效应+转换成本全球顶级</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#1A4B8C;">②</td>
+<td><strong>全球游戏领导者</strong><br><span style="font-size:13px;color:#999;">自研+投资+发行 · 版号恢复+出海</span></td>
+<td><span class="weight-badge">25%</span></td>
+<td style="font-size:13px;">全球最大游戏公司，最强变现引擎+现金牛业务</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#1A4B8C;">③</td>
+<td><strong>卓越盈利质量与资本配置</strong><br><span style="font-size:13px;color:#999;">毛利率56%+ · FCF/收入28%+ · 理性管理层</span></td>
+<td><span class="weight-badge">25%</span></td>
+<td style="font-size:13px;">巴菲特式"好生意"标准：高ROE+真现金+理性管家</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#1A4B8C;">④</td>
+<td><strong>新增长引擎蓄势</strong><br><span style="font-size:13px;color:#999;">视频号广告 · 混元AI · 腾讯云</span></td>
+<td><span class="weight-badge">15%</span></td>
+<td style="font-size:13px;">低成本期权价值——即使部分兑现也能显著增厚估值</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- Section 2: Thesis Evaluation -->
+<div class="card">
+<h2>二、逐条论文评估</h2>
+
+<h3>论文①：中国互联网基础设施垄断</h3>
+<p style="font-size:14px;color:#666;background:#f8f9fb;padding:10px 14px;border-radius:8px;margin-bottom:14px;">原始表述：微信是中国数字生活的基础设施，13亿MAU构成极深的护城河。社交关系链锁定+小程序生态+微信支付，用户转换成本几乎无限高。</p>
+
+<div style="margin-bottom:14px;">
+<span class="verdict pass">✅ 论文仍然成立 · 护城河加强</span>
+</div>
+
+<div class="metrics-grid">
+<div class="metric-card"><div class="value">13.5亿+</div><div class="label">微信MAU</div><div class="trend up">↑ 持续增长</div></div>
+<div class="metric-card"><div class="value">6亿+</div><div class="label">小程序日活</div><div class="trend up">↑ 生态扩大</div></div>
+<div class="metric-card"><div class="value">5亿+</div><div class="label">视频号DAU</div><div class="trend up">↑ 超预期</div></div>
+<div class="metric-card"><div class="value">4000亿</div><div class="label">视频号电商GMV</div><div class="trend up">↑ 爆发增长</div></div>
+</div>
+
+<div style="margin:12px 0;">
+<span style="font-weight:600;color:#27ae60;">新增正向信号：</span>
+<span style="font-size:14px;">微信搜一搜DAU破2亿 · 视频号电商GMV 4000亿 · 混元AI接入微信生态</span>
+</div>
+<div style="margin:12px 0;">
+<span style="font-weight:600;color:#c62828;">新增风险：</span>
+<span style="font-size:14px;">字节跳动用户时长竞争 · 数据安全法限制 · AI社交范式冲击（目前有限）</span>
+</div>
+
+<hr style="border:none;border-top:1px solid #e8ecf1;margin:24px 0;">
+
+<h3>论文②：全球游戏领导者</h3>
+<p style="font-size:14px;color:#666;background:#f8f9fb;padding:10px 14px;border-radius:8px;margin-bottom:14px;">原始表述：全球最大游戏公司，自研+投资+发行完整能力。版号恢复+海外扩张双重驱动。</p>
+
+<div style="margin-bottom:14px;">
+<span class="verdict hold">⚠️ 基本成立 · 需修正预期</span>
+</div>
+
+<div class="metrics-grid">
+<div class="metric-card"><div class="value">全球#1</div><div class="label">游戏收入排名</div><div class="trend stable">→ 领先稳定</div></div>
+<div class="metric-card"><div class="value">+8%</div><div class="label">国内游戏增长</div><div class="trend stable">→ 稳健但低于预期</div></div>
+<div class="metric-card"><div class="value">~30%</div><div class="label">海外收入占比</div><div class="trend up">↑ 提升中</div></div>
+<div class="metric-card"><div class="value">200亿+</div><div class="label">DNF手游首年流水</div><div class="trend up">↑ 超预期爆款</div></div>
+</div>
+
+<div style="margin:12px 0;">
+<span style="font-weight:600;color:#27ae60;">新增正向信号：</span>
+<span style="font-size:14px;">DNF手游首年流水200亿 · Valorant主机版上线 · 小游戏年流水500亿</span>
+</div>
+<div style="margin:12px 0;">
+<span style="font-weight:600;color:#c62828;">新增风险：</span>
+<span style="font-size:14px;">国内存量竞争 · 米哈游崛起 · 微软收购动视暴雪 · AI+游戏追赶</span>
+</div>
+
+<div style="background:#fff8e1;padding:12px 16px;border-radius:8px;font-size:14px;margin-top:10px;">
+<strong>📌 修正建议：</strong> 从"游戏高增长引擎"下调为"游戏稳健现金牛"；权重从25%→20%
+</div>
+
+<hr style="border:none;border-top:1px solid #e8ecf1;margin:24px 0;">
+
+<h3>论文③：卓越盈利质量与资本配置</h3>
+<p style="font-size:14px;color:#666;background:#f8f9fb;padding:10px 14px;border-radius:8px;margin-bottom:14px;">原始表述：毛利率从43%提升到56%+，FCF转化率近100%，ROE 20%+。管理层理性：回购+减持+分红提升。</p>
+
+<div style="margin-bottom:14px;">
+<span class="verdict improve">✅ 仍然成立 · 比建仓时更强</span>
+</div>
+
+<div class="metrics-grid">
+<div class="metric-card"><div class="value">56.3%</div><div class="label">毛利率</div><div class="trend up">↑ 历史高位</div></div>
+<div class="metric-card"><div class="value">30.6%</div><div class="label">净利率</div><div class="trend up">↑ 持续提升</div></div>
+<div class="metric-card"><div class="value">28.7%</div><div class="label">FCF/收入</div><div class="trend up">↑ 维持高位</div></div>
+<div class="metric-card"><div class="value">20.51%</div><div class="label">ROE</div><div class="trend up">↑ 小幅提升</div></div>
+</div>
+
+<div class="metrics-grid">
+<div class="metric-card"><div class="value">¥4.76</div><div class="label">DPS (分红)</div><div class="trend up">↑ +40%</div></div>
+<div class="metric-card"><div class="value">1000亿+</div><div class="label">年度回购(HK$)</div><div class="trend up">↑ 加码</div></div>
+<div class="metric-card"><div class="value">3000亿+</div><div class="label">减持回笼(HK$)</div><div class="trend up">↑ 高位套现</div></div>
+<div class="metric-card"><div class="value">US$132亿</div><div class="label">净现金</div><div class="trend up">↑ 财务稳健</div></div>
+</div>
+
+<div style="margin:12px 0;">
+<span style="font-weight:600;color:#c62828;">新增风险：</span>
+<span style="font-size:14px;">CAPEX+30%（AI算力）可能拉低短期ROIC · 减持美股可能错失上涨 · 回购持续性依赖股价</span>
+</div>
+
+<hr style="border:none;border-top:1px solid #e8ecf1;margin:24px 0;">
+
+<h3>论文④：新增长引擎蓄势</h3>
+<p style="font-size:14px;color:#666;background:#f8f9fb;padding:10px 14px;border-radius:8px;margin-bottom:14px;">原始表述：视频号广告货币化、混元AI、腾讯云构成第二/三增长曲线。</p>
+
+<div style="margin-bottom:14px;">
+<span class="verdict improve">✅ 大致成立 · 各引擎进度参差</span>
+</div>
+
+<h4 style="color:#1A4B8C;margin:16px 0 8px;font-size:15px;">🔷 视频号广告货币化 <span class="verdict pass">超预期</span></h4>
+<table>
+<thead>
+<tr><th>指标</th><th>原始预期</th><th>当前状态</th><th>评估</th></tr>
+</thead>
+<tbody>
+<tr><td>DAU</td><td>~3亿</td><td>5亿+</td><td style="color:#27ae60;">✅ 超预期</td></tr>
+<tr><td>单用户时长</td><td>~35分钟</td><td>~50分钟</td><td style="color:#27ae60;">✅ 超预期</td></tr>
+<tr><td>广告收入</td><td>~200亿/年</td><td>~500亿/年</td><td style="color:#27ae60;">✅ 超预期</td></tr>
+<tr><td>电商GMV</td><td>~1000亿/年</td><td>~4000亿/年</td><td style="color:#27ae60;">✅ 超预期</td></tr>
+</tbody>
+</table>
+
+<h4 style="color:#1A4B8C;margin:16px 0 8px;font-size:15px;">🔷 混元AI <span class="verdict hold">符合预期·尚未独立</span></h4>
+<p style="font-size:14px;">国内第一梯队大模型，商业化收入约50亿（2025），仍在早期。AI助手+搜索+客服+创作稳步落地，但C端爆款尚未出现。</p>
+
+<h4 style="color:#1A4B8C;margin:16px 0 8px;font-size:15px;">🔷 腾讯云 <span class="verdict improve">超预期盈利</span></h4>
+<p style="font-size:14px;">同比+15-20%，已实现盈利（超预期）。市场份额进入前三，得益于AI需求拉动和聚焦高质量收入。</p>
+</div>
+
+<!-- Section 3: Risk Matrix -->
+<div class="card">
+<h2>三、风险矩阵更新</h2>
+
+<h3 style="color:#666;font-size:15px;margin-bottom:12px;">原有风险追踪</h3>
+<table style="margin-bottom:20px;">
+<thead>
+<tr><th>风险因素</th><th>原始评级</th><th>当前评级</th><th>变化</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>监管（反垄断/数据安全/版号）</td>
+<td><span class="risk-tag high">高</span></td>
+<td><span class="risk-tag medium">中</span></td>
+<td style="color:#27ae60;">↓ 减轻</td>
+<td style="font-size:13px;">监管高峰已过，版号常态化发放</td>
+</tr>
+<tr>
+<td>竞争（字节跳动时长竞争）</td>
+<td><span class="risk-tag medium">中</span></td>
+<td><span class="risk-tag medium">中</span></td>
+<td style="color:#999;">→ 持平</td>
+<td style="font-size:13px;">视频号已有效防御，但抖音仍在增长</td>
+</tr>
+<tr>
+<td>中美地缘政治</td>
+<td><span class="risk-tag medium">中</span></td>
+<td><span class="risk-tag medium">中</span></td>
+<td style="color:#999;">→ 持平</td>
+<td style="font-size:13px;">不确性持续，腾讯已大幅减持美国投资</td>
+</tr>
+<tr>
+<td>增长放缓</td>
+<td><span class="risk-tag medium">中</span></td>
+<td><span class="risk-tag medium">中</span></td>
+<td style="color:#999;">→ 持平</td>
+<td style="font-size:13px;">收入增速稳定在10-15%，符合预期</td>
+</tr>
+</tbody>
+</table>
+
+<h3 style="color:#666;font-size:15px;margin-bottom:12px;">新增风险</h3>
+<div class="risk-grid">
+<div class="risk-item medium">
+<div class="risk-label">AI竞争冲击</div>
+<div class="risk-desc">字节豆包/百度文心AI竞争；Meta/OpenAI全球化冲击</div>
+<div class="risk-tag medium">中</div>
+</div>
+<div class="risk-item low">
+<div class="risk-label">资本开支上升拉低ROIC</div>
+<div class="risk-desc">AI算力投入CAPEX+30%，短期稀释ROIC</div>
+<div class="risk-tag low">低-中</div>
+</div>
+<div class="risk-item low">
+<div class="risk-label">投资组合价值缩水</div>
+<div class="risk-desc">剩余投资市值波动；但敞口已大幅降低</div>
+<div class="risk-tag low">低</div>
+</div>
+<div class="risk-item low">
+<div class="risk-label">广告市场景气度</div>
+<div class="risk-desc">宏观经济走弱影响广告收入</div>
+<div class="risk-tag low">低</div>
+</div>
+</div>
+</div>
+
+<!-- Section 4: Thesis Drift -->
+<div class="card">
+<h2>四、论文漂移检测</h2>
+
+<div style="background:#f8f9fb;padding:14px;border-radius:8px;margin-bottom:16px;font-size:14px;">
+<strong>漂移检测目的：</strong> 对比原始建仓逻辑与当前判断之间的变化，识别正向/负向漂移及其幅度。
+</div>
+
+<div class="drift-row" style="font-weight:600;color:#666;padding-bottom:10px;border-bottom:2px solid #e8ecf1;">
+<div>论文</div>
+<div>上次判断（建仓时）</div>
+<div>当前判断（2026-07-07）</div>
+<div style="text-align:center;">漂移</div>
+</div>
+<div class="drift-row">
+<div class="drift-label">① 基础设施</div>
+<div class="drift-old">护城河极宽，但抖音侵蚀、监管风险高</div>
+<div class="drift-new">护城河加强（视频号+搜索+AI生态），监管压力减轻</div>
+<div style="text-align:center;"><span class="drift-badge positive">+15%</span></div>
+</div>
+<div class="drift-row">
+<div class="drift-label">② 游戏领导者</div>
+<div class="drift-old">高增长引擎，版号恢复推动双位数增长</div>
+<div class="drift-new">增长趋于稳健（~8-10%），海外非爆发式</div>
+<div style="text-align:center;"><span class="drift-badge negative">-15%</span></div>
+</div>
+<div class="drift-row">
+<div class="drift-label">③ 盈利与配置</div>
+<div class="drift-old">盈利质量优秀且改善中，管理层理性</div>
+<div class="drift-new">符合且超出预期，资本配置行为优于原始判断</div>
+<div style="text-align:center;"><span class="drift-badge positive">+20%</span></div>
+</div>
+<div class="drift-row">
+<div class="drift-label">④ 新增长引擎</div>
+<div class="drift-old">视频号/AI/云是增量期权，尚未兑现</div>
+<div class="drift-new">视频号大幅超预期兑现，AI和云稳步推进</div>
+<div style="text-align:center;"><span class="drift-badge positive">+25%</span></div>
+</div>
+
+<div style="background:#e8f5e9;padding:14px 18px;border-radius:8px;margin-top:16px;">
+<strong style="color:#27ae60;">综合净漂移：正向漂移（+11% 加权）</strong><br>
+<span style="font-size:14px;">管理层执行力超预期 + 视频号兑现 + 监管改善 → 正向；游戏增长预期下调 → 唯一负向</span>
+</div>
+</div>
+
+<!-- Section 5: Conclusion -->
+<div class="card">
+<h2>五、持仓合理性结论</h2>
+
+<div class="conclusion-box">
+<h3>✅ 持仓仍然合理，论文整体保持成立</h3>
+<p style="font-size:14px;">腾讯的4条买入论文中有3条（①基础设施垄断、③盈利质量与资本配置、④新增长引擎）在当前比建仓时<strong>更强</strong>或<strong>符合预期</strong>；唯一需要修正的是②游戏增长预期（从"高增长"→"稳健增长"）。综合来看，论文净漂移为正向，持仓逻辑比建仓时更有支撑。</p>
+</div>
+
+<div class="score-row">
+<div class="score-ring">83</div>
+<div class="score-info">
+<div class="score-title">持仓合理性综合评分 /100</div>
+<div class="score-desc">论文完整度 88 · 论文稳定性 85 · 风险可控性 80 · 机会成本 75</div>
+</div>
+</div>
+
+<h3 style="margin:20px 0 12px;font-size:16px;">触发重新评估的条件</h3>
+<table>
+<thead>
+<tr><th>触发条件</th><th>概率</th><th>对论文影响</th></tr>
+</thead>
+<tbody>
+<tr><td>微信MAU连续2季度下降</td><td><span class="prob-low">极低 &lt;5%</span></td><td>论文①证伪→减仓</td></tr>
+<tr><td>游戏收入连续4季度同比下滑</td><td><span class="prob-low">低 10-15%</span></td><td>论文②证伪→降权重</td></tr>
+<tr><td>管理层停止回购/大幅削减分红</td><td><span class="prob-low">极低 &lt;5%</span></td><td>论文③被削弱</td></tr>
+<tr><td>混元AI被证明落后第二梯队</td><td><span class="prob-medium">中 20-30%</span></td><td>论文④部分削弱</td></tr>
+<tr><td>全面禁止游戏/社交平台运营</td><td><span class="prob-low">极低 &lt;1%</span></td><td>全部论文证伪</td></tr>
+</tbody>
+</table>
+
+<h3 style="margin:20px 0 12px;font-size:16px;">后续跟踪重点</h3>
+<div class="risk-grid">
+<div style="background:#f8f9fb;border-radius:8px;padding:16px;border:1px solid #e8ecf1;">
+<strong style="color:#1A4B8C;">每季度</strong>
+<p style="font-size:13px;margin-top:4px;">微信MAU · 视频号DAU · 广告收入增速 · 回购进度</p>
+</div>
+<div style="background:#f8f9fb;border-radius:8px;padding:16px;border:1px solid #e8ecf1;">
+<strong style="color:#1A4B8C;">每半年</strong>
+<p style="font-size:13px;margin-top:4px;">AI投入回报 · 游戏管线 · 海外收入占比</p>
+</div>
+</div>
+</div>
+
+<!-- Section 6: Drift Supplementary -->
+<div class="card">
+<h2>附录：漂移对估值的影响</h2>
+<table style="margin-bottom:16px;">
+<thead>
+<tr><th>论文漂移</th><th>对PE中枢影响</th><th>幅度</th></tr>
+</thead>
+<tbody>
+<tr><td>① 基础设施垄断加强</td><td>提升PE（护城河溢价）</td><td style="color:#27ae60;">+2~3x</td></tr>
+<tr><td>② 游戏增长预期下调</td><td>降低PE（增长溢价减少）</td><td style="color:#c62828;">-1~2x</td></tr>
+<tr><td>③ 盈利质量超预期</td><td>提升PE（质量溢价）</td><td style="color:#27ae60;">+2~3x</td></tr>
+<tr><td>④ 视频号超预期兑现</td><td>提升PE（新增业务价值）</td><td style="color:#27ae60;">+1~2x</td></tr>
+</tbody>
+</table>
+
+<div style="background:#eef3fc;padding:16px 20px;border-radius:8px;border-left:4px solid #1A4B8C;">
+<strong style="color:#1A4B8C;">关键洞察</strong>
+<p style="font-size:14px;margin-top:6px;">当前PE 15.19x不仅低于历史中位数28x，也低于经漂移修正后的合理PE区间（20-24x）。论文综合净漂移为正，估值中枢实际应上升而非下降。当前低PE的主因是外部因素（中概股折价、市场情绪、地缘政治），而非基本面变差。若市场最终认可论文漂移的正面价值，估值修复空间可达 <strong>30-50%</strong>。</p>
+</div>
+</div>
+
+<div class="footer">
+<p>报告生成日期：2026-07-07 | 数据来源：公司财报、公开市场数据、行业报告</p>
+<p>本报告仅供研究参考，不构成投资建议。投资有风险，入市需谨慎。</p>
+</div>
+
+</div>
+</body>
+</html>
