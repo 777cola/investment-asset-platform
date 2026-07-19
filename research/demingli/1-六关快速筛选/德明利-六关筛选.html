@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>德明利（001309.SZ）— 六关快速筛选 + 七条硬指标去劣</title>
+<style>
+  /* === PDD 标准 CSS 模板 v2.0 === */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f4f6f9;
+    color: #1a1a2e;
+    padding: 40px 20px;
+  }
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 24px 24px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 16px 16px 0 0;
+    color: #fff;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .header .sub {
+    font-size: 14px;
+    opacity: .75;
+    margin-top: 4px;
+  }
+  .header .ticker {
+    display: inline-block;
+    background: rgba(255,255,255,.12);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  .summary-ribbon {
+    display: flex;
+    justify-content: space-around;
+    background: #fff;
+    border-left: 1px solid #e8ecf1;
+    border-right: 1px solid #e8ecf1;
+    padding: 18px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .summary-ribbon .stat {
+    text-align: center;
+    min-width: 80px;
+  }
+  .summary-ribbon .stat .val { font-size: 20px; font-weight: 700; color: #1a1a2e; }
+  .summary-ribbon .stat .lbl { font-size: 11px; color: #888; margin-top: 2px; }
+  .verdict-banner {
+    background: #fff;
+    border-left: 1px solid #e8ecf1;
+    border-right: 1px solid #e8ecf1;
+    padding: 20px 24px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .verdict-banner .pass { color: #22c55e; }
+  .verdict-banner .warn { color: #f59e0b; }
+  .verdict-banner .fail { color: #ef4444; }
+  .card {
+    background: #fff;
+    border: 1px solid #e8ecf1;
+    border-top: none;
+    padding: 28px 32px;
+  }
+  .card:last-child { border-radius: 0 0 16px 16px; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f0f2f5;
+  }
+  .card-header .step { 
+    width: 36px; height: 36px; border-radius: 50%; 
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px; color: #fff; flex-shrink: 0;
+  }
+  .card-header .step.pass { background: #22c55e; }
+  .card-header .step.warn { background: #f59e0b; }
+  .card-header .step.fail { background: #ef4444; }
+  .card-header .title { font-size: 18px; font-weight: 700; }
+  .card-header .badge {
+    margin-left: auto;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .badge.pass { background: #dcfce7; color: #166534; }
+  .badge.warn { background: #fef3c7; color: #92400e; }
+  .badge.fail { background: #fee2e2; color: #991b1b; }
+  .card-body { font-size: 14.5px; line-height: 1.75; color: #334155; }
+  .card-body p { margin-bottom: 10px; }
+  .card-body ul { margin: 8px 0 12px 24px; }
+  .card-body li { margin-bottom: 5px; }
+  .card-body strong { color: #1e293b; }
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .data-grid .item {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .data-grid .item .num { font-size: 17px; font-weight: 700; color: #1a1a2e; }
+  .data-grid .item .desc { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+  .roi-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  .roi-table th {
+    background: #f1f5f9;
+    padding: 8px 10px;
+    text-align: center;
+    font-weight: 600;
+    color: #475569;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .roi-table td {
+    padding: 8px 10px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .roi-table tr:last-child td { border-bottom: none; }
+  .roi-table .good { color: #22c55e; font-weight: 600; }
+  .roi-table .ok   { color: #f59e0b; font-weight: 600; }
+  .roi-table .bad  { color: #ef4444; font-weight: 600; }
+  .highlight-box {
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  .highlight-box.warn { background: #fef3c7; }
+  .highlight-box.info { background: #eff6ff; }
+  .highlight-box.good { background: #f0fdf4; }
+  .star-rating { font-size: 16px; letter-spacing: 2px; }
+  .star-filled { color: #f59e0b; }
+  .star-empty { color: #d1d5db; }
+  .footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  @media (max-width: 640px) {
+    .header h1 { font-size: 22px; }
+    .card { padding: 20px 16px; }
+    .summary-ribbon { gap: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ======== HEADER ======== -->
+<div class="header">
+  <h1>🧾 巴菲特买入前六关 · 快速筛选 + 七条硬指标去劣</h1>
+  <div class="sub">德明利技术股份有限公司</div>
+  <div class="ticker">001309.SZ（深圳主板）</div>
+  <div style="margin-top:14px;font-size:13px;opacity:.6;">研究日期：2026-07-19 &nbsp;|&nbsp; 股价：536.54元 &nbsp;|&nbsp; 市值：~1,217亿元</div>
+</div>
+
+<!-- ======== KEY STATS RIBBON ======== -->
+<div class="summary-ribbon">
+  <div class="stat"><div class="val">29.66x</div><div class="lbl">PE (TTM)</div></div>
+  <div class="stat"><div class="val">~1,217亿</div><div class="lbl">总市值</div></div>
+  <div class="stat"><div class="val">~886亿</div><div class="lbl">流通市值</div></div>
+  <div class="stat"><div class="val">536.54</div><div class="lbl">股价 (元)</div></div>
+  <div class="stat"><div class="val">A级</div><div class="lbl">信息丰富度</div></div>
+</div>
+
+<!-- ======== OVERALL VERDICT ======== -->
+<div class="verdict-banner">
+  <span class="warn">⚠️ 整体判定：观望，但高度关注</span><br>
+  <span style="font-size:14px;font-weight:400;color:#64748b;">
+    2026Q1业绩爆发（33.46亿净利润，44%净利率），若可持续，年化PE仅~9倍 — 但需验证利润率可持续性
+  </span>
+</div>
+
+<!-- ======== 公司速览 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step pass">📋</div>
+    <div class="title">公司速览</div>
+    <div class="badge pass">概览</div>
+  </div>
+  <div class="card-body">
+    <table class="roi-table">
+      <thead>
+        <tr><th style="width:30%;">项目</th><th>数据</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>公司名称</strong></td><td>德明利技术股份有限公司</td></tr>
+        <tr><td><strong>股票代码</strong></td><td>001309.SZ（深圳主板）</td></tr>
+        <tr><td><strong>最新股价</strong></td><td>536.54元（2026/07/17）</td></tr>
+        <tr><td><strong>总市值</strong></td><td>~1,217亿元</td></tr>
+        <tr><td><strong>流通市值</strong></td><td>~886亿元</td></tr>
+        <tr><td><strong>市盈率(TTM)</strong></td><td>29.66倍</td></tr>
+        <tr><td><strong>总股本（推算）</strong></td><td>~2.27亿股</td></tr>
+        <tr><td><strong>主营业务</strong></td><td>NAND闪存控制器/存储模组/嵌入式存储</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======== 核心财务数据 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step pass">📊</div>
+    <div class="title">核心财务数据</div>
+    <div class="badge pass">财务</div>
+  </div>
+  <div class="card-body">
+    <p><strong>利润表</strong></p>
+    <table class="roi-table">
+      <thead>
+        <tr>
+          <th>指标</th>
+          <th>2023年</th>
+          <th>2024年</th>
+          <th>2025年</th>
+          <th>2026年Q1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>营业总收入</strong></td><td>~68.39亿</td><td>75.38亿</td><td><strong>107.89亿</strong></td><td><strong>75.38亿</strong></td></tr>
+        <tr><td><strong>营业总成本</strong></td><td>—</td><td>—</td><td>101.04亿</td><td>36.44亿</td></tr>
+        <tr><td>其中：营业成本</td><td>—</td><td>—</td><td>91.91亿</td><td><strong>32.10亿</strong></td></tr>
+        <tr><td>销售费用</td><td>—</td><td>—</td><td>0.93亿</td><td>0.24亿</td></tr>
+        <tr><td>管理费用</td><td>—</td><td>—</td><td>2.07亿</td><td>0.68亿</td></tr>
+        <tr><td>研发费用</td><td>—</td><td>—</td><td>2.92亿</td><td>1.68亿</td></tr>
+        <tr><td>财务费用</td><td>—</td><td>—</td><td>2.02亿</td><td>1.18亿</td></tr>
+        <tr><td><strong>归母净利润</strong></td><td class="bad">-0.28亿（亏）</td><td class="good">6.80亿</td><td class="good">6.88亿</td><td class="good"><strong>33.46亿</strong></td></tr>
+        <tr><td><strong>扣非净利润</strong></td><td>—</td><td>—</td><td>6.68亿</td><td><strong>33.34亿</strong></td></tr>
+        <tr><td><strong>毛利率</strong></td><td>—</td><td>—</td><td>~14.8%</td><td><strong>~57.4%</strong></td></tr>
+        <tr><td><strong>净利率</strong></td><td>—</td><td>—</td><td>~6.4%</td><td><strong>~44.4%</strong></td></tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top:20px;"><strong>2026Q1爆发式增长分析</strong></p>
+    <table class="roi-table">
+      <thead>
+        <tr><th>对比</th><th>营收</th><th>净利润</th><th>毛利率</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>2025全年</strong></td><td>107.89亿</td><td>6.88亿</td><td>14.8%</td></tr>
+        <tr><td><strong>2026Q1单季</strong></td><td>75.38亿（≈2025全年70%）</td><td>33.46亿（≈2025全年486%）</td><td class="good">57.4%</td></tr>
+        <tr><td><strong>同比增幅</strong></td><td>~500%+</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-box info">
+      <strong>📌 结论：</strong>2026Q1业绩呈井喷态势，单季净利润已超过2024+2025年总和。毛利率从14.8%飙升至57.4%，反映产品结构大幅优化或存储芯片涨价周期受益。
+    </div>
+  </div>
+</div>
+
+<!-- ======== 六关快速筛选 ======== -->
+
+<!-- ======== GATE 1 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step pass">①</div>
+    <div class="title">第一关：我能理解这门生意吗？</div>
+    <div class="badge pass">
+      <span class="star-rating"><span class="star-filled">★★★★★</span><span class="star-empty">☆</span></span>
+    </div>
+  </div>
+  <div class="card-body">
+    <p><strong>核心判断：生意模式清晰，但需注意业务结构的质变。</strong></p>
+    <p>德明利做存储模组和控制器——从海力士/美光/三星买来NAND Flash芯片，做成SSD、存储卡、嵌入式存储，卖给手机厂商和数据中心客户。生意模式清晰，就是存储芯片的"贸易+加工"。</p>
+    <div class="highlight-box warn">
+      <strong>⚠️ 关键提示：</strong>2026Q1毛利率57.4%远超传统模组厂（通常10-25%），说明业务结构已有质变——可能自有控制器芯片+模组一体化模式。
+    </div>
+  </div>
+</div>
+
+<!-- ======== GATE 2 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step pass">②</div>
+    <div class="title">第二关：这是一门好生意吗？</div>
+    <div class="badge pass">
+      <span class="star-rating"><span class="star-filled">★★★★★</span><span class="star-empty">☆</span></span>
+    </div>
+  </div>
+  <div class="card-body">
+    <table class="roi-table">
+      <thead>
+        <tr><th>指标</th><th>德明利</th><th>参考标准</th><th>判断</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>毛利率（2025）</td>
+          <td>14.8%</td>
+          <td>&gt;40%有定价权</td>
+          <td><span class="ok">⚠️ 一般（但Q1 57%极佳）</span></td>
+        </tr>
+        <tr>
+          <td>毛利率（2026Q1）</td>
+          <td class="good"><strong>57.4%</strong></td>
+          <td>&gt;40%有定价权</td>
+          <td><span class="good">✅ 优秀</span></td>
+        </tr>
+        <tr>
+          <td>净利率（2026Q1）</td>
+          <td class="good"><strong>44.4%</strong></td>
+          <td>&gt;15%优秀</td>
+          <td><span class="good">✅ 卓越</span></td>
+        </tr>
+        <tr>
+          <td>ROE（预估）</td>
+          <td>待计算</td>
+          <td>&gt;15%</td>
+          <td><span class="ok">⚠️ 待确认</span></td>
+        </tr>
+        <tr>
+          <td>自由现金流</td>
+          <td>待查</td>
+          <td>持续为正</td>
+          <td><span class="ok">⚠️ 待确认</span></td>
+        </tr>
+        <tr>
+          <td>负债水平</td>
+          <td>待查</td>
+          <td>有息负债/净利润&lt;3年</td>
+          <td><span class="ok">⚠️ 待确认</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======== GATE 3 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step warn">③</div>
+    <div class="title">第三关：护城河够不够深？</div>
+    <div class="badge warn">
+      <span class="star-rating"><span class="star-filled">★★★★</span><span class="star-empty">★★</span></span>
+    </div>
+  </div>
+  <div class="card-body">
+    <table class="roi-table">
+      <thead>
+        <tr><th>护城河</th><th>得分</th><th>证据</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>品牌/定价权</td>
+          <td><span class="ok">★★</span></td>
+          <td>模组标准化产品，定价权有限</td>
+        </tr>
+        <tr>
+          <td>技术壁垒</td>
+          <td><span class="ok">★★★</span></td>
+          <td>自研控制器芯片有技术门槛</td>
+        </tr>
+        <tr>
+          <td>客户锁定</td>
+          <td><span class="ok">★★★</span></td>
+          <td>客户验证周期长，但SK海力士/三星也可直销</td>
+        </tr>
+        <tr>
+          <td>规模效应</td>
+          <td><span class="ok">★★★</span></td>
+          <td>营收超百亿，有一定规模优势</td>
+        </tr>
+        <tr>
+          <td><strong>综合</strong></td>
+          <td><strong>★★★</strong></td>
+          <td>护城河中游</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======== GATE 4 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step warn">④</div>
+    <div class="title">第四关：管理层是否值得信任？</div>
+    <div class="badge warn">
+      <span class="star-rating"><span class="star-filled">★★★★</span><span class="star-empty">★★</span></span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="highlight-box warn">
+      <strong>⚠️ 待确认：</strong>需进一步研究管理层履历和股权结构。
+    </div>
+  </div>
+</div>
+
+<!-- ======== GATE 5 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step warn">⑤</div>
+    <div class="title">第五关：价格是否便宜？</div>
+    <div class="badge warn">
+      <span class="star-rating"><span class="star-filled">★★★★</span><span class="star-empty">★★</span></span>
+    </div>
+  </div>
+  <div class="card-body">
+    <table class="roi-table">
+      <thead>
+        <tr><th>指标</th><th>数值</th><th>判断</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>PE(TTM)</td>
+          <td>29.66x</td>
+          <td><span class="ok">不便宜，但不贵</span></td>
+        </tr>
+        <tr>
+          <td>2025年PE</td>
+          <td>~177x</td>
+          <td class="bad">基于2025年业绩极贵</td>
+        </tr>
+        <tr>
+          <td>2026E PE（Q1年化）</td>
+          <td class="good"><strong>~9x</strong></td>
+          <td class="good">如果Q1业绩可持续，非常便宜</td>
+        </tr>
+        <tr>
+          <td>市值</td>
+          <td>1,217亿</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="highlight-box warn">
+      <strong>⚠️ 核心争议点：</strong>2026Q1的33.46亿净利润是可持续的还是非经常性的？
+    </div>
+  </div>
+</div>
+
+<!-- ======== GATE 6 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step warn">⑥</div>
+    <div class="title">第六关：决策纪律</div>
+    <div class="badge warn">
+      <span class="star-rating"><span class="star-filled">★★★★</span><span class="star-empty">★★</span></span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="highlight-box info">
+      <strong>🪞 镜子测试：</strong>我以536.54元买入德明利，因为它在2026Q1实现了33.46亿净利润，年化对应PE仅~9倍。但关键假设是净利润的可持性——如果Q1业绩是偶发性的（存储芯片价格脉冲、大额一次性合同等），则当前估值逻辑不成立。
+    </div>
+  </div>
+</div>
+
+<!-- ======== 七条硬指标去劣 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step pass">📏</div>
+    <div class="title">七条硬指标去劣</div>
+    <div class="badge pass">硬指标</div>
+  </div>
+  <div class="card-body">
+    <table class="roi-table">
+      <thead>
+        <tr><th>#</th><th>指标</th><th>数据</th><th>通过</th><th>豁免</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>10年平均ROE&gt;8%</td>
+          <td>上市不足3年</td>
+          <td><span class="ok">⚠️ 数据不足</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>5年累计FCF为正</td>
+          <td>待查</td>
+          <td><span class="ok">⚠️</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>利息覆盖&gt;2倍</td>
+          <td>待查</td>
+          <td><span class="ok">⚠️</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>长期毛利率&gt;15%</td>
+          <td>2025年14.8%，2026Q1 57.4%</td>
+          <td><span class="good">✅ 趋势向好</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>经营现金流/净利&gt;0.7</td>
+          <td>待查</td>
+          <td><span class="ok">⚠️</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>净利率&gt;5%</td>
+          <td>2026Q1 44.4%</td>
+          <td><span class="good">✅</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>5年股本膨胀&lt;20%</td>
+          <td>上市仅2年</td>
+          <td><span class="good">✅</span></td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="highlight-box warn">
+      <strong>📌 初步判断：</strong>数据不足以做硬性否决，但需补充FCF和ROE数据。
+    </div>
+  </div>
+</div>
+
+<!-- ======== 关键风险 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step fail">⚠️</div>
+    <div class="title">关键风险</div>
+    <div class="badge fail">关注</div>
+  </div>
+  <div class="card-body">
+    <ol style="margin:0 0 0 20px;">
+      <li><strong>Q1业绩可持续性</strong>：44%净利率是否可持续？还是存储涨价周期的一次性红利？</li>
+      <li><strong>行业周期性</strong>：存储芯片价格波动剧烈，模组厂利润高度依赖价格走向</li>
+      <li><strong>客户集中度</strong>：前五大客户占比、大客户依赖度</li>
+      <li><strong>库存风险</strong>：存储价格下跌时的存货减值风险</li>
+      <li><strong>技术依赖</strong>：对上游NAND Flash原厂的依赖（三星/海力士/美光/长江存储）</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ======== 初步结论 ======== -->
+<div class="card" style="border-radius:0 0 16px 16px;border-top:2px solid #e8ecf1;">
+  <div class="card-header">
+    <div class="step pass">🎯</div>
+    <div class="title">初步结论</div>
+    <div class="badge pass">结论</div>
+  </div>
+  <div class="card-body">
+    <p><strong>观望，但高度关注。</strong></p>
+    <p>德明利2026Q1的业绩爆发（33.46亿净利润，44%净利率）是极其亮眼的信号。如果这样的盈利能力可持续，以当前市值1,217亿、年化净利润~134亿计算，PE仅9倍，具备安全边际。</p>
+    <p><strong>但需验证以下关键问题：</strong></p>
+    <ol style="margin:8px 0 12px 20px;">
+      <li>2026Q1高利润率的来源是什么？上下游驱动的涨价还是业务结构质变？</li>
+      <li>这种利润率能维持几个季度？</li>
+      <li>管理层是否有意在高点融资/减持？</li>
+    </ol>
+
+    <!-- ======== 六关综合判定总表 ======== -->
+    <p style="margin-top:20px;"><strong>六关综合判定总表</strong></p>
+    <table class="roi-table">
+      <thead>
+        <tr><th style="width:130px;">关卡</th><th style="width:100px;">判定</th><th>简要理由</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>① 理解生意</strong></td>
+          <td><span class="good">✅ 4/5</span></td>
+          <td>存储模组+控制器模式清晰；Q1毛利率质变值得关注</td>
+        </tr>
+        <tr>
+          <td><strong>② 好生意</strong></td>
+          <td><span class="good">✅ 4/5</span></td>
+          <td>Q1净利率44.4%卓越，但ROE/FCF待确认</td>
+        </tr>
+        <tr>
+          <td><strong>③ 护城河</strong></td>
+          <td><span class="ok">⚠️ 3/5</span></td>
+          <td>技术壁垒+规模效应中等，定价权有限</td>
+        </tr>
+        <tr>
+          <td><strong>④ 管理层</strong></td>
+          <td><span class="ok">⚠️ 待确认</span></td>
+          <td>需进一步研究管理层履历和股权结构</td>
+        </tr>
+        <tr>
+          <td><strong>⑤ 价格</strong></td>
+          <td><span class="ok">⚠️ 3/5</span></td>
+          <td>TTM PE 29x不贵，Q1年化仅9x但可持续性存疑</td>
+        </tr>
+        <tr>
+          <td><strong>⑥ 决策纪律</strong></td>
+          <td><span class="ok">⚠️ 3/5</span></td>
+          <td>买入逻辑依赖Q1业绩可持续性，需进一步验证</td>
+        </tr>
+        <tr style="background:#f8fafc;font-weight:700;">
+          <td><strong>整体</strong></td>
+          <td><span class="ok">⚠️ 观望</span></td>
+          <td>业绩爆发信号极亮，但可持续性是关键——需验证后行动</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-box warn" style="margin-top:16px;">
+      <strong>💡 操作建议：</strong>当前属于"高度关注"等级。建议放入<strong>观察池</strong>，等待以下信号：(1) Q2财报验证利润率可持续性；(2) 补充FCF和ROE数据；(3) 管理层是否有减持/融资动作。在Q2数据出来前，不宜重仓介入。
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  本报告基于公开财务数据整理，仅供研究参考，不构成投资建议。<br>
+  数据截止：2026-07-19 &nbsp;|&nbsp; 数据来源：同花顺F10财务数据、东方财富、Sina Finance &nbsp;|&nbsp; 生成工具：Hermes Agent
+</div>
+
+</div>
+</body>
+</html>

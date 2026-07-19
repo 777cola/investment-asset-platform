@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>德明利 (001309.SZ) — 持仓论文追踪</title>
+<link href='https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', sans-serif; background: #f5f8fc; color: #333; line-height: 1.8; padding: 2rem; max-width: 900px; margin: 0 auto; }
+h1 { color: #1A4B8C; border-bottom: 3px solid #1A4B8C; padding-bottom: 0.5rem; font-weight: 700; font-size: 1.6rem; }
+h2 { color: #1A4B8C; margin-top: 2rem; font-size: 1.2rem; border-left: 4px solid #1A4B8C; padding-left: 0.75rem; }
+h3 { color: #2a5fa0; margin-top: 1.2rem; font-size: 1.05rem; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; }
+tr:nth-child(even) td { background: #f8f9fb; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; margin-top: 3rem; }
+.back-link { display: inline-block; margin-bottom: 1rem; }
+.back-link a { color: #1A4B8C; text-decoration: none; font-weight: 500; }
+.back-link a:hover { text-decoration: underline; }
+hr { border: none; border-top: 1px solid #e0e6ef; margin: 1.5rem 0; }
+
+.thesis-box { background: linear-gradient(135deg, #e8f4f8 0%, #d4e8f0 100%); border: 2px solid #1A4B8C; border-radius: 8px; padding: 1.5rem; margin: 1rem 0; }
+.thesis-box .label { font-size: 0.8rem; font-weight: 600; color: #1A4B8C; text-transform: uppercase; letter-spacing: 0.05em; }
+.thesis-box .statement { font-size: 1.15rem; font-weight: 700; color: #0d2d52; margin: 0.5rem 0; line-height: 1.6; }
+.thesis-box .sub { font-size: 0.85rem; color: #4a6a8a; }
+
+.status-box { border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0; display: flex; align-items: center; gap: 0.8rem; }
+.status-hold { background: #e6f7e6; border: 1px solid #4caf50; }
+.status-warn { background: #fff8e6; border: 1px solid #ff9800; }
+.status-danger { background: #fde8e8; border: 1px solid #f44336; }
+.status-box .icon { font-size: 1.8rem; }
+.status-box .text { flex: 1; }
+.status-box .text .title { font-weight: 700; font-size: 1rem; }
+.status-box .text .desc { font-size: 0.85rem; color: #555; }
+
+.signal-card { background: #fff; border: 1px solid #e0e6ef; border-radius: 8px; padding: 1rem; margin: 0.5rem 0; }
+.signal-card .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem; }
+.signal-card .name { font-weight: 600; color: #1A4B8C; }
+.signal-card .tag { font-size: 0.75rem; padding: 0.15rem 0.5rem; border-radius: 4px; font-weight: 500; }
+.tag-green { background: #e6f7e6; color: #1a7a1a; }
+.tag-yellow { background: #fff8e6; color: #9a7a1a; }
+.tag-red { background: #fde8e8; color: #c00; }
+.tag-gray { background: #f0f0f0; color: #888; }
+.signal-card .desc { font-size: 0.85rem; color: #555; }
+.signal-card .detail { font-size: 0.82rem; color: #888; margin-top: 0.3rem; border-top: 1px dashed #eee; padding-top: 0.3rem; }
+
+.timeline { position: relative; padding-left: 2rem; margin: 1rem 0; }
+.timeline::before { content: ''; position: absolute; left: 0.7rem; top: 0; bottom: 0; width: 2px; background: #d0d8e5; }
+.timeline-item { position: relative; margin-bottom: 1.2rem; }
+.timeline-item::before { content: ''; position: absolute; left: -1.3rem; top: 0.5rem; width: 0.7rem; height: 0.7rem; border-radius: 50%; background: #1A4B8C; border: 2px solid #fff; box-shadow: 0 0 0 2px #1A4B8C; }
+.timeline-item .date { font-size: 0.82rem; color: #888; font-weight: 500; }
+.timeline-item .event { font-weight: 600; color: #333; }
+.timeline-item .note { font-size: 0.85rem; color: #666; }
+.timeline-item.passed::before { background: #4caf50; box-shadow: 0 0 0 2px #4caf50; }
+.timeline-item.danger::before { background: #f44336; box-shadow: 0 0 0 2px #f44336; }
+
+.scenario-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1rem; margin: 1rem 0; }
+.scenario-card { background: #fff; border-radius: 8px; padding: 1rem; border: 1px solid #e0e6ef; }
+.scenario-card .title { font-weight: 700; font-size: 1rem; margin-bottom: 0.3rem; }
+.scenario-card .prob { font-size: 0.8rem; color: #888; margin-bottom: 0.5rem; }
+.scenario-card .outcome { font-size: 0.85rem; color: #555; }
+.scenario-card.bull { border-left: 4px solid #4caf50; }
+.scenario-card.base { border-left: 4px solid #ff9800; }
+.scenario-card.bear { border-left: 4px solid #f44336; }
+
+.breakdown-path { background: #fff5f5; border: 1px solid #ffcdd2; border-radius: 8px; padding: 1.2rem; margin: 1rem 0; }
+.breakdown-path ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+.breakdown-path li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+.breakdown-path .highlight { color: #d32f2f; font-weight: 600; }
+
+.indicator-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; margin: 1rem 0; }
+.indicator-item { background: #fff; border: 1px solid #e0e6ef; border-radius: 6px; padding: 0.8rem; }
+.indicator-item .label { font-size: 0.78rem; color: #888; }
+.indicator-item .value { font-size: 1.1rem; font-weight: 700; font-family: 'Instrument Sans', monospace; }
+.indicator-item .value.green { color: #1a7a1a; }
+.indicator-item .value.red { color: #c00; }
+.indicator-item .value.yellow { color: #e67e00; }
+
+.rule-table td:first-child { width: 30%; font-weight: 500; }
+.rule-table td:last-child { font-size: 0.88rem; }
+
+@media (max-width: 600px) {
+  body { padding: 1rem; }
+  .indicator-grid { grid-template-columns: 1fr; }
+  .scenario-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="back-link">
+<a href="../00-德明利研究报告总目录.html">← 返回总目录</a>
+</div>
+
+<h1>📜 德明利 (001309.SZ) — 持仓论文追踪</h1>
+<p style="color:#666; font-size:0.9rem; margin-top:0.5rem;">
+创建日期：2026-07-19 &nbsp;·&nbsp; 最新更新：2026-07-19 &nbsp;·&nbsp;
+版本：v1.0 &nbsp;·&nbsp; 跟踪人：AI Agent
+</p>
+
+<hr>
+
+<!-- ====== 当前状态 ====== -->
+<div class="status-box status-warn">
+  <div class="icon">⚠️</div>
+  <div class="text">
+    <div class="title">观察期 · 不持有</div>
+    <div class="desc">当前为纯研究跟踪，不实际持仓。论文逻辑成立但风险极高，等待周期信号确认后再评估入场时机。</div>
+  </div>
+</div>
+
+<!-- ====== 核心论文 ====== -->
+<h2>一、核心论文定义</h2>
+
+<div class="thesis-box">
+  <div class="label">📌 核心假设（持仓论文）</div>
+  <div class="statement">
+    2026Q1的44%净利率源于存储涨价周期；若NAND/DRAM价格周期下行，论文逻辑破裂
+  </div>
+  <div class="sub">
+    德明利作为存储模组厂商（Flash + DRAM），利润并非来自内生竞争优势，而是来自存储芯片涨价周期的"被动受益"。当涨价周期结束、价格回落，毛利率、净利率将回归常态（~15%/6%），届时当前估值体系崩溃。
+  </div>
+</div>
+
+<table>
+  <tr><th style="width:25%">论文维度</th><th>内容</th></tr>
+  <tr>
+    <td>🧠 核心逻辑</td>
+    <td>德明利是NAND/DRAM涨价周期的"放大器"——囤货→涨价→高毛利→利润爆发。但这不是护城河，是周期性风口。</td>
+  </tr>
+  <tr>
+    <td>💰 利润来源拆解</td>
+    <td>2026Q1净利润33.46亿，其中约30亿+来自存储涨价带来的毛利扩张（营业成本仅32.10亿 vs 营收75.38亿，毛利率57.4%）。2025全年毛利率仅14.8%，净利率6.4%。</td>
+  </tr>
+  <tr>
+    <td>🏭 业务本质</td>
+    <td>存储模组分销商/方案商——上游买NAND Flash/DRAM晶圆，下游封测+贴牌出售。无自有晶圆厂，无核心技术壁垒，赚取存储芯片价差。</td>
+  </tr>
+  <tr>
+    <td>🔄 周期敏感性</td>
+    <td>极高。存储芯片（NAND/DRAM）是强周期品种，历史上每2-3年经历一次价格周期。德明利的利润弹性远超存储原厂（如三星/美光/长江存储）。</td>
+  </tr>
+  <tr>
+    <td>⚠️ 最大风险</td>
+    <td>存货跌价。存货121.9亿（占总资产66%），若存储价格下跌10%，跌价损失约12亿+，足以抹去单季利润。</td>
+  </tr>
+</table>
+
+<hr>
+
+<!-- ====== 关键假设 ====== -->
+<h2>二、关键假设清单</h2>
+
+<p style="font-size:0.85rem; color:#666; margin-bottom:0.5rem;">✅ = 假设成立 &nbsp;·&nbsp; ⚠️ = 边际走弱 &nbsp;·&nbsp; ❌ = 假设破裂（论文破灭）</p>
+
+<div class="signal-card">
+  <div class="header">
+    <span class="name">假设 #1：NAND Flash价格维持高位</span>
+    <span class="tag tag-yellow">⚠️ 待验证</span>
+  </div>
+  <div class="desc">NAND晶圆价格（256Gb TLC/512Gb TLC）维持在2026Q1水平，TrendForce报价不下滑。</div>
+  <div class="detail">最新参考：TrendForce 2026Q2 NAND合约价环比变化待更新</div>
+</div>
+
+<div class="signal-card">
+  <div class="header">
+    <span class="name">假设 #2：毛利率维持30%+</span>
+    <span class="tag tag-yellow">⚠️ 待验证</span>
+  </div>
+  <div class="desc">若毛利率回落至30%以下，说明涨价红利消退，利润将大幅缩水。</div>
+  <div class="detail">2026Q1：57.4% &nbsp;→&nbsp; 2025全年：14.8% &nbsp;→&nbsp; 周期底部估算低于10%</div>
+</div>
+
+<div class="signal-card">
+  <div class="header">
+    <span class="name">假设 #3：经营现金流转正</span>
+    <span class="tag tag-red">❌ 已破裂</span>
+  </div>
+  <div class="desc">利润必须伴随现金流入。2025全年经营现金流-22.41亿，2026Q1再-2.408亿，利润"纸面化"严重。</div>
+  <div class="detail">两期合计经营现金流为负-24.8亿，而合计净利润+40.3亿，现金利润缺口达65亿+</div>
+</div>
+
+<div class="signal-card">
+  <div class="header">
+    <span class="name">假设 #4：客户集中度与需求稳定</span>
+    <span class="tag tag-yellow">⚠️ 待验证</span>
+  </div>
+  <div class="desc">下游客户（模组厂/方案商/品牌厂）需求不显著下滑，库存回补周期可持续。</div>
+  <div class="detail">2026H2消费电子需求预期、AI服务器存储需求持续性</div>
+</div>
+
+<div class="signal-card">
+  <div class="header">
+    <span class="name">假设 #5：存货不存在巨大跌价风险</span>
+    <span class="tag tag-yellow">⚠️ 待验证</span>
+  </div>
+  <div class="desc">121.9亿存货（占资产66%）必须能够在价格下行前出清。但存货增长（Q1增量51亿）远超营收增长斜率，囤货信号危险。</div>
+  <div class="detail">存货周转天数估算：~150天（取决于销售速度），周期拐点来临将造成巨大减值</div>
+</div>
+
+<div class="signal-card">
+  <div class="header">
+    <span class="name">假设 #6：限售解禁后大股东不减持</span>
+    <span class="tag tag-yellow">⚠️ 待观察</span>
+  </div>
+  <div class="desc">2026/07/23 182万股解禁（变相"打新"筹码）。若大股东/机构大额减持，将造成流动性冲击和信心崩塌。</div>
+  <div class="detail">解禁日期：2026-07-23（4天后）&nbsp;·&nbsp; 解禁数量：182万股</div>
+</div>
+
+<hr>
+
+<!-- ====== 验证时间线 ====== -->
+<h2>三、验证时间线</h2>
+
+<div class="timeline">
+
+  <div class="timeline-item">
+    <div class="date">2026-07-23</div>
+    <div class="event">🔑 限售股解禁</div>
+    <div class="note">182万股解禁。观察：①减持公告 ②大宗交易折价率 ③融券余额变化。若大股东公告减持计划，论文逻辑受损。</div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="date">2026-07 下旬</div>
+    <div class="event">📊 TrendForce/NAND 7月合约价发布</div>
+    <div class="note">验证NAND价格走势。若环比下滑>5%，涨价周期见顶信号。关注：256Gb TLC Wafer、512Gb TLC Wafer报价。</div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="date">2026-08 底前</div>
+    <div class="event">📄 2026年中报（半年报）</div>
+    <div class="note">
+      <strong>关键验证节点。</strong> 重点检查：<br>
+      ① 毛利率是否仍在30%+？→ 低于30%则涨价红利消退<br>
+      ② 经营现金流是否转正？→ 仍为负则利润现金流缺口恶化<br>
+      ③ 营收环比是否增长？→ Q2营收是否>Q1的75亿<br>
+      ④ 存货是否继续膨胀？→ 存货继续增长则为仓储涨价囤货<br>
+      ⑤ 预付款/应付票据变化 → 是否继续加杠杆囤货
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="date">2026-09</div>
+    <div class="event">📊 TrendForce 2026Q3存储展望</div>
+    <div class="note">Q3通常为消费电子旺季（iPhone新机、PC备货）。若旺季不旺，需求端崩了。关注NAND原厂开工率是否下调。</div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="date">2026-10 底</div>
+    <div class="event">📄 2026年三季报</div>
+    <div class="note">
+      <strong>二次验证节点。</strong><br>
+      ① Q3单季净利润是否<20亿？→ 若下滑50%+，周期下行确认<br>
+      ② 存货减值是否开始释放？→ 若计提减值损失>5亿，趋势确认<br>
+      ③ 毛利率是否有崩塌趋势？→ 回到20%以下则论文破灭
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="date">持续跟踪</div>
+    <div class="event">📰 NAND存储价格走势</div>
+    <div class="note">
+      持续监控指标：<br>
+      ① TrendForce NAND Flash合约价月度变化<br>
+      ② 长江存储/三星/美光/海力士等原厂产能利用率<br>
+      ③ 下游SSD/嵌入式存储终端价格（eMMC/UFS/SSD报价）<br>
+      ④ 德明利库存水位（通过调研/分析师估算）
+    </div>
+  </div>
+
+</div>
+
+<hr>
+
+<!-- ====== 周期信号监控 ====== -->
+<h2>四、周期信号监控面板</h2>
+
+<p style="font-size:0.85rem; color:#666; margin-bottom:0.5rem;">
+🔴 = 危险信号（论文破灭加速）&nbsp;·&nbsp; 🟡 = 关注信号 &nbsp;·&nbsp; 🟢 = 安全信号
+</p>
+
+<div class="indicator-grid">
+
+  <div class="indicator-item">
+    <div class="label">🟡 NAND Flash 合约价（2Gb/256Gb TLC）</div>
+    <div class="value yellow">待更新</div>
+    <div style="font-size:0.75rem; color:#888;">来源：TrendForce · 月度更新</div>
+  </div>
+
+  <div class="indicator-item">
+    <div class="label">🟡 DDR5/DRAM 现货价</div>
+    <div class="value yellow">待更新</div>
+    <div style="font-size:0.75rem; color:#888;">来源：DRAMeXchange · 周度更新</div>
+  </div>
+
+  <div class="indicator-item">
+    <div class="label">🟢 公司毛利率</div>
+    <div class="value green">57.4%（2026Q1）</div>
+    <div style="font-size:0.75rem; color:#888;">同比 14.8%（2025全年）</div>
+  </div>
+
+  <div class="indicator-item">
+    <div class="label">🔴 经营现金流</div>
+    <div class="value red">-2.408亿（2026Q1）</div>
+    <div style="font-size:0.75rem; color:#888;">同比 -22.41亿（2025全年）</div>
+  </div>
+
+  <div class="indicator-item">
+    <div class="label">🔴 存货/总资产比</div>
+    <div class="value red">66.3%</div>
+    <div style="font-size:0.75rem; color:#888;">121.9亿 / 183.8亿</div>
+  </div>
+
+  <div class="indicator-item">
+    <div class="label">🟡 营业利润率</div>
+    <div class="value yellow">51.9%（2026Q1）</div>
+    <div style="font-size:0.75rem; color:#888;">同比 6.6%（2025全年）</div>
+  </div>
+
+  <div class="indicator-item">
+    <div class="label">🟡 资产负债率</div>
+    <div class="value yellow">64%</div>
+    <div style="font-size:0.75rem; color:#888;">有息负债 57.87亿</div>
+  </div>
+
+  <div class="indicator-item">
+    <div class="label">🟡 有息负债变化</div>
+    <div class="value yellow">+13.63亿（Q1）</div>
+    <div style="font-size:0.75rem; color:#888;">从44.24亿增至57.87亿</div>
+  </div>
+
+  <div class="indicator-item">
+    <div class="label">🟡 营收/QoQ</div>
+    <div class="value yellow">75.38亿（Q1）</div>
+    <div style="font-size:0.75rem; color:#888;">季环比 +179%</div>
+  </div>
+
+  <div class="indicator-item">
+    <div class="label">🟡 归母净利润</div>
+    <div class="value yellow">33.46亿（2026Q1）</div>
+    <div style="font-size:0.75rem; color:#888;">同比 +4,943%</div>
+  </div>
+
+  <div class="indicator-item">
+    <div class="label">🟡 动态PE（年化）</div>
+    <div class="value yellow">9.09x</div>
+    <div style="font-size:0.75rem; color:#888;">假设可持续的低估 / 不可持续则昂贵</div>
+  </div>
+
+  <div class="indicator-item">
+    <div class="label">🔴 PB市净率</div>
+    <div class="value red">18.37x</div>
+    <div style="font-size:0.75rem; color:#888;">极高，无安全边际</div>
+  </div>
+
+</div>
+
+<hr>
+
+<!-- ====== 论文破裂路径 ====== -->
+<h2>五、论文破裂路径分析</h2>
+
+<div class="breakdown-path">
+  <p style="font-weight:700; font-size:1rem; color:#c00;">💥 论文破裂情景演绎</p>
+  <ol>
+    <li><strong>触发事件：</strong>TrendForce发布月度NAND合约价持平/环比下滑&gt;3%（2026年7-8月），存储周期见顶信号首次明确。</li>
+    <li><strong>市场反应：</strong>A股存储板块整体调整，德明利高Beta属性放大跌幅（存储涨价受益股→周期冷却受害者）。</li>
+    <li><strong>中报冲击：</strong>2026年8月半年报显示毛利率回落至35%以下、净利润环比Q1下滑（50亿→&lt;30亿），经营现金流继续为负。</li>
+    <li><strong>存货恐慌：</strong>价格下行预期的自我实现——原厂降价→客户观望→德明利出货放缓→存货周转天数上升→必须减值。121.9亿存货若5%减值=6.1亿亏损，10%减值=12.2亿亏损。</li>
+    <li><strong>信用收缩：</strong>银行/供应商看到利润下滑+存货贬值，收缩信贷额度。57.87亿有息负债面临再融资风险。应收账款周转恶化。</li>
+    <li><strong>利润悬崖：</strong>毛利率从57%跌回15%水平，营收同步下滑（存储涨价无了，量也出不去）。年化净利润从~134亿（Q1×4）跌回~5-7亿（2025年水平），下滑95%+。</li>
+    <li><strong>估值崩塌：</strong>PE从9x扩大（利润下滑更快）or 从9x变亏损无PE。PB 18x在周期底部不可持续。股价从500+元高位下跌 80-90% 寻底（回到周期底部合理估值）。</li>
+  </ol>
+</div>
+
+<div class="signal-card" style="background:#fde8e8;">
+  <div class="header">
+    <span class="name" style="color:#c00;">🚨 预警阈值（论文破裂前兆）</span>
+  </div>
+  <div class="desc">
+    <strong>① NAND合约价连续2个月环比下跌</strong> → 周期拐点确认，触发黄灯<br>
+    <strong>② 中报毛利率&lt;35%</strong> → 涨价红利大幅消退，触发橙灯<br>
+    <strong>③ 中报经营现金流仍为负</strong> → 利润持续注水，触发红灯<br>
+    <strong>④ 存货减值单季&gt;5亿</strong> → 周期下行进入加速，论文破灭<br>
+    <strong>⑤ 大股东解禁后减持公告</strong> → 内部人信号，论文信心动摇
+  </div>
+</div>
+
+<hr>
+
+<!-- ====== 情景分析 ====== -->
+<h2>六、情景分析</h2>
+
+<div class="scenario-grid">
+
+  <div class="scenario-card bull">
+    <div class="title" style="color:#1a7a1a;">🟢 乐观情景（概率15%）</div>
+    <div class="prob">核心假设：存储涨价持续至2027年</div>
+    <div class="outcome">
+      AI需求拉动NAND/DRAM持续短缺，存储价格维持高位至2027年。德明利2026全年净利润~100-120亿，毛利率维持35-45%。<br><br>
+      <strong>但：</strong>即使乐观情景，经营现金流能否转正？存货是否继续膨胀？周期总有一天会结束。<br>
+      <strong>估值：</strong>PE 10-12x，合理市值1,200-1,500亿，当前已反映大部分预期。
+    </div>
+  </div>
+
+  <div class="scenario-card base">
+    <div class="title" style="color:#e67e00;">🟡 中性情景（概率45%）</div>
+    <div class="prob">核心假设：涨价周期2026H2见顶，逐步回落</div>
+    <div class="outcome">
+      2026H1为盈利峰值，H2毛利率开始下降。全年净利润~60-80亿，Q3/Q4单季利润腰斩。<br><br>
+      <strong>关键：</strong>存货在景气高点消化，2026Q4存货降至80亿以下，现金流转正。<br>
+      <strong>估值：</strong>前高后低，年报公布后PE从9x修复至15-20x（但利润已在下降），股价呈现"利润下滑>估值扩张"的戴维斯双杀风险。当前PB 18x极高，下行风险50%+。
+    </div>
+  </div>
+
+  <div class="scenario-card bear">
+    <div class="title" style="color:#c00;">🔴 悲观情景（概率40%）</div>
+    <div class="prob">核心假设：存储价格2026年Q3-Q4快速下跌20-30%</div>
+    <div class="outcome">
+      过剩产能释放+需求不及预期→存储价格急跌。德明利高价存货大幅减值，Q3-Q4可能出现亏损。<br><br>
+      <strong>过程：</strong><br>
+      ① 毛利率从57%骤降至15%以下<br>
+      ② 存货跌价损失10-15亿<br>
+      ③ 经营现金流恶化至-30亿+<br>
+      ④ 债务风险：57.87亿有息负债面临集中到期压力<br>
+      ⑤ 股价从500+元水平向净资产（约66元/股）靠拢，跌幅85-90%<br><br>
+      <strong>论文结论：</strong><span style="color:#c00;font-weight:700;">论文破灭，若持有则巨亏。</span>
+    </div>
+  </div>
+
+</div>
+
+<hr>
+
+<!-- ====== 止损/退出规则 ====== -->
+<h2>七、止损与退出规则</h2>
+
+<p style="font-size:0.85rem; color:#666; margin-bottom:0.5rem;">⚠️ 注意：当前为纯研究跟踪，不实际持仓。以下规则为<strong>假设持有</strong>场景下的先行纪律。</p>
+
+<table class="rule-table">
+  <tr><th>触发条件</th><th>行动</th></tr>
+  <tr>
+    <td>NAND合约价连续2个月环比下跌</td>
+    <td>⚠️ 减仓50%。周期拐点确认，执行"宁可错过，不可做错"原则。</td>
+  </tr>
+  <tr>
+    <td>2026中报毛利率 &lt; 35%</td>
+    <td>🚨 清仓退出。涨价红利消退幅度超预期，论文基础动摇。</td>
+  </tr>
+  <tr>
+    <td>2026中报经营现金流仍为负</td>
+    <td>🚨 立即清仓。利润现金缺口持续扩大，财务质量无法接受。</td>
+  </tr>
+  <tr>
+    <td>大股东/管理层解禁后减持</td>
+    <td>🚨 跟随清仓。内部人信号表明公司估值已脱离基本面。</td>
+  </tr>
+  <tr>
+    <td>单季存货减值损失 &gt; 5亿</td>
+    <td>🚨 立即清仓。周期下行进入加速阶段，后续减值只会更大。</td>
+  </tr>
+  <tr>
+    <td>有息负债/总资产比 &gt; 40%</td>
+    <td>⚠️ 减仓50%。杠杆风险过度，流动性风险上升。</td>
+  </tr>
+  <tr>
+    <td>股价跌破净资产 (BVPS ~66元)</td>
+    <td>📌 重新评估。PB &lt; 1x可能是周期底部，但需确认存货风险出清后再考虑反向操作。</td>
+  </tr>
+  <tr>
+    <td>中报/年报营收同比下滑 &gt; 30%</td>
+    <td>🚨 清仓退出。量价齐跌，论文完全破裂。</td>
+  </tr>
+</table>
+
+<hr>
+
+<!-- ====== 更新日志 ====== -->
+<h2>八、更新日志</h2>
+
+<table>
+  <tr><th style="width:15%">日期</th><th style="width:20%">版本</th><th>更新内容</th></tr>
+  <tr>
+    <td>2026-07-19</td>
+    <td>v1.0</td>
+    <td>初版创建。基于2026Q1财务数据+存储周期分析建立论文追踪框架。当前状态：观察期，不持有。</td>
+  </tr>
+</table>
+
+<hr>
+
+<!-- ====== 附录 ====== -->
+<h2>附录：数据来源</h2>
+
+<p style="font-size:0.85rem; color:#555;">
+📊 财务数据：同花顺F10利润表 · 资产负债表 · 现金流量表<br>
+📈 行业价格：TrendForce NAND Flash合约价 · DRAMeXchange DDR5报价<br>
+📰 公司公告：深交所·巨潮资讯网（减持/解禁/业绩预告）<br>
+🔬 参考报告：WSTS全球半导体销售额 · 存储原厂财报（三星/美光/海力士/长江存储）
+</p>
+
+<div class="footer">
+  数据来源：同花顺F10 · 东方财富网 · 公司年报 · TrendForce · DRAMeXchange<br>
+  免责声明：本文仅为研究跟踪记录，不构成任何投资建议。
+</div>
+
+</body>
+</html>
