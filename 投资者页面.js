@@ -3,9 +3,19 @@
 import { getInvestorSummary, fmtCurrency, fmtCurrencyCompact, fmtSignedPct, perfClass } from "./工具函数.js";
 import { renderChartPlaceholder, mountChart } from "./图表.js";
 
-// ── 私募CTA产品净值数据从 state.data.ctaNavData 读取（存储在 latest.json 中）──
+// ── 中证1000指数数据从 state.data.csi1000Data 读取（存储在 latest.json 中）──
 
 const PHASE2_START = "2026-05-05";
+
+// ── 净值对比可选账户（基金/股票/期货）──
+const NAV_ACCOUNT_NAMES = ["基金", "股票", "期货"];
+
+function getNavAccounts(state, investor) {
+  return (investor.allocations || [])
+    .filter(a => (a.amount || 0) > 0)
+    .map(a => (state.data.products || []).find(p => p.id === a.productId))
+    .filter(p => p && NAV_ACCOUNT_NAMES.includes(p.name));
+}
 
 export function renderInvestorPage(state, t) {
   const investor = state.data.investors.find(i => i.id === state.session?.userId);
@@ -132,6 +142,13 @@ export function renderInvestorPage(state, t) {
   }
   
   const latestUpdateDate = getLatestUpdateDate();
+
+  // 净值对比可选账户（默认股票）
+  const navAccounts = getNavAccounts(state, investor);
+  const navDefault = (navAccounts.find(p => p.name === "股票") || navAccounts[0] || {}).name || "";
+  const navAccountOptions = navAccounts.map(p =>
+    `<option value="${p.name}"${p.name === navDefault ? " selected" : ""}>${p.name}</option>`
+  ).join("");
 
   return `
   <div class="investor-header">
@@ -269,35 +286,30 @@ export function renderInvestorPage(state, t) {
     </div>
     ` : `<div class="card fade-in-2"><div class="card-body"><div class="empty-state"><p>${t("noProductData")}</p></div></div></div>`}
 
-    <!-- 净值对比图（自有期货 vs 私募CTA） -->
+    <!-- 净值对比图（账户 vs 中证1000） -->
     <div class="card fade-in-2">
       <div class="card-header">
         <div>
           <div class="card-title">${t("navComparison") || "净值对比"}</div>
-          <div class="card-subtitle">${t("navComparisonDesc") || "自有期货 vs 私募CTA产品"}</div>
+          <div class="card-subtitle">${t("navComparisonDesc") || "自有账户 vs 中证1000指数"}</div>
         </div>
+        ${navAccounts.length > 0 ? `
         <div style="display:flex;gap:8px;align-items:center;">
-          <select class="text-input text-input-sm" id="cta-phase-select" style="width:auto;min-width:110px;font-size:0.75rem;">
-            <option value="all">${t("allPhases")}</option>
-            <option value="phase2" selected>${t("phase2")}</option>
-            <option value="phase1">${t("phase1")}</option>
+          <select class="text-input text-input-sm" id="nav-account-select" style="width:auto;min-width:110px;font-size:0.75rem;">
+            ${navAccountOptions}
           </select>
-        </div>
+        </div>` : ''}
       </div>
       <div class="card-body">
-        <canvas id="cta-comparison-chart" style="max-height:300px"></canvas>
-        <div id="cta-chart-legend" style="display:flex;gap:20px;justify-content:center;margin-top:12px;flex-wrap:wrap;">
+        <canvas id="nav-comparison-chart" style="max-height:300px"></canvas>
+        <div id="nav-chart-legend" style="display:flex;gap:20px;justify-content:center;margin-top:12px;flex-wrap:wrap;">
           <div style="display:flex;align-items:center;gap:6px;font-size:.78rem">
             <span style="width:14px;height:3px;background:#0052ff;border-radius:2px;display:inline-block"></span>
-            <span>${t("ourFutures") || "自有期货"}</span>
+            <span id="nav-legend-account">${navDefault}</span>
           </div>
           <div style="display:flex;align-items:center;gap:6px;font-size:.78rem">
             <span style="width:14px;height:3px;background:#ff7d00;border-radius:2px;display:inline-block;border-top:2px dashed #ff7d00;background:transparent"></span>
-            <span>${t("ctaProduct") || "私募CTA"}</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-tertiary)">
-            <span style="width:1px;height:14px;background:var(--text-tertiary);display:inline-block"></span>
-            <span>${t("phase1") + " / " + t("phase2")}</span>
+            <span>${t("csi1000") || "中证1000"}</span>
           </div>
         </div>
       </div>
@@ -395,9 +407,9 @@ export function afterRenderInvestor(state, t = key => key) {
   mountAllocationPieChart(state);
   mountProductTrendChart(state, "phase2", t);
   mountInterestTrendChart(state, t);
-  mountCTAComparisonChart(state, "phase2", t);
+  mountNavComparisonChart(state, "股票", t);
   bindPhaseSelector(state, t);
-  bindCTAPhaseSelector(state, t);
+  bindNavAccountSelector(state, t);
 }
 
 // 辅助函数：获取产品名称
@@ -766,92 +778,85 @@ function calcCumulativeInterest(investor) {
   return netInvested * investor.fixedRate * diffDays / 365;
 }
 
-// ── 净值对比图：自有期货 vs 私募CTA ──
-function mountCTAComparisonChart(state, phase = "phase2", t = key => key) {
+// ── 净值对比图：账户（基金/股票/期货）vs 中证1000 ──
+function mountNavComparisonChart(state, accountName = "股票", t = key => key) {
   const investor = state.data.investors.find(i => i.id === state.session?.userId);
   if (!investor) return;
 
-  // 获取期货产品的 valueHistory
-  const futuresAlloc = (investor.allocations || []).find(a => {
-    const product = state.data.products?.find(p => p.id === a.productId);
-    return product && product.name === "期货";
-  });
-  if (!futuresAlloc || !futuresAlloc.productId) return;
+  // 选定账户产品（找不到时回退到投资者持有的第一个账户）
+  const navAccounts = getNavAccounts(state, investor);
+  const accountProduct = navAccounts.find(p => p.name === accountName) || navAccounts[0];
+  if (!accountProduct || !accountProduct.valueHistory || accountProduct.valueHistory.length === 0) return;
 
-  const futuresProduct = state.data.products.find(p => p.id === futuresAlloc.productId);
-  if (!futuresProduct || !futuresProduct.valueHistory || futuresProduct.valueHistory.length === 0) return;
-
-  // 构建期货日期 -> 价值映射
-  const futuresMap = {};
-  futuresProduct.valueHistory.forEach(h => {
-    futuresMap[h.date] = h.value;
+  // 账户日期 -> 价值映射
+  const accountMap = {};
+  accountProduct.valueHistory.forEach(h => {
+    accountMap[h.date] = h.value;
   });
 
-  // CTA日期 -> 净值映射
-  const ctaMap = {};
-  const ctaNavData = state.data.ctaNavData || [];
-  ctaNavData.forEach(d => {
-    ctaMap[d.date] = d.value;
+  // 中证1000日期 -> 收盘价映射
+  const csiNavData = state.data.csi1000Data || [];
+  const csiMap = {};
+  csiNavData.forEach(d => {
+    csiMap[d.date] = d.value;
   });
+  const csiDates = csiNavData.map(d => d.date).sort();
 
-  // 获取共同日期（只保留两个产品都有数据的日期）
-  const ctaDates = ctaNavData.map(d => d.date);
-  const commonDates = ctaDates.filter(d => futuresMap[d] != null).sort();
+  // 账户记录日常含非交易日：指数取"当日或之前最近一个交易日"收盘
+  const csiOnOrBefore = (date) => {
+    let value = null;
+    for (const d of csiDates) {
+      if (d > date) break;
+      value = csiMap[d];
+    }
+    return value;
+  };
 
-  if (commonDates.length === 0) return;
+  // 只保留有指数数据的账户日期
+  const dates = Object.keys(accountMap).sort().filter(d => csiOnOrBefore(d) != null);
+  if (dates.length === 0) return;
 
-  // 应用阶段筛选
-  let filteredDates = commonDates;
-  switch (phase) {
-    case "phase1":
-      filteredDates = commonDates.filter(d => d < PHASE2_START);
-      break;
-    case "phase2":
-      filteredDates = commonDates.filter(d => d >= PHASE2_START);
-      break;
-    case "all":
-    default:
-      break;
-  }
+  // 以第一个日期为基准，计算相对净值（= 1.0）
+  const firstDate = dates[0];
+  const accountBase = accountMap[firstDate];
+  const csiBase = csiOnOrBefore(firstDate);
 
-  if (filteredDates.length === 0) return;
-
-  // 以第一个共同日期为基准，计算相对净值（= 1.0）
-  const firstDate = filteredDates[0];
-  const futuresBase = futuresMap[firstDate];
-  const ctaBase = ctaMap[firstDate];
-
-  const futuresRelative = filteredDates.map(d => +(futuresMap[d] / futuresBase).toFixed(6));
-  const ctaRelative = filteredDates.map(d => +(ctaMap[d] / ctaBase).toFixed(6));
+  const accountRelative = dates.map(d => +(accountMap[d] / accountBase).toFixed(6));
+  const csiRelative = dates.map(d => +(csiOnOrBefore(d) / csiBase).toFixed(6));
 
   // 计算对称范围，确保两条线从同一点（1.0）出发
   const pad = (arr) => {
     const maxDev = Math.max(1 - Math.min(...arr), Math.max(...arr) - 1);
     return { min: +(1 - maxDev * 1.15).toFixed(4), max: +(1 + maxDev * 1.15).toFixed(4) };
   };
-  const yRange = pad(futuresRelative);
-  const y1Range = pad(ctaRelative);
+  const yRange = pad(accountRelative);
+  const y1Range = pad(csiRelative);
+
+  // 同步图例账户名
+  const legendAccount = document.querySelector("#nav-legend-account");
+  if (legendAccount) legendAccount.textContent = accountProduct.name;
 
   // 渲染图表
-  const canvas = document.querySelector("#cta-comparison-chart");
+  const canvas = document.querySelector("#nav-comparison-chart");
   if (!canvas || !window.Chart) return;
 
-  if (window._ctaComparisonChart) {
-    window._ctaComparisonChart.destroy();
+  if (window._navComparisonChart) {
+    window._navComparisonChart.destroy();
   }
 
   const isDark = document.documentElement.getAttribute("data-theme") !== "light";
   const gridColor = isDark ? "rgba(255,255,255,0.08)" : "rgba(15,23,42,0.08)";
   const textColor = isDark ? "rgba(249,250,251,0.65)" : "rgba(15,23,42,0.65)";
+  const csiLabel = t("csi1000") || "中证1000";
 
-  window._ctaComparisonChart = new window.Chart(canvas, {
+  window._navComparisonChart = new window.Chart(canvas, {
     type: "line",
     data: {
-      labels: filteredDates.map(d => d.replace("-", ".")),
+      labels: dates.map(d => d.replace("-", ".")),
       datasets: [
         {
-          label: t("ourFutures") || "自有期货",
-          data: futuresRelative,
+          label: accountProduct.name,
+          data: accountRelative,
           borderColor: "#0052ff",
           backgroundColor: "rgba(0,82,255,0.08)",
           borderWidth: 2.5,
@@ -863,8 +868,8 @@ function mountCTAComparisonChart(state, phase = "phase2", t = key => key) {
           yAxisID: "y"
         },
         {
-          label: t("ctaProduct") || "私募CTA",
-          data: ctaRelative,
+          label: csiLabel,
+          data: csiRelative,
           borderColor: "#ff7d00",
           backgroundColor: "rgba(255,125,0,0.08)",
           borderWidth: 2.5,
@@ -917,7 +922,7 @@ function mountCTAComparisonChart(state, phase = "phase2", t = key => key) {
           },
           title: {
             display: true,
-            text: t("ourFutures") || "自有期货",
+            text: accountProduct.name,
             color: "#0052ff",
             font: { family: "'DM Sans', sans-serif", size: 11, weight: "600" }
           }
@@ -934,7 +939,7 @@ function mountCTAComparisonChart(state, phase = "phase2", t = key => key) {
           },
           title: {
             display: true,
-            text: t("ctaProduct") || "私募CTA",
+            text: csiLabel,
             color: "#ff7d00",
             font: { family: "'DM Sans', sans-serif", size: 11, weight: "600" }
           }
@@ -944,11 +949,11 @@ function mountCTAComparisonChart(state, phase = "phase2", t = key => key) {
   });
 }
 
-// 绑定CTA对比图阶段选择器
-function bindCTAPhaseSelector(state, t = key => key) {
-  const select = document.querySelector("#cta-phase-select");
+// 绑定净值对比账户选择器
+function bindNavAccountSelector(state, t = key => key) {
+  const select = document.querySelector("#nav-account-select");
   if (!select) return;
   select.addEventListener("change", function() {
-    mountCTAComparisonChart(state, this.value, t);
+    mountNavComparisonChart(state, this.value, t);
   });
 }

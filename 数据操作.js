@@ -291,7 +291,8 @@ async function normalizeData(d) {
     interestRecords: Array.isArray(d.interestRecords) ? d.interestRecords : [],
     commissionRecords: Array.isArray(d.commissionRecords) ? d.commissionRecords : [],
     profitRecords: Array.isArray(d.profitRecords) ? d.profitRecords : [],
-    ctaNavData: Array.isArray(d.ctaNavData) ? d.ctaNavData : []
+    ctaNavData: Array.isArray(d.ctaNavData) ? d.ctaNavData : [],
+    csi1000Data: Array.isArray(d.csi1000Data) ? d.csi1000Data : []
   };
 }
 

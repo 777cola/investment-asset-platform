@@ -288,9 +288,8 @@ const i18n = {
     versionNoteLocalBuild: "本地网页搭建",
     // 净值对比
     navComparison: "净值对比",
-    navComparisonDesc: "自有期货 vs 私募CTA产品",
-    ourFutures: "自有期货",
-    ctaProduct: "私募CTA",
+    navComparisonDesc: "自有账户 vs 中证1000指数",
+    csi1000: "中证1000",
     // 固定利息
     fixedAnnualRate: "固定年利率",
     fixedRateDesc: "投资人固定保本利率",
@@ -575,9 +574,8 @@ const i18n = {
     versionNoteLocalBuild: "Local web app built",
     // NAV Comparison
     navComparison: "NAV Comparison",
-    navComparisonDesc: "Our Futures vs Private CTA Fund",
-    ourFutures: "Our Futures",
-    ctaProduct: "Private CTA",
+    navComparisonDesc: "Our Accounts vs CSI 1000 Index",
+    csi1000: "CSI 1000",
     // Fixed Interest
     fixedAnnualRate: "Fixed Annual Rate",
     fixedRateDesc: "Fixed capital-guaranteed rate for investor",
@@ -862,9 +860,8 @@ const i18n = {
     versionNoteLocalBuild: "本地網頁搭建",
     // 淨值對比
     navComparison: "淨值對比",
-    navComparisonDesc: "自有期貨 vs 私募CTA產品",
-    ourFutures: "自有期貨",
-    ctaProduct: "私募CTA",
+    navComparisonDesc: "自有帳戶 vs 中證1000指數",
+    csi1000: "中證1000",
     // 固定利息
     fixedAnnualRate: "固定年利率",
     fixedRateDesc: "投資人固定保本利率",
