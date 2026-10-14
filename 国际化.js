@@ -290,6 +290,7 @@ const i18n = {
     navComparison: "净值对比",
     navComparisonDesc: "自有账户 vs 中证1000指数",
     csi1000: "中证1000",
+    ctaProduct: "私募CTA",
     // 固定利息
     fixedAnnualRate: "固定年利率",
     fixedRateDesc: "投资人固定保本利率",
@@ -576,6 +577,7 @@ const i18n = {
     navComparison: "NAV Comparison",
     navComparisonDesc: "Our Accounts vs CSI 1000 Index",
     csi1000: "CSI 1000",
+    ctaProduct: "Private CTA",
     // Fixed Interest
     fixedAnnualRate: "Fixed Annual Rate",
     fixedRateDesc: "Fixed capital-guaranteed rate for investor",
@@ -862,6 +864,7 @@ const i18n = {
     navComparison: "淨值對比",
     navComparisonDesc: "自有帳戶 vs 中證1000指數",
     csi1000: "中證1000",
+    ctaProduct: "私募CTA",
     // 固定利息
     fixedAnnualRate: "固定年利率",
     fixedRateDesc: "投資人固定保本利率",

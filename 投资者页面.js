@@ -291,7 +291,7 @@ export function renderInvestorPage(state, t) {
       <div class="card-header">
         <div>
           <div class="card-title">${t("navComparison") || "净值对比"}</div>
-          <div class="card-subtitle">${t("navComparisonDesc") || "自有账户 vs 中证1000指数"}</div>
+          <div class="card-subtitle" id="nav-comparison-desc">${t("navComparisonDesc") || "自有账户 vs 中证1000指数"}</div>
         </div>
         ${navAccounts.length > 0 ? `
         <div style="display:flex;gap:8px;align-items:center;">
@@ -309,7 +309,7 @@ export function renderInvestorPage(state, t) {
           </div>
           <div style="display:flex;align-items:center;gap:6px;font-size:.78rem">
             <span style="width:14px;height:3px;background:#ff7d00;border-radius:2px;display:inline-block;border-top:2px dashed #ff7d00;background:transparent"></span>
-            <span>${t("csi1000") || "中证1000"}</span>
+            <span id="nav-legend-bench">${t("csi1000") || "中证1000"}</span>
           </div>
         </div>
       </div>
@@ -794,35 +794,38 @@ function mountNavComparisonChart(state, accountName = "股票", t = key => key) 
     accountMap[h.date] = h.value;
   });
 
-  // 中证1000日期 -> 收盘价映射
-  const csiNavData = state.data.csi1000Data || [];
-  const csiMap = {};
-  csiNavData.forEach(d => {
-    csiMap[d.date] = d.value;
+  // 基准：期货账户沿用原图对私募CTA（只在CTA估值日取共同日期），其余账户对中证1000
+  const useCta = accountProduct.name === "期货";
+  const benchNavData = useCta ? (state.data.ctaNavData || []) : (state.data.csi1000Data || []);
+  const benchMap = {};
+  benchNavData.forEach(d => {
+    benchMap[d.date] = d.value;
   });
-  const csiDates = csiNavData.map(d => d.date).sort();
+  const benchDates = benchNavData.map(d => d.date).sort();
+  const benchLabel = (useCta ? t("ctaProduct") : t("csi1000")) || (useCta ? "私募CTA" : "中证1000");
 
-  // 账户记录日常含非交易日：指数取"当日或之前最近一个交易日"收盘
-  const csiOnOrBefore = (date) => {
+  // 账户记录日常含非交易日：中证1000取"当日或之前最近一个交易日"收盘；CTA只在估值日有值
+  const benchAt = (date) => {
+    if (useCta) return benchMap[date] ?? null;
     let value = null;
-    for (const d of csiDates) {
+    for (const d of benchDates) {
       if (d > date) break;
-      value = csiMap[d];
+      value = benchMap[d];
     }
     return value;
   };
 
-  // 只保留有指数数据的账户日期
-  const dates = Object.keys(accountMap).sort().filter(d => csiOnOrBefore(d) != null);
+  // 只保留有基准数据的账户日期
+  const dates = Object.keys(accountMap).sort().filter(d => benchAt(d) != null);
   if (dates.length === 0) return;
 
   // 以第一个日期为基准，计算相对净值（= 1.0）
   const firstDate = dates[0];
   const accountBase = accountMap[firstDate];
-  const csiBase = csiOnOrBefore(firstDate);
+  const benchBase = benchAt(firstDate);
 
   const accountRelative = dates.map(d => +(accountMap[d] / accountBase).toFixed(6));
-  const csiRelative = dates.map(d => +(csiOnOrBefore(d) / csiBase).toFixed(6));
+  const benchRelative = dates.map(d => +(benchAt(d) / benchBase).toFixed(6));
 
   // 计算对称范围，确保两条线从同一点（1.0）出发
   const pad = (arr) => {
@@ -830,11 +833,15 @@ function mountNavComparisonChart(state, accountName = "股票", t = key => key) 
     return { min: +(1 - maxDev * 1.15).toFixed(4), max: +(1 + maxDev * 1.15).toFixed(4) };
   };
   const yRange = pad(accountRelative);
-  const y1Range = pad(csiRelative);
+  const y1Range = pad(benchRelative);
 
-  // 同步图例账户名
+  // 同步图例与副标题
   const legendAccount = document.querySelector("#nav-legend-account");
   if (legendAccount) legendAccount.textContent = accountProduct.name;
+  const legendBench = document.querySelector("#nav-legend-bench");
+  if (legendBench) legendBench.textContent = benchLabel;
+  const descEl = document.querySelector("#nav-comparison-desc");
+  if (descEl) descEl.textContent = `${accountProduct.name} vs ${benchLabel}`;
 
   // 渲染图表
   const canvas = document.querySelector("#nav-comparison-chart");
@@ -847,7 +854,6 @@ function mountNavComparisonChart(state, accountName = "股票", t = key => key) 
   const isDark = document.documentElement.getAttribute("data-theme") !== "light";
   const gridColor = isDark ? "rgba(255,255,255,0.08)" : "rgba(15,23,42,0.08)";
   const textColor = isDark ? "rgba(249,250,251,0.65)" : "rgba(15,23,42,0.65)";
-  const csiLabel = t("csi1000") || "中证1000";
 
   window._navComparisonChart = new window.Chart(canvas, {
     type: "line",
@@ -868,8 +874,8 @@ function mountNavComparisonChart(state, accountName = "股票", t = key => key) 
           yAxisID: "y"
         },
         {
-          label: csiLabel,
-          data: csiRelative,
+          label: benchLabel,
+          data: benchRelative,
           borderColor: "#ff7d00",
           backgroundColor: "rgba(255,125,0,0.08)",
           borderWidth: 2.5,
@@ -939,7 +945,7 @@ function mountNavComparisonChart(state, accountName = "股票", t = key => key) 
           },
           title: {
             display: true,
-            text: csiLabel,
+            text: benchLabel,
             color: "#ff7d00",
             font: { family: "'DM Sans', sans-serif", size: 11, weight: "600" }
           }
