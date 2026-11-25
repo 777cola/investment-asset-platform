@@ -58,15 +58,11 @@ function deepEqual(obj1, obj2) {
 }
 
 function updateLangLabel(state) {
-  const langLabel = document.querySelector("#lang-label");
   const lang = state.ui.lang;
-  
-  const langMap = {
-    "zh": "简体",
-    "zh-hant": "繁体",
-    "en": "EN"
-  };
-  if (langLabel) langLabel.textContent = langMap[lang] || "简体";
+  document.querySelectorAll("#lang-toggle .lang-item").forEach(function (el) {
+    el.classList.toggle("active", el.dataset.lang === lang);
+  });
+  document.documentElement.lang = lang === "zh-hant" ? "zh-TW" : lang === "en" ? "en" : "zh-CN";
 
   const localized = {
     zh: {

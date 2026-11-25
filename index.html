@@ -158,6 +158,29 @@
     }
     .icon-btn:hover{background:rgba(255,125,0,0.08);color:var(--orange-500);border-color:var(--border-orange)}
     .icon-btn svg{width:16px;height:16px}
+    /* 语言切换（全站统一：外框定宽 176×38，当前项展开全称） */
+    .lang-toggle{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:176px;height:38px;padding:3px;gap:2px;flex:none;
+      border:1px solid var(--border);border-radius:14px;background:var(--surface-2);
+      box-shadow:var(--shadow-sm)
+    }
+    .lang-item{
+      display:inline-flex;align-items:center;justify-content:center;
+      height:30px;padding:0 9px;border:0;background:transparent;
+      font-family:var(--font-body);font-size:0.8rem;font-weight:600;letter-spacing:0.03em;
+      color:var(--text-secondary);border-radius:10px;cursor:pointer;white-space:nowrap;
+      transition:color var(--t-fast),background var(--t-fast)
+    }
+    .lang-item .full{
+      display:grid;grid-template-columns:0fr;padding-left:0;
+      transition:grid-template-columns .45s cubic-bezier(.22,1,.36,1),padding-left .45s cubic-bezier(.22,1,.36,1)
+    }
+    .lang-item .full>span{overflow:hidden;white-space:nowrap;opacity:0;transition:opacity .25s .12s}
+    .lang-item.active{background:rgba(255,125,0,0.12);color:var(--orange-500);padding:0 10px}
+    .lang-item.active .full{grid-template-columns:1fr;padding-left:5px}
+    .lang-item.active .full>span{opacity:1}
+    .lang-item:not(.active):hover{color:var(--orange-500);background:rgba(255,125,0,0.06)}
     [data-theme="dark"] .icon-sun{display:none}
     [data-theme="dark"] .icon-moon{display:block}
     [data-theme="light"] .icon-sun{display:block}
@@ -448,6 +471,10 @@
       .navbar-links a[href="#features"],.navbar-links a[href="#about"]{display:none}
       .icon-btn{width:34px;height:34px}
       .icon-btn svg{width:14px;height:14px}
+      .lang-toggle{width:146px;height:34px;padding:2px;gap:1px;border-radius:10px}
+      .lang-item{height:28px;padding:0 6px;font-size:0.7rem;border-radius:8px}
+      .lang-item.active{padding:0 8px}
+      .lang-item.active .full{padding-left:4px}
       .btn-primary{height:38px;padding:0 16px;font-size:0.82rem}
       .btn-lg{height:42px;padding:0 18px;font-size:0.84rem}
       .hero{padding:0 0 24px}
@@ -508,9 +535,11 @@
         <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       </button>
-      <button class="icon-btn" id="lang-toggle" title="语言">
-        <span id="lang-label" style="font-size:0.75rem;font-weight:700">简体</span>
-      </button>
+      <div class="lang-toggle" id="lang-toggle" role="group" aria-label="Language / 語言">
+        <button class="lang-item active" data-lang="zh" type="button" title="简体中文">简<span class="full"><span>简体中文</span></span></button>
+        <button class="lang-item" data-lang="zh-hant" type="button" title="繁體中文">繁<span class="full"><span>繁體中文</span></span></button>
+        <button class="lang-item" data-lang="en" type="button" title="English">EN<span class="full"><span>English</span></span></button>
+      </div>
     </div>
   </nav>
 
@@ -523,9 +552,9 @@
       <div class="split-label" id="split-research-title">研究报告</div>
       <div class="split-desc" id="split-research-desc">基于巴菲特·芒格·段永平·李录框架，对关注公司进行17个维度的全景深度分析。</div>
       <div class="split-stats" id="split-research-stats">
-        <div class="split-stat"><div class="split-stat-val blue">38</div><div class="split-stat-lbl">公司</div></div>
-        <div class="split-stat"><div class="split-stat-val blue">17</div><div class="split-stat-lbl">分析维度</div></div>
-        <div class="split-stat"><div class="split-stat-val blue">持续更新</div><div class="split-stat-lbl">研究进度</div></div>
+        <div class="split-stat"><div class="split-stat-val blue">38</div><div class="split-stat-lbl" id="rs1-lbl">公司</div></div>
+        <div class="split-stat"><div class="split-stat-val blue">17</div><div class="split-stat-lbl" id="rs2-lbl">分析维度</div></div>
+        <div class="split-stat"><div class="split-stat-val blue" id="rs3-val">持续更新</div><div class="split-stat-lbl" id="rs3-lbl">研究进度</div></div>
       </div>
       <div class="split-cta split-cta-research">
         <span id="split-research-cta">浏览研究报告</span>
@@ -540,9 +569,9 @@
       <div class="split-label" id="split-platform-title">资产管理平台</div>
       <div class="split-desc" id="split-platform-desc">为投资者提供清晰透明的资产查询入口。实时查看投资概况、收益动态、产品明细与历史记录。</div>
       <div class="split-stats" id="split-platform-stats">
-        <div class="split-stat"><div class="split-stat-val orange">超500万</div><div class="split-stat-lbl">累积管理金额</div></div>
-        <div class="split-stat"><div class="split-stat-val orange">6</div><div class="split-stat-lbl">投资者</div></div>
-        <div class="split-stat"><div class="split-stat-val orange">实时</div><div class="split-stat-lbl">数据更新</div></div>
+        <div class="split-stat"><div class="split-stat-val orange" id="ps1-val">超500万</div><div class="split-stat-lbl" id="ps1-lbl">累积管理金额</div></div>
+        <div class="split-stat"><div class="split-stat-val orange">6</div><div class="split-stat-lbl" id="ps2-lbl">投资者</div></div>
+        <div class="split-stat"><div class="split-stat-val orange" id="ps3-val">实时</div><div class="split-stat-lbl" id="ps3-lbl">数据更新</div></div>
       </div>
       <div class="split-cta split-cta-platform">
         <span id="split-platform-cta">进入管理平台</span>
@@ -560,7 +589,7 @@
 
     <div class="sf-grid">
       <div class="sf-card sf-card-wide">
-        <div class="sf-tag sf-tag-blue">研究</div>
+        <div class="sf-tag sf-tag-blue" data-i18n="tagResearch">研究</div>
         <div class="sf-icon sf-icon-research">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </div>
@@ -568,7 +597,7 @@
         <p id="nf1-desc">以巴菲特·芒格·段永平·李录体系为框架，对关注公司进行深度基本面分析，每份报告覆盖17个维度。</p>
       </div>
       <div class="sf-card">
-        <div class="sf-tag sf-tag-blue">研究</div>
+        <div class="sf-tag sf-tag-blue" data-i18n="tagResearch">研究</div>
         <div class="sf-icon sf-icon-research">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
@@ -576,7 +605,7 @@
         <p id="nf2-desc">已完成 38 家公司的深度研究，覆盖美股、港股、A股、台股与韩股，持续跟踪并扩充覆盖范围。</p>
       </div>
       <div class="sf-card sf-card-wide">
-        <div class="sf-tag sf-tag-orange">资管</div>
+        <div class="sf-tag sf-tag-orange" data-i18n="tagAsset">资管</div>
         <div class="sf-icon sf-icon-platform">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
         </div>
@@ -584,7 +613,7 @@
         <p id="nf3-desc">投资者登录后清晰查看总资产、产品配置比例、累计收益与净值变化，数据实时更新。</p>
       </div>
       <div class="sf-card">
-        <div class="sf-tag sf-tag-orange">资管</div>
+        <div class="sf-tag sf-tag-orange" data-i18n="tagAsset">资管</div>
         <div class="sf-icon sf-icon-platform">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
@@ -592,7 +621,7 @@
         <p id="nf4-desc">各产品净值走势一览无余，历史利息发放逐笔可查，收益心中有数。</p>
       </div>
       <div class="sf-card">
-        <div class="sf-tag sf-tag-blue">研究</div>
+        <div class="sf-tag sf-tag-blue" data-i18n="tagResearch">研究</div>
         <div class="sf-icon sf-icon-research">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
         </div>
@@ -600,7 +629,7 @@
         <p id="nf5-desc">六关筛选→财务验证→四大师分析→管理层纵深→产业链全景→投资论文追踪，层层递进。</p>
       </div>
       <div class="sf-card">
-        <div class="sf-tag sf-tag-orange">资管</div>
+        <div class="sf-tag sf-tag-orange" data-i18n="tagAsset">资管</div>
         <div class="sf-icon sf-icon-platform">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         </div>
@@ -617,7 +646,7 @@
         <div class="about-brand">
           <div class="about-logo">KH</div>
           <div>
-            <div class="about-name">恺皓资本</div>
+            <div class="about-name" data-i18n="brandName">恺皓资本</div>
             <div class="about-sub">KaiHao Capital</div>
           </div>
         </div>
@@ -656,7 +685,7 @@
   </section>
 
   <footer class="ft">
-    <span>© 2026 恺皓资本 KaiHao Capital</span>
+    <span id="footer-copy">© 2026 恺皓资本 KaiHao Capital</span>
     <span id="footer-tag">研究驱动 资产管理</span>
   </footer>
 
@@ -700,6 +729,10 @@ const i18n = {
     nf6Desc: "一键生成专业PDF报表，可打印可分享。投资顾问沟通纪要完整归档，不遗漏任何重要事项。",
     aboutP1: "恺皓资本以价值投资研究为核心驱动力，以透明资产管理为服务基石。我们相信，只有深入理解一家公司，才能真正为投资者的每一分钱负责。",
     aboutP2: "研究驱动决策，平台守护信任——这是恺皓资本存在的全部理由。",
+    rs1Lbl: "公司", rs2Lbl: "分析维度", rs3Val: "持续更新", rs3Lbl: "研究进度",
+    ps1Val: "超500万", ps1Lbl: "累积管理金额", ps2Lbl: "投资者", ps3Val: "实时", ps3Lbl: "数据更新",
+    footerCopy: "© 2026 恺皓资本 KaiHao Capital", footerTag: "研究驱动 资产管理",
+    tagResearch: "研究", tagAsset: "资管",
   },
   "zh-hant": {
     langLabel: "繁體",
@@ -734,6 +767,10 @@ const i18n = {
     nf6Desc: "一鍵生成專業PDF報表，可列印可分享。投資顧問溝通紀要完整歸檔，不遺漏任何重要事項。",
     aboutP1: "愷皓資本以價值投資研究為核心驅動力，以透明資產管理為服務基石。我們相信，只有深入理解一家公司，才能真正為投資者的每一分錢負責。",
     aboutP2: "研究驅動決策，平台守護信任——這是愷皓資本存在的全部理由。",
+    rs1Lbl: "公司", rs2Lbl: "分析維度", rs3Val: "持續更新", rs3Lbl: "研究進度",
+    ps1Val: "超500萬", ps1Lbl: "累積管理金額", ps2Lbl: "投資者", ps3Val: "即時", ps3Lbl: "數據更新",
+    footerCopy: "© 2026 愷皓資本 KaiHao Capital", footerTag: "研究驅動 資產管理",
+    tagResearch: "研究", tagAsset: "資管",
     v1Num: "研究驅動",
     v1Lbl: "每一筆投資決策都源於深度基本面研究",
     v2Num: "透明可信",
@@ -774,6 +811,10 @@ const i18n = {
     nf6Desc: "One-click PDF reports for printing and sharing. Full archive of advisor communication history.",
     aboutP1: "KaiHao Capital is driven by value investing research, with transparent asset management as its foundation. We believe that only by deeply understanding a company can we truly be responsible for every dollar entrusted to us.",
     aboutP2: "Research drives decisions. Platform safeguards trust. That's all KaiHao Capital exists for.",
+    rs1Lbl: "Companies", rs2Lbl: "Dimensions", rs3Val: "Always updating", rs3Lbl: "Research progress",
+    ps1Val: "\u00a55M+", ps1Lbl: "Cumulative AUM", ps2Lbl: "Investors", ps3Val: "Real-time", ps3Lbl: "Data updates",
+    footerCopy: "\u00a9 2026 KaiHao Capital", footerTag: "Research-driven asset management",
+    tagResearch: "Research", tagAsset: "Asset",
     v1Num: "Research-Driven",
     v1Lbl: "Every investment decision starts with deep fundamental research",
     v2Num: "Trust Through Transparency",
@@ -796,6 +837,9 @@ const keyToId = {
   nf3Title: "nf3-title", nf3Desc: "nf3-desc", nf4Title: "nf4-title", nf4Desc: "nf4-desc",
   nf5Title: "nf5-title", nf5Desc: "nf5-desc", nf6Title: "nf6-title", nf6Desc: "nf6-desc",
   aboutP1: "about-p1", aboutP2: "about-p2",
+  rs1Lbl: "rs1-lbl", rs2Lbl: "rs2-lbl", rs3Val: "rs3-val", rs3Lbl: "rs3-lbl",
+  ps1Val: "ps1-val", ps1Lbl: "ps1-lbl", ps2Lbl: "ps2-lbl", ps3Val: "ps3-val", ps3Lbl: "ps3-lbl",
+  footerCopy: "footer-copy", footerTag: "footer-tag",
   v1Num: "v1-num", v1Lbl: "v1-lbl", v2Num: "v2-num", v2Lbl: "v2-lbl", v3Num: "v3-num", v3Lbl: "v3-lbl",
 };
 
@@ -806,7 +850,13 @@ function applyLang(lang) {
     const el = document.getElementById(id);
     if (el) el.innerHTML = val;
   }
-  document.getElementById("lang-label").textContent = t.langLabel;
+  document.querySelectorAll('[data-i18n]').forEach(function (el) {
+    var k = el.getAttribute('data-i18n');
+    if (t[k] != null) el.innerHTML = t[k];
+  });
+  document.querySelectorAll('.lang-item').forEach(function (el) {
+    el.classList.toggle('active', el.dataset.lang === lang);
+  });
   document.documentElement.lang = lang === "zh-hant" ? "zh-TW" : lang === "en" ? "en" : "zh-CN";
 }
 
@@ -815,14 +865,12 @@ function applyTheme(theme) {
   localStorage.setItem(THEME_KEY, theme);
 }
 
-function switchLang() {
-  const langs = ["zh", "zh-hant", "en"];
-  const current = localStorage.getItem(LANG_KEY) || "zh";
-  const idx = (langs.indexOf(current) + 1) % langs.length;
-  const next = langs[idx];
-  localStorage.setItem(LANG_KEY, next);
-  applyLang(next);
-  updateAppLinks(next);
+function setLang(lang) {
+  if (!i18n[lang]) lang = "zh";
+  localStorage.setItem(LANG_KEY, lang);
+  try { localStorage.setItem("lang", lang === "zh-hant" ? "hant" : lang); } catch (e) {}
+  applyLang(lang);
+  updateAppLinks(lang);
 }
 
 function updateAppLinks(lang) {
@@ -849,7 +897,9 @@ document.addEventListener("DOMContentLoaded", function() {
   var savedTheme = localStorage.getItem(THEME_KEY) || "light";
   applyTheme(savedTheme);
   document.getElementById("theme-toggle").addEventListener("click", switchTheme);
-  document.getElementById("lang-toggle").addEventListener("click", switchLang);
+  document.querySelectorAll('.lang-item').forEach(function (el) {
+    el.addEventListener('click', function () { setLang(el.dataset.lang); });
+  });
 });
 </script>
 </body>
