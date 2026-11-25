@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>六关快速筛选 — CoreWeave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.quote { border-left: 3px solid #1A4B8C; background: #f8f9fb; padding: 0.8rem 1rem; font-size: 0.88rem; color: #444; margin: 0.8rem 0 1rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>六关快速筛选 — CoreWeave</h1>
+  <div class="subtitle">CoreWeave (CRWV) | 巴菲特买入前 Checklist</div>
+  <div class="meta">研究日期 2026/11/20 &nbsp;·&nbsp; 股价 $39.51（-12.02%） &nbsp;·&nbsp; 市值 约 220 亿美元 &nbsp;·&nbsp; PE(TTM) —（GAAP 亏损，PE 无意义）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-CoreWeave研究报告总目录.html">← 返回总目录</a>
+
+  <div class="summary-box"><h3>结论：第一关勉强过，其余五关全不通过</h3><p>需求是真的：单季营收 +168%、订单 1,325 亿美元、Meta 与 OpenAI 各签了 200 亿美元以上的长约。但这是一门用别人的钱买会折旧的机器、再租给少数几个客户的生意，利息支出已经超过经营利润，股权是加在债务上面的一个期权。</p></div>
+  <table class="dt"><caption>六关逐项判定</caption><thead><tr><th>关卡</th><th>判定</th><th>评分</th><th>依据</th></tr></thead><tbody><tr><td>第一关：能力圈</td><td>勉强通过</td><td>6/10</td><td>商业模式一句话说得清：借钱买 GPU、建机房、按合同租给 AI 实验室。难点不在理解，在于判断 3 年后的 GPU 还值多少钱。</td></tr><tr><td>第二关：好生意</td><td>不通过</td><td>3/10</td><td>重资产、负自由现金流、客户集中、产品同质化。62% 的 EBITDA 利润率是会计幻觉，扣掉折旧和利息就没了。</td></tr><tr><td>第三关：护城河</td><td>不通过</td><td>3/10</td><td>算力是标准品，客户随时可以自建或换供应商。微软已明确“能自建就自建”，这是对 neocloud 模式最直接的评价。</td></tr><tr><td>第四关：管理层</td><td>存疑</td><td>5/10</td><td>执行力强，交付速度是行业标杆；但资本结构的选择过于激进，4.2 亿美元可转债 + 26 亿美元延迟提款贷款 + 3,500 万股增发计划同时推进。</td></tr><tr><td>第五关：安全边际</td><td>不通过</td><td>1/10</td><td>跌了 71% 仍然不便宜：市值 220 亿美元对应 469 亿美元债务，股权价值完全取决于信贷市场是否继续开门。</td></tr><tr><td>第六关：纪律</td><td>不通过</td><td>2/10</td><td>买入理由只能是“AI 需求不会停”，这是叙事，不是可验证前提。</td></tr><tr><td>综合</td><td>不通过</td><td>20/60</td><td>需求没问题，资产负债表有问题。在债务问题解决之前，任何价格都不是“便宜”。</td></tr></tbody></table>
+  <div class="section"><div class="section-title">🧭 逐关说明</div><p class='txt'>第一关给 6 分是因为<b>这门生意的逻辑太好懂，反而容易让人低估它的风险</b>：签长约、借钱、买卡、通电、收租。真正难的是第二层判断——GPU 的经济寿命到底是 3 年还是 6 年，折旧政策一旦被现实推翻，账面利润会瞬间消失。10-Q 里的折旧年限假设，比任何一份订单公告都重要。</p><p class='txt'>第二关只能给 3 分。<b>调整后 EBITDA 利润率 62%，同期 GAAP 经营利润率只有 5.7%</b>，中间差的是折旧；再往下，8.46 亿美元净利息把 2.07 亿经营利润全部吃掉还倒欠。这不是“规模上来就好了”的问题——规模越大，债务越大，利息越大。Q4 利息指引 10.5–11.5 亿美元，已经超过本季调整后经营利润的 2.5 倍。</p><p class='txt'>第三关的关键证据来自客户自己。11 月 18 日纳德拉公开说“只卖给一两个客户不是生意”，微软本季资本开支 452 亿美元、全年指引约 1,700 亿，同时被曝在审查超过 800 亿美元的外部 AI 算力承诺、并取消了一笔 32.2 亿美元的 Nscale 订单。<b>买方在把钱从“租”挪回“建”，中间商的价差就是被压缩的那部分。</b></p><p class='txt'>第五关给 1 分不是情绪化。市值 220 亿美元、企业价值约 835 亿美元（含租赁负债），净债务约 610 亿美元——<b>跌 71% 之后，股权只占企业价值的四分之一，仍然是资本结构最上面薄薄的一层</b>。债券收益率 11 月中旬已升到 15% 附近（6 月发行的 9.625% 票息债），而微软这类 AAA 发行人的融资成本不到 5%。市场对这两类借款人的定价，已经把答案说清楚了。</p></div>
+  <div class="summary-box"><h3>❌ 否决项 / ⚠️ 待验证项</h3><p><b>否决项：资本结构。</b>469 亿美元债务、平均成本 7.9%、未来两年到期约 134 亿美元，而单季自由现金流 -74.7 亿美元。这不是“成长股的波动”，是一个必须持续再融资的商业模式。信贷窗口一旦关闭，订单再多也换不来现金。<br><b>待验证项：</b>① 2027 年资本开支指引与自由现金流转正的时点；② 客户预付款（本季 21.3 亿美元）能不能持续，Q4 指引约 90 亿美元；③ GPU 折旧年限假设是否被下调；④ 微软 800 亿美元外部算力审查的最终结果。</p></div>
+</div>
+<div class="footer">CoreWeave (CRWV) 投资研究报告集 · 2026/11/20</div>
+</body>
+</html>

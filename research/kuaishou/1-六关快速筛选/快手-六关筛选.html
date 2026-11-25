@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>六关快速筛选 — 快手</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.quote { border-left: 3px solid #1A4B8C; background: #f8f9fb; padding: 0.8rem 1rem; font-size: 0.88rem; color: #444; margin: 0.8rem 0 1rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>六关快速筛选 — 快手</h1>
+  <div class="subtitle">快手 (01024) | 巴菲特买入前 Checklist</div>
+  <div class="meta">研究日期 2026/10/12 &nbsp;·&nbsp; 股价 HK$29.26（-2.79%） &nbsp;·&nbsp; 市值 约 1,267 亿港元 &nbsp;·&nbsp; PE(TTM) 约 10.5 倍</div>
+</div>
+<div class="container">
+<a class="back" href="../00-快手研究报告总目录.html">← 返回总目录</a>
+
+  <div class="summary-box"><h3>结论：两关通过，好生意与纪律两关否决</h3><p>4.12 亿 DAU 还在，用户没有跑；跑掉的是广告主的预算。收入只增 1.4%、经调整净利减 30%，可灵一个季度 8.5 亿元的收入撑不起 1,267 亿港元市值的故事。这不是估值问题，是生意在变差。</p></div>
+  <table class="dt"><caption>六关逐项判定</caption><thead><tr><th>关卡</th><th>判定</th><th>评分</th><th>依据</th></tr></thead><tbody><tr><td>第一关：能力圈</td><td>通过</td><td>7/10</td><td>流量批发 + 广告变现 + 直播打赏，模式清楚；难的是判断短视频的终局格局。</td></tr><tr><td>第二关：好生意</td><td>不通过</td><td>4/10</td><td>广告平台靠规模与算法吃饭，没有定价权；用户时长被短剧和 AI 应用分流。</td></tr><tr><td>第三关：护城河</td><td>勉强通过</td><td>5/10</td><td>4.12 亿 DAU 是网络效应，但抖音在上下游同时压制，老二的位置最难受。</td></tr><tr><td>第四关：管理层</td><td>存疑</td><td>5/10</td><td>程一笑对 AI 的判断对，但 45 港元均价回购 8.8 亿港元，说明管理层也误判了价格。</td></tr><tr><td>第五关：安全边际</td><td>存疑</td><td>6/10</td><td>10.5 倍 PE、242.7 亿元净现金，静态看有；动态看利润在下行，分母在缩。</td></tr><tr><td>第六关：纪律</td><td>不通过</td><td>4/10</td><td>买入理由只能押注可灵，而可灵的估值锚在一级市场，不可验证。</td></tr><tr><td>综合</td><td>不通过</td><td>31/60</td><td>主业在萎缩，AI 在烧钱，价格在低位——三件事同时发生，不该接。</td></tr></tbody></table>
+  <div class="section"><div class="section-title">🧭 逐关说明</div><p class='txt'>第一关能过。快手的生意说白了就是三件事：用内容换用户时间，把用户时间卖给广告主，再用直播和电商变现。2026Q2 有 4.12 亿 DAU、7.97 亿 MAU，用户基本盘稳住了（DAU 同比 +0.8%），这在这个体量上不容易。</p><p class='txt'>第二关不通过。广告是规模生意，定价权在买家和算法效率手里，不在平台手里。Q2 线上营销收入 206 亿元、同比只增 4.4%，低于彭博一致预期的 6.3%，也低于中国互联网广告大盘。直播收入 87 亿元、同比 -13.5%，已经连续两年负增长。这两块加起来占收入 82%，它们不涨，公司就不涨。</p><p class='txt'>第三关勉强过。DAU 是网络效应，但网络效应有方向：用户在哪，创作者就在哪，广告主就在哪。抖音在用户时长、电商 GMV、AI 视频三条线同时领先，快手只能守。老二的护城河，宽度取决于老大愿不愿意打——2026 年老大在打。</p><p class='txt'>第五关看着还行：10.5 倍 PE、242.7 亿元现金类资产、2026 年还在回购。但 PE 的分母在缩——经调整净利同比 -30.3%，卖方已经把 2026 年经调整净利下调到 89.9 亿元。<b>静态便宜、动态变贵，这是典型的价值陷阱形态。</b></p></div>
+  <div class="summary-box"><h3>❌ 否决项 / ⚠️ 待验证项</h3><p><b>否决项：主业失速且无企稳证据。</b>收入 +1.4%、广告 +4.4%、直播 -13.5%，三条线没有一条给出拐点信号。管理层自己在电话会上说下半年电商营销服务和佣金收入会同比承压——这不是外部分析，是公司口径。<br><br><b>待验证项：</b>① 线上营销收入增速能否回到 8% 以上；② 可灵分拆后，亏损归属和并表口径怎么处理；③ 电商 GMV 与佣金率（公司已不再披露 GMV，只能看商家数与佣金收入）。</p></div>
+</div>
+<div class="footer">快手 (01024) 投资研究报告集 · 2026/10/12</div>
+</body>
+</html>
