@@ -1,5 +1,12 @@
 // 图表组件 — 基于 Chart.js 4.x 渲染净值折线图
 
+import i18n from "./国际化.js";
+
+function tt(key){
+  const lang = localStorage.getItem("cj-lang") || "zh";
+  return i18n[lang]?.[key] ?? i18n.zh[key] ?? key;
+}
+
 let _chartInstance = null;
 
 /**
@@ -10,7 +17,7 @@ let _chartInstance = null;
 export function mountChart(history) {
   const canvas = document.querySelector("#nav-chart");
   if (!canvas) return;
-  if (!window.Chart) { canvas.insertAdjacentHTML("afterend", '<p style="color:var(--text-tertiary);font-size:.82rem;text-align:center">图表库未加载</p>'); return; }
+  if (!window.Chart) { canvas.insertAdjacentHTML("afterend", '<p style="color:var(--text-tertiary);font-size:.82rem;text-align:center">'+tt('chartLibMissing')+'</p>'); return; }
 
   if (_chartInstance) { _chartInstance.destroy(); _chartInstance = null; }
 
@@ -68,7 +75,7 @@ export function mountChart(history) {
 /** 返回图表占位 HTML（canvas + 空状态判断） */
 export function renderChartPlaceholder(history) {
   if (!history || !history.length) {
-    return `<div class="empty-state" style="padding:40px 0"><p>暂无净值数据</p></div>`;
+    return `<div class="empty-state" style="padding:40px 0"><p>${tt('noNavData')}</p></div>`;
   }
   return `<canvas id="nav-chart" style="max-height:220px"></canvas>`;
 }
