@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>六关筛选 — 美团</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>六关筛选 — 美团</h1>
+  <div class="subtitle">美团 (03690) | 1-六关快速筛选</div>
+  <div class="meta">研究日期 2026/11/28 &nbsp;·&nbsp; 股价 HK$67.85（+8.21%） &nbsp;·&nbsp; 市值 约 4,190 亿港元（61.75 亿股） &nbsp;·&nbsp; PE(TTM) —（TTM 仍为亏损，PE 失真；2027E 约 16.8x）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-美团研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>六关 45/60：能力圈 9、好生意 7、护城河 7、管理层 8、安全边际 7、纪律 7。比 8 月那份报告的 43 分只高 2 分，但结构变了——上次扣分是“利润能不能回来”，这次扣分是“份额能不能回来”。<b>2026Q3 收入 1,155.56 亿元、同比 +21.6%，是补贴战开打以来第一次回到 20% 以上；净利 20.71 亿元，去年同期亏 186.32 亿元。</b>生意在修复，价格也从 77.5 港元跌到 67.85 港元，两者同时发生，这是六关能全过的全部理由。</p><p class='txt'>只拿 7 分的两关都跟“对手”有关：份额止在 50% 没回升，营销费用率 22.9% 仍比 2024 年的 16% 高 7 个点。<b>这意味着利润的弹性还在，但主动权不在自己手里。</b></p></div><table class="dt"><caption>六关筛选（2026/11/28，股价 67.85 港元，市值 4,190 亿港元）</caption><thead><tr><th>关卡</th><th>判定</th><th>评分</th><th>依据</th></tr></thead><tbody><tr><td>第一关：能力圈</td><td>通过</td><td>9/10</td><td>收入两条腿——核心本地商业 800.2 亿元、新业务 355.4 亿元；看三行就够：配送收入、商家服务收入、核心经营利润</td></tr><tr><td>第二关：好生意</td><td>通过</td><td>7/10</td><td>Q3 毛利 400.6 亿元、毛利率 34.7%，资本开支轻、现金先收后付；但骑手成本只涨不降，利润一半由对手的补贴决定</td></tr><tr><td>第三关：护城河</td><td>通过</td><td>7/10</td><td>600 万骑手、800 万商户、2,800 个县市区；单量份额从 2025 年初约 65% 掉到约 50%，本季止跌未回升</td></tr><tr><td>第四关：管理层</td><td>通过</td><td>8/10</td><td>最惨的季度选择守 UE 不保单量，Q3 把利润做回来了；AI 投入克制、回购在跑；扣分在巴西这个新战场</td></tr><tr><td>第五关：安全边际</td><td>通过</td><td>7/10</td><td>4,190 亿港元＝3,855 亿元，扣净现金 1,200 亿元后对应 2027E 净利 11.5 倍；但 2027E 是假设</td></tr><tr><td>第六关：纪律</td><td>通过</td><td>7/10</td><td>买入前提一个季度就能验：Q4 核心本地商业经营利润、份额、营销费用率，三个数都在季报里</td></tr><tr><td>综合</td><td>买入（分批）</td><td>45/60</td><td>拐点由“预期”变成“两个季度的报表”；分批建仓，74 港元以上不追</td></tr></tbody></table><div class="note">评分为本报告自定，60 分制，与底稿 six_gates 逐项一致（9+7+7+8+7+7=45）。Q3 分部数据（核心本地商业 800.2 亿元/45.2 亿元、新业务 355.4 亿元/-21.6 亿元、毛利 400.6 亿元）为按环比增速与业绩会口径推算（标注“推算”），公司仅披露集团收入、净利、经调整净利与研发增速。</div><div class="section"><div class="section-title">第一、二关：收入回来了，利润是省出来的</div><p class='txt'>先看收入结构。2026Q3 总收入 1,155.56 亿元，其中核心本地商业约 800.2 亿元（推算，占 69.3%）、新业务约 355.4 亿元（占 30.7%）。核心本地商业再往下拆三块：配送服务收入、商家服务收入（佣金＋广告）、商品销售（自营药品酒类）。<b>看这份财报只需要盯三行：配送服务收入增速、商家服务收入增速、核心本地商业经营利润。</b>第一行告诉我们单量和客单价，第二行告诉我们商户还愿不愿意付钱，第三行告诉我们补贴退了没有。</p><p class='txt'>这一关扣 1 分，扣在“看得懂收入、看不懂利润”。收入能建模：单量×客单价、商户数×佣金率、广告加载率，三个变量都有历史区间。利润不能建模：它等于三方各自愿意烧多少钱的差值。2025 年收入 3,648.5 亿元、只增 8.1%，经营却从 2024 年的 +451 亿元变成 -170 亿元——<b>收入差 8 个点，利润差 621 亿元，这就是这门生意现在的样子。</b></p><p class='txt'>第二关看两头的极端值。好的时候：2024 年核心本地商业经营利润率 20.9%、集团经营利润 451 亿元，几乎不需要资本开支，现金流先收后付，这是中国互联网最好的商业模式之一。坏的时候：2025Q3 单季净亏 186.32 亿元。现在是中间态：Q3 毛利 400.6 亿元、毛利率 34.7%（推算），经营利润率 1.5%。<b>7 分的含义是——稳态下是好生意，但它的利润表永远有一半写在别人的预算里。</b></p></div><div class="section"><div class="section-title">第三、四关：份额止跌，管理层交出了答卷</div><p class='txt'>护城河给 7 分，比 8 月的 8 分再降 1 分，不是因为变差，是因为证据变硬了。三样东西别人短期造不出来：约 600 万有单骑手、约 800 万活跃商户、2,800 个县市区的分钟级调度。<b>但 2025 年那场仗证明，这条护城河挡得住新进入者，挡不住愿意亏钱的巨头。</b>单量份额从 2025 年初约 65% 掉到 2026 年 2 月约 51%，本季约 50%——止跌，但没有回升。止跌是好事，说明补贴的边际效果已经耗尽；没有回升也是事实，说明对手没有退出，只是不再加价。</p><p class='txt'>管理层给 8 分，是六关里唯一上调的一关。理由很简单：<b>2026 年 8 月它说“三季度单均配送成本会高于二季度、利润会差一点”，11 月 27 日拿出来的数字对得上——核心本地商业经营利润从 56.7 亿元环比降到约 45 亿元，但没有失守。</b>管理层敢在电话会上给坏指引、并且兑现，这比给好指引更值钱。资本配置上：AI 投入克制（研发 86.5 亿元、占收入 7.5%，增速 +11.3% 低于收入增速），20 亿美元回购授权在 66.5–69 港元区间执行，王兴明确说不做“Token 工厂”。</p><p class='txt'>扣的 2 分在边界：巴西已签 5 年 10 亿美元投资协议，这是唯一一个“亏多少由自己决定、赚多少由对手决定”的战场。新业务 Q3 亏损环比从 17.4 亿元扩大到约 21.6 亿元，就是这么来的。</p></div><div class="section"><div class="section-title">第五、六关：便宜的是分母，贵的是假设</div><p class='txt'>67.85 港元 × 61.75 亿股＝4,190 亿港元，按 0.92 汇率折 3,855 亿元。账上净现金约 1,200 亿元（媒体口径估算，非公告值），扣掉之后核心业务市值 2,655 亿元。按 2027 年归母净利 230 亿元算：<b>含净现金 16.8 倍，扣净现金 11.5 倍。</b>对比 2024 年那门生意曾经一年赚 358 亿元，这个倍数不贵。</p><p class='txt'>但 7 分而不是 9 分，因为 230 亿元是算出来的，不是看到的。它需要三个前提同时成立：核心本地商业经营利润率回到 10%（现在是 5.6%）、新业务亏损收窄到 10 亿元以内、营销费用率回落到 18% 以下。<b>三个前提里只要有一个不成立，2027 年净利就掉到 150 亿元以下，对应 25 倍。</b>三情景摊开：悲观 52 港元（-23%）、中性 98 港元（+44%）、乐观 149 港元（+119%），赔率 1 : 1.9。</p><p class='txt'>第六关给 7 分，因为这次买入的对错不需要等三年。2027 年 3 月公布 Q4 与全年业绩时，三个数会同时出现：Q4 核心本地商业经营利润能不能守住 50 亿元、单量份额有没有回到 51%、营销费用率有没有降到 22% 以下。<b>三项中两项不达标，这笔投资就是错的，减仓，不用纠缠。</b></p></div><div class="section"><div class="section-title">否决项与待验证项</div><p class='txt'><b>否决项：无。</b>没有单一条款足以否掉这笔投资。但有一条硬约束写在这里：<b>如果 2026Q4 核心本地商业经营利润跌破 35 亿元，或者单量份额跌破 48%，评级立刻从“买入”降为“观察”。</b>这两件事只要发生一件，就说明 Q3 的利润不是修复、是季节。</p><p class='txt'><b>待验证项三条。</b>第一，补贴水平的方向——Q3 营销费用 265 亿元、费用率 22.9%（推算），比 2024 年同期的 16% 高 7 个点，管理层自己说“仍高于正常水平”，这个数字是全部弹性的来源。第二，到店业务的经营利润率——这是利润最肥的一块，抖音的进攻没有停，管理层已经预告会为份额牺牲利润率。第三，巴西——5 年 10 亿美元只是承诺上限，实际节奏看 2027 年上半年。</p><p class='txt'>还有一条不属于公司、但决定股价：<b>港股整体流动性。</b>恒生科技 2026 年内跌逾 25%，美团距 52 周高点还有 36% 的空间，这个空间里有一半是行业估值收缩，不是公司基本面。这一条不构成否决，但决定了“分批”而不是“一把梭”。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>45/60，六关全过，评级买入、分批加仓。</b>通过的部分是硬的：收入 +21.6%、净利转正、核心本地商业连续两季经营盈利、管理层指引兑现。没满分的部分也是硬的：份额 50% 止跌未回升、营销费用率仍高 7 个点、2027 年的 230 亿元净利是假设。<b>触发条件写死：Q4 核心本地商业经营利润 ≥50 亿元、份额回到 51% 以上、营销费用率 ≤22%，三条满足两条就加第二批；跌破 35 亿元或份额跌破 48%，无条件减仓。</b></p></div>
+</div>
+<div class="footer">美团 (03690) 投资研究报告集 · 2026/11/28</div>
+</body>
+</html>

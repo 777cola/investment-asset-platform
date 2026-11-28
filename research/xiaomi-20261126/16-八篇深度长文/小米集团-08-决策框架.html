@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>决策框架：什么价格买、什么信号加、什么情况走 — 小米集团</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>决策框架：什么价格买、什么信号加、什么情况走 — 小米集团</h1>
+  <div class="subtitle">把判断变成三个数字：23、20、32</div>
+  <div class="meta">研究日期 2026/11/26 &nbsp;·&nbsp; 股价 HK$26.60（+0.15%） &nbsp;·&nbsp; 市值 约 6,850 亿港元（257.41 亿股） &nbsp;·&nbsp; PE(年化) 约 32x（按 Q3 经调整净利年化 195 亿元粗算）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-小米集团研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>决策框架要把「看法」变成「动作」。对小米，只需要三个数字：<b>23 港元（开始建仓）、20 港元（加到 5%）、32 港元（清仓）。</b>再加一个非价格信号：手机毛利率连续两个季度环比回升。四个条件构成完整的买卖纪律。</p></div><div class="section"><div class="section-title">为什么是 23 港元</div><p class='txt'>23 港元对应 2027 年中性净利 250 亿元的 21.8 倍，市值 5,920 亿港元。<b>这个价格假设「存储 2027 年下半年回落 + 汽车年交付 48 万辆」，两条都是中性假设，留出了「假设错一半」的空间。</b></p><p class='txt'>反过来算：如果 2027 年只赚 180 亿元（悲观），23 港元对应 30 倍，还是贵；如果赚 330 亿元（乐观），对应 16 倍，很便宜。<b>所以 23 港元不是「便宜」，是「赔率对称」——向上 36%、向下 13%（到中性），值得下注。</b></p><p class='txt'>为什么不是现在的 26.60？因为现价对应 2027 年中性 25 倍，向上 36%、向下 54%（到悲观），<b>赔率是 1:1.5，往坏的方向不对称。</b>多等 13% 的跌幅，赔率就能翻过来。</p></div><div class="section"><div class="section-title">为什么是 20 港元加仓</div><p class='txt'>20 港元对应 2027 年中性净利 18.9 倍、悲观净利 26.3 倍，市值 5,148 亿港元。中性假设打个折还有 19 倍，对一个净利率约 5% 的制造业公司不算贵。<b>这个价格才叫安全边际——不是「我觉得便宜」，是「算错了也不亏太多」。</b></p><p class='txt'>加仓还需要一个条件：汽车连续两个季度经营盈利。如果价格到了 20 但汽车转亏，说明悲观情景正在兑现，那时候不该加仓，该等。<b>价格与基本面同时到位，才是加仓的充分条件。</b></p><p class='txt'>单票上限 6%。理由是它的利润波动太大——2026Q3 净利同比 -68.4%，这种波动放在组合里，6% 的仓位已经能贡献 4 个点的净值波动。<b>超过 6%，就是在用组合赌一个周期。</b></p></div><div class="section"><div class="section-title">为什么是 32 港元清仓</div><p class='txt'>32 港元对应 2027 年中性净利 30 倍、乐观净利 23 倍。<b>到这个位置，即使乐观情景兑现，年化回报也只有个位数。</b></p><p class='txt'>更重要的理由是「估值方法的边界」。小米的历史区间是 15—40 倍：40 倍是 2025 年「生态平台 + 汽车成长」双叙事的高点，15 倍是 2022 年「手机衰退」的低点。<b>32 倍已经进入了「需要新故事支撑」的区间，而 2026 年的故事是「汽车收入 -19%」。</b></p><p class='txt'>如果股价在无基本面改善的情况下反弹到 32 港元以上，说明市场又在为叙事付钱。<b>那时候该做的是减仓，不是加仓——因为你不是在赚公司的钱，是在赚下一个买家的钱。</b></p></div><div class="section"><div class="section-title">时间表与「什么会让我改变看法」</div><p class='txt'>2027/01：澎程首个完整月交付（看是否过 1.5 万辆）。2027/03：年报 + Q4（看汽车是否连续两季盈利、存货是否减值）。2027/05：Q1（看手机毛利率第一个环比回升信号）。<b>每月 1 日交付公告、每月中旬存储合约价，是两个高频跟踪点。</b></p><p class='txt'>什么会让我从「观察」上调到「买入」？三个条件出现两个：① 手机毛利率连续两季环比回升；② 汽车连续两季经营盈利且交付环比增长；③ 澎程月交付站上 2 万辆。<b>注意这三条都是「已经发生的事实」，不是「预期」——这是纪律的核心。</b></p><p class='txt'>什么会让我从「观察」下调到「回避」？两条同时出现：① 手机毛利率跌破 8% 且无回升迹象；② 汽车重新转亏。<b>或者一条：雷军因健康原因离任且无明确接班安排。</b>前者是生意问题，后者是治理问题，两种都要走。</p><p class='txt'>还有一个容易被忽略的「软性风险」：<b>叙事风险。</b>2025 年市场给小米 40 倍，是因为「汽车成长 + 生态平台」两个故事同时成立；2026 年两个故事都弱了，倍数就掉到 32 倍。如果 2027 年汽车增速回到个位数、生态没有新品类，市场可能只给 15—18 倍——<b>这种「叙事折旧」不需要基本面恶化，只需要「没有新故事」。</b></p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>决策框架：23 港元建仓、20 港元加仓、32 港元清仓，单票上限 6%，四条基本面信号验证。</b>这个框架的好处是它不需要预测——不需要猜存储什么时候见顶、不需要猜澎程能卖多少，<b>只需要在价格或事实出现时执行。</b></p></div>
+</div>
+<div class="footer">小米集团 (01810) 投资研究报告集 · 2026/11/26</div>
+</body>
+</html>

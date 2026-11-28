@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>六关筛选 — 小米集团</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>六关筛选 — 小米集团</h1>
+  <div class="subtitle">小米集团 (01810) | 1-六关快速筛选</div>
+  <div class="meta">研究日期 2026/11/26 &nbsp;·&nbsp; 股价 HK$26.60（+0.15%） &nbsp;·&nbsp; 市值 约 6,850 亿港元（257.41 亿股） &nbsp;·&nbsp; PE(年化) 约 32x（按 Q3 经调整净利年化 195 亿元粗算）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-小米集团研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>六关走完 35 分，过三关、存疑一关、不过两关。前三关里，能力圈和护城河是硬的：手机、IoT、汽车都是看得懂的消费电子生意，人车家生态和渠道效率是真的。但<b>「好生意」这一关这次真的没过</b>——综合毛利率 20.2%、净利率 3.6%，卖 100 元货只赚 3.6 元，还要垫一条汽车产线。</p><p class='txt'>2026Q3 收入 1,072.39亿元、同比 -5.2%，略超一致预期 1,064亿；经调整净利 48.84亿元、同比 -56.8%、环比 -21.5%。唯一的结构性好消息是汽车：交付 10.88万辆、分部首次单季经营盈利。<b>结论是观察，不是回避——坏的是周期与价格，不是这家公司的产品能力。</b></p></div><table class="dt"><caption>六关筛选（10 分制，综合 60 分）</caption><thead><tr><th>关卡</th><th>判定</th><th>评分</th><th>依据</th></tr></thead><tbody><tr><td>第一关：能力圈</td><td>通过</td><td>8/10</td><td>手机、IoT、汽车、互联网服务，四块生意都能一句话说清；难算的是汽车长期利润率，但至少能跟踪月度交付</td></tr><tr><td>第二关：好生意</td><td><b>不通过</b></td><td>4/10</td><td>综合毛利率 20.2%、净利率 3.6%、经调整净利率 4.6%；汽车是重资产，互联网服务毛利高但只占收入的十分之一</td></tr><tr><td>第三关：护城河</td><td>通过</td><td>7/10</td><td>品牌 + 人车家生态 + 渠道周转，三条真实；扣 3 分因为手机和汽车都在降价，护城河换不成定价权</td></tr><tr><td>第四关：管理层</td><td>通过</td><td>8/10</td><td>雷军两年把汽车做到单季 10 万辆以上；卢伟冰公开承认「从业以来最难的一个季度」，这种诚实在国内硬件公司里少见</td></tr><tr><td>第五关：安全边际</td><td><b>不通过</b></td><td>3/10</td><td>26.60 港元对应 6,850 亿港元市值，按 Q3 年化净利 195 亿元算是 32 倍；分母还在往下走</td></tr><tr><td>第六关：纪律</td><td>存疑</td><td>5/10</td><td>买入前提能写清楚（手机毛利率环比回升、汽车盈利连续两个季度），但要等到 2027 年 3 月财报，中间没有安全垫</td></tr><tr><td>综合</td><td>观察</td><td>35/60</td><td>已有仓位可以拿；新钱等 23 港元以下，或等手机毛利率环比回升两个季度</td></tr></tbody></table><div class="note">评分口径为本报告自定，8+4+7+8+3+5=35。估值口径：6,850 亿港元 × 0.92 = 6,302 亿元市值（取 6,300 亿），除 Q3 经调整净利年化 195 亿元 = 32.4 倍，为粗算。数据来源：小米集团 2026Q3 业绩公告（2026/11/24）、2026/11/26 收盘价。</div><div class="section"><div class="section-title">前三关：20% 毛利率的生意，靠效率活着</div><p class='txt'>先把这门生意的形状说清楚。2026Q3 收入 1,072.39亿元，毛利 216.6亿元（按 20.2% 毛利率算），净利 38.76亿元，经调整净利 48.84亿元。<b>卖 100 元货，毛利 20 元，最后落到经调整净利 4.6 元。</b>这个数放在消费电子里不算差——2026Q3 全球手机行业平均毛利率在 15% 上下——但离「好生意」差得远。</p><p class='txt'>能力圈这一关给 8 分。四块业务都能看懂：手机卖硬件、IoT 卖生态、汽车卖整车、互联网服务卖广告和游戏分成。真正难的不是看懂，是算清汽车分部的长期利润率——公司只在季报里给交付量和分部毛利率，不给单车成本和费用拆分。</p><p class='txt'>护城河 7 分。三条真东西：一是品牌，国内 3,000 元以上机型占比已经稳定在三成以上；二是人车家生态，手机、车机、家居共用一套账号和系统，换机成本被拉高；三是渠道效率，小米之家的周转和坪效在业内领先。但护城河的检验标准只有一条——能不能提价。2026Q3 汽车收入同比 -19%、交付基本持平，等于单车均价降了近两成；手机在存储涨价时选择自己扛，而不是提价转嫁。<b>能扛是能力，不能提价是命。</b></p></div><div class="section"><div class="section-title">第二关为什么判不通过：不是毛利低，是毛利在往下走</div><p class='txt'>去年的口径是「毛利中等、净利率偏薄」，今年要改判。2026Q3 综合毛利率 20.2%，去年同期 22.9%，掉了 2.7 个百分点，对应毛利额从 259.0亿元掉到 216.6亿元，少了 42.4亿元。同期净利从 122.7亿元掉到 38.76亿元，少了 83.9亿元——<b>毛利少的那 42.4亿只是一半，另一半来自费用刚性和投资收益反转。</b></p><p class='txt'>费用刚性很好理解：研发单季 90 亿元以上（Q2 为 92亿元、同比 +18.9%），玄戒芯片、智驾、AI 三条线都不能停；汽车门店和产能的固定开支也不会因为一个季度卖得少就消失。投资收益则是从去年的正贡献变成了负贡献——净利 38.76亿元比经调整净利 48.84亿元还低 10.08亿元，说明这季度投资项是拖累而不是补贴（反推）。</p><p class='txt'>所以第二关给 4 分不是嫌它毛利薄，是嫌它在毛利下行时没有缓冲。一家毛利率 45% 的公司掉 3 个点，净利可能只掉 10%；一家毛利率 20% 的公司掉 3 个点，净利可以掉一半。<b>这就是「薄生意」的杠杆效应，2026 年第三季度给所有人上了一课。</b></p></div><div class="section"><div class="section-title">第四关：雷军没变，变的是行业</div><p class='txt'>管理层给 8 分，扣的两分不在能力。雷军 2021 年宣布造车，2024 年 3 月首车交付，2026 年单季交付 10.88 万辆、分部转正——五年走完别人十年的路，这个执行力在全球制造业里都算顶级。手机高端化也是同一套打法：从 2021 年喊「对标苹果」被嘲笑，到 2026 年 3,000 元以上机型占三成，是靠一代代产品磨出来的。</p><p class='txt'>加分的还有一句话。业绩会上卢伟冰说「这是我从业以来最难的一个季度」——国内硬件公司的高管很少在公开场合承认难，多数会把 -68% 的净利解释成「主动调整」。<b>承认难，意味着下一季度的指引可信度更高。</b>他同时给了两个方向：增程 SUV「澎程」首月锁单超 7 万辆、2027 年进欧洲。</p><p class='txt'>扣分在资本配置的透明度。年初公布的 200 亿港元回购（约合市值 2.9%）执行得不错，但公司从 2018 年上市至今没有派过一次现金股息；汽车业务累计投入多少、单车成本结构如何，只在电话会上给方向，不给数字。<b>这不影响「能不能信他」，影响的是「能不能算清他」。</b></p></div><div class="section"><div class="section-title">第五、六关：32 倍的分母，要等两个季度才能验证</div><p class='txt'>26.60 港元、257.41 亿股，市值 6,850 亿港元，折人民币约 6,300 亿元。按 Q3 经调整净利 48.84亿元年化 195 亿元算，32 倍；按 2026 全年调整净利约 200 亿元算，31.6 倍。这个倍数放在小米自己的历史上属于中位偏下——2025 年高点时市场给过 40 倍以上——<b>但「历史上更贵」不是买入理由。</b></p><p class='txt'>安全边际给 3 分，理由是三情景摊开赔率不好看：悲观 12.2 港元（-54%）、中性 23.2 港元（-13%）、乐观 36.2 港元（+36%），按 25/50/25 加权期望值 23.7 港元，比现价低 11%。换句话说，<b>现在买，是在为一个概率不到一半的好结局付全价。</b></p><p class='txt'>纪律这一关的判定是「存疑」而不是「不通过」，因为前提是可验证的：① 手机毛利率环比回升；② 汽车分部连续两个季度经营盈利；③ 澎程月交付爬到 2 万辆以上。三个数都会在 2027 年 3 月的年报和一季度经营数据里露出来，等待成本是六个月。<b>对一个利润还在下修的转型期公司，六个月不算长。</b></p></div><div class="section"><div class="section-title">否决项与待验证项</div><ul><li><b>否决项一：安全边际。</b>32 倍年化市盈率，对应一个净利同比 -68%、毛利率还在往下走的季度，没有任何缓冲。</li></ul><ul><li><b>否决项二：利润的可见度。</b>存储合约价 2026 年初涨 60%—70%，机构判断紧缺延续到 2027 年；这意味着手机毛利率的底不在这个季度。</li></ul><ul><li><b>待验证一：</b>Q4 手机毛利率能否环比回升 1 个百分点以上（存储现货价已先于合约价松动）。</li></ul><ul><li><b>待验证二：</b>汽车分部能否连续第二个季度经营盈利，且盈利不靠一次性费用回归。</li></ul><ul><li><b>待验证三：</b>澎程锁单 7 万辆的转化率——锁单到交付通常打七折，月交付能否站上 2 万辆决定 2027 年汽车收入是 900 亿还是 1,200 亿。</li></ul></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>35/60，总评观察。</b>过的三关说的是这家公司的底子：产品能打、生态成形、管理层可信；不过的两关说的是当下：生意太薄、价格太贵。已有仓位没有卖出的理由——汽车刚转正、手机份额没丢、账上现金充裕；新钱也没有买入的理由——32 倍买一个利润腰斩的季度，赌的是存储周期在 2027 年上半年见顶。<b>触发条件写死：股价 23 港元以下（对应 2027 年约 21 倍），或手机毛利率连续两个季度环比回升。</b>两者出现一个，评级上调一档。</p></div>
+</div>
+<div class="footer">小米集团 (01810) 投资研究报告集 · 2026/11/26</div>
+</body>
+</html>

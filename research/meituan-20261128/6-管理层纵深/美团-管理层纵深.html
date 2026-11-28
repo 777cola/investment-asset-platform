@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理层纵深 — 美团</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>管理层纵深 — 美团</h1>
+  <div class="subtitle">美团 (03690) | 6-管理层纵深</div>
+  <div class="meta">研究日期 2026/11/28 &nbsp;·&nbsp; 股价 HK$67.85（+8.21%） &nbsp;·&nbsp; 市值 约 4,190 亿港元（61.75 亿股） &nbsp;·&nbsp; PE(TTM) —（TTM 仍为亏损，PE 失真；2027E 约 16.8x）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-美团研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>王兴 47 岁，创业二十一年，从校内网、饭否到美团，<b>最长的一次坚持是把“三公里三十分钟”这件事做了十六年。</b>2025 年他做了一个反共识的选择：不打单量战、守单位经济，代价是全年净亏 233.55 亿元、份额丢 14 个百分点。2026Q3 的报表证明这个选择是对的，但代价也是真的。</p><p class='txt'>资本配置两条线：一条克制（AI 不做 Token 工厂、研发增速 11.3% 低于收入增速），一条激进（Keeta 出海，巴西 5 年 10 亿美元）。<b>真正扣分的是第三条——账上 1,200 亿元净现金、回购只用了 20 亿美元授权的一小部分。</b></p></div><table class="dt"><caption>关键人与治理结构（2026/11）</caption><thead><tr><th>人物</th><th>职务</th><th>持股/投票权</th><th>履历与分工</th></tr></thead><tbody><tr><td>王兴</td><td>董事长兼 CEO</td><td>约 9%（A 类股，投票权超 40%）</td><td>1979 年生，清华电子工程；校内网、饭否创始人；2010 年创办美团，负责战略与海外</td></tr><tr><td>穆荣均</td><td>联合创始人、高级副总裁</td><td>约 2%</td><td>清华计算机；负责技术体系、数据与合规，公司内部“第二决策人”</td></tr><tr><td>王莆中</td><td>核心本地商业 CEO</td><td>未披露</td><td>2015 年加入，从外卖业务一路做到核心本地商业一把手（2024 年 4 月任职），Q3 电话会主要答问人</td></tr><tr><td>陈少晖</td><td>CFO</td><td>未披露</td><td>2014 年加入，主导 2021 年百亿美元级融资、2024 年起回购执行；2026 年 6 月公开称“价值被严重低估”</td></tr></tbody></table><div class="note">持股为 2025 年报披露的经济权益约数，投票权因 A/B 股结构放大，具体比例以年报为准；薪酬未单列，高管现金薪酬在数百万元级，主要激励来自股权。王慧文 2023 年退出日常管理，不参与本季经营。</div><div class="section"><div class="section-title">资本配置：三条线，两好一坏</div><p class='txt'>第一条是回购。2024 年 6 月批准 20 亿美元回购计划，2026 年 6 月股东会重新授权后在 66.5–69 港元区间小额执行，两天买了 292.48 万股、约 2 亿港元。<b>问题在规模：20 亿美元对 4,190 亿港元市值只有 0.4%，按现在的执行速度要买十年。</b>一家账上 1,200 亿元净现金、自认被低估的公司，这个力度是不够的——这是本报告对管理层最主要的保留意见。</p><p class='txt'>第二条是研发与 AI。2026Q3 研发约 86.5 亿元（推算）、同比 +11.3%，占收入 7.5%，<b>增速低于收入增速 10 个点，这是主动克制的结果。</b>王兴在 2025 年说过“不做 Token 工厂”，2026 年重申不参与算力军备竞赛——在一个所有大厂都在抢卡的环境里，这句话是要付代价的（份额、叙事、估值），但它保住了现金流。</p><p class='txt'>第三条是出海。Keeta 香港 2025 年 10 月单位经济盈利，沙特 2026 年 7 月盈利、只用了 22 个月，沙特已占 Keeta 日单量约 25%。<b>但巴西签了 5 年 10 亿美元的投资协议，这是唯一一个“亏多少自己定、赚多少对手定”的战场。</b>Q3 新业务亏损环比从 17.4 亿元扩大到约 21.6 亿元，主要就是巴西开城。这一条不是错，是赌。</p></div><div class="section"><div class="section-title">诚信与治理：三次考验</div><p class='txt'>第一次是 2021 年 10 月的反垄断处罚，34.42 亿元、责令退还商户独家合作保证金，公司没有申诉、按期缴清，随后取消了“二选一”。<b>处理方式是“认罚、改结构”，没有拖。</b>第二次是 2025 年的骑手权益，算法取悦监管、社保试点、2026 年 7 月 1 日“新职伤”保险全国覆盖且保费平台全额承担——这是用真金白银换合规，每年成本在百亿元级。第三次是 2026 年的补贴战，管理层在电话会上被问“份额掉了 14 个点怎么办”，回答是“份额不是目标、单位经济是”，<b>这句话事后被 Q3 的数字验证了。</b></p><p class='txt'>治理结构上的隐忧是同股不同权：王兴以约 9% 的经济权益掌握超 40% 的投票权，股东大会对管理层的制衡有限。<b>好在历史上没有出现过大股东套现或关联交易争议，穆荣均、陈少晖的持股与公司绑定很深。</b>这件事只能观察，不能量化。</p></div><div class="section"><div class="section-title">接班人：不是问题，但也没有答案</div><p class='txt'>王兴 47 岁，距离退休还有很长时间，接班人问题现在不是风险。<b>但要说清楚一件事：这家公司目前没有“二号人物”的明确安排。</b>穆荣均管技术与合规，王莆中管核心本地商业（收入占 69%），陈少晖管资本——三个人各管一块，没有一个人被公开定位为“下一任 CEO”。</p><p class='txt'>对比同行：阿里有明确的合伙人制度与轮岗，京东有徐雷之后的梯队，拼多多有陈磊。<b>美团的组织更像“王兴 + 一群事业部负责人”，战略集中度高、执行效率高，但传承风险也集中。</b>这条不构成当下的扣分项，构成的是十年后的折价项——如果 2027–2028 年看不到清晰的梯队，估值上应该再打 5%–10% 的折扣。</p></div><div class="section"><div class="section-title">给管理层打 8 分，扣的 2 分在哪</div><p class='txt'>加分的部分很具体：在最惨的季度选择守 UE；在所有人抢算力的时候说“不做 Token 工厂”；在 8 月主动预告“Q3 会比 Q2 差”，11 月拿出的数字对得上。<b>最后这一条最值钱——管理层给坏指引并且兑现，比给好指引更稀缺。</b></p><p class='txt'>扣分两条。第一，股东回报太保守：1,200 亿元净现金、0.4% 的回购力度，等于把资本配置的权力无限期留在自己手里。第二，出海的节奏偏急：沙特用 22 个月做到盈利，是很好的成绩，但巴西在同一时间点进入，等于把刚赚到的钱投进一个更难的战场。<b>如果 2027 年巴西亏损超过 50 亿元，这一条会从“扣分”变成“减分”。</b></p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>8/10。能力没问题，取舍有纪律，坏指引敢说也兑现了。</b>扣分全在资本配置的另一端：赚回来的钱既不分红、也不大力回购，而是投向了巴西这个看不清的战场。<b>触发条件：如果 2027 年上半年回购规模累计超过 10 亿美元，或者首次宣布分红，这一关可以给到 9 分；如果巴西年度亏损超过 50 亿元，降到 7 分。</b></p></div>
+</div>
+<div class="footer">美团 (03690) 投资研究报告集 · 2026/11/28</div>
+</body>
+</html>
