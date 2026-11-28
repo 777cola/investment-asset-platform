@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earnings Deep Dive (Duan Yongping) — Tesla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/tesla/8-财报团队解读/特斯拉-大师精读-段永平.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/tesla/8-財報團隊解讀/特斯拉-財報團隊解讀-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/tesla/8-Earnings-Team-Read/Tesla-Earnings Team-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Earnings Deep Dive (Duan Yongping) — Tesla</h1>
+  <div class="subtitle">First ask where the money comes from, then ask where it goes</div>
+  <div class="meta">Research date 2026/07/22 &nbsp;·&nbsp; Price $374.01 (-1.30%) &nbsp;·&nbsp; Market cap Approximately USD 1.48 trillion &nbsp;·&nbsp; PE(TTM) — (Margins too thin; PE no longer meaningful)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/tesla/00-Tesla-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3>The most valuable line in this earnings report is "services and other +50% YoY." It shows subscription revenue is starting to reach scale. The most dangerous line is "capex +142% YoY." It shows the money earned has all been plowed back in.</div><div class="section"><div class="section-title">Where the money comes from: four pockets, only one of them new</div><p class='txt'>RMB 28.236 billion in revenue — I generally don't look at the total, I look at the structure. Automotive RMB 20.516 billion, services RMB 4.581 billion, energy RMB 3.139 billion, credits RMB 146 million. <b>Automotive is the old business, energy the middle one, services the new one, credits the dead one.</b></p><p class='txt'>Services, up 50% year on year to a record high, is the line I care about most. It houses supercharging, insurance, used cars and FSD subscriptions — what these four share is that they need no new factories, and one sale can collect money many times over. <b>If this segment can keep growing above 40%, in three years it will be Tesla's most profitable business.</b></p><p class='txt'>But the company won't tell you how much it earns. On RMB 4.581 billion of revenue, what's the gross margin? What share is FSD subscriptions? Not a single number. <b>This is what I mean by "can't figure it out" — not can't figure out the technology, can't figure out the accounts.</b></p></div><div class="section"><div class="section-title">Where the money went: USD 25 billion buys something three years out</div><p class='txt'>Capex of RMB 5.789 billion, +142% YoY, exceeding RMB 25 billion for the full year, three times the RMB 8.5 billion in 2025. Where is the money going? AI compute (Cortex 1/2 above 200MW), the Cybercab line, the first-generation Optimus mass-production line, the Austin semiconductor plant, and energy storage capacity in three locations. <b>Not a single dollar is invested in "selling more cars next year."</b></p><p class='txt'>From the shareholder's perspective, this is a big bet: <b>trading certain automotive cash flow for uncertain robot and transport-capacity revenue.</b> From the company's perspective, it is the only choice—because the automotive business carries a gross margin of just 16.9%, and further capacity investment will not earn excess profit.</p><p class='txt'>My view is simple: <b>I don't invest in what I can't understand.</b> I'm not saying he is necessarily wrong—it's that I can't value what he's betting on. That's also why I didn't buy Amazon back then. It has risen a lot since, and I have no regrets—because that wasn't money I could earn.</p></div><div class="section"><div class="section-title">One detail: the points are gone, and gross margin's cover is blown</div><p class='txt'>Regulatory credits fell from 439 million to 146 million. This revenue carries zero cost and flows straight into gross profit. Last year it contributed about 2 points to gross margin; this year only 0.5 points. <b>Strip out the credits, and Tesla's true gross margin in 2026Q2 is around 16.2%, versus around 15.2% in 2025Q2.</b></p><p class='txt'>Interestingly, the true gross margin still rose year on year. <b>That shows carmaking efficiency itself is improving — 4680 cells, gigacasting and supply-chain localization are genuinely cutting costs.</b> But the savings were given back to consumers through price cuts and consumed by AI investment.</p><p class='txt'>That is the essence of this business: <b>it can bring costs down, but it cannot hold the line on price.</b> Able to cut costs but not raise prices is manufacturing; able to raise prices but not cut costs is a brand; only doing both makes a good business.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Duan Yongping-style conclusion:</b> A good car, a tough business, an expensive price. <b>Service revenue +50% is the only exciting number in this report, but it is too small and too opaque to support RMB 1.48 trillion.</b> I would put it on the "buy once I understand it" list, not the "buy now" list.</p></div>
+</div>
+<div class="footer">Tesla (TSLA) · 2026/07/22</div>
+</body>
+</html>

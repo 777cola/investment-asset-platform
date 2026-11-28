@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務分析（巴菲特視角） — 比亞迪</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/byd/5-四角色并行分析/比亚迪-财务分析-巴菲特.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/byd/5-四角色並行分析/比亞迪-四角色-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/byd/5-Four-Role-Analysis/BYD-Four Roles-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務分析（巴菲特視角） — 比亞迪</h1>
+  <div class="subtitle">利潤是不是現金、賺的錢要不要全投回去、ROE 是不是靠槓桿</div>
+  <div class="meta">研究日期 2026/09/04 &nbsp;·&nbsp; 股價 ¥87.40（+0.10%） &nbsp;·&nbsp; 市值 約 7,968 億元（總股本 91.17 億股，A+H） &nbsp;·&nbsp; PE(TTM) 約 27x（2025 年報 326 億元淨利對應約 24x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/byd/00-比亞迪研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>三問的答案：<b>利潤是現金（營業現金流是淨利的 3 倍）、但賺的錢要全部投回去（五年自由現金流為負）、ROE 不是靠槓桿（有息負債率低）。</b>這是一台效率很高的機器，也是一台吞錢的機器。</p></div><table class="dt"><caption>關鍵財務比率（2026H1，另有標註除外）</caption><thead><tr><th>指標</th><th>數值</th><th>參照</th><th>解讀</th></tr></thead><tbody><tr><td>毛利率</td><td>18.85%</td><td>2025H1 18.01%</td><td>價格戰中逆勢提升，結構改善</td></tr><tr><td>淨利率</td><td>3.58%</td><td>2025H1 4.18%</td><td>跌 0.6 個百分點，匯兌與研發雙重打擊</td></tr><tr><td>研發費用率</td><td>6.76%</td><td>2025H1 7.97%</td><td>少花 63 億元，是利潤的主要來源</td></tr><tr><td>營業現金流／稅後淨利</td><td>3.0 倍</td><td>373 / 123.3</td><td>含金量高，但含應付帳款拉長</td></tr><tr><td>汽車分部利潤率</td><td>4.07%</td><td>112 / 2,753</td><td>分部利潤 -12.8%，快於收入降幅</td></tr><tr><td>Q2 單車淨利</td><td>0.72 萬元</td><td>Q1 0.58 萬元</td><td>券商測算，扣除電子業務</td></tr><tr><td>TTM 稅後淨利</td><td>294.4 億元</td><td>2025 年 326.19 億元</td><td>推算值，對應 PE 27 倍</td></tr><tr><td>五年累計自由現金流</td><td>為負</td><td>擴產高峰 2021—2023</td><td>賺的錢全部回投產線</td></tr></tbody></table><div class="note">比率均由半年報數據四則運算得出（毛利率、淨利率、研發費用率、OCF/淨利、分部利潤率）；Q2 單車淨利為券商測算口徑；TTM 淨利 = 326.19 − 155.1 + 123.3 = 294.4 億元（2025H1 淨利為反推值）。</div><div class="section"><div class="section-title">利潤是不是現金：是，但要看清現金從哪來</div><p class='txt'>營業現金流 373 億元，是淨利的 3 倍，這個比例在製造業裡很健康。但公司自己的解釋是「購買商品支付的現金減少」——<b>翻譯過來是對上游的帳期在拉長。</b>這是垂直整合的另一面：當你是最大的買家，你可以把付款週期往後推，把營運資金壓力轉給供應商。</p><p class='txt'>這種現金流的品質要打折扣。它不可持續——應付天數有極限，供應商也有忍耐極限。真正健康的現金流應該來自「賣得多、收得快」，而不是「付得慢」。<b>2026H1 銷量是 -15.7%，所以這份現金流裡沒有多少是「賣得好」貢獻的。</b></p></div><div class="section"><div class="section-title">賺到的錢要不要全部投回去：要，這是最大的問題</div><p class='txt'>過去五年，比亞迪賺的錢基本全部投回了產線：國內十幾個整車基地、弗迪電池的擴產、泰國巴西匈牙利烏茲別克斯坦四座海外工廠、八艘滾裝船。<b>五年累計自由現金流為負，意味著股東一分錢沒拿到，還倒貼了資本。</b></p><p class='txt'>這不是管理層的錯，是行業的結構。汽車是規模生意，不擴產就掉份額，掉份額就掉成本優勢，掉成本優勢就出局。<b>所以它的資本支出不是「選擇」，是「生存」。</b>巴菲特最不喜歡的就是這種生意——他喜歡喜詩糖果那種「不投錢也能增長」的公司。</p><p class='txt'>對估值的含義很直接：<b>不能用自由現金流折現給它估值，因為自由現金流長期為負；只能用 PE，而 PE 的前提是利潤可持續。</b>這就把問題繞回了「份額能不能守住」。</p></div><div class="section"><div class="section-title">ROE 是不是靠槓桿：不是，但也不是靠利潤率</div><p class='txt'>十年平均 ROE 13%–15%，拆開來看：淨利率 3.58%（低）、資產周轉率 1.0 倍左右（高）、權益乘數 3 倍上下（中）。<b>它是靠周轉賺的錢，不是靠利潤率，也不是靠槓桿。</b>這種結構在製造業裡是健康的——說明資產用得充分，不是靠借錢撐規模。</p><p class='txt'>但周轉率的敵人是產能過剩。一旦行業產能利用率下滑，周轉率會掉，ROE 會跟著掉，而且掉得比淨利率更快。<b>2026H1 淨利率從 4.18% 掉到 3.58%，ROE 大概率已經從兩位數掉到個位數。</b>這是接下來要盯的下一個數字。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>財務評級：B+。現金是真的，效率是真的，吞錢也是真的。</b>三問過兩問：利潤是現金、不靠槓桿；第三問不過——賺的錢必須全投回去才能維持地位。這種公司只能用 PE 估值，而 27 倍 PE 對一個淨利率 3.58%、自由現金流為負的生意，太貴了。</p></div>
+</div>
+<div class="footer">比亞迪 (002594) · 2026/09/04</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earnings Deep Dive (Duan Yongping) — NVIDIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/nvidia/8-财报团队解读/英伟达-大师精读-段永平.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/nvidia/8-財報團隊解讀/輝達-財報團隊解讀-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/nvidia/8-Earnings-Team-Read/NVIDIA-Earnings Team-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Earnings Deep Dive (Duan Yongping) — NVIDIA</h1>
+  <div class="subtitle">NVIDIA (NVDA) | A business so good you don't need to read the earnings report to know it</div>
+  <div class="meta">Research date 2026/08/31 &nbsp;·&nbsp; Price $220.78 (+1.48%) &nbsp;·&nbsp; Market cap Approximately USD 5.33 trillion (24.15 billion shares) &nbsp;·&nbsp; PE(TTM) About 28x (roughly 15x forward FY2028)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/nvidia/00-NVIDIA-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>For a Duan Yongping-style investor, this earnings report carries only one piece of information: <b>the quality of the business has not changed; what has changed is the capital structure of this business.</b> A 75% gross margin, an 8.7% expense ratio, customer prepayments—not one of the metrics he values has deteriorated. What needs reassessment is this: customers have shifted from four cloud providers to a group of financing-dependent AI companies.</p></div><table class="dt"><caption>The four numbers Duan Yongping looks at first</caption><thead><tr><th>Indicator</th><th>This quarter</th><th>His standard</th><th>Judgment</th></tr></thead><tbody><tr><td>Gross margin</td><td>75.0%</td><td>Can sustain long term</td><td>but Q4 guidance of 71%–72%</td></tr><tr><td>Expense ratio</td><td>8.7%</td><td>The lower the better</td><td>Past, the extreme in manufacturing</td></tr><tr><td>Do customers prepay</td><td>60-day receivables</td><td>Ideally no receivables</td><td>However, payment terms are lengthening</td></tr><tr><td>Cash conversion</td><td>35.8%</td><td>Profit must turn into cash</td><td>However, a year ago it was 50.9%</td></tr></tbody></table><div class="note">The standard column summarizes this report's distillation of Duan Yongping's public statements; it is not his own commentary on Nvidia. Data is taken from the FY2027Q2 financial report.</div><div class="section"><div class="section-title">He can sum up this business in three sentences.</div><p class='txt'>Sentence one: what does it sell? Compute. Sentence two: who buys? The world's richest companies, lining up to buy. Sentence three: why must they buy? Because launching a quarter late puts your model a version behind.</p><p class='txt'>Three sentences, and he knows it is a good business. <b>A 75% gross margin, an 8.7% expense ratio and a 66.2% operating margin — put those three numbers together and pricing power sits with the seller.</b> Among the companies he has bought, only Apple's gross-margin structure comes close, but Apple has to manage supply chains, channels and inventory; Nvidia only has to manage capacity.</p><p class='txt'>He would also notice one detail: of the RMB 59.688 billion in net profit, RMB 7.771 billion is revaluation of equity investments. He would strike that out outright. <b>"Money not earned by the core business does not count as profit."</b> After striking it out, net profit is RMB 53.2 billion and net margin 55.3% — still impossibly good.</p></div><div class="section"><div class="section-title">What he dislikes is this page: receivables of RMB 63 billion</div><p class='txt'>The line Duan Yongping cares about most is "customers pay first." Apple's receivables collection cycle is very short; Moutai's distributors must pay upfront. Nvidia's payment terms are 60 days, versus 45 days a quarter ago.</p><p class='txt'>To him, "longer payment terms" is a signal, not an accounting detail. Longer terms usually mean one of three things: customers have weakened, competition has intensified, or the company is trading terms for orders.<b>Management's explanation is that "large orders from investment-grade customers are delivered across multiple quarters." That explanation holds, but it also shows the customer mix shifting toward large projects and slower payment.</b></p><p class='txt'>He also looks at inventory: RMB 31.575 billion, equal to 119 days of cost of revenue. Stocking up for new products is normal, but if demand fails to follow through next quarter, that RMB 31.6 billion becomes an impairment.</p><p class='txt'>Put the two together, and his verdict would be: "Still a good business, but watch how it collects its money."</p></div><div class="section"><div class="section-title">His conclusion: a good business, waiting for the price</div><p class='txt'>Duan Yongping would not change his view of a company because of one earnings report; he changes his actions only because of price.</p><p class='txt'>USD 220.78, 28x TTM, 15x FY2028. His habit: if a company can sustain above 20% growth over a visible five years, he is willing to pay 20x; if it can sustain 50%, he is willing to pay 25x. Nvidia's growth far exceeds that standard, so 15x looks cheap.</p><p class='txt'>But the denominator of that 15x is the company's own guidance. He does not use other people's forecasts to calculate his own price. <b>By his method: on FY2027 free cash flow of USD 140 billion and a market cap of USD 5.33 trillion, that is 38x; even if FY2028 free cash flow doubles, it is 19x.</b> Paying 19x for a company whose growth may fall from 70% to 20% is not something he would do.</p><p class='txt'>So his answer is clear: <b>"I understand this company, but I don't like the price. I'll wait until it's below 180."</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Duan Yongping-style conclusion: business 9 points, financials 7 points (marked down for payment terms and cash conversion), price 4 points.</b>The financials did not change his judgment of the company's quality; they only added one item to watch — accounts receivable. In his words: "The time to buy a good company is when it makes a mistake, but right now it hasn't made a mistake, it's just expensive."</p></div>
+</div>
+<div class="footer">NVIDIA (NVDA) · 2026/08/31</div>
+</body>
+</html>

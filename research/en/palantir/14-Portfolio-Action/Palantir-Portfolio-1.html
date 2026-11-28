@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Palantir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/palantir/14-组合管理建议/Palantir-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/palantir/14-組合管理建議/Palantir-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/palantir/14-Portfolio-Action/Palantir-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Portfolio — Palantir</h1>
+  <div class="subtitle">Palantir (PLTR) | 14 · Portfolio</div>
+  <div class="meta">Research date 2026/10/05 &nbsp;·&nbsp; Price $189.40 (+0.34%) &nbsp;·&nbsp; Market cap About USD 456 billion &nbsp;·&nbsp; PS(TTM) Approximately 74x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/palantir/00-Palantir-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Portfolio management: no position is the best position</h3><p class='txt'>Bottom line first: <b>0% position.</b> Not because of volatility, but because at this price its expected return is lower than any other holding in the portfolio.</p><p class='txt'>If you already hold it (low cost basis), cut to within 2%. The reason is not a bearish view, but that <b>a single position is contributing too much to portfolio volatility</b> — in three months it had three days with single-day drops of more than 5%, with no announcement. Position cap, add levels and stop-loss method are set out below.</p></div><table class="dt"><caption>Position versus price</caption><thead><tr><th>Scenario</th><th>Corresponding share price</th><th>Recommended position</th><th>Rationale</th></tr></thead><tbody><tr><td>Current (PS 74x)</td><td>USD 189</td><td>0%</td><td>Neutral scenario −37%, risk-reward inverted</td></tr><tr><td>Already held (low cost)</td><td>—</td><td>≤2%</td><td>Cut to a size that no longer affects the portfolio; keep a tracking position</td></tr><tr><td>PS 40x</td><td>About USD 102</td><td>0–1%</td><td>Still above neutral valuation; tracking position only</td></tr><tr><td>PS 30x</td><td>Around USD 80</td><td>3% (initial position)</td><td>Near the neutral scenario, the risk-reward turns positive</td></tr><tr><td>PS 20x</td><td>About USD 55</td><td>5% (cap)</td><td>Near the pessimistic scenario, margin of safety emerges</td></tr></tbody></table><div class="note">PS-implied share price = TTM revenue of USD 6.162 billion × target multiple ÷ 2.41 billion shares (rough calculation; TTM revenue does not change with the share price). Position size is as a percentage of the equity portfolio, excluding cash.</div><div class="section"><div class="section-title">Why 0%, not "try a small position"</div><p class='txt'>Many will say: if you're bullish, buy 1% first and add on dips. That logic works for cheap companies; it does not work here.</p><p class='txt'>The reason is simple: <b>at these odds, a 1% position earns 0.03% if it wins and loses 0.37% if it loses.</b> With 3% upside and 37% downside, a 1% position contributes an expected value of negative 0.34%. That is not "testing the waters" — it is paying for a negative-expected-value lottery ticket and consuming research time on top.</p><p class='txt'>The more practical reason: every slot in the portfolio carries an opportunity cost. The same 1% placed in a company at 15x PE growing 15% has positive expected return. Capital is not scarce; good pricing is scarce.</p></div><div class="section"><div class="section-title">If already holding: trim to 2%, do not exit all at once</div><p class='txt'>The situation differs for those who already hold it at a very low cost. Selling triggers taxes and may mean missing the stretch where "the market keeps going crazy." <b>We recommend trimming to within 2% and keeping a tracking position.</b></p><p class='txt'>Why 2%? Because of its daily volatility. Over three months it fell more than 5% in a single day on three occasions; assuming 60% annualized volatility, a 2% position contributes about 1.2 percentage points to portfolio volatility. <b>That magnitude is the upper limit of "bearable without affecting sleep."</b></p><p class='txt'>The reason not to liquidate all at once: the company's fundamentals are still improving, and Q3 may again come in above the consensus. Keeping a 2% position is meant to avoid being completely sidelined if "your own judgment proves wrong" — this is mental accounting, not a valuation call. <b>But the cap is 2%; do not add just because it has risen.</b></p></div><div class="section"><div class="section-title">Add levels: how were USD 80 and USD 55 calculated?</div><p class='txt'>USD 80 corresponds to 30x PS (TTM). Why 30x? Because that is the starting point of the "neutral scenario" — USD 11.8 billion revenue in 2027 at 24x price-to-sales, discounted back to today, lands roughly here. <b>Buying at 30x, even if the multiple keeps compressing to 20x, you lose time, not principal.</b></p><p class='txt'>USD 55 corresponds to 20x PS, close to the bear case (USD 70 corresponds to 16x 2027 revenue). At that level the market has abandoned the "AI application leader" narrative and prices the company purely as a "high-margin software company." <b>There, the margin of safety is real.</b></p><p class='txt'>Note that these two numbers shift with TTM revenue. If Q3 revenue comes in above consensus, TTM revenue is revised up and the same multiple maps to a higher share price. <b>So don't memorize the price; memorize the multiple.</b></p></div><div class="section"><div class="section-title">Stop-loss: no price stop, thesis stop instead</div><p class='txt'>For a stock this volatile, a price stop will almost certainly be knocked out by noise—three unexplained 6% drops in three months will sweep any 15% stop line. <b>The right approach is a thesis stop.</b></p><ul><li>TCV/revenue below 1.2x for two consecutive quarters → halve the position;</li><li>US commercial growth below 40% for two consecutive quarters → exit;</li><li>GAAP operating margin falls below 40% → exit;</li><li>US government revenue posts negative growth for two consecutive quarters → halve the position.</li></ul><p class='txt'>Price only decides "whether to buy," not "whether to sell." This division of labor matters—<b>when buying, price is your friend; when selling, fundamentals are your friend.</b> Mix the two, and you will sell a good company at its lowest point.</p></div><div class="section"><div class="section-title">Correlation: low on a daily basis, high in the tails</div><p class='txt'>Using daily returns from 2026/07/07–10/02, Palantir's correlation with Broadcom is <b>0.25</b> and with Alphabet is <b>0.19</b> (43 trading-day sample). That looks low, suggesting diversification.</p><p class='txt'>But that is an illusion. <b>Low daily correlation does not mean low tail correlation.</b> Its risk source is not "moving in lockstep with AI hardware" but "high-multiple assets being sold off together when the AI narrative as a whole retreats." On such days, correlation jumps above 0.8 in an instant.</p><p class='txt'>So portfolio-level rules should be set by "narrative exposure," not by "correlation coefficient": <b>AI-related holdings (compute, cloud, applications) combined must not exceed 25% of the portfolio, of which the high-multiple portion (PS>20x) must not exceed 8%.</b> Palantir falls in the latter bucket; even a 5% position uses up most of that slot.</p></div><div class="summary-box"><h3>Conclusion</h3><p><b>Current position: 0%.</b> Existing holders should trim to ≤2%, not exit all at once. Record entry levels by multiple: at PS 30x (about USD 80), open a 3% initial position; at PS 20x (about USD 55), cap at 5%. <b>No price stop-loss; set a thesis stop-loss</b> — act if any one of three triggers hits: TCV/revenue falls below 1.2x, US commercial growth falls below 40%, or operating margin falls below 40%. Manage correlation as narrative exposure, not by daily correlation coefficients.</p></div>
+</div>
+<div class="footer">Palantir (PLTR) · 2026/10/05</div>
+</body>
+</html>

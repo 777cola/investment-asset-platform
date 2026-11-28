@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>View synthesis: three consensuses, two divergences — Meituan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20261128/8-财报团队解读/美团-观点合成.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/meituan-20261128/8-財報團隊解讀/美團-財報團隊解讀-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/meituan-20261128/8-Earnings-Team-Read/Meituan-Earnings Team-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>View synthesis: three consensuses, two divergences — Meituan</h1>
+  <div class="subtitle">Four people after reading the same quarterly report</div>
+  <div class="meta">Research date 2026/11/28 &nbsp;·&nbsp; Price HK$67.85 (+8.21%, Market close on 2026/11/27; market closed on 11/28) &nbsp;·&nbsp; Market cap Approximately HKD 419 billion (6.175 billion shares) &nbsp;·&nbsp; PE(TTM) — (TTM still loss-making, PE distorted; about 16.8x on 2027E)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/meituan-20261128/00-Meituan-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>Reading the four deep dives together, <b>three points of consensus emerge: the inflection point is confirmed, profit quality is unremarkable, and capital allocation is conservative. Two points of disagreement remain: how long this profit can last, and whether to invest in overseas expansion now.</b></p></div><table class="dt"><caption>Viewpoint matrix from four close reads</caption><thead><tr><th>Topic</th><th>Duan Yongping</th><th>Buffett</th><th>Munger</th><th>Li Lu</th></tr></thead><tbody><tr><td>The significance of accelerating revenue</td><td>Users haven't left — that's what matters most</td><td>Product mix improvement</td><td>It may be an illusion created by rivals backing off</td><td>Category expansion proved viable</td></tr><tr><td>Profit quality</td><td>1.5% is not pretty but the direction is right</td><td>Thin, with a margin of safety of only 1.5pt</td><td>Rented — and the lease term is in someone else's hands</td><td>Not important; look at the ten-year view</td></tr><tr><td>Capital allocation</td><td>C+, buyback too small</td><td>C+, buybacks should come before overseas expansion</td><td>You can also keep the money and decide for yourself.</td><td>Overseas expansion is an option, and an acceptable one</td></tr><tr><td>Share 50%</td><td>Users are still there and will come back</td><td>The moat remains, but there is no pricing power</td><td>Cannot win ≠ unwilling to fight</td><td>The endgame is undecided, a 2.5x gap</td></tr><tr><td>Conclusion</td><td>Buy a little, in batches</td><td>11.5x is reasonably low; wait for 58</td><td>Survives but may not make money</td><td>Hold for the long term, position of ≤5%</td></tr></tbody></table><div class="note">The matrix summarizes the views from the four close-reading pieces; it is not a quotation. The four original articles appear on the first four pages of this module.</div><div class="section"><div class="section-title">Consensus one: the inflection point is real</div><p class='txt'>All four agree that the inflection point holds. <b>The evidence is hard: revenue +21.6% (a three-year high), net profit of RMB 2.071 billion (versus -RMB 18.632 billion last year), core local commerce profitable at the operating level for two consecutive quarters, and the marketing expense ratio down from 40% to 22.9%.</b></p><p class='txt'>Duan Yongping sees users who did not leave, Buffett sees gross profit improve by RMB 8.7 billion, Munger sees expenses cut by RMB 10.8 billion, and Li Lu sees categories expanding. <b>Four people seeing the same thing from different angles—such consistency is rare in quarterly earnings analysis.</b></p></div><div class="section"><div class="section-title">Consensus 2: Mediocre profit quality</div><p class='txt'>Of the RMB 2.071 billion, operating profit was RMB 1.71 billion and non-operating income RMB 360 million; the operating margin was 1.5% — a company with annual revenue of RMB 450 billion earning just RMB 1.7 billion in a quarter. <b>All four made this point, only in different words: Duan Yongping said "the direction is right," Buffett said "thin," Munger said "rented," and Li Lu said "not important."</b></p><p class='txt'>The shared meaning: <b>do not annualize this quarter's profit. 2.071 × 4 = RMB 8.28 billion, implying 46x — an absurd valuation.</b> The right approach is to look at normalized 2027 profit of about RMB 23 billion, implying 16.8x.</p></div><div class="section"><div class="section-title">Disagreement one: how long can this profit last</div><p class='txt'>Duan Yongping is more optimistic: <b>users are still there, management has stopped the spending, the expense ratio still has 7 points of room, and profit will keep recovering.</b> Munger is more cautious: <b>none of the three premises (rivals do not raise prices, rider costs do not rise, in-store does not lose ground) are in Meituan's hands, and the truce may last only 4–6 quarters.</b></p><p class='txt'>The combined judgment: <b>the next 4–6 quarters are a "ceasefire window" and profit will keep improving; from the second half of 2027, watch rivals' capex pace.</b> The valuation implication: 19x is justifiable for 2027, but it cannot be extrapolated linearly to 2028.</p></div><div class="section"><div class="section-title">Disagreement two: should we invest in overseas expansion now</div><p class='txt'>Buffett's objection: <b>USD 1 billion, if used for buybacks, would retire 2.6% of shares at the current price — a certain return.</b> Li Lu's support: <b>Saudi Arabia's 22 months of profitability prove the model is replicable; if successful, the valuation framework shifts.</b></p><p class='txt'>Synthesized treatment: <b>No overseas profit in the neutral case, only in the optimistic case; if annual losses in Brazil exceed RMB 5 billion, downgrade one notch.</b> This neither denies the option's value nor pays full price for it. <b>This is a "no-judgment" treatment, but in investing, no judgment is itself a judgment — no valuation assigned.</b></p></div><div class="section"><div class="section-title">Synthesis conclusion: one quarterly report, three uses</div><p class='txt'><b>For holders: this quarterly report confirms "no need to sell."</b> The business is intact, cash flow has turned positive, management is pulling back on spending—no reason to sell at this price.</p><p class='txt'><b>For those on the sidelines: this quarterly report supports "start buying."</b> At HKD 67.85, 16.8x 2027E, 11.5x ex-net-cash, with 1:1.9 odds, it is worth a 30% position to test.</p><p class='txt'><b>For the heavily positioned: this quarterly report does not support "going all in."</b> The 50% share has not recovered, the marketing expense ratio remains 7 points too high, and the RMB 23 billion net profit for 2027 is an assumption. <b>If any one of these three is disproven, the valuation must be revised down.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Three points of consensus (the inflection is real, quality is average, capital allocation is conservative) plus two debates (profit sustainability, overseas expansion) combine into one line: buy 30%, pay nothing extra for the overseas story, and decide in 2027 whether to add.</b></p></div>
+</div>
+<div class="footer">Meituan (03690) · 2026/11/28</div>
+</body>
+</html>

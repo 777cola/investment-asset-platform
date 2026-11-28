@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industry Funnel — Tesla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/tesla/11-行业漏斗对比/特斯拉-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/tesla/11-行業漏斗對比/特斯拉-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/tesla/11-Industry-Funnel/Tesla-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Industry Funnel — Tesla</h1>
+  <div class="subtitle">Tesla (TSLA) | 11 · Industry Funnel</div>
+  <div class="meta">Research date 2026/07/22 &nbsp;·&nbsp; Price $374.01 (-1.30%) &nbsp;·&nbsp; Market cap Approximately USD 1.48 trillion &nbsp;·&nbsp; PE(TTM) — (Margins too thin; PE no longer meaningful)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/tesla/00-Tesla-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core call: the funnel screened out the only company spanning all four links, then found it was the most expensive</h3><p class='txt'>Run six companies through the funnel: Tesla, BYD, Xiaomi, Li Auto, Toyota, Waymo. The coarse screen eliminates four — BYD's growth turns negative, Xiaomi's auto share is too small, Li Auto's gross margin collapses, Toyota lags in electrification; Waymo cannot be bought. <b>Tesla remains, because it is the only company that simultaneously has manufacturing scale, autonomous-driving data, an energy-storage network and a robotics option.</b></p><p class='txt'>The problem lies in the last cell: <b>it is the most expensive of the six, with PE(TTM) of about 389x, versus BYD at about 30x, Xiaomi at 17.5x and Toyota at about 10x.</b> The funnel screened out "the best company" but not "the best price".</p></div><table class="dt"><caption>Peer comparison (mid-July 2026)</caption><thead><tr><th>The company</th><th>Market cap (approx.)</th><th>2026H1 scale</th><th>Gross margin</th><th>PE(TTM)</th><th>ROE</th><th>Funnel conclusion</th></tr></thead><tbody><tr><td>Tesla</td><td>USD 1.48 trillion</td><td>Delivered 83.8 million units (+16%)</td><td>16.8%</td><td>About 389x</td><td>Approximately 5%</td><td>Final pick, but the price is wrong</td></tr><tr><td>BYD</td><td>Around RMB 850 billion</td><td>Sales volume: 1.809 million vehicles (-15.7%)</td><td>Approximately 18%</td><td>About 30x</td><td>Approximately 15%</td><td>Eliminated: growth turns negative</td></tr><tr><td>Xiaomi Corporation</td><td>About HKD 700 billion</td><td>Auto business scaling up; group profit relies on handsets and IoT</td><td>Automobiles about 20%</td><td>17.5x</td><td>Approximately 12%</td><td>Eliminated: autos account for a small share</td></tr><tr><td>Li Auto</td><td>—</td><td>Delivered about 9.5 million vehicles in Q1 2026</td><td>7.9%（Q1）</td><td>Losses; PE distorted</td><td>Negative</td><td>Eliminated: gross margin collapse</td></tr><tr><td>Toyota</td><td>About USD 300 billion</td><td>Global annual sales of about 10 million vehicles</td><td>Approximately 20%</td><td>About 10x</td><td>Approximately 14%</td><td>Eliminated: lagging in electrification</td></tr><tr><td>Waymo</td><td>Not listed (Alphabet subsidiary)</td><td>500,000 paid orders per week, 10 cities</td><td>Not applicable</td><td>Not applicable</td><td>Not applicable</td><td>Eliminated: cannot buy</td></tr></tbody></table><div class="note">Market caps are approximate for the 2026/07/18–22 range; PE(TTM) uses public market data, with Tesla roughly calculated as USD 1.48 trillion ÷ TTM net profit of USD 3.804 billion; ROE figures are approximate and not checked line by line against the latest filings; Li Auto's market cap is missing (no reliable data obtained).</div><div class="section"><div class="section-title">How the funnel screens: three layers of filters, each stricter than the last</div><p class='txt'>The first layer is business attributes: the company must be a player in the "EV + autonomous driving" chain, ruling out pure battery, pure chip and pure mobility-platform names. <b>Of the six, Waymo is stuck at "cannot buy it," and the other five advance to the second layer.</b></p><p class='txt'>The second layer is elimination metrics: gross margin, growth direction and earnings quality. <b>Li Auto is out with a 7.9% gross margin, BYD is out as growth turns negative, Xiaomi is out because its auto business share is too small, and Toyota is out for lagging in electrification.</b> Five leave one.</p><p class='txt'>The third layer is endgame position: who can hold manufacturing, data, energy and robotics at the same time. <b>Only Tesla clears this layer, because it has all four.</b> But after the third layer there is another layer we added ourselves—the price layer. Three layers screen out good companies; the fourth decides whether to buy. On this layer, it fails.</p></div><div class="section"><div class="section-title">Rough screening: why four companies were eliminated first</div><b>BYD:</b> H1 2026 sales 1.809 million units, -15.7% YoY, the steepest decline among Chinese automakers that have disclosed figures; exports of 789,000 units, +70.5% YoY, propped up the total. <b>Its cost advantage remains, but the growth story has shifted from domestic to overseas, and the valuation must be recalculated as a cyclical stock.</b> <b>Xiaomi:</b> Group PE 17.5x, market cap HKD 700 billion; the auto business is scaling, but its share is still small, with profit coming mainly from phones and IoT. <b>Buying it means buying a "phone company + auto option" combination, not a pure autonomous-driving play.</b> <b>Li Auto:</b> 2026Q1 gross margin 7.9%, net loss RMB 2.3 billion, product mix in transition (new L9/L8 delivered in May and June). <b>An automaker whose gross margin falls below 8% lacks the fundamentals of a "first-tier company" and is out.</b> <b>Toyota:</b> Global annual sales of 10 million units, 20% gross margin, PE 10x — a model student of manufacturing. <b>But its electrification transition is slow, autonomous driving lags, and software capability is weak; buying it means buying "cash flow + dividends," not "autonomous driving."</b> <b>Waymo:</b> Ahead in both technology and operations, but unlisted, so ordinary investors cannot buy it. <b>The only way to hold it indirectly is to buy Alphabet, and Waymo accounts for less than 5% of Alphabet's market cap.</b></div><div class="section"><div class="section-title">Final pick: why Tesla</div><p class='txt'>Of the six, only Tesla has all four: <b>manufacturing scale (838,000 vehicles in six months), autonomous-driving data (a fleet of several million cars plus 200MW-class training compute), an energy-storage network (13.5GWh per quarter, capacity in three locations), and a robotics option (the first-generation Optimus mass-production line under construction).</b></p><p class='txt'>This combination of four is unique. BYD has manufacturing but no software, Waymo has software but no manufacturing, Xiaomi has an ecosystem but no transport capacity, Toyota has cash flow but no electrification. <b>If you could bet on only one company for the endgame of "EV + autonomous driving + robotics," the answer is Tesla, with no second option.</b></p><p class='txt'>But the last cell of the funnel must be honest: <b>"Why this company" answers "which company is best," not "which stock can be bought."</b> The former looks at competitiveness, the latter at price. We pick this company; we do not buy this stock.</p></div><div class="section"><div class="section-title">Why not buy now: three numbers say it all</div><b>First number: 389x.</b> PE (TTM) of about 389x, 13x BYD and 39x Toyota. <b>This multiple is not "a little expensive" — it is "pricing the stock with the valuation framework of an entirely different species."</b> <b>Second number: -USD 1.09 billion.</b> Free cash flow of -USD 1.092 billion, negative for the first time in two years, with full-year capex above USD 25 billion. <b>It is trading cash for the future, and that cash belongs to shareholders.</b> <b>Third number: 61%.</b> Of the USD 1.48 trillion market cap, 61% is options, equivalent to USD 230 per share. <b>That ratio means: a 30% drop only halves the option value; the operating business does not change at all.</b><p class='txt'>Put the three numbers together and the conclusion is clear: <b>right company, wrong price. First on the watchlist, last on the buy list.</b></p></div><div class="summary-box"><h3>Conclusion</h3><b>Conclusion: the funnel ends at Tesla, but "final selection" does not equal "buy."</b> It is the only one of the six companies spanning manufacturing, data, energy and robotics, and that position is worth USD 500–600 billion; the market has given it USD 1.48 trillion, and the extra USD 910 billion is the price of an option. <b>Wait until the second layer of the industry funnel — the price funnel — also clears before acting. Current stance: watch.</b></div>
+</div>
+<div class="footer">Tesla (TSLA) · 2026/07/22</div>
+</body>
+</html>

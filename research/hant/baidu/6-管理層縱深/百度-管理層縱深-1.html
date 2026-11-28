@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理層縱深 — 百度</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/baidu/6-管理层纵深/百度-管理层纵深.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/baidu/6-管理層縱深/百度-管理層縱深-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/baidu/6-Management-Deep-Dive/Baidu-Management-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>管理層縱深 — 百度</h1>
+  <div class="subtitle">百度 (9888.HK) | 06 · 管理層縱深</div>
+  <div class="meta">研究日期 2026/11/23 &nbsp;·&nbsp; 股價 HK$63.55（-0.78%） &nbsp;·&nbsp; 市值 約 1,680 億港元（約 215 億美元） &nbsp;·&nbsp; PE(TTM) 約 19.7x（報表口徑，受減值擾動）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/baidu/00-百度研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>李彥宏是中國網際網路裡對 AI 判斷最早、也最堅決的創辦人：2013 年建深度學習研究院，2019 年做文心，2026 年 AI 業務占一般性業務 53%。<b>戰略上他是對的，資本配置上他是不及格的。</b>兩次大額收購（91 無線 19 億美元、YY 直播 36 億美元）都沒有創造價值，愛奇藝燒了十年才獲利；帳上 2,766 億元現金，年內回購 3.73 億美元、不到市值 2%，從未配息，首次派息還停在「預期年底前宣布」。<b>這不是能力問題，是意願問題。</b></p></div><table class="dt"><caption>關鍵人物（截至 2026/11 公開披露）</caption><thead><tr><th>姓名</th><th>職務</th><th>持股／投票權</th><th>薪酬</th><th>履歷要點</th></tr></thead><tbody><tr><td>李彥宏</td><td>董事長兼 CEO</td><td>持股不足兩成，憑 Class B 超級投票權掌握過半投票權</td><td>未逐人披露</td><td>1968 年生，北大資訊管理，布法羅紐約州立碩士，2000 年 1 月創立百度</td></tr><tr><td>王海峰</td><td>CTO</td><td>未單獨披露</td><td>未逐人披露</td><td>百度技術體系負責人，深度學習與大模型方向的核心推動者</td></tr><tr><td>沈抖</td><td>執行副總裁，智慧雲事業群組</td><td>未單獨揭露</td><td>未逐人披露</td><td>技術出身，歷任行動生態負責人，後轉掌智能雲</td></tr><tr><td>何俊傑</td><td>移動生態事業群組總經理</td><td>未單獨披露</td><td>未逐人披露</td><td>負責搜尋、APP、商業化體系</td></tr><tr><td>王雲鵬</td><td>智慧駕駛事業群總裁</td><td>未單獨披露</td><td>未逐人披露</td><td>自動駕駛業務負責人，蘿蔔快跑擴張的執行者</td></tr><tr><td>羅戎</td><td>財務長</td><td>未單獨披露</td><td>未逐人披露</td><td>2021 年加入，此前任好未來 CFO</td></tr></tbody></table><div class="note">持股與投票權按最近一期 20-F 披露口徑粗算；美國上市公司僅按「董事及高管合計」披露薪酬，未逐人披露，故該列統一標註。職務可能隨內部調整變化，以公司公告為準。</div><table class="dt"><caption>資本配置記錄（2005–2026）</caption><thead><tr><th>時間</th><th>動作</th><th>金額</th><th>結果評價</th></tr></thead><tbody><tr><td>2005</td><td>納斯達克 IPO</td><td>—</td><td>融資支持搜尋擴張，成功</td></tr><tr><td>2013</td><td>收購 91 無線</td><td>19 億美元</td><td>整合失敗，後續大額減值，典型失誤</td></tr><tr><td>2018</td><td>愛奇藝分拆上市</td><td>—</td><td>十年投入，2022 年才實現年度盈利</td></tr><tr><td>2020–2021</td><td>收購 YY 直播國內業務</td><td>36 億美元</td><td>高價買入下滑資產，協同有限</td></tr><tr><td>2021</td><td>港股第二上市（9888.HK）</td><td>—</td><td>拓寬融資管道，但此後五年未分紅</td></tr><tr><td>2021 至今</td><td>昆侖芯、蘿蔔快跑投入</td><td>累計數百億元（粗算）</td><td>策略正確，商業回報未驗證</td></tr><tr><td>2026 年內</td><td>回購</td><td>3.73 億美元</td><td>不到市值 2%，力度偏小</td></tr><tr><td>2026 年底（預期）</td><td>首次派息</td><td>未公布</td><td>訊號意義大於金額，待落地</td></tr></tbody></table><div class="note">金額來自公開報導與公司公告；累計投入為粗算。評價為本報告判斷。</div><div class="section"><div class="section-title">戰略：他是對的，而且比多數人早五年</div><p class='txt'>2013 年百度成立深度學習研究院，這在當時的中國網際網路是異類——同業還在搶流量入口，它在招博士。2019 年發布文心，2023 年全面轉向大模型，2026 年 AI 業務 132 億元、占一般性業務 53%，連續三個季度過半。<b>這條時間線不是運氣，是判斷力。</b></p><p class='txt'>執行層面也不慢：AI 雲基礎設施單季 82 億元、同比 +94%，GPU 雲 +191%、環比 +43%；蘿蔔快跑覆蓋 30 城、累計 3.9 億公里。一個 58 歲的創辦人，能把公司從搜尋廣告推到晶片+雲+模型+自動駕駛，這在全球網際網路裡都算罕見。<b>戰略這一項，給 9 分不為過。</b></p></div><div class="section"><div class="section-title">資本配置：兩次大額收購，兩次沒創造價值</div><p class='txt'>看管理層最硬的指標是資本配置，不是戰略口號。<b>百度在這項上的紀錄不好看。</b>2013 年 19 億美元收購 91 無線，想買行動入口，結果整合失敗、後續大額減值；2020–2021 年 36 億美元收購 YY 直播國內業務，買的是一個正在下滑的秀場直播資產，協同效應至今沒看到。兩筆加起來 55 億美元，接近現在市值的四分之一。</p><p class='txt'>也有做對的：愛奇藝雖然燒了十年，但 2022 年實現年度獲利，保住了長影音的一張牌；崑崙芯持續投入，在算力供應緊張時變成了戰略資產；蘿蔔快跑堅持七年，跑出了全球最大的營運資料。這些是「長期主義」的證據。</p><p class='txt'>但最近三年的動作，方向偏了：<b>該還錢的時候在投資，該投資的時候在省錢。</b>本季研發費用 48 億元、同比 -7%，AI 雲正是要砸研發的時候；同時 2,766 億元現金躺在帳上，回購只有 3.73 億美元。這個組合很難解釋。</p></div><div class="section"><div class="section-title">治理：超級投票權 + 從不分紅</div><p class='txt'>股權結構是理解百度的鑰匙。李彥宏持股不足兩成，但透過 Class B 普通股（1 股 10 票）掌握過半投票權。<b>好處是二十年戰略不搖擺，壞處是小股東完全沒有話語權。</b>想要分紅、想要加大回購，只能等董事會自己想通——沒有任何機制能逼它。</p><p class='txt'>誠信記錄上有兩塊疤。一是 2016 年魏則西事件，醫療類競價廣告引發全國性輿論危機，公司被要求整改醫療推廣，這件事至今是「搜尋商業化」的原罪；二是長期存在的「重銷售、輕體驗」傾向，廣告版位密度高，使用者體驗被反覆犧牲。<b>這兩件事的性質不是欺詐，是把商業利益放在了使用者利益前面</b>——在 ESG 框架裡，這是治理折價的來源之一。</p><p class='txt'>好的一面：VIE 結構、關聯交易、審計意見都沒有出現異常；2021 年港股二次上市後資訊披露品質提升；管理層沒有出現大規模離職或內鬥。</p><p class='txt'>薪酬結構也值得說一句。按 20-F 口徑，公司只披露「董事及高管合計」薪酬，不逐人披露；實際激勵以股權為主，現金薪酬佔比不高。這種結構在股價高位時是激勵，在股價跌 60% 之後就成了反向激勵——期權價外、留人靠情懷。<b>2026 年研發費用同比 -7%，某種程度上也是股權激勵吸引力下降的結果。</b></p></div><div class="section"><div class="section-title">接班人：沒有公開計劃，這是長期風險</div><p class='txt'>李彥宏 1968 年生，2026 年 58 歲，公開場合從未談過接班安排。<b>公司沒有 COO，也沒有明確的「二號位」。</b>王海峰管技術、沈抖管雲、何俊傑管移動生態、王雲鵬管自動駕駛，四條線各自向 CEO 匯報，沒有一個人被推到「儲君」位置。</p><p class='txt'>這種結構在創始人強勢期效率很高——決策快、方向統一；但一旦創始人退出，四條線會立刻陷入權力真空。對比騰訊（劉熾平+任宇昕的雙核）、阿里（合夥人制度），百度的接班風險明顯更高。<b>對長期持有的投資者，這是一個必須計入折價的因素</b>，也是「資產便宜但不敢重倉」的又一個理由。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>管理層評分 6/10：<b>策略 9 分、執行 7 分、資本配置 3 分、治理 5 分、接班 4 分</b>。李彥宏把公司帶到了 AI 的正確方向上，但沒有把股東的錢當自己的錢——兩次 55 億美元的錯誤收購、五年不派息、回購不到市值 2%，都是證據。評級「觀察」的隱含意思是：<b>等管理層用行動證明它在意股價（派息、加碼回購），而不是只在業績會上說「投資回收週期在縮短」。</b></p></div>
+</div>
+<div class="footer">百度 (9888.HK) · 2026/11/23</div>
+</body>
+</html>

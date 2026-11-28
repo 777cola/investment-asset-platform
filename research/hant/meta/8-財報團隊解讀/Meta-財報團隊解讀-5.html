@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>觀點合成：四個人在同一張報表上看到了什麼 — Meta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meta/8-财报团队解读/Meta-观点合成.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meta/8-財報團隊解讀/Meta-財報團隊解讀-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meta/8-Earnings-Team-Read/Meta-Earnings Team-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>觀點合成：四個人在同一張報表上看到了什麼 — Meta</h1>
+  <div class="subtitle">四個視角，一個交集</div>
+  <div class="meta">研究日期 2026/11/02 &nbsp;·&nbsp; 股價 $606.73（-1.34%） &nbsp;·&nbsp; 市值 約 1.58 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 21x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meta/00-Meta研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>把四份精讀疊在一起，交集很清楚：<b>廣告定價權是共識，資本支出回報不明是共識，現價沒有安全邊際是共識。</b>分歧只在「這筆投入值不值得等」。</p></div><div class="section"><div class="section-title">共識一：收入完美，現金難看</div><p class='txt'>四個人都同意：646 億營收、630.6 億廣告、量價齊升 26%，是歷史上最好的一季；349.1 億資本開支、-21.2 億自由現金流，是歷史上第一次。兩個歷史之最同時出現在一張表上，說明公司正處在轉折點。</p><p class='txt'>段永平看到生意還在，巴菲特看到現金沒了，芒格看到會計在修飾，李錄看到位置還在但定金很貴。<b>四句話說的是同一件事，只是關心的對象不同。</b></p></div><div class="section"><div class="section-title">共識二：折舊是 2027 年的主角</div><p class='txt'>四份精讀都提到折舊。1,400 億資本支出按五到六年攤，每年新增 230 到 280 億成本，需要 600 到 700 億增量收入才能覆蓋。2026 年收入增速 27%，夠；2027 年如果降到 15%，就不夠。</p><p class='txt'><b>這是唯一一個可以用算術驗證的悲觀理由</b>，也是四個人唯一都寫進結論的量化風險。</p></div><div class="section"><div class="section-title">分歧：這筆錢算投資還是成本</div><p class='txt'>段永平和巴菲特傾向成本：沒有可測算的報酬率就不算投資。李錄傾向投資：位置之爭不能只算短期帳。蒙格居中：<b>如果是投資就該有報酬測算，如果沒有測算那就是賭博，賭博要用賭博的倉位。</b></p><p class='txt'>合成的結論採用蒙格的表述：這件事可能是對的，但在沒有測算之前，它不值得一個滿倉。</p></div><div class="section"><div class="section-title">合成後的三個動作</div><p class='txt'>一，不買：現價 606.73 美元對應 21 倍 TTM，攤薄後 22 倍，沒有安全邊際。二，跟蹤：2027 年費用指引、折舊增速、Reality Labs 虧損收窄、Muse 訂閱是否單列。三，定價：500 美元以下重新評估，410 美元是悲觀情景的底。</p><p class='txt'><b>三個動作裡最重要的不是不買，是跟蹤什麼。</b>因為買入的機會一定來自某個具體數字的變化，而不是某個宏觀敘事。</p></div><div class="section"><div class="section-title">為什麼不用加權打分</div><p class='txt'>四個視角不做加權平均。原因是它們回答的不是同一個問題：段永平答能不能看懂，巴菲特答值不值這個錢，蒙格答會怎麼虧，李錄答十年後還在不在。<b>把四個不同問題的答案加總，得到的只是一組數字，不是判斷。</b></p><p class='txt'>所以合成的方式是「一票否決」：任何一個人說看不懂或價格不對，就不買。現在有兩個人說了，結論自然是不買。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>綜合結論：<b>好公司、壞時點、價格沒打折。</b>廣告護城河還在加深，資本配置方向在變差，兩者抵消後股價大致合理。合理意味著沒有超額收益，也就沒有買入的理由。</p></div>
+</div>
+<div class="footer">Meta (META) · 2026/11/02</div>
+</body>
+</html>

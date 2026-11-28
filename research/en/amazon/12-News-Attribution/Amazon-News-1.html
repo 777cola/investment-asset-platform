@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News — Amazon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/amazon/12-新闻异动归因/亚马逊-新闻异动.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/amazon/12-新聞異動歸因/亞馬遜-新聞異動-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/amazon/12-News-Attribution/Amazon-News-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>News — Amazon</h1>
+  <div class="subtitle">Amazon (AMZN) | 12 · News</div>
+  <div class="meta">Research date 2026/11/06 &nbsp;·&nbsp; Price $259.30 (-0.35%) &nbsp;·&nbsp; Market cap About USD 2.80 trillion &nbsp;·&nbsp; PE(TTM) Approximately 20.8x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/amazon/00-Amazon-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>From August 10 to November 6, the stock fell from 278.09 to 259.30, a decline of 6.8%, within a range of 240.35–278.09. Over the same period, operating profit rose 61% year on year and AWS growth accelerated from 37% to 39.3%. <b>The business is improving while the stock grinds lower — this is a de-rating, not a deterioration in fundamentals.</b></p><p class='txt'>Only two of the seven events are signals: the capex guidance in the Q3 results, and how the market prices "capex above RMB 300 billion in 2027" (the stock did not react to Deutsche Bank's October 20 upgrade, implying it is already priced in). The other five — model launches, layoffs, spectrum approval, the midterm elections, the one-day rebound — are noise, but the noise explains the range-bound trading.</p></div><table class="dt"><caption>Key events and share price reactions over the past three months</caption><thead><tr><th>Date</th><th>Event</th><th>Share price reaction</th><th>Nature</th></tr></thead><tbody><tr><td>08/10</td><td>AI trade cools, shares retreat from year-to-date high (YTD high 284.02)</td><td>278.09 (start of range)</td><td>Noise: sector sentiment</td></tr><tr><td>09/07–09/30</td><td>OpenAI's GPT-6 Astra and Bedrock Managed Agents launch on AWS; Fortune 500 spending on Bedrock nearly 7x year over year</td><td>256.97 → 249.15, -3.0% within the month</td><td>Noise skews positive: long-term bullish, no near-term price or volume reaction</td></tr><tr><td>10/07</td><td>A new round of small-scale layoffs, with retail the hardest-hit area; more than 3.0 thousand corporate roles cut over the past year</td><td>259.92（+1.4%）</td><td>Noise: marginal contribution to profit margin</td></tr><tr><td>10/20</td><td>Deutsche Bank raises 2027 capex forecast to about USD 330 billion</td><td>262.63（+0.1%）</td><td>Signal: market has already priced in high capex</td></tr><tr><td>10/22</td><td>AI sector pulls back, no company-specific news</td><td>250.38（-4.6%）</td><td>Noise: sentiment</td></tr><tr><td>10/27</td><td>FCC approves Amazon Leo's acquisition of Globalstar's roughly 25 MHz of spectrum (USD 11.5 billion)</td><td>253.10（+1.6%）</td><td>Neutral: long-dated options, no current profit</td></tr><tr><td>10/29–10/30</td><td>Q3 results: revenue RMB 201.9 billion, operating profit RMB 28.08 billion; capex RMB 77.26 billion, up 120% YoY; 2027 spending to "increase significantly"</td><td>254.60 → 243.79 → 240.35, down 5.6% over two days, falling as much as 7%–12% after hours</td><td>Signal: capex is the only pricing variable</td></tr><tr><td>11/04</td><td>Midterms conclude, AI regulatory concerns ease, cloud stocks rally across the board (Microsoft +6% to a record high)</td><td>266.03（+6.1%）</td><td>Noise: macro events</td></tr></tbody></table><div class="note">Share prices are closing prices, taken from batchdata daily bars (as of 2026/11/06). Event dates come from: company earnings (10/29), Deutsche Bank report (2026/10/20), FCC approval reports (2026/10/27), layoff reports (2026/10/07), midterm elections and cloud vendor rebound reports (2026/11/04–05). "Fell 7%–12% at one point after hours" reflects media accounts at different points in time.</div><div class="section"><div class="section-title">Attribution: the three-month decline came entirely from valuation, not earnings</div><p class='txt'>Split the three months into two phases. Phase one, 8/10–10/21: the stock fell from 278 to 262, down 5.8%, with no earnings information in the period — purely a cooling of the AI trade. Phase two, 10/22–11/06: from 262 to 259, roughly flat, but this span contained one earnings release (-5.6%) and one rebound (+6.1%). <b>Combined, the two phases were -6.8%, while operating profit rose 61% year on year — the denominator (profit) rose and the numerator (price) fell, so the multiple compressed.</b></p><p class='txt'>By how much? Before the release, the 10/28 close of 254.60 on TTM EPS of 12.46 implied 20.4x; after the release, the 10/30 close of 240.35 implied 19.3x; by 11/06 it was back to 20.8x. <b>In other words, the market pushed the multiple down to 19x after the release, then bought back half of it.</b> This is not "bearish" — it is "no idea what multiple to assign."</p></div><div class="section"><div class="section-title">Which two are signals</div><p class='txt'><b>Signal 1: Capex guidance.</b> Q3 alone came in at RMB 77.26 billion, up 120% YoY and 30% above the consensus, with full-year capex at RMB 220 billion and a "significant increase" in 2027. This alone pushed free cash flow to negative RMB 42.4 billion, and it is the only variable the market is pricing. Note one detail: the stock had already fallen 4.25% on the earnings day (10/29), then fell another 7%–12% after the results in after-hours trading, showing that <b>the market had long expected "good growth, poor cash" — it just did not anticipate the scale of capex.</b></p><p class='txt'><b>Signal 2: How sell-side is pricing 2027 capex.</b> Deutsche Bank on 10/20 raised its 2027 capex forecast to about RMB 330 billion while leaving its target price and earnings forecasts essentially unchanged, and the stock moved just 0.1% that day. UBS on 10/26 raised its target price to USD 348 and stated explicitly that "the market has already priced in a 2027 capex increase from RMB 250 billion to above RMB 300 billion, with free cash flow expectations near zero or negative." <b>Put the two together: high capex is already absorbed in the price; the real variable is when capex peaks.</b></p></div><div class="section"><div class="section-title">Which parts are noise, and why the noise is worth mentioning</div><p class='txt'>Each of the five noise items has its own character. <b>Model launches</b> (GPT-6 Astra, Bedrock Managed Agents) are a long-term positive, but their near-term revenue contribution cannot be quantified — AI accounts for only part of AWS's RMB 46.1 billion, and listing a model does not mean revenue jumps immediately. <b>Layoffs</b> number only a few hundred, a rounding error for a company with 1.638 million employees, but they prove the organization is still slimming down; sales and marketing expenses at -0.3% and G&A at -6.1% are its traces.</p><p class='txt'><b>Globalstar spectrum</b> is an option, not profit: USD 11.5 billion for 25 MHz of spectrum, with Leo commercialization pushed to initial operations in late 2026 and partial cost capitalization only beginning in Q1 2027. <b>The midterm elections</b> are pure macro: Democrats sweep both chambers, AI regulatory fears ease, and cloud players rally across the board (Amazon +6.1%, Microsoft +6% to a record high) — the money gained in one day roughly equals the money lost over the two days of earnings — <b>which in itself shows short-term prices are driven by sentiment.</b></p><p class='txt'>The noise is worth mentioning because it explains the range: 240.35 to 278.09, a 15.7% amplitude, while fundamentals changed only once in these three months — "one earnings report." <b>Whoever trades the swings within this range is earning sentiment money, not company money.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Conclusion: three months of news have not changed the investment thesis, only the entry price.</b> The only real signal is the scale and pace of capex—it determines when free cash flow turns positive and when depreciation hits the income statement. On execution: noise-driven pullbacks (around USD 240) are opportunities to build the position; noise-driven rebounds (above USD 266) are a signal to stop adding. What is actually worth waiting for is not news, but the Q1 2027 capex guidance.</p></div>
+</div>
+<div class="footer">Amazon (AMZN) · 2026/11/06</div>
+</body>
+</html>

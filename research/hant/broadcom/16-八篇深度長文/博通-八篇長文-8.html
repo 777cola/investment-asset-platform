@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⑧ 決策框架：什麼價格買、什麼訊號賣、什麼情況不碰 — 博通</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/broadcom/16-八篇深度长文/博通-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/broadcom/16-八篇深度長文/博通-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/broadcom/16-Eight-Long-Essays/Broadcom-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>⑧ 決策框架：什麼價格買、什麼訊號賣、什麼情況不碰 — 博通</h1>
+  <div class="subtitle">八篇長文之八</div>
+  <div class="meta">研究日期 2026/10/02 &nbsp;·&nbsp; 股價 $355.14（+3.35%） &nbsp;·&nbsp; 市值 約 1.69 萬億美元（按 47.7 億股粗算） &nbsp;·&nbsp; PE(FY2027E) 約 18x（FY27 一致預期 EPS 19.38 美元）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/broadcom/00-博通研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>把前面七篇收成一張決策表：現價不買，300 美元以下建倉，融資結構披露後上調評級，毛利率跌破 70% 或擔保回表則離場。</p><p class='txt'><b>框架的價值不在於預測，而在於讓你在情緒波動時有一個不依賴情緒的參照。</b></p></div><table class="dt"><caption>決策矩陣</caption><thead><tr><th>條件</th><th>動作</th><th>倉位</th><th>理由</th></tr></thead><tbody><tr><td>現價 355 美元、無披露</td><td>觀察</td><td>0%</td><td>18.3 倍無正期望</td></tr><tr><td>跌到 320—300 美元</td><td>建倉</td><td>3%</td><td>15.5—16.5 倍，價格補償風險</td></tr><tr><td>跌到 280 美元以下</td><td>加碼</td><td>5%</td><td>14.4 倍，接近悲觀情景一半</td></tr><tr><td>財報披露有限追索、敞口可量化</td><td>上調評級至買入</td><td>3%—5%</td><td>不確定性消除</td></tr><tr><td>毛利率連續兩季 &lt;70% 且無披露</td><td>移出觀察池</td><td>0%</td><td>結構惡化</td></tr><tr><td>擔保回表或大客戶公開轉單</td><td>清倉</td><td>0%</td><td>論文證偽</td></tr></tbody></table><div class="note">決策矩陣為本報告結論，不構成投資建議；價格與倍數為報告日口徑。</div><div class="section"><div class="section-title">第一步：先判斷自己是誰</div><p class='txt'>同一檔股票，不同的投資者該有不同的動作。</p><p class='txt'>如果你是長期價值投資者，看的是 5 年後的現金流，那麼現在的問題是「18 倍買一個 5 年 CAGR 25% 的公司值不值」。答案取決於毛利率的底和擔保的規模——兩個都沒答案，所以等。</p><p class='txt'>如果你是事件驅動投資者，看的是 12 月 9 日財報這個節點，那麼現在的動作是「等財報，不做倉位」。財報出來後有三種反應，每種對應一個方向。</p><p class='txt'>如果你是趨勢投資者，這檔股票現在在 52 週區間的下半段（355 對 293—481），趨勢不明，不該參與。<b>框架的第一步不是算價格，是確認自己屬於哪一類。</b></p></div><div class="section"><div class="section-title">第二步：把「便宜」定義清楚</div><p class='txt'>355 美元是 18.3 倍 FY27、27.1 倍 FY26。放在 AI 半導體裡，這是便宜的一檔；放在博通自己的歷史上，這是中間偏上（2018—2023 年它在 12—15 倍）。</p><p class='txt'>所以「便宜」有兩個參照系：橫向比同業，它便宜；縱向比自己，它不便宜。<b>用哪個參照系，取決於你認為它現在是「AI 公司」還是「現金流公司」。</b></p><p class='txt'>我的判斷是：它現在是「AI 硬體公司 + 軟體年金」的混合體，合理倍數 18—22 倍。按這個標準，現價在合理區間下沿，沒有安全邊際。</p><p class='txt'>真正便宜的位置是 300 美元（15.5 倍）和 280 美元（14.4 倍）。這兩個價格對應的是「悲觀情景被打折定價」，也就是市場開始擔心最壞情況。</p></div><div class="section"><div class="section-title">第三步：賣出訊號寫死</div><p class='txt'>買入可以模糊，賣出必須明確。四條賣出訊號：</p><ul><li>FY27 AI 收入指引下修超過 15%，說明客戶砍單；</li><li>Non-GAAP 毛利率連續兩季低於 70%，說明定價權在丟；</li><li>融資擔保出現減值或回表，說明最壞情況開始；</li><li>谷歌或 Meta 公開確認下一代項目交給二供，說明份額在丟。</li></ul><p class='txt'><b>這四條都不依賴股價，只依賴公開資訊。</b>它們的好處是：不會因為市場恐慌而誤觸，也不會因為市場狂熱而失靈。</p><p class='txt'>還有一條軟訊號：如果陳福陽在財報會上開始用「結構性」「長期趨勢」來解釋毛利率下滑，而不是給具體數字，說明他自己也沒底。</p></div><div class="section"><div class="section-title">第四步：時間表</div><p class='txt'>未來 12 個月的關鍵節點：2026 年 12 月 9 日 FY26Q4 財報、2027 年 1 月雲廠資本支出指引、3 月 FY27Q1 財報、6 月 FY27Q2 財報、9 月 FY27Q3 財報。</p><p class='txt'><b>每個節點看三件事：AI 收入、毛利率、融資披露。</b>三個都過，評級上調；兩個過，維持觀察；一個不過，往下調。</p><p class='txt'>這份框架的有效期是 12 個月。12 個月後，無論結論對錯，都要重做一遍——因為 AI 這個行業，一年等於別的行業三年。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>決策框架結論：現價觀察（0%），300 美元以下建倉（3%），280 以下加滿（5%），披露清晰則上調評級。</b>賣出訊號四條，全部基於公開資訊，不基於股價。<b>這份框架的用處不是預測漲跌，是讓你在 12 月 9 日那天，不用臨場做決定。</p><p class='txt'>框架的失效條件也要寫清楚：如果 AI 算力的技術路線發生根本變化（光計算、存內計算大規模商用），或者博通的客戶結構從六家變成二十家，這套框架裡的假設全部要重做。<b>框架是給當前這門生意寫的，不是給「博通」這三個字寫的。</b></b></p><p class='txt'>框架的失效條件也要寫清楚：如果 AI 算力的技術路線發生根本變化（比如光計算、存內計算大規模商用），或者博通的客戶結構從六家變成二十家，這套框架裡的假設全部要重做。<b>框架是給當前這門生意寫的，不是給「博通」這三個字寫的。</b></p></div>
+</div>
+<div class="footer">博通 (AVGO) · 2026/10/02</div>
+</body>
+</html>

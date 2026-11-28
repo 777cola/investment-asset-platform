@@ -7,13 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
-.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
 .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
 .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
 .header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
 .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
 .section { margin-bottom: 2.5rem; }
 .section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -48,22 +53,19 @@ table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; colo
 .badge-blue { background: #e6f0ff; color: #1a4b8c; }
 .footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
 .back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
-.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
-.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
-.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
-
 </style>
 </head>
 <body>
 <div class="header">
+  <div class="lang-switch"><a class="lang zh active" data-lang="zh" href="/research/nvidia/8-财报团队解读/英伟达-大师精读-李录.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/nvidia/8-財報團隊解讀/輝達-財報團隊解讀-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/nvidia/8-Earnings-Team-Read/NVIDIA-Earnings Team-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
   <h1>财报精读（李录） — 英伟达</h1>
   <div class="subtitle">英伟达 (NVDA) | 算力是基础设施，收费站在修第二条路</div>
   <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股价 $220.78（+1.48%） &nbsp;·&nbsp; 市值 约 5.33 万亿美元（241.5 亿股） &nbsp;·&nbsp; PE(TTM) 约 28x（FY2028 前瞻约 15x）</div>
 </div>
 <div class="container">
-<a class="back" href="../00-英伟达研究报告总目录.html">← 返回总目录</a>
+<a class="back" href="/research/nvidia/00-英伟达研究报告总目录.html">← 返回总目录</a>
 <div class="summary-box"><h3>核心判断</h3><p class='txt'>李录会把这份财报放在文明级趋势里读：AI 把智能变成可交易的算力，算力的生产需要极少数稀缺资源。财报证明了一件事——<b>需求侧已经从“一家实验室”扩散到“多个前沿实验室 + 主权国家 + 企业”，这是趋势成立的证据。</b>但财报也暴露了趋势的融资方式：靠债务、股权和担保提前折现未来收入。</p></div><table class="dt"><caption>趋势的三个证据与一个反证</caption><thead><tr><th>观察</th><th>财报里的数</th><th>说明什么</th></tr></thead><tbody><tr><td>需求扩散</td><td>ACIE 403.13 亿、同比 +138%，占数据中心 45%</td><td>不再是四家云厂的游戏</td></tr><tr><td>主权 AI</td><td>环比 +35%、同比超 2 倍</td><td>国家级买家进场，周期更长</td></tr><tr><td>单 GW 价值</td><td>Hopper 180 亿 → Rubin 400 亿美元</td><td>同一度电卖出的钱翻倍，TAM 在扩</td></tr><tr><td>反证</td><td>1/4 明年收入靠自家资产负债表支持</td><td>需求是真的，付钱能力是借来的</td></tr></tbody></table><div class="note">数据来源：FY2027Q2 电话会议（2026/08/26）与财报；ACIE 占比 = 403.13 / 890.23。</div><div class="section"><div class="section-title">趋势：这不是概念，是账本上的数</div><p class='txt'>李录判断趋势的标准是“有没有变成生意”。AI 在 2023–2024 年是概念，2026 年是生意——证据在财报里：</p><p class='txt'>数据中心单季 890 亿美元，超过 2024 年全年的英特尔营收。ACIE 同比 +138%，说明买家从四家云厂扩散到主权国家、区域云、企业。主权 AI 环比 +35%、同比超 2 倍，这是国家级资本开支进场，周期比企业采购长得多。</p><p class='txt'>最有说服力的是单 GW 价值：Hopper 180 亿美元 → Grace Blackwell 250 亿 → Vera Rubin 400 亿。<b>同样的土地、同样的电、同样的机房，能卖出的钱翻倍，说明算力的生产效率在提升，而效率提升是技术革命最硬的标志。</b></p><p class='txt'>他还注意一个数：2026 年上半年全球 AI 风投超 4,000 亿美元，约 70% 用于算力采购。这说明资本在往基础设施走——历史上每一轮技术革命都是这个顺序：先修路，再跑车。</p></div><div class="section"><div class="section-title">反证：这一轮基建的钱，是借来的</div><p class='txt'>但李录同样重视“钱从哪来”。这份财报给出的答案是：一部分是借的。</p><ul><li>英伟达自己发债 249 亿美元，长期借款从 75 亿跳到 324 亿。</li><li>客户那一端：NeoCloud 装机从 3GW 到 8GW，靠的是私募信贷与项目融资；五大云厂 2027 年 1.3 万亿美元资本开支，增速远超其经营现金流增速。</li><li>中间那一端：英伟达提供 1,085 亿美元担保、360 亿美元云服务采购承诺、5,000 亿美元融资平台。</li></ul><p class='txt'><b>三方加杠杆，把未来五年的算力需求提前到 2026–2027 年兑现。</b>这在技术革命的早期是正常的——铁路、电力、电信都这么干过。区别在于：铁路修完能用五十年，GPU 三年就过时。</p><p class='txt'>这就是他会在意“算力能不能转卖”这个细节的原因。公司说算力通用、可以调配给其他客户，这在技术上成立；但如果整个行业同时过剩，能调配给谁？</p></div><div class="section"><div class="section-title">终局：收费站能收多久</div><p class='txt'>李录的框架是“文明的演进 + 生意的本质”。英伟达的生意本质是收费站：谁要用算力，就得从它这里过。这个位置在 AI 时代极其稀缺，因为它同时卡住了架构、产能和软件标准。</p><p class='txt'>但收费站有一个规律：<b>租金越高，修第二条路的动力越大。</b>现在第二条路正在修——博通的定制 ASIC、谷歌 TPU、OpenAI 的 Jalapeño、亚马逊 Trainium。英伟达的应对是把 Groq 收进来（约 200 亿美元）、把机柜级系统做深、把 CUDA 铺到边缘与机器人。</p><p class='txt'>他的判断会很克制：这一轮 AI 是真的，英伟达是这一轮最好的位置，但“最好”不等于“任何价格都值得买”。他买比亚迪是在 2008 年，买苹果相关标的也在估值合理的时候。<b>他会说：方向对、位置好、价格要等，等的是市场对“循环融资”的恐惧变成现实的那一天。</b></p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>李录式结论：趋势成立（需求扩散、单 GW 价值翻倍、主权资本进场），但融资结构是这一轮最大的隐忧（1/4 收入靠自家资产负债表）。</b>他会在 180 美元以下开始建仓，理由是那个价格对应“就算趋势打个七折也不亏”。<b>“投资最重要的是不亏钱，其次才是赚钱。”</b></p></div>
 </div>
-<div class="footer">英伟达 (NVDA) 投资研究报告集 · 2026/08/31</div>
+<div class="footer">英伟达 (NVDA) · 2026/08/31</div>
 </body>
 </html>

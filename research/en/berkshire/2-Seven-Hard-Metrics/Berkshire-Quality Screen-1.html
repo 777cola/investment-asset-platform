@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quality Screen — Berkshire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/berkshire/2-七条硬指标去劣/伯克希尔-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/berkshire/2-七條硬指標去劣/波克夏-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/berkshire/2-Seven-Hard-Metrics/Berkshire-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Quality Screen — Berkshire</h1>
+  <div class="subtitle">Berkshire (BRK.B) | 02 · Quality Screen</div>
+  <div class="meta">Research date 2026/11/16 &nbsp;·&nbsp; Price $592.85 (-0.02%) &nbsp;·&nbsp; Market cap About USD 1.26 trillion &nbsp;·&nbsp; PE(TTM) Approximately 16.6x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/berkshire/00-Berkshire-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Eliminating the weak: conclusion</h3><p class='txt'>Seven hard metrics, five passed. The two failures are ROE (about 10.4% versus a 15% threshold) and gross margin trend (underwriting margin fell from about 15% to 8.6%). On any other company these two would be red flags; on Berkshire, look at the cause first.</p><p class='txt'>ROE is low because equity of USD 761.4 billion is too thick and leverage is barely used, not because the business fails to make money; the underwriting margin decline reflects normalization of the auto insurance pricing cycle, and a combined ratio of 91.4% remains in profitable territory. The point of screening out the bad is to eliminate structurally poor companies; Berkshire is not one of them.</p></div><table class="dt"><caption>Seven hard metrics (2026Q3 data, thresholds per quality screen criteria)</caption><thead><tr><th>Indicator</th><th>Company figures</th><th>Threshold</th><th>Determination</th></tr></thead><tbody><tr><td>ROE (five-year average)</td><td>Approximately 10.4% (2026 annualized rough estimate), within a five-year range of 9%–12%</td><td>≥15%</td><td>However</td></tr><tr><td>Operating cash flow / net profit</td><td>Long-term &gt;100% (premiums collected before claims paid)</td><td>≥100%</td><td>Passed</td></tr><tr><td>Interest coverage ratio</td><td>&gt;10x (interest expense under 10% of operating profit, rough estimate)</td><td>≥8x</td><td>Exceeded</td></tr><tr><td>Interest-bearing debt / shareholders' equity</td><td>About 17% (including BNSF and BHE debt, rough estimate)</td><td><50%</td><td>Passed</td></tr><tr><td>Gross margin trend</td><td>Underwriting margin 8.6% (approximately 15% last year, rough calculation on a comparable basis)</td><td>Stable or improving</td><td>However</td></tr><tr><td>Changes in share capital</td><td>Sustained net buybacks: USD 9.647 billion in Q3, USD 14.4 billion in the first three quarters</td><td>Non-dilutive</td><td>Above</td></tr><tr><td>Free cash flow</td><td>turns positive; capex borne by BNSF/BHE themselves</td><td>Positive and growing</td><td>Past</td></tr></tbody></table><div class="note">Thresholds come from the seven hard-metric general criteria; company figures come from the 2026Q3 financial report, and those marked "rough calculation" are derived by arithmetic.</div><div class="section"><div class="section-title">The first point, however: ROE 10.4%, but this is not a bad business</div><p class='txt'>The 15% ROE threshold is designed for companies that are asset-light and compound earnings. Berkshire has USD 761.4 billion of equity, of which 377.4 billion is cash and short-term bonds—<b>by definition this pile can only earn 4.4%, and it mathematically caps ROE</b>.</p><p class='txt'>Do the division: assume all the cash is bought into 4.5% Treasuries; the return on net assets for that portion is 4.5%. The remaining 384.0 billion of operating assets generate 50.8 billion of annualized operating profit, a return of about 13.2%. <b>The return on the physical assets is adequate; cash drags it down to 10.4%.</b></p><p class='txt'>So failing this test means "slower compounding," not "bad business." The valuation implication is direct: book value rises 8%–10% a year, and that number plus valuation swings is the ceiling on long-term stock returns.</p></div><div class="section"><div class="section-title">The second caveat: underwriting margin halved</div><p class='txt'>Underwriting profit was USD 1.352 billion, down 43% year on year, with a combined ratio of 91.4%. That means every dollar of premium still earned 8.6 cents, versus about 15 cents last year (roughly calculated on a comparable premium basis). GEICO profit was USD 982 million, down 45%, the main drag.</p><p class='txt'>The cause is the auto insurance cycle. From 2023 to 2025, auto insurance pricing rose faster than claims, and the industry earned three years of excess profit; in 2026, claims costs (repairs, used cars, medical) caught up and pricing began to soften. <b>This is not a problem unique to Berkshire; Progressive has the same issue.</b></p><p class='txt'>The test is simple: a combined ratio below 95% is healthy; only above 100% is a real problem. At 91.4% now, there are still 8.6 points to the red line.</p></div><div class="section"><div class="section-title">Of the five criteria passed, the toughest are liabilities and share capital</div><p class='txt'><b>Liabilities:</b> Interest-bearing debt is roughly USD 130 billion, all backed by specific assets—BNSF's locomotives and rail network, BHE's power plants, Clayton's mortgage portfolio. The parent company carries almost no net debt, which is the precondition for it to act as the "buyer of last resort."</p><p class='txt'><b>Share capital:</b> Q3 buybacks totaled USD 9.647 billion and USD 14.4 billion for the first three quarters, shrinking the share count. This matters especially in 2026—a period when many tech companies are issuing equity at high prices, issuing convertible bonds, and granting stock to employees.</p><p class='txt'><b>Cash flow:</b> Insurance "collects first, pays claims later," so operating cash flow naturally exceeds net income. This quarter's net profit of USD 22.112 billion includes large unrealized investment gains and cannot be treated as cash, but operating profit of USD 12.705 billion is real.</p></div><div class="section"><div class="section-title">But is it fatal? Not fatal, but expectations should be lowered.</div><p class='txt'>Neither issue is fatal, because both point to the same thing: <b>this is an 8%–10% compounder, not a 15% growth stock.</b></p><p class='txt'>The point of the negative screen is to filter out "structurally bad companies"—high leverage, share dilution, fabricated cash flow, ROE propped up by leverage. Berkshire touches none of these. Its problem is a different one: <b>good company + high price = mediocre returns</b>.</p><p class='txt'>So the conclusion at this gate is not "reject" but "passes, but don't expect surprises." The real decision belongs at the fifth gate: valuation.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'>Five of seven criteria pass. Two fail—ROE 10.4% and underwriting margin 8.6%—both for cyclical or structural reasons, not quality reasons. <b>The negative screen clears it, with one condition: price it as an 8%–10% compounder, not at a growth-stock multiple.</b></p><p class='txt'>The real concern is not these two lines but what they imply: if book value grows 8% a year and you are paying 1.66x, five-year annualized return is roughly 4%–6%, about the same as short-term bonds. Why take on equity risk for that?</p></div>
+</div>
+<div class="footer">Berkshire (BRK.B) · 2026/11/16</div>
+</body>
+</html>

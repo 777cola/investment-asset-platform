@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Check — Palantir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/palantir/3-财务数据交叉验证/Palantir-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/palantir/3-財務數據交叉驗證/Palantir-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/palantir/3-Financial-Cross-Check/Palantir-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Financial Check — Palantir</h1>
+  <div class="subtitle">Palantir (PLTR) | 03 · Financial Check</div>
+  <div class="meta">Research date 2026/10/05 &nbsp;·&nbsp; Price $189.40 (+0.34%) &nbsp;·&nbsp; Market cap About USD 456 billion &nbsp;·&nbsp; PS(TTM) Approximately 74x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/palantir/00-Palantir-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Cross-validation: the numbers are hard, the definitions are soft</h3><p class='txt'>Eight key metrics were cross-checked against two sources; seven deviations fell within 1%. The only one above 1% was free cash flow (−2.7%), because the data provider calculates it as "operating cash flow − capex", while the company's definition also deducts finance leases and one construction-in-progress investment. <b>This is not a misstatement but a difference in definition.</b></p><p class='txt'>What truly demands caution is not the numbers but three definitional traps: treating "adjusted operating profit" as GAAP, treating net profit that includes interest income as operating profit, and treating TCV as revenue. The definitions ultimately adopted in this report are stated at the end: <b>revenue on a GAAP basis, margins on GAAP operating profit, and valuation on price-to-sales rather than price-to-earnings.</b></p></div><table class="dt"><caption>Dual-source comparison (2026Q2, USD million)</caption><thead><tr><th>Metric</th><th>Source A (company filings)</th><th>Source B (data vendor/media)</th><th>Deviation</th><th>Processing</th></tr></thead><tbody><tr><td>Total revenue</td><td>1,935.5</td><td>1,940 (rounded in the report)</td><td>+0.2%</td><td>Use A</td></tr><tr><td>US commercial revenue</td><td>764.0</td><td>765</td><td>+0.1%</td><td>Use A</td></tr><tr><td>US government revenue</td><td>809.0</td><td>808</td><td>−0.1%</td><td>Use A</td></tr><tr><td>GAAP operating profit</td><td>912.0</td><td>908 (media mix adjustment item)</td><td>−0.4%</td><td>Use A</td></tr><tr><td>Adjusted operating profit</td><td>1,194.5</td><td>1,190</td><td>−0.4%</td><td>Use A</td></tr><tr><td>GAAP net profit</td><td>1,061.9</td><td>1,058</td><td>−0.4%</td><td>Use A</td></tr><tr><td>Free cash flow</td><td>1,220.4</td><td>1,187 (operating cash flow − capital expenditure)</td><td>−2.7%</td><td>Use A, annotation basis</td></tr><tr><td>TTM revenue / price-to-sales ratio</td><td>RMB 6.162 billion / 74.0x</td><td>RMB 6.12 billion / 73x</td><td>−0.7% / −1.4%</td><td>With A (2.41 billion shares)</td></tr></tbody></table><div class="note">Source A: Palantir 2026Q2 earnings press release and 10-Q (2026/08/03). Source B: stockanalysis.com summary page and financial media reports (2026/08). Deviation = (B−A)/A. TTM and P/S are calculated values, not disclosed values.</div><div class="section"><div class="section-title">The largest deviation: free cash flow missed by USD 33 million</div><p class='txt'>The company's figure is RMB 1.22 billion; the data vendor's is RMB 1.187 billion — a gap of RMB 33.4 million. The breakdown makes it clear: the data vendor uses "operating cash flow − purchases of fixed assets," while the company deducts finance-lease principal and a data-center construction outlay on the same base. <b>Both numbers are right; they just answer different questions.</b></p><p class='txt'>This report uses the company's figure because it is consistent with the company's own "free cash flow margin of 63%" guidance and comparable across quarters. But readers should know: <b>on the stricter definition (deducting only capex), this company's free cash flow margin is 61.3%, not 63.1%.</b> The 1.8-percentage-point difference does not change the conclusion; what it changes is how solid the "63%" figure is.</p><p class='txt'>A side note: for a software company with very low capex, free cash flow and operating cash flow should be roughly equal. The wider the gap between the two numbers, the more "adjustments" the definition contains. Palantir's gap is 1.6% — clean.</p></div><div class="section"><div class="section-title">Three framing traps more common than numerical misstatement</div><p class='txt'><b>Type 1: Adjusted vs GAAP.</b> The company discloses both GAAP operating profit of 912 million (47.1%) and adjusted operating profit of 1.194 billion (61.7%); the 283 million gap is mainly 265 million of stock-based compensation. Many sell-side reports cite only 62%, which reads as if the margin were a notch higher than it actually is. This company's stock-based compensation is a real cost — 2% dilution a year is the evidence — so this report uses GAAP throughout.</p><p class='txt'><b>Type 2: Net income includes interest.</b> Q2 net income of 1.062 billion exceeds operating profit of 912 million; the extra 150 million comes from interest and investment income on USD 9.2 billion of cash. At a rough 4% short-end rate, annual interest income is about USD 370 million. If rates fall, this profit disappears.</p><p class='txt'><b>Type 3: TCV treated as revenue.</b> Q2 total contract value was 3.373 billion, up 49% year on year, while revenue was 1.935 billion, up 93% year on year. The growth rates differ by 44 percentage points, and a direct comparison yields completely opposite conclusions. TCV is signed contract value, recognized over multiple years; revenue is the amount recognized in the period. Their relationship should be read through the trend in the TCV / revenue ratio, not the absolute value in a single quarter.</p></div><div class="section"><div class="section-title">Final basis adopted: three decisions</div><p class='txt'><b>Revenue uses GAAP recognition; TTM sums four quarters.</b> TTM revenue of RMB 6.162 billion = full-year 2025 RMB 4.480 billion − H1 2025 RMB 1.886 billion + H1 2026 RMB 3.569 billion. The two 2025 half-year figures are back-solved from the company-disclosed year-over-year growth rates (Q1 +85%, Q2 +93%), not reconciled line by line to the original statements—the error is within 0.5% and does not affect the multiple assessment.</p><p class='txt'><b>Margin uses GAAP operating profit, not adjusted, not net income.</b> Rationale: stock-based compensation is a real cost, and interest income is not sustainable. These two adjustments pull in opposite directions; using GAAP operating profit avoids both at once.</p><p class='txt'><b>Valuation uses P/S, not P/E.</b> GAAP net income is distorted at both ends by interest income and stock-based compensation, so the 140x PE figure carries too much variance. P/S is clean in both numerator and denominator, and Palantir's margin structure is stable, making PS more comparable. The cost is that it ignores margin changes—so in the scenario valuation I give both revenue assumptions and net margin assumptions.</p></div><div class="summary-box"><h3>Conclusion</h3><p>Eight metrics, two sources, seven deviations ≤0.7%, and the only one above 1% is free cash flow at 2.7%, which has been traced to a definitional difference (finance leases and construction-in-progress investment), not a misstatement. <b>The data is usable and the conclusions are unaffected.</b> Three caveats to retain: ① use GAAP, not adjusted; ② net income includes about USD 370 million of annualized interest income; ③ TCV growth and revenue growth are not the same thing, and in Q2 they differed by 44 percentage points.</p></div>
+</div>
+<div class="footer">Palantir (PLTR) · 2026/10/05</div>
+</body>
+</html>

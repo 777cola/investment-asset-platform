@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Hon Hai Precision</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/foxconn/14-组合管理建议/鸿海精密-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/foxconn/14-組合管理建議/鴻海精密-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/foxconn/14-Portfolio-Action/Hon Hai Precision-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Portfolio — Hon Hai Precision</h1>
+  <div class="subtitle">Hon Hai Precision (2317.TW) | 14 · Portfolio</div>
+  <div class="meta">Research date 2026/10/19 &nbsp;·&nbsp; Price NT$240 (-1.84%) &nbsp;·&nbsp; Market cap About TWD 3.37 trillion &nbsp;·&nbsp; PE(2026E) Approximately 12.6x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/foxconn/00-Hon Hai Precision-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core call: this is a stock where price determines positioning</h3><p class='txt'>Hon Hai is not suitable as a core holding; it fits as a candidate for cyclical positioning. <b>At the current price of TWD 239.5 and 12.6x 2026E PE, position at 0</b>; build 1%–2% if it falls to TWD 180 (10x 2027E PE); add to 3%–4% at TWD 160 (8x); if gross margin holds above 6.5% for two consecutive quarters, open a 1% observation position regardless of price. If the falsification condition triggers (gross margin <5.8% for two quarters), exit entirely and remove from the list.</p></div><table class="dt"><caption>Positioning recommendation (by scenario, not by sentiment)</caption><thead><tr><th>Scenario</th><th>Trigger conditions</th><th>Target position</th><th>Rationale</th></tr></thead><tbody><tr><td>Now</td><td>RMB 239.5, 12.6x 2026E PE</td><td>0%</td><td>Downside odds 33%, upside odds 17%, expected return just +3%</td></tr><tr><td>Price trigger one</td><td>Share price ≤RMB 180 (10x 2027E EPS of RMB 18)</td><td>1%–2%</td><td>Pessimistic scenario largely priced in; downside narrows to -11%</td></tr><tr><td>Price trigger two</td><td>Share price ≤RMB 160 (8x 2027E EPS of RMB 20)</td><td>3%–4%</td><td>Historical bottom valuation range, a buying point for cyclicals</td></tr><tr><td>Fundamental trigger</td><td>Gross margin at or above 6.5% for two consecutive quarters</td><td>1% (price may vary)</td><td>Denominator revised up; neutral EPS raised to RMB 26</td></tr><tr><td>Reduce/Exit</td><td>Gross margin below 5.8% for two consecutive quarters, or Q4 revenue turning negative quarter-on-quarter</td><td>0%</td><td>Structural dilution confirmed; valuation multiple cut to 10x</td></tr></tbody></table><div class="note">Position is measured as a share of the equity portfolio, not of total assets. EPS uses the foreign-broker model (2026E RMB 19.06, 2027E RMB 22.5) with scenario adjustments; RMB 180 corresponds to 2027E RMB 18 (neutral EPS discounted by 20%), a conservative basis.</div><div class="section"><div class="section-title">Why 0, and not "buy a little first"</div><p class='txt'>"Buy a little and watch" makes sense in two cases: one, you want to track the company and need a position to generate attention; two, the risk-reward is roughly symmetric and a small position lets you test the waters. <b>Neither holds for Hon Hai — it is one of the top three companies in Taiwan by market cap, so tracking it requires no position; its risk-reward is 33% downside against 17% upside, too asymmetric to justify a trial.</b></p><p class='txt'>More practically: the stock's volatility comes from "AI capex expectations," and expectations reset every quarter. A 0% position means you can wait for the November earnings call to decide, while a 1% position will have you thinking about averaging down on the way down. <b>For a name with the wrong risk-reward, the best position is no position.</b></p></div><div class="section"><div class="section-title">Three add-on price levels, each mapping to a distinct thesis</div><p class='txt'>RMB 180 is the "cycle-bottom valuation" line: 10x 2027E EPS of RMB 18 (a 20% discount to the neutral RMB 22.5), implying about 1.15x PB. Historically, Hon Hai's two lows in 2019 and 2022 both came at 8–10x PE and 1.1–1.2x PB. <b>At this level, the -33% pessimistic scenario has already played out; a further decline needs fresh bad news.</b></p><p class='txt'>RMB 160 is the "asset floor" line: 8x 2027E, PB of about 1.0x, close to liquidation value plus capacity replacement cost. <b>A contract manufacturer's PB rarely breaks below 1, because plants and equipment are real.</b> You can add to 3%–4% here, but be prepared to hold for two years.</p><p class='txt'>The fundamental trigger (6.5% gross margin) is the only reason to add that does not depend on price—it changes the denominator, not sentiment. When it appears, build 1% first and wait for a second quarter of confirmation before adding.</p></div><div class="section"><div class="section-title">Stop-loss and trimming: look at structure, not price</div><p class='txt'>Price-based stop-losses on cyclicals tend to shake you out; structural stop-losses are more reliable. Three structural signals: ① gross margin below 5.8% for two consecutive quarters; ② single-quarter revenue turns negative quarter-on-quarter and the company does not cut guidance (indicating a break in order visibility); ③ receivables days outstanding up more than 15 days year-on-year. <b>If any one appears, it is not "it fell, so sell" — it is "the thesis has been falsified, so sell."</b></p><p class='txt'>Use a price stop-loss in only one case: a break below RMB 140 (PB below 0.9x). At that point the issue is not fundamentals but the market pricing a more extreme scenario (for example, cloud capex halved), which calls for reassessment rather than stubbornly holding on.</p></div><div class="section"><div class="section-title">Correlation with other holdings</div><p class='txt'>Hon Hai's correlation with TSMC, Quanta, Wistron and Wiwynn exceeds 0.8, and approaches 0.9 with AI-themed ETFs—<b>it is not a diversification tool but another expression of the same risk factor.</b> If the portfolio already holds TSMC or Quanta, adding Hon Hai is equivalent to levering up long AI capex.</p><p class='txt'>True diversification can only come from "different positions along the same trend": upstream (TSMC, SK hynix) earns on price increases, midstream (Hon Hai) earns on scale, downstream (cloud providers) earns on applications. All three rise and fall together, but the order of drawdowns differs when the cycle turns—upstream holds up best, while midstream falls first and rebounds first.<b>If midstream exposure is a must, Hon Hai is the first choice; but having bought it, one should not also buy Quanta.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p>Positioning conclusion: <b>0% at the current price, 1%–2% at RMB 180, 3%–4% at RMB 160; if gross margin holds at 6.5% for two quarters, build 1% without waiting for a price.</b> Trimming is driven by structure, not price; any one of three structural signals triggering means exit in full. At the portfolio level, it cannot be held alongside TSMC and Quanta — that would be betting the same wager twice.</p></div>
+</div>
+<div class="footer">Hon Hai Precision (2317.TW) · 2026/10/19</div>
+</body>
+</html>

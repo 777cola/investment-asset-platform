@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>六關篩選 — 快手</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/kuaishou/1-六关快速筛选/快手-六关筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/kuaishou/1-六關快速篩選/快手-六關篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/kuaishou/1-Six-Gate-Screen/Kuaishou-Six-Gate Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>六關篩選 — 快手</h1>
+  <div class="subtitle">快手 (01024) | 01 · 六關篩選</div>
+  <div class="meta">研究日期 2026/10/12 &nbsp;·&nbsp; 股價 HK$29.26（-2.79%） &nbsp;·&nbsp; 市值 約 1,267 億港元 &nbsp;·&nbsp; PE(TTM) 約 10.5 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/kuaishou/00-快手研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>六關過兩關半，合計 31/60。使用者沒跑（DAU 4.12 億、同比 +0.8%），跑掉的是廣告主的預算：線上營銷只增 4.4%、直播 -13.5%，總收入 355.35 億元、同比 +1.4%，增量幾乎全由可靈一個業務貢獻（8.5 億元、+200%）。<b>卡點不在估值，在生意。</b>10.5 倍 TTM PE 看著便宜，但 2026 年經調整淨利已被賣方下調到 89.9 億元，前瞻 PE 反而回到 12.9 倍——分母在縮。</p><p class='txt'>結論：迴避。重新進入視野的條件寫在第六關——廣告增速回到 8% 以上，且可靈給出可驗證的虧損收窄路徑。兩條都還沒發生。</p></div><table class="dt"><caption>六關篩選（2026/10/12，股價 29.26 港元）</caption><thead><tr><th>關卡</th><th>判定</th><th>評分</th><th>依據</th></tr></thead><tbody><tr><td>第一關：能力圈</td><td>透過</td><td>7/10</td><td>流量批發 + 廣告變現 + 直播打賞 + 電商佣金，四條收入線各自可拆；可靈分拆後併表口徑變複雜，扣 3 分</td></tr><tr><td>第二關：好生意</td><td>不通過</td><td>4/10</td><td>毛利率 51.6%（-4.1pct）、經調整淨利率 11.0%（去年同期 16.0%）；廣告無定價權，eCPM 由競價決定</td></tr><tr><td>第三關：護城河</td><td>勉強通過</td><td>5/10</td><td>4.12 億 DAU、7.97 億 MAU 是真實網路；但 DAU/MAU 從 57.2% 掉到 51.7%，新增用戶是低頻的</td></tr><tr><td>第四關：管理層</td><td>存疑</td><td>5/10</td><td>程一笑對 AI 的判斷對（可靈兩年做到 ARR 5 億美元），但 45 港元均價回購 8.8 億港元，現價 29.26</td></tr><tr><td>第五關：安全邊際</td><td>存疑</td><td>6/10</td><td>10.5x TTM PE、淨現金 242.7 億元占市值 21%；但 2026E 稅後淨利降至 89.9 億，前瞻 12.9x</td></tr><tr><td>第六關：紀律</td><td>不通過</td><td>4/10</td><td>買入理由只能是可靈，可靈的估值錨在 180 億美元一級市場價，無法用財報驗證</td></tr><tr><td>綜合</td><td>不通過</td><td>31/60</td><td>主業失速、AI 燒錢、股價在低位——三件事同時發生，不該接</td></tr></tbody></table><div class="note">評分：每關 10 分、60 分制。財務數據取自快手 2026Q2 及中期業績公告（2026/08/18）；股價與 52 週區間取 batchdata 收盤（2026/10/12）。2026E 經調整淨利 89.9 億元為賣方一致預期口徑。</div><div class="section"><div class="section-title">第一關：能力圈（7/10，通過）</div><p class='txt'>快手賺四種錢，財報擠在三條線裡：線上營銷 206 億元（佔 58.0%）、直播 87 億元（24.5%）、其他服務 62 億元（17.5%，含電商佣金和可靈訂閱）。機制都不難：廣告是流量乘填充率乘 eCPM，直播是流水扣主播分成，其他服務是交易佣金加 AI 收入。看一個季度能推下一個季度，這門生意在圈內。</p><p class='txt'>扣 3 分不是因為難懂，是因為不可預測。eCPM 由競價決定，競價取決於商家對下個季度 ROI 的判斷；直播分成比例是平台與公會的年度博弈；可靈的定價一年改三次。<b>三個關鍵變數都不在公司手裡。</b>2021 年上市時市場買的是用戶增長，今天買的是 AI 變現，五年換了兩套敘事——這不是看不懂，是生意在換形狀。</p></div><div class="section"><div class="section-title">第二關：好生意（4/10，不通過）</div><p class='txt'>廣告平台的教科書毛利率在 80% 上下（Meta 常年這個水準），快手只有 51.6%，同比還掉了 4.1pct。原因有兩層：直播打賞要分給主播和公會，電商和可靈要承擔履約與推理成本，這兩塊把毛利結構從「純廣告」拉成了「混合媒體」。經調整淨利率從 16.0% 掉到 11.0%，一年蒸發五個點。</p><p class='txt'>更關鍵是定價權。Q2 線上營銷 +4.4%，低於彭博一致預期的 6.3%，也低於中國互聯網廣告大盤。廣告主換平台只需要改一個後台參數，這就是沒有轉換成本。<b>好生意的標準是提價不掉客戶，快手做不到；它能做的只有把更多的廣告位塞進同一條信息流。</b></p></div><div class="section"><div class="section-title">第三關：護城河（5/10，勉強通過）</div><p class='txt'>4.12 億 DAU 是真實資產，7.97 億 MAU 更大，但這兩個數字放在一起就露了底：DAU/MAU 51.7%，去年同期是 57.2%（按 MAU 同比 +11.5% 反推 2025Q2 約 7.15 億）。<b>一年買來 8,000 多萬月活，只留下 300 多萬日活</b>——新用戶是低頻的，靠 AI 投放和極速版拉來，看完就走。</p><p class='txt'>護城河的三塊磚：老鐵關係鏈（下沉市場的信任感）、短劇供給（2026 年最有效的時長抓手）、演算法分發（不差但無代差）。三塊都能防守，都不能反攻。抖音在時長、電商、AI 影片三條線上同時壓著，視頻號和紅果從兩側切流量。5 分給的是「守得住存量」，不是「搶得到增量」。</p></div><div class="section"><div class="section-title">第四關：管理層（5/10，存疑）</div><p class='txt'>程一笑 2021 年 10 月接任 CEO，任內最大的一個判斷是對的：2024 年 6 月上線可靈，兩年做到 ARR 逼近 5 億美元、7 月分拆融資投後 180 億美元。在一個廣告增速只有 4% 的公司裡，這是唯一被外部資本定價過的新業務。</p><p class='txt'>但同一雙手在資本配置上給出了相反的信號。2026Q2 回購 8.8 億港元、1,960 萬股，均價約 45 港元；半年後股價 29.26 港元，<b>這筆回購浮虧 35%</b>。回購是唯一不需要審批、不需要公告理由的資本配置動作，它的成交價就是管理層對內在價值的報價——45 港元的報價，市場今天只認 65 折。</p></div><div class="section"><div class="section-title">第五關：安全邊際（6/10，存疑）</div><p class='txt'>算三遍。第一遍：1,267 億港元市值 ÷ TTM 淨利 = 10.5 倍 PE。第二遍：市值折人民幣約 1,160 億元，2026E 經調整淨利 89.9 億元，前瞻 12.9 倍——<b>前瞻比 TTM 貴，說明利潤在往下走</b>。第三遍：扣掉 242.7 億元淨現金，企業價值 917 億元，對 2026E 是 10.2 倍。</p><p class='txt'>淨現金占市值 20.9%，攤到每股約 6.1 港元，這是實打實的緩衝。但安全邊際的分母是會變的：如果 2027 年經調整淨利掉到 70 億元，同樣的 EV 就是 13 倍。便宜是靜態的，變貴是動態的，這正是價值陷阱的標準形態。</p></div><div class="section"><div class="section-title">第六關：紀律（4/10，不通過）</div><p class='txt'>這一關問的不是公司好不好，而是我的買入理由能不能被驗證。快手現在唯一的多頭理由是「可靈值 180 億美元，母公司持股 83.3%，光這一塊就值 1,163 億港元，相當於市值的 92%」——但 180 億美元是 7 月一級市場的投後價，對應 ARR 5 億美元是 <b>36 倍 PS</b>，這個倍數買的是三年後的想像力，不是今天的現金流。</p><p class='txt'>一級市場價格不能做空、不能每天報價、也不接受審計。用它來支撐買入，等於把一個不可驗證的錨當成安全邊際。紀律這一關不過，不是因為它貴，是因為<b>它便宜的理由無法被證偽，也就無法被證實。</b></p></div><div class="section"><div class="section-title">否決項與待驗證項</div><p class='txt'><b>否決項：主業失速且沒有企穩證據。</b>收入 +1.4%、廣告 +4.4%、直播 -13.5%，三條線沒有一條給出拐點。更硬的是公司自己的口徑：管理層在 8 月 18 日電話會上說，下半年電商營銷服務和佣金收入會同比承壓。這是公司說的，不是外部分析。</p><p class='txt'><b>待驗證項三條：</b>① 線上營銷增速能否回到 8% 以上——這是估值從 10 倍修復到 15 倍的唯一開關；② 可靈分拆後少數股東損益怎麼分，會不會把虧損留在母公司、把估值留在子公司；③ 電商已不披露 GMV，只能看商家數和佣金收入，而佣金收入被可靈的高增長蓋住了。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>六關的答案是 31/60，兩關半通過。<b>核心否決點只有一個：一家營收增速 1.4%、利潤下滑 30% 的公司，市場給它的多頭邏輯完全依賴一個剛分拆、還在燒錢、估值靠一級市場報價的 AI 業務。</b>這不是「便宜的好公司遇到壞消息」，是「生意在變差、故事在變貴」。</p><p class='txt'>操作：不建倉。觸發重新評估的兩個條件——線上營銷單季增速 ≥8%，或可靈按可比公司口徑披露營收與盈虧且年化營收超過 60 億元。任一條件未滿足前，價格跌到 20 港元也不構成買入理由。</p></div>
+</div>
+<div class="footer">快手 (01024) · 2026/10/12</div>
+</body>
+</html>

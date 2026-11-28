@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務分析（巴菲特視角） — 網飛</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/netflix/5-四角色并行分析/奈飞-财务分析-巴菲特.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/netflix/5-四角色並行分析/網飛-四角色-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/netflix/5-Four-Role-Analysis/Netflix-Four Roles-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務分析（巴菲特視角） — 網飛</h1>
+  <div class="subtitle">現金流是否真實、資金運用是否恰當、資產負債表能否承受</div>
+  <div class="meta">研究日期 2026/10/23 &nbsp;·&nbsp; 股價 $65.85（-1.79%） &nbsp;·&nbsp; 市值 約 2,700 億美元 &nbsp;·&nbsp; PE(2026E) 約 18x（含一次性收益，剔除後約 21x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/netflix/00-網飛研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>一句話：現金是真的，花錢有點猛，資產負債表很乾淨</h3><p class='txt'>巴菲特看三件事：利潤能不能變成現金、管理層怎麼花錢、資產負債表撐不撐得住。奈飛三條都過，但第二條要打個折——<b>Q3 回購 48 億美元，而當季自由現金流只有 28.84 億，回購是 FCF 的 1.66 倍。</b></p><p class='txt'>利潤品質這一條很有意思：Q3 淨利 36.64 億，營業現金流 31.62 億，淨利比現金流還高 5 億。這不是壞事，是內容攤銷與現金支出的季度錯位，但它提醒我們：<b>看這家公司，現金流比利潤可靠。</b></p></div><table class="dt"><caption>現金流的三個層次（2026Q3，百萬美元）</caption><thead><tr><th>專案</th><th>金額</th><th>含義</th></tr></thead><tbody><tr><td>稅後淨利</td><td>3,664</td><td>帳面利潤，含非現金項目</td></tr><tr><td>營業現金流</td><td>3,162</td><td>稅後淨利 − 營運資金與內容資產變動</td></tr><tr><td>資本支出（倒算）</td><td>約 278</td><td>營業現金流 − 自由現金流（粗算）</td></tr><tr><td>自由現金流</td><td>2,884</td><td>可分配給股東的錢</td></tr><tr><td>回購</td><td>4,800</td><td>當季股份回購，為自由現金流的 1.66 倍</td></tr><tr><td>淨負債</td><td>7,100</td><td>153 億債務 − 82 億現金</td></tr></tbody></table><div class="note">資料來自 Netflix 2026Q3 財報。資本支出為倒算值（3,162 − 2,884 = 278），財報摘要未單列，僅作量級參考。淨負債 = 153 億美元債務 − 82 億美元現金。</div><div class="section"><div class="section-title">利潤品質：淨利高於營業現金流，為什麼不是紅旗</div><p class='txt'>正常情況下，一家公司的營業現金流應該高於稅後淨利，因為折舊攤銷不花錢。Netflix Q3 反過來了：稅後淨利 36.64 億，營業現金流 31.62 億，差 5 億。</p><p class='txt'>原因在內容會計。Netflix 把內容支出資本化，然後按觀看情況在幾年內攤銷——<b>損益表裡扣的是攤銷，現金流裡出的是真金白銀的支出。</b>當某一季現金支出高於攤銷時，現金流就會低於利潤。這不是造假，是時點錯位。但反過來說，如果連續幾個季度都這樣，就說明它在加速買內容，利潤被「攤銷慢了」美化。</p><p class='txt'>怎麼驗證？看年度而不是季度。<b>2026 年自由現金流指引 120 億美元，對稅後淨利 129 億（正常化）的比值是 93%</b>——這個數字是健康的。如果哪天這個比值掉到 70% 以下，才是真的問題。所以我的判斷是：Q3 的 5 億差額是噪音，年度 93% 才是信號。</p></div><div class="section"><div class="section-title">資本配置：回購的手筆比現金流大</div><p class='txt'>這是我最在意的一點。Q3 回購 48 億美元、6,390 萬股，均價約 75.12 美元（粗算）——<b>比現在的 65.85 美元高 14%。</b>也就是說，公司在一個月前用 75 美元的價格買自己的股票，現在市場只給 65.85。短期看這筆錢花得不精明，長期看只要內在價值高於 75，就不算錯。</p><p class='txt'>規模上更值得關注：按 Q3 節奏年化 192 億，而全年 FCF 只有 120 億。<b>差額 72 億從哪來？帳面現金 82 億，加債務市場。</b>淨負債只有 71 億，占營業利益 0.44 倍，完全扛得住。但如果連續三年這麼幹，淨負債會爬到 200 億以上，那時候回購就從「信心」變成「槓桿」。</p><p class='txt'>我給這條打 7 分：方向對（在低估值上回購是最優資本配置），力度偏大（超過 FCF 的部分靠負債）。<b>紅線設在這裡：淨負債/營業利益超過 1 倍，就說明回購開始侵蝕財務彈性，那時候要減倉而不是加倉。</b></p></div><div class="section"><div class="section-title">資產負債表：乾淨，但不再是淨現金</div><p class='txt'>153 億美元債務、82 億美元現金，淨負債 71 億。對一個年營業利益 161 億的生意，這是 0.44 倍的槓桿，可以忽略。<b>但要注意一個變化：Netflix 曾經是淨現金公司，現在不是了。</b>2026 年回購規模上來之後，現金在往下走。</p><p class='txt'>債務結構上看，Netflix 的債是長期、固定利率為主，2022 年利率低點時發了不少。這意味著未來兩年的利息支出是鎖定的，不受利率上行影響。<b>這是它敢大額回購的底氣之一。</b></p><p class='txt'>巴菲特會問的最後一句是：「如果營收停止增長，它還撐得住嗎？」算一下：營收 511 億、營業利益率 31.5%，就算營收零增長，每年仍有 161 億營業利益、120 億自由現金流，覆蓋 71 億淨負債綽綽有餘。<b>答案是撐得住。這是筆者認為它下跌空間有限的核心依據。</b></p></div><div class="summary-box"><h3>結論</h3><p>三條都過：現金是真的（年度 FCF/淨利 93%）、資本配置方向對但力度偏大（回購 1.66 倍 FCF）、資產負債表乾淨（淨負債 0.44 倍營業利益）。<b>結論：這是一家可以在 18 倍 PE 上買的公司，但要盯著回購節奏——它是唯一可能把好資產負債表用壞的地方。</b></p></div>
+</div>
+<div class="footer">網飛 (NFLX) · 2026/10/23</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thesis — JD.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/jd/13-持仓论文追踪/京东集团-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/jd/13-持倉論文追蹤/京東集團-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/jd/13-Thesis-Tracking/JD.com-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Thesis — JD.com</h1>
+  <div class="subtitle">JD.com (9618.HK) | 13 · Thesis</div>
+  <div class="meta">Research date 2026/10/26 &nbsp;·&nbsp; Price HK$99.40 (-0.60%) &nbsp;·&nbsp; Market cap Approximately HKD 280 billion &nbsp;·&nbsp; PE (2026E adjusted) Approximately 7.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/jd/00-JD.com-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>Break JD's current holding thesis into five assumptions and test each against the data: <b>(1) cash flow is sustainable (holds, RMB 31.4 billion trailing free cash flow); (2) net cash is the valuation floor (holds, coverage 91.5%, but conditional); (3) food-delivery losses narrow one-way (barely, the slope is too slow); (4) retail revenue turns positive in Q3 (to be verified, management guidance); (5) no second major price war (unproven, and this is the most critical one).</b> Of the five, the first four do not decide the outcome — the fifth does. The first four only determine whether it is worth 105 or 125; the fifth determines whether it becomes 70.</p></div><table class="dt"><caption>Core Assumption Tracker (2026/10/26)</caption><thead><tr><th>Assumptions</th><th>Current evidence</th><th>Validation metrics</th><th>Status</th></tr></thead><tbody><tr><td>① Sustainable free cash flow ≥ RMB 25 billion per year</td><td>Trailing 12 months RMB 31.4 billion (RMB 10.1 billion in the year-earlier period); Q2 single quarter RMB 31.8 billion</td><td>Quarterly free cash flow of no less than RMB 5.4 billion (250÷4 plus a safety buffer)</td><td>Incorporated</td></tr><tr><td>② Net cash underpins the valuation floor</td><td>Cash and short-term investments RMB 235.1 billion = 91.5% of market cap; about HKD 91 per share</td><td>Price-to-cash-per-share ratio ≤ 1.0 (i.e. HKD 91)</td><td>Establishment (conditional)</td></tr><tr><td>③ Food-delivery losses narrow one-sidedly</td><td>147.8 → 103.5 → 98.5 billion, narrowing by 0.5 billion in a single quarter</td><td>Quarterly narrowing of at least RMB 1 billion QoQ, to no more than RMB 7 billion before 2027Q1</td><td>Barely holds up</td></tr><tr><td>④ Retail revenue turns positive in Q3</td><td>Q2 -4.7%; management said "on track to return to positive growth"; daily consumer goods +5.6%</td><td>Q3 JD Retail revenue up ≥0% YoY</td><td>To be verified</td></tr><tr><td>⑤ No further large-scale investment</td><td>No positive evidence; roughly RMB 40 billion already invested over two years; clear commitment to ramp up investment at Double 11</td><td>No new major capex/M&amp;A announcements; whether the food-delivery team will be downsized</td><td>Unconfirmed</td></tr></tbody></table><div class="note">Data sources: JD.com 2026Q2 results announcement (2026/08/13), 2026Q1 announcement (2026/05/11), HKEX close on 2026/10/26. The free cash flow threshold of RMB 25 billion is analyst-set (a 20% haircut to the 2026 trailing twelve-month figure of RMB 31.4 billion).</div><div class="section"><div class="section-title">Two conditions for establishment: cash and cash flow</div><p class='txt'>Only the first and second criteria can currently be checked off. Operating cash flow of RMB 37.8 billion, free cash flow of RMB 31.8 billion, and RMB 31.4 billion on a trailing 12-month basis — these have been verified across three consecutive financial reports, not a single-quarter fluctuation. Cash plus short-term investments of RMB 235.1 billion against a market cap of RMB 256.9 billion gives 91.5% coverage.</p><p class='txt'>But the second criterion comes with a condition: <b>the only precondition for a "valuation floor" to hold is that cash is no longer being deployed in large amounts.</b> If food delivery loses another RMB 30 billion next year, cash will fall below RMB 200 billion, coverage will drop to 78%, and the floor shifts down by 13%. So these two criteria hold, but they protect against "losing big money," not against "failing to make money."</p></div><div class="section"><div class="section-title">A marginal one: the slope of food delivery</div><p class='txt'>147.8 → 103.5 → 98.5, three numbers that trace a flattening curve. The first quarter narrowed by 4.4 billion (seasonality + deliberate contraction), the second quarter narrowed by only 0.5 billion. <b>If the third quarter is still in the 0.5 billion range, it means full-year 2027 will still lose more than 35 billion, and the 36 billion net profit in the base case is simply unattainable.</b></p><p class='txt'>So what to watch here is not "whether losses are shrinking" but "whether the pace of shrinkage is accelerating." Verifiable thresholds: sequential quarterly narrowing of more than 1 billion, and below 7 billion before 2027Q1. If not met, the base-case target price must be cut from 125 to 105.</p></div><div class="section"><div class="section-title">One item to verify: Q3 revenue</div><p class='txt'>Management said Q3 retail revenue is "expected to return to positive growth." The credibility of this guidance hinges on two things: whether the high base from national subsidies has been absorbed by Q3 (Q3 2025 was the subsidy peak, so the base is theoretically higher and a return to positive growth harder), and whether daily necessities and services revenue can keep holding up (+5.6% and +6.8% respectively in Q2).</p><p class='txt'>Stack these two factors together and a Q3 return to positive growth is in fact no small challenge—<b>if management dares to guide "expected to turn positive" in a quarter with an even higher base, it means the July and August operating data support it.</b> That is a positive signal, but only the earnings report can confirm it. The Q3 report lands in mid-November, almost simultaneous with the close of Double 11 (11/14), so two variables resolve within two weeks.</p></div><div class="section"><div class="section-title">One unverified item, and the only one that matters</div><p class='txt'>The fifth point has no data to verify it; it can only be assessed through behavioral observation. Its importance exceeds the sum of the first four: <b>the first four determine whether JD.com is worth 105 or 125; the fifth determines whether it becomes 70.</b></p><p class='txt'>Why put it this way: JD.com's asset quality (RMB 235.1 billion in cash, 1,500 warehouses, 600 million users) will not go to zero under any scenario, so its floor is determined by "how much cash gets burned," not by "how much the business deteriorates." A company that generates RMB 30 billion in free cash flow each year will certainly be worth more in ten years than it is now, as long as it does not invest recklessly; if it burns RMB 30 billion a year, it could be worth nothing in ten years. That is the weight of the fifth point.</p><p class='txt'>Three observable behavioral indicators: <b>whether the food-delivery team is downsized, whether it exits some cities, and whether Q4 brings an announcement of a new round of subsidies or new business investment.</b> If none of the three occurs, the fifth point can be upgraded from "unconfirmed" to "preliminarily established" — only then does the discussion turn to how much to buy.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'>Five assumptions: two hold, one barely holds, one awaits verification, one unproven. <b>The combined conclusion is that this company will not cost you big money, but it is not yet going to make you money either.</b></p><p class='txt'>Falsification conditions (any one triggered removes it from the watchlist): announcement of a new round of large-scale investment; free cash flow turns negative; cash balance falls more than RMB 20 billion in a single quarter; retail revenue posts two consecutive quarters of negative growth while food-delivery losses widen quarter on quarter. Watch calendar: mid-November Q3 results, 11/14 Double 11 close, March 2027 annual report, May 2027 Q1 results.</p></div>
+</div>
+<div class="footer">JD.com (9618.HK) · 2026/10/26</div>
+</body>
+</html>

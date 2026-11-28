@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀（李錄視角） — Alphabet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/alphabet/8-财报团队解读/Alphabet-大师精读-李录.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/alphabet/8-財報團隊解讀/Alphabet-財報團隊解讀-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/alphabet/8-Earnings-Team-Read/Alphabet-Earnings Team-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀（李錄視角） — Alphabet</h1>
+  <div class="subtitle">這份財報裡最重要的數字不在利潤表上</div>
+  <div class="meta">研究日期 2026/10/30 &nbsp;·&nbsp; 股價 $279.84（-1.40%） &nbsp;·&nbsp; 市值 約 3.42 萬億美元 &nbsp;·&nbsp; EV/EBIT(2026E) 約 21x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/alphabet/00-Alphabet研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>大部分人讀這份財報看營收和淨利，我看三個別的東西：<b>Gemini App 用戶 10 億、模型 API 每分鐘 320 億 Token（一年前四倍）、雲積壓訂單 561 億。</b>這三個數字說明 AI 不是概念，是已經在被大量使用的東西，而且使用量在一年內翻了四倍。至於淨利 -25%、FCF -90.7 億，那是投入期的正常現象——真正的問題是這些使用量什麼時候變成收入和利潤。</p></div><div class="section"><div class="section-title">10 億用戶：這是歷史上最快的產品採用</div><p class='txt'>Gemini App 10 億用戶，是谷歌歷史上成長最快的產品。<b>10 億用戶意味著什麼？意味著 AI 已經跨過了「早期採用者」階段，進入普通人的日常。</b>歷史上跨過這個門檻的產品——搜尋、YouTube、Android、微信——後來都變成了基礎設施。</p><p class='txt'>更重要的數字是每分鐘 320 億 Token，一年前是四倍。<b>Token 消耗量是 AI 時代的「發電量」，它比營收更早反映真實需求。</b>發電量翻四倍而收入只翻一倍，說明單位價格在快速下降——這對用戶是好事，對賣算力的人是壓力，對同時做模型和雲的公司是機會（它兩頭都吃）。</p></div><div class="section"><div class="section-title">561 億積壓訂單：需求有合約，但不夠厚</div><p class='txt'>雲端積壓訂單 561 億美元，略超 55% 在 24 個月內確認，也就是約 309 億，攤到 8 個季度是每季 39 億。<b>對比雲端現在每季 307 億的收入，積壓訂單只能覆蓋 13%。</b>這說明雲端的成長主要靠「即時需求」而不是「長約鎖定」。</p><p class='txt'>這是好事也是壞事。好事是彈性大、客戶在快速增加；壞事是隨時可以消失——企業客戶砍預算時，最先砍的就是沒有長約的雲端支出。<b>所以我不會把 561 億當成安全邊際，我把它當成「需求真實存在」的旁證。</b></p></div><div class="section"><div class="section-title">為什麼我不在乎這一季的自由現金流</div><p class='txt'>-90.7 億的自由現金流在很多人眼裡是災難，在我眼裡是「在建工程」。<b>判斷標準很簡單：這些錢買的東西，三年後能不能產生比它更多的現金？</b>如果能，現在為負是好事；如果不能，現在為正也只是延緩死亡。</p><p class='txt'>Alphabet 的情況是前者：雲利潤率從 23.7% 到 36.2%，說明買的算力在賺錢；Gemini 10 億用戶，說明買的能力有人在用。<b>唯一不確定的是時間——我按五年算，市場按兩年算，這個時間差就是價格波動的來源。</b>所以我不著急，我分批。</p></div><div class="summary-box"><h3>結論</h3><p>這份財報證明了 AI 已經在被使用，但還沒證明 AI 已經能賺錢。<b>結論：值得持有五年，不值得滿倉兩年。</b>分批建倉，用時間換空間。</p></div>
+</div>
+<div class="footer">Alphabet (GOOGL) · 2026/10/30</div>
+</body>
+</html>

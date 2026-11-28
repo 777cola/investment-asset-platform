@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News — Netflix</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/netflix/12-新闻异动归因/奈飞-新闻异动.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/netflix/12-新聞異動歸因/網飛-新聞異動-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/netflix/12-News-Attribution/Netflix-News-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>News — Netflix</h1>
+  <div class="subtitle">Netflix (NFLX) | 12 · News</div>
+  <div class="meta">Research date 2026/10/23 &nbsp;·&nbsp; Price $65.85 (-1.79%) &nbsp;·&nbsp; Market cap About USD 270 billion &nbsp;·&nbsp; PE(2026E) ~18x (including one-off gains, ~21x excluding them)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/netflix/00-Netflix-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Last three months: it wasn't earnings that fell, it was expectations</h3><p class='txt'>Six things happened at Netflix between late July and October 23. <b>Only three truly affect fundamentals: the October 13 organizational reshuffle, the October 20 Q3 earnings and guidance, and the programmatic expansion of the ad tech stack within Q3.</b></p><p class='txt'>The other three are noise: the single-day 1.79% drop, the "advertising is collapsing" media headlines, and the USD 75 average buyback price. What the noise has in common is that <b>none of it changes any future cash flow—it only changes the day's sentiment.</b></p></div><table class="dt"><caption>Key events in the past three months (2026/07/23–2026/10/23)</caption><thead><tr><th>Date</th><th>Event</th><th>Share price reaction</th><th>Nature</th></tr></thead><tbody><tr><td>Within 2026 (Q2–Q3)</td><td>Signs content licensing agreement with Disney; partners with France's TF1</td><td>— (No notable single-day move)</td><td>Signal: fill content breadth</td></tr><tr><td>In 2026Q3</td><td>Netflix Ads Suite expands programmatic buying, adds MercadoLibre and AdForm</td><td>—</td><td>Signal: adtech catch-up</td></tr><tr><td>2026/10/13</td><td>Co-CEO internal memo: about 6% workforce cut (nearly 1,000 people), content chief Bela Bajaria ousted, film head Dan Lin departing</td><td>— (closing price not available at the time)</td><td>Signal: organizational restructuring</td></tr><tr><td>October 20, 2026 (after market close)</td><td>Q3 results: revenue RMB 12.874 billion (+11.8%), operating margin 34.6%, net profit +44%, buyback RMB 4.8 billion; advertising and FCF guidance cut</td><td>Continuous weakness after earnings</td><td>Signal: earnings above expectations, guidance cut</td></tr><tr><td>2026/10/21</td><td>Media take: full-year advertising revenue forecast cut to RMB 2.7 billion from RMB 3 billion</td><td>Continued decline</td><td>Noise (second-hand interpretation of known information)</td></tr><tr><td>2026/10/23</td><td>Closed at USD 65.85, down 1.79%, a two-year low and −39.8% from the 52-week high</td><td>−1.79%</td><td>Noise (price itself is not an event)</td></tr></tbody></table><div class="note">In the share-price reaction column, any day for which the closing price change could not be obtained is marked "—" and not estimated. The 52-week high of USD 109.35 and the close of USD 65.85 are both on the post-split basis of the 10-for-1 split effective 2025/11/17. Event dates and details come from the company's internal letter, the 2026Q3 financial report and the Zhitong Finance report of 2026/10/21.</div><div class="section"><div class="section-title">Signal one: Q3 results combine "profit above consensus, guidance cut"</div><p class='txt'>This is the most important development of the past three months, and the only one that changes the valuation. <b>Profit was near-perfect: operating margin 34.6% (6.4 percentage points above guidance), net profit RMB 3.664 billion (+44%), and a record RMB 4.8 billion buyback. Guidance was cut on three items: revenue landed at the low end of the range, advertising from RMB 3 billion to RMB 2.7 billion, and FCF from RMB 12.5 billion to RMB 12 billion.</b></p><p class='txt'>The market chose to believe the guidance, not the profit. That choice is not wrong—guidance is forward-looking, profit is backward-looking. <b>But the nature of the cuts matters: revenue was trimmed only at the low end of the range (near the midpoint of 51,000–51,400), advertising by 10%, and FCF by 4%.</b> Two of the three are minor adjustments; one (advertising) is a substantive cut, but it accounts for just 5.3% of revenue.</p><p class='txt'>My read: <b>this is expectation-management guidance trimming, not fundamental deterioration.</b> The evidence: in the same earnings release, the company moved its 2027 advertising country-expansion plan from "in planning" to "15 countries live by March 2027"—if fundamentals were deteriorating, it would not make expansion commitments.</p></div><div class="section"><div class="section-title">Signal two: the October 13 organizational reshuffle, with the cost falling in 2028</div><p class='txt'>Cutting about 6% of staff, close to 1,000 people, the largest since 2022. In the same round, content chief Bela Bajaria was replaced and film head Dan Lin departed. <b>Three events in the same week show this is not routine optimization.</b></p><p class='txt'>Why call it a signal rather than noise? Because what it changes is "what content can be produced in the future," not "how much was spent this quarter." <b>The content business has an 18-month lag</b>: a change of people in October 2026 affects the 2027 slate, and only in 2028 will churn speak.</p><p class='txt'>The market barely reacted to this (the same-day close was not obtained, but the stock was already at lows before earnings). <b>That is precisely why it is worth noting — risk that is not priced is the real risk.</b></p></div><div class="section"><div class="section-title">Signal 3: Catching up on the ad tech stack is the only good news</div><p class='txt'>In Q3, the Netflix Ads Suite expanded programmatic buying, connecting to external demand-side platforms such as MercadoLibre and AdForm. <b>The significance: Netflix has finally begun selling ads the industry-standard way.</b></p><p class='txt'>Previously, its ads were sold mainly direct through its in-house sales team, which was inefficient and narrow in reach. <b>Programmatic access means it can plug into advertisers' existing buying systems, no longer requiring advertisers to "set up a dedicated process for Netflix."</b> That is the foundation for volume.</p><p class='txt'>But it is also one reason for the ad guidance cut — in the early days of a new system, delivery capacity lags commitments. This is what the company meant by "some ad product features rolling out slower than planned." <b>So this is both good news and bad news: a near-term drag on revenue recognition, a long-term opening of the ceiling.</b></p></div><div class="section"><div class="section-title">Three noise items: why they should not affect judgment</div><p class='txt'><b>Noise 1: The 1.79% drop on October 23.</b> A single-day decline of this size is normal at this volatility (Netflix moves about 2% on an average day). <b>Price alone is not an event unless it comes with new information.</b> There was no new information that day.</p><p class='txt'><b>Noise 2: The "advertising collapsed" headlines.</b> RMB 2.7 billion versus RMB 3 billion, a 10% cut, equal to 5.3% of revenue. Framing this as "the second curve failed" is clickbait logic, not analytical logic. <b>The real test is whether ad revenue can return above RMB 3.5 billion after the country expansion in March 2027.</b></p><p class='txt'><b>Noise 3: The average buyback price of USD 75 is above the current price.</b> Some read this as "management overpaid." <b>That is wrong — buybacks are a long-term action, and the right yardstick is "purchase price below intrinsic value," not "below the market price three months later."</b> If intrinsic value is USD 79 (base case), buying back stock at USD 75 is a good deal.</p></div><div class="summary-box"><h3>Conclusion</h3><p>Six events in three months: three signals, three noise items. Signals share one trait—they change future cash flow. Noise shares another—it only changes same-day sentiment. <b>String the signals together and a clear picture emerges: profit still growing, guidance being cut, organization shifting gears, advertising catching up.</b> Together these four phrases point to one action: buy, not wait.</p></div>
+</div>
+<div class="footer">Netflix (NFLX) · 2026/10/23</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務驗證 — CoreWeave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/coreweave/3-财务数据交叉验证/CoreWeave-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/coreweave/3-財務數據交叉驗證/CoreWeave-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/coreweave/3-Financial-Cross-Check/CoreWeave-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務驗證 — CoreWeave</h1>
+  <div class="subtitle">CoreWeave (CRWV) | 03 · 財務驗證</div>
+  <div class="meta">研究日期 2026/11/20 &nbsp;·&nbsp; 股價 $39.51（-12.02%） &nbsp;·&nbsp; 市值 約 220 億美元 &nbsp;·&nbsp; PE(TTM) —（GAAP 虧損，本益比無意義）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/coreweave/00-CoreWeave研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核對結果</h3><p class='txt'>核心數字都能對上：營收 36.61 億美元、淨虧損 -7.09 億、調整後 EBITDA 22.56 億、訂單 1,325 億、總債務 468.73 億，公司財報、10-Q 逐項拆解與媒體快訊三邊一致，偏差都在四捨五入範圍內。<b>唯一超過 1% 的偏差是資本支出：現金流量表上的現金支出是 94.41 億，公司口徑的當季 capex 是 145 億，差 53%。</b>這不是誰錯了，是「現金付出」與「權責發生」兩個口徑。本報告一律用現金口徑算自由現金流，用權責口徑理解訂單對應的產能交付。</p></div><table class="dt"><caption>雙源對照（2026Q3，百萬美元）</caption><thead><tr><th>指標</th><th>來源 A</th><th>來源 B</th><th>偏差</th><th>處理</th></tr></thead><tbody><tr><td>營收</td><td>財報 3,661</td><td>媒體快訊 3,660（「36.6 億」）</td><td>0.03%</td><td>採用 3,661</td></tr><tr><td>淨虧損</td><td>財報 -709</td><td>財聯社「虧損 7.1 億」</td><td>0.14%</td><td>採用 -709</td></tr><tr><td>調整後 EBITDA</td><td>財報 2,256（利潤率 62%）</td><td>GDCH 拆解 2,256</td><td>0%</td><td>採用 2,256</td></tr><tr><td>合約訂單 backlog</td><td>財報 1,325 億</td><td>反推：Q2 末 1,040 + 單季新增 285 = 1,325</td><td>0%</td><td>採用 1,325 億，勾稽通過</td></tr><tr><td>總債務</td><td>10-Q 46,873</td><td>stockanalysis D/E 16.45 × 權益反算約 46,900</td><td>0.06%</td><td>採用 46,873</td></tr><tr><td>資本支出</td><td>現金流量表 9,441（現金支出）</td><td>公司資本支出口徑 14,500（權責）</td><td>53.6%</td><td>自由現金流用 9,441；產能與訂單用 14,500</td></tr><tr><td>自由現金流</td><td>財報 -7,466</td><td>自算：OCF 1,975 − 資本支出 9,441 = -7,466</td><td>0%</td><td>自洽，採用 -7,466</td></tr><tr><td>淨利息支出</td><td>財報 846</td><td>財聯社「利息約 8.5 億」</td><td>0.47%</td><td>採用 846</td></tr></tbody></table><div class="note">來源 A：CoreWeave 2026Q3 財報與 10-Q（2026/11/10）；來源 B：Global Data Center Hub 10-Q 拆解（2026/11/18）、財聯社（2026/11/17）、stockanalysis.com/stocks/crwv/statistics/。偏差 = |A−B| / A。</div><div class="section"><div class="section-title">唯一的大偏差：94.41 億元還是 145 億元</div><p class='txt'>現金流量表中的「購建固定資產支付的現金」是 94.41 億美元，公司口徑的當季資本支出是 145 億，差 50.6 億。差額主要來自<b>已簽約、已交付但尚未付款的設備與工程款</b>——GPU 到貨、機房在建，供應商帳期把它掛在應付和租賃負債上，本季沒付現金。</p><p class='txt'>這個差額有兩面。好的一面：公司實際拿到的產能比現金支出顯示的更多，94.41 億現金換來了 145 億的資產投入，說明供應商願意給帳期。壞的一面：<b>這 50.6 億是「欠著的資本支出」，會在未來幾個季度變成現金流出</b>。所以用 94.41 億算出來的 -74.66 億自由現金流，已經是最樂觀的口徑；真按權責算，缺口是 -105 億量級。</p></div><div class="section"><div class="section-title">淨債務到底是多少：414 億還是 610 億</div><p class='txt'>兩種算法都被引用過，必須說清楚。第一種：總債務 468.73 億 − 現金約 55 億 = <b>約 414 億</b>，這是「有息債務淨額」，不含營業租賃。第二種：把資料中心長期租賃負債也算進來，淨債務約 <b>610 億</b>、企業價值約 835 億美元，這是「全部固定支付義務」口徑。</p><p class='txt'>本報告在討論股權薄厚與 EV/EBITDA 時用 610 億（因為租賃是剛性支付，和債務同性質），在討論利息覆蓋時用 846 億利息對應 468.73 億有息債務（財報口徑）。<b>兩個數字都對，混用才會出錯</b>——這也是這家公司財報最容易被誤讀的地方。</p></div><div class="section"><div class="section-title">與底稿的一致性檢查</div><p class='txt'>底稿的評級、目標價與核心結論本報告全部保留：評級「迴避」，三情景 12 / 43 / 97 美元。交叉驗證沒有推翻任何一個數字，反而加強了一個判斷——<b>訂單 1,325 億的勾稽完全成立（1,040 + 285），說明需求側沒有造假空間；而現金流側的缺口在擴大（Q1 -47.1、Q2 -57.4、Q3 -74.7），說明問題不在收入端</b>。</p><p class='txt'>唯一需要修正的表述：底稿把「當季 capex 14.5 億」寫成十億美元單位時容易與現金支出 9.44 億混淆，本報告統一標註為「權責口徑 145 億 / 現金口徑 94.41 億」。這個細節重要，因為 Q4 利息指引 10.5–11.5 億已經接近現金資本開支的 1/8，融資成本的量級正在追上建設成本。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：資料可用，無需下調任何結論。</b>8 項關鍵數字三邊對帳，7 項偏差在 0.5% 以內，唯一的 53.6% 偏差是資本支出認列口徑差異，已分別標註。最終採用口徑：自由現金流 = 營業現金流 − 現金資本支出（-74.66 億，最樂觀）；淨債務 = 含租賃 610 億（用於 EV 與股權厚薄）；利息覆蓋用財報淨利息 846 億對應有息債務 468.73 億。<b>提醒：按權責資本支出計算，真實現金缺口是 -105 億量級，比報表顯示的更差。</b></p></div>
+</div>
+<div class="footer">CoreWeave (CRWV) · 2026/11/20</div>
+</body>
+</html>

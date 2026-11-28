@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Check — Kuaishou</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/kuaishou/3-财务数据交叉验证/快手-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/kuaishou/3-財務數據交叉驗證/快手-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/kuaishou/3-Financial-Cross-Check/Kuaishou-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Financial Check — Kuaishou</h1>
+  <div class="subtitle">Kuaishou (01024) | 03 · Financial Check</div>
+  <div class="meta">Research date 2026/10/12 &nbsp;·&nbsp; Price HK$29.26 (-2.79%) &nbsp;·&nbsp; Market cap About HKD 126.7 billion &nbsp;·&nbsp; PE(TTM) About 10.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/kuaishou/00-Kuaishou-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>I ran all nine key figures for 2026Q2 through two sources: the earnings announcement versus broker notes and media reports. Seven deviations are within 0.2%, attributable to rounding; two need their definitions explained separately. Cash-type assets (RMB 24.27 billion vs RMB 23.5 billion, a 3.2% gap) differ on whether time deposits and wealth-management products are included; R&D (RMB 4.6 billion vs RMB 4.58 billion, a 0.4% gap) differs on capitalization treatment.</p><p class='txt'><b>No numerical conflict was found that would require overturning the draft.</b> What truly warrants attention is not the deviations but definitional shrinkage such as "the company no longer discloses GMV"—it leaves third parties unable to verify the e-commerce line.</p></div><table class="dt"><caption>2026Q2 key data cross-check across two sources (RMB 100 million)</caption><thead><tr><th>Indicator</th><th>Source A: earnings announcement</th><th>Source B: Brokerages/media</th><th>Deviation</th><th>Processing</th></tr></thead><tbody><tr><td>Total revenue</td><td>355.35</td><td>355.3 (CMS commentary)</td><td>0.01%</td><td>Adopt 355.35</td></tr><tr><td>Online marketing services</td><td>206</td><td>205.8</td><td>0.10%</td><td>Adopt 206 (rounded in the announcement)</td></tr><tr><td>Livestreaming</td><td>87</td><td>86.9</td><td>0.11%</td><td>Adopt 87</td></tr><tr><td>Other services (including Kling)</td><td>62</td><td>62.0</td><td>0.00%</td><td>Adopt 62</td></tr><tr><td>Kling AI revenue</td><td>8.5</td><td>8.5 (per NBD's account)</td><td>0.00%</td><td>Adopt 8.5</td></tr><tr><td>Gross margin</td><td>51.6%</td><td>51.5% (derived from gross profit/revenue)</td><td>0.1pct</td><td>Adopt 51.6%</td></tr><tr><td>Adjusted net profit</td><td>39.13</td><td>39.1</td><td>0.08%</td><td>Adopt 39.13</td></tr><tr><td>R&amp;D expenses</td><td>46</td><td>45.8</td><td>0.43%</td><td>Adopt 46</td></tr><tr><td>Cash assets</td><td>242.7</td><td>235 (cash and equivalents only)</td><td>3.2%</td><td>Adopt 242.7</td></tr></tbody></table><div class="note">Source A: Kuaishou Technology Q2 and interim 2026 results announcement (2026/08/18). Source B: China Merchants Securities "Kuaishou-W 2026Q2 Review" (2026/08/23), Daily Economic News Kling report (2026/08/23), stockanalysis.com/quote/hkg/1024 balance sheet basis. Deviation = |A-B|/A.</div><div class="section"><div class="section-title">Two definitional gaps that need explaining, not errors</div><p class='txt'><b>Cash assets: RMB 24.27 billion vs RMB 23.5 billion, a difference of RMB 770 million.</b> The announcement basis is cash and equivalents + time deposits + wealth management products combined; stockanalysis only captures the "cash and cash equivalents" line on the balance sheet, with time deposits and wealth management products sitting in other lines. The 3.2% gap comes entirely from this. Treatment: use RMB 24.27 billion for valuation, because it is genuinely available and can cover interest-bearing debt; but note that it includes restricted portions, and do not assume "net cash fully distributable as dividends."</p><p class='txt'><b>R&amp;D: RMB 4.6 billion vs RMB 4.58 billion, a difference of 0.43%.</b> Media summaries typically copy the "R&amp;D expenses" line directly; R&amp;D expenses in the announcement include share-based compensation amortization, and some bases make capitalization adjustments. The gap is under RMB 20 million and affects no conclusion. Treatment: use RMB 4.6 billion.</p></div><div class="section"><div class="section-title">Three things you must calculate yourself: gross profit, net margin, profit variance</div><p class='txt'>The announcement gives only a gross margin of 51.6%, not gross profit. 355.35 × 51.6% = <b>RMB 18.34 billion</b> — this is a calculated figure, not a disclosed one, and must be flagged as such in the table. Last year: 350.4 × 55.7% = RMB 19.52 billion, down 6.0% YoY — note that revenue rose 1.4% while gross profit fell 6.0%; this scissors gap is the source of the profit decline.</p><p class='txt'>Reported net profit of RMB 3.152 billion versus adjusted net profit of RMB 3.913 billion leaves a gap of <b>RMB 761 million</b>, reflecting share-based compensation expense and amortization of intangible assets (including amortization of Kling-related investment). The two bases must not be mixed in YoY comparisons: 3.152 versus last year's 4.922 is -36.0%, while 3.913 versus last year's 5.614 is -30.3%. <b>Both numbers are correct; mixing them is wrong.</b></p><p class='txt'>The bottom line is the "adjusted basis", because it strips out fluctuations in share-based compensation valuation around the Kling spin-off and is comparable across periods; but to calculate what shareholders actually receive, one must return to the reported net profit of RMB 3.152 billion.</p></div><div class="section"><div class="section-title">The one that does not add up: market cap and share count</div><p class='txt'>HKD 29.26 × 4.33 billion shares = HKD 126.7 billion, consistent with the market cap in the working papers. But the TTM net profit implied by the 10.5x PE is about HKD 12.07 billion (roughly RMB 11.05 billion), higher than the annualized RMB 8.2 billion or so for the first half of 2026 (a rough 6.2 + 2.0 calculation)—<b>indicating that profit in the second half of 2025 was clearly better than in the first half of 2026</b>, and the TTM figure contains a high base that has already disappeared.</p><p class='txt'>That is why the TTM PE is 10.5x and the forward PE is 12.9x. The market is not naive; it uses forward earnings. Any analysis that calls 10.5x "cheap" must first check which period the denominator covers.</p></div><div class="section"><div class="section-title">Disclosure risk: what the company no longer discloses</div><p class='txt'>From 2026, Kuaishou will no longer disclose e-commerce GMV quarterly, reporting only merchant count and commission revenue. This means: ① the true growth rate of the e-commerce line cannot be cross-verified by third parties; ② commission revenue is folded into "other services", mixed together with Kling's RMB 850 million on a single table; ③ all GMV assumptions in sell-side models are estimates.</p><p class='txt'><b>For researchers, the narrowing of disclosure is itself information: what a company chooses not to disclose is usually what is deteriorating.</b></p></div><div class="section"><div class="section-title">One additional sensitivity test I ran</div><p class='txt'>The 51.6% gross margin is the most sensitivity-worthy item in this report. With revenue of RMB 35.5 billion, every 1pct change in gross margin equals RMB 355 million in gross profit, equivalent to 9% of adjusted net profit. In 2026Q2 it fell 4.1pct year on year, giving up RMB 1.46 billion in gross profit and covering nine-tenths of the RMB 1.7 billion decline in net profit.</p><p class='txt'><b>In other words: the profit decline does not need "AI investment" to explain it; rising revenue-share costs alone are enough.</b> The roughly RMB 1.2 billion of extra R&D spending is the second layer; only the two combined make the -30.3% add up. This decomposition is critical to the call: if the decline comes mainly from revenue sharing, it is structural (you have to keep conceding margin to win creators); if mainly from R&D, it is temporary (it comes back once the investment period ends). The evidence so far points to the former.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'>Seven of the nine figures tie out; both deviations above 1% are explained by definitional differences, so the working-paper numbers can be used with confidence. Three things to remember: gross profit is a derived figure (RMB 18.34 billion), net profit has two definitions (31.52 and 39.13), and the TTM includes the high base from the second half of 2025.</p></div>
+</div>
+<div class="footer">Kuaishou (01024) · 2026/10/12</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣篩選 — 博通</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/broadcom/2-七条硬指标去劣/博通-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/broadcom/2-七條硬指標去劣/博通-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/broadcom/2-Seven-Hard-Metrics/Broadcom-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>去劣篩選 — 博通</h1>
+  <div class="subtitle">博通 (AVGO) | 02 · 去劣篩選</div>
+  <div class="meta">研究日期 2026/10/02 &nbsp;·&nbsp; 股價 $355.14（+3.35%） &nbsp;·&nbsp; 市值 約 1.69 萬億美元（按 47.7 億股粗算） &nbsp;·&nbsp; PE(FY2027E) 約 18x（FY27 一致預期 EPS 19.38 美元）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/broadcom/00-博通研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>七條硬指標裡六條過關，而且過得很輕鬆：ROE 約 60%、ROIC 約 42%、Non-GAAP 毛利率 75%、淨利率 55.3%、利息覆蓋 25 倍、自由現金流收益率 3.1%。這套數字放在製造業裡屬於異常值。</p><p class='txt'>唯一不過的是現金轉化：單季自由現金流 136.7 億美元，Non-GAAP 淨利 163.72 億美元，比值 0.83。<b>不過的原因不是生意變差，是硬體生意在擴張期天然佔款</b>——AI 收入環比 +54%，應收和庫存同步膨脹。這一條要盯著看，但它不致命。</p></div><table class="dt"><caption>七項硬指標（FY26Q3 口徑）</caption><thead><tr><th>指標</th><th>公司數值</th><th>門檻</th><th>判定</th></tr></thead><tbody><tr><td>ROE（淨資產收益率）</td><td>約 60%（粗算）</td><td>≥15%</td><td>過</td></tr><tr><td>ROIC（投入資本回報率）</td><td>約 42%（粗算）</td><td>≥12%</td><td>過</td></tr><tr><td>毛利率</td><td>75.0%（Non-GAAP）／69%（GAAP）</td><td>≥40%</td><td>過，但連續兩季下滑</td></tr><tr><td>淨利率</td><td>55.3%（Non-GAAP）</td><td>≥10%</td><td>過</td></tr><tr><td>自由現金流 / 稅後淨利</td><td>0.83 倍（136.7／163.72）</td><td>≥1.0</td><td>不過</td></tr><tr><td>利息覆蓋（稅後淨利／利息支出）</td><td>約 25 倍（粗算）</td><td>≥8 倍</td><td>過</td></tr><tr><td>自由現金流收益率</td><td>約 3.1%（粗算）</td><td>≥3%</td><td>勉強過關</td></tr></tbody></table><div class="note">資料來源：博通 FY26Q3 財報（2026/09/02）。ROE、ROIC、利息覆蓋、自由現金流收益率均為粗算：ROE = FY26E 淨利 625 億美元／股東權益約 1,050 億美元；ROIC 分母取權益 + 596 億美元固定利率債務 − 現金；利息支出按 596 億美元 × 4.2% 估 25 億美元；FCF 收益率 = 年化自由現金流約 520 億美元／市值 1.69 萬億美元。</div><div class="section"><div class="section-title">六條過硬，沒有討論空間</div><p class='txt'>ROE 60%、ROIC 42%——這兩個數字需要解釋一下，因為太高了會讓人以為是算錯了。原因是博通的帳面權益被常年回購和 VMware 的無形資產攤銷壓得很低，分母小，回報率就高。真正該看的是 ROIC：投入資本約 1,500 億美元（權益 1,050 億 + 債務 596 億 − 現金），稅後營業利益約 625 億，回報 42%。<b>即使把分母放大一倍，回報率還是 20% 以上，這門生意的資本效率是真實的。</b></p><p class='txt'>毛利率 75.0%（Non-GAAP）、淨利率 55.3%，比台積電的 58% 高出一大截。這不是因為它比台積電更不可替代，而是因為它賣的是設計服務與 IP，不承擔晶圓廠的折舊。同樣的收入，博通的增量資本支出只有個位數億美元，台積電要幾百億。</p><p class='txt'>利息覆蓋 25 倍，說明 596 億美元固定利率債務不是問題。市場擔心的是表外那部分，不是這 596 億。</p></div><div class="section"><div class="section-title">毛利率這一項：判定為「過」，趨勢為「警」</div><p class='txt'>75% 對 40% 的門檻，看起來毫無懸念。但把四個季度排開：FY25Q4 78%、FY26Q2 77.1%、FY26Q3 75.0%、FY26Q4 指引 73%。<b>一年掉 5 個百分點，方向單邊，速度在加快。</b></p><p class='txt'>原因管理層講得很直白：XPU 硬體占比上升，成本裡 HBM 占比上升。翻譯一下——賣晶片比賣 IP 賺錢少，賣帶記憶體的整機比賣晶片更少。定製 ASIC 越成功，毛利率越低。這是博通這門生意裡最反直覺的一點：增長和利潤率是反向的。</p><p class='txt'>73% 是不是底？我傾向於認為還有 1—2 個點的下行空間，因為 FY27 的 1,150 億美元 AI 收入裡，XPU 占比只會更高。如果跌破 70%，那就不只是結構問題，而是這門生意的定價權在削弱。</p></div><div class="section"><div class="section-title">唯一未達標的那一項：0.83 倍的現金轉化</div><p class='txt'>單季自由現金流 136.7 億美元，看起來很強，是公司歷史高位。但同期 Non-GAAP 淨利 163.72 億美元，現金只轉化了 83%。差出來的 27 億美元去哪了？主要是應收和存貨。AI 收入環比 +54%，意味著這一季確認的收入裡有很大一部分還沒收錢，同時為了下一季 217 億美元的 AI 出貨要提前備料。</p><p class='txt'>這個現象在擴張期是正常的，甚至是健康的——訂單在手才敢備貨。但它有兩個含義：<b>第一，收入的現金質量低於利潤表顯示的；第二，如果需求突然轉向，這批備料會變成減值。</b></p><p class='txt'>門檻設 1.0 倍的意義在於：一家公司如果長期現金轉化低於 1，它的利潤就需要打折看。博通過去五年大多在 1.0 附近，這一季掉到 0.83，屬於週期高位特徵，不是結構惡化。所以判定不過，但不致命。</p></div><div class="section"><div class="section-title">指標看不見的三件事</div><p class='txt'>第一，客戶集中度。六家 XPU 客戶撐起 167 億美元的單季 AI 收入，任何一家砍單，報表上就是一個洞。這個風險在七條指標裡完全體現不出來。</p><p class='txt'>第二，表外擔保。為 AI 客戶融資提供的信用支持不在任何一條指標裡。美銀估算的平台規模到 2029 年中可能達 3,700 億美元優先債務——如果其中一部分需要博通兜底，ROE 和利息覆蓋會在一夜之間變形。</p><p class='txt'>第三，股權激勵與攤銷。GAAP 淨利 131 億美元、Non-GAAP 163.72 億，差距 32.7 億；這個差距裡既有併購無形資產攤銷，也有股權激勵。<b>用 Non-GAAP 算出來的 55% 淨利率，是這家公司最好看的一面。</b>看估值時用 Non-GAAP 是行業慣例，但要知道自己在用什麼口徑。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>七條過六條，結論是「一流公司，不是無瑕疵公司」。</b>唯一不過的現金轉化 0.83 倍屬於擴張期特徵，可以接受；真正需要警惕的是毛利率的單邊下滑（78%→73%）和七條指標都照不到的表外擔保。<b>門檻意義上，這套指標支持「可以研究」，不支持「現在買入」——因為最危險的那一項不在表裡。</b></p></div>
+</div>
+<div class="footer">博通 (AVGO) · 2026/10/02</div>
+</body>
+</html>

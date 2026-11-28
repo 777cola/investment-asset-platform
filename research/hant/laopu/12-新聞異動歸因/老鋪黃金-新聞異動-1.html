@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新聞異動 — 老鋪黃金</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/laopu/12-新闻异动归因/老铺黄金-新闻异动.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/laopu/12-新聞異動歸因/老鋪黃金-新聞異動-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/laopu/12-News-Attribution/Laopu Gold-News-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>新聞異動 — 老鋪黃金</h1>
+  <div class="subtitle">老鋪黃金 (06181) | 12 · 新聞異動</div>
+  <div class="meta">研究日期 2026/10/09 &nbsp;·&nbsp; 股價 HK$337.00（+4.85%） &nbsp;·&nbsp; 市值 約 596 億港元 &nbsp;·&nbsp; PE(TTM) 約 6.9 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/laopu/00-老鋪黃金研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：跌 60% 不是情緒，是三次定價修正</h3><p class='txt'>2026 年 7 月到 10 月，老鋪的股價從 350 港元跌到 302 港元、再反彈到 337 港元，按 52 週高點 849.5 港元算回撤 60.3%，中間有九個可記錄的事件。<b>真正有資訊量的只有三個：7 月 28 日的季度結構暴露、8 月 9 日的金價 beta、10 月 8 日的國慶動銷。</b>其餘六個——券商三次改目標價、一次盈喜、一次中報、一次中報文本披露——基本是噪音。</p><p class='txt'>歸因拆一下：這輪 60% 的回撤，<b>約六成來自金價從 5,419 跌到 4,000 的 beta，三成來自 Q2 業績證偽了「高增長可持續」，一成來自估值從 140 倍向 10 倍回歸。</b>金價是主因，業績是導火索，估值回歸是結果。</p></div><table class="dt"><caption>近三個月關鍵事件（2026/07–10）</caption><thead><tr><th>日期</th><th>事件</th><th>股價反應</th><th>性質</th></tr></thead><tbody><tr><td>07/12</td><td>高盛目標價 1,108 → 650 港元，維持「買入」</td><td>7/17 收 350 港元，較歷史高點 -67%</td><td>雜訊：賣方預期修正，落後於價格</td></tr><tr><td>07/27</td><td>發布正面盈利預告，H1 淨利同比增長80%以上</td><td>當日未反應（盤後）</td><td>訊號被誤讀：市場先當利好</td></tr><tr><td>07/28</td><td>收 302.2 港元，單日 -23.76%，市值蒸發約 167 億港元</td><td>暴跌，盤中一度跌破 300</td><td>訊號：Q2 單季結構暴露</td></tr><tr><td>07/29</td><td>再跌 4.83%，創一年半新低</td><td>約 288 港元</td><td>訊號：趨勢確認</td></tr><tr><td>08/09</td><td>金價創年內最大單週漲幅，老鋪漲超 8%；大摩稱部分門店 8 月初重現排隊</td><td>+8% 以上</td><td>訊號：金價 beta 的直接證據</td></tr><tr><td>08/24</td><td>中期業績：收入 198.08 億元、淨利 42.67 億元</td><td>反應平淡</td><td>雜訊：已被盈喜預告消化</td></tr><tr><td>09/01</td><td>高盛下調 2026–28 年淨利 14%–15%，目標價 560 港元，維持「買入」</td><td>未改頹勢</td><td>噪音：賣方第三次改價</td></tr><tr><td>09/22</td><td>中期報告披露存貨 190.18 億元、週轉 271 天</td><td>無大反應</td><td>訊號被忽略：庫存是最重要的變化</td></tr><tr><td>10/08</td><td>國慶首次對迭代商品打 9 折，「降價不走量」</td><td>—</td><td>訊號：需求端最直接的讀數</td></tr><tr><td>10/09</td><td>金價單日漲逾 4%，老鋪 +4.85% 至 337 港元</td><td>反彈</td><td>訊號：仍是金價的影子</td></tr></tbody></table><div class="note">股價反應取自公開報導與 batchdata 收盤資料；7/28 單日跌幅 23.76%、收 302.2 港元為多家媒體一致口徑；8/9、10/9 漲幅為報導口徑。性質判斷為本報告主觀分類。</div><div class="section"><div class="section-title">訊號一：7 月 28 日，市場第一次看清 Q2</div><p class='txt'>先看位置：現價 337 港元距 52 週高點 849.5 港元回撤 60.3%，距 52 週低點約 288 港元只有 17% 空間——反彈和下跌的空間都不對稱，這是典型的「壞消息定價中段」。</p><p class='txt'>7 月 27 日晚的盈喜是「好消息」：預計上半年淨利同比 +80% 以上。第二天股價跌 23.76%，市值蒸發約 167 億港元。這個反差是整輪下跌的轉折點。</p><p class='txt'>原因在券商的倒推：把盈喜的增速區間減掉已披露的第一季數據，Q2 收入只有 23–39.5 億元、淨利 5.1–7.6 億元，環比跌八成以上、同比跌 34%–56%。<b>市場第一次意識到，「+80% 的半年增長」裡藏著一個「-40% 的第二季」。</b></p><p class='txt'>這是典型的「報表總數掩蓋結構」案例。如果沒有盈喜公告後的第一季數據比對，Q2 的崩塌要等到 8 月 24 日中報才會被看見。消息面的價值不在於好壞，在於它提前暴露了結構。</p></div><div class="section"><div class="section-title">訊號二：8 月 9 日和 10 月 9 日，兩次金價反彈它都跟著漲</div><p class='txt'>8 月 9 日，金價創年內最大單週漲幅，老鋪漲超 8%，大摩調研稱部分門店 8 月初重現排隊。10 月 9 日，金價單日漲逾 4%，老鋪漲 4.85% 收 337 港元。</p><p class='txt'>兩次反彈說明一件事：<b>它的股價是金價的影子，不是業績的影子。</b>金價跌，它跌得比金價多（1 月到 7 月跌 46%，金價跌 26%）；金價漲，它漲得比金價多（單日 4.85% vs 4%）。這是典型的高 beta 資產。</p><p class='txt'>這個特徵對投資決策的含義很清楚：<b>如果你要買它，本質上是在買金價的方向。</b>那些「看好品牌、長期持有」的說法，在這兩個交易日面前站不住——真正的長期投資者不會因為金價單日漲 4% 就買入 8%。</p></div><div class="section"><div class="section-title">訊號三：10 月 8 日，國慶「降價不走量」</div><p class='txt'>這是三個月裡最重要、也最被忽略的一條。國慶假期，北京王府井商圈的老鋪門店首次針對迭代商品推出折扣，部分 9 折、VIP 可再折。結果是「降價不走量」——客流平穩，以諮詢試戴為主，沒有往年排隊場面。</p><p class='txt'>為什麼重要？因為<b>它同時否掉了兩個假設</b>：一是「需求只是被提價前置，降價就能拉回來」，二是「品牌力足夠強，價格不是問題」。降價是需求端最後的手段，這個手段失效，說明問題不在價格，在預期。</p><p class='txt'>對比一下同期水貝：深圳水貝黃金珠寶城客流明顯增多，部分商戶排隊買金，主力是婚慶金飾和低工費素金。<b>同一時間，同一個城市群，低價金賣得動、高價金賣不動。</b>這才是「新消費退潮」的真實含義——不是沒人買金，是沒人願意為符號付溢價了。</p></div><div class="section"><div class="section-title">噪音：三個月三次改目標價的賣方</div><p class='txt'>高盛 7 月 12 日把目標價從 1,108 砍到 650，7 月 28 日再砍到 560，9 月 1 日維持 560。三個月三次動作，每次都跟著股價走，沒有一次領先。</p><p class='txt'>這不是高盛的問題，是賣方研究的結構性問題：目標價基於盈利預測，盈利預測基於最新披露，最新披露永遠是滯後的。<b>在老鋪這種由商品價格驅動的公司上，賣方研究的滯後性被放大——因為金價的變化比財報快得多。</b></p><p class='txt'>同樣屬於噪音的還有 8 月 24 日的中報本身。數據在 7 月 27 日的盈喜裡已經被市場猜到，中報只是確認。真正的新資訊在 9 月 22 日的中期報告文本裡（存貨 190.18 億元、週轉 271 天），但那天股價沒有反應——<b>市場對「庫存惡化」這類慢變量，反應總是滯後。</b></p></div><div class="summary-box"><h3>結論</h3><p>歸因結論：<b>這輪下跌是「金價 beta + Q2 證偽 + 估值回歸」三件事的疊加，不是錯殺。</b>如果只看消息面，會以為 7 月 28 日是恐慌；拆開看，那天是市場第一次拿到真實資料。往後看，能改變股價的只有三件事：金價方向、同店資料、庫存週轉。券商報告、業績公告的措辭、管理層的表態，都不重要。</p></div>
+</div>
+<div class="footer">老鋪黃金 (06181) · 2026/10/09</div>
+</body>
+</html>

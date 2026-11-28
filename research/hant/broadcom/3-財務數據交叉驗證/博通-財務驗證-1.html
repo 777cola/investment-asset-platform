@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務驗證 — 博通</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/broadcom/3-财务数据交叉验证/博通-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/broadcom/3-財務數據交叉驗證/博通-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/broadcom/3-Financial-Cross-Check/Broadcom-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務驗證 — 博通</h1>
+  <div class="subtitle">博通 (AVGO) | 03 · 財務驗證</div>
+  <div class="meta">研究日期 2026/10/02 &nbsp;·&nbsp; 股價 $355.14（+3.35%） &nbsp;·&nbsp; 市值 約 1.69 萬億美元（按 47.7 億股粗算） &nbsp;·&nbsp; PE(FY2027E) 約 18x（FY27 一致預期 EPS 19.38 美元）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/broadcom/00-博通研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>八個關鍵數字做了雙源核對，七項偏差在 0.1% 以內，全部是四捨五入。唯一一項 0.66% 的差異不是錯，是兩個不同的東西：公司給的 Q4 指引 348 億美元，市場一致預期 350.3 億美元——<b>指引比預期低 1%，這才是 9 月 3 日股價跌 2.7% 的真實原因。</b></p><p class='txt'>需要標註的是軟體收入 8,751：公司沒有單獨披露，是用總營收減半導體分部推算的。它和其他七項披露值性質不同，所有引用處都應寫「推算」。</p></div><table class="dt"><caption>雙源交叉核對（FY26Q3，單位：百萬美元）</caption><thead><tr><th>指標</th><th>來源 A（公司披露）</th><th>來源 B（媒體／券商）</th><th>偏差</th><th>處理</th></tr></thead><tbody><tr><td>總營收</td><td>29,591（公司財報）</td><td>29,591（第一財經引財報，295.9 億）</td><td>0%</td><td>採用</td></tr><tr><td>半導體解決方案</td><td>20,840（財報分部）</td><td>20,840（證券之星，208.4 億）</td><td>0%</td><td>採用</td></tr><tr><td>其中 AI 半導體</td><td>16,700（電話會議口徑）</td><td>16,700（媒體寫作 167 億）</td><td><0.1%</td><td>採用</td></tr><tr><td>基礎設施軟體</td><td>8,751（總營收 − 半導體，推算）</td><td>8,750（媒體，87.5 億）</td><td>0.01%</td><td>採用推算值並標註</td></tr><tr><td>非通用會計準則毛利率</td><td>75.0%（財報）</td><td>74.9%（部分媒體取整）</td><td>0.1pct</td><td>採用財報</td></tr><tr><td>非 GAAP 稅後淨利</td><td>16,372（財報）</td><td>16,370（媒體，163.7 億）</td><td>0.01%</td><td>採用財報</td></tr><tr><td>固定利率債務</td><td>59,600（財報附註）</td><td>596 億（報導口徑）</td><td>0%</td><td>採用</td></tr><tr><td>FY26Q4 營收</td><td>34,800（公司指引）</td><td>35,030（LSEG 一致預期）</td><td>0.66%</td><td>不合并，兩個口徑分列</td></tr></tbody></table><div class="note">來源 A：博通 FY26Q3 財報與電話會議（2026/09/02）。來源 B：第一財經（2026/09/03）、證券之星（2026/09/02）、國金證券（2026/09/04）。偏差 = |A − B| / A。</div><div class="section"><div class="section-title">偏差超過 1% 的只有一項，而它不是偏差</div><p class='txt'>Q4 營收指引 348 億美元、一致預期 350.3 億美元，差 0.66%。嚴格說這不到 1% 的閾值，但它是這份財報裡唯一有資訊量的「差異」，所以單獨說。</p><p class='txt'>指引和預期是兩個東西：指引是公司說的，預期是分析師猜的。指引低於預期 1%，意味著賣方模型比公司自己更樂觀。<b>市場對這份財報的反應不是「業績差」，而是「公司沒給出超預期的下一季」。</b>9 月 2 日盤後先跌，9 月 3 日收盤 357.16 美元、跌 2.7%，就是這個邏輯。</p><p class='txt'>另外要說明：AI 收入 167 億美元有多個媒體版本（166.8 億、167 億、167.2 億），差異來自四捨五入到億美元。本報告統一用 16,700 百萬美元。</p></div><div class="section"><div class="section-title">三個必須標註的推算值</div><p class='txt'>第一，基礎設施軟體 8,751。公司只披露總營收和半導體分部，軟體是減出來的。校驗方法：8,751 對去年同期 6,728，增速 30.1%，與 VMware 訂閱化的市場預期一致，數量級對得上。</p><p class='txt'>第二，FY25Q3 的分部數據。半導體 9,181 是按 +127% 反推、AI 5,202 是按 +221% 反推，兩個數相加 14,383，減出來的非 AI 半導體 3,979 也與「傳統業務低個位數增長」的常識吻合（今年 4,140，同比 +4.05%）。</p><p class='txt'>第三，FY26Q4 的 AI 指引 21,700 同比 +236%，反推去年同期 AI 收入 6,458，與 FY25 全年 200 億美元上下的 AI 規模自洽。<b>三個反推值互相咬合，說明這套數字內部沒有矛盾。</b></p></div><div class="section"><div class="section-title">最終採用的口徑</div><p class='txt'>全文統一用公司 Non-GAAP 口徑計算利潤率與 EPS，用 GAAP 口徑計算淨資產與稅負；分部收入用公司披露值，軟體用推算值並標註；市值按 355.14 美元 × 47.7 億股；本益比以 FY27 一致預期 EPS 19.38 美元為分母。</p><p class='txt'>不用媒體口徑的原因很實際：媒體常把 Non-GAAP 淨利寫成「淨利」，把 163.72 億和 GAAP 的 131 億混著用，一混就把淨利率從 44% 說成 55%。<b>同一份財報能算出兩個淨利率，區別只在有沒有剔掉攤銷和股權激勵。</b>本報告兩個都給，標明口徑。</p><p class='txt'>最後一條紀律：報告日之後的資訊一律不用。所有數字截至 2026 年 9 月 2 日財報，股價截至 10 月 2 日收盤。</p></div><div class="section"><div class="section-title">對賬之外：三個只有單一來源的數字</div><p class='txt'>交叉驗證只對能被兩家以上獨立來源確認的數字有效。這份報告裡有三個關鍵數字做不到：</p><p class='txt'><b>一是融資平台 3,700 億美元的規模</b>，只有美銀一家的測算，公司沒有確認，也沒有否認。二是 <b>XPU 占 AI 收入 73%</b>，只有電話會一個口徑，沒有分部披露可以核對。三是<b>客戶的部署規模</b>（Anthropic 2027 年 5GW、OpenAI 1.3GW、Meta 2028 年累計 3GW），全部來自公司轉述客戶計劃，客戶自己沒有公開確認。</p><p class='txt'>這三個數字恰好在估值裡權重最大。處理方法只有一條：把它們當「管理層說法」，不當「已核實數據」，在情景假設裡給它們更寬的誤差帶——所以悲觀情景的 AI 收入只給 850 億美元，比公司指引低 26%。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>對賬結論：資料可信，無需修正。</b>七項零偏差、一項口徑差異，反推值三項互相咬合。真正要記住的是兩條：軟體收入是推算值，引用時要標註；淨利率有 55.3%（Non-GAAP）和 44.3%（GAAP）兩個版本，討論估值用前者，討論資產質量用後者。<b>資料層面沒有發現任何需要打折的地方，風險不在數字裡，在數字之外。</b></p></div>
+</div>
+<div class="footer">博通 (AVGO) · 2026/10/02</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理層縱深 — AMD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/amd/6-管理层纵深/AMD-管理层纵深.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/amd/6-管理層縱深/AMD-管理層縱深-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/amd/6-Management-Deep-Dive/AMD-Management-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>管理層縱深 — AMD</h1>
+  <div class="subtitle">AMD (AMD) | 06 · 管理層縱深</div>
+  <div class="meta">研究日期 2026/08/07 &nbsp;·&nbsp; 股價 $483.36（-1.21%） &nbsp;·&nbsp; 市值 約 8,020 億美元 &nbsp;·&nbsp; PE(TTM，GAAP) 約 125x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/amd/00-AMD研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>管理層這一關給 9 分，扣的 1 分不在能力，在結構。蘇姿丰 2014 年 10 月接手 AMD，當時股價 3 美元、現金 23 億、七個產品線全在虧損；十二年後營收年化 460 億、資料中心單季 67 億、市值 8,000 億。<b>這段記錄在半導體史上只有黃仁勳、張忠謀能比。</b></p><p class='txt'>資本配置的動作乾淨：賣掉製造、砍產品線、用股票收賽靈思和 ZT Systems、不分紅、回購只用來抵消稀釋。瑕疵有兩個：她同時是董事長與 CEO，權力集中；57 歲，沒有公開的接班計畫，而 CTO 已 66 歲。</p></div><table class="dt"><caption>關鍵人（2026 年中）</caption><thead><tr><th>姓名</th><th>職務</th><th>持股（約）</th><th>薪酬結構</th><th>履歷要點</th></tr></thead><tbody><tr><td>蘇姿丰 Lisa Su</td><td>董事長、總裁兼 CEO</td><td>約 400 萬股（含未歸屬 RSU，粗算）</td><td>以股權為主，2025 財年總薪酬 3,000 萬美元量級</td><td>MIT 電機博士；TI、IBM（Cell 處理器）、飛思卡爾；2012 年加入 AMD，2014 年 10 月任 CEO</td></tr><tr><td>胡正明 Jean Hu</td><td>執行副總裁兼財務長</td><td>約 40 萬股（粗算）</td><td>現金 + 股權</td><td>前 Marvell 財務長、前 Broadcom 財務高階主管；2023 年加入，主導 ZT Systems 整合與資本結構</td></tr><tr><td>Mark Papermaster</td><td>執行副總裁兼技術長</td><td>約 80 萬股（粗算）</td><td>現金 + 股權</td><td>前蘋果 iPhone 硬體負責人、前思科；2011 年加入，Zen 架構與 chiplet 路線的技術負責人</td></tr><tr><td>Forrest Norrod</td><td>執行副總裁，資料中心事業部</td><td>約 60 萬股（粗算）</td><td>現金 + 股權 + 業績股</td><td>前戴爾伺服器業務負責人；2014 年加入，EPYC 與 Instinct 兩條產品線的操盤者</td></tr><tr><td>John Caldwell</td><td>首席獨立董事</td><td>—</td><td>董事酬金 + 股權</td><td>前 Visa 高階主管；董事會審計與治理委員會成員</td></tr></tbody></table><div class="note">持股與薪酬為公開委託書口徑的近似量級（2025 年委託書，2026 年委託書尚未發布），標註「粗算」，不作為精確數據引用。履歷依據公司 IR 頁面與公開報導。</div><div class="section"><div class="section-title">接手時的牌：現金 23 億、股價 3 美元</div><p class='txt'>2014 年 10 月的 AMD 是一家快要倒閉的公司。營收 55 億、連虧三年、現金 23 億、負債 20 億，x86 份額被英特爾壓到 10% 以下，伺服器份額個位數。董事會換了三任 CEO，最後選了內部的技術派——蘇姿丰當時是 COO。</p><p class='txt'>她做的第一件事不是發布新產品，是砍產品線：手機晶片、平板晶片、低階 APU 全部停掉，把資源集中到 Zen 架構與伺服器。第二件事是賣掉製造——2016 年把封測廠賣給通富微電，把晶圓全部交給 GlobalFoundries 與台積電。第三件事是 2017 年 Zen 首發，用 chiplet 繞開製程劣勢。</p><p class='txt'>結果是可量化的：伺服器 CPU 份額從 2017 年的 1% 漲到 2026 年的三成以上；資料中心收入從 2019 年的 15 億到 2026 年年化 270 億。<b>這不是運氣，是三次正確的戰略取捨。</b></p></div><div class="section"><div class="section-title">資本配置紀錄：只做加法，不做減法</div><p class='txt'>十二年的重大動作只有五筆，每一筆都能說清邏輯：</p><ul><li>2016 年：封測廠賣給通富微電，換長期產能協議——輕資產化的第一步。</li><li>2022 年 2 月：490 億美元全股票收購賽靈思。拿到 FPGA、自適應運算、以及一條對軍工與通訊的穩定收入，同時把股本從 12 億股推到 16 億股。</li><li>2022 年：19 億美元收購 Pensando，拿到 DPU 與 SmartNIC，補齊資料中心網路。</li><li>2024 年：6.65 億美元收購 Silo AI（芬蘭模型團隊），補軟體與模型適配能力。</li><li>2025 年：49 億美元收購 ZT Systems，拿機櫃級系統整合能力，隨後把製造部分賣給 Sanmina——只留設計與整合。這筆交易是 Helios 機櫃能按時交付的前提。</li></ul><p class='txt'>分紅：零。回購：有，但規模只夠抵消股權激勵稀釋，不是價值回饋工具。這與輝達（2026 年單季返還 260 億美元）不在一個量級。<b>對一家仍在擴張期的公司，這是合理的；對一家 125 倍本益比的公司，這意味著股東回報完全依賴股價。</b></p><p class='txt'>有兩筆需要打問號。ZT Systems 的 49 億美元買的是「系統整合能力」，但這項能力的稀缺性在下降——戴爾、鴻海、緯創都能做機櫃。Silo AI 的 6.65 億買的是團隊，不是產品。兩筆都不算錯，但都不是「非買不可」。</p></div><div class="section"><div class="section-title">誠信與治理：沒有醜聞，但有結構問題</div><p class='txt'>會計上沒有污點。沒有 restatement，沒有 SEC 調查，沒有做空機構的實質性指控。關聯交易乾淨，高管薪酬與業績掛鉤的比例合理。這一點在半導體行業裡不算理所當然——同期有多家公司曾在收入確認上出過問題。</p><p class='txt'>結構問題有兩個。<b>其一，董事長與 CEO 一人兼任。</b>2022 年起蘇姿丰兼任董事長，首席獨立董事雖有權召集獨立董事會議，但對一家 8,000 億市值的公司，這是偏弱的制衡。其二，OpenAI 認股權證——上限 1.6 億股、約 9.6% 的潛在稀釋，行權條件與採購量掛鉤。這筆交易在 2025 年 10 月公布時被解讀為「綁定大客戶」，但它同時把股東的一部分未來收益讓渡給了單一客戶。</p><p class='txt'>董事會構成還算健康：11 名董事中 9 名獨立，審計委員會全部獨立，有半導體營運背景的董事 3 名。<b>治理上的風險不是「亂來」，是「太依賴一個人」。</b></p></div><div class="section"><div class="section-title">接班人：最大的單點風險</div><p class='txt'>蘇姿丰 1969 年生，2026 年 57 歲。半導體 CEO 的常見退休年齡是 65 歲上下，理論上還有八年。但 AMD 沒有公開的接班梯隊：CTO Mark Papermaster 已 66 歲，CFO Jean Hu 是財務背景，資料中心負責人 Forrest Norrod 是最接近的人選，但沒有獨立操盤過全公司的紀錄。</p><p class='txt'>這件事對估值的影響是實在的。AMD 過去十二年的超額收益，很大一部分是「蘇姿丰溢價」——市場相信她的判斷。這個溢價沒有寫進任何一張財務報表，但它存在於 125 倍的本益比裡。<b>如果哪天她宣布退休，而接班人沒有同等信用，估值會先跌 20%，再談基本面。</b></p><p class='txt'>觀察指標很簡單：下一次 8-K 裡有沒有 COO 或總裁級別的任命，以及分析師日上誰來講 2028 年的路線圖。</p></div><div class="summary-box"><h3>結論</h3><b>管理層 9/10，是這家公司最硬的一塊資產。</b>資本配置記錄接近滿分：剝離製造、三筆收購都指向「補齊能力」而不是「做大收入」、不分紅不亂回購。扣分在治理結構與接班：董事長兼 CEO、57 歲無公開接班計劃、CTO 已 66 歲。<b>投資含義：這 9 分支撐的是「公司不會自己犯錯」，不支撐「現價合理」。買入與否仍然取決於 125 倍怎麼消化。</b></div>
+</div>
+<div class="footer">AMD (AMD) · 2026/08/07</div>
+</body>
+</html>

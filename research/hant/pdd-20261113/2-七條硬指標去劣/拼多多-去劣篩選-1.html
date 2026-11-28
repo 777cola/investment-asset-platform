@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣篩選 — 拼多多</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/pdd-20261113/2-七条硬指标去劣/拼多多-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/pdd-20261113/2-七條硬指標去劣/拼多多-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/pdd-20261113/2-Seven-Hard-Metrics/Pinduoduo-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>去劣篩選 — 拼多多</h1>
+  <div class="subtitle">拼多多 (PDD) | 02 · 去劣篩選</div>
+  <div class="meta">研究日期 2026/11/13 &nbsp;·&nbsp; 股價 $78.97（+1.86%） &nbsp;·&nbsp; 市值 約 1,124 億美元 &nbsp;·&nbsp; PE(TTM) 約 8.2x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/pdd-20261113/00-拼多多研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：經營沒毛病，分配有硬傷</h3><p class='txt'>七項硬指標過五項。毛利率57.3%、淨利率24.2%、ROE約18%、零有息負債，經營品質在這七項上沒有短板。未過的兩項：營業現金流／淨利0.95（差在營運資本波動，屬雜訊）、股東回報／淨利0%（五年零分紅零回購，屬硬傷）。</p><p class='txt'><b>這家公司的問題不在賺錢，在分錢。</b></p></div><table class="dt"><caption>七條硬指標（拼多多，2026Q2 口徑）</caption><thead><tr><th>指標</th><th>公司數值</th><th>門檻</th><th>判定</th></tr></thead><tbody><tr><td>ROE（TTM）</td><td>約 18%（粗算：935 億元 ÷ 約 5,200 億元淨資產）</td><td>≥15%</td><td>透過</td></tr><tr><td>毛利率</td><td>57.3%（同比 +1.4pct）</td><td>≥30% 且穩定</td><td>透過</td></tr><tr><td>淨利率</td><td>24.2%（GAAP）</td><td>≥10%</td><td>透過</td></tr><tr><td>營業現金流 / 稅後淨利</td><td>0.95（Q2：257 ÷ 271.8）</td><td>≥1.0</td><td>不過</td></tr><tr><td>有息負債 / 淨資產</td><td>0（無有息負債，淨現金 4,564 億元）</td><td>≤30%</td><td>透過</td></tr><tr><td>營收增速</td><td>+8.0%（其中廣告 +3.5%）</td><td>≥5%</td><td>勉強通過</td></tr><tr><td>股東回報 / 稅後淨利</td><td>0%（無分紅、無回購）</td><td>≥20%</td><td>不過</td></tr></tbody></table><div class="note">資料來源：拼多多 2026Q2 財報（2026/8/24）；ROE 與淨資產為粗算值，公司未單獨披露季度淨資產，按 4,564 億元現金及短期投資加營運資產、減商家應付款估算，誤差可能達兩成。七條門檻為本框架通用閾值，不隨行業調整。</div><div class="section"><div class="section-title">七條過五條：這家公司的問題是分配，不是經營</div><p class='txt'>七條硬指標是去劣工具，不是選優工具。它的作用是十分鐘內把「看起來很便宜但其實是坑」的公司剔掉。拼多多過了五條，不過的兩條分別指向現金流覆蓋和股東回報——<b>一條是季節性的，一條是結構性的。</b></p></div><div class="section"><div class="section-title">第四條不過：0.95 的現金流覆蓋，是營運資本不是品質問題</div><p class='txt'>2026年第二季經營現金流257億元，歸母淨利271.8億元，比值0.95，差一點點沒到1。這個缺口不是應收帳款堆積——拼多多的商家貨款是預付的，它自己幾乎不墊資——而是季度間商家保證金與應付帳款的波動。</p><p class='txt'>把時間拉長看，2025年全年Non-GAAP淨利1,073億元，帳面現金一年增加341億元，同時還在「千億扶持」上花了錢，造血能力沒有疑問。<b>所以這一條判「不過」，但不構成風險，屬於口徑噪音。</b></p></div><div class="section"><div class="section-title">第七條不過：零回報，這才是真問題</div><p class='txt'>分紅率0%、回購0%，兩個零放在一起，意味著股東從這家公司拿不到一分錢現金。對比同業：阿里2026財年仍有回購與分紅，京東有回購，騰訊每年千億港元級別的回購已經成了估值的錨。</p><p class='txt'>這條不過的後果很直接：<b>你無法用現金流給估值封底。</b>一家7倍市盈率、每年賺1,000億元、把現金全存銀行的公司，理論上值更多；但只要它不分配，市場就只能按「這些錢可能被燒掉」來定價。拼多多1,124億美元市值對應4,564億元現金，打了個對折還不止，這個折價就是市場對零回報的定價。</p></div><div class="section"><div class="section-title">第六條的勉強通過，比不過更值得警惕</div><p class='txt'>總營收+8%看著還行，但拆開是廣告+3.5%、交易服務+13%。廣告是主站國內變現的全部，3.5%意味著國內生意已經不再成長；兩位數成長全部來自Temu佣金，而Temu正在被關稅和合規成本追著跑。</p><p class='txt'><b>總增速掩蓋了結構變化。</b>如果只看+8%，會誤判這家公司還在成長期；看廣告的3.5%，才知道它已經在守成。這兩條讀數差三倍，是同一份財報裡的兩個世界。</p></div><div class="section"><div class="section-title">第七條篩不出來的第八條：政策敞口</div><p class='txt'>這七條全是財務指標，沒有一條能測出「監管把毛利率改掉」的風險。拼多多2026年的三個變數——美國2,500美元以下小包新規、歐盟每類5歐元的固定成本、商品安全調查的6%營收罰款上限——都不在表裡。</p><p class='txt'><b>這就是硬指標的邊界：它能告訴你公司過去賺不賺錢，不能告訴你這門生意明年還能不能按同樣的規則賺。</b>所以七條只能當第一道閘，後面還得靠產業鏈和政策分析補。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：七條過五條，不過的兩條一條是噪音（現金流覆蓋0.95），一條是硬傷（零股東回報）。</b></p><p class='txt'>硬指標的作用是排除，不是買入理由。拼多多在這七條上沒有致命項：沒有有息負債、毛利57%、淨利24%、ROE約18%，這些數字說明它是一家真賺錢的公司。但第七條零回報決定了它只能是「限倉位的便宜貨」，不能是壓箱底的持倉。</p><p class='txt'>如果哪天它宣布回購，哪怕只有50億美元，這七條就變成六條通過，估值邏輯要整個重寫。</p></div>
+</div>
+<div class="footer">拼多多 (PDD) · 2026/11/13</div>
+</body>
+</html>

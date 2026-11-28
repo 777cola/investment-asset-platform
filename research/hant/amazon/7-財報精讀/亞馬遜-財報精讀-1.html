@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀 — 亞馬遜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/amazon/7-财报精读/亚马逊-财报精读.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/amazon/7-財報精讀/亞馬遜-財報精讀-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/amazon/7-Earnings-Deep-Read/Amazon-Earnings Read-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀 — 亞馬遜</h1>
+  <div class="subtitle">亞馬遜 (AMZN) | 07 · 財報精讀</div>
+  <div class="meta">研究日期 2026/11/06 &nbsp;·&nbsp; 股價 $259.30（-0.35%） &nbsp;·&nbsp; 市值 約 2.80 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 20.8x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/amazon/00-亞馬遜研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>同一份財報，兩張表講兩個故事。損益表：營業利益 280.8 億、同比 +61%，營業利益率 13.9% 創歷史最高，AWS 單季貢獻 177.8 億。現金流量表：購置物業設備 772.6 億、同比 +120%，TTM 自由現金流 -424 億。</p><p class='txt'>拆開看，<b>利潤的改善來自三個真實的效率提升</b>（履約成本、廣告變現、AWS 規模），<b>現金的惡化來自一個主動選擇</b>（搶算力產能）。這不是「財報變差」，是「財報變重」。</p></div><table class="dt"><caption>合併利潤表（百萬美元）</caption><thead><tr><th>項目</th><th>2026Q3</th><th>2025Q3</th><th>同比</th><th>2026 前三季</th><th>同比</th></tr></thead><tbody><tr><td>淨銷售額</td><td>201,944</td><td>180,169</td><td>+12.1%</td><td>584,069</td><td>+16.0%</td></tr><tr><td>其中：商品銷售</td><td>75,296</td><td>74,058</td><td>+1.7%</td><td>224,202</td><td>+8.7%</td></tr><tr><td>其中：服務銷售</td><td>126,648</td><td>106,111</td><td>+19.4%</td><td>359,867</td><td>+21.1%</td></tr><tr><td>營業成本</td><td>94,573</td><td>88,670</td><td>+6.7%</td><td>277,814</td><td>+12.7%</td></tr><tr><td>履約費用</td><td>29,997</td><td>27,679</td><td>+8.4%</td><td>86,919</td><td>+11.1%</td></tr><tr><td>技術與基礎設施</td><td>34,814</td><td>28,962</td><td>+20.2%</td><td>97,539</td><td>+23.3%</td></tr><tr><td>銷售與市場</td><td>11,649</td><td>11,686</td><td>-0.3%</td><td>33,661</td><td>+2.4%</td></tr><tr><td>一般及行政</td><td>2,701</td><td>2,875</td><td>-6.1%</td><td>8,076</td><td>-4.6%</td></tr><tr><td>營業利益</td><td>28,076</td><td>17,422</td><td>+61.2%</td><td>79,389</td><td>+44.4%</td></tr><tr><td>利息支出</td><td>1,691</td><td>538</td><td>+214%</td><td>3,805</td><td>+138.6%</td></tr><tr><td>其他收入（淨額）</td><td>-703</td><td>10,186</td><td>轉負</td><td>68,359</td><td>—</td></tr><tr><td>稅後淨利</td><td>20,685</td><td>21,187</td><td>-2.4%</td><td>113,587</td><td>+101.1%</td></tr><tr><td>稀釋每股盈餘（美元）</td><td>1.89</td><td>1.95</td><td>-3.1%</td><td>10.42</td><td>+99.6%</td></tr></tbody></table><div class="note">資料來源：亞馬遜 2026Q3 財報合併利潤表原文（2026/10/29，東方財富轉載全文）。2025 年同期數取自同一張表的可比列。2025Q3 其他收入 101.86 億元含 Anthropic 的 95 億美元稅前收益，這是本期稅後淨利同比為負的唯一原因。</div><table class="dt"><caption>分部（百萬美元）</caption><thead><tr><th>分部</th><th>收入</th><th>同比</th><th>營業利益</th><th>利潤率</th><th>利潤佔比</th></tr></thead><tbody><tr><td>北美</td><td>112,852</td><td>+6.0%</td><td>8,723</td><td>7.7%</td><td>31.1%</td></tr><tr><td>國際</td><td>43,108</td><td>+5.0%（固定匯率 +8%）</td><td>1,580</td><td>3.7%</td><td>5.6%</td></tr><tr><td>AWS</td><td>45,980</td><td>+39.3%</td><td>17,773</td><td>38.7%</td><td>63.3%</td></tr><tr><td>合計</td><td>201,944</td><td>+12.1%</td><td>28,076</td><td>13.9%</td><td>100%</td></tr></tbody></table><div class="note">收入與營業利益為公司揭露值。國際分部同比 +5% 為報表口徑，剔除匯率影響為 +8%（電話會議）。利潤占比 = 分部營業利益 / 28,076。</div><table class="dt"><caption>業務線收入結構（百萬美元）</caption><thead><tr><th>業務線</th><th>2026Q3</th><th>同比</th><th>佔比</th></tr></thead><tbody><tr><td>線上商店</td><td>68,470</td><td>+2%</td><td>33.9%</td></tr><tr><td>第三方賣家服務</td><td>46,492</td><td>+9%</td><td>23.0%</td></tr><tr><td>AWS</td><td>45,980</td><td>+39.3%</td><td>22.8%</td></tr><tr><td>廣告服務</td><td>19,637</td><td>+12%</td><td>9.7%</td></tr><tr><td>訂閱服務</td><td>14,006</td><td>+11%</td><td>6.9%</td></tr><tr><td>實體商店</td><td>5,710</td><td>+2%</td><td>2.8%</td></tr><tr><td>其他（差額倒算）</td><td>1,645</td><td>—</td><td>0.8%</td></tr></tbody></table><div class="note">資料來源：公司財報與 AMZ123 財報摘要（2026/10/30）。「其他」為總收入減各業務線之和的差額（201,944-200,299），屬倒算值。第三方賣家商品占全球付費銷量 61%。</div><div class="section"><div class="section-title">第一層：收入結構——服務收入第一次成為增長的全部來源</div><p class='txt'>淨銷售額 2,019.4 億，商品銷售 752.9 億僅增 1.7%，服務銷售 1,266.5 億增 19.4%。<b>這是結構性變化：亞馬遜的成長已經和「賣貨」脫鉤。</b>前九個月同樣：商品 +8.7%、服務 +21.1%，服務占總收入 61.6%。</p><p class='txt'>業務線看得更清楚。線上商店 684.7 億僅增 2%（去年同期增近 10%），第三方賣家服務 464.9 億增 9%——賣家商品已占全球付費銷量 61%，意味著亞馬遜越來越像「收租的平台」而不是「賺差價的商店」。廣告 196.4 億增 12%、訂閱 140.1 億增 11%，這兩塊毛利最高。<b>一句話：自營在減速，平台、廣告、雲在加速，收入品質在提高。</b></p><p class='txt'>要留一個扣分：管理層把廣告只有 11%–12% 歸因於 Prime Day 從三季度挪到二季度（影響約 850 個基點），但同期付費銷量還增了 12%。這個解釋可信，但不足以解釋全部，四季度指引「回到高十幾」是必須驗證的承諾。</p></div><div class="section"><div class="section-title">第二層：毛利與費用——三條費用線在打架</div><p class='txt'>毛利：收入 2,019.4 億減營業成本 945.7 億，毛利 1,073.7 億、毛利率 53.2%（前三季 52.4%），比去年同期 50.8% 提高 2.4 個百分點。<b>毛利率改善不是因為漲價，是因為收入結構從商品移向服務。</b></p><p class='txt'>費用端三條線方向完全不同：<b>履約費用</b>299.97 億、+8.4%，低於銷量增速 12%——規模效應在起作用；<b>技術與基礎設施</b>348.14 億、+20.2%（前三季 +23.3%），這是 AWS 的折舊 + 技術人力，增速最快的一條線；<b>銷售與市場</b>116.49 億、-0.3%，<b>一般及行政</b>27.01 億、-6.1%——裁員三萬人之後的組織收縮，直接體現在這兩行。</p><p class='txt'>合起來，營業費用率從 90.3% 降到 86.1%，營業利益率 13.9%。這個改善的品質是好的：<b>不是靠削減長期投入換來的</b>（技術與基礎設施還在猛增），而是靠履約效率和組織瘦身。</p></div><div class="section"><div class="section-title">第三層：利潤——營業利益是真的，稅後淨利是假的</div><p class='txt'>營業利益 280.76 億、同比 +61.2%，營業利益率 13.9%，這是公司歷史上最高的一季。AWS 一個分部貢獻 177.73 億（63.3%），北美 87.23 億（31.1%），國際 15.80 億（5.6%）。<b>三家分部的利潤率差異說明這門生意的利潤幾乎全部來自「資產出租」，不是「賣貨」。</b></p><p class='txt'>但稅後淨利 206.85 億、同比 -2.4%，EPS 1.89 美元、-3.1%。原因不是經營變差，是去年同期有 Anthropic 的 95 億美元稅前收益，基數被抬高。本期其他收入反而是 -7.03 億。<b>換句話說：營業利益同比 +108.5 億，淨利同比 -5.02 億，差額全部來自非經營項目。</b></p><p class='txt'>前三季度的帳要更小心看：其他收入累計 683.59 億、占稅前利潤 46%，稅後淨利同比 +101%。<b>如果你用「淨利翻倍」來講這家公司，講的是 Anthropic 的估值，不是亞馬遜的生意。</b></p></div><div class="section"><div class="section-title">第四層：現金流與資產負債——錢去哪了，答案只有一行</div><p class='txt'>營業現金流 TTM 1,683 億元、同比 +28.7%，健康。購置物業設備單季 772.6 億元、同比 +120%，前三季累計約 1,650 億元（按單季節奏粗算），全年指引 2,200 億元。<b>自由現金流 TTM -424 億元，第二季度報告時還是 -76 億元，也就是說三季度一個季度就燒掉約 348 億元。</b></p><p class='txt'>資產負債表的兩處變化：長期債務 656 億元 → 1,731 億元，一年加了 1,075 億元；利息支出單季從 5.38 億元漲到 16.91 億元。<b>公司在用債務為 AI 擴張融資，這是從「現金充裕」轉向「資本密集」的標誌。</b>好消息是利息覆蓋還有 16.6 倍，壞消息是這個倍數在快速下降。</p><p class='txt'>一個容易被漏掉的信號：銷售與市場、一般行政兩條費用線在下降，而技術與基礎設施在 +20% 增長。<b>公司一邊裁三萬個企業崗，一邊每 14 秒裝一台 AI 加速器</b>——這就是它現在的資本配置姿態，把人力成本換成算力資本，賭後者的回報率更高。</p></div><div class="section"><div class="section-title">一個容易被忽略的會計細節：其他收入的符號</div><p class='txt'>本季「其他收入（淨額）」是 -7.03 億美元，去年同期是 +101.86 億。同一個科目從大幅正貢獻變成小幅負拖累，差額 108.9 億——<b>這就是稅後淨利同比 -2.4% 的全部原因，和經營沒有任何關係。</b></p><p class='txt'>看季度財報時，這一行的符號變化值得單獨標出來：它不受經營控制，卻能讓「利潤增長」變成「利潤下滑」。同理，前三季累計 +683.59 億把淨利抬到同比 +101%。<b>一個科目，兩個方向，兩種敘事——讀財報的人要自己決定相信哪一個。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>這份財報的讀法是：把損益表當「能力證明」，把現金流量表當「代價清單」。</b>能力是真的——營業利益率 13.9% 不是一次性，履約效率、廣告變現、AWS 規模三條都在改善。代價也是真的——2,200 億資本支出會在 2027–2028 年變成每年數百億折舊。判斷標準只有一條：折舊增速會不會超過營業利益增速。四季度指引（收入 2,400–2,470 億、營業利益 285–335 億）是第一道檢驗。</p></div>
+</div>
+<div class="footer">亞馬遜 (AMZN) · 2026/11/06</div>
+</body>
+</html>

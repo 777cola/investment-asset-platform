@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>論文追蹤 — 禮來</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/lilly/13-持仓论文追踪/礼来-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/lilly/13-持倉論文追蹤/禮來-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/lilly/13-Thesis-Tracking/Eli Lilly-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>論文追蹤 — 禮來</h1>
+  <div class="subtitle">禮來 (LLY) | 13 · 論文追蹤</div>
+  <div class="meta">研究日期 2026/11/09 &nbsp;·&nbsp; 股價 $1,411.95（+4.28%） &nbsp;·&nbsp; 市值 約 1.33 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 48x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/lilly/00-禮來研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>把買入理由拆成六條可驗證的假設，逐條對現狀：替爾泊肽全年 600 億美元在軌、毛利率 82% 以上在軌、美國降價幅度在軌、retatrutide 2027Q1 申報在軌；<b>2027 年增速待驗證（管理層沒給數字），口服藥那條已經明顯偏離</b>——Foundayo 單季 1.84 億美元，年化 7.4 億，而市場原來預期全年 30 億。<b>六條裡五條沒壞，但壞的那條正好是 2028 年的增長引擎。</b></p></div><table class="dt"><caption>核心假設與驗證狀態</caption><thead><tr><th>假設</th><th>當前證據</th><th>驗證指標</th><th>狀態</th></tr></thead><tbody><tr><td>① 替爾泊肽 2026 全年銷售 ≥600 億美元</td><td>前三季 437.68 億元，Q4 需 162 億元以上（Q3 為 160.75 億元）</td><td>第4季單季 ≥162 億美元</td><td>在軌（略緊）</td></tr><tr><td>② Foundayo 2027 年營收 ≥40 億美元</td><td>Q3 僅 1.84 億，年化 7.4 億；賣方已把 2026 年預期從 30 億下修到 13 億</td><td>單季 ≥10 億美元</td><td>嚴重偏離</td></tr><tr><td>③ 2027 年營收增速 ≥18%（營收 ≥1,075 億）</td><td>管理層對 2027 年只說「強勁」，未給數字</td><td>2027 年指引（預計 2027 年 2 月）</td><td>待驗證</td></tr><tr><td>④ 非 GAAP 毛利率 2027 年 ≥82%</td><td>Q3 84.4%，同比 +0.8pct；海外占比升至 38%</td><td>季度毛利率環比</td><td>在軌</td></tr><tr><td>⑤ 美國實際售價年降幅 ≤10%</td><td>第三季美國 -7%、海外 -29%、3.0</td><td>季度美國實際售價</td><td>在軌（偏緊）</td></tr><tr><td>⑥ retatrutide 2027Q1 提交上市申請</td><td>III 期 TRIUMPH-2 數據 80 週減重 20.8%，公司已公開申報計劃</td><td>申報受理公告</td><td>在軌</td></tr></tbody></table><div class="note">假設為本報告設定，非公司指引。① 的 Q4 需求按前三季與 Q3 單季推算；② 的年化按 Q3×4 粗算；③ 的 18% 對應 2027 年營收 1,075 億美元（2026 年中值 915 億 × 1.175）。</div><div class="section"><div class="section-title">在軌的四條：替爾泊肽、毛利率、美國價格、管線</div><p class='txt'>替爾泊肽全年 600 億美元的假設基本成立。前三季 437.68 億，Q4 只要做到 162 億就夠——Q3 單季已經是 160.75 億，而 Q4 通常有醫保切換和年初備貨的季節性。Mounjaro 還在 +65%、Zepbound +49%，<b>這條假設的風險不在需求，在供應和降價。</b></p><p class='txt'>毛利率和價格兩條互相咬著：Q3 毛利率 84.4% 是在售價 -15% 的情況下做出來的，靠產能攤薄。只要攤薄還沒走完（四個基地 2030 年前才全投產），2027 年守住 82% 是合理的。<b>美國售價 -7% 這條最脆弱：Medicare 從 2026 年起按 245 美元/月淨價覆蓋，2027 年如果擴圍到商業保險，-7% 會迅速變成 -12%。</b></p><p class='txt'><b>假設和估值的對應關係要寫清楚：</b>六條全在軌 → 2027 年 EPS 47 美元、給 38 倍、1,786 美元；四條在軌、口服偏離 → EPS 42 美元、給 32 倍、1,344 美元；三條以上出問題 → EPS 33 美元、給 25 倍、825 美元。<b>現在的位置是第二條——中性情景，目標價低於現價 5%。</b></p></div><div class="section"><div class="section-title">偏離的那條：口服藥，而且是致命的一條</div><p class='txt'>Foundayo 的帳要算清楚。Q3 1.84 億美元、累計 2.81 億，年化 7.4 億；賣方把 2026 年全年預期從 30 億一路下修到 13 億。對照口服 Wegovy：Q3 8.11 億美元、週處方 18.3 萬張 vs Foundayo 6.3 萬張，差三倍。<b>這不是「慢一點」，是一個數量級的差距。</b></p><p class='txt'>為什麼這條最關鍵？因為替爾泊肽美國專利 2036 年 5 月到期，口服藥是「專利懸崖之後的過渡橋」。如果口服接不上，禮來在 2030 年代就要靠 retatrutide 單打獨鬥——而 retatrutide 也是注射劑。<b>換句話說，禮來在「不用打針」這個方向上，目前沒有第二個答案。</b>這條假設一旦證偽，2028 年之後的成長故事就要重寫。</p><p class='txt'>有一條反面證據值得記：Foundayo 的便利性優勢是真的（任意時間服、不用空腹），而且通路鋪得不慢（45% 來自 LillyDirect、35% 來自遠距醫療，11 月還與 Hims &amp; Hers 合作）。<b>它輸的不是產品，是「醫生和保險的肌肉記憶」——口服 Wegovy 靠司美格魯肽這個老名字省掉了教育成本。</b>這種劣勢會隨時間收窄，但要用四個季度以上來觀察，不是一個季度。</p></div><div class="section"><div class="section-title">證偽條件與觀察日曆</div><p class='txt'><b>四條證偽條件，觸發任何一條就重估：</b></p><ul><li>Foundayo 連續兩個季度單季低於 3 億美元 → 2028 年成長敘事破產，估值給 25 倍以下。</li><li>美國實際售價單季降幅超過 12% → 毛利率見頂提前，2027 年 82% 的假設作廢。</li><li>2027 年營收指引低於 1,050 億美元（增速 &lt;15%）→ 48 倍必然壓到 30 倍以下。</li><li>retatrutide 申報推遲到 2027 年下半年之後 → 管線溢價消失，等同於第二條同時出問題。</li></ul><p class='txt'><b>觀察日曆：</b>2027 年 2 月年報與 2027 年指引（最重要，估值缺的那塊拼圖）；2027 年 4 月一季報（Foundayo 第一個完整環比）；每月 IQVIA 口服處方數據（週處方 15 萬張是分水嶺）；2027 年 6 月 ADA 與 9 月 EASD（retatrutide 更多數據）；睡眠呼吸中止適應症的審批節點（Foundayo 新適應症，公司稱年底前申請）。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>論文目前站得住，但不是因為口服藥，是因為替爾泊肽。</b>六條假設裡五條沒壞，最脆弱的那條（口服）已經在偏離，而且偏離得很明顯。<b>這就是「觀察」而不是「買入」的另一個理由：不是價格問題，是有一條關鍵假設還沒被驗證。</b>等 2027 年 2 月的指引出來，六條裡會有三條直接見分曉。</p></div>
+</div>
+<div class="footer">禮來 (LLY) · 2026/11/09</div>
+</body>
+</html>

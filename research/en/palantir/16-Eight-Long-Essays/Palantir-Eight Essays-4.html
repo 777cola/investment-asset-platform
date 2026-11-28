@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>04 Financial reality: three margins, only one is real — Palantir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/palantir/16-八篇深度长文/Palantir-04-财务真相.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/palantir/16-八篇深度長文/Palantir-八篇長文-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/palantir/16-Eight-Long-Essays/Palantir-Eight Essays-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>04 Financial reality: three margins, only one is real — Palantir</h1>
+  <div class="subtitle">47%, 55%, 63% — three numbers, three bases, a threefold valuation gap</div>
+  <div class="meta">Research date 2026/10/05 &nbsp;·&nbsp; Price $189.40 (+0.34%) &nbsp;·&nbsp; Market cap About USD 456 billion &nbsp;·&nbsp; PS(TTM) Approximately 74x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/palantir/00-Palantir-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>For the same earnings report, a company will give you three margins: a GAAP operating margin of 47.1%, a GAAP net margin of 54.9%, and a free cash flow margin of 63.1%. <b>All three numbers are real, but they answer three different questions.</b> Use the wrong one and your valuation will be off by 30%.</p><p class='txt'>This piece breaks the three numbers apart and tells you which to use and which to ignore.</p></div><div class="section"><div class="section-title">47%: true operating capability, the one to use</div><p class='txt'>GAAP operating income USD 912 million, margin 47.1%. This figure already deducts stock-based compensation (265 million) and all expenses, with only interest and taxes excluded. <b>The question it answers is: is this business itself profitable? The answer is extremely profitable.</b></p><p class='txt'>Cross-sectional comparison: Salesforce about 20%, Adobe about 35%, Microsoft about 45%. Palantir's 47% ranks in the top three among large software companies. <b>Longitudinal comparison: 26.8% in the same period last year (back-calculated), a 20 percentage point improvement in one year.</b> This improvement comes from the expense ratio being compressed from 46% to 33%, the result of a model shift (consulting to software), not cost cutting.</p></div><div class="section"><div class="section-title">55%: false; 8% is deposit interest</div><p class='txt'>Net profit of RMB 1.062 billion, net margin 54.9%, 7.8 percentage points above the operating margin. On first look the number confuses—what company gets more profitable the further down the income statement you go?</p><p class='txt'>The answer lies below the operating line: interest on USD 9.2 billion of cash, roughly 370 million annualized (at a rough 4%), or 90 million a quarter; plus an effective tax rate below the statutory rate (historical loss carryforwards). <b>Together the two lift net profit to RMB 1.062 billion.</b></p><p class='txt'>Neither source is sustainable. A 100bp rate cut removes 90 million annualized; once the tax credits run out and the rate returns to 21%, net profit falls a further 40 million. <b>So the "55% net margin" becomes roughly 48% after normalization.</b> Valuing on 55% overstates value by 15%.</p></div><div class="section"><div class="section-title">63%: real cash, but equity incentives must be deducted</div><p class='txt'>Free cash flow was RMB 1.22 billion, a 63.1% margin, 16 percentage points above the operating margin. This figure comes closest to "the cash shareholders actually receive," but one adjustment is needed: RMB 265 million of share-based compensation is a non-cash expense that was added back.</p><p class='txt'>After deducting it, the figure is RMB 955 million, a 49.3% margin. <b>This is the true owner earnings.</b> It is 2 percentage points above the GAAP operating margin of 47.1% — showing that the company converts cash extremely well, with almost no accounts-receivable padding in its profit.</p><p class='txt'>Valuation on this basis: annualizing Q2 gives RMB 3.82 billion, or 119x the RMB 456 billion market cap; annualized net income on the same basis is RMB 4.25 billion, or 107x. <b>Both multiples say the same thing: the price has already discounted more than twenty years of these profits.</b></p></div><div class="section"><div class="section-title">TCV: the only metric flashing red</div><p class='txt'>The income statement is all good news; the crack is in orders. Total contract value USD 3.373 billion, +49% YoY; revenue +93%. <b>Contract growth is only half of revenue growth, meaning current revenue is consuming the existing contract backlog.</b></p><p class='txt'>Breaking it down, US commercial TCV +153% (extremely strong), dragged by government and international (no strategic-scale mega deals). 220 million-dollar contracts, averaging USD 15.3 million each — all expansion deals, not strategic deals.</p><p class='txt'>This crack is not fatal, but it is the only metric that needs verification over the next two quarters. <b>Judgment criterion: TCV/revenue is currently 1.74x; only a drop below 1.2 would be a real problem.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p>Financial truth: <b>47% is about the business, 63% is about cash flow, 55% should be ignored, and 49% is true shareholder earnings.</b> All four numbers point to "this is an excellent business," and all four point to "this price is extremely expensive" — a 119x shareholder-earnings P/E is not the price a company that can still double should command.</p></div>
+</div>
+<div class="footer">Palantir (PLTR) · 2026/10/05</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Risk Assessment (Li Lu's perspective) — SMIC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/smic/5-四角色并行分析/中芯国际-风险评估-李录.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/smic/5-四角色並行分析/中芯國際-四角色-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/smic/5-Four-Role-Analysis/SMIC-Four Roles-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Risk Assessment (Li Lu's perspective) — SMIC</h1>
+  <div class="subtitle">Five risks, ranked by probability times impact</div>
+  <div class="meta">Research date 2026/08/10 &nbsp;·&nbsp; Price ¥126.25 (-1.75%) &nbsp;·&nbsp; Market cap About RMB 1.08 trillion &nbsp;·&nbsp; PE(TTM) Approximately 205x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/smic/00-SMIC-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>Risk is not a checklist; it is a ranking. SMIC's five risks ranked by "probability × impact": depreciation squeezing gross margin (high probability, medium impact), cutthroat competition in mature nodes (medium-high probability, high impact), further tightening of equipment controls (medium probability, extremely high impact), A/H premium convergence (high probability, medium impact), governance and dividend shortfalls (certain, low impact). <b>The biggest danger is not TSMC; it is depreciation and cutthroat competition.</b></p></div><div class="section"><div class="section-title">Risk one: depreciation — certain, and it happens every year</div><p class='txt'>2025 depreciation and amortization was USD 3.81 billion, or 40.9% of revenue; 2026 guidance is about USD 5 billion, up 30% year on year; for 2027 the company explicitly said it "will still grow," with the peak timing depending on the pace of capacity expansion. This means <b>the numerator (price) of gross margin has to race the denominator (depreciation), and depreciation is locked in ahead of time</b>.</p><p class='txt'>Quantifying it: the extra USD 1.2 billion of depreciation in 2026 equals 12.9% of 2025 revenue. To offset that through pricing, ASP would have to rise 13%; the company's first-quarter ASP rose only 2.5% quarter on quarter, and second-quarter gross margin guidance is 20%–22% (still below the 22.5% of 2025Q2). <b>Depreciation is outrunning price increases — that is the basic fact of 2026.</b></p></div><div class="section"><div class="section-title">Risk 2: Involution — mainland China's capacity cannibalizes itself</div><p class='txt'>Mainland China's mature-node capacity is forecast to account for 33% of global capacity in 2027. Hua Hong's Q1 2026 revenue was USD 661 million, up 22.2% year on year, with utilization above 100% for an extended period; Nexchip and Smic-Integrated are both expanding. This capacity targets the same customer base: PMIC, DDI, CIS and power devices.</p><p class='txt'>A signal already appeared after Chinese New Year 2026: several Chinese foundries prepared to cut prices on general-purpose chips by 15%–20% to win orders. <b>SMIC's response is not to follow — it chooses to defend gross margin rather than share</b>, a plus in the short term but one that means second-tier players will erode its share over time.</p><p class='txt'>Li Lu would point to the nature of this layer: it is not a cyclical risk but the result of industrial policy. Local governments want output value and jobs, so capacity will oversupply and prices will fall. This risk will not disappear; it will only erupt periodically.</p></div><div class="section"><div class="section-title">Risks 3-5: regulation, premium, governance</div><p class='txt'><b>Controls.</b> In April 2026 the US plans to impose a near-blanket ban on advanced wafer fabrication equipment on five companies including SMIC, CXMT and Hua Hong, covering DUV lithography and etch tools. This is a tail risk: low probability, but if it lands, expansion timelines break, and the four new fabs keep taking depreciation without revenue growth. In February 2026 Applied Materials was fined USD 252 million for supplying SMIC in violation of rules, showing that controls are enforced in earnest.</p><p class='txt'><b>A/H premium.</b> A-shares at RMB 126.25, H-shares at HKD 66.20, a premium of 121%. Narrowing the premium requires no change in fundamentals — from 9 July to 10 August, A-shares fell from 173 to 126 (-27%) and H-shares from 89.4 to 66.2 (-26%); both fell in tandem and the premium did not narrow. But if either southbound funds or foreign capital change direction, the premium will compress passively.</p><p class='txt'><b>Governance and dividends.</b> No dividend for fiscal 2025, citing capital expenditure; the Big Fund, Datang and Xinxin hold over 20% combined, and capital allocation serves industrial objectives first. For shareholders this means <b>no downside protection</b> — no one will buy back stock because the price falls.</p></div><div class="section"><div class="section-title">Under what circumstances would these risks erupt simultaneously?</div><p class='txt'>The worst of the three scenarios: depreciation keeps rising in 2027, mature-node prices get pushed back down by domestic peers, and AI demand recedes at the same time. Combined, gross margin falls below 15%, net profit returns to its 2023 level (full-year net profit then was less than RMB 1 billion), and the stock still trades at 6x PB.</p><p class='txt'>This scenario is not highly probable, but it explains why the fifth gate scores only 1 point: <b>not because a collapse is expected, but because the price leaves no buffer for "no collapse."</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Risk conclusion: manageable but underpriced.</b> Of the five risks, depreciation and cutthroat competition are high-probability and already unfolding; regulation is low-probability, high-damage; the premium and governance are slow variables. Taken together, the most sensible response is not to liquidate but to "not chase highs and wait for the price to offer a buffer." A price at 205x PE assumes none of the five risks materializes.</p></div>
+</div>
+<div class="footer">SMIC (688981) · 2026/08/10</div>
+</body>
+</html>

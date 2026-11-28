@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>風險評估（李錄視角） — 阿斯麥</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/asml/5-四角色并行分析/阿斯麦-风险评估-李录.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/asml/5-四角色並行分析/阿斯麥-四角色-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/asml/5-Four-Role-Analysis/ASML-Four Roles-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>風險評估（李錄視角） — 阿斯麥</h1>
+  <div class="subtitle">四個風險，一個能真正殺死估值</div>
+  <div class="meta">研究日期 2026/10/16 &nbsp;·&nbsp; 股價 $1,641.52（-0.96%） &nbsp;·&nbsp; 市值 約 6,240 億美元（約 5,380 億歐元） &nbsp;·&nbsp; PE(TTM) 約 41 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/asml/00-阿斯麥研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>按殺傷力排序：AI 資本支出拐點（能跌 40% 以上）、出口管制升級（能砍掉 20% 收入）、High-NA 經濟性證偽（壓估值倍數）、客戶集中（結構性，但不致命）。前兩個是外生變數，公司無法控制；後兩個是內生變數，可以觀察。風險不是「會不會發生」，是「發生了你扛不扛得住」。</p></div><table class="dt"><caption>風險清單與量化影響</caption><thead><tr><th>風險</th><th>觸發條件</th><th>對盈利影響</th><th>對估值影響</th></tr></thead><tbody><tr><td>AI 資本支出拐點</td><td>兩家雲端業者下調 20% 資本支出</td><td>2027 年收入下修 15%–25%</td><td>本益比從 31 倍降到 20 倍</td></tr><tr><td>出口管制升級</td><td>DUV 對華全面許可制</td><td>收入削減 15%–20%（中國占 23%）</td><td>本益比下修 3–5 倍</td></tr><tr><td>High-NA 延後</td><td>客戶把導入推到 2028 年後</td><td>2028 年成長曲線變平</td><td>本益比下修 5 倍以上</td></tr><tr><td>客戶集中</td><td>單一客戶砍單</td><td>單季收入波動 10%+</td><td>影響有限</td></tr></tbody></table><div class="section"><div class="section-title">第一風險：AI 資本支出的拐點</div><p class='txt'>北美四大雲廠 2026 年的資本支出在歷史峰值。一旦其中兩家下調 20%，鏈條是這樣傳的：雲廠砍單 → 輝達/博通下調晶圓需求 → 台積電推遲 2nm 擴產 → 阿斯麥訂單從「排隊」變「推遲」。<b>整個過程兩個季度走完，而股價會先走。</b></p><p class='txt'>這是唯一能造成 40% 以上跌幅的變量，也是 2019 年、2022 年兩次腰斬的同一個原因。它的可怕之處在於：發生的時候，所有基本面指標都還是好的——訂單在手、指引未變、管理層說「需求健康」。</p></div><div class="section"><div class="section-title">第二風險：出口管制</div><p class='txt'>中國占 Q3 淨系統銷售 23%，全年指引約 20%。這個數字裡幾乎沒有 EUV（早已禁售），主要是 DUV 和量測。如果管制從「設備型號清單」擴展到「最終用戶許可制」，影響是直接砍收入，而不是延後。</p><p class='txt'>公司立場很明確：不同意進一步限制 DUV，認為這會加速中國自研。但它沒有決定權。李錄的框架裡，這類風險叫「不可抗力的政策風險」，處理方式不是預測，是倉位限制——單一政策風險敞口超過 20% 的公司，倉位不超過 5%。</p></div><div class="section"><div class="section-title">第三風險：High-NA 的經濟性</div><p class='txt'>High-NA 單價三億五千萬歐元以上，是標準 EUV 的 1.5 倍。客戶買它是因為「能做出 2nm 以下」，不是因為「便宜」。如果它的產出效率（每小時晶圓數）不如預期，客戶的單位成本反而上升，導入節奏就會往後推。</p><p class='txt'>這件事 2027 年會有答案。台積電、三星、英特爾三家的 High-NA 導入進度，是判斷 2028 年之後成長曲線的最重要指標——比任何訂單數字都重要。</p></div><div class="section"><div class="section-title">第四風險：客戶集中</div><p class='txt'>五、六個客戶，前三大合計超過一半收入（行業口徑，公司不逐戶披露）。任何一家的資本支出波動都會被放大成單季收入的波動。這是結構性的，無法分散。</p><p class='txt'>但它不致命——因為這些客戶不會同時消失，而且他們的技術路線都依賴阿斯麥。真正的風險不是「客戶跑了」，是「客戶都不擴產了」，那又回到了第一風險。</p></div><div class="section"><div class="section-title">風險的另一面：什麼情況下這是錯的</div><p class='txt'>要誠實：如果 2027 年 AI 需求繼續超預期、四大雲廠再上調資本支出、價值定價順利落地，那麼現在的 31 倍就是便宜的，所有風險討論都是噪音。這種情況發生的機率不低——2026 年就是在「所有風險都被證偽」的路徑上走過來的。</p><p class='txt'>所以風險清單的用途不是「預測崩盤」，是「決定倉位」。在這個價位，合理的做法是：<b>組合裡給它 3%–5%，不給 10%。</b>跌下來有子彈加，漲上去也不至於踏空。</p></div><div class="summary-box"><h3>結論</h3><p>四個風險，一個（AI 資本支出）能真正殺死估值，一個（出口管制）能砍收入，一個（High-NA）壓倍數，一個（客戶集中）是結構性的。結論：這是可以持有十年的資產，但不該在 41 倍 PE 上重倉。倉位紀律比價格判斷更重要。</p></div>
+</div>
+<div class="footer">阿斯麥 (ASML) · 2026/10/16</div>
+</body>
+</html>

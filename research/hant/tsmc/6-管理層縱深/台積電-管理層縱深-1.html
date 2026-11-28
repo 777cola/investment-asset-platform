@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理層縱深 — 台積電</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/tsmc/6-管理层纵深/台积电-管理层纵深.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/tsmc/6-管理層縱深/台積電-管理層縱深-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/tsmc/6-Management-Deep-Dive/TSMC-Management-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>管理層縱深 — 台積電</h1>
+  <div class="subtitle">台積電 (2330.TW) | 06 · 管理層縱深</div>
+  <div class="meta">研究日期 2026/09/11 &nbsp;·&nbsp; 股價 NT$2,410（-1.63%） &nbsp;·&nbsp; 市值 約 62.5 萬億元新台幣（約 1.95 萬億美元） &nbsp;·&nbsp; PE(TTM) 約 27.9x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/tsmc/00-台積電研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：這屆管理層最值錢的是「不承諾兌現不了的事」</h3><p class='txt'>台積電的管理層是典型的工程師班底：魏哲家（董事長兼總裁）出身製程，米玉杰、秦永沛兩位共同營運長一個管研發一個管製造，財務長黃仁昭管錢。過去八年的資本配置幾乎無可挑剔——2026 年股利 24 元同比 +33%、配發率 23%，剩下的錢全投產能，沒有一筆大額併購。<b>唯一的懸念是接班：魏哲家 1952 年生，2026 年 74 歲。</b></p></div><table class="dt"><caption>核心管理層（2026 年 9 月）</caption><thead><tr><th>姓名</th><th>職務</th><th>持股（約）</th><th>背景</th></tr></thead><tbody><tr><td>魏哲家</td><td>董事長兼總裁</td><td>約 0.05%</td><td>1998 年加入，主管製程與營運；2018 年任總裁，2024 年接董事長</td></tr><tr><td>米玉傑</td><td>執行副總經理暨共同營運長</td><td>約 0.02%</td><td>技術背景：研發出身的技術主管，主導 7/5/3/2 奈米技術路線</td></tr><tr><td>秦永沛</td><td>執行副總經理暨共同營運長</td><td>約 0.02%</td><td>製造與廠務出身，負責全球產能佈建</td></tr><tr><td>黃仁昭</td><td>資深副總經理暨財務長</td><td>約 0.01%</td><td>2019 年接任財務長，此前負責投資人與法人關係</td></tr><tr><td>何麗梅</td><td>資深副總經理（人力資源）</td><td>約 0.01%</td><td>前任財務長，2019 年轉任人力資源</td></tr><tr><td>張曉強</td><td>資深副總經理（業務開發）</td><td>約 0.01%</td><td>負責先進製程客戶與產品規劃</td></tr></tbody></table><div class="note">持股比例為董事及經理人本人持股占已發行股份的約數（按 2025 年年報口徑與 259.3 億股粗算），不含配偶與未成年子女持股；比例為量級參考，不作精確依據。</div><table class="dt"><caption>資本配置記錄（2019–2026）</caption><thead><tr><th>項目</th><th>金額／規模</th><th>評價</th></tr></thead><tbody><tr><td>年度資本支出</td><td>2019 年約 150 億美元 → 2026 年 600–640 億美元</td><td>四年翻四倍，每一輪都踩在需求前面</td></tr><tr><td>現金股利</td><td>2019 年每股 10 元 → 2026 年 24 元</td><td>逐年提升，配發率維持 20%–25%</td></tr><tr><td>大額併購</td><td>無（近十年無 10 億美元以上併購）</td><td>不買規模，只建產能</td></tr><tr><td>海外投資</td><td>亞利桑那追加 1,000 億美元；日本熊本、德國德勒斯登</td><td>客戶與政策雙重要求，主動付保險費</td></tr><tr><td>股本</td><td>259.3 億股，五年年均 +0.5% 以內</td><td>無大額稀釋，無回購</td></tr></tbody></table><div class="note">資本支出為法說會口徑（美元），股利為新台幣。2019 年資本支出約 149 億美元為公開年報口徑。</div><div class="section"><div class="section-title">一、魏哲家：把「保守」當成一種能力</div><p class='txt'>魏哲家的公開風格可以用一句話概括：<b>不承諾兌現不了的事。</b>2023 年半導體下行，他在法說會上拒絕給全年成長指引，只說「客戶在調整庫存」；2024 年 AI 需求初起，他說「需求是真的，但要觀察客戶能不能收到錢」；2026 年上調資本支出時，他同時強調「折舊會壓毛利率，這個我們要提前講清楚」。</p><p class='txt'>這種溝通方式對投資者是稀缺品。半導體行業的管理層普遍喜歡講故事——三星講「超車」、英特爾講「重返領先」，結果都是延期。台積電的法說會記錄裡，指引兌現率高於九成，這是可以做量化驗證的。</p></div><div class="section"><div class="section-title">二、資本配置：八年沒有一筆錯錢</div><p class='txt'>復盤 2019 年以來的三次大決策：2019–2021 年逆勢投 5 奈米（當時被視為激進，結果吃到蘋果與輝達的全部訂單）；2022–2024 年投 3 奈米與 CoWoS（AI 需求爆發時產能已經就位）；2026 年上調到 600–640 億美元（客戶預付、產能預定）。三次都踩在需求前面半步。</p><p class='txt'>反面證據也有：亞利桑那廠的成本遠高於台灣（人力、供應鏈、法規），2024 年曾因勞工與文化差異延期。但這是「必須付的保險費」，不是判斷失誤——客戶要求非台灣產能，政策要求本地製造，不建就丟單。</p></div><div class="section"><div class="section-title">三、誠信與治理：兩次壓力測試</div><p class='txt'>第一次是 2024–2025 年的海外建廠爭議：美國工會指責台積電偏好台灣籍員工、亞利桑那廠進度落後。公司的處理是把部分工程發包給當地廠商、增加本地招聘，沒有硬碰。</p><p class='txt'>第二次是 2025 年關於客戶流向的出口管制爭議——有報導稱美國方面在調查某些晶片經由第三方流向受限客戶，台積電的回應是配合調查並收緊客戶審查。這類事件對台積電的實質影響有限，但它說明一件事：<b>地緣政治已經進入公司的日常營運，而不是尾端風險。</b></p></div><div class="section"><div class="section-title">四、治理結構：沒有大股東的分散股權</div><p class='txt'>台積電沒有實際控制人，最大股東是台灣行政院國家發展基金（持股約 6%），外資持股約 70%。董事會九席，包括獨立董事。這套結構的優點是專業經理人主導、不受單一大股東干預；缺點是當管理層犯錯時，缺乏一個強有力的股東來糾正。</p><p class='txt'>實踐中，制衡來自客戶與市場——客戶會用訂單投票，市場會用股價投票。歷史上這套機制運轉良好，2024 年魏哲家接任董事長時，市場沒有出現治理擔憂。</p></div><div class="section"><div class="section-title">五、接班人：唯一的懸念</div><p class='txt'>魏哲家 1952 年生，2026 年 74 歲。台積電的接班路徑已經鋪好：米玉傑（研發）與秦永沛（製造）兩位共同營運長在 2024 年同時升任，是典型的「雙首長」安排——一個管技術路線，一個管全球產能。</p><p class='txt'>這套安排的好處是互補，壞處是權責邊界。台積電歷史上（張忠謀 2018 年退休）用的是「魏哲家管總裁、劉德音管董事長」的分權模式，運行了六年。這次若沿用雙營運長、再由其中一人接任，需要觀察兩件事：<b>誰負責對客戶（蘋果、輝達的關係），誰負責對政府（美國、日本、德國）。</b>這兩件事在未來五年比製程更重要。</p><p class='txt'>薪酬與激勵值得單說。台積電董事與經理人的酬金總額占稅後淨利的比例極低（不足 0.1%），董事長的年度酬金在數億元新台幣量級——相對 2.75 萬億的淨利，激勵強度靠的是「行業聲譽 + 長期持股」，不是現金。這種結構的優點是管理層不會為了短期獎金做傻事；缺點是無法用股權把核心團隊綁得特別緊，2021–2022 年確實有部分製程主管被競爭對手挖角。</p><p class='txt'>另一個治理細節：台積電對關聯交易的披露很細，與台積電文教基金會、供應商的往來都單獨列示。這在台灣上市公司裡屬於高標準。<b>對長期投資者來說，治理的可預測性比治理的完美更重要。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：管理層 9/10，扣分只在接班與治理集中度。</b>資本配置紀錄是行業裡最好的之一，溝通誠實度可驗證。需要追蹤的是 2027–2028 年的接班安排，以及海外廠損益是否被單獨披露——披露越透明，說明管理層越有信心。</p></div>
+</div>
+<div class="footer">台積電 (2330.TW) · 2026/09/11</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industry Funnel — Kuaishou</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/kuaishou/11-行业漏斗对比/快手-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/kuaishou/11-行業漏斗對比/快手-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/kuaishou/11-Industry-Funnel/Kuaishou-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Industry Funnel — Kuaishou</h1>
+  <div class="subtitle">Kuaishou (01024) | 11 · Industry Funnel</div>
+  <div class="meta">Research date 2026/10/12 &nbsp;·&nbsp; Price HK$29.26 (-2.79%) &nbsp;·&nbsp; Market cap About HKD 126.7 billion &nbsp;·&nbsp; PE(TTM) About 10.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/kuaishou/00-Kuaishou-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>Run the short-video funnel across six players: three unlisted (Douyin, Xiaohongshu, Hongguo), one inside Tencent (WeChat Channels), one subscale (Bilibili), and only Kuaishou as a buyable pure play. <b>The funnel ends at "the only one you can buy," not "the one you should buy."</b></p><p class='txt'>Kuaishou's position on this list is awkward: second by scale, last by growth (+1.4%), mid-pack on valuation (10.5x TTM / 12.9x forward). <b>To bet on short video, buying Tencent gets you an option on WeChat Channels plus cash flow; buying Kuaishou gets you pure sector beta plus an AI option.</b></p></div><table class="dt"><caption>Short-video player funnel (October 2026)</caption><thead><tr><th>Players</th><th>Capital status</th><th>Scale</th><th>Latest growth rate</th><th>Profit</th><th>Relative valuation</th></tr></thead><tbody><tr><td>Douyin (ByteDance)</td><td>Not listed</td><td>Short video plus e-commerce leader, DAU scale above Kuaishou</td><td>Advertising and e-commerce deliver double-digit growth (qualitative)</td><td>Highly profitable</td><td>No public market pricing</td></tr><tr><td>WeChat Channels</td><td>At Tencent, not disclosed separately</td><td>Riding on WeChat's 1.3 billion MAU</td><td>Ad load remains low, growing faster than the industry</td><td>Profitable, but not separately accounted for</td><td>Included in Tencent's valuation</td></tr><tr><td>Kuaishou</td><td>Hong Kong stock 01024, market cap HKD 126.7 billion</td><td>DAU 412 million, MAU 797 million</td><td>Revenue +1.4%</td><td>Adjusted net profit RMB 3.913 billion/quarter, -30.3%</td><td>10.5x TTM, 12.9x forward</td></tr><tr><td>Xiaohongshu</td><td>Not listed</td><td>Monthly active users in the 300 million range</td><td>Advertising + e-commerce in double digits (qualitative)</td><td>Already profitable (company basis)</td><td>High primary-market valuations</td></tr><tr><td>Hongguo Short Drama (ByteDance)</td><td>Within ByteDance, not separately disclosed</td><td>Free short dramas, part one</td><td>High growth (qualitative)</td><td>Loss-making for share gains</td><td>No public market pricing</td></tr><tr><td>Bilibili</td><td>Dual-listed in the US and Hong Kong</td><td>Monthly active users in the 300 million range, with DAU below Kuaishou</td><td>Advertising grows faster than Kuaishou</td><td>Thin profit or break-even</td><td>Valuation above Kuaishou</td></tr></tbody></table><div class="note">Kuaishou data is taken from its Q2 2026 results announcement and the 12 October 2026 close; the other companies are described qualitatively, with no unverified financial figures listed (unlisted or not separately disclosed). Qualitative judgments on growth and profitability are based on each company's public information and industry reports from September–October 2026, including 9.0.</div><div class="section"><div class="section-title">First-round screen: can it be bought</div><p class='txt'>Three of the six cannot be bought: Douyin, Xiaohongshu and Hongguo are all unlisted. <b>This round of elimination is not because they are bad, but because they cannot be bought — and a good company you cannot buy means nothing to a portfolio.</b></p><p class='txt'>Tencent can be bought, but WeChat Channels accounts for only a small share of its revenue; buying Tencent means paying 30x PE for an 8x PE business plus a WeChat Channels option. Bilibili can be bought, but its scale is an order of magnitude smaller than Kuaishou's; ad growth is faster but profitability is weaker.</p><p class='txt'>What remains is Kuaishou: <b>it is the only Hong Kong-listed pure play on short video + livestreaming + AI video.</b> It won this round on scarcity, not on quality.</p></div><div class="section"><div class="section-title">Second-round screen: growth and profitability</div><p class='txt'>Compare the three investable names side by side: <b>Kuaishou revenue +1.4%, adjusted net profit -30.3%; Bilibili's advertising grows faster but net margin is near zero; Tencent's Video Accounts grows fast but is diluted by the parent's size.</b></p><p class='txt'>If the standard is "growth + profitability," none of the three passes. If the standard is "cash flow + valuation," Tencent is best, Kuaishou second, Bilibili worst. If the standard is "pure sector beta," Kuaishou is best.</p><p class='txt'>This is the awkwardness of the funnel: <b>Kuaishou ranks first on no single dimension.</b> It is simply irreplaceable on "purity."</p></div><div class="section"><div class="section-title">Final selection: why this one, and why not the others</div><p class='txt'><b>Why it is the one:</b> ① The only pure-play in Hong Kong; institutions wanting short-video exposure have no other option; ② 412 million DAU is a hard asset; after the fall to HKD 126.7 billion, EV is only RMB 91.8 billion, effectively giving away an AI business for free; ③ Kling is the only asset in the global top tier of video generation with independently priced financing.</p><p class='txt'><b>Why it is not the one:</b> ① Growth ranks last and the company itself guides to pressure in the second half; ② Margins are declining (gross margin -4.1pct, net margin from 16.0% to 11.0%); ③ Kling's valuation cannot be verified and accounts for only 2.4% of revenue.</p><p class='txt'>The funnel's conclusion: <b>"No better choice" does not equal "a good choice."</b> Given it is the only option, the right move is to wait for price, not buy now.</p></div><div class="section"><div class="section-title">A note beyond the funnel: why valuation is not the first screen</div><p class='txt'>Many investors cut valuation first in their funnel—keeping only the lowest PE names. That order is wrong, because <b>low-valuation companies are often cheap precisely because their business is deteriorating</b>. Kuaishou is a case in point: its 10.5x TTM PE looks low among Hong Kong internet stocks, but its forward 12.9x is higher than Tencent's and higher than Bilibili's.</p><p class='txt'>The correct order is: first ask whether you can buy it (accessibility), then ask whether the business is improving or deteriorating (trend), and only then ask about price. Kuaishou's funnel end point stalls at step two—<b>it is buyable, but should not be bought while the trend is down, no matter how cheap.</b> This order also explains why "low valuation + high dividend yield" screens often conceal a pile of declining companies.</p></div><div class="section"><div class="section-title">If one must allocate within this sector</div><p class='txt'>Ranking the three options: <b>Tencent > Kuaishou > Bilibili.</b> Tencent offers "cash flow + WeChat Channels optionality + AI applications (Yuanbao)," with downside protection; Kuaishou offers "pure beta + Kling optionality," with no downside protection; Bilibili offers "small-cap elasticity," but no earnings support.</p><p class='txt'>If you can only buy Kuaishou, treat it as an option: small position, buy only at extreme prices (below HKD 20), and accept that it may not rise for a long time. <b>This is not investing; it is a bet.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'>The funnel screen reaches the same conclusion as the six gates: <b>Kuaishou is the only buyable pure short-video name, but its buyability comes from scarcity, not quality.</b> For a company with bottom-of-the-pack growth and falling margins, scarcity is worth only a "watch," not a "buy."</p><p class='txt'>Conditions to wait for: ad growth back to 8%, or the price falling below HKD 20 (7x 2027E plus net cash). With neither met, the best choice is not to play this sector.</p></div>
+</div>
+<div class="footer">Kuaishou (01024) · 2026/10/12</div>
+</body>
+</html>

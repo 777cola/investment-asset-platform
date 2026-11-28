@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣篩選 — 台積電</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/tsmc/2-七条硬指标去劣/台积电-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/tsmc/2-七條硬指標去劣/台積電-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/tsmc/2-Seven-Hard-Metrics/TSMC-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>去劣篩選 — 台積電</h1>
+  <div class="subtitle">台積電 (2330.TW) | 02 · 去劣篩選</div>
+  <div class="meta">研究日期 2026/09/11 &nbsp;·&nbsp; 股價 NT$2,410（-1.63%） &nbsp;·&nbsp; 市值 約 62.5 萬億元新台幣（約 1.95 萬億美元） &nbsp;·&nbsp; PE(TTM) 約 27.9x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/tsmc/00-台積電研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：這套篩選機制對它沒有區分度，只證明下限</h3><p class='txt'>七條去劣指標台積電全部通過，而且多數不是擦線過：10 年平均 ROE 約 25%（門檻 8%）、長期毛利率 46%–67.7%（門檻 15%）、營業現金流是稅後淨利的 1.4 倍以上（門檻 0.7 倍）、五年股本幾乎沒膨脹。唯一需要說清的是第二條——自由現金流為正，但被 600–640 億美元的資本支出壓得很薄。<b>這套指標是用來排除壞公司的，對台積電只能證明「不會出大事」，證明不了「現在該買」。</b></p></div><table class="dt"><caption>七項去劣指標（截至 2026Q2）</caption><thead><tr><th>指標“, ”公司數值“, ”門檻“, ”判定</th></tr></thead><tbody><tr><td>10 年平均 ROE</td><td>約 25%（2016 年約 26%，2019 年低谷約 20%，2026 年約 33%；粗算）“, ”≥8%</td><td>通過，3 倍餘量</td></tr><tr><td>5 年累計自由現金流為正但偏薄：2022–2026 累計約 3 兆元新台幣量級（粗算），2026 單年被資本支出壓縮為正，通過，餘量小</td></tr><tr><td>利息覆蓋倍數（EBIT/利息）“, ”100 倍以上（淨現金狀態，有息負債約 1 萬億元新台幣，利息費用佔比極小）“, ”≥2 倍“, ”通過</td></tr><tr><td>長期毛利率
+46.0%（2019 年低點）–67.7%（2026Q2）
+≥15%</td><td>通過，且處於歷史極值</td></tr><tr><td>營業現金流／稅後淨利（5 年均值）“, ”約 1.4–1.7 倍（折舊規模巨大）“, ”≥0.7</td><td>透過</td></tr><tr><td>長期淨利率“, ”32%–55.6%（2026Q2 為 55.6%）“, ”≥5%</td><td>透過</td></tr><tr><td>5 年總股本膨脹「，」約 259.3 億股，五年年均 +0.5% 以內（限制型股票），無大額回購「，」≤+20%</td><td>透過</td></tr></tbody></table><div class="note">口徑說明：ROE 十年均值為粗算（按各年稅後淨利÷期末股東權益估算，未做期初期末平均）；自由現金流 = 營業活動現金流 − 資本支出；有息負債只計公司債與銀行借款，不含租賃負債。數據來自台積電各季財報與法說會簡報。</div><div class="section"><div class="section-title">第一條 ROE：十年平均 25%，說明不是靠某一年景氣</div><p class='txt'>25% 的十年平均 ROE 是這份表裡資訊量最大的一條。半導體是強週期行業，多數公司十年平均 ROE 在 10%–15%，因為下行年份會虧錢。台積電最差的 2019 年（行業庫存調整、7 奈米利用率下滑）ROE 仍有 20% 左右，2026 年升到 33%。</p><p class='txt'>這說明它的高回報不是週期給的一次性禮物，是結構性的：一座廠建好以後，折舊是固定的，產能利用率一上去，增量收入的邊際成本極低。所以行業下行時它靠成本撐住，行業上行時它靠定價權放大。<b>門檻 8% 在這條上完全失效——它不是及格，是超標三倍。</b></p><p class='txt'>對比一下同業：三星電子十年平均 ROE 約 12%，英特爾約 15%（含 2024–2026 的虧損年份會更低），聯電約 12%，中芯約 3%–5%。台積電 25% 的十年均值是這批公司的兩倍以上。差距不在槓桿——台積電的權益乘數只有約 1.1 倍，是同業裡最低的——而在淨利率。同樣的資本，它賺得更多，因為它的價格更高、良率更好。<b>這一條是全表裡唯一無法用週期解釋的指標。</b></p></div><div class="section"><div class="section-title">第二條自由現金流：唯一需要盯的一條</div><p class='txt'>七條裡只有這一條有爭議。台積電營業現金流很強（5 年均值是稅後淨利的 1.4–1.7 倍，因為折舊規模大），但資本支出同樣兇：2026 年 600–640 億美元，按 32 元匯率折算約 1.9–2.0 萬億元新台幣，相當於全年稅後淨利的七成。</p><p class='txt'>結果就是自由現金流常年為正、但薄。2022–2026 五年累計大約 3 萬億元新台幣量級，夠付股利（2026 年配發約 6,200 億元）、夠留現金，但撐不起大規模回購。這不是財務問題，是生意的性質：<b>台積電的現金必須回到機器裡去，才能維持領先。</b>把這條當「過」沒問題，但當「優秀」就是自欺欺人。</p></div><div class="section"><div class="section-title">第四條毛利率：看的是下限，不是上限</div><p class='txt'>67.7% 是歷史極值，但這條篩的是「有沒有定價權」，所以要看的是 46% 這個下限——2019 年行業最差的時候它還有 46%，同期聯電約 15%、中芯約 20%、格羅方德約 15%。同一輪週期，別人的毛利率可以掉到個位數，台積電的下限鎖在 45% 以上。</p><p class='txt'>這就是代工業的等級差：不是「台積電毛利率高」，是「台積電的毛利率有自己的地板」。所以這條通過得毫無爭議，反而要提醒一句——<b>用 67.7% 去推未來是危險的，用 55% 去推才是保守。</b></p></div><div class="section"><div class="section-title">哪裡不過、過了也不過意味著什麼</div><p class='txt'>沒有不過的。但「七條全過」的資訊量比看起來小：這套指標是葛拉漢式的排除法，用來篩掉財技公司、週期陷阱、股本稀釋機器。台積電的問題是它太好，不是太差，這套篩子對它沒有區分度。</p><p class='txt'>真正需要判斷的（22.7 倍前瞻 PE 貴不貴、67.7% 毛利率能撐幾個季度）不在這七條裡。所以這份報告的作用是：<b>確認台積電不會在財務上出意外，然後把全部注意力放在價格和週期位置上。</b>七條全過但價格不對，仍然是「觀察」；七條過五條但價格極便宜，可能是好機會——去劣篩選從來不是買入理由。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：七條全過，無淘汰項。</b>唯一要標註的是自由現金流——為正但偏薄，被資本支出壓著，這也是它不回購的原因。這七條證明台積電的財務下限足夠高，可以放心談價格；但不能證明 2,410 元是買點。下一層判斷交給 m04（估值）和 m13（論文追蹤）。</p></div>
+</div>
+<div class="footer">台積電 (2330.TW) · 2026/09/11</div>
+</body>
+</html>

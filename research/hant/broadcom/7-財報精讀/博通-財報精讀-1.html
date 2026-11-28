@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀 — 博通</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/broadcom/7-财报精读/博通-财报精读.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/broadcom/7-財報精讀/博通-財報精讀-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/broadcom/7-Earnings-Deep-Read/Broadcom-Earnings Read-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀 — 博通</h1>
+  <div class="subtitle">博通 (AVGO) | 07 · 財報精讀</div>
+  <div class="meta">研究日期 2026/10/02 &nbsp;·&nbsp; 股價 $355.14（+3.35%） &nbsp;·&nbsp; 市值 約 1.69 萬億美元（按 47.7 億股粗算） &nbsp;·&nbsp; PE(FY2027E) 約 18x（FY27 一致預期 EPS 19.38 美元）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/broadcom/00-博通研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>把 FY26Q3 拆成四層看：收入結構裡 AI 已經占 56%、半導體內部占 80%；毛利率從 78% 一路降到 75%，Q4 指引 73%；Non-GAAP 淨利率 55.3%，是歷史最好水準；自由現金流 136.7 億美元，但只轉化了淨利的 83%。</p><p class='txt'><b>四個數字裡三個在變好、一個在變差，而變差的那個（毛利率）恰好是市場最在意的，因為它決定這門生意以後值多少倍。</b></p></div><table class="dt"><caption>損益表（百萬美元）</caption><thead><tr><th>專案</th><th>FY26Q3</th><th>FY25Q3</th><th>同比</th></tr></thead><tbody><tr><td>總營收</td><td>29,591</td><td>15,909</td><td>+86%</td></tr><tr><td>半導體解決方案</td><td>20,840</td><td>9,181</td><td>+127%</td></tr><tr><td>其中：AI 半導體</td><td>16,700</td><td>5,202</td><td>+221%</td></tr><tr><td>其中：XPU（占 AI 73%）</td><td>12,191</td><td>—</td><td>推算</td></tr><tr><td>其中：AI 網路（27%）</td><td>4,509</td><td>—</td><td>推算</td></tr><tr><td>非 AI 半導體</td><td>4,140</td><td>3,979</td><td>+4%</td></tr><tr><td>基礎設施軟體</td><td>8,751</td><td>6,728</td><td>+30%</td></tr><tr><td>毛利率（GAAP／Non-GAAP）</td><td>69%／75.0%</td><td>—</td><td>Non-GAAP 環比 −2.1pct</td></tr><tr><td>稅後淨利（GAAP）</td><td>13,100</td><td>4,146</td><td>+216%</td></tr><tr><td>稅後淨利（Non-GAAP）</td><td>16,372</td><td>8,396</td><td>+95%</td></tr><tr><td>淨利率（Non-GAAP）</td><td>55.3%</td><td>52.8%</td><td>+2.5pct</td></tr></tbody></table><div class="note">資料來源：博通 FY26Q3 財報（2026/09/02）。FY25Q3 半導體、AI、軟體按公司披露的同比增速反推；XPU 與 AI 網路按 73%／27% 拆分，屬推算；非 AI 半導體 = 20,840 − 16,700。淨利率同比比較用 FY25Q3 反推值 8,396／15,909。</div><table class="dt"><caption>現金流與資產負債（百萬美元）</caption><thead><tr><th>項目</th><th>數值</th><th>口徑</th></tr></thead><tbody><tr><td>營業現金流</td><td>約 14,270</td><td>粗算：自由現金流 + 資本支出</td></tr><tr><td>資本支出</td><td>約 600</td><td>粗算，設計公司無晶圓廠</td></tr><tr><td>自由現金流</td><td>13,670</td><td>財報披露，單季歷史高位</td></tr><tr><td>自由現金流／Non-GAAP 稅後淨利</td><td>0.83 倍</td><td>13,670／16,372</td></tr><tr><td>股息支出</td><td>約 2,815</td><td>0.59 美元 × 47.7 億股（粗算）</td></tr><tr><td>股息支付率（占自由現金流）</td><td>約 21%</td><td>2,815／13,670</td></tr><tr><td>固定利率債務</td><td>59,600</td><td>財務報表附註，長期限</td></tr><tr><td>利息覆蓋</td><td>約 25 倍</td><td>粗算，見 m02</td></tr></tbody></table><div class="note">自由現金流 13,670、固定利率債務 59,600 為財報披露值；營業現金流、資本支出、股息支出、利息覆蓋為粗算。</div><table class="dt"><caption>分部與客戶結構（FY26Q3）</caption><thead><tr><th>分部</th><th>收入（百萬美元）</th><th>佔總營收</th><th>客戶數</th><th>代表產品</th></tr></thead><tbody><tr><td>AI 半導體 · XPU</td><td>12,191</td><td>73%</td><td>六家</td><td>谷歌 TPU v7/v8i、Meta MTIA、OpenAI Jalapeno、Anthropic</td></tr><tr><td>AI 半導體 · 網路</td><td>4,509</td><td>27%</td><td>多家</td><td>Tomahawk 6／7、Jericho、Thor</td></tr><tr><td>非 AI 半導體</td><td>4,140</td><td>14%</td><td>數千家</td><td>寬頻、儲存、無線、工業</td></tr><tr><td>基礎設施軟體</td><td>8,751</td><td>30%</td><td>數十萬家</td><td>VMware、CA、賽門鐵克</td></tr></tbody></table><div class="note">客戶數為定性判斷，公司未披露精確數量；產品名取自電話會議與公開資料。</div><div class="section"><div class="section-title">第一層：收入結構——AI 已經過半，其餘兩塊原地走</div><p class='txt'>總營收 295.91 億美元，同比 +86%。拆開來看：AI 半導體 167 億（+221%）、非 AI 半導體 41.4 億（+4.05%）、基礎設施軟體 87.51 億（+30.1%）。</p><p class='txt'>這三個數字放在一起，說明一件事：<b>博通現在只有一條腿在跑。</b>非 AI 半導體基本零成長，軟體靠 VMware 漲價和訂閱化維持 30%，剩下的全部增量來自 AI。營收增量 136.8 億裡，AI 貢獻 115 億，占 84%。</p><p class='txt'>AI 內部也在分化：XPU 121.9 億（占 73%）、AI 網路 45.1 億（占 27%）。XPU 是客製化晶片，客戶只有六家；網路晶片賣給幾乎所有做 AI 資料中心的人，客戶更分散、週期性更強。<b>XPU 的占比越高，收入越集中，毛利率越低——兩個方向同時惡化。</b></p></div><div class="section"><div class="section-title">第二層：毛利率——一年掉 5 個點，是結構不是週期</div><p class='txt'>Non-GAAP 毛利率 75.0%，環比 −2.1pct；GAAP 69%。把四個季度排開：FY25Q4 78%、FY26Q2 77.1%、FY26Q3 75.0%、FY26Q4 指引 73%。</p><p class='txt'>管理層給的原因有兩條：XPU 硬體佔比上升、成本裡 HBM 佔比上升。翻譯成一句話：<b>博通賣的東西裡，「轉售別人的硬體」越來越多，「賣自己的設計」越來越少。</b></p><p class='txt'>這條趨勢能不能逆轉？不能。FY27 AI 收入指引 1,150 億美元，比 FY26 的 580 億翻倍，增量幾乎全是 XPU 硬體。所以毛利率還會往下走，問題是走到哪裡。<b>我粗算的底是 71% 上下（FY27 收入 1,735 億、AI 佔 66%），如果跌破 70%，說明定價權在丟，不只是結構問題。</b></p></div><div class="section"><div class="section-title">第三層：費用與利潤——淨利率 55% 是歷史最佳</div><p class='txt'>Non-GAAP 淨利 163.72 億美元、同比 +95%，淨利率 55.3%，比去年同期高 2.5 個百分點。毛利率在降，淨利率在升，這個組合的原因是費用率降得比毛利率快。</p><p class='txt'>博通的費用結構很輕：研發費用率長期在 9%—10%，銷售管理費用率 2%—3%，因為它的客戶只有幾十個，不需要龐大的銷售隊伍。併購之後砍費用是陳福陽的招牌動作，VMware 整合後費用率進一步下降。</p><p class='txt'>但要提醒兩件事。第一，<b>GAAP 淨利 131 億、同比 +216%，增速遠快於 Non-GAAP 的 +95%</b>，兩者差距只有 32.7 億，說明攤銷包袱在變輕，也可能含一次性項目，財報未單列。第二，55% 的淨利率是 Non-GAAP 口徑，剔掉了股權激勵和併購攤銷；用 GAAP 算是 44.3%。<b>看估值用前者是行業慣例，但不能忘了後者。</b></p></div><div class="section"><div class="section-title">第四層：現金流與資產負債——造血強，但轉化率在降</div><p class='txt'>單季自由現金流 136.7 億美元，年化 520 億上下；按 1.69 萬億美元市值算，自由現金流收益率 3.1%。這個收益率配上 0.66% 的股息率，說明公司把大部分現金留在體內還債和回購。</p><p class='txt'>瑕疵在轉化率：FCF／Non-GAAP 淨利 0.83，比上季低。原因是 AI 收入環比 +54%，應收和存貨同步膨脹——這一季確認的收入有相當一部分還沒收錢，同時要為下一季 217 億美元的 AI 出貨提前備料。</p><p class='txt'>資產負債表表內很乾淨：596 億美元固定利率債務、期限長、利息覆蓋 25 倍，三年就能還掉一半。表外是另一回事：為 AI 客戶搭建的融資平台，規模未披露，美銀估算到 2029 年中可能累積 3,700 億美元優先債務。<b>這句話是整個財報裡唯一一個不能量化、卻可能改變結論的東西。</b></p></div><div class="section"><div class="section-title">把四個季度連起來看：這是加速，不是跳升</div><p class='txt'>單季 AI 收入的路徑可以還原出來：FY26Q1 約 87.6 億、Q2 約 108.4 億、Q3 167 億、Q4 指引 217 億（Q1、Q2 為按全年指引 580 億倒推）。環比增速分別是 +24%、+54%、+30%。</p><p class='txt'><b>這三個數字比 +221% 的同比更有資訊量。</b>同比是和去年的低基期比，環比是當下的加速或減速。Q3 的 +54% 是一個異常值，對應的是谷歌 TPU v7 大規模出貨加 Anthropic 開始部署；Q4 回落到 +30%，說明高基期來了。</p><p class='txt'>FY26 全年 580 億、FY27 指引 1,150 億，隱含的增長是 +98%。這個數字需要拆：如果 Q4 年化是 868 億，那 FY27 的 1,150 億意味著全年要再漲 32%——不是翻倍，是把 Q4 的節奏維持四個季度。<b>所以「翻倍」這個說法是同比口徑，不是增速口徑。</b>市場對這個區別很敏感，這也是為什麼指引出來之後股價沒漲。</p></div><div class="section"><div class="section-title">三個不在利潤表上的科目</div><p class='txt'>讀博通的財報，有三樣東西必須自己補上，否則會高估或低估它。</p><p class='txt'><b>第一，股權激勵。</b>它藏在 Non-GAAP 與 GAAP 的 32.7 億美元差距裡，和併購攤銷混在一起，公司沒有單列。半導體行業的股權激勵通常在收入的 3%—5%，博通因為人員精簡，比例更低，但絕對額仍是十億美元級。這部分是真實的成本，只是不出現金。</p><p class='txt'><b>第二，併購攤銷。</b>VMware、CA、賽門鐵克的 intangible 還在攤，每年幾十億美元。它不影響現金，但影響帳面利潤和淨資產——這也是 ROE 60% 看起來離譜的原因之一（分母被壓低了）。</p><p class='txt'><b>第三，表外擔保。</b>這一項連附註都沒有。會計上它不構成負債，只有當「很可能」發生損失時才計提；而「很可能」的門檻由管理層判斷。<b>換句話說，這筆風險什麼時候上報表，取決於管理層什麼時候認為它是個問題。</b>這三樣東西合起來，就是 Non-GAAP 利潤和真實經濟利潤之間的距離。</p></div><div class="section"><div class="section-title">指引與最該盯的三件事</div><p class='txt'>Q4 指引營收 348 億美元，比市場一致預期 350.3 億低 1%；AI 半導體 217 億、同比 +236%；毛利率 73%。FY26 全年 AI 收入指引從 560 億上調到 580 億，FY27 給 1,150 億。</p><p class='txt'>三件事值得每季核對： - 毛利率能否在 73% 附近止跌。XPU 占比還會升，如果跌破 70%，說明硬體生意在吞噬軟體生意的利潤； - FY27 的 1,150 億是「已鎖定供應」還是「已簽合約」。前者是產能安排，後者才是收入承諾； - 融資平台的任何披露——擔保規模、期限、追索方式。這三個詞出現一個，股價就要重新定價。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>財報結論：經營層面 9 分，結構層面 6 分。</b>營收 +86%、AI +221%、淨利率 55%、自由現金流 136.7 億，這些都是硬指標；毛利率 78%→73% 的下坡和 0.83 的現金轉化是軟傷；表外擔保是不可見的傷。<b>12 月 9 日的 FY26Q4 財報看兩件事：Q1 FY27 的 AI 指引是否支撐 1,150 億，以及毛利率是否守住 73%。</b></p></div>
+</div>
+<div class="footer">博通 (AVGO) · 2026/10/02</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — JD.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/jd/14-组合管理建议/京东集团-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/jd/14-組合管理建議/京東集團-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/jd/14-Portfolio-Action/JD.com-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Portfolio — JD.com</h1>
+  <div class="subtitle">JD.com (9618.HK) | 14 · Portfolio</div>
+  <div class="meta">Research date 2026/10/26 &nbsp;·&nbsp; Price HK$99.40 (-0.60%) &nbsp;·&nbsp; Market cap Approximately HKD 280 billion &nbsp;·&nbsp; PE (2026E adjusted) Approximately 7.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/jd/00-JD.com-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>The correct position in JD.com right now is <b>0</b>; put it on the watchlist with a 5% cap. The reason is not a lack of conviction in the asset, but that this stock carries both "high correlation" and "event-driven" characteristics at once — it moves in close sync with Chinese e-commerce as a whole, so a standalone bet amounts to doubling down; and its re-rating hinges on two specific events (Q3 revenue, food-delivery losses). <b>So position-building should be triggered by facts, not by price forecasts.</b> Two triggers: a break below HKD 90 (the per-share cash-equivalent level) or Q3 hitting both targets; if both occur together, scale up to 5%, and if only one occurs, 2%–3%.</p></div><table class="dt"><caption>Position recommendation (current price HKD 99.40, 2026/10/26)</caption><thead><tr><th>Scenario</th><th>Position</th><th>Rationale</th><th>Strike price</th></tr></thead><tbody><tr><td>Current (no event)</td><td>0%</td><td>Revenue decline + food delivery losses not yet stemmed + high correlation, no independent odds</td><td>—</td></tr><tr><td>Q3 met both targets (retail turned positive + food delivery loss ≤ RMB 8 billion)</td><td>3%</td><td>Contraction and repair coexist; HKD 125 is achievable in the base case</td><td>Accumulate in tranches at HKD 100–112</td></tr><tr><td>Falls below HKD 90 (cash equivalent per share)</td><td>2%–4%</td><td>Share price ≈ net cash per share; retail + logistics + food delivery nearly free</td><td>Three tiers of 90 / 86 / 82, one-third each</td></tr><tr><td>Dual trigger (price below 90 + Q3 double target met)</td><td>5% (cap)</td><td>Both the payoff and the win rate are improving, so the position can be taken to the portfolio cap</td><td>Build the full position in one go below 90</td></tr><tr><td>Veto trigger (new investment/free cash flow turning negative/cash falling RMB 20 billion in a single quarter)</td><td>0%, removed from the list</td><td>The premise of "no deterioration" has broken down, and the logic no longer holds</td><td>No price set; clear out directly</td></tr></tbody></table><div class="note">Position sizing is expressed as a percentage of portfolio net asset value; the 5% cap is derived from the portfolio discipline that "single China e-commerce exposure must not exceed 8%". Execution prices are analyst-set, not technical levels.</div><div class="section"><div class="section-title">Why not buy a 1% starter position now?</div><p class='txt'>The point of a starter position is to "spend a little money to buy research time," but JD.com does not need a starter position to buy time—all its key variables resolve within five weeks (Q3 results in mid-November, Double 11 close on 11/14). <b>Spending five weeks waiting for one certain fact is far more worthwhile than spending 1% of position size to feel the volatility.</b></p><p class='txt'>Another reason is high correlation. JD.com's daily volatility correlation with Alibaba, Meituan and Pinduoduo is above 0.7, and around 0.8 with the Hang Seng Tech Index. If the portfolio already holds China internet e-commerce exposure, adding another 1% in JD.com amounts to leveraging the same risk factor rather than diversifying. <b>For highly correlated names, the information value of a starter position is close to zero—what you feel is the sector, not the company.</b></p></div><div class="section"><div class="section-title">Specific discipline for adding positions, trimming positions and stop-losses</div><p class='txt'><b>Adding: triggers only, not sentiment.</b> Three price triggers at 90/86/82, one-third at each level; event trigger: Q3 double target met, build to 3% in one go. Only when both overlap is 5% allowed.</p><p class='txt'><b>Trimming: by logic, not by price.</b> Three trim conditions—food delivery losses widen quarter on quarter (signaling the contraction has stopped), retail revenue negative growth for two consecutive quarters, announcement of major new investment. Any one appears, halve the position; two appear together, exit entirely.</p><p class='txt'><b>Stop-loss: no price stop, a logic stop.</b> This is the key distinction: if the share price falls from 90 to 75 while cash remains at RMB 235.1 billion, that is a better price, not a reason to stop out (HKD 75 implies a market cap of about RMB 193.9 billion, cash coverage 121%). <b>The real stop-loss is "cash disappearing"—free cash flow turning negative or the cash balance falling more than RMB 20 billion in a single quarter.</b> At that point, even at 60, you should leave.</p></div><div class="section"><div class="section-title">Relationship to other portfolio holdings</div><p class='txt'>Before adding JD.com to the portfolio, calculate three correlations first. <b>With China internet e-commerce (Alibaba, Pinduoduo, Meituan): 0.7–0.8</b>, sharing three factors: "China consumption + platform regulation + Hong Kong liquidity." <b>With the Hang Seng Tech Index: about 0.8</b>, essentially beta replication. <b>With A-share consumer/manufacturing: around 0.3</b>, a low correlation, but this does not justify diversification, because JD.com's drivers sit on the Hong Kong side.</p><p class='txt'>So the portfolio-level rule is: <b>total China internet e-commerce exposure capped at 8%</b>. If Meituan or Alibaba is already held, JD.com's allocation must come out of that 8%, not be counted separately. The reason is that all three are the same bet on "food delivery subsidy retreat"—all betting the subsidy war ends and margins recover. Betting on three names is not diversification; it is leverage.</p><p class='txt'>The only diversification value lies in the time dimension: JD.com's catalysts (Q3 results, food delivery loss cut) land earlier than Alibaba's (returns on cloud and AI capex) and Meituan's (instant retail margins). If using it as an "event position," it suits better than the other two.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'>Position recommendation: <b>0 position, watch, cap 5%, total China internet e-commerce exposure no more than 8%.</b> Build a position only on two triggers: below HKD 90, or Q3 hitting both targets; only when both align is a full position permitted.</p><p class='txt'>No price stop-loss; use a thesis stop-loss: free cash flow turning negative, cash falling more than RMB 20 billion in a single quarter, or announcement of new large-scale investment — if any one appears, exit in full regardless of price. The core of this discipline is to let facts, not cost basis, hold the decision rights.</p></div>
+</div>
+<div class="footer">JD.com (9618.HK) · 2026/10/26</div>
+</body>
+</html>

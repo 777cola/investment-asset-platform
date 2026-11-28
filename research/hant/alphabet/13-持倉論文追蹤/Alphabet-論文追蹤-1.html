@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>論文追蹤 — Alphabet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/alphabet/13-持仓论文追踪/Alphabet-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/alphabet/13-持倉論文追蹤/Alphabet-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/alphabet/13-Thesis-Tracking/Alphabet-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>論文追蹤 — Alphabet</h1>
+  <div class="subtitle">Alphabet (GOOGL) | 13 · 論文追蹤</div>
+  <div class="meta">研究日期 2026/10/30 &nbsp;·&nbsp; 股價 $279.84（-1.40%） &nbsp;·&nbsp; 市值 約 3.42 萬億美元 &nbsp;·&nbsp; EV/EBIT(2026E) 約 21x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/alphabet/00-Alphabet研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：論文沒破，但有一條已經亮了紅燈</h3><p class='txt'>買入論點拆成六條可驗證的假設：雲端增速、折舊不吞噬利潤率、自由現金流轉正、搜尋不被替代、監管不出結構性救濟、AI 期權不計價。<b>現在三條綠、兩條黃、一條紅——紅的是自由現金流，連續兩季為負，過去 12 個月只剩 197 億。</b>這條紅燈不構成「論點已破」，因為它是主動投資而非生意惡化；但它意味著論點必須靠 2027 年的兩個季度來證明，而不是靠現在的價格來安慰。證偽條件寫死：雲端增速 <30% 且 capex 不降、或搜尋連續兩季 <8%，減半。</p></div><table class="dt"><caption>核心假設與驗證狀態</caption><thead><tr><th>假設</th><th>當前證據</th><th>驗證指標</th><th>狀態</th></tr></thead><tbody><tr><td>① 雲端增速 2027 年維持 50% 以上</td><td>第3季 +103%（去年基期 151 億元），積壓訂單 561 億元、55% 在 24 個月內認列</td><td>季報雲端收入同比、積壓訂單餘額</td><td>綠（但基數效應待驗證）</td></tr><tr><td>② 折舊上行不把營業利益率壓到 28% 以下</td><td>Q3 營業利益率 32%，同比 +1.3pct；折舊高峰在 2027–2028</td><td>10-Q 折舊與攤銷 / 營收</td><td>黃：成本還沒確認</td></tr><tr><td>③ 自由現金流 2027 年轉正</td><td>第3季 -90.7 億元，連續兩季為負，TTM 197 億元；2027 年資本支出還要「顯著增加」</td><td>季度自由現金流、資本支出指引</td><td>紅</td></tr><tr><td>④ 搜尋不被 AI 分流</td><td>Q3 搜尋 +12%（預期 +14%），AI Overviews 已上線未造成斷層</td><td>搜尋及其他收入同比</td><td>黃：增速低於預期 2pct</td></tr><tr><td>⑤ 監管不採結構性救濟</td><td>DOJ 2025/12 救濟不含拆分，2026/04 選擇屏生效；歐盟僅罰款</td><td>司法部上訴裁決、歐盟 AdX 分拆案</td><td>綠</td></tr><tr><td>⑥ 現有估值不為 Gemini/Waymo/TPU 付錢</td><td>搜尋＋雲端分部估值合計 3.2 萬億元 ≈ 市值 3.42 萬億元</td><td>分部估值 vs 市值</td><td>綠</td></tr></tbody></table><div class="note">狀態判定：綠 = 證據支持且趨勢穩定；黃 = 未證偽但存在可見風險；紅 = 當前數據與假設相反。所有證據截至 2026/10/30。</div><div class="section"><div class="section-title">假設一：雲增速——綠，但這是最容易被誤讀的一條</div><p class='txt'>Q3 雲收入 307.1 億、同比 +103%，看起來勢不可擋。<b>但去年同期的基數是 151.6 億，也就是說增長裡有一半是「低基數」貢獻的。</b>如果 2027 年每個季度都維持 100% 增速，2027Q3 的雲收入要到 1,200 億——這不現實。所以真正的假設不是「維持 103%」，是「降速後仍高於 50%」。</p><p class='txt'>支持這條的證據在積壓訂單：561 億，略超 55% 在 24 個月內確認。<b>這個數字只覆蓋季度雲收入的 13%，說明增長主要來自即時需求，彈性大但可預測性低。</b>所以這條假設是「綠」，但不是「穩綠」。</p></div><div class="section"><div class="section-title">假設二：折舊——黃，因為這是唯一「確定會發生」的壞事</div><p class='txt'>2,000 億資本支出按六年折舊是每年 333 億，2027 年折舊總額翻倍到 500 億以上，相對 5,000 億的年化收入是 10 個百分點。<b>如果毛利率不提升，營業利益率就要從 32% 掉到 22%——這是最悲觀的算法。</b>實際會好一些，因為雲收入翻倍帶來的規模效應能吃掉一部分。</p><p class='txt'>中性假設 30%、悲觀 26%、樂觀 32%。<b>這條假設的關鍵不是「會不會掉」，是「掉到多少」</b>——掉到 30% 是正常重資產化，掉到 26% 就是估值方式要改。觀察點是 10-Q 裡的折舊明細，不是新聞稿裡的表述。</p></div><div class="section"><div class="section-title">假設三：自由現金流——紅燈，但紅燈的性質要說清楚</div><p class='txt'>Q3 -90.7 億、連續兩季為負、TTM 只剩 197 億。這條假設現在是明確被證偽的狀態。<b>我要區分兩種紅燈：一種是「生意不賺錢」，一種是「賺的錢都投出去了」。Alphabet 是後者</b>——營業現金流 422.9 億為正，只是資本支出 513.6 億更大。</p><p class='txt'>但紅燈就是紅燈，不能因為解釋得通就改成綠燈。<b>它意味著：現在買入的人，必須接受至少 4–6 個季度看不到正自由現金流。</b>如果這個時間超出你的持有耐心，那這檔股票不適合你——這不是公司的問題，是匹配的問題。</p></div><div class="section"><div class="section-title">假設四到六：搜尋、監管、期權定價</div><p class='txt'><b>搜尋（黃）。</b>Q3 +12%、預期 +14%，差 2 個百分點。這不是崩塌，是「AI 答案開始影響點擊」的第一個可觀測訊號。<b>閾值定在連續兩季 <8%</b>——到了那個位置，就是生意模式問題，不是估值問題。</p><p class='txt'><b>監管（綠）。</b>DOJ 救濟不含拆分、歐盟只有罰款、上訴在進行中。<b>最壞的結構性風險（AdX 分拆）影響 3% 市值。</b>這一條可以從「核心風險」降級為「背景噪音」。</p><p class='txt'><b>期權定價（綠）。</b>搜尋按 15 倍 EBIT 值 2.2 萬億、雲按 2027 年 25 倍 EBIT 值 1 萬億，相加 3.2 萬億，接近 3.42 萬億市值。<b>Gemini、Waymo、TPU 對外銷售確實沒被定價——這是安全邊際的來源，也是「如果 Waymo 繼續年虧 80 億」的風險來源。</b></p></div><div class="section"><div class="section-title">證偽條件與觀察日曆</div><p class='txt'><b>三條證偽條件，任一條觸發就減半：</b></p><ul><li>雲收入增速連續兩季低於 30%，且資本開支指引不降——說明買的算力賣不出去。</li><li>營業利益率連續兩季低於 26%——說明折舊吞掉了規模效應。</li><li>搜尋及其他收入增速連續兩季低於 8%——說明 AI 分流已經從「影響增速」變成「侵蝕存量」。</li></ul><p class='txt'><b>觀察日曆：</b>2027/02 Q4 財報（全年 capex 落點 + 2027 指引 + 雲增速）；2027/04 Q1 財報（折舊明細第一次完整體現）；2027/07 Q2 財報（FCF 是否轉正）；2027 年內 DOJ 上訴裁決；每季度看回購是否恢復。<b>每季只做一個決定，48 小時內做完，其餘時間不看盤。</b></p></div><div class="summary-box"><h3>結論</h3><p>六條假設：三綠兩黃一紅。論文沒有破，但必須靠 2027 年上半年兩個季度來驗證。<b>結論：持有首倉，不追加；觸發任一證偽條件減半。</b>紅燈那條（FCF）是買入時就已知的代價，不是新資訊——真正的新資訊會是雲增速或折舊。</p></div>
+</div>
+<div class="footer">Alphabet (GOOGL) · 2026/10/30</div>
+</body>
+</html>

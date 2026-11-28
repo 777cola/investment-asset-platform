@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>六關篩選 — 老鋪黃金</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/laopu/1-六关快速筛选/老铺黄金-六关筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/laopu/1-六關快速篩選/老鋪黃金-六關篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/laopu/1-Six-Gate-Screen/Laopu Gold-Six-Gate Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>六關篩選 — 老鋪黃金</h1>
+  <div class="subtitle">老鋪黃金 (06181) | 01 · 六關篩選</div>
+  <div class="meta">研究日期 2026/10/09 &nbsp;·&nbsp; 股價 HK$337.00（+4.85%） &nbsp;·&nbsp; 市值 約 596 億港元 &nbsp;·&nbsp; PE(TTM) 約 6.9 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/laopu/00-老鋪黃金研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：好品牌、好店效，但便宜是帳面便宜</h3><p class='txt'>六關打 38 分（滿分 60），<b>不通過</b>，評級沿用底稿的「觀察，等金價企穩」。前四關基本沒有爭議：45 家直營店、16 個城市、35 個頭部商業中心，2026 上半年含稅銷售 227.79 億元、同比 +60.6%，單店年化銷售約 10.1 億元，這個店效在全球珠寶業裡是第一梯隊。第三關只給 6 分，因為品牌溢價真、產品壁壘假——古法金沒有專利，水貝一週就能出貨，真正難複製的是頂級商場的位置。</p><p class='txt'>後兩關是全部問題所在。6.9 倍 PE 的分母是 2026 上半年 42.67 億元淨利，而這 42.67 億元裡，Q1 貢獻了 35 億元以上：二季度收入只有 23–39.5 億元、淨利 5.1–7.6 億元，環比跌掉八成。金價 1 月見頂 5,419 美元、6 月跌破 4,000 美元，公司自己也沒料到二季度會這麼陡。<b>當期的低 PE 不是安全邊際，是峰值利潤的倒影。</b></p></div><table class="dt"><caption>六關評分表（每關 10 分，滿分 60）</caption><thead><tr><th>關卡</th><th>判定</th><th>評分</th><th>依據</th></tr></thead><tbody><tr><td>第一關 能力圈</td><td>透過</td><td>7/10</td><td>賣古法金首飾、直營、按件定價，生意簡單；但金價變數不在能力圈內</td></tr><tr><td>第二關 好生意</td><td>透過</td><td>7/10</td><td>毛利率 41.3%、淨利率 21.5%，代價是 190 億元存貨、271 天週轉</td></tr><tr><td>第三關 護城河</td><td>勉強通過</td><td>6/10</td><td>品牌與工藝有溢價，古法金可被複製；護城河在頂級商場的位置，不在產品</td></tr><tr><td>第四關 管理層</td><td>透過</td><td>7/10</td><td>只做直營、派息率 75%、2026 年主動優化 10–12 家門店</td></tr><tr><td>第五關 安全邊際</td><td>存疑</td><td>6/10</td><td>6.9 倍 PE 的分母是 Q1 堆出來的峰值利潤；按可持續利潤算 9–10 倍</td></tr><tr><td>第六關 紀律</td><td>存疑</td><td>5/10</td><td>買入前提是「金價不跌」，這是宏觀賭注，不是可驗證的公司變數</td></tr><tr><td>綜合</td><td>不通過</td><td>38/60</td><td>好品牌、合理價，盈利品質未經驗證；等一個金價下行的季度</td></tr></tbody></table><div class="note">評分口徑：每關 10 分，8 分以上為「很清楚」，6–7 分為「能過但有條件」，5 分以下為「不過」。評分是本報告的主觀判斷，不是公司數據。</div><div class="section"><div class="section-title">第一、二關：好懂，但「好懂」和「好賺」是兩件事</div><p class='txt'>能力圈這關給 7 分，不是 9 分。生意本身三句話能說完：<b>在頂級商場開店，賣按件定價的古法黃金首飾，賺工費和品牌溢價。</b>沒有技術路線，沒有大客戶，沒有政策補貼。複雜的地方只有一個變數——金價。2026 年 1 月現貨金價衝到 5,419 美元/盎司，6 月跌破 4,000 美元，國內足金零售價跟著下調超過 25%。一家公司的主營成本在半年裡擺動 25%，這不叫能力圈內。</p><p class='txt'>第二關給 7 分，數字是硬的：毛利率 41.3%、同比 +3.2pct，淨利率 21.5%、同比 +3.1pct。對比一下同行，周大福 2026 財年毛利率 32.3%、淨利率 9.5%，老鳳祥 2025 年收入 528 億元、淨利只有 17.55 億元、淨利率 3.3%。<b>同樣是賣金子，老鋪每 100 元收入留下 21.5 元淨利，老鳳祥留下 3.3 元。</b>這個差距是品牌和定價方式（按件而非按克）帶來的，是真的。</p><p class='txt'>扣掉 3 分的理由是資產結構。190.18 億元存貨、271 天週轉，意味著每賺 1 元利潤要壓 4.5 元存貨。金價上漲時存貨是利潤放大器，下跌時是減值來源，同一張資產負債表在兩個方向上都會放大。這不是「好生意」的標準形態——好生意應該是不需要賭方向也能賺錢的生意。</p></div><div class="section"><div class="section-title">第三關：品牌是真的，壁壘是位置不是產品</div><p class='txt'>這一關最容易判錯。判斷依據不是「古法金是不是老鋪發明的」，而是「別人能不能在兩年內做出一樣的東西」。答案分兩層。</p><p class='txt'>產品層：能。鏨刻、花絲、燒藍這些工藝沒有專利，深圳水貝的仿款週期以週計，周大福的「傳承」、老鳳祥的古法系列、潮宏基的花絲產品都在同一個審美區間裡。2026 年 2 月末老鋪全通路提價 20%–30%，部分產品克價突破 2,500 元/克，這個動作同業沒跟進——不是不能，是不敢，因為它們的客群不認這個溢價。</p><p class='txt'>通路層：不能。45 家店全部開在 SKP、萬象城、恒隆、太古這類頭部商業中心，16 個城市、35 個商業中心。頂級商場的一層位置是有限供給，一個商場只會給一個「中國古法金第一品牌」留位子，先佔住的不會被輕易替換。<b>所以老鋪的護城河是「通路稀缺性 + 客群認知」，產品可以被抄，位置抄不走。</b>給 6 分：夠用，但不足以支撐奢侈品估值——奢侈品的壁壘是「不買它就買不到同等身份符號」，老鋪還沒到那一步。</p></div><div class="section"><div class="section-title">第四關：不搞加盟、派息 75%，這兩件事比增長更能說明管理層</div><p class='txt'>給 7 分。看三件事就夠了。</p><p class='txt'>第一，<b>堅持直營。</b>45 家店全部自營，沒有加盟、沒有批發。這在中國黃金珠寶行業裡是異類——周大福內地 5,305 家店、老鳳祥數千家網點，靠加盟把規模做上去，代價是價格體系和品牌調性失控。老鋪放棄了這個最快的擴張方式，2024 年上市募資淨額只有 7.13 億港元，也沒拿錢去鋪店。</p><p class='txt'>第二，<b>派息 75%。</b>2026 中期每股派 18.02 元、合計 31.85 億元，占淨利約 75%，比當期經營現金流 20.08 億元還高。成長期公司這麼分紅少見，可以讀成兩個信號：擴張不需要那麼多錢，以及管理層願意把現金交出來而不是留在表上做存貨。這兩個信號都偏正面。</p><p class='txt'>第三，<b>主動關店。</b>2026 年計劃優化 10–12 家門店，上半年門店數維持 45 家不變。在金價高位主動收縮而不是趁勢擴張，說明管理層知道單店質量比門店數量重要。</p><p class='txt'>扣 3 分在治理：徐高明、徐東波父子加紅喬金季合計持股 58.10%，流通盤小，股價彈性被放大——從 1,065 港元跌到 337 港元只用了十五個月，治理上沒有制衡力量去平滑這種波動。</p></div><div class="section"><div class="section-title">第五關：6.9 倍 PE 的分母，是 Q1 堆出來的</div><p class='txt'>這是整份報告的核心。市值 596 億港元、TTM 淨利按底稿口徑 79.3 億元，得出 6.9 倍。第一眼看，一家收入還在 +60% 的公司給 6.9 倍，便宜得離譜。</p><p class='txt'>把半年報拆開就不便宜了。2026 上半年淨利 42.67 億元，其中 Q2 只有 5.1–7.6 億元、環比跌 80% 以上、同比跌 34%–56%，Q1 一家就貢獻了 35 億元以上。原因不複雜：2 月末全渠道提價 20%–30%，疊加金價 1 月見頂前的搶購潮，高端客群把全年的購買前置到了春節前後；二季度金價掉頭往下，國內足金零售價跌超 25%，「買漲不買跌」的消費心理直接反轉。</p><p class='txt'>所以 6.9 倍的分母裡，有一段是不可重複的。把 Q2 年化（約 20–30 億元）當常態，PE 是 20–30 倍；把 2027 年可能回落的 45–57 億元當分母，PE 是 9.5–12 倍。<b>底稿說「按可持續利潤算 9–10 倍」，這個區間是站得住的。</b></p></div><div class="section"><div class="section-title">第六關與一處修正：金價不是公司變數</div><p class='txt'>第六關給 5 分，扣分理由很直接：<b>買入的前提是「金價不跌」，而這既不在這家公司的控制範圍裡，也不可驗證。</b>紀律要求「買入理由必須能被數據檢驗」，金價方向檢驗不了，只能事後知道。這一關不過，前面分數再高也不能重倉。</p><p class='txt'>這裡要對底稿做一處技術性修正，不改結論。底稿把 41.3% 的毛利率讀成「含低成本庫存時間差的高點」，但拉長看：2021 年 41.2%、2022 年 41.9%、2023 年 41.9%、2024 年 41.2%、2025 年 37.6%、2026H1 41.3%。<b>41%–42% 才是常態，2025 年的 37.6% 才是異常。</b>所以低成本庫存紅利主要是把 2025 年被金價擠壓的毛利還回來，不是造出新高點。</p><p class='txt'>真正的峰值不在毛利率，在收入：Q1 含稅銷售約 190 億元，一個季度干了 2024 年全年的兩倍。這個需求是提前透支的，不是新增的。所以「利潤見頂」的判斷成立，但機制要寫對——是收入透支。</p></div><div class="summary-box"><h3>結論</h3><p>六關 38 分，不通過，<b>觀察，等金價企穩</b>。否決項只有一個：盈利質量未經驗證——Q2 已經證明，金價下行時同店會失速，而管理層對此沒有對沖工具。待驗證項三條：① 金價在 4,000–4,300 美元橫盤一個季度後，同店能否回到正增長；② 存貨週轉天數能否從 271 天降回 220 天以內；③ 海外門店能否從新加坡 1 家變成 3 家以上。三條全過，分數可以重算到 44 分以上，那時才是買點。</p></div>
+</div>
+<div class="footer">老鋪黃金 (06181) · 2026/10/09</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earnings Deep Dive (Buffett) — Meta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meta/8-财报团队解读/Meta-大师精读-巴菲特.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/meta/8-財報團隊解讀/Meta-財報團隊解讀-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/meta/8-Earnings-Team-Read/Meta-Earnings Team-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Earnings Deep Dive (Buffett) — Meta</h1>
+  <div class="subtitle">The income statement is an opinion; the cash flow statement is a fact</div>
+  <div class="meta">Research date 2026/11/02 &nbsp;·&nbsp; Price $606.73 (-1.34%) &nbsp;·&nbsp; Market cap About USD 1.58 trillion &nbsp;·&nbsp; PE(TTM) Approximately 21x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/meta/00-Meta-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>Buffett asks only three things when reading financial statements: <b>how much capital the business needs to operate, how much that capital earns, and what management does with the excess.</b> Meta's answers are, respectively: more and more, cannot be calculated for now, and betting it on AI.</p></div><div class="section"><div class="section-title">Capital intensity: from light to heavy over a decade</div><p class='txt'>Capex was 15% to 20% of revenue in 2016, 36% in 2025 and about 55% in 2026. Over the same period gross margin fell from 86% to 79.3%, and operating margin fell from 45% to 20% (GAAP) and 35% (adjusted). <b>Rising capital intensity and falling margins are two sides of the same coin.</b></p><p class='txt'>One reason he bought Apple was that the company could grow without much capital. Meta is now the opposite: it needs an enormous amount of capital just to sustain growth, and the return on that capital has yet to be proven.</p></div><div class="section"><div class="section-title">ROIC: A Good Number Being Diluted</div><p class='txt'>At roughly USD 95 billion annualized adjusted operating profit and a 17% tax rate, with invested capital crudely estimated as equity of USD 225 billion plus interest-bearing debt of about USD 30 billion less cash of USD 82 billion, ROIC exceeds 50%, which is very high. But that denominator is expanding fast: USD 70 billion of incremental capex in 2026, and more in 2027.</p><p class='txt'><b>The denominator grows while the numerator takes three years to show up; the financials in the intervening two years will look ugly.</b> Buffett's approach is to wait for the numbers to appear rather than guess ahead.</p></div><div class="section"><div class="section-title">Shareholder returns: from RMB 30 billion buyback to RMB 95 billion financing</div><p class='txt'>From 2019 to 2025, Meta repurchased USD 20–30 billion of stock annually, the most aggressive of the Magnificent Seven. In the first nine months of 2026, buybacks were zero; dividends were still paid, about USD 1.3 billion per quarter, a yield of less than 0.4%.</p><p class='txt'>Meanwhile, on October 26 it launched a USD 37.5 billion equity raise: USD 25 billion of common stock priced at USD 625, USD 12.5 billion of mandatory convertible preferred with a 6.5% coupon, plus a USD 60 billion ATM. <b>Paying a 6.5% preferred dividend on one side and a 0.4% common dividend on the other — that spread is the market's pricing of its credit risk.</b></p></div><div class="section"><div class="section-title">How would he value it?</div><p class='txt'>A DCF is unusable because free cash flow is negative. The only option is normalized earnings times a reasonable multiple: assuming capex falls back to USD 9 billion in 2028, advertising returns to 15% growth, and depreciation is absorbed by revenue, normalized EPS comes to roughly USD 35 to 38; at 18 to 20x, fair value is USD 630 to 760.</p><p class='txt'><b>But every assumption behind this math rests on 2028.</b> Buffett would not pay today for normalization three years out unless the price first carries a 30% discount.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Close-read verdict: first-class asset, second-class capital allocation, third-class timing.</b> He would concede this is a great company, then set his buy price below 15x normalized earnings — just over USD 500. At USD 606.73, it is out of range.</p></div>
+</div>
+<div class="footer">Meta (META) · 2026/11/02</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務分析（巴菲特視角） — 三星電子</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/samsung/5-四角色并行分析/三星电子-财务分析-巴菲特.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/samsung/5-四角色並行分析/三星電子-四角色-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/samsung/5-Four-Role-Analysis/Samsung Electronics-Four Roles-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務分析（巴菲特視角） — 三星電子</h1>
+  <div class="subtitle">三張表能不能互相印證：利潤是真的嗎，現金在哪，資產負不負債</div>
+  <div class="meta">研究日期 2026/09/21 &nbsp;·&nbsp; 股價 ₩275,000（+5.77%） &nbsp;·&nbsp; 市值 約 1,793 萬億韓元（約 1.20 萬億美元，按 65.2 億股、1,500 韓元／美元粗算） &nbsp;·&nbsp; 本益比（2026 上半年年化） 約 7.5x（按上半年稅後淨利 118.7 萬億韓元×2 粗算）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/samsung/00-三星電子研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>一句話：利潤是真的，現金被資本開支吃掉，資產負債表乾淨</h3><p class='txt'>三張表互相印證，結論是<b>利潤真實、現金被資本支出截流、資產負債表乾淨</b>。利潤側：營收 171.5 萬億元、營業利益 89.49 萬億元、稅後淨利 71.62 萬億元，淨利率 41.8%，有效稅率 20.0%，沒有一次性收益撐場（匯率收益 3.1 萬億元，占營業利益 3.5%）。</p><p class='txt'>現金側：稅後淨利 118.7 萬億元（上半年），但記憶體是重資產，折舊攤銷與設備投資吞掉一大塊，自由現金流遠低於稅後淨利。資產側：淨現金、無淨有息負債、淨資產約 996 萬億韓元、PB 1.8 倍。<b>這是一張能扛過下行週期的資產負債表，也是一張不會給股東驚喜的資產負債表。</b></p></div><table class="dt"><caption>損益表與現金流的關鍵比率（2026Q2 / 上半年）</caption><thead><tr><th>專案</th><th>數值</th><th>演算法</th><th>讀數</th></tr></thead><tbody><tr><td>毛利率</td><td>69.6%</td><td>毛利 119.4 ÷ 營收 171.5</td><td>歷史極值，2025Q2 為 34.2%</td></tr><tr><td>期間費用率</td><td>17.4pct</td><td>毛利率 69.6 − 營業利益率 52.2</td><td>銷售管理費用被營收攤薄</td></tr><tr><td>研發費用率</td><td>9.3%</td><td>研發 16.0 ÷ 營收 171.5</td><td>同比 +78%，仍在加碼</td></tr><tr><td>營業利益率</td><td>52.2%</td><td>營業利益 89.49 ÷ 營收 171.5</td><td>全球大型科技公司最高</td></tr><tr><td>淨利率</td><td>41.8%</td><td>稅後淨利 71.62 ÷ 營收 171.5</td><td>含非控股與匯兌收益</td></tr><tr><td>有效稅率</td><td>20.0%</td><td>(89.49 − 71.62) ÷ 89.49</td><td>韓國法定稅率附近，無異常</td></tr><tr><td>自由現金流／稅後淨利</td><td>明顯低於 1</td><td>稅後淨利減資本支出（未披露，粗算）</td><td>重資產屬性，現金被設備吃掉</td></tr></tbody></table><div class="note">口徑：毛利、毛利率取自財報；期間費用率為毛利率減營業利潤率，屬間接推算；自由現金流比率因季報未單列資本支出，僅給定性判斷，不寫具體數字。</div><div class="section"><div class="section-title">損益表：利潤是真的，但來源單一</div><p class='txt'>先做最基礎的一件事：確認利潤不是會計做出來的。營收 171.5 萬億元、毛利 119.4 萬億元，兩個數字相除得 69.6%，與公司披露的毛利率一致；營業利益 89.49 萬億元，減去稅後淨利 71.62 萬億元，差額 17.87 萬億元，對應 20% 的有效稅率——<b>三個數字互相咬得住，沒有「其他收益」這種科目在撐利潤。</b></p><p class='txt'>唯一需要留意的是 3.1 萬億韓元的匯率收益，占營業利益 3.5%。韓元在 2026 年上半年偏弱（1,500 韓元/美元附近），出口計價的產品換算成韓元會變多。<b>這部分是「分母效應」，不是經營改善</b>——如果韓元走強，同樣的美元收入換回的韓元會減少，營業利益會跟著縮水。</p><p class='txt'>結構上，DS 部門 89.2 萬億元的營業利益占 99.7%，其餘部門合計為負。巴菲特會在這裡畫一條線：<b>這是一家單一利潤源的公司，多元化只體現在營收上，不體現在利潤上。</b></p></div><div class="section"><div class="section-title">現金流：賺的是帳面利潤，花的是真金白銀</div><p class='txt'>記憶體行業的現金流有個特點：稅後淨利好看，自由現金流難看。原因是折舊和資本支出。一條 DRAM 產線投資幾萬億韓元，按五年折舊，每年折舊額就直接從利潤裡扣掉，但設備錢是提前花出去的。<b>所以淨利高的時候，營業現金流通常更高（折舊回加），但自由現金流被 capex 吃掉一大半。</b></p><p class='txt'>2026 年上半年淨利 118.7 萬億韓元。這筆錢的去向大致是三塊：設備與產線投資、研發（Q2 單季 16 萬億、同比 +78%）、分紅（按政策下限 9.8 萬億/年計）。<b>分紅佔淨利的比例約 4%，剩下的錢全部留在公司裡繼續擴產。</b></p><p class='txt'>對股東來說這是好事還是壞事？取決於資本回報率。如果新產能的回報率高於股東自己拿去投資的回報，留存是對的；如果只是在週期頂部高價買設備、等到產能釋放時價格已經跌了，那就是毀滅價值。<b>三星的歷史記錄是後者居多——每一輪頂部它都是資本支出最激進的廠商。</b></p></div><div class="section"><div class="section-title">資產負債表：淨現金是它敢逆週期擴產的底氣</div><p class='txt'>三星長期是淨現金公司，沒有淨有息負債。按 1.8 倍 PB 和 1,793 萬億市值反推，淨資產約 996 萬億韓元，每股帳面價值約 15.3 萬韓元。<b>這個結構給了它兩個別人所沒有的能力：熬和抄底。</b></p><p class='txt'>熬：2023 年全行業虧損時，三星沒有減產，反而繼續投研發，因為它不用還債。抄底：2016 年收購哈曼（80 億美元）、2024 年之後的泰勒廠投資，都是在別人收縮時出手。</p><p class='txt'>巴菲特會喜歡這張表，但會追問一個問題：<b>淨現金為什麼不還給股東？</b>1,793 萬億市值對應 9.8 萬億分紅，股息率 0.55%。他寧可公司把錢用來回購——在市盈率 7.5 倍時回購，等於用 7.5 毛買 1 塊錢的利潤。<b>這是治理問題，不是財務問題，留到管理層那一篇展開。</b></p></div><div class="summary-box"><h3>結論</h3><p>三張表的結論：<b>利潤真實但單一，現金充沛但被資本開支截流，資產負債表乾淨到可以逆週期下注。</b>這是一家「不會死、但也不會把利潤還給股東」的公司。<br>給巴菲特視角的評分：財務品質 8/10，股東回報 3/10。</p></div>
+</div>
+<div class="footer">三星電子 (005930.KS) · 2026/09/21</div>
+</body>
+</html>

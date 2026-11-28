@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀 — 泡泡瑪特</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/popmart/7-财报精读/泡泡玛特-财报精读.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/popmart/7-財報精讀/泡泡瑪特-財報精讀-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/popmart/7-Earnings-Deep-Read/Pop Mart-Earnings Read-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀 — 泡泡瑪特</h1>
+  <div class="subtitle">泡泡瑪特 (09992) | 07 · 財報精讀</div>
+  <div class="meta">研究日期 2026/09/07 &nbsp;·&nbsp; 股價 HK$156.20（+1.43%） &nbsp;·&nbsp; 市值 約 2,090 億港元 &nbsp;·&nbsp; PE(TTM) 約 14.2x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/popmart/00-泡泡瑪特研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：四層拆完，問題不在收入，在收入的「含金量」</h3><p class='txt'>這份中報的四層結構很清楚。<b>收入層</b>：國內 +47.3% 頂住，海外 -11.1% 拖累，結構從「海外引擎」逆轉為「國內獨撐」。<b>毛利層</b>：69.7%，只掉 0.6 個百分點，品類從手辦轉向毛絨的代價可控。<b>利潤層</b>：淨利 +10.1%，匯兌一進一出吃掉 8.4 億元，費用跑在收入前面。<b>現金層</b>：存貨周轉 123→201 天，淨現比約 0.7 倍，錢壓在貨上。</p></div><table class="dt"><caption>損益表關鍵行（人民幣億元）</caption><thead><tr><th>專案</th><th>2026H1</th><th>2025H1</th><th>同比／變化</th></tr></thead><tbody><tr><td>營業收入</td><td>171.73</td><td>138.72</td><td>+23.8%</td></tr><tr><td>毛利（計算值）</td><td>119.70</td><td>97.52</td><td>+22.7%</td></tr><tr><td>毛利率</td><td>69.7%</td><td>70.3%</td><td>-0.6pct</td></tr><tr><td>經銷及銷售費用</td><td>未單獨列示</td><td>—</td><td>+23.1%</td></tr><tr><td>其中：租賃開支</td><td>未單獨列示</td><td>—</td><td>+43.3%</td></tr><tr><td>其中：員工薪酬</td><td>未單獨列示</td><td>—</td><td>+45.7%</td></tr><tr><td>匯兌損益</td><td>-7.20</td><td>+1.20</td><td>一進一出 8.4 億元</td></tr><tr><td>歸母淨利</td><td>50.38</td><td>45.76</td><td>+10.1%</td></tr><tr><td>經調整淨利潤</td><td>51.56</td><td>47.09</td><td>+9.5%</td></tr><tr><td>淨利率</td><td>29.3%</td><td>33.0%</td><td>-3.7pct</td></tr></tbody></table><div class="note">資料來源：2026 年中期業績公告。毛利 = 營業收入 × 毛利率（計算值），2025H1 毛利按 70.3% 反推。銷售費用及明細絕對值未在公告摘要中單列，僅列同比增速（取自 BT 財經對中報的拆解，2026/08/20）。</div><table class="dt"><caption>分部與通路（人民幣億元）</caption><thead><tr><th>區域</th><th>2026H1 收入</th><th>同比</th><th>線上通路同比</th></tr></thead><tbody><tr><td>中國內地</td><td>122.01</td><td>+47.3%</td><td>+62.7%（線上 47.8 億元，抽盒機 App 20.6 億元）</td></tr><tr><td>亞太</td><td>25.80</td><td>-9.7%</td><td>-39.8%</td></tr><tr><td>美洲</td><td>18.90</td><td>-16.5%</td><td>-45.6%（Shopee -62.1%）</td></tr><tr><td>歐洲及其他</td><td>5.10</td><td>+5.9%</td><td>-59.0%</td></tr><tr><td>批發及其他（新業態）</td><td>5.53</td><td>+111.7%</td><td>—</td></tr></tbody></table><div class="note">資料來源：2026 年中期業績公告、BT 財經（2026/08/20）、21 世紀經濟報導（2026/08/24）。線上增速為各區域線上通路收入同比，不含線下門店。</div><table class="dt"><caption>現金與資產負債（人民幣億元）</caption><thead><tr><th>專案</th><th>2026/06/30</th><th>2025/12/31</th><th>說明</th></tr></thead><tbody><tr><td>現金及等價物</td><td>124.4</td><td>137.8</td><td>減少 13.4 億元</td></tr><tr><td>銀行借款</td><td>0</td><td>0</td><td>零有息負債</td></tr><tr><td>資產負債率</td><td>24.9%</td><td>—</td><td>以經營性負債為主</td></tr><tr><td>存貨週轉天數</td><td>201 天</td><td>123 天（去年同期）</td><td>+78 天</td></tr><tr><td>派息</td><td>31.5（2025 末期）</td><td>—</td><td>每股 2.3817 元</td></tr><tr><td>回購</td><td>17.4 億港元 / 約 15.5 億元</td><td>—</td><td>註銷 1,122 萬股，價格 140.9–194.9 港元</td></tr></tbody></table><div class="note">資料來源：2026 年中期業績公告。存貨週轉天數同比口徑為 2025 年 6 月末 123 天。回購金額的港元/人民幣換算按 0.89 粗算。</div><div class="section"><div class="section-title">第一層收入：結構逆轉，不是「國內補海外」</div><p class='txt'>171.73 億元裡，中國內地 122.01 億元、占 71.0%，去年同期是 59.7%。海外合計 49.72 億元、占 29.0%，從 40.3% 掉下來 11.3 個百分點。<b>這不是「國內補上海外」，是結構逆轉：海外從增長引擎變成了拖累項。</b></p><p class='txt'>拆到區域：亞太 -9.7%、美洲 -16.5%、歐洲 +5.9%（體量最小，5.10 億元）。三個區域裡兩個負增長，唯一正增長的占比只有 3%。</p><p class='txt'>再拆渠道，答案就出來了：下滑幾乎全部來自線上。亞太線上 -39.8%、美洲 -45.6%、歐洲 -59.0%、Shopee -62.1%。同期海外門店淨增 36 家（美洲 41→86、歐洲 18→45、亞太 90）。<b>線下在長，線上在崩，合起來是 -11.1%。</b>公司自己的解釋是「外部流量紅利消退」，翻譯過來是：靠短影音爆紅帶來的自然流量沒了，現在要靠一家一家開店掙辛苦錢。</p><p class='txt'>再補一個細節：國內線上 47.8 億元、同比 +62.7%，其中抽盒機 App 單平台 20.6 億元。<b>這說明國內的增長不是靠門店硬拉，是「線上抽盒」這個產品形態在擴散。</b>抽盒機的經濟學很好——先付錢、後拆盒、無庫存展示成本，毛利率比門店還高。這是泡泡瑪特在國內最被低估的一塊資產。</p></div><div class="section"><div class="section-title">第二層毛利：69.7%，品類切換的代價可控</div><p class='txt'>毛利率從 70.3% 掉到 69.7%，只掉 0.6 個百分點。在一個品類結構發生劇變的半年裡，這個數字算穩。</p><p class='txt'>結構變化是這樣的：毛絨 98.25 億元、占 57.2%、同比 +60.0%；手辦 51.92 億元、占 30.2%、同比 +0.3%。<b>毛絨第一次成為第一大品類，手辦基本停止增長。</b>毛絨的工藝更複雜（縫製、填充、面料）、交期更長、單價更高，毛利率比手辦低幾個點，但規模效應把整體毛利只拉低了 0.6 個百分點。</p><p class='txt'>公司的解釋是兩個原因：海外高毛利業務占比下降（海外毛利率高於國內）、原材料漲價。第一條是結構性的，第二條是週期性的。真正要擔心的是第一條——<b>海外收入占比從 40.3% 掉到 29.0%，每掉一個點，綜合毛利率就被拉低一點。</b>如果海外繼續掉，毛利率會跌破 69%。</p><p class='txt'>還有一個口徑要說明：品類毛利率的差異，公司沒有單獨披露。上面說的「毛絨比手辦低幾個點」是行業通行判斷，不是公司數字。<b>但可以用整體毛利率反推：毛絨占比從不到 40% 升到 57.2%，整體毛利率只掉 0.6 個百分點，說明兩者的差距很小，最多 3 到 5 個點。</b>這反而是一個好消息——品類切換沒有犧牲盈利能力。</p></div><div class="section"><div class="section-title">第三層費用與利潤：匯兌是噪音，費用是選擇</div><p class='txt'>淨利 +10.1%，收入 +23.8%，差 13.7 個百分點。拆開看兩塊。</p><p class='txt'><b>匯兌：</b>上半年虧 7.20 億元，去年同期賺 1.20 億元，一進一出 8.4 億元。按 50.38 億元淨利算，這一項吃掉了 14% 的利潤。<b>費用：</b>經銷及銷售費用 +23.1%，看著和收入同步，但內部結構很不一樣——租賃 +43.3%、員工薪酬 +45.7%，銷售團隊從 6,219 人擴到 9,734 人。開店的成本是前置的，收入是後置的。</p><p class='txt'>這兩塊性質完全不同。匯兌不可控、不可持續、也不反映經營；費用是主動選擇，反映的是「用利潤換門店」。<b>剔除匯兌，利潤增速約 28%，高於收入；這說明經營層面沒有惡化，是財務層面和投入層面在壓。</b>判斷這家公司，要看剔除匯兌後的營業利益，不要看報表淨利。</p><p class='txt'>再算一筆帳：如果把 8.4 億元的匯兌差額加回，上半年淨利是 58.78 億元、同比 +28.4%，淨利率 34.2%。<b>這個數字比去年同期的 33.0% 還高。</b>所以「淨利率下滑」這個說法，只在報表口徑成立；經營口徑是上升的。市場看報表，所以股價跌；你看經營，所以知道生意沒壞。兩者的差，就是機會的來源——但現在價格還沒反映這個差。</p></div><div class="section"><div class="section-title">第四層現金流與資產負債：錢去哪了</div><p class='txt'>現金從年初 137.8 億元降到 124.4 億元，少了 13.4 億元。同期賺了 50.38 億元，派息 31.5 億元、回購約 15.5 億元，兩項合計 47 億元。粗算一下：50.38 - 47 = 3.4 億元，理論上現金應該微增，實際少了 13.4 億元。<b>差額約 17 億元，主要壓在存貨和營運資本上。</b></p><p class='txt'>存貨週轉從 123 天到 201 天，按半年營業成本 52 億元粗算，多佔用約 11 億元。剩下的差額在應收帳款（海外通路帳期）和預付款（新店裝修、原材料）。</p><p class='txt'>資產負債率 24.9%、零銀行借款，這是最讓人放心的一條——即使現金流再差兩個季度，公司也不會出問題。<b>但「不會出問題」和「賺錢效率高」是兩件事。</b>現在的問題是：賺的利潤有一半變成了倉庫裡的貨和海外門店的裝修，而不是帳上的現金。</p><p class='txt'>把四層串起來，有一個容易被忽略的結論：<b>這家公司的「營業現金流」在擴張期天然落後於稅後淨利，這不是財務造假，是商業模式決定的。</b>先收錢（合約負債）+ 後付供應商（應付帳款）本該讓現金流好於利潤，但存貨的增速超過了預收的增速，就把優勢吃掉了。判斷標準很簡單：存貨增速低於收入增速時，現金流會修復；高於時，會繼續惡化。上半年收入 +23.8%、存貨週轉 +63%，後者遠高於前者，這就是淨現比 0.7 的原因。</p></div><div class="summary-box"><h3>結論</h3><p>四層拆完，一句話：<b>收入是真的，利潤打了折，現金被存貨占住了。</b>這不是一份「暴雷」的財報，是一份「增長模式切換」的財報——從輕資產的線上爆紅，切換到重資產的門店擴張。切換期的利潤率、現金流、存貨都會難看，關鍵是看兩個季度後能不能回到正常水平。</p></div>
+</div>
+<div class="footer">泡泡瑪特 (09992) · 2026/09/07</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⑧ Decision framework — SMIC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/smic/16-八篇深度长文/中芯国际-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/smic/16-八篇深度長文/中芯國際-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/smic/16-Eight-Long-Essays/SMIC-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>⑧ Decision framework — SMIC</h1>
+  <div class="subtitle">Translate "bullish" into price and conditions</div>
+  <div class="meta">Research date 2026/08/10 &nbsp;·&nbsp; Price ¥126.25 (-1.75%) &nbsp;·&nbsp; Market cap About RMB 1.08 trillion &nbsp;·&nbsp; PE(TTM) Approximately 205x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/smic/00-SMIC-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>Research must ultimately answer three questions: what is it worth, at what price to buy, and under what conditions to sell. For SMIC the answers are: neutral at RMB 120, a buy below RMB 100, and a sell above RMB 155. None of the three numbers is precise, but each is more useful than "bullish long term."</p></div><div class="section"><div class="section-title">What is it worth: three methods, one range</div><p class='txt'>P/B method: net assets per share of RMB 20.19, applying 4x (pessimistic) to 7x (optimistic), implies RMB 81–141; the neutral 5.5x implies RMB 111, and adding 2027 net asset growth gives about RMB 120.</p><p class='txt'>P/E method: 2026 consensus net profit of RMB 6.255 billion, applying 40–60x, implies a market cap of RMB 250–375 billion and a share price of RMB 29–44. This method yields a result far below the P/B method for one reason only — depreciation suppresses profit too heavily, distorting the P/E denominator.</p><p class='txt'>Comparable method: H shares at HKD 66.20 convert to RMB 57.2, implying an A-share premium of 121%. If the premium narrows to 60%, the A-share price would be RMB 91.</p><p class='txt'>The three approaches produce a wide range of RMB 29–120. This report adopts the P/B method's RMB 120 as the neutral target price, because the value anchor for a foundry is "how much it costs to rebuild a production line," not current profit.</p></div><div class="section"><div class="section-title">At what price to buy: two price levels, two rationales</div><p class='txt'>RMB 100: 5x PB, about 160x TTM PE. That is 17% below the neutral target price, where room for error starts to appear. The reason to buy is not "cheap" but "improving odds" — 55% upside to RMB 155, 12% downside to RMB 88.</p><p class='txt'>RMB 80: 4x PB, close to the bear-case target price of RMB 88. Buying at this price means the market has already priced in "depreciation keeps rising, price hikes stall", and the risk-reward turns positive.</p><p class='txt'>Neither level is "cheap", because the company's ROE is only 2.7%, so any PB is not cheap. But for a cyclical growth stock, the entry point is never "absolutely cheap" — it is "relatively good odds".</p></div><div class="section"><div class="section-title">When to sell: three triggers — price, thesis, time</div><p class='txt'>Price line: cut one-third at RMB 155, cut again at RMB 170, exit fully above RMB 180. The three levels correspond to 7x, 7.7x and 8.2x PB, all outside the reasonable range for a cyclical growth stock.</p><p class='txt'>Logic line: gross margin below 18% for two consecutive quarters, utilization falling below 85%, the DUV ban taking effect, capex raised while revenue guidance is cut — any one trigger and cut to zero. Logic stops take priority over price stops, because this kind of stock is too volatile and price stops get knocked out by day-to-day swings.</p><p class='txt'>Time line: two years. If within two years capex has not come down, dividends have not started and gross margin has not climbed above 24%, the thesis's core assumption (the capacity cycle peaking) has not played out, and the position should be reassessed regardless of the share price.</p><p class='txt'>Of the three lines, the logic line matters most. Price is the result, logic is the cause; when the cause changes, the result must change.</p></div><div class="section"><div class="section-title">What would change this conclusion</div><p class='txt'>The three strongest arguments for the bull case: first, if N+3 yields reach mass-production levels in 2027, SMIC can capture the "advanced-node premium" and gross margin could jump above 30%; second, if domestic equipment (excluding lithography) completes substitution by 2027, capex intensity will fall and depreciation will peak; third, if the A-share semiconductor valuation framework shifts up across the board (e.g., policy-driven long-term capital inflows), 205x PE becomes the "new normal."</p><p class='txt'>All three arguments could hold, but they are all "ifs." Investing does not require denying possibilities; it requires judging how much to pay for them. The current price treats all three "ifs" as "certainties."</p><p class='txt'>So the conclusion is not "it's a bad company" but "the price is too full." By the time one of those "ifs" becomes "already done," the price may actually be lower—because by then the market will already be trading the next story.</p><p class='txt'>This is the most counterintuitive point in growth-stock investing: when good news materializes, it is often not the buy point. The price has already finished rising before the news arrives. The buy point that actually makes money usually appears when "good news hasn't come yet, but bad news has already played out"—and SMIC today is the exact opposite: three batches of good news have already arrived (price hikes, integration, guidance), and not a single piece of bad news has come yet.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Conclusion of the decision framework:</b> fair value RMB 120, buy point RMB 100, sell point RMB 155, and four logic-based stop-loss rules. Write down these four numbers and investing shifts from "bullish or not" to "execute or not." At RMB 126.25 now, the stock sits 21% above the buy point and 23% below the sell point—in between, do nothing. Remember one line: a good company is not the same as a good stock; a price sits between them. At the right price it is an asset; at too high a price it is a liability—the company itself has not changed.</p></div>
+</div>
+<div class="footer">SMIC (688981) · 2026/08/10</div>
+</body>
+</html>

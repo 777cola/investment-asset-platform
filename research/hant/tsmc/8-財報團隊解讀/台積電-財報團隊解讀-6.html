@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>編輯潤色版：一份可以直接發布的財報解讀 — 台積電</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/tsmc/8-财报团队解读/台积电-编辑润色版.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/tsmc/8-財報團隊解讀/台積電-財報團隊解讀-6.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/tsmc/8-Earnings-Team-Read/TSMC-Earnings Team-6.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>編輯潤色版：一份可以直接發布的財報解讀 — 台積電</h1>
+  <div class="subtitle">去掉行話，講給一個懂投資但不懂半導體的朋友聽</div>
+  <div class="meta">研究日期 2026/09/11 &nbsp;·&nbsp; 股價 NT$2,410（-1.63%） &nbsp;·&nbsp; 市值 約 62.5 萬億元新台幣（約 1.95 萬億美元） &nbsp;·&nbsp; PE(TTM) 約 27.9x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/tsmc/00-台積電研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>台積電剛交出史上最好的一份季報，然後自己說「下個季度毛利率會降」。這兩件事放在一起，就是這份財報的全部資訊。以下是完整解讀。</p></div><div class="section"><div class="section-title">先看三個數</div><p class='txt'>第一個數，營收 1.27 萬億元新台幣，同比漲 36%。第二個數，毛利率 67.7%，比去年同期高 9 個百分點。第三個數，淨利 7,065.6 億元，同比漲 77%，每股賺 27.25 元。</p><p class='txt'>淨利增速是營收增速的兩倍，這叫經營槓桿——收入漲 36%，成本幾乎沒漲，多出來的全是利潤。這是產能滿載時才有的現象，也是週期頂部才有的現象。</p></div><div class="section"><div class="section-title">增長是從哪來的</div><p class='txt'>不是手機。手機業務環比還跌了 4%，現在只占 22%。增長全部來自 HPC（高效能運算），占 66%，環比漲 20%——就是輝達、AMD、還有那些自己做晶片的雲端廠商。</p><p class='txt'>這個變化很重要。手機訂單是一年一個週期，砍單快；算力訂單是三年規劃，還要預付產能。客戶結構從「消費」轉向「基建」，生意的穩定性提高了，但對 AI 資本支出的依賴也提高了。</p></div><div class="section"><div class="section-title">為什麼說毛利率見頂了</div><p class='txt'>公司自己對第三季的指引是 65%–67%，中值 66%，比第二季低 1.7 個百分點。原因講得很清楚：2 奈米新製程在爬坡，初期良率不完美，稀釋 3–4 個百分點；海外新廠成本高，再稀釋 2–3 個百分點。</p><p class='txt'>這兩個原因都是「用短期利潤率換長期產能」，不算壞事。但市場要習慣一件事：<b>營收還會創新高，利潤增速會先掉下來。</b>歷史上每次都是這樣，利潤見頂比營收見頂早一到兩個季度。</p></div><div class="section"><div class="section-title">還有兩個數字要看</div><p class='txt'>一個是資本支出，2026 年從 520–560 億美元上調到 600–640 億美元。這是客戶在催，不是公司想擴，短期是好事。但折舊會在 2027–2028 年集中體現，每年多攤約 130 億美元，這是明後年毛利率的壓力來源。</p><p class='txt'>另一個是 8 月營收 5,148.06 億元，同比漲 53.3%，第一次突破 5,000 億，連續四個月創新高。這個數字說明三季度不會差。真正要看的是 9 月和 10 月的環比——能不能站穩 5,000 億，比同比增速更能說明 AI 訂單的真假。</p></div><div class="section"><div class="section-title">所以現在該怎麼做</div><p class='txt'>算一筆帳。2026 年每股大概賺 106 元，現在股價 2,410 元，是 22.7 倍。假設 2027 年賺 125 元、給 21 倍，是 2,625 元，漲 9%。假設 AI 資本支出失速、2027 年只賺 95 元、給 18 倍，是 1,710 元，跌 29%。</p><p class='txt'>上漲 9%、下跌 29%，這個賠率不適合新建倉。但也不該賣——因為悲觀情景需要 AI 資本支出突然煞車，而現在所有訂單資料都不支持。所以答案是：<b>已經有的繼續拿著，沒有的等 2,000 元以下。</b></p><p class='txt'>2,000 元對應 2026 年 19 倍、2027 年 16 倍。那個價格意味著市場開始給週期風險打折，安全邊際才出來。</p><p class='txt'>再補兩個數。股息：2026 年每股 24 元，股息率 1.0%，配發率 23%，管理層說 2027 年還會增加。這個股息不足以支撐估值，但足以說明現金流是真的。股本：259.3 億股，五年幾乎沒變，沒有靠增發稀釋股東。<b>對一家每年要花 600 億美元的公司來說，這兩件事都不容易。</b></p><p class='txt'>所以最終的結論可以寫得更直白：如果你要的是「十年後還在、每年賺更多」的資產，台積電符合；如果你要的是「現在買入、三年翻倍」，它不符合。區別不在公司，在你的時間尺度。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>一句話總結：這是全世界最確定的 AI 生意，也是最貴的確定性。好公司不等於好價格，2,410 元的台積電，適合持有，不適合追。</p></div>
+</div>
+<div class="footer">台積電 (2330.TW) · 2026/09/11</div>
+</body>
+</html>

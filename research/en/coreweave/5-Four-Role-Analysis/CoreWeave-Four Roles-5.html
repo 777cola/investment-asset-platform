@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Lead summary — CoreWeave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/coreweave/5-四角色并行分析/CoreWeave-TeamLead-汇总.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/coreweave/5-四角色並行分析/CoreWeave-四角色-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/coreweave/5-Four-Role-Analysis/CoreWeave-Four Roles-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Team Lead summary — CoreWeave</h1>
+  <div class="subtitle">Divergence points and verdicts across four independent perspectives</div>
+  <div class="meta">Research date 2026/11/20 &nbsp;·&nbsp; Price $39.51 (-12.02%) &nbsp;·&nbsp; Market cap Approximately USD 22 billion &nbsp;·&nbsp; PE(TTM) — (GAAP loss, PE not meaningful)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/coreweave/00-CoreWeave-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>Four roles worked independently and reached a highly consistent conclusion: <b>do not buy</b>. They diverged only on "why" and "under what conditions this might change." The business perspective sees a business-model problem (the spread will be arbitraged away), the financial perspective sees a capital-structure problem (interest eats profit), the industry perspective sees a cycle-position problem (the bottleneck shifts to power, and the middleman loses leverage), and the risk perspective sees an odds problem (lose 70% to make 9%). <b>Verdict: avoid, and set no buy price.</b></p></div><table class="dt"><caption>Comparison of conclusions from four perspectives</caption><thead><tr><th>Perspective</th><th>Core thesis</th><th>The most critical evidence</th><th>Is it reversible</th></tr></thead><tbody><tr><td>Business (Duan Yongping)</td><td>Good demand, bad business: the spread comes from scarcity, not capability</td><td>July price hike of 25% is a cyclical gift; customers need only one phone call to switch suppliers</td><td>Partially reversible (if power/site barriers form)</td></tr><tr><td>Financials (Buffett)</td><td>Balance sheet fails the test; profit rests on accounting assumptions</td><td>Net interest RMB 846 million = 2.2x adjusted operating profit; OCF relies entirely on RMB 2.127 billion in prepayments</td><td>Irreversible (debt already locked in)</td></tr><tr><td>Industry (Munger)</td><td>Cycle peak plus bottleneck shift leaves intermediaries most exposed</td><td>Microsoft reviews USD 8 billion in external compute, cancels USD 322 million in orders</td><td>Irreversible (structural)</td></tr><tr><td>Risk (Li Lu)</td><td>Risk-reward does not hold: 70% downside, 9% upside</td><td>Bond yields at 15%, yet stocks are still priced on orders</td><td>Irreversible (unless debt restructuring)</td></tr></tbody></table><div class="note">Four independent reports appear in the other four HTML files in the same directory.</div><div class="section"><div class="section-title">Disagreement one: is the problem cyclical or structural?</div><p class='txt'>The commercial lens favors "cyclicality": scarcity pricing will disappear, but as long as AI demand keeps growing, the company can survive on scale, and conditions may improve once the industry consolidates. The industry-and-risk lens favors "structure": <b>a cost of capital of 7.9% versus 4.85%, customer concentration of 54%, and product homogeneity — none of these will change because the cycle recovers</b>.</p><p class='txt'><b>Verdict: treat it as structural.</b> The reason is the debt maturity profile — RMB 13.4 billion comes due over the next two years, and the company cannot wait for the day of "industry consolidation." A cyclical call needs time; a structural problem needs only one bad quarter.</p></div><div class="section"><div class="section-title">Disagreement two: what the RMB 132.5 billion in orders is really worth</div><p class='txt'>The business lens treats backlog as real demand and worth valuing; the financial lens treats backlog as not equal to cash flow, with most contracts being maximum commitment amounts; the risk lens applies a straight 50% haircut. <b>These three approaches produce valuations that differ by more than 2x</b>.</p><p class='txt'><b>Ruling: apply a 60% haircut and use it only in the optimistic scenario.</b>The basis is contract structure (commitments, not take-or-pay) plus customers' in-house capability (Microsoft's Maia 300 is scheduled for mass production in 2027). This haircut is also why the neutral scenario assigns only USD 43.</p></div><div class="section"><div class="section-title">Disagreement 3: Is there such a thing as "fallen enough"</div><p class='txt'>The risk perspective raised a counterpoint worth recording: the stock is -71.4% from its high and has fallen below its USD 40 IPO price; its USD 22 billion market cap corresponds to 4.6GW of contracted power, <b>which at USD 5.5 billion per GW is already below new-build cost</b>. On assets alone, that looks cheap.</p><p class='txt'><b>Verdict: does not hold.</b>Because the assets were bought with debt — EV of USD 83.5 billion against 4.6GW is USD 18.1 billion per GW, far above new-build cost. The cheap market cap is an illusion; enterprise value is the price I pay. This is the most important correction from this deliberation: <b>always compare EV, not market cap, against assets</b>.</p></div><div class="section"><div class="section-title">Final ruling and execution</div><p class='txt'><b>Avoid. No buy price, and not in the "buyable" zone of the watchlist.</b> This verdict is not because it will fall, but because its equity pricing depends on the credit market rather than on operations. Three triggers for reassessment: ① free cash flow narrows for two consecutive quarters and management gives a quarter for turning positive; ② unsecured bond yields fall below 10% and a new bond issue succeeds; ③ at least one major customer contract switches to minimum-payment terms.</p><p class='txt'>Portfolio level: <b>0% position</b>. If already held, any rebound is an opportunity to trim, with no need to wait for a fundamental change—because the direction of fundamental change is likely to be adverse. To retain AI compute exposure, substitute Nvidia, TSMC and HBM: in the same trend they capture pricing power rather than leverage.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Team Lead ruling: avoid (0% position).</b> All four perspectives agree on "do not buy"; they diverge only on attribution and reversibility, and the ruling defaults to the more conservative structural interpretation. In one line: <b>this company's demand is real, its equity is not</b> — it is an option on the credit window, not a business that can be valued. Reassessment requires simultaneous improvement in three areas: the free cash flow path, debt duration, and customer contract quality.</p></div>
+</div>
+<div class="footer">CoreWeave (CRWV) · 2026/11/20</div>
+</body>
+</html>

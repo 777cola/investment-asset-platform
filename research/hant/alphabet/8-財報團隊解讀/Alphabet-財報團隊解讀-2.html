@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀（巴菲特視角） — Alphabet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/alphabet/8-财报团队解读/Alphabet-大师精读-巴菲特.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/alphabet/8-財報團隊解讀/Alphabet-財報團隊解讀-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/alphabet/8-Earnings-Team-Read/Alphabet-Earnings Team-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀（巴菲特視角） — Alphabet</h1>
+  <div class="subtitle">損益表是給別人看的，現金流量表是給自己看的</div>
+  <div class="meta">研究日期 2026/10/30 &nbsp;·&nbsp; 股價 $279.84（-1.40%） &nbsp;·&nbsp; 市值 約 3.42 萬億美元 &nbsp;·&nbsp; EV/EBIT(2026E) 約 21x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/alphabet/00-Alphabet研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>這份財報最好的部分是營業利益率：32%，在資本支出翻倍的同時還升了 1 個百分點。最差的部分是現金流量表：營業現金流 422.9 億，資本支出 513.6 億，自由現金流 -90.7 億。<b>我讀財報的順序是先現金流量表、再資產負債表、最後損益表，因為前兩張騙不了人。</b>這一季的現金流量表告訴我：這家公司正在用今天的現金買明天的收入，而明天有多遠，財報上沒寫。</p></div><div class="section"><div class="section-title">利潤率 32%：我要打個折看</div><p class='txt'>32% 的營業利益率很漂亮，但我知道它是怎麼來的：<b>2,000 億資本支出的折舊還沒有大規模認列。</b>伺服器按六年折舊、資料中心按十五年，2026 年投下去的錢，2027–2028 年才在損益表上變成成本。<b>所以現在的 32%，是「收入已經到了、成本還沒到」的時點數據。</b></p><p class='txt'>我用一個簡單的辦法檢驗：如果折舊占營收的比例從現在的水準翻倍，營業利益率會掉多少？粗算掉 8–10 個百分點。<b>那就是 22%–24%。到那個水準，21 倍 EV/EBIT 就不便宜了。</b>所以我不認為 32% 是「新常態」，我認為它是「峰值附近」。</p></div><div class="section"><div class="section-title">現金流：三個動作同時出現，性質就變了</div><p class='txt'>如果只看自由現金流 -90.7 億，我會說「投資期，正常」。但把三件事放一起：<b>回購從 115 億降到 0、發債 287 億、增發 3,600 萬股。</b>這不是「投資期」的標準動作，這是「現金緊張但不願說」的標準動作。</p><p class='txt'>帳上明明有 2,651 億現金和證券，為什麼還要發債和增發？<b>合理的解釋是：管理層預期未來兩三年的現金消耗會超過帳上現金能舒適覆蓋的水平。</b>這是對 2027–2028 年的隱性指引，比任何公開表述都可信。我會把它記下來，然後要求更低的價格。</p></div><div class="section"><div class="section-title">雲：這是唯一讓我願意付錢的部分</div><p class='txt'>雲的三個數字放在一起看：收入 307.1 億、+103%，營業利益 111.2 億、+209%，利潤率 36.2%。<b>營業利益增速是收入增速的兩倍，這是規模效應最乾淨的證據。</b>我買過的好生意都有這個特徵——鐵路、電力、信用卡網路，規模上去之後利潤率自己會走。</p><p class='txt'>但要注意一件事：雲的收入裡有多少是 TPU 對外銷售？<b>賣晶片和賣算力是兩種生意</b>，前者毛利高、可持續性差，後者毛利低、黏性強。公司沒有拆分，這是我讀這份財報最不滿意的地方。</p></div><div class="summary-box"><h3>結論</h3><p>損益表 9 分，現金流量表 5 分。<b>結論：公司值得擁有，價格不夠便宜。</b>我會在 280 美元買一半，剩下的錢等兩個季度——如果 2027 年上半年 FCF 轉正，我認錯加倉；如果繼續為負，我就停在半倉。</p></div>
+</div>
+<div class="footer">Alphabet (GOOGL) · 2026/10/30</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News — Kuaishou</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/kuaishou/12-新闻异动归因/快手-新闻异动.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/kuaishou/12-新聞異動歸因/快手-新聞異動-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/kuaishou/12-News-Attribution/Kuaishou-News-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>News — Kuaishou</h1>
+  <div class="subtitle">Kuaishou (01024) | 12 · News</div>
+  <div class="meta">Research date 2026/10/12 &nbsp;·&nbsp; Price HK$29.26 (-2.79%) &nbsp;·&nbsp; Market cap About HKD 126.7 billion &nbsp;·&nbsp; PE(TTM) About 10.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/kuaishou/00-Kuaishou-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>From July 16 to October 12, Kuaishou fell from HKD 46.92 to HKD 29.26, <b>-37.6%</b>. Only seven events in those three months qualify as "events": three were signal (results, guidance, spin-off pricing) and four were noise.</p><p class='txt'>The most critical day was August 20: the second trading day after the interim results, <b>-11.0%</b>, a two-day cumulative -14.6%. The market was not selling "bad results" but "bad guidance" — management said e-commerce marketing and commissions would come under pressure in the second half.</p></div><table class="dt"><caption>Key events and share-price reaction over the past three months</caption><thead><tr><th>Date</th><th>Event</th><th>Share price reaction</th><th>Nature</th></tr></thead><tbody><tr><td>2026/07/02</td><td>Kling Beijing raises USD 3 billion at a post-money valuation of USD 18 billion; Kuaishou stake diluted to 83.3%</td><td>In mid-July the share price ranged between HKD 42 and HKD 47, reaching HKD 46.92 on 7/16 (the high of the range)</td><td>Signal: genuine positive, but already priced in</td></tr><tr><td>2026/07/17</td><td>No corresponding announcement</td><td>Single-day decline of -7.76% (46.92→43.28)</td><td>Noise: profit-taking</td></tr><tr><td>2026/08/11–08/17</td><td>One week before the interim results</td><td>44.32→40.08, down 9.6% over five trading days</td><td>Noise: positioning ahead of results</td></tr><tr><td>2026/08/18</td><td>Q2 and interim results: revenue +1.4%, adjusted net profit -30.3%, H2 guidance under pressure</td><td>August 19 -4.01%, August 20 -11.01%, two-day -14.6%</td><td>Signal: core negative</td></tr><tr><td>2026/09/16</td><td>Sector weakens, Hang Seng Tech continues to slide</td><td>Hit 29.66; September range 29.66–31.22</td><td>Noise: beta</td></tr><tr><td>2026/09/29–09/30</td><td>Kling 4.0 released</td><td>29.66→30.94 (+4.3%), muted reaction</td><td>Signal (weak): product upside not priced in</td></tr><tr><td>2026/10/08–10/12</td><td>No material announcements</td><td>Hit a 52-week low of 28.54 on 10/8 (-3.91%), rose 5.47% on 10/9, fell 2.79% on 10/12 to close at 29.26</td><td>Noise: moves without news</td></tr></tbody></table><div class="note">Share prices are taken from batchdata daily bars (2026/07/14–2026/10/12). Event dates follow company announcements and public reports; the share-price reaction is the close-to-close change on the event day or the next trading day. The Kling 4.0 release date is "end-September" per the company.</div><div class="section"><div class="section-title">Path: three declines, one failed rebound</div><p class='txt'><b>Leg 1 (7/16–8/14): 46.92 → 40.06, -14.6%.</b> The trigger was the spin-off news running out of steam — the stock jumped to 46.92 after the July 2 announcement, then drifted lower for a month. No bad news in this leg, just "the good news was all sold."</p><p class='txt'><b>Leg 2 (8/18–8/20): 39.38 → 33.64, -14.6%.</b> Interim results plus guidance, fully priced in two days. The only decline with a clear cause, and the only one worth reviewing.</p><p class='txt'><b>Leg 3 (8/21–10/12): 33.64 → 29.26, -13.0%.</b> A slow bleed, with two rebounds along the way (September 18 +2.67%, October 9 +5.47%), neither of which held. <b>The failed rebounds show the selling is not event-driven but position restructuring — institutions are cutting exposure, not waiting for news.</b></p></div><div class="section"><div class="section-title">Three genuine signals</div><p class='txt'><b>Signal 1: The revenue mix in the interim results.</b> Total revenue +1.4%, advertising +4.4%, livestreaming -13.5% — all the incremental growth came from Kling. The market priced this report with a two-day drop of -14.6% — <b>it rejects the narrative that "AI growth masks the core business's stall."</b></p><p class='txt'><b>Signal 2: Management's second-half guidance.</b> The phrase "e-commerce marketing services and commission revenue under year-on-year pressure" did more damage than the numbers themselves, because it turned Q2's weakness from "one quarter" into "at least two quarters."</p><p class='txt'><b>Signal 3: Valuation reconstruction after the spin-off pricing.</b> At the July spin-off, the market treated Kuaishou as the "Kling parent" and bid it up to 46.92; the August results proved the parent's core business is retreating, and the market then treated it as a "declining ad platform" and drove it down to 33. Neither pricing looked at core cash flow — a sign the valuation anchor is unstable.</p></div><div class="section"><div class="section-title">Four noise items, not signals</div><p class='txt'><b>The -7.76% on 7/17</b> had no corresponding announcement; it was profit-taking after spin-off speculation. <b>The -9.6% from 8/11 to 8/17</b> was position adjustment ahead of results — right direction, wrong reason (not someone knowing the numbers in advance, but someone unwilling to bear uncertainty). <b>The September drift lower</b> was mainly Hang Seng Tech sector beta (Hang Seng Tech fell more than 25% in 2026). <b>The new low on 10/8 and the rebound on 10/9</b> were two sides of the same news item, with no fundamental meaning.</p><p class='txt'><b>There is only one criterion for separating signal from noise: whether it changes estimates of future cash flows.</b> Of the seven events, only three — the interim results, the guidance and the spin-off pricing — changed estimates; the other four changed only sentiment.</p></div><div class="section"><div class="section-title">A counterfactual: what would go wrong with buying at 46.92</div><p class='txt'>The July 16 high was the sentiment peak after the spin-off announcement. The bull case then was "Kling at USD 18 billion, an 83.3% stake worth HKD 116.3 billion, with the core business thrown in for free." That logic sounded airtight but was wrong on two counts.</p><p class='txt'><b>First, it treated a primary-market valuation as realizable value.</b> The 83.3% stake cannot be sold; the only cash flows available are dividends and future selldown windows. <b>Second, it ignored that the spin-off itself depresses the parent's valuation.</b> Once the asset is carved out, the remaining business gets priced as a declining asset and its valuation center must shift lower — something that should have been obvious on the day of the spin-off announcement, not learned from the interim report.</p><p class='txt'>The lesson extends to every sum-of-the-parts opportunity: <b>when a company's most valuable asset is priced separately, the market usually discounts the remainder rather than paying the additive value you calculate.</b></p></div><div class="section"><div class="section-title">Attribution: how much of the decline is self-inflicted</div><p class='txt'>Over the same period the Hang Seng Tech Index fell more than 25% (year-to-date 2026), while Kuaishou fell 37.6% in three months. A rough decomposition: <b>the sector accounts for about 10–12 points, the company itself about 25 points.</b> Within the company-specific portion, results and guidance account for the bulk, and the unwinding of spin-off speculation a small part.</p><p class='txt'>This decomposition is useful because it determines the conditions for a rebound: a sector recovery can only deliver 10 points of upside; the remaining 25 points must come from the company itself—that is, advertising growth.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'>Seven events in three months: three signals, four noise. <b>Only one piece of real information: the market no longer pays separately for the "AI story"; it wants to see the core business stabilize.</b> The spin-off stripped Kling's value out of the share price, exposing the core business problems more thoroughly.</p><p class='txt'>The next repricing window is the Q3 report (expected November). Watch two things: whether advertising growth returns above 6%, and whether management cuts full-year guidance again. If both are negative, the share price has further downside.</p></div>
+</div>
+<div class="footer">Kuaishou (01024) · 2026/10/12</div>
+</body>
+</html>

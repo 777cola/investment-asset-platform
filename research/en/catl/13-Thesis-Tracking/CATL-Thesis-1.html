@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thesis — CATL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/catl/13-持仓论文追踪/宁德时代-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/catl/13-持倉論文追蹤/寧德時代-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/catl/13-Thesis-Tracking/CATL-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Thesis — CATL</h1>
+  <div class="subtitle">CATL (300750.SZ) | 13 · Thesis</div>
+  <div class="meta">Research date 2026/09/28 &nbsp;·&nbsp; Price ¥291.99 (-0.51%) &nbsp;·&nbsp; Market cap Approximately RMB 1.35 trillion (A+H combined 4.627 billion shares) &nbsp;·&nbsp; PE(2026E) Approximately 14x (2026 net profit consensus of RMB 95.2 billion)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/catl/00-CATL-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>The buy thesis compresses into five assumptions: share holds, unit profit stops falling, overseas volume ramps, consumption tax is absorbable, and solid-state does not arrive early. <b>Three are validated (unit profit still above RMB 90, overseas gross margin 29.97%, consumption tax impact 5%–10%), two pending (domestic share, solid-state progress).</b></p><p class='txt'>Share is the most fragile: domestic passenger-car installations 46.7%, with Li Auto + Xiaomi already at 13.6%; if second-tier players spread to 25%–30% by 2027, this assumption breaks. <b>Write falsification conditions as numbers and reconcile every quarter.</b></p></div><table class="dt"><caption>Core assumptions and validation status</caption><thead><tr><th>Assumptions</th><th>Current evidence</th><th>Validation metrics</th><th>Status</th></tr></thead><tbody><tr><td>Domestic passenger-vehicle share holds above 44%</td><td>Domestic installation share of 46.7% in 2026; Li Auto and Xiaomi already dual-sourced</td><td>Quarterly installation share (CPCA/SNE)</td><td>To be verified (headroom 2.7pct)</td></tr><tr><td>Unit net profit no lower than RMB 90/kWh</td><td>H1 about RMB 98 (Q1 104, Q2 94)</td><td>Quarterly net profit ÷ sales volume</td><td>Barely holds (already 94 in Q2)</td></tr><tr><td>Overseas revenue share rose above 35%</td><td>H1 31.5%, gross margin 29.97%</td><td>Regional revenue in the interim report</td><td>To be verified (3.5pct gap)</td></tr><tr><td>Consumption tax impact manageable (net profit -5% to -10%)</td><td>2% implemented, rising to 4% in September 2027</td><td>Taxes and surcharges / gross margin</td><td>Established (2% level)</td></tr><tr><td>Solid-state batteries will not reach mass production at scale before 2028</td><td>2026: small-scale semi-solid-state installation; 2027: all-solid-state trial production</td><td>Installed volume, customer design wins</td><td>Established (provisional)</td></tr></tbody></table><div class="note">All verification indicators are publicly available quarterly or semi-annual data; status is determined based on information available before September 28, 2026.</div><div class="section"><div class="section-title">Assumption 1: share — headroom of only 2.7 points</div><p class='txt'>Domestic passenger-car installation share is 46.7%, and the thesis requires holding 44%. <b>The buffer is 2.7 percentage points, equivalent to one quarter of volatility.</b> Li Auto's new L8 switching entirely to Sunwoda, Xiaomi's Longjia battery dual-sourcing, and AITO bringing in CALB and Gotion will show up in installation data between the second half of 2026 and the first half of 2027.</p><p class='txt'>Do the math: Li Auto and Xiaomi together account for 13.6% of domestic installations. If they cut CATL's share from 100% to 60%, the impact is about 5.4 points; if second-tier suppliers pick up another 10% at other automakers, the cumulative impact is 7–8 points, and CATL's domestic share falls to around 39%. <b>That breaks the 44% line.</b></p><p class='txt'>So the question is not whether this assumption breaks, but how fast. <b>Q4 2026 installation data is the first read.</b></p></div><div class="section"><div class="section-title">Scenario 2: Unit profit — already RMB 94 in Q2, just a step away from RMB 90</div><p class='txt'>H1 unit net profit was about RMB 98/kWh, Q1 104 and Q2 94. <b>At this pace, Q3 could fall below RMB 90.</b> This is the tightest of the five assumptions, because it directly determines whether 14x PE is cheap or fair.</p><p class='txt'>Sensitivity: every RMB 5 drop in unit net profit cuts full-year net profit by about RMB 2.2 billion (440GWh x 2 halves, rough calculation), equal to -2.3% of 2026E net profit. <b>A RMB 20 drop cuts net profit 9%, turning 14x into 15.4x — still acceptable; a RMB 40 drop cuts net profit 18%, and the valuation is no longer cheap.</b></p></div><div class="section"><div class="section-title">Assumption 3: Overseas — 3.5 points short, but the direction is right</div><p class='txt'>Overseas accounts for 31.5% versus the 35% required in the paper. Hungary starts production in 2026 with the initial 40GWh already booked, Indonesia begins mass production by year-end, and the Spain joint venture is progressing. <b>If all three bases ramp on schedule, overseas share reaching 40% in 2027 is possible.</b></p><p class='txt'>The risk lies in ramp speed: overseas plants typically run lower yields and labor efficiency than domestic ones, so initial gross margin may fall below 29.97%. <b>The thing to watch is not "start of production" but "gross margin in the second quarter after start of production."</b></p></div><div class="section"><div class="section-title">Assumption 4 and 5: consumption tax and solid-state — one is priced in, one is not</div><p class='txt'>The 2% consumption tax took effect on September 1, with an impact of 5%–10%, and the market has already priced it in. The real variable is the 4% in September 2027—<b>that would push the impact from 10% to 20%, and it has nothing to do with the cost gap versus second-tier players (second-tier players pay it too).</b> That means industry-wide price increases, which may actually benefit the leader (smaller players cannot hold on).</p><p class='txt'>Solid-state batteries are the only variable that has not been priced in. Semi-solid-state batteries will be installed in vehicles on a small scale in 2026, and all-solid-state batteries will enter small-batch trial production in 2027; CATL is not ahead.<b>If a second-tier player announces mass-produced all-solid-state batteries installed in vehicles in 2027, CATL's liquid-battery capacity will be revalued.</b> This cannot be verified in advance; we can only track installation data and customer design wins.</p></div><div class="section"><div class="section-title">Watch calendar (2026/10–2027/04)</div><p class='txt'><b>Around October 20: Q3 results.</b> Watch three numbers — single-quarter net profit year on year (threshold 25%), power battery gross margin (threshold 19%), unit net profit (threshold RMB 90). <b>January 2027:</b> 2026 annual report and full-year installed share, to verify 44%. <b>April 2027:</b> Q1 report and Hungary plant ramp-up data, to verify the 35% overseas share.</p><p class='txt'>Three dates, six numbers — a complete reconciliation chain. <b>If any one breaks, cut the position. No debating the narrative.</b></p></div><div class="section"><div class="section-title">Add one point: what does "the thesis hasn't broken but the stock is falling" mean</div><p class='txt'>The most common confusion in investing is "I got the thesis right, so why am I still losing money." The CATL case is this: the thesis (share, unit profit, overseas) still holds, but the valuation center is drifting down — <b>the market has cut its fair multiple from 25x to 15x, and that adjustment has nothing to do with the thesis; it is about the disappearance of the certainty premium.</b></p><p class='txt'>The response is not to revise the thesis but to revise the purchase price. The thesis decides whether to buy; valuation decides at what price to buy. <b>Buying a manufacturing leader with an intact thesis at 14x, even if the multiple never expands again, still earns 20% a year from profit growth.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Thesis status: holds, but the weak points are share and unit profit.</b> Three of five assumptions hold, two await verification, and both unverified ones have thin margins (2.7pct share, RMB 8 unit net profit). <b>Falsification conditions: domestic share falls below 44%, or unit net profit falls below RMB 90, or power battery gross margin falls below 19% — if any one occurs, halve the position; if two occur together, exit entirely.</b></p></div>
+</div>
+<div class="footer">CATL (300750.SZ) · 2026/09/28</div>
+</body>
+</html>

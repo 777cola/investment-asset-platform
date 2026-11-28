@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decision framework: what price to buy at, what conditions to exit on — JD.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/jd/16-八篇深度长文/京东集团-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/jd/16-八篇深度長文/京東集團-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/jd/16-Eight-Long-Essays/JD.com-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Decision framework: what price to buy at, what conditions to exit on — JD.com</h1>
+  <div class="subtitle">Compress all analysis into a single action card</div>
+  <div class="meta">Research date 2026/10/26 &nbsp;·&nbsp; Price HK$99.40 (-0.60%) &nbsp;·&nbsp; Market cap Approximately HKD 280 billion &nbsp;·&nbsp; PE (2026E adjusted) Approximately 7.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/jd/00-JD.com-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>Analysis must end in execution. This card has only four lines: <b>at what price to buy (HKD 90 or both Q3 targets met), how much to buy (2%–5%), under what conditions to exit (three thesis-based stop-losses), and under what conditions to do nothing (everything else).</b> All other analysis serves these four lines.</p></div><table class="dt"><caption>Action card (2026/10/26, current price HKD 99.40)</caption><thead><tr><th>Trigger conditions</th><th>Action</th><th>Position</th></tr></thead><tbody><tr><td>Current price, no event</td><td>Hold, watch</td><td>0%</td></tr><tr><td>Q3 retail revenue turns positive; food delivery loss ≤ RMB 8 billion</td><td>Initiate position</td><td>3%</td></tr><tr><td>Share price ≤HKD 90 (cash equivalent per share)</td><td>Build positions in tranches at 90/86/82</td><td>2%–4%</td></tr><tr><td>Dual trigger (price + event)</td><td>Jianman</td><td>5%</td></tr><tr><td>Announces new large-scale investment / free cash flow turns negative / cash down RMB 20 billion in a single quarter</td><td>Remove from list, clear list</td><td>0%</td></tr></tbody></table><div class="note">Position is shown as a percentage of portfolio net asset value; combined exposure to China e-commerce ADRs is capped at 8%.</div><div class="section"><div class="section-title">Why HKD 90</div><p class='txt'>HKD 90 × 2.818 billion shares = HKD 253.6 billion ≈ RMB 232.6 billion, a 101% coverage ratio against RMB 235.1 billion in cash.<b>In other words, HKD 90 is the point where the share price equals net cash per share—buying the stock means getting the retail, logistics and food delivery businesses for free.</b></p><p class='txt'>This is not precise science; it is the dividing line between psychology and odds. At HKD 99.4, you pay HKD 8 per share for these three businesses; at HKD 90, you pay HKD 0. The same company, the same financial report, completely different odds.</p></div><div class="section"><div class="section-title">Why these two event indicators</div><p class='txt'>"Retail revenue returning to growth" determines revenue elasticity—without it, the HKD 125 neutral-case valuation does not hold. "Food delivery loss ≤RMB 8 billion" determines the cash burn rate—without it, the RMB 235.1 billion cash buffer is eroded by RMB 40 billion a year.</p><p class='txt'>Both indicators can be verified within five weeks (Q3 results in mid-November, Double 11 close on 11/14). <b>Indicators that can be verified quickly take priority over judgments that require long-term observation—this is part of discipline.</b></p></div><div class="section"><div class="section-title">Why set a logic-based stop rather than a price-based stop?</div><p class='txt'>If the stock falls from 90 to 75 after purchase while cash remains RMB 235.1 billion, that is a better price, not a reason to stop out (HKD 75 implies cash coverage of 121%). <b>A price-based stop-loss on an asset-type company will wash you out at the cheapest point.</b></p><p class='txt'>The real stop-loss is thesis failure: cash starts draining, the company opens another front, or free cash flow turns negative. If any one of these three occurs, exit regardless of price—because at that point you are not holding a "cheap asset" but a "melting asset."</p></div><div class="section"><div class="section-title">How to use: avoiding self-deception</div><p class='txt'>Every decision framework ultimately fails in execution, especially the act of "waiting." People deceive themselves in two ways: <b>first, mistaking "cheap" for "opportunity"</b>—acting on a 7.5x PE without asking why it is cheap; <b>second, mistaking "waiting" for "giving up"</b>—chasing after a 15% rally on the grounds that "missing out would cost more."</p><p class='txt'>The defense against both is to write the conditions in an indisputable form: HKD 90 is a number, dual compliance in Q3 is a number, a new investment announcement is a fact. <b>None of the three is ambiguous, so there is no room for interpretation.</b></p><p class='txt'>One more self-imposed constraint: this report is valid until the Q3 results are released (mid-November). If Q3 data arrives and neither condition is met, rewrite the report and reissue the rating rather than "maintain observation"—<b>"maintain" is the most abused action; it makes people think they are tracking when in fact they are stalling.</b></p></div><div class="section"><div class="section-title">When should this report be overturned?</div><p class='txt'>Every report has conditions under which it fails; stating them clearly matters more than writing elegantly. This report must be overturned and rewritten under four circumstances: <b>(1) Q3 data show retail revenue turning positive and food-delivery losses at ≤RMB 8 billion (upgrade from "Watch" to "Buy"); (2) new large-scale investment appears (downgrade to "Avoid"); (3) cash balance falls more than RMB 20 billion in a single quarter (downgrade to "Avoid"); (4) major equity or governance changes occur, such as dual-class share reform or founder exit (reassess the valuation framework).</b></p><p class='txt'>Of the four, the first is an upside invalidation; the latter three are downside invalidations. <b>Stating clearly "what would prove me wrong" is the only evidence that a call is disciplined.</b> A report without this is, in essence, just packaging for an opinion.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'>Decision framework summary: <b>Wait, but don't stray far.</b> HKD 90 or a Q3 double hit — two triggers to be resolved within five weeks; three thesis stop-losses on standby. At the current HKD 99.4, 7.5x adjusted PE, and cash at 90% of market cap — this price isn't bad, but not good enough to pay for management's lack of discipline.</p></div>
+</div>
+<div class="footer">JD.com (9618.HK) · 2026/10/26</div>
+</body>
+</html>

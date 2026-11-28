@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>商業分析（段永平視角） — 網飛</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/netflix/5-四角色并行分析/奈飞-商业分析-段永平.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/netflix/5-四角色並行分析/網飛-四角色-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/netflix/5-Four-Role-Analysis/Netflix-Four Roles-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>商業分析（段永平視角） — 網飛</h1>
+  <div class="subtitle">這門生意的錢從哪來、為什麼能一直收、十年後還在不在</div>
+  <div class="meta">研究日期 2026/10/23 &nbsp;·&nbsp; 股價 $65.85（-1.79%） &nbsp;·&nbsp; 市值 約 2,700 億美元 &nbsp;·&nbsp; PE(2026E) 約 18x（含一次性收益，剔除後約 21x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/netflix/00-網飛研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>一句話：收月費的生意，靠「不看它就難受」賺錢</h3><p class='txt'>Netflix 的商業模式可以用一句大白話講完：<b>每月收一筆錢，讓你晚上有東西看；看不完的，它繼續拍。</b>這門生意的好處是收入可預測、收現快、邊際成本遞減；壞處是內容必須持續投，停一年就掉訂戶。所以它不是「躺賺型」的好生意，是「必須一直跑」的好生意。</p><p class='txt'>2026 年最重要的一個證據是：<b>漲價之後流失率沒升反降。</b>這比市占率、比內容數量都更能說明它有定價權。定價權從哪來？不是獨家內容——現在沒有哪部劇能讓人一年不取消訂閱——是「預設選項」的位置：想看電視，第一個打開的就是它。</p></div><table class="dt"><caption>商業模式的三個層次</caption><thead><tr><th>層次</th><th>請提供要翻譯的內容。</th><th>2026 年狀態</th><th>判斷</th></tr></thead><tbody><tr><td>需求端</td><td>每晚兩小時的注意力，替代電影院、有線電視、短影音</td><td>美國觀看份額 7.8%，YouTube 14%</td><td>守得住高階時段，守不住全部時長</td></tr><tr><td>收費端</td><td>訂閱（分檔）+ 廣告（低價檔）</td><td>廣告 27 億美元，占營收 5.3%</td><td>第二曲線還很小，但已在跑</td></tr><tr><td>成本端</td><td>內容製作與授權，固定成本、前置支出</td><td>第三季營業利益率 34.6%，全年 31.5%，較去年同期提升 3.0 個百分點</td><td>規模效應已經跑完最陡一段</td></tr></tbody></table><div class="note">觀看份額為第三方收視測量口徑（美國市場，2026 年 10 月）；廣告收入與營業利潤率為公司 2026Q3 財報與全年指引值。</div><div class="section"><div class="section-title">這門生意好在哪：預付費 + 零邊際成本 + 預設位置</div><p class='txt'>三件事湊在一起，才有了 31.5% 的營業利益率。第一，<b>預付費</b>：使用者月初付錢，公司先拿到現金再提供服務，沒有應收帳款，沒有壞帳。第二，<b>零邊際成本</b>：一部劇拍完，1,000 萬人看和 1 億人看，成本一樣。第三，<b>預設位置</b>：使用者打開電視，第一個找的就是它，這個位置本身值錢，因為替代它的成本不是錢，是「重新找一遍看什麼」的麻煩。</p><p class='txt'>預設位置這一條最容易被低估。Netflix 2026 年提價，使用者反應和歷次漲價基本一致，流失率同比還降了。這說明什麼？說明使用者在算的不是「這 20 美元值不值」，而是「取消了以後我看什麼」。<b>只要後一個問題沒有好答案，前一個問題就不成立。</b></p><p class='txt'>但這門生意有個硬約束：內容支出是必須的。2026 年公司在體育上加了碼——NFL、拳擊直播，這些版權按年付費、按場次鎖定，一旦簽了就是剛性成本。<b>體育的作用不是拉新，是降低流失</b>：訂閱使用者裡有一批人只為幾場直播留著，這批人貢獻的是最穩定的那部分收入。</p></div><div class="section"><div class="section-title">這門生意差在哪：內容投入不能停，而且越來越貴</div><p class='txt'>Netflix 和蘋果最大的差別在這裡。蘋果停一年研發，第二年還是蘋果；Netflix 停一年內容投入，第二年訂戶就開始掉。<b>所以它的自由現金流永遠要扣掉一大塊「維持性內容支出」</b>，帳面上的 120 億美元 FCF，並不全是股東可以拿走的錢。</p><p class='txt'>更麻煩的是價格。體育版權的通膨速度遠高於劇集——NFL、拳擊這類資產的賣方是聯盟，供給天然壟斷。2026 年 Netflix 在體育上的投入增加，直接壓低了 Q4 營業利益率指引（26.0%，部分受裁員費用影響 1.2 個百分點）。<b>如果體育版權繼續漲價，Netflix 要麼放棄，要麼接受利潤率見頂。</b></p><p class='txt'>這就是為什麼我說它是「必須一直跑」的好生意。它不是一個可以停下來收租的資產，是一台需要持續加油的機器。<b>給這種生意 30 倍 PE 是錯的，給 15 倍也太低——18 到 22 倍，正好對應「跑得動但跑不快」的狀態。</b></p></div><div class="section"><div class="section-title">十年後還在不在：三個判斷</div><p class='txt'><b>判斷一：訂閱制不會被取代。</b>過去十年所有「免費 + 廣告」的平台最後都開了付費方案，反過來沒有一家付費平台成功轉成純免費。付費是內容品質的正回饋，這個機制沒變。</p><p class='txt'><b>判斷二：Netflix 不會是唯一的贏家，但會是最賺錢的那個。</b>迪士尼有 IP、Amazon 有分發、YouTube 有時長，但只有 Netflix 把「全球分發 + 自製 + 廣告技術」三件事同時做成了。行業裡賺錢的公司不需要最多，只需要成本結構最好。</p><p class='txt'><b>判斷三：它的成長會來自「每個用戶付更多錢」，不是「更多用戶」。</b>覆蓋近 10 億觀眾，滲透率已經接近天花板。往後五年，營收成長的主要來源是提價、廣告方案升級、以及把共享帳戶轉成付費帳戶。<b>這意味著它的增速會穩定在 8%–12%，而不是回到 20%。</b>這個判斷如果成立，18 倍 PE 就是合理價，不是便宜價。</p></div><div class="summary-box"><h3>結論</h3><p>生意看得懂，也有定價權，但它是「必須一直跑」的類型。這個定性直接決定估值上限：18–22 倍合理，低於 18 倍是機會，高於 26 倍是透支。<b>現價 65.85 美元、18 倍 2026E PE，正好在合理區間的下沿。</b>買它不是因為便宜得離譜，是因為這個價格沒有為「增長」付溢價，而增長還有一點。</p></div>
+</div>
+<div class="footer">網飛 (NFLX) · 2026/10/23</div>
+</body>
+</html>

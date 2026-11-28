@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀（李錄） — 微軟</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/microsoft/8-财报团队解读/微软-大师精读-李录.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/microsoft/8-財報團隊解讀/微軟-財報團隊解讀-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/microsoft/8-Earnings-Team-Read/Microsoft-Earnings Team-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀（李錄） — 微軟</h1>
+  <div class="subtitle">錢從哪來，決定了回報歸誰</div>
+  <div class="meta">研究日期 2026/07/31 &nbsp;·&nbsp; 股價 $464.72（+3.02%） &nbsp;·&nbsp; 市值 約 3.45 萬億美元 &nbsp;·&nbsp; PE(TTM，FY2026) 約 25.8x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/microsoft/00-微軟研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>李錄讀財報的切入點是資本來源。一家公司用什麼錢擴張，決定了擴張的收益歸誰：<b>用自有現金流擴張，收益歸股東；用債務擴張，收益先歸債權人；用股權擴張，收益被攤薄。</b>微軟現在用的是第一種，正在往第二種靠。</p></div><div class="section"><div class="section-title">位置：AI 時代的兩個收稅口</div><p class='txt'>AI 產業鏈的價值最終會集中在三個位置：算力、模型、分發。微軟同時占住算力和分發——Office 四億多席位是分發，Azure 是算力。模型層它不自己做，靠 OpenAI 持股 27% 和 2032 年前的 IP 使用權。</p><p class='txt'>這個位置很特殊：<b>不管最後哪個模型贏，企業還是要在 Office 裡寫文件，還是要租算力。</b>這是能穿越技術迭代的少數位置之一。報表上的證據是：RPO 6,780 億、同比 +84%，剔除 OpenAI 後仍 +25%——說明客戶買的是微軟，不是某個模型。</p></div><div class="section"><div class="section-title">轉型：從賣工具到賣產能</div><p class='txt'>FY2026 的報表結構已經變了：智慧雲 393 億、同比 +32%，是增速最快的分部；資本支出 410 億、同比 +70%，是增速最快的支出。收入在往算力端移，成本也在往算力端移。</p><p class='txt'>這個轉型的歷史意義被低估了。微軟從賣授權到賣訂閱用了十年，從賣訂閱到賣產能加賣席位只用了三年。<b>每一次轉型它都成功了，但每一次成功都讓它離輕資產更遠一點。</b>李錄會問：這一次的終局是公用事業，還是基礎設施加應用的雙層結構？答案決定估值倍數。</p></div><div class="section"><div class="section-title">資本：1,750 億從哪來</div><p class='txt'>FY2027 計畫投資 1,750 億元，而 FY2026 自由現金流僅 670 億元。缺口怎麼補？三條路：營業現金流成長（按 +20% 至 2,195 億元）、減少股東回報（430 億元）、舉債（資產負債表仍有餘裕，評級 AAA）。</p><p class='txt'>最可能的組合是營業現金流加上適度舉債，股東回報放緩。<b>這對股東的含義很直接：未來兩年別指望回購支撐股價，也別指望股息大幅成長。</b>資金全數投入機房。這是成長期基礎設施公司的標準特徵，也是它與可口可樂那類公司的根本區別。</p></div><div class="section"><div class="section-title">終局：三種可能，兩種不虧錢</div><p class='txt'>第一種：AI 需求持續十年高成長，微軟成為 AI 時代的電網，營業利益率從 45% 回落到 38%，但收入翻三倍——這是最好的結局，回報來自規模而不是利潤率。</p><p class='txt'>第二種：需求在 2028 年見頂，產能過剩，價格戰，微軟變成雲時代的電信營運商——收入還在，回報率被壓到 10% 以下，估值 15 倍。</p><p class='txt'>第三種：模型層商品化，但算力需求不減，微軟靠容量與合規繼續收租——介於兩者之間，也是機率最高的一種。<b>三種結局裡有兩種不虧錢，所以這是一筆賠率可接受、但不指望一夜暴富的投資。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>他的結論：位置對了，錢花對了方向，但回報的時間被推後了。</b>用自有現金流擴張是好事，代價是短期自由現金流難看。對長期持有者，這是用現在的收益率換未來的規模；對看季度報表的人，這是現金流惡化。兩種讀法都對，取決於你拿多久。</p></div>
+</div>
+<div class="footer">微軟 (MSFT) · 2026/07/31</div>
+</body>
+</html>

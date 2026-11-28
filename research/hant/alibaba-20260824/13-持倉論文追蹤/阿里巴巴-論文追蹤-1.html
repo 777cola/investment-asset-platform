@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>論文追蹤 — 阿里巴巴</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/alibaba-20260824/13-持仓论文追踪/阿里巴巴-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/alibaba-20260824/13-持倉論文追蹤/阿里巴巴-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/alibaba-20260824/13-Thesis-Tracking/Alibaba-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>論文追蹤 — 阿里巴巴</h1>
+  <div class="subtitle">阿里巴巴 (09988) | 13 · 論文追蹤</div>
+  <div class="meta">研究日期 2026/08/24 &nbsp;·&nbsp; 股價 HK$112.50（-8.54%） &nbsp;·&nbsp; 市值 約 2.30 萬億港元（配售後約 204.6 億股） &nbsp;·&nbsp; 本益比（TTM，反推） 約 31x（利潤被 AI 投入扭曲，參考性弱）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/alibaba-20260824/00-阿里巴巴研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>追蹤結論</h3><p class='txt'>把「觀察」這個評級拆成五條可驗證的假設：<b>雲增速可持續、雲利潤率可持續、AI 應用會減虧、電商變現率不再惡化、資本開支會減速。</b>目前只有前兩條有數據支持（一個季度），後三條全是空白。</p><p class='txt'>這不是「不看好」，是「證據不足」。所以跟蹤表的價值大於結論：<b>每條假設都寫清驗證指標與證偽線，11 月財報一次性驗證三條。</b></p></div><table class="dt"><caption>核心假設與驗證狀態（2026/08/24）</caption><thead><tr><th>假設</th><th>當前證據</th><th>驗證指標</th><th>狀態</th></tr></thead><tbody><tr><td>雲端增速能維持 40%+</td><td>484.4 億元、+45%，創 22 季新高（1 個季度）</td><td>季度收入增速 ≥40%</td><td>部分證實</td></tr><tr><td>雲利潤率能站上 12%</td><td>EBITA 56.3 億元、11.6%，同比 +133%</td><td>連續兩季 ≥12%</td><td>待驗證</td></tr><tr><td>AI 應用虧損會收窄</td><td>虧 138.6 億元、虧損率 -415%、同比擴大 330%</td><td>季度虧損環比下降</td><td>未經證實</td></tr><tr><td>電商變現率不再惡化</td><td>客戶管理報表 -7%、同口徑 +1%</td><td>同口徑連續兩季正成長</td><td>未經證實</td></tr><tr><td>資本支出會減速</td><td>單季 676.8 億元、+75%，FY27 計畫未披露上限</td><td>季度資本支出較上季下降</td><td>反向</td></tr></tbody></table><div class="note">「部分證實」指有一個季度的資料支持但不足以確認趨勢；「反向」指當前證據與假設方向相反。</div><div class="section"><div class="section-title">假設一、二：雲的故事，一半有證據</div><p class='txt'>雲是本輪投資邏輯的全部重心（占中性估值 48%）。它需要兩個條件同時成立：<b>增速不掉、利潤不塌。</b>目前增速有數據（484.4 億元、+45%），利潤率有一個季度的數據（11.6%、+133%），但兩者都只有一個季度的樣本。</p><p class='txt'>驗證方式很簡單：<b>FY2027Q2（11 月發布）看兩個數——增速是否 ≥40%、EBITA 利潤率是否 ≥12%。</b>兩個都滿足，假設成立，雲的倍數從 6 倍 PS 上調到 8 倍，目標價從 129 港元抬到 150 港元以上；只要有一個不滿足，假設作廢，倍數回到 4 倍，目標價掉到 95 港元以下。</p><p class='txt'><b>證偽線：季度增速 <30%，或 EBITA 利潤率 <9%。</b>這兩個數一出現，雲就從「成長資產」變回「重資產」，整個 SOTP 要重算。</p></div><div class="section"><div class="section-title">假設三：AI 應用會減虧——目前零證據</div><p class='txt'>這一條是全部假設裡最脆弱的。當前證據是反向的：虧損 138.6 億元、虧損率 -415%、同比擴大 330%。公司沒有給減虧路徑、沒有給時間表、沒有給目標虧損率。</p><p class='txt'>需要看到什麼才算「開始減虧」？三個信號：<b>①季度虧損環比下降（哪怕只降 5%）；②虧損率從 -415% 收窄到 -300% 以內；③收入增速從 +16% 抬到 +30% 以上（說明商業化在起量）。</b>三個裡出現兩個，才能給這個部門 0 倍估值而不是 -3 倍。</p><p class='txt'><b>證偽線：季度虧損突破 160 億元，或虧損率進一步擴大到 -500%。</b>那意味著商業化完全跟不上投入，應該把倍數從 3 倍調到 5 倍，目標價再降 12 港元。<b>如果 2027 財年末（2027 年 3 月）虧損仍無環比收窄，這條假設就該判定為「永久不成立」，估值裡按純費用處理。</b></p></div><div class="section"><div class="section-title">假設四、五：電商與資本開支，兩條反向的證據</div><p class='txt'><b>電商變現率：</b>客戶管理報表 -7%、同口徑 +1%，兩個口徑都不支持復甦。這條假設的驗證指標是「同口徑連續兩季正成長」，且增速要 >3%（跑平通膨才有意義）。<b>證偽線：同口徑連續兩季負成長，或中國電商收入跌幅擴大到 -10% 以上。</b>那意味著基本盤的護城河在實質變薄，電商的 9 倍 EBITA 倍數要降到 7 倍。</p><p class='txt'><b>資本支出：</b>這是唯一一條「當前證據與假設相反」的。假設是「資本支出會減速」，實際是 676.8 億元、+75%，且公司沒有披露 FY2027 的資本支出上限。驗證指標：季度 capex 環比下降，或管理層在電話會上給出明確的年度上限。</p><p class='txt'><b>證偽線：連續三個季度 capex 環比上升，且自由現金流缺口超過 -500 億元。</b>那意味著「重資產化」不可逆，估值體系徹底轉向基礎設施股，倍數中樞下移 20%，目標價從 129 降到 105 以下。</p></div><div class="section"><div class="section-title">觀察日曆：未來 12 個月要看什麼</div><p class='txt'><b>2026 年 10–11 月（FY2027Q2 財報）</b>：一次性驗證三條假設——雲增速與利潤率、AI 應用虧損環比、客戶管理同口徑增速。這是全年最重要的一個觀察點。<b>2027 年 1–2 月（FY2027Q3 財報）</b>：看資本支出是否見頂、即時零售虧損是否收窄。<b>2027 年 3 月（FY2027 年報）</b>：看全年自由現金流、是否二次融資、折舊規模。</p><p class='txt'>除了財報，還有三個不定期事件要盯：<b>①配售股份 90 天鎖定期到期（約 11 月下旬）</b>，承配人若集中賣出會形成拋壓；<b>②輝達出口管制政策變化</b>，直接影響平頭哥的替代價值；<b>③阿里雲季度份額數據（Omdia 每季）</b>，38.1% 若掉到 35% 以下，雲的定價邏輯就變。</p><p class='txt'>把日曆寫下來的意義在於：<b>不要因為股價波動改判斷，要因為數據出現改判斷。</b>下一次數據出現在 11 月，中間兩個月的漲跌都是噪音。</p></div><div class="summary-box"><h3>結論</h3><p>五條假設，兩條部分證實、三條空白（一條反向）。<b>跟蹤紀律：11 月財報一次性驗證，不達預期就降級，不因股價反彈改口。</b>買入觸發條件不變：≤95 港元，或雲利潤率連續兩季 ≥12% 且 AI 虧損環比收窄。</p></div>
+</div>
+<div class="footer">阿里巴巴 (09988) · 2026/08/24</div>
+</body>
+</html>

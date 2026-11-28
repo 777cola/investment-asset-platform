@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>決策框架：買多少、什麼價、什麼時候認錯 — 阿斯麥</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/asml/16-八篇深度长文/阿斯麦-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/asml/16-八篇深度長文/阿斯麥-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/asml/16-Eight-Long-Essays/ASML-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>決策框架：買多少、什麼價、什麼時候認錯 — 阿斯麥</h1>
+  <div class="subtitle">阿斯麥 (ASML) | 16 · 八篇長文</div>
+  <div class="meta">研究日期 2026/10/16 &nbsp;·&nbsp; 股價 $1,641.52（-0.96%） &nbsp;·&nbsp; 市值 約 6,240 億美元（約 5,380 億歐元） &nbsp;·&nbsp; PE(TTM) 約 41 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/asml/00-阿斯麥研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>把前面七篇壓成一個可執行的框架：三個價格檔、一個倉位上限、三條證偽條件、一個觀察日曆。框架的作用不是讓你買對，是讓你在錯的時候知道錯在哪。</p></div><div class="section"><div class="section-title">價格：三個檔次</div><p class='txt'>第一檔 1,300 美元（2027 年 PE 25 倍）建 2%。第二檔 1,150 美元（22 倍）加到 4%–5%。上限 6%。現價 1,641.52 美元（31 倍）不動。</p><p class='txt'>為什麼是 25 倍？因為阿斯麥過去十年的估值區間是 25–45 倍，25 倍是週期底部的水平；在這個位置，即使悲觀情景發生（EPS 38 歐元、24 倍），你的虧損也只有 19%，不是 36%。</p></div><div class="section"><div class="section-title">倉位：為什麼上限只有 6%</div><p class='txt'>兩個原因。第一，出口管制敞口 23%，這是無法定價的風險，單一政策風險超過 20% 營收的公司不該重倉。第二，它和半導體持倉的相關性 0.85，如果你的組合裡已經有輝達、台積電，加它等於加槓桿。</p><p class='txt'>6% 的上限意味著：即使它跌 50%，對組合的傷害是 3 個百分點——可以承受，不會影響判斷。</p></div><div class="section"><div class="section-title">認錯：三條證偽條件</div><p class='txt'>① 連續兩個季度毛利率跌破 55%（價值定價失敗）；② 訂單同比轉負而收入還在成長（週期見頂）；③ 中國大陸占比跌破 10%（管制實質收緊）。任何一條出現，減半；兩條出現，清倉。</p><p class='txt'>不設價格停損。這類公司的價格波動是週期的正常表現，用價格停損會在 2022 年那種回檔裡被洗出去，然後錯過 2023–2025 年的三倍。</p></div><div class="section"><div class="section-title">加倉的例外條款</div><p class='txt'>如果 2027 年 1 月的財報證明兩件事——Q4 毛利率守住 57%、2027 年指引給到 550 億歐元以上——那麼買點上移到 1,400 美元。因為中性情景的 EPS 要從 46 上修到 50 以上，25 倍的對應價格自然抬高。</p><p class='txt'>這條例外的意義：框架要能跟著事實改，不能變成教條。<b>但改動必須有財報證據，不能因為股價漲了就覺得「它值更多」。</b></p></div><div class="section"><div class="section-title">什麼時候賣：三種情形</div><p class='txt'>第一種，價格到樂觀情景（2,380 美元，2027 年 38 倍），減到 2%–3%。第二種，證偽條件觸發（毛利率、訂單、中國占比），減半或清倉。第三種，找到更好的機會——如果同一條鏈上出現「同樣質量、便宜 30%」的標的（比如某次危機中的 KLA），換倉。</p><p class='txt'>不賣的三種情形：股價跌了（沒有基本面變化）、分析師下調評級（不是基本面）、AI 敘事降溫（不影響 2027 年訂單）。這三件事在 2022 年都發生過，事後看都是錯的賣點。</p></div><div class="section"><div class="section-title">框架的失效條件</div><p class='txt'>這個框架建立在兩個前提上：一是 2027 年 EPS 46 歐元可信；二是 25–45 倍是合理的估值區間。如果前提變了，框架要重寫。</p><p class='txt'>第一個前提的檢驗點在 2027 年 1 月（Q4 財報 + 2027 年指引）；第二個前提的檢驗點是「價值定價落地後市場給多少倍」——如果給到 40 倍成為常態，那 25 倍的買點就永遠不會出現，那時候要接受「用 28–30 倍買」。<b>框架的作用是紀律，不是預言。</b></p></div><div class="section"><div class="section-title">一個具體的時間表</div><p class='txt'>2026 年 10 月–12 月：只看不動，等 Q4 財報前的訂單傳聞（這個階段通常沒有新資訊）。2027 年 1 月：Q4 財報 + 2027 年指引，這是第一個決策點——如果指引給到 550 億以上且毛利率 57%，買點上移到 1,400 美元；如果指引低於 500 億，等更低的價。</p><p class='txt'>2027 年 4 月：Q1 財報，價值定價的第一個完整季度，看毛利率。2027 年 7 月：Q2 財報，High-NA 交付台數首次可比。2027 年 10 月：Q3 財報，驗證 2028 年產能規劃。四個節點，每個節點只讀三行字。</p><p class='txt'>中間的時間做什麼？什麼都不做。對這類公司，交易的頻率應該和資訊的頻率一致——一年四次財報，就一年做四次決策，其餘時間是等待。</p></div><div class="summary-box"><h3>結論</h3><p>框架四條：1,300 建倉、1,150 加倉、6% 上限、三條證偽。執行時不看新聞、不看評級、不看目標價，只看毛利率、訂單、中國占比三個數。</p></div>
+</div>
+<div class="footer">阿斯麥 (ASML) · 2026/10/16</div>
+</body>
+</html>

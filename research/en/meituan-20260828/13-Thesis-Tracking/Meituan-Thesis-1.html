@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thesis — Meituan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20260828/13-持仓论文追踪/美团-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/meituan-20260828/13-持倉論文追蹤/美團-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/meituan-20260828/13-Thesis-Tracking/Meituan-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Thesis — Meituan</h1>
+  <div class="subtitle">Meituan (03690) | 13 · Thesis</div>
+  <div class="meta">Research date 2026/08/28 &nbsp;·&nbsp; Price HK$77.50 (+0.00%) &nbsp;·&nbsp; Market cap Approximately HKD 478.6 billion (6.175 billion shares) &nbsp;·&nbsp; PE — (net loss of RMB 4.67 billion in H1 2026; PE distorted)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/meituan-20260828/00-Meituan-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>Break the buy case into five testable assumptions. Current status: <b>one holds (share defended at 51%), one partially holds (subsidy retreat), three unverified (margin recovery, new businesses breaking even, overseas replication).</b> This is not a position with "sufficient evidence" but one where "evidence is starting to appear." So the position can only be small, and the verification checkpoints must be fixed in advance—<b>the Q3 report at the end of October is the watershed, not 2027.</b></p></div><table class="dt"><caption>Core assumptions and validation status</caption><thead><tr><th>Assumptions</th><th>Current evidence</th><th>Validation metrics</th><th>Status</th></tr></thead><tbody><tr><td>The subsidy war is entering its ebb tide</td><td>Alibaba's new-fiscal-year Taobao Shangou investment reportedly halved; JD.com pivots to compliance messaging; Meituan Q2 profit turns positive</td><td>Monthly industry subsidy amount; Alibaba's quarterly loss in instant retail</td><td>Partly valid</td></tr><tr><td>Meituan's order volume share held steady above 50%</td><td>51% (Goldman Sachs, February 2026, order-volume basis); GTV share above 60%</td><td>Quarterly order volume share, GTV share</td><td>Established</td></tr><tr><td>Core local commerce margin to return above 12% in 2027</td><td>Q2 was 7.9% (up 2.2pct YoY); Q1 was -2.8%</td><td>Quarterly operating margin; Q3 requires ≥ RMB 2 billion profit</td><td>Unverified</td></tr><tr><td>New businesses to break even in 2027</td><td>Q2 loss of RMB 1.74 billion, loss ratio 5.3% (7.1% last year)</td><td>Can the quarterly loss ratio fall below 3%?</td><td>Partially valid</td></tr><tr><td>Keeta's overseas expansion model is replicable</td><td>Hong Kong UE turned positive in Q4 2025; Saudi Arabia profitable by July 2026 (22 months)</td><td>Brazil quarterly UE, Brazil investment pace</td><td>Unverified</td></tr><tr><td>Capital allocation shifts toward shareholder returns</td><td>June 2026 buyback of HKD 200 million, 0.04% of market cap</td><td>Can cumulative buybacks in the second half exceed HKD 2 billion?</td><td>Not established</td></tr></tbody></table><div class="note">Status criteria: Confirmed = quantitative evidence with a clear direction; Partially confirmed = evidence exists but magnitude or persistence is insufficient; Unverified = no data yet; Not confirmed = evidence contradicts the hypothesis.</div><div class="section"><div class="section-title">The one that held: share was defended</div><p class='txt'>This is the most counterintuitive point. In 2025 everyone was saying "Meituan will lose half its share," yet it held on to 51% of order volume and over 60% of GTV.</p><p class='txt'>Why did it hold? Because what it defended was high-ticket orders. Full-service meals above RMB 30, chain brands, office-district lunches — these orders are time-sensitive and price-insensitive, and subsidies cannot move them. <b>And the low-price orders that subsidies captured were never profitable in the first place — losing them costs little.</b></p><p class='txt'>Verdict: holds. But with a caveat — this is "defending the floor," not "reclaiming the ceiling." That 65% figure most likely will not come back.</p></div><div class="section"><div class="section-title">Three unverified items: three "ifs" for 2027</div><p class='txt'>First, core local commerce margin returns to 12%. Q2 was 7.9%; getting back to 12% requires three conditions to hold at once: subsidies stop rising, in-store margins do not collapse, and rider costs stay contained. <b>Management has already flagged higher in-store investment and rising rider costs in Q3 — both are headwinds.</b></p><p class='txt'>Second, new initiatives break even in 2027. The Q2 loss ratio was 5.3%; at that trajectory, breaking even in 2027 is possible. But Xiaoxiang Supermarket is expanding (39 cities to 68) and Happy Monkey is opening stores (40), and loss ratios typically fluctuate during expansion.</p><p class='txt'>Third, replicating Keeta. Saudi Arabia reaching profitability in 22 months is strong evidence, but Brazil is the rival's home turf. <b>My view: Brazil cannot be profitable in 2027; keeping losses contained would count as success.</b> If Brazil's quarterly loss exceeds RMB 2 billion in 2027, the RMB 25 billion profit in the base case gets cut by 20%.</p></div><div class="section"><div class="section-title">Falsification conditions: three triggers; cut the position if any one is hit</div><p class='txt'>First, <b>Q3 core local commerce operating profit below RMB 2 billion</b>. This line is a hard constraint, because Q2 was RMB 5.67 billion and management only guided to a "sequential decline," not a drop below RMB 2 billion. A breach would show the peak-season effect was the entire cause.</p><p class='txt'>Second, <b>Alibaba steps up subsidies again</b>. Metrics to watch: Alibaba's quarterly instant retail loss widens again, or Taobao Shangou investment is no longer halved. This is an external variable I cannot control, but I can see it.</p><p class='txt'>Third, <b>merchant services revenue growth turns negative</b>. Q2 was only +4.0%; a turn negative would signal the merchant ecosystem is deteriorating — a more fundamental problem than subsidies.</p><p class='txt'>If any one of the three triggers, cut to below 1%; if two trigger simultaneously, exit the position.<b>No "wait and see" option — waiting is the most expensive cost of this investment.</b></p></div><div class="section"><div class="section-title">Watch calendar: four points in time</div><p class='txt'><b>Late October/early November 2026</b>: Meituan Q3 results. Watch three numbers: core local commerce operating profit (≥RMB 2 billion), merchant services growth (not turning negative), new business loss ratio (≤5.3%). This is the most important one.</p><p class='txt'><b>November 2026</b>: Alibaba quarterly results. Watch instant retail revenue growth and loss amount to judge whether subsidies are truly receding.</p><p class='txt'><b>November 2026 (after Double 11)</b>: Watch Meituan's investment intensity in in-store services and Douyin's in-store GTV growth.</p><p class='txt'><b>March 2027</b>: 2026 annual report. Watch full-year loss magnitude (expected -RMB 5 billion to -RMB 7 billion), cumulative buyback amount, and management guidance for 2027. <b>If the 2026 annual report shows a full-year loss of less than RMB 5 billion and buybacks exceeding HKD 2 billion, this thesis moves from "partially valid" to "valid."</b></p></div><div class="section"><div class="section-title">If Q3 comes in better than expected</div><p class='txt'>My base case is Q3 core local commerce operating profit of RMB 3.0–4.5 billion (Q2 was RMB 5.67 billion). If the actual figure exceeds RMB 4.5 billion, three things are true at once: subsidies are retreating faster than expected, rider cost inflation is being absorbed, and in-store investment is less aggressive than feared.</p><p class='txt'>In that case, the 2027 assumption of RMB 25 billion can be raised to RMB 29 billion, and the neutral target price rises from HKD 110 to HKD 128. <b>More importantly, "certainty" rises from 50% to 70%, allowing the position to go from 2% to 5%.</b></p><p class='txt'>But watch for one trap: Q3 is peak season, so good data may just be seasonal. The test is not the absolute number but the year-on-year comparison — if Q3 core local commerce operating profit grows more than 30% YoY, that is real improvement, because last year's Q3 was the height of the subsidy war (a low base).</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'>Five assumptions: one holds, two partially hold, three are unverified, one does not hold. <b>This structure dictates that the position can only be 2% — not because of a lack of conviction, but because the evidence is not yet in.</b></p><p class='txt'>The next three months are critical: October brings Q3 profit, November brings clarity on whether Alibaba truly exits, and March brings the buyback. If all three pass, raise to 5%; if two fail, exit.</p></div>
+</div>
+<div class="footer">Meituan (03690) · 2026/08/28</div>
+</body>
+</html>

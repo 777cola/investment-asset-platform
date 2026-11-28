@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>論文追蹤 — SK 海力士</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/skhynix/13-持仓论文追踪/SK海力士-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/skhynix/13-持倉論文追蹤/SK 海力士-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/skhynix/13-Thesis-Tracking/SK hynix-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>論文追蹤 — SK 海力士</h1>
+  <div class="subtitle">SK 海力士 (000660.KS) | 13 · 論文追蹤</div>
+  <div class="meta">研究日期 2026/07/27 &nbsp;·&nbsp; 股價 ₩1,816,000（+3.24%） &nbsp;·&nbsp; 市值 約 1,291 萬億韓元（約 9,200 億美元） &nbsp;·&nbsp; 本益比（TTM，截至 2026Q1） 約 17.2 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/skhynix/00-SK 海力士研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>若要在 165 萬韓元以下建倉，必須先把「為什麼買」寫成可驗證的假設。五條假設裡，兩條已經成立（資本支出紀律、HBM4 量產），三條待驗證（2027 年緊供給、長約覆蓋率、份額守住 50%）。</p><p class='txt'>證偽訊號只有兩個，都很硬：DRAM 合約價連續兩個季度環比下跌；三星 HBM 份額披露超過 35%。出現任一條，不再討論估值。</p></div><table class="dt"><caption>核心假設與驗證狀態</caption><thead><tr><th>假設</th><th>當前證據</th><th>驗證指標</th><th>狀態</th></tr></thead><tbody><tr><td>H1：2027 年產業供給仍緊，DRAM 價格不轉跌</td><td>摩根大通預估 2027 年位元供給 +13%、資本支出 +74%；CEO 稱 2027 年史上最緊；TrendForce 第二季合約價 +58%—63%</td><td>月度合約價；2027 年第一季供需報告</td><td>待驗證（最關鍵的假設）</td></tr><tr><td>H2：HBM 市占守住 50% 以上、溢價不低於 2.5 倍</td><td>Counterpoint 估 2026 年 HBM4 市占 54%；三星升至 28%；6 月三家全過認證</td><td>季度 HBM 收入占比；2027 年 HBM4E 定價</td><td>待驗證（邊際轉弱）</td></tr><tr><td>H3：長約覆蓋率提升，價格波動收窄</td><td>公司提「多年期協議」，未披露比例與價格機制；KIS 指長約鎖價壓低混合 ASP</td><td>2027—2028 年產能長協覆蓋率（公司口徑）</td><td>待驗證（7/29 或有三季度口徑）</td></tr><tr><td>H4：資本支出有紀律，不出現失控擴產</td><td>2026 年資本支出 38—40 萬億元（同比 +26%—33%），占營收約 13%；龍仁一期追加至 31 萬億元但分期到 2030</td><td>資本支出／營收；2027 年指引</td><td>成立（但趨勢在惡化）</td></tr><tr><td>H5：技術與量產節奏領先</td><td>HBM4 十二層 2—3 月量產、良率與上代持平；1c 良率 80%、年內過半產能轉換</td><td>HBM4E 送樣與量產時點；1c 占比</td><td>成立</td></tr></tbody></table><div class="note">狀態定義：成立 = 有明確公開證據且短期不會反轉；待驗證 = 有證據但需下一期資料確認；證偽 = 出現反向硬證據。證據來源見各模組註釋，份額資料為 Counterpoint 估算。</div><div class="section"><div class="section-title">假設的排序：H1 決定一切</div><p class='txt'>五條假設不是並列的。H1（2027 年供給仍緊）決定了 2027 年營業利益是 180 萬億元還是 110 萬億元，也決定了估值是 6 倍還是 4 倍。其餘四條都是 H1 的支撐或修飾。</p><p class='txt'>H1 目前的支持證據是「資本支出不等於產能」：設備交期 12—18 個月、潔淨室 18 個月，2026 年投的錢要到 2027 下半年才形成供給。摩根大通測算 2027 年位元供給只增 13%。但反面證據同樣硬：三星 HBM4 產能 2027 年翻倍、長鑫 42 萬片/月、龍仁一期 2027 年 2 月啟用。<b>三條都指向 2027 下半年，所以 H1 的時間窗口只有上半年</b>。</p></div><div class="section"><div class="section-title">證偽條件：只有兩個，都要硬證據</div><p class='txt'><b>證偽一：DRAM 合約價連續兩個季度環比下跌。</b>注意是「合約價」不是「現貨價」，合約價才是公司收入的口徑。歷史上這個信號一旦出現，後續還有 30%—40% 的下跌空間，因為 EPS 與倍數同時收縮。2022 年那一輪，合約價在 2022Q3 轉跌，股價在 2022Q1 就見頂了——所以這個信號是滯後的確認，不是提前的預警。</p><p class='txt'><b>證偽二：三星 HBM 份額披露超過 35%。</b>這是估值中樞的殺手。份額從 28% 到 35%，意味著 HBM 從「雙寡頭」變成「兩家平分」，3 倍溢價會掉到 2 倍以下，營業利益率回到 45%—50%。資料來源看 TrendForce 與 Counterpoint 的季度份額，以及輝達的供應商分配。</p><p class='txt'>兩個信號之外的東西都不算證偽。股價跌 20%、券商下調目標價、韓國監管收緊——這些是波動，不是證偽。</p></div><div class="section"><div class="section-title">觀察日曆：未來六個月看什麼</div><p class='txt'><b>7 月 29 日</b>：第二季財報。看三個數字：營業利益（60 還是 65）、DRAM 混合 ASP 季增率、管理層對 2027 年的說法。這一場決定短期方向。</p><p class='txt'><b>9 月</b>：第三季合約價談判結果。如果通用 DRAM 漲幅掉到 20% 以下，H1 就開始鬆動。</p><p class='txt'><b>10 月</b>：第三季財報 + 2027 年資本支出初步指引。這是全年最重要的一個數字——如果 2027 年指引超過 50 兆韓元，說明擴產在加速，H1 危險。</p><p class='txt'><b>2027 年 1—2 月</b>：龍仁一期無塵室啟用、設備搬入。供給落地的第一個物理證據。</p><p class='txt'><b>2027 年 4 月</b>：2026 年全年財報 + 2027 年 HBM4E 定價。HBM 溢價能不能守住 2.5 倍，看這一次談判。</p></div><div class="section"><div class="section-title">論文的失效場景：什麼情況下這套框架本身不成立</div><p class='txt'>這套框架建立在「儲存是週期行業」之上。如果出現下面三種情況之一，框架本身要重寫。</p><p class='txt'>第一，長約覆蓋率超過 70%，且帶價格上下限。那時價格由合約定，週期被熨平，估值體系從 6 倍抬到 10—12 倍，所有基於合約價的證偽條件都失效。</p><p class='txt'>第二，HBM 佔到 DRAM 收入七成以上，且三家形成穩定的技術代差（比如海力士長期領先一代）。那時它更像台積電，而不是儲存廠。</p><p class='txt'>第三，AI 需求出現斷層式下跌（不是放緩），整個行業的產能無處消化。那時週期會以比歷史更劇烈的方式出清，估值方法要回到「重置成本」。</p><p class='txt'>三種情況現在都沒發生，但要用它們檢查自己的假設有沒有過期。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>論文追蹤結論：五條假設兩條成立、三條待驗證，核心是 H1。證偽條件只有兩個（合約價連續兩季下跌、三星份額超 35%），都還沒出現。動作：把 165 萬韓元設為建倉觸發價，把上述五個日期寫進日曆，其餘噪音不看。</p></div>
+</div>
+<div class="footer">SK 海力士 (000660.KS) · 2026/07/27</div>
+</body>
+</html>

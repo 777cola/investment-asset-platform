@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industry Funnel — ASML</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/asml/11-行业漏斗对比/阿斯麦-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/asml/11-行業漏斗對比/阿斯麥-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/asml/11-Industry-Funnel/ASML-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Industry Funnel — ASML</h1>
+  <div class="subtitle">ASML (ASML) | 11 · Industry Funnel</div>
+  <div class="meta">Research date 2026/10/16 &nbsp;·&nbsp; Price $1,641.52 (-0.96%) &nbsp;·&nbsp; Market cap About USD 624 billion (about EUR 538 billion) &nbsp;·&nbsp; PE(TTM) Approximately 41x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/asml/00-ASML-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core call: if you could only buy one equipment company, it would still be this one</h3><p class='txt'>First eliminate Nikon, Canon and SMEE (not for lack of scale, but because they no longer have a viable play in the lithography segment), then line up the remaining six: ASML, KLA, Applied Materials, Lam Research, Tokyo Electron and NAURA. The final choice comes down to ASML versus KLA: KLA has higher gross margin (60%) and a cheaper valuation (30x), but ASML's monopoly is stronger and its growth faster. <b>Conclusion: ASML for quality, KLA for odds; neither is cheap at the current price.</b></p></div><table class="dt"><caption>Top five equipment makers + domestic leaders (October 2026, rough estimates)</caption><thead><tr><th>The company</th><th>Market cap</th><th>Revenue growth</th><th>Gross margin</th><th>PE</th><th>ROE</th></tr></thead><tbody><tr><td>ASML</td><td>USD 624 billion</td><td>+36%（FY26E）</td><td>56%</td><td>41x</td><td>50%+</td></tr><tr><td>KLA</td><td>About USD 170 billion</td><td>+20%</td><td>60%</td><td>30x</td><td>60%</td></tr><tr><td>Applied Materials (AMAT)</td><td>About USD 230 billion</td><td>+15%</td><td>47%</td><td>22x</td><td>35%</td></tr><tr><td>Lam Research LRCX</td><td>About USD 180 billion</td><td>+25%</td><td>48%</td><td>25x</td><td>45%</td></tr><tr><td>Tokyo Electron (TEL)</td><td>About USD 90 billion</td><td>+20%</td><td>45%</td><td>22x</td><td>30%</td></tr><tr><td>NAURA Technology</td><td>About USD 42 billion</td><td>+30%</td><td>42%</td><td>35x</td><td>20%</td></tr></tbody></table><div class="section"><div class="section-title">Initial screen: first eliminate those with too large a technology gap</div><p class='txt'>The first layer of the funnel is "can they get into advanced processes." Nikon and Canon are both eliminated—not because they are small, but because the lithography segment has already been decided: Nikon exited the EUV alliance and continues to lose DUV share; Canon has talked up nanoimprint for a decade without achieving volume production. SMEE sits at the 90nm level, more than two generations behind, and is constrained by export controls, so it does not constitute competition in the near term.</p><p class='txt'>The second layer eliminates those that are "not pure equipment" plays: lithography is only a small slice of Canon's revenue, so buying it means buying copiers and medical equipment. NAURA is the mainstay of China's domestic substitution, with good growth (+30%), but its technology gap and customer structure set its ceiling—it earns "substitution" money, not "monopoly" money.</p></div><div class="section"><div class="section-title">Final pick: ASML vs KLA</div><p class='txt'>That leaves KLA and ASML. What they share: both hold segment monopolies, both post the industry's top-tier gross margins, and both serve the same customers. They differ on three points.</p><ul><li><b>Monopoly strength.</b>ASML holds 100% exclusivity in EUV, with no second player; KLA holds about 50% share in metrology, contested by ASML (YieldStar), Hitachi and Applied Materials. The former is "no substitute"; the latter is "best but not the only one."</li><li><b>Growth slope.</b>ASML revenue +36% in 2026, KLA about +20%. The former is driven by capacity expansion, the latter by rising inspection intensity.</li><li><b>Valuation.</b>ASML at 41x TTM / 31x 2027E; KLA about 30x. A 30% quality premium — reasonable but not cheap.</li></ul></div><div class="section"><div class="section-title">Why it: three conditions that cannot be replicated</div><p class='txt'>First, physical exclusivity. A 13.5nm light source + multilayer reflective mirrors + dual-stage wafer stage: only one engineering path worldwide can make this work, and it has taken twenty years to get there. Second, customer lock-in. Advanced-node yield parameters are tuned jointly with the equipment; switching suppliers means rebuilding the line, a two-year minimum. Third, supply rigidity. Even with 30% capacity growth in 2027–2028, supply remains insufficient; the revenue ceiling is set by capacity, not demand—an extremely rare state for a cyclical stock.</p><p class='txt'>Of these three, the first determines whether anyone can challenge it, the second determines that customers cannot leave, and the third determines how much it earns over the next two years. It is the only equipment company that has all three at once.</p></div><div class="section"><div class="section-title">Why not buy now: valuation has already priced in the conclusion</div><p class='txt'>Run the same funnel with an added "odds" layer and the conclusion changes. ASML at 31x 2027E implies 4% upside in the neutral scenario; KLA at 30x implies roughly 10%–15% upside in the neutral scenario (rough calculation, assuming 15% EPS growth in 2027). On quality, ASML wins; on odds, KLA is slightly better.</p><p class='txt'>So the right way to use the funnel is not "pick the best company and buy it" but "pick the best company and wait for its price to enter a reasonable range." ASML's reasonable range is 25x 2027E (about USD 1,300); KLA's is 25x (about 83% of the current price). Neither has reached it yet.</p></div><div class="section"><div class="section-title">Why KLA was ultimately not selected</div><p class='txt'>KLA is a good company: 60% gross margin (higher than ASML), 60% ROE, 30x valuation. Its problem is not quality but that its "monopoly hardness" is a notch weaker — it holds 50% of the metrology segment, with ASML's YieldStar, Hitachi and Applied Materials competing. A 50% share means customers have choices, and choices mean bargaining power.</p><p class='txt'>The other reason is the source of growth. KLA's growth comes from "rising inspection intensity" (more inspection steps per process node), which is linear; ASML's growth comes from "capacity expansion + value-based pricing," which is step-function. In an upcycle of AI capex, the latter has greater elasticity.</p><p class='txt'>So the funnel's conclusion: choose ASML for quality, KLA for odds. If you want to buy only one equipment company and hold it for ten years, choose ASML; if you only want to profit from this cycle, KLA offers better value for money.</p></div><div class="section"><div class="section-title">Beyond the funnel: why not AMEC or ACM Research</div><p class='txt'>Several domestic equipment names merit attention: AMEC's etching (5nm validation passed), Shengmei's cleaning, and Piotech's thin-film deposition. Their problem is "single segment + customers concentrated in China + inverse beneficiary of controls" — their growth logic is the exact opposite of ASML's. ASML earns from "global monopoly"; they earn from "substitution after being blocked."</p><p class='txt'>The two cannot be compared in the same funnel because their valuation anchors differ: domestic equipment stocks are priced on "dream multiples" (above 35x, looking at substitution space), while ASML is priced on "discounted cash flow" (31x, looking at global demand). If allocating, allocate separately — do not treat them as substitutes for each other.</p></div><div class="summary-box"><h3>Conclusion</h3><p>Funnel result: six candidates, four eliminated; final picks ASML (top on quality) and KLA (slightly better odds). Entry points: ASML below USD 1,300, KLA on a further decline of more than 15% from the current price. At current prices, both are watch-only.</p></div>
+</div>
+<div class="footer">ASML (ASML) · 2026/10/16</div>
+</body>
+</html>

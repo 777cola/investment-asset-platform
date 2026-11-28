@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組長彙總 — Palantir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/palantir/5-四角色并行分析/Palantir-TeamLead-汇总.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/palantir/5-四角色並行分析/Palantir-四角色-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/palantir/5-Four-Role-Analysis/Palantir-Four Roles-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>組長彙總 — Palantir</h1>
+  <div class="subtitle">四個角色爭論了三個小時，最後分歧只有一條</div>
+  <div class="meta">研究日期 2026/10/05 &nbsp;·&nbsp; 股價 $189.40（+0.34%） &nbsp;·&nbsp; 市值 約 4,560 億美元 &nbsp;·&nbsp; PS(TTM) 約 74 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/palantir/00-Palantir研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>四個角色交上來的報告，結論完全一致：迴避。但一致不等於沒分歧——<b>他們在「這家公司三年後值多少」這個問題上分歧很大，在「今天該不該買」上分歧為零。</b></p><p class='txt'>這份匯總是給決策用的，不是給閱讀用的：三個分歧點、各自的證據強度、我的裁決、以及一條會被推翻結論的觸發條件。</p></div><div class="section"><div class="section-title">分歧一：93% 的增速還能跑幾個季度</div><p class='txt'>商業角色（段永平視角）認為能跑四個季度以上，依據是美國商業 TCV +153%、剩餘合約價值 +124%，蓄水池比當期收入大三倍。財務角色（巴菲特視角）認為兩個季度內必減速，依據是總 TCV 只增 49%、客戶數只增 24%，收入在吃存量。</p><p class='txt'><b>裁決：財務角色對。</b>兩組數字不矛盾，只是看的是不同的池子。美國商業這個池子在灌水（TCV +153%），政府和國際這兩個池子在放水（總 TCV +49%）。合併增速會先掉，因為政府和國際占收入近六成。這條判斷的證據強度：中高，Q3 財報可驗證。</p><p class='txt'>但這個分歧對結論沒有影響。即使增速維持 90% 四個季度，2027 年收入也就是 118–130 億美元，落在中性到樂觀之間，對應 120–195 美元。最好的情形上行 3%。</p></div><div class="section"><div class="section-title">分歧二：護城河到底有多寬</div><p class='txt'>行業角色（蒙格視角）認為商業側的護城河比市場以為的窄，理由是雲廠商的捆綁分發。風險角色（李錄視角）認為本體層是真實的基礎設施，寬且持久。商業角色站中間：政府側寬、商業側窄。</p><p class='txt'><b>裁決：按客戶類型分開看，不要給一個總分。</b>政府側 9 分（安全許可 + 十五年歷史，無人能替）；商業側 6 分（技術可複製、分發弱於微軟、切換成本低於政府）。加權後 7.5 分——這個分數不低，但比市場定價隱含的「唯一贏家」低。</p><p class='txt'>證據強度：高（政府側的資質壁壘可核查，商業側的客戶數增速 24% 也在印證「擴客難」）。</p></div><div class="section"><div class="section-title">分歧三：這個價格裡有多少是敘事</div><p class='txt'>三個角色都同意「貴」，但對「貴多少」的判斷差一倍。巴菲特視角說貴 37%（按中性情景）；芒格視角說貴 60%（按倍數回歸到 24 倍）；李錄視角說貴 50% 左右（按十年 DCF 折現）。</p><p class='txt'><b>裁決：採用 37%，因為它是唯一有明確假設鏈條的算法。</b>2032 年 450 億收入 × 34% 淨利率 × 30 倍 = 4,590 億，按 8% 折現回今天 = 2,892 億 = 120 美元。這條鏈條每一步都能被質疑，但每一步都能被驗證。<b>另外兩個數字更大，但假設更粗，不用。</b></p><p class='txt'>這裡要留一句誠實話：如果無風險利率長期回到 3% 以下、市場對成長股的貼現率系統性下降，24 倍市銷率可能變成 36 倍，那時候中性情景就是 180 美元。<b>這是本報告最大的不可控變量，也是唯一可能讓「迴避」變錯的東西。</b></p></div><div class="section"><div class="section-title">一致的部分：為什麼四個人都說不買</div><p class='txt'>不是因為公司不好。四個人對生意的評價都在 8 分以上（10 分制），對管理層的評價在 6–7 分，對護城河的評價 7–9 分。分歧都在細節。</p><p class='txt'>一致的地方是一條算術：<b>樂觀情景上行 3%、中性 −37%、悲觀 −63%。</b>這個賠率結構下，判斷對錯不重要——你判斷對了（公司確實完美執行），賺 3%；判斷錯了（減速一次），虧 37%。任何一個人面對這個賠率，理性選擇都是不參與。</p><p class='txt'>這條算術還有一種表述方式：<b>現在的價格，要求你在未來六年裡每一次都判斷對，而回報只夠覆蓋通膨。</b>這不是投資，這是買一張必須全中的彩券。</p></div><div class="section"><div class="section-title">給決策的三句話</div><p class='txt'>第一句：<b>不建倉，進觀察名單第一行。</b>觀察指標三個——季度 TCV 增速、非美收入增速、股權激勵占收入比。前兩個轉好、第三個轉低，重新評估。</p><p class='txt'>第二句：<b>如果已經持有，減到不影響組合的比例（≤2%），不設價格停損，設論文停損。</b>論文停損的定義：TCV 增速連續兩個季度低於收入增速的一半，或者美國商業收入增速掉到 50% 以下。</p><p class='txt'>第三句：<b>把「什麼價格買」寫死，不要臨場判斷。</b>市銷率 30 倍對應約 80 美元，20 倍對應約 55 美元。到了就重新做一遍研究，不到就不看盤。<b>對著 K 線做決定，是這類股票虧錢的標準路徑。</b></p></div><div class="summary-box"><h3>結論</h3><p>四個角色，一個結論：<b>迴避，觀察。</b>分歧集中在「增速能跑多久」和「護城河多寬」，但這兩個分歧都不改變賠率結構——最好的情形上行 3%。真正會推翻結論的只有一件事：貼現率系統性下行，讓市場願意長期給成長股 36 倍以上的市銷率。<b>在那之前，不參與。</b></p></div>
+</div>
+<div class="footer">Palantir (PLTR) · 2026/10/05</div>
+</body>
+</html>

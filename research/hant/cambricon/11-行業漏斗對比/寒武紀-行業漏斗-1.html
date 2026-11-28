@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行業漏斗 — 寒武紀</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/cambricon/11-行业漏斗对比/寒武纪-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/cambricon/11-行業漏斗對比/寒武紀-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/cambricon/11-Industry-Funnel/Cambricon-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>行業漏斗 — 寒武紀</h1>
+  <div class="subtitle">寒武紀 (688256) | 11 · 行業漏斗</div>
+  <div class="meta">研究日期 2026/08/17 &nbsp;·&nbsp; 股價 ¥1,156.00（+5.76%） &nbsp;·&nbsp; 市值 約 7,271 億元 &nbsp;·&nbsp; PE(TTM) 約 218x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/cambricon/00-寒武紀研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>從國產 AI 晶片的 10 家公司裡篩：5 家未上市（華為昇騰、崑崙芯、沐曦、燧原、壁仞），輝達受管制無法直接買，摩爾線程虧損且靜態市銷率 178 倍，剩下寒武紀與海光信息兩家可比。<b>終選寒武紀——它是國產三家裡唯一「規模 + 盈利 + 純 AI 彈性」三者兼具的。</b></p><p class='txt'>但「終選」不等於「買入」。海光 2026H1 營收 90.99 億元、淨利 17.98 億元、研發投入占營收 29.15%，動態市盈率 250 倍；寒武紀營收 59.96 億元、淨利 23.11 億元、研發占 11.72%，市盈率 218 倍。<b>兩家都貴，寒武紀貴得少一點，但它的增速在換檔（Q2 環比 7.84%）。</b>結論：行業漏斗選出它，估值漏斗把它劃掉。</p></div><table class="dt"><caption>國產 AI 晶片同業對比（2026 年中報口徑）</caption><thead><tr><th>公司</th><th>市值</th><th>2026H1 營收</th><th>同比</th><th>毛利率</th><th>PE</th><th>ROE</th></tr></thead><tbody><tr><td>寒武紀</td><td>7,263 億元</td><td>59.96 億元</td><td>+108.13%</td><td>55.25%</td><td>218x（TTM）</td><td>18.2%（半年）</td></tr><tr><td>海光信息</td><td>6,874 億元（8/10）</td><td>90.99 億元</td><td>+66.52%</td><td>55.21%</td><td>約 250x（動態）</td><td>7.56%（加權）</td></tr><tr><td>摩爾線程</td><td>2,688 億元（8/11）</td><td>17.36 億元</td><td>+147.42%</td><td>57.0%</td><td>—（虧損）</td><td>負</td></tr><tr><td>輝達</td><td>4.86 萬億美元（7/31）</td><td>—</td><td>—</td><td>70%+</td><td>30.7x</td><td>—</td></tr><tr><td>華為（昇騰）</td><td>未上市</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr></tbody></table><div class="note">資料來源：寒武紀 2026 半年報與 batchdata（8/17 收盤 1,156 元）；海光信息 2026 半年報（8/13）與 8/10 行情；摩爾線程 2026 半年報（8/10）與 8/11 收盤；輝達 2026/07/31 市值與 PE 口徑。ROE 為各公司披露口徑（寒武紀 23.11/135.55 期末淨資產粗算、海光 7.56% 加權）。摩爾線程毛利率 = 9.89/17.36 粗算。</div><div class="section"><div class="section-title">第一層粗篩：10 家進，5 家出局</div><p class='txt'>把國產 AI 晶片公司列全：華為昇騰、寒武紀、海光信息、昆侖芯、摩爾線程、沐曦、燧原、壁仞、天數智芯、輝達（在華銷售）。第一刀砍「買不到」：華為昇騰、昆侖芯、沐曦、燧原、壁仞未上市或上市進程未定，直接出局；輝達受出口管制，A 股投資者無法直接持有其中國業務。<b>一刀下去只剩寒武紀、海光、摩爾線程、天數智芯四家。</b></p><p class='txt'>第二刀砍「看不懂財務」：天數智芯未上市，出局。第三刀砍「虧損且估值無法錨定」：摩爾線程 2026H1 營收 17.36 億元、同比 +147.42%、毛利率 57.0%，但淨利仍是 −0.12 億元，按 2025 年 15.06 億元營收算靜態市銷率約 178 倍——<b>這是一張「成長期權」，不是一門可以估值的生意</b>，本輪對比保留但不入選。剩兩家：寒武紀、海光信息。</p></div><div class="section"><div class="section-title">第二層對比：寒武紀 vs 海光，兩種活法</div><p class='txt'>海光的優勢是基本盤：CPU + DCU 雙線，2026H1 營收 90.99 億元、淨利 17.98 億元、毛利率 55.21%、研發投入 26.52 億元（占營收 29.15%）。<b>它更像「中國的 AMD」，穩，但增速慢一檔（+66.52% vs +108.13%）。</b></p><p class='txt'>寒武紀的優勢是彈性：純 AI 晶片、毛利率 55.25%、淨利率 38.54%（海光 22.69%），營收增速快一倍。<b>代價是客戶集中度 88.66%、現金流 3.11 億元、存貨 82.48 億元。</b></p><p class='txt'>估值上兩家都貴：寒武紀 218 倍 TTM、海光約 250 倍動態。<b>也就是說，選寒武紀不是因為便宜，是因為「純度更高、彈性更大」</b>——在 AI 算力這條主線上，純度就是溢價的來源。</p></div><div class="section"><div class="section-title">最終選擇：為什麼是它，而不是海光</div><p class='txt'>三條理由。第一，<b>純度</b>：寒武紀 100% 的收入來自 AI 晶片，AI 資本支出每增加一元，它的彈性最大；海光有一半是 CPU，跟信創走，跟 AI 只沾一半。第二，<b>利潤率</b>：38.54% 對 22.69%，同樣的收入，寒武紀多賺 70%。第三，<b>稀缺性敘事</b>：科創板首檔兆元市值股、唯一純 AI 晶片標的，資金關注度與流動性都更好。</p><p class='txt'>不選海光的理由也清楚：它的研發強度是寒武紀的 2.5 倍（29.15% vs 11.72%），說明技術追趕的壓力更大；動態本益比 250 倍比寒武紀還貴；而且它的 DCU 走「類 CUDA」路線，長期看要跟輝達正面比生態，勝負更難判斷。<b>海光是「穩」，寒武紀是「銳」，這輪主線要的是銳。</b></p></div><div class="section"><div class="section-title">最終篩選不等於買入：估值漏斗將其剔除</div><p class='txt'>行業漏斗回答「買哪家」，估值漏斗回答「現在買不買」。寒武紀 218 倍 TTM 本益比、75.6 倍市銷率、53.6 倍市淨率，中性情境目標價 830 元（−28%）、悲觀 400 元（−65%）、樂觀 1,450 元（+25%）。<b>向上兩成、向下六成，賠率方向是反的。</b></p><p class='txt'>所以這個漏斗的終點是：<b>名單上留它，倉位上是零。</b>如果一定要在國產 AI 晶片裡持倉，現價的性價比排序是「不買 &gt; 海光 &gt; 寒武紀 &gt; 摩爾線程」——不買排第一，因為三家都貴，而寒武紀的增速換檔最明顯（Q2 環比 7.84%）。</p><p class='txt'>什麼時候把它從「名單」移到「倉位」？兩個條件之一：股價回到 800 元以下（對應 2027 年中性淨利 77 倍），或者 Q3 營收環比回到 15% 以上、現金含量回到 0.5。<b>前者等市場，後者等公司，都不需要現在動手。</b></p></div><div class="summary-box"><h3>結論</h3><b>漏斗結論：行業終選寒武紀，估值否決買入。</b>10 家篩到 2 家（寒武紀、海光），終選寒武紀的理由是純度、利潤率與敘事；但 218 倍本益比、75.6 倍市銷率讓它在估值漏斗裡出局。<b>名單留名、倉位為零</b>，800 元以下或 Q3 環比 15% 以上再重開討論。</div>
+</div>
+<div class="footer">寒武紀 (688256) · 2026/08/17</div>
+</body>
+</html>

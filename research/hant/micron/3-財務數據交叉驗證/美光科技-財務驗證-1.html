@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務驗證 — 美光科技</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/micron/3-财务数据交叉验证/美光科技-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/micron/3-財務數據交叉驗證/美光科技-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/micron/3-Financial-Cross-Check/Micron Technology-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務驗證 — 美光科技</h1>
+  <div class="subtitle">美光科技 (MU) | 03 · 財務驗證</div>
+  <div class="meta">研究日期 2026/09/25 &nbsp;·&nbsp; 股價 $1,082.28（+0.16%） &nbsp;·&nbsp; 市值 約 1.22 萬億美元（按 11.3 億股粗算） &nbsp;·&nbsp; PE(2027E) 約 6.5x（一致預期口徑，9 月中為 5.77x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/micron/00-美光科技研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>八個關鍵數字做了雙源核對：營收、毛利率、EPS、DRAM 收入、HBM 份額、DRAM 份額、市值、Q4 指引。七個偏差在 1% 以內，唯一超過 1% 的是 Q4 指引（490—510 億 vs 財報前一致預期 431 億，+16%），原因是<b>賣方預期沒有跟上公司的指引上修</b>，屬於口徑時點差，不是數據錯誤。</p><p class='txt'>最終採用口徑：財務數一律用公司財報原始值（百萬美元），股價與 52 週區間用 batchdata，行業份額用 TrendForce（DRAM）與 Counterpoint（HBM）兩家分開引用，不混用。市值採用 11.3 億股基本股本，若用 11.49 億稀釋股本則市值高 1.7%，已在表內註明。</p></div><table class="dt"><caption>關鍵數字雙源對照</caption><thead><tr><th>指標</th><th>來源 A</th><th>來源 B</th><th>偏差</th><th>處理</th></tr></thead><tbody><tr><td>FY26Q3 營收</td><td>41,456 百萬美元（公司財報）</td><td>414.56 億美元（華創證券 6/29、中信里昂 6/26 研報）</td><td>0.01%</td><td>採用 41,456</td></tr><tr><td>FY26Q3 毛利率</td><td>84.9%（公司 Non-GAAP）</td><td>84.9%，同比 +45.9pct / 環比 +10pct（多家券商一致）</td><td>0</td><td>採用 84.9%</td></tr><tr><td>FY26Q3 稅後淨利</td><td>28,240 百萬美元（GAAP）</td><td>282 億美元（21 世紀經濟報導）；Non-GAAP 28,860</td><td>GAAP 0；口徑差 2.2%</td><td>兩個口徑並列，不合并</td></tr><tr><td>FY26Q3 EPS</td><td>25.11 美元（Non-GAAP）</td><td>25.11 美元（券商研報與台媒一致）</td><td>0</td><td>採用 25.11</td></tr><tr><td>DRAM 營收</td><td>31,300 百萬美元（公司財報）</td><td>313 億美元、占營收 76%、環比 +67%（中信里昂）</td><td>0</td><td>採用 31,300</td></tr><tr><td>FY26Q4 營收指引</td><td>490—510 億美元（公司指引）</td><td>431 億美元（財報前一致預期）</td><td>+16%</td><td>口徑不同，不合併；另列一致預期 508—514 億</td></tr><tr><td>市值</td><td>1.22 萬億美元（1,082.28 × 11.3 億股）</td><td>1.24 萬億元（11.49 億稀釋股反推）</td><td>1.7%</td><td>採用 1.22 萬億元，註明基本股本</td></tr><tr><td>HBM／DRAM 市佔</td><td>HBM 18%（Counterpoint 2026Q2）</td><td>DRAM 23.3%（TrendForce 2026Q2 營收排名）</td><td>不可比（不同機構、不同口徑）</td><td>分列引用，不混算</td></tr></tbody></table><div class="note">偏差 =（來源 A − 來源 B）/ 來源 A。來源：美光 FY26Q3 財報（2026/06/24）；華創證券《美光 FY26Q3 營收 414.56 億美元創新高》（2026/06/29）；中信里昂研報（2026/06/26）；21 世紀經濟報導（2026/06/25）；Counterpoint Research（2026/09/02）；TrendForce（2026/09/07）；batchdata 日線（2026/09/25）。</div><div class="section"><div class="section-title">偏差最大的一條：Q4 指引與一致預期差 16%</div><p class='txt'>公司 6 月 24 日給的 FY26Q4 指引是 490—510 億美元、EPS 30—32 美元；而財報發布前的一致預期是 431 億美元、EPS 25.3 美元。這不是誰算錯了，是<b>賣方在 Q3 財報出來之前沒有預料到漲價會這麼猛</b>——Q3 本身超指引上沿 79 億美元（指引 335.7±7.5 億，實際 414.6 億），把所有人的模型都打亂了。</p><p class='txt'>到 9 月下旬，一致預期已經上修到營收 508—514 億、EPS 31.5—31.75 美元，基本貼著公司指引的中上沿。所以現在看「公司指引 490—510 億」這個概念要小心：<b>市場已經把指引當成了下限</b>，這是一個典型的「指引被上修後失效」的狀態，財報只要略低於 514 億就可能被解讀為不及預期。</p></div><div class="section"><div class="section-title">偏差 1% 以內的幾條，說明資料是乾淨的</div><p class='txt'>營收、毛利率、EPS、DRAM 收入四項，公司財報與券商研報、媒體轉引完全一致（偏差 0—0.01%）。這類一致性在記憶體股上不常見——因為分部收入、位元出貨、ASP 這些細分口徑經常各家算法不同。美光這次財報的披露品質不錯，四個分部（CDBU 115 億、CMBU 137.7 億、MCBU 115.2 億、AEBU 46.3 億）合計 414.2 億，與總營收 414.56 億差 0.36 億，是四捨五入。</p><p class='txt'>淨利有兩個口徑：GAAP 282.4 億、Non-GAAP 288.6 億，差 6.2 億（2.2%），差額來自股權激勵與重組費用。本報告在講「淨利率 68%」時用 GAAP，在講「EPS 25.11」時用 Non-GAAP——<b>因為賣方一致預期和公司指引都用 Non-GAAP</b>，混用會算出錯誤的倍數。</p></div><div class="section"><div class="section-title">為什麼份額資料不能混用</div><p class='txt'>HBM 市占 18% 來自 Counterpoint（營收口徑，2026Q2），DRAM 市占 23.3% 來自 TrendForce（同為營收口徑，同期）。兩家機構的統計口徑、樣本、時點都不同，而且 HBM 屬於 DRAM 的一部分，<b>把 18% 和 23.3% 放在一起算「HBM 滲透率」是錯的</b>。</p><p class='txt'>本報告的處理是分列引用：講 HBM 競爭格局只引 Counterpoint（SK 海力士 50%、三星 33%、美光 18%），講 DRAM 總量與長鑫威脅只引 TrendForce（三星 39.4%、SK 海力士 24.9%、美光 23.3%、長鑫 9.5%）。TrendForce 的行業總營收 1,547.3 億美元 × 美光 23.3% = 360.5 億，與公司披露的 DRAM 收入 313 億差 15%，這個差來自「TrendForce 統計的是 DRAM 品牌廠營收（含 HBM），美光財報的 DRAM 收入口徑不含部分 HBM 相關封裝收入」——<b>屬於口徑差，不是數據錯</b>，因此不強行對齊。</p></div><div class="section"><div class="section-title">最終採用的四個口徑</div><ul><li>財務數據：公司財報原始值（百萬美元），GAAP 與 Non-GAAP 分列，標註清楚</li><li>股價與市值：batchdata 2026/09/25 收盤 1,082.28 美元 × 11.3 億股 = 1.22 萬億美元；不用稀釋股本，避免與「PE(2027E) 6.5x」的口徑衝突</li><li>行業份額：DRAM 用 TrendForce，HBM 用 Counterpoint，各自註明季度與口徑</li><li>一致預期：用於 PE 與目標價對比，取 9 月下旬（EPS 2027E 約 166 美元、FY26Q4 營收 508—514 億），時點標註到「9 月下旬」</li></ul></div><div class="section"><div class="section-title">股價與份額的兩處小心核對</div><p class='txt'>股價這一欄只能採用一個來源：batchdata 日線。2026/09/25 收盤 1,082.28 美元、當日 +0.16%，52 週高點 1,213.56 美元，距高點 -10.8%，年內漲幅約 226%——按此反推年初約 332 美元，與媒體「9 月以來累計漲約 14%」「9 月 22 日收 1,096.16 美元」的報導互相吻合，說明價格序列沒有斷層。</p><p class='txt'>市占率環比要自己加一遍：Counterpoint 2026Q2 HBM 是 SK 海力士 50%（上季 58%）、三星 33%（上季 21%）、美光 18%（上季 21%），三家合計 101%，是四捨五入後的 100%。<b>這條數據的關鍵不是美光丟了 3 個百分點，而是三星一個季度搶了 12 個百分點</b>——它證明 HBM4 的認證不是獨家通行證。</p></div><div class="summary-box"><h3>結論</h3><b>結論：資料可用，無需修正底稿。</b>八個關鍵數字裡七個偏差在 1% 以內，唯一超過 1% 的 Q4 指引差是「公司指引 vs 財報前預期」的時點差，本質是賣方模型滯後而非資料錯誤。需要提醒的只有一處：市場一致預期已上修到 508—514 億美元，貼著公司指引上沿，這意味著 9 月 30 日財報的「超預期門檻」被抬高了——達到指引不再是利好，超過 514 億才是。</div>
+</div>
+<div class="footer">美光科技 (MU) · 2026/09/25</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生意本質：從賣注意力到賣算力 — Alphabet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/alphabet/16-八篇深度长文/Alphabet-02-生意本质.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/alphabet/16-八篇深度長文/Alphabet-八篇長文-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/alphabet/16-Eight-Long-Essays/Alphabet-Eight Essays-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>生意本質：從賣注意力到賣算力 — Alphabet</h1>
+  <div class="subtitle">第二篇：這家公司到底在賣什麼</div>
+  <div class="meta">研究日期 2026/10/30 &nbsp;·&nbsp; 股價 $279.84（-1.40%） &nbsp;·&nbsp; 市值 約 3.42 萬億美元 &nbsp;·&nbsp; EV/EBIT(2026E) 約 21x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/alphabet/00-Alphabet研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>Alphabet 的生意本質是「把人類的意圖變成可拍賣的庫存」。搜尋把意圖變成關鍵字庫存，YouTube 把注意力變成影片前貼片庫存，雲把企業的運算需求變成按小時計費的算力庫存。<b>三種庫存的邊際成本完全不同：關鍵字近乎零，影片分潤可變，算力要建機房。</b>理解這一點，就理解了為什麼廣告業務的利潤率是 40.7%，雲的利潤率是 36.2%，而其他賭注在虧錢。</p></div><div class="section"><div class="section-title">第一種庫存：意圖，邊際成本近零</div><p class='txt'>搜尋賣的不是「曝光」，是「意圖」。使用者敲下「附近修車」，這個意圖在 0.3 秒內被拍賣給幾十個廣告主。<b>這門生意的成本結構極其特殊：多服務一個使用者的邊際成本幾乎為零，多賣一次廣告的邊際成本也幾乎為零。</b>所以收入漲 12%，利潤可以漲更多。</p><p class='txt'>這種生意的護城河不在技術，在「規模 + 資料」的循環：查詢越多，點擊預測越準，廣告主 ROI 越高，出價越高，公司越有錢買預設入口，入口帶來更多查詢。<b>這個循環的唯一弱點是：它假設使用者還會「敲關鍵詞」。</b>AI 對話把這個假設動搖了——這是這門生意唯一的真風險。</p></div><div class="section"><div class="section-title">第二種庫存：算力，邊際成本是電和折舊</div><p class='txt'>雲端賣的是「確定性的算力」。客戶不關心你用什麼晶片，只關心能不能跑、多少錢、穩不穩。<b>這門生意的成本結構是：固定成本極高（機房、晶片），邊際成本很低（電、頻寬、維運），所以利用率決定利潤率。</b>Q3 雲端營業利益率 36.2%，去年同期 23.7%，差別就是利用率。</p><p class='txt'>這也是為什麼雲端廠商必須不停擴產：<b>不擴產，客戶會因為容量不足走掉；擴產，折舊會先來、收入後到。</b>這個節奏在需求上行期是良性循環（收入成長快於折舊），在需求下行期是惡性循環（折舊照提、收入不漲）。Alphabet 現在處在良性循環的早段——雲端收入 +103%、折舊還沒大規模上來。<b>但循環會反轉，只是時間問題。</b></p></div><div class="section"><div class="section-title">第三塊：為什麼它必須自己做晶片</div><p class='txt'>如果雲的成本結構裡最大的一項是晶片，而晶片只能從輝達買（毛利率 70% 以上），那雲廠商本質上是給輝達打工。<b>TPU 的意義不是「效能更好」，是「成本自己定」。</b>這是 Alphabet 相對微軟、Meta 最大的結構性優勢——後兩家也在自研，但起步晚、規模小。</p><p class='txt'>這條優勢的邊界是生態。CUDA 有十幾年的開發者累積，TPU 的軟體堆疊做不到。<b>所以 TPU 對外銷售只能賣給「願意改程式碼的大客戶」，做不到全面替代。</b>這也解釋了為什麼雲收入翻倍裡，TPU 對外銷售是「重要貢獻」但公司不披露具體數字——它還沒大到可以單獨講。</p></div><div class="section"><div class="section-title">反面教材：Waymo 為什麼是「賣期權」的生意</div><p class='txt'>其他賭注 Q3 收入 3.72 億美元、營業虧損 20.47 億，年化虧損 80 億以上，絕大部分來自 Waymo。<b>這門生意的問題不是技術，是「單位經濟還沒跑通」：每輛車成本高、安全員成本高、城市擴張要重資產投入、定價受網約車競爭約束。</b></p><p class='txt'>對比雲的生意屬性：雲賣的是「可複製的算力」，多一個客戶幾乎不增加成本；<b>Waymo 賣的是「不可複製的里程」，多一個城市就要多一批車、多一套營運團隊。</b>這就是為什麼雲能在三年內從虧損到 36.2% 利潤率，而 Waymo 做了十年還在虧。</p><p class='txt'>所以估值時我應該把 Waymo 按零算，甚至按負資產算。<b>如果它有一天跑通了單位經濟，那是白送的期權；如果十年都跑不通，那就是每年 80 億的現金流出——相當於把雲利潤的 18% 燒掉。</b>這不是致命問題（Alphabet 一年營業利益 1,600 億），但它解釋了為什麼「其他賭注」不該出現在估值模型裡。</p></div><div class="section"><div class="section-title">廣告的天花板不是流量</div><p class='txt'>很多人計算廣告業務的天花板用「全球廣告市場規模 × 份額」，這個算法漏了一項：<b>廣告收入 = 流量 × 每次曝光的單價 × 變現格式的數量。</b>Alphabet 過去十年的增長，流量只貢獻了一小部分，大頭來自「單價提升」和「格式增加」（從文字鏈到購物單元到影片到 AI 生成素材）。</p><p class='txt'>這意味著兩件事。<b>第一，搜尋流量見頂不等於廣告收入見頂</b>——只要單價還在漲。第二，AI 既是威脅也是機會：它可能降低點擊量（威脅），也可能提高轉換率從而抬高單價（機會）。Q3 搜尋 +12% 說明後者目前佔上風。</p></div><div class="summary-box"><h3>結論</h3><p>生意本質三句話：<b>賣意圖的生意最好（邊際成本近零），賣算力的生意次好（利用率決定利潤），賣期權的生意最差（只有投入沒收入）。</b>Alphabet 三種都做，所以它的估值也要三段算——這是下一篇要解決的問題。</p></div>
+</div>
+<div class="footer">Alphabet (GOOGL) · 2026/10/30</div>
+</body>
+</html>

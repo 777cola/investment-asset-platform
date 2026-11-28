@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀（蒙格） — Palantir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/palantir/8-财报团队解读/Palantir-大师精读-芒格.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/palantir/8-財報團隊解讀/Palantir-財報團隊解讀-3.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/palantir/8-Earnings-Team-Read/Palantir-Earnings Team-3.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀（蒙格） — Palantir</h1>
+  <div class="subtitle">三個最容易被誤讀的數字</div>
+  <div class="meta">研究日期 2026/10/05 &nbsp;·&nbsp; 股價 $189.40（+0.34%） &nbsp;·&nbsp; 市值 約 4,560 億美元 &nbsp;·&nbsp; PS(TTM) 約 74 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/palantir/00-Palantir研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>蒙格讀財報的方法是「找出別人讀錯的地方」。這份 Q2 裡，有三個數字會被 90% 的人讀錯：<b>調整後營業利益率 62%、稅後淨利率 55%、合約價值增速 49%。</b>三個都是真數字，三個都會導致錯誤結論。</p><p class='txt'>他的名言是「反過來想」。所以這份精讀不寫它有多好，只寫它會怎麼騙你。</p></div><div class="section"><div class="section-title">誤讀一：62% 的調整後營業利益率</div><p class='txt'>公司披露 GAAP 營業利益率 47.1%、調整後 61.7%。賣方報告裡最常見的一句話是「營業利益率 62%，軟體業第一」。<b>這句話不算錯，但它描述的是「假設員工不要股票報酬」的世界。</b></p><p class='txt'>差額 2.83 億裡，2.65 億是股權激勵。這家公司每年股本增 2%，就是這筆錢的代價。芒格會說：<b>「如果你必須每年給員工 2% 的公司才能留住他們，那 2% 就是成本，不是調整項。」</b></p><p class='txt'>正確的讀法：47% 是真實利潤率，62% 是「假設不稀釋」的利潤率，兩者差 15 個百分點。用哪個取決於你要回答什麼問題——判斷生意質量用 47%，判斷現金流用 62% 但要扣稀釋。</p></div><div class="section"><div class="section-title">誤讀二：55% 的淨利率</div><p class='txt'>稅後淨利 10.62 億、淨利率 54.9%，比營業利益率還高。第一眼看起來像「這家公司越往下越賺錢」，實際上是「它的營業外收入比稅還多」。<b>稅後淨利高於營業利益，在任何行業都是異常訊號。</b></p><p class='txt'>拆開來看：營業利益 9.12 億，加利息收入約 0.9 億，減稅約 0.4 億（實際稅率低），得 10.6 億。也就是說，稅後淨利裡有 8% 是存款利息，還有一部分是低稅率帶來的。<b>這兩項都不會隨業務成長而成長。</b></p><p class='txt'>芒格會追問一句：如果利率回到 1%，稅後淨利是多少？大約 9.3 億，淨利率 48%。<b>也就是說，這家公司的「55% 淨利率」在利率正常化後會變成 48%。</b>對 140 倍 PE 來說，這是 15% 的估值差。</p></div><div class="section"><div class="section-title">誤讀三：49% 的合約價值增速</div><p class='txt'>TCV 增 49%、收入增 93%。很多人看到這組數字會說「訂單跟不上，要出事」；也有人會說「TCV 是落後指標，不用管」。<b>兩種讀法都太急。</b></p><p class='txt'>正確的讀法是拆結構。美國商業 TCV +153%、RDV +124%，這條腿在飛；政府和國際拖住了總數。TCV 是「新簽合約總額」，它受單筆大單的影響極大——上季度簽了一筆 5 億美元的政府大單，這季度的同比就會難看。<b>所以正確的指標不是 TCV 增速，是 TCV / 收入的比值趨勢。</b></p><p class='txt'>按這個口徑：Q2 TCV 33.73 億 ÷ 收入 19.35 億 = 1.74 倍。這個比值在 1.5 以上就算健康，說明新簽還在覆蓋當期確認。要盯的是它會不會掉到 1.2 以下——那時候才是真裂縫。</p></div><div class="section"><div class="section-title">芒格式的第四個問題：什麼會殺死它</div><p class='txt'>不是競爭，不是技術，是<b>「政府預算 + 高倍數」這個組合</b>。政府預算決定它的收入下限，高倍數決定它的股價下限。兩個同時往下走，跌幅是乘法的。</p><p class='txt'>他還會提醒一件事：這家公司的報表越好看，市場對它的容錯率越低。<b>一家 20 倍 PE 的公司，季度 miss 一次跌 10%；一家 74 倍市銷率的公司，季度 miss 一次跌 30%。</b>同樣的經營波動，估值越高，股價的凸性越強——向下。</p></div><div class="summary-box"><h3>結論</h3><p>芒格式結論：<b>三個數字都會騙人，但騙的方向一致——都讓你覺得它比實際更好。</b>47% 是真實利潤率，55% 有 8% 是利息，49% 的 TCV 增速被大單節奏干擾。真正該看的比值是 TCV/收入 = 1.74 倍，這條還健康。至於價格，他沒興趣討論——「74 倍市銷率買軟體公司，是在賭人性，不是在算企業」。</p></div>
+</div>
+<div class="footer">Palantir (PLTR) · 2026/10/05</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀 — 百度</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/baidu/7-财报精读/百度-财报精读.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/baidu/7-財報精讀/百度-財報精讀-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/baidu/7-Earnings-Deep-Read/Baidu-Earnings Read-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀 — 百度</h1>
+  <div class="subtitle">百度 (9888.HK) | 07 · 財報精讀</div>
+  <div class="meta">研究日期 2026/11/23 &nbsp;·&nbsp; 股價 HK$63.55（-0.78%） &nbsp;·&nbsp; 市值 約 1,680 億港元（約 215 億美元） &nbsp;·&nbsp; PE(TTM) 約 19.7x（報表口徑，受減值擾動）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/baidu/00-百度研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>精讀結論</h3><p class='txt'>這份財報的四層，一層比一層難看。<b>收入層：</b>308.07 億元、-1.1%，AI 雲 +94% 抵掉廣告 -22%，總收入原地踏步。<b>毛利層：</b>銷售成本 199 億元、+9%，毛利率壓到 35.4%。<b>利潤層：</b>營業利益 6.3 億元、利潤率 2.0%；歸母 13.95 億元的「轉虧為盈」全靠去年 161.90 億元減值造成的低基期。<b>現金流層：</b>營業現金流 28 億元，資本支出 73 億元，自由現金流 -45 億元。</p></div><table class="dt"><caption>損益表（2026Q3，億元人民幣）</caption><thead><tr><th>項目</th><th>2026Q3</th><th>佔收入</th><th>同比</th></tr></thead><tbody><tr><td>總營收</td><td>308.07</td><td>100%</td><td>-1.1%</td></tr><tr><td>銷售成本</td><td>199</td><td>64.6%</td><td>+9%</td></tr><tr><td>毛利（粗算）</td><td>109.07</td><td>35.4%</td><td>下滑</td></tr><tr><td>銷售及管理費用</td><td>55</td><td>17.9%</td><td>-17%</td></tr><tr><td>研發費用</td><td>48</td><td>15.6%</td><td>-7%</td></tr><tr><td>營業利益</td><td>6.3</td><td>2.0%</td><td>低</td></tr><tr><td>經調整營業利益</td><td>17</td><td>5.6%</td><td>—</td></tr><tr><td>歸母淨利潤</td><td>13.95</td><td>4.5%</td><td>去年 -112.32</td></tr><tr><td>非 GAAP 稅後淨利</td><td>23.95</td><td>7.8%</td><td>-36%</td></tr></tbody></table><div class="note">資料來源：百度 2026Q3 財報（2026/11/16）。毛利 = 營收 − 銷售成本，粗算；占比 = 各項 / 308.07。</div><table class="dt"><caption>分部收入（2026Q3，億元人民幣）</caption><thead><tr><th>分部</th><th>收入</th><th>佔比（總收入）</th><th>同比</th></tr></thead><tbody><tr><td>線上營銷服務</td><td>119</td><td>39%</td><td>-22%</td></tr><tr><td>AI 雲端基礎設施</td><td>82</td><td>27%</td><td>+94%</td></tr><tr><td>AI 應用</td><td>26</td><td>8%</td><td>0%</td></tr><tr><td>AI 原生行銷</td><td>24</td><td>8%</td><td>-15%</td></tr><tr><td>一般性業務合計</td><td>250</td><td>81%</td><td>+1%</td></tr><tr><td>愛奇藝等（倒算）</td><td>約 58</td><td>19%</td><td>—</td></tr></tbody></table><div class="note">資料來源：公司財報與 2026/11/15 業績說明。四項分部相加 251 億元，與一般性業務 250 億元的差額為四捨五入；愛奇藝等為總營收減一般性業務倒算。</div><table class="dt"><caption>現金流與資產（2026Q3）</caption><thead><tr><th>專案</th><th>數值</th><th>說明</th></tr></thead><tbody><tr><td>營業現金流</td><td>28 億元</td><td>保持正值</td></tr><tr><td>資本支出</td><td>73 億元</td><td>第二季 114 億元，較上季收窄</td></tr><tr><td>自由現金流（粗算）</td><td>-45 億元</td><td>28 − 73</td></tr><tr><td>資本支出 / AI 雲端收入</td><td>0.89x</td><td>73 / 82，粗算</td></tr><tr><td>折舊攤銷（倒算）</td><td>約 28 億元</td><td>經調整 EBITDA 45 − 經調整營業利益 17</td></tr><tr><td>現金及投資</td><td>2,766 億元</td><td>公司口徑，含長期投資</td></tr><tr><td>總股本</td><td>約 26.4 億股</td><td>A/B 類合計，1 ADS = 8 股</td></tr></tbody></table><div class="note">折舊攤銷為倒算值，公司未在摘要中單列；若含使用權資產攤銷則略有差異。自由現金流未扣資本化研發。</div><table class="dt"><caption>利潤橋：從毛利到營業利益（2026Q3，億元）</caption><thead><tr><th>專案</th><th>金額</th><th>說明</th></tr></thead><tbody><tr><td>毛利</td><td>109.07</td><td>營業收入 308.07 − 銷貨成本 199</td></tr><tr><td>減：銷售及管理費用</td><td>-55</td><td>同比 -17%</td></tr><tr><td>減：研發費用</td><td>-48</td><td>同比 -7%</td></tr><tr><td>小計</td><td>6.07</td><td>109.07 − 55 − 48</td></tr><tr><td>其他項目（倒擠）</td><td>約 +0.2</td><td>含資產減值、政府補助、其他收益等，未逐項核對</td></tr><tr><td>營業利益</td><td>6.3</td><td>利潤率 2.0%</td></tr></tbody></table><div class="note">其他項目為倒擠值（6.3 − 6.07），僅為配平，不代表單項金額。公司未在摘要中逐項披露。</div><div class="section"><div class="section-title">第一層：收入結構——四條曲線，只有一條在漲</div><p class='txt'>308.07 億元拆成四塊：線上營銷 119 億元（-22%）、AI 雲 82 億元（+94%）、AI 應用 26 億元（持平）、AI 原生營銷 24 億元（-15%）。四塊相加 251 億元，等於「一般性業務 250 億元」，剩下的約 58 億元是愛奇藝等併表業務。</p><p class='txt'>看結構比看總量有用。廣告佔總收入 39%，比三年前的 70% 以上掉了 30 多個點；AI 雲佔 27%，三年前是個位數。<b>收入的重心已經從「賣意圖」挪到「賣算力」，這是本輪財報最重要的一件事，比 -1.1% 這個總數重要得多。</b></p><p class='txt'>還有一個細節值得注意：AI 原生營銷 24 億元、同比 -15%。這是公司自己定義的「AI 時代的廣告」，它也在跌，說明新的廣告形態還沒找到可規模化的載體——這是廣告業務拐點最直接的反證。</p></div><div class="section"><div class="section-title">第二層：毛利與成本——毛利率掉到 35.4%</div><p class='txt'>銷售成本 199 億元、同比 +9%，在收入 -1.1% 的季度裡逆勢增長，直接把毛利率壓到 35.4%（粗算）。成本漲的原因公司說得很直白：雲業務成本與流量獲取成本上升。</p><p class='txt'>這裡面有一個必須算清楚的賬：<b>折舊攤銷約 28 億元（倒算：經調整 EBITDA 45 − 經調整營業利益 17），佔收入 9%。</b>這 28 億元是過去兩年資本支出的賬單，而且是剛性的——卡買了就要折舊三到五年，機房租了就要付租金。二季度資本支出 114 億元、三季度 73 億元，這些數字會在未來 8–12 個季度陸續變成折舊。</p><p class='txt'>所以毛利率的下行還沒結束。就算收入結構不再惡化，光是折舊的增量就能再壓 2–3 個點。要扭轉，只有一條路：雲業務的規模效應跑贏折舊增速——以 82 億元/季的體量，很難。</p><p class='txt'>成本裡還有一項容易被忽略：<b>流量獲取成本</b>。銷售成本同比 +9%，公司歸因為「雲成本與流量獲取」，後者說明百度需要向外買流量來填自有入口的缺口。一家曾經壟斷中文搜尋流量的公司，開始為流量付錢——這是入口價值下降最直接的財務證據，比月活數字更可信。</p></div><div class="section"><div class="section-title">第三層：費用與利潤——省出 15 億元，撐住 2% 的利潤率</div><p class='txt'>費用端是這份財報裡唯一「做得好」的地方：銷售及管理費用 55 億元、同比 -17%；研發費用 48 億元、同比 -7%。兩項合計同比少花約 15 億元，正好對沖銷售成本 +9% 的壓力。<b>結果就是營業利益率還能維持在 2.0%。</b></p><p class='txt'>但這是「擠出來」的利潤，不是「賺出來」的。研發 -7% 在 AI 競賽裡是一個危險訊號——同業在加研發，百度和在減。銷售管理費用 -17% 更像是裁員和組織收縮的結果。<b>費用騰挪的空間最多再用一兩年，之後要麼收入起來，要麼利潤率繼續掉。</b></p><p class='txt'>歸母淨利 13.95 億元不用看，去年 -112.32 億元裡含 161.90 億元長期資產減值，純基數效應。看非 GAAP 23.95 億元、-36%，這才是主業的真實速度：一年少賺三分之一。</p><p class='txt'>把費用率記住：銷售管理加研發合計 103 億元、占收入 33%。這個比例不降，收入每漲 1%，毛利增量只有 0.65 元——槓桿是負的。</p></div><div class="section"><div class="section-title">第四層：現金流與資產負債——安全墊還在，但在變薄</div><p class='txt'>營業現金流 28 億元、為正值，說明生意還在產生現金。資本支出 73 億元，自由現金流 -45 億元（粗算）。這兩個數字放在一起看：<b>公司已經把資本支出從 114 億元砍到 73 億元，還是不夠覆蓋</b>——說明雲業務的現金流模型目前是「負的」，要靠帳上現金補貼。</p><p class='txt'>資產端仍然是全篇最硬的部分：現金及投資 2,766 億元，市值 1,530 億元人民幣，PB 0.52。總股本約 26.4 億股，1 份 ADS = 8 股。<b>這張表的意思是：就算主業明天歸零，清算價值也高於現在的股價。</b></p><p class='txt'>但「安全邊際在變薄」是真的。按本季 -45 億元的自由現金流年化，一年消耗 180 億元，2,766 億元能撐十五年——不至於危險，但也說明「現金永遠在」是個錯覺。這也是 SOTP 裡淨現金只取 1,600 億元、而不是 2,766 億元的原因。</p></div><div class="section"><div class="section-title">利潤橋：109 億元毛利，怎麼只剩 6.3 億元</div><p class='txt'>把損益表串成一條線，比單看每個數字清楚。毛利 109.07 億元，減掉銷售及管理費用 55 億元、研發費用 48 億元，只剩 6.07 億元——加上其他項目約 0.2 億元，就是營業利益 6.3 億元。<b>換句話說，毛利裡有 94% 被費用吃掉了。</b></p><p class='txt'>這條橋告訴我們兩件事。第一，百度的費用結構是「重銷售 + 重研發」，兩項合計 103 億元、占收入 33%，這個比例在網路公司裡不算高，但它對應的收入是零成長的——規模效應沒跑出來。第二，營業利益率 2.0% 已經接近損益兩平線，只要收入再掉 3%、或者費用反彈 5%，營業利益就會轉負。<b>安全邊際薄到只夠一個季度的意外。</b></p><p class='txt'>這也是為什麼「非 GAAP 稅後淨利 23.95 億元」要小心看：它比營業利益高 18 億元，差額主要來自股權激勵加回、利息與投資收益。真正靠經營賺到的錢，只有 6.3 億元——一個季度、一家千億收入的公司。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>精讀結論：<b>這是一份「結構在換、利潤在下坡、資產還很硬」的財報。</b>收入靠雲對沖廣告，毛利被成本和折舊壓，利潤靠省費用撐，現金流靠帳上現金補。四個層次裡沒有一層在改善，唯一的例外是 AI 雲的增速。<b>所以下一步只盯兩個數：折舊占收入的比例（現在是 9%），和雲分部營業利益。</b>前者決定毛利率的下限，後者決定這個故事能不能變成利潤。</p></div>
+</div>
+<div class="footer">百度 (9888.HK) · 2026/11/23</div>
+</body>
+</html>

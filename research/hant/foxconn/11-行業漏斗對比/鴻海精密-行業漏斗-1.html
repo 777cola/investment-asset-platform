@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行業漏斗 — 鴻海精密</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/foxconn/11-行业漏斗对比/鸿海精密-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/foxconn/11-行業漏斗對比/鴻海精密-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/foxconn/11-Industry-Funnel/Hon Hai Precision-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>行業漏斗 — 鴻海精密</h1>
+  <div class="subtitle">鴻海精密 (2317.TW) | 11 · 行業漏斗</div>
+  <div class="meta">研究日期 2026/10/19 &nbsp;·&nbsp; 股價 NT$240（-1.84%） &nbsp;·&nbsp; 市值 約 3.37 萬億元新台幣 &nbsp;·&nbsp; PE(2026E) 約 12.6x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/foxconn/00-鴻海精密研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：終選鴻海，但「為什麼是它」和「為什麼不買」是同一個答案</h3><p class='txt'>把台系六哥放在一張表上比：鴻海市值 3.37 兆最大、營收增速 +41% 居中、毛利率 6.12% 最高、PE 12.6 倍最低。<b>它是唯一同時具備「規模、全球產能、自製件、低估值」四項的公司。</b>粗篩先淘汰仁寶、英業達、和碩（毛利率 4% 出頭、AI 占比低或盈利品質差），再在鴻海、廣達、緯穎三家終選：廣達彈性最大但毛利率被稀釋最狠，緯穎毛利 9.3% 但規模小、客戶集中、PE 20 倍。<b>終選鴻海——理由正是它「能承接最複雜的整櫃訂單」，代價是它的利潤最薄。</b></p></div><table class="dt"><caption>台系 EMS／ODM 同業對比（2026/10/19）</caption><thead><tr><th>公司</th><th>市值（約）</th><th>2026 營收增速</th><th>2026Q2 毛利率</th><th>PE（2026E）</th><th>ROE</th><th>判定</th></tr></thead><tbody><tr><td>鴻海 2317</td><td>3.37 兆</td><td>+40%</td><td>6.12%</td><td>12.6x</td><td>約 12%</td><td>終選</td></tr><tr><td>廣達 2382</td><td>1.3 兆</td><td>+55%</td><td>5.02%</td><td>18x</td><td>約 25%</td><td>最終選擇（次優）</td></tr><tr><td>緯穎 6669</td><td>0.55 兆</td><td>+90%</td><td>9.3%</td><td>20x</td><td>約 45%</td><td>最終選擇（模式不同）</td></tr><tr><td>緯創 3231</td><td>0.9 兆</td><td>+70%</td><td>5.66%</td><td>15x</td><td>約 20%</td><td>保留觀察</td></tr><tr><td>英業達 2356</td><td>0.3 兆</td><td>+45%</td><td>4.23%</td><td>14x</td><td>約 18%</td><td>粗篩淘汰</td></tr><tr><td>仁寶 2324</td><td>0.25 兆</td><td>+25%</td><td>4.60%</td><td>10x</td><td>約 10%</td><td>粗篩淘汰</td></tr><tr><td>和碩 4938</td><td>0.3 兆</td><td>+10%</td><td>4.43%</td><td>11x</td><td>約 9%</td><td>粗篩淘汰</td></tr></tbody></table><div class="note">市值為 2026/10/19 收盤價的量級粗算，僅用於橫向比較，不作精確值；PE 為 2026 年預期 EPS 對應值，ROE 為按最近四季淨利與期末權益的粗算。毛利率來自各公司 2026Q2 財報（Digitimes 2026/08/16 彙總）。和碩、仁寶、英業達的營收增速為按月度營收與法說會口徑的約數。</div><div class="section"><div class="section-title">粗篩：三家用一個字淘汰</div><p class='txt'>仁寶：AI 伺服器占伺服器營收 70%，聽起來轉型徹底，但毛利率 4.6%、營益率 1.2%，PE 10 倍也不便宜——<b>賺的是規模，不是利潤，且轉型期毛利率同比 -1.3pct。</b>英業達：營收 +44.6%、獲利金額創新高，但毛利率 4.23%、營益率 1.76%，雙率年減，屬於「增收不增利」的典型。和碩：營收只增 10%，AI 伺服器占比過低，本質還是手機組裝廠。</p><p class='txt'>三家的共同問題是：<b>在同一個漲價週期裡，它們的毛利率比鴻海低 1.5–2 個百分點，沒有任何緩衝。</b>週期一轉，它們先虧。</p></div><div class="section"><div class="section-title">終選三家：彈性、模式、規模</div><p class='txt'>廣達彈性最大：AI 伺服器營收占比最高，營收增速 +55%，ROE 約 25%。但毛利率 5.02%、同比 -2.03pct，是六哥裡被稀釋最狠的一家，PE 18 倍已經把彈性定價了。<b>買廣達等於買「更高的 beta」，不是買「更好的生意」。</b></p><p class='txt'>緯穎毛利率 9.3%，是六哥裡唯一兩位數，ROE 約 45%。但它是白牌直供模式——直接賣給 CSP，省掉品牌與通路，毛利率自然高；代價是客戶更集中、規模更小（市值 0.55 兆）、PE 20 倍。<b>它的高毛利來自客戶結構，不是來自定價權，且客戶一換單，營收就斷層。</b></p><p class='txt'>鴻海：規模最大（3.37 兆）、毛利率最高（6.12%）、PE 最低（12.6 倍）、全球產能唯一。<b>它的優勢不是某一項最強，是四項都不弱。</b></p></div><div class="section"><div class="section-title">為什麼是它：客戶要的是「確定性」</div><p class='txt'>AI 機櫃這單生意的核心不是價格，是交期與良率。一台 300 萬美元的機櫃延遲一個季度，客戶損失的是整個資料中心的投產節奏。所以客戶選供應商的順序是：能不能按期交付 → 良率能不能爬上去 → 能不能多地備份 → 價格。<b>價格排在第四位，這解釋了為什麼鴻海的毛利率能比同業高一個百分點，也解釋了為什麼它不能被輕易替換。</b></p><p class='txt'>但同樣的邏輯也解釋了它為什麼賺不到更多：價格排第四，意味著客戶願意付的溢價有上限。<b>「為什麼是它」和「為什麼不買」是同一個答案——它是這輪週期最可靠的執行者，所以它的價格裡沒有便宜可占。</b></p></div><div class="section"><div class="section-title">終選之後：為什麼仍是觀察</div><p class='txt'>漏斗篩出來的是「最值得研究的公司」，不是「現在就該買的股票」。鴻海在六家裡 PE 最低，但 PE 低是因為它的利潤最薄、週期性最強——市場給折價是有道理的，不是錯誤定價。<b>拿 12.6 倍 PE 和廣達 18 倍比，比的不是便宜，是商業模式。</b></p><p class='txt'>要把「終選」變成「買入」，還需要一個條件：毛利率的實證拐點。這個條件不來自同業比較，只來自它自己的財報。<b>所以漏斗的終點不是結論，是觀察名單的第一位。</b>換句話說，這次漏斗篩出的是「最值得盯的那一家」，而不是「最值得買的那一家」。</p></div><div class="summary-box"><h3>結論</h3><p>六家裡終選鴻海：規模、毛利率、估值、全球產能四項都不弱，是這輪 AI 機櫃週期最可靠的執行者。<b>但「最可靠」已經被 12.6 倍 PE 定價，折價來自利潤薄與週期性強，不是市場犯錯。</b>結論：觀察名單第一位，等毛利率連續兩季 6.5% 或股價 180 元以下。同業裡廣達是更高 beta 的替代品，緯穎是更高毛利但更集中的替代品，都不比鴻海更適合現在下手。</p></div>
+</div>
+<div class="footer">鴻海精密 (2317.TW) · 2026/10/19</div>
+</body>
+</html>

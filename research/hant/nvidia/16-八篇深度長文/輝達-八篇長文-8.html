@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⑧ 決策框架：什麼價格買、什麼訊號賣、什麼情況不碰 — 輝達</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/nvidia/16-八篇深度长文/英伟达-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/nvidia/16-八篇深度長文/輝達-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/nvidia/16-Eight-Long-Essays/NVIDIA-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>⑧ 決策框架：什麼價格買、什麼訊號賣、什麼情況不碰 — 輝達</h1>
+  <div class="subtitle">八篇長文之八 | 把判斷變成可以執行的規則</div>
+  <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股價 $220.78（+1.48%） &nbsp;·&nbsp; 市值 約 5.33 萬億美元（241.5 億股） &nbsp;·&nbsp; PE(TTM) 約 28x（FY2028 前瞻約 15x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/nvidia/00-輝達研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>前面七篇講的是「這家公司是什麼」，這一篇講「你該怎麼做」。<b>決策框架的第一步不是估值，是判斷自己是誰</b>——是長期持有者、波段交易者，還是不敢承擔波動的人。三種人對應三種完全不同的動作。</p><p class='txt'>對長期持有者：持有 5%，180 美元以下加到 8%。對波段交易者：這檔股票三個月位移 −0.9%、振幅 20%，不適合做趨勢。對不敢承擔波動的人：不要買，因為它的合理波動區間是 ±40%。</p></div><table class="dt"><caption>三情境與動作</caption><thead><tr><th>情境</th><th>目標價</th><th>機率</th><th>動作</th></tr></thead><tbody><tr><td>悲觀（FY2028 +30%）</td><td>168 美元（-24%）</td><td>30%</td><td>加倉：這是「不需要相信指引」的價格</td></tr><tr><td>中性（FY2028 +60%）</td><td>248 美元（+12%）</td><td>45%</td><td>持有，不加不減</td></tr><tr><td>樂觀（FY2028 +77%）</td><td>386 美元（+75%）</td><td>25%</td><td>減到 5%：漲到 386 就是 23 倍 FY2028，太貴</td></tr><tr><td>尾部（三件事同時發生）</td><td>138 美元（-37%）</td><td>15%（與上重疊）</td><td>減至 3% 或清倉，看訊號</td></tr></tbody></table><div class="note">目標價與機率為本報告自訂；機率之和不等於 100%，因為尾部情景與三情景部分重疊。估值口徑見 m04 三情景表註。</div><div class="section"><div class="section-title">第一步：先判斷自己是誰</div><p class='txt'>同一檔股票，三種人應該有三種動作。</p><p class='txt'><b>長期持有者（五年以上，能忍受 40% 回撤）：</b>現在可以拿 5%，180 美元以下加到 8%。理由：這門生意的位置二十年一遇，只要 AI 資本支出不崩，它就在賺錢。</p><p class='txt'><b>波段交易者（三個月到一年）：</b>這檔股票不適合做趨勢。過去三個月從 222.82 到 220.78，位移 −0.9%，中間振幅 190–228（20%）。<b>趨勢交易者在這種形態裡會被反覆停損。</b></p><p class='txt'><b>不敢承擔波動的人：</b>不要買。它的合理波動區間是 ±40%，任何 5% 的日內波動都會讓你睡不好覺。買這種東西需要的是「看得懂 + 拿得住」，缺一個都不行。</p><p class='txt'><b>這一步比估值重要，因為估值是客觀的，風險承受能力是主觀的。</b>同樣 220 美元，對 A 是機會，對 B 是災難。</p></div><div class="section"><div class="section-title">第二步：把「便宜」定義清楚</div><p class='txt'>「便宜」有三個定義，對應三個價格。</p><p class='txt'><b>定義一：按淨利便宜。</b>FY2028 EPS 14.61 美元，220.78 美元對應 15.1 倍。對一個增速 70% 的公司，這是便宜。<b>但這個分母是公司自己給的。</b></p><p class='txt'><b>定義二：按現金流便宜。</b>FY2027 自由現金流約 1,400 億美元，市值 5.33 萬億對應 38 倍；FY2028 若翻倍到 2,800 億，是 19 倍。<b>19 倍買一家增速可能從 70% 掉到 20% 的公司，不算便宜。</b></p><p class='txt'><b>定義三：按最壞情況便宜。</b>悲觀情景 EPS 11.22 美元，如果要求 15 倍，價格是 168 美元。<b>168 美元以下，才叫「就算指引打三折也不虧」。</b></p><p class='txt'>我的處理：以定義二為主（現金流），定義三為底線。得到兩個價：<b>180 美元（加倉線，對應 FY2028 自由現金流 15.5 倍）、168 美元（重倉線，對應悲觀情景 15 倍）。</b></p></div><div class="section"><div class="section-title">第三步：把賣出訊號寫死</div><p class='txt'>賣出的理由只有三種，其他都是噪音。</p><p class='txt'><b>理由一：論點被證偽。</b>五個訊號：單季營收環比轉負、應收週轉天數破 75 天、Q4 毛利率跌破 71% 且 FY2028 不再提回升、擔保出現首次代償、兩家雲廠下修 2027 年資本支出超 10%。<b>出現兩個減到 3%，出現三個清倉。</b></p><p class='txt'><b>理由二：估值透支。</b>漲到 386 美元（23 倍 FY2028）以上，減到 5% 以下；漲到 450 美元（30 倍）以上，減到 3%。<b>好公司也會貴到不該拿。</b></p><p class='txt'><b>理由三：找到更好的機會。</b>如果同一筆錢在別處有更好的賠率（比如台積電跌到 18 倍），可以換。但不要為了「鎖定利潤」而賣——這家公司的利潤還在增長。</p><p class='txt'><b>不是賣出理由的：</b>股價跌 10%、某位大佬看空、中國出新聞、AI 泡沫論、單季毛利率差 1 個點。<b>這五件事在過去三個月都發生過，每次都賣的人，現在已經在 190 美元以下割肉了。</b></p></div><div class="section"><div class="section-title">第四步：時間表</div><p class='txt'>把未來十二個月的關鍵節點寫下來，比每天看盤有用。</p><ul><li><b>2026/09–10：</b>觀察 Q3 供應鏈數據（台積電 CoWoS 產能、海力士 HBM 出貨），這是輝達 Q3 指引能否兌現的先行指標。</li><li><b>2026/10/21：</b>柏林 GTC，看 Rubin 後續路線圖、LPU 客戶進展、主權 AI 訂單。</li><li><b>2026/11/17：</b>FY2027Q3 財報——最重要的檢驗點。三個數：營收 vs 1,080 億、毛利率 74%、帳期 65 天以內。</li><li><b>2026/12–2027/01：</b>雲廠 2027 年資本支出指引（微軟、亞馬遜、谷歌、Meta 分別在 10–2 月給出），這是輝達 FY2028 需求的先行指標。</li><li><b>2027/02：</b>FY2027Q4 財報——毛利率觸底季，驗證 71%–72%。</li><li><b>2027/05：</b>FY2028Q1 財報——價格上調落地季，驗證毛利率是否回到 72%–73%。</li></ul><p class='txt'>最後一句：<b>這套框架的核心不是預測，是準備。</b>我不知道 AI 資本支出會不會在 2028 年見頂，但我知道見頂時該看哪三個數、該減到多少倉位。<b>投資者唯一能控制的，是自己在每種情況下的動作。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>決策框架：先判斷自己是誰（長期／波段／不能承受波動），再把「便宜」定義清楚（淨利 15 倍、現金流 19 倍、最壞 168 美元），然後把賣出訊號寫死（五個論文訊號、兩條估值線），最後按時間表跟蹤。</b><b>當前動作：持有 5%，加倉線 180 美元，上限 8%，11 月 17 日是最近的分水嶺。</b></p></div>
+</div>
+<div class="footer">輝達 (NVDA) · 2026/08/31</div>
+</body>
+</html>

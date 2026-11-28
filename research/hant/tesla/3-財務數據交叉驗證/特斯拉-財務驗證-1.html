@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務驗證 — 特斯拉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/tesla/3-财务数据交叉验证/特斯拉-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/tesla/3-財務數據交叉驗證/特斯拉-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/tesla/3-Financial-Cross-Check/Tesla-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務驗證 — 特斯拉</h1>
+  <div class="subtitle">特斯拉 (TSLA) | 03 · 財務驗證</div>
+  <div class="meta">研究日期 2026/07/22 &nbsp;·&nbsp; 股價 $374.01（-1.30%） &nbsp;·&nbsp; 市值 約 1.48 萬億美元 &nbsp;·&nbsp; PE(TTM) —（利潤太薄，PE 已失真）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/tesla/00-特斯拉研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：數字可信，唯一要小心的是「毛利率」有三個口徑</h3><p class='txt'>八項關鍵數據做了雙源核對，七項偏差在 1% 以內，最大一項是 2025Q2 營收（公司 22,496 百萬美元 vs 底稿反推 22,396，偏差 0.45%），原因是底稿用同比增速反推、四捨五入。<b>全部按公司披露原值採用。</b></p><p class='txt'>真正需要澄清的是毛利率。底稿寫 16.9%，公司披露「總毛利率 16.8%、汽車業務毛利率 16.9%」——兩個數字都對，口徑不同。<b>本報告統一：總毛利率用 16.8%，汽車業務毛利率用 16.9%，凡出現 16.9% 必註明是汽車口徑。</b>這種細節在利潤薄的年份會直接影響結論，不能含糊。</p></div><table class="dt"><caption>雙源交叉核對（2026Q2，百萬美元）</caption><thead><tr><th>指標</th><th>來源 A</th><th>來源 B</th><th>偏差</th><th>處理</th></tr></thead><tbody><tr><td>總營收</td><td>公司財報 28,236</td><td>stockanalysis 28.24B</td><td>+0.01%</td><td>採用 28,236</td></tr><tr><td>汽車業務收入</td><td>公司財報 20,516</td><td>澎湃/東方財富 205.16 億</td><td>0.00%</td><td>採用 20,516</td></tr><tr><td>交付量（輛）</td><td>公司交付公告 480,126</td><td>金融界/觀點網 48.01 萬</td><td>-0.03%</td><td>採用 480,126</td></tr><tr><td>總毛利率</td><td>公司財報 16.8%</td><td>底稿 16.9%</td><td>0.6%（相對）</td><td>16.9% 為汽車口徑；總口徑用 16.8%</td></tr><tr><td>歸母淨利（GAAP）</td><td>公司財報 1,114</td><td>澎湃 11.14 億</td><td>0.00%</td><td>採用 1,114</td></tr><tr><td>Non-GAAP 稅後淨利</td><td>公司財報 1,153</td><td>底稿 1,153</td><td>0.00%</td><td>採用 1,153；同比 -17% 需用 2025Q2 基數 1,393</td></tr><tr><td>營業現金流</td><td>公司財報 4,697</td><td>底稿 46.9 億</td><td>0.06%</td><td>採用 4,697（46.97 億）</td></tr><tr><td>2025Q2 營收</td><td>公司財報 22,496</td><td>底稿反推 22,396</td><td>0.45%</td><td>採用 22,496；底稿為反推值</td></tr></tbody></table><div class="note">來源 A 為特斯拉 2026Q2 財報（2026/07/22 盤後）；來源 B 為 stockanalysis.com 與中文財經媒體（澎湃新聞、東方財富、金融界，2026/07/22–23）。偏差 =（A−B）/A。</div><div class="section"><div class="section-title">兩項偏差需要解釋，其餘六項可視為完全一致</div><p class='txt'>第一項：2025Q2 營收。底稿的 22,396 是用 2026Q2 營收除以（1+26.1%）反推的，公司原值是 22,496。<b>0.45% 的差額來自增速本身的四捨五入</b>——公司口徑是 +25.5%，底稿用了 +26.1% 的媒體說法。這一項不影響任何結論，但說明「反推值」和「披露值」必須分開標註。</p><p class='txt'>第二項：毛利率。這是唯一一項看起來矛盾、實際不矛盾的。公司總毛利率 16.8%（毛利 47.51 億 ÷ 營收 282.36 億 = 16.83%），汽車業務毛利率 16.9%。<b>汽車業務毛利率高於總毛利率，是因為儲能分部這個季度被 2.4 億美元保修計提拖到 20.4%，而服務業務毛利率雖在改善但仍低於汽車。</b></p><p class='txt'>處理方式：凡是討論「整體盈利能力」，用 16.8%；凡是討論「賣車賺不賺錢」，用 16.9%。底稿的 16.9% 屬於後者，不算錯，只是標籤寫得太籠統。</p></div><div class="section"><div class="section-title">為什麼這個季度的毛利率容易算錯：三個一次性因素疊在一起</div><p class='txt'>第一個是監管積分。1.46 億美元積分收入幾乎零成本，直接進毛利，相當於給總毛利率貢獻 0.5 個百分點。去年同期是 4.39 億，貢獻約 2 個百分點。<b>同一個指標，兩年之間的 1.5 個百分點差額是政策造成的，不是經營造成的。</b></p><p class='txt'>第二個是儲能保修。2.4 億美元計提打在能源分部成本裡，把分部毛利率從 39.5% 壓到 20.4%。這筆錢是供應商電芯問題的歷史包袱，屬於一次性，但它真實發生了，不能剔除。</p><p class='txt'>第三個是關稅。2026Q1 毛利率 21.1% 裡有上一季度關稅成本回沖的利好，Q2 沒有這塊，環比落差因此被放大。<b>三個因素加起來，解釋了 21.1% 到 16.8% 這 4.3 個百分點裡的大部分。</b>看這家公司的毛利率，至少要拆成「剔除積分、剔除一次性」兩條線，否則每個季度都會被驚到。</p></div><div class="section"><div class="section-title">最終採用口徑與計算規則</div><b>單季數據一律用公司財報原值（百萬美元），同比用公司披露的百分比，TTM 自己加。</b>TTM 營收 1,036.19 億 = 2025Q3 280.95 + 2025Q4 249.01 + 2026Q1 223.87 + 2026Q2 282.36；TTM 歸母淨利 38.04 億 = 13.73 + 8.40 + 4.77 + 11.14。按 1.48 萬億美元市值算，PE(TTM) 約 389 倍——<b>這個數字只作量級參考，因為分母太薄，任何一次性項目都能讓它變動 20%。</b><p class='txt'>市值口徑需要說明：1.48 萬億美元是按 374.01 美元收盤價與約 39.6 億股反推的整體市值，其中包含未行權的股權激勵。用攤薄 EPS 0.32 美元反推的股本約 34.8 億股，兩者差 12%——<b>這是「市值口徑」和「EPS 口徑」的差別，本報告估值一律用市值口徑，避免每股數字互相打架。</b></p><p class='txt'>推算值全部標註來源方法：單車收入 4.27 萬美元 = 205.16 億 ÷ 48.01 萬輛；全公司單車淨利 2,320 美元 = 11.14 億 ÷ 48.01 萬輛；汽車業務單車淨利 950 美元是按剔除儲能與服務貢獻後的粗算，用於估值假設，不是披露值。</p></div><div class="summary-box"><h3>結論</h3><b>結論：資料可用，口徑要寫清。</b>八項核對裡七項偏差小於 1%，唯一超過的是底稿的反推值（0.45%），已在正文全部替換為公司原值。毛利率的三個口徑（總、汽車、剔除一次性）分開使用，是本報告與底稿唯一的表述差異，不影響 33/60 的評分與「觀察，不追高」的評級。</div>
+</div>
+<div class="footer">特斯拉 (TSLA) · 2026/07/22</div>
+</body>
+</html>

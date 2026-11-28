@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>論文追蹤 — 台積電</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/tsmc/13-持仓论文追踪/台积电-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/tsmc/13-持倉論文追蹤/台積電-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/tsmc/13-Thesis-Tracking/TSMC-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>論文追蹤 — 台積電</h1>
+  <div class="subtitle">台積電 (2330.TW) | 13 · 論文追蹤</div>
+  <div class="meta">研究日期 2026/09/11 &nbsp;·&nbsp; 股價 NT$2,410（-1.63%） &nbsp;·&nbsp; 市值 約 62.5 萬億元新台幣（約 1.95 萬億美元） &nbsp;·&nbsp; PE(TTM) 約 27.9x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/tsmc/00-台積電研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：論文沒破，但第一條假設開始動搖</h3><p class='txt'>持有台積電的論點由五條假設支撐：AI 算力需求持續、製程領先可維持、毛利率守在 60% 以上、資本支出能轉化為收入、地緣不出事。<b>目前四條成立，第三條（毛利率 60% 以上）已從 67.7% 開始回落，需要盯緊。</b>證偽條件寫在表裡，觸發任何一條就重審，不靠感覺。</p></div><table class="dt"><caption>核心假設與驗證狀態</caption><thead><tr><th>假設</th><th>當前證據</th><th>驗證指標</th><th>狀態</th></tr></thead><tbody><tr><td>AI 算力需求持續增長</td><td>8 月營收 5,148.06 億元、同比 +53.3%，連四個月新高；HPC 占 66%、環比 +20%</td><td>月度營收環比、北美四大雲廠資本支出指引</td><td>成立</td></tr><tr><td>製程領先可維持一到兩代</td><td>2 奈米唯一大規模量產，Q2 占營收 3%；A16 規劃 2026 下半年風險試產</td><td>三星／英特爾良率進度、旗艦訂單歸屬</td><td>成立</td></tr><tr><td>毛利率守在 60% 以上</td><td>第二季 67.7%，第三季指引 65%–67%（中值 66%）；海外廠稀釋 2–3 個百分點、2 奈米 3–4 個百分點</td><td>季度毛利率與指引的差值</td><td>轉弱（仍高於 60%）</td></tr><tr><td>資本支出能轉化為收入</td><td>2026 年 600–640 億美元，客戶預付產能；五年轉化率約 1.5 倍</td><td>資本支出／營收比、產能利用率</td><td>成立</td></tr><tr><td>地緣不出事</td><td>產能仍集中台灣；亞利桑那、熊本、德勒斯登按計畫推進</td><td>台海航運與保險、外資持股變化</td><td>成立（尾部風險）</td></tr></tbody></table><div class="note">狀態判定為主觀判斷，依據為報告日之前公開資訊。毛利率「走弱」指方向，不代表已跌破閾值。</div><div class="section"><div class="section-title">一、第一條：AI 需求仍在加速</div><p class='txt'>這是論文的地基。證據鏈有三層：台積電自己的月營收（8 月 5,148.06 億元、同比 +53.3%）、客戶的下單行為（HPC 環比 +20%、產能預訂到 2027 年）、以及下游的資本支出（北美四大雲廠 2026 年大幅上調）。三層互相印證，不是單一數據。</p><p class='txt'>證偽的方式也很清楚：月營收環比連續兩個月轉負。<b>注意是環比，不是同比。</b>同比會因為基期扭曲，環比才是真實的需求變化。歷史上 2022 年 10 月就是環比先轉負，同比還在增長，股價已經見頂。</p></div><div class="section"><div class="section-title">二、第三條：毛利率是唯一走弱的</div><p class='txt'>Q2 的 67.7% 是歷史極值，公司自己給 Q3 的指引是 65%–67%，中值 66%。這不是崩，是回落。原因有兩個，都是「主動選擇」：2 奈米爬坡要犧牲短期良率，海外廠要用更高的成本換供應鏈安全。</p><p class='txt'>關鍵在於 2027 年能不能回到 65%。如果能，說明定價權還在，67.7% 只是週期波動；如果不能、甚至掉到 60% 以下，說明這是結構性下移，估值中樞要從 22 倍降到 18 倍，對應股價 1,900 元附近。<b>這是這份論文裡最需要盯的一個數。</b></p></div><div class="section"><div class="section-title">三、第四條：資本支出的轉化率</div><p class='txt'>2026 年 600–640 億美元資本支出，對應約 1,300 億美元營收（粗算），資本支出／營收比接近 50%。這個比例在歷史上屬於高位——2022 年約 47%，2019 年約 35%。</p><p class='txt'>高比例本身不是問題，前提是收入能跟上。檢驗方式：2027 年營收增速若低於 15%，而資本支出仍在 600 億美元以上，說明產能投多了，2028 年會出現利用率下滑與毛利率下壓。<b>所以 2027 年的資本支出指引，比 2026 年的營收更重要。</b></p></div><div class="section"><div class="section-title">四、證偽條件與觀察日曆</div><p class='txt'>三條證偽條件，觸發任意一條即重審：一，單季毛利率跌破 60%；二，月營收環比連續兩月轉負，且同期資本開支繼續上調；三，亞利桑那廠良率顯著落後台灣廠（落後兩代以上），意味著海外產能無法承擔「保險」功能。</p><p class='txt'>觀察日曆：每月 10 日前後看月營收；10 月中旬看 Q3 法說會（毛利率實際值 + 2027 年資本開支初步指引）；2027 年 1 月看全年資本開支定案；2027 年 4 月看 2 奈米全年佔比是否達到兩位數百分比。</p></div><div class="section"><div class="section-title">五、論文的賠率結構</div><p class='txt'>論文成立（中性情境）：2027 年 EPS 125 元、21 倍，2,625 元，+9%。論文被證偽（悲觀）：EPS 95 元、18 倍，1,710 元，-29%。上行 9%、下行 29%，賠率 1:3。</p><p class='txt'>這個結構說明一件事：<b>論文沒破不等於該加倉。</b>持有的邏輯是「不下牌桌」，不是「加倍下注」。要加倉，得等價格把悲觀情境定進去——2,000 元以下，那時候賠率會變成 1:1.3 以上。</p><p class='txt'>再加一條時間維度：這份論文的有效期大概到 2027 年中。理由是三件事會在那時同時落地——2 奈米是否滿載（決定毛利率能否回到 65%）、2027 年資本支出定案（決定折舊壓力）、以及 AI 資本支出增速（決定營收）。<b>如果到 2027 年中，這三件事裡有兩條不利，論文就該重寫，而不是修補。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：論文有效，第一條假設開始承壓。</b>五條假設四條成立，毛利率那條從 67.7% 回落，仍在 60% 以上。證偽條件三條，觀察日曆四個節點。持有，不加倉；跌破 2,000 元分批，跌破 1,710 元重審。</p></div>
+</div>
+<div class="footer">台積電 (2330.TW) · 2026/09/11</div>
+</body>
+</html>

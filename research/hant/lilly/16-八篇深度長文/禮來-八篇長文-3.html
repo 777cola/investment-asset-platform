@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第三篇：護城河解剖 — 禮來</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/lilly/16-八篇深度长文/礼来-03-护城河解剖.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/lilly/16-八篇深度長文/禮來-八篇長文-3.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/lilly/16-Eight-Long-Essays/Eli Lilly-Eight Essays-3.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>第三篇：護城河解剖 — 禮來</h1>
+  <div class="subtitle">四條腿站得住，第五條是空的</div>
+  <div class="meta">研究日期 2026/11/09 &nbsp;·&nbsp; 股價 $1,411.95（+4.28%） &nbsp;·&nbsp; 市值 約 1.33 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 48x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/lilly/00-禮來研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>機制、產能、處方習慣、專利——四條腿疊起來 38/50，注射劑上幾乎不可戰勝。但口服這一戰把護城河從四條縮到兩條，而口服是 2028 年之後的成長引擎。</p></div><div class="section"><div class="section-title">四條腿的力學</div><p class='txt'>禮來的護城河有四條腿，缺一條就站不穩。<b>第一條是機制</b>：替爾泊肽是 GIP/GLP-1 雙靶點，在減重幅度和心血管終點上對單靶點有頭對頭優勢。這不是行銷話術，是臨床數據。<b>第二條是產能</b>：多肽固相合成的放大極難，一條商業化產線三到四年，禮來 2020 年以來在美投了 500 多億美元建產能。</p><p class='txt'><b>第三條是處方習慣</b>：醫生一旦形成路徑，換藥需要理由。Zepbound 已經在美國新增肥胖症處方上反超 Wegovy，這條腿正在變粗。<b>第四條是專利</b>：美國 2036 年 5 月到期，這是所有腿的底座——沒有它，前三條都會在兩年內瓦解。</p></div><div class="section"><div class="section-title">產能：2023 年是護城河，2028 年是包袱</div><p class='txt'>2023–2024 年的缺貨史能說明產能這條腿有多硬。當時全球 GLP-1 供不應求，諾和諾德因為灌裝線不足，被迫限制新患者起始用藥；禮來雖然也缺，但靠提前鎖定的產能接住了更多新增處方，<b>Zepbound 就是在那兩年完成對 Wegovy 的反超的。</b>在「產能即份額」的階段，建廠就是搶市場。</p><p class='txt'>但同一條腿在 2028 年會變成負擔。禮來 270 億美元、諾和十倍級擴產，兩家加起來的新增產能很可能超過需求增速。<b>產能過剩的直接後果不是賣不掉，是價格守不住</b>——因為工廠不能停，停了單位成本就上去。那時候「以價換量」會從主動策略變成被動防守。</p><p class='txt'>順帶說一句諾和：它的產能擴張比禮來更激進，2026 年產能利用率已經不足，這就是它「降價保份額」的物理原因——<b>工廠建成後不能停，停了單位成本就崩。禮來現在的產能利用率高，是優勢；但 2028 年四個基地投產後，它會面臨同一個問題。</b></p></div><div class="section"><div class="section-title">第五條腿為什麼是空的</div><p class='txt'>第五條腿是空的：<b>沒有網路效應，沒有轉換成本。</b>口服藥尤其明顯——患者從 Foundayo 換到口服 Wegovy，只需要醫生改一張處方，不需要重新適應、不需要重新談保險。這就是為什麼口服這一戰，禮來的優勢從「四條腿」縮水到「兩條腿」（品牌 + 成本）。</p><p class='txt'>打分：機制 9、產能 8、處方習慣 8、專利 10、支付方關係 6、網路 3。<b>加權下來 38/50，屬於「寬但有期限」。</b>這個分數足夠讓禮來活到 2036 年並賺很多錢，不足以保證 48 倍本益比的回報——護城河寬和估值合理是兩件事。</p></div><div class="section"><div class="section-title">護城河的敵人不是諾和，是時間</div><p class='txt'>把護城河拆到最後，只剩一條真正硬的：<b>專利。</b>機制會被下一個分子超越（retatrutide 三靶點 80 週減重 20.8%，比替爾泊肽更強），產能會被資本追平（諾和十倍級擴產），處方習慣會隨新品類重置（口服這一戰已經重置了一次）。只有專利，是法律寫死的時間表。</p><p class='txt'>所以護城河的真正敵人不是諾和諾德，是時間。<b>2026 年還有 9.5 年，2029 年只剩 6.5 年，2033 年只剩 2.5 年。</b>每過一年，這份租約就短一年，而市場給的倍數應該同步下移。現在 48 倍對應「還有 9.5 年且增速 39%」，如果 2029 年增速掉到 15%、租期只剩 6.5 年，合理倍數大約是 25 倍。<b>這不是悲觀，這是算術。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>護城河結論：寬，但有租期，且在口服方向上變窄。</b>它能保證禮來在專利期內賺很多錢，不能保證 48 倍的估值有支撐。</p></div>
+</div>
+<div class="footer">禮來 (LLY) · 2026/11/09</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀 — 波克夏</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/berkshire/7-财报精读/伯克希尔-财报精读.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/berkshire/7-財報精讀/波克夏-財報精讀-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/berkshire/7-Earnings-Deep-Read/Berkshire-Earnings Read-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀 — 波克夏</h1>
+  <div class="subtitle">波克夏 (BRK.B) | 07 · 財報精讀</div>
+  <div class="meta">研究日期 2026/11/16 &nbsp;·&nbsp; 股價 $592.85（-0.02%） &nbsp;·&nbsp; 市值 約 1.26 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 16.6x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/berkshire/00-波克夏研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>財報精讀結論</h3><p class='txt'>2026 年第三季（7–9 月）這份報表，表面是「全面下滑」：營業利益 127.05 億、-5.8%，GAAP 稅後淨利 221.12 億、-28.2%，承保利益 13.52 億、-43%。</p><p class='txt'>拆開來看是另一回事：<b>保險端掉了 26.4%，實體端漲了 12.6%</b>，兩者相抵才是 -5.8%。下滑來自車險週期和短債收益率，不是經營失控；成長來自鐵路運量和製造補庫，是實打實的。這份報表的品質比數字好看。</p></div><table class="dt"><caption>損益表：分部拆解（百萬美元，稅前）</caption><thead><tr><th>項目</th><th>2026Q3</th><th>2025Q3</th><th>同比</th><th>佔比</th></tr></thead><tbody><tr><td>保險—承保</td><td>1,352</td><td>2,369</td><td>-42.9%</td><td>11.8%</td></tr><tr><td>保險—投資收益</td><td>2,734</td><td>3,181</td><td>-14.1%</td><td>23.8%</td></tr><tr><td>BNSF 鐵路</td><td>1,729</td><td>1,449</td><td>+19.3%</td><td>15.1%</td></tr><tr><td>波克夏能源（BHE）</td><td>1,612</td><td>1,489</td><td>+8.3%</td><td>14.1%</td></tr><tr><td>製造、服務與零售</td><td>4,042</td><td>3,616</td><td>+11.8%</td><td>35.2%</td></tr><tr><td>分部稅前合計</td><td>11,469</td><td>12,104</td><td>-5.2%</td><td>100%</td></tr><tr><td>營業利益（稅後）</td><td>12,705</td><td>13,485</td><td>-5.8%</td><td>—</td></tr><tr><td>GAAP 稅後淨利</td><td>22,112</td><td>30,796</td><td>-28.2%</td><td>—</td></tr></tbody></table><div class="note">分部為稅前經營利潤，與稅後營運利潤不可直接相加（差額為母公司利息、其他項與稅項）。佔比按分部稅前合計計算。來源：2026Q3 財報。</div><table class="dt"><caption>保險分部明細（百萬美元）</caption><thead><tr><th>專案</th><th>2026Q3</th><th>2025Q3</th><th>同比／水準</th><th>解讀</th></tr></thead><tbody><tr><td>GEICO 承保利潤</td><td>982</td><td>—</td><td>-45%</td><td>車險賠付成本回升</td></tr><tr><td>其他直保與再保險（倒算）</td><td>370</td><td>—</td><td>—</td><td>巨額責任險與再保相對穩</td></tr><tr><td>承保利潤合計</td><td>1,352</td><td>2,369</td><td>-42.9%</td><td>綜合成本率 91.4%</td></tr><tr><td>保險投資收益</td><td>2,734</td><td>3,181</td><td>-14.1%</td><td>短債再投資收益率下滑</td></tr><tr><td>保險浮存金</td><td>178,500</td><td>176,400（年初，推算）</td><td>+1.2%</td><td>成本為負</td></tr><tr><td>隱含保費規模（倒算）</td><td>約 15,720</td><td>—</td><td>—</td><td>按 91.4% 綜合成本率反推</td></tr></tbody></table><div class="note">GEICO 與其他項為倒算（合計 1,352 減 GEICO 982）；隱含保費 = 1,352 ÷ (1-91.4%)。浮存金年初值按披露的「較年初增 21 億」倒算。</div><table class="dt"><caption>資產負債表與資本運作（十億美元）</caption><thead><tr><th>項目</th><th>2026/09/30</th><th>變動</th><th>說明</th></tr></thead><tbody><tr><td>現金及等價物</td><td>40.70</td><td>—</td><td>母公司+子公司</td></tr><tr><td>短期美國國債</td><td>336.74</td><td>—</td><td>存續期間極短，可 T+1 變現</td></tr><tr><td>現金＋短債（毛額）</td><td>377.44</td><td>佔市值 30.0%</td><td>淨額約 352.3</td></tr><tr><td>股東權益</td><td>761.4</td><td>較年初 +43.9</td><td>含前三季淨利 57.89</td></tr><tr><td>總資產</td><td>1,304</td><td>—</td><td>槓桿 1.7 倍</td></tr><tr><td>保險浮存金</td><td>178.5</td><td>較年初 +2.1</td><td>負成本資金</td></tr><tr><td>Q3 回購</td><td>9.65</td><td>第二季為 4.53，全年為 2.0</td><td>前三季 14.4</td></tr></tbody></table><div class="note">來源：10-Q 與季報。權益較年初增幅 = 前三季淨利 57.89 − 回購 14.4 + 其他綜合收益等（粗算）。</div><div class="section"><div class="section-title">第一層 收入結構：一半是保費，一半是實體</div><p class='txt'>五個分部裡，保險兩塊合計 40.86 億（稅前），占分部合計的 35.6%；實體三塊 73.83 億，占 64.4%。<b>這是波克夏跟「保險公司」最不像的地方——它的利潤有三分之二來自鐵路、電力和製造業。</b></p><p class='txt'>這個結構在 2026 年三季度救了它。如果只看保險，利潤跌 26.4%，是一份難看的季報；加上實體 +12.6%，才收窄到 -5.8%。</p><p class='txt'>結構也有隱患：實體三塊全部是重資產、受監管或受工業週期約束，增長上限在 5%–10%。<b>想讓整體回到兩位數增長，只能靠併購，而併購三年沒做成大單。</b></p></div><div class="section"><div class="section-title">第二層 利潤品質：承保利潤率 8.6%，仍在賺錢</div><p class='txt'>承保利潤 13.52 億，按 91.4% 的綜合成本率反推，保費規模約 157 億美元。<b>每收 100 美元保費，賠出去加費用 91.4 美元，賺 8.6 美元。</b>去年這個數字大約 15 美元（同口徑粗算）。</p><p class='txt'>承保利潤率從 15% 掉到 8.6%，是這份報表裡最實質的惡化。原因是 GEICO：利潤 9.82 億、-45%。車險的賠付成本（維修工時、二手車殘值、醫療）在 2025–2026 年持續上漲，而保費在 2024 年漲到位後開始鬆動，一進一出，利潤率被壓。</p><p class='txt'>實體端的利潤率在改善：BNSF +19.3% 靠運量回升攤薄固定成本，BHE +8.3% 靠費率基數擴張，製造 +11.8% 靠補庫。<b>三塊合計 +12.6%，是這季唯一的亮點。</b></p></div><div class="section"><div class="section-title">第三層 費用與投資收益：短債收益率是隱藏的減項</div><p class='txt'>保險投資收益 27.34 億、-14.1%，是很多分析跳過的一行。它主要來自 3,774 億美元現金和短債的利息——<b>短債收益率從 2024 年 5.25% 的高點滑到 4.4%–4.6%，同樣的本金少賺 15%</b>。這是利率下行的必然結果，跟經營能力無關。</p><p class='txt'>換個角度算：3,774 億 × 4.5% ÷ 4 ≈ 42 億美元/季的利息收入（粗算，含應稅與免稅結構差異），與實際 27.34 億的差額來自部分資金屬於鐵路/能源的營運資金、以及債券組合的久期結構。數量級對得上。</p><p class='txt'>GAAP 淨利 221.12 億與營業利益 127.05 億的差額 94 億，全是投資損益（股票浮盈浮虧）。<b>這一項每季度的符號都可能反轉，不該用來判斷經營。</b></p></div><div class="section"><div class="section-title">第四層 現金流與資產負債：錢在變多，資產在變重</div><p class='txt'>現金加短債 3,774 億，比第二季又多了；同期回購 96.47 億、併購支出 162 億（前三季）。<b>一邊大額花錢，一邊現金還在漲，說明營業現金流遠大於這兩項之和。</b></p><p class='txt'>這是「資產荒」的算術證明：錢生錢的速度快過花錢的速度。波克夏不是不想買，是沒有足夠大的標的、或者價格不合適。</p><p class='txt'>資產端在變重：總資產 1.304 萬億、權益 7,614 億，槓桿 1.7 倍。對一個保險公司來說，這個槓桿低得反常——<b>它把「保險公司的槓桿」主動關掉了，換來了「永遠不會被迫賣資產」的能力</b>。代價是 ROE 只有 10.4%。</p><p class='txt'>每股帳面價值 A 股 536,590 美元、同比 +10.5%，這是最乾淨的一行：<b>即使利潤下滑，淨資產還是以兩位數年化速度在長。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'>這份財報的讀法是「別只看第一行」。營業利益 -5.8% 是真的，但原因清楚：車險週期 + 短債收益率下行，兩項都不是能力問題。<b>同時實體三塊 +12.6%、帳面價值 +10.5%、現金再創新高，這三項才是長期價值。</b></p><p class='txt'>要盯的只有一個數：綜合成本率。91.4% 是安全線以上，95% 是警戒線，100% 是轉折點。跌破 95% 之前，利潤下滑都屬於「少賺」，不改變生意。</p></div>
+</div>
+<div class="footer">波克夏 (BRK.B) · 2026/11/16</div>
+</body>
+</html>

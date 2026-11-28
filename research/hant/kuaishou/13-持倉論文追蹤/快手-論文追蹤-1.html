@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>論文追蹤 — 快手</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/kuaishou/13-持仓论文追踪/快手-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/kuaishou/13-持倉論文追蹤/快手-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/kuaishou/13-Thesis-Tracking/Kuaishou-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>論文追蹤 — 快手</h1>
+  <div class="subtitle">快手 (01024) | 13 · 論文追蹤</div>
+  <div class="meta">研究日期 2026/10/12 &nbsp;·&nbsp; 股價 HK$29.26（-2.79%） &nbsp;·&nbsp; 市值 約 1,267 億港元 &nbsp;·&nbsp; PE(TTM) 約 10.5 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/kuaishou/00-快手研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>把買入快手需要成立的六條假設逐條擺出來核對：<b>兩條已經證偽（直播止跌、廣告維持 4% 以上）、兩條未獲驗證（可靈成為第二曲線、AI 投入 2027 年見頂）、兩條成立（淨現金保護、分拆釋放價值）。</b></p><p class='txt'>一份論文如果有兩條已證偽、兩條在動搖，正確的動作不是調整目標價，是退出。<b>現在的評級「迴避」，本質上就是「不建倉」，所以這份追蹤表的作用是記錄「什麼會讓我改變主意」。</b></p></div><table class="dt"><caption>核心假設與驗證狀態（2026/10/12）</caption><thead><tr><th>假設</th><th>目前證據</th><th>驗證指標</th><th>狀態</th></tr></thead><tbody><tr><td>廣告收入能維持 4% 以上增速</td><td>Q2 +4.4%，低於一致預期 6.3%；管理層指引下半年電商營銷承壓</td><td>季度線上營銷同比增速</td><td>動搖</td></tr><tr><td>直播下滑能收窄到 -5% 以內</td><td>Q2 -13.5%，連續兩年負成長；行業整體萎縮</td><td>季度直播收入同比</td><td>已證偽</td></tr><tr><td>可靈成為第二曲線（年化 60 億元以上）</td><td>第二季 8.5 億元、+200%；ARR 5 億美元；年化約 34 億元</td><td>可靈季度收入、ARR、付費客戶數</td><td>驗證中</td></tr><tr><td>AI 投入 2027 年見頂、利潤率回升</td><td>研發 46 億元 +34.7%、費用率 12.9%；資本支出較上季回落至 59 億元</td><td>研發費用率、資本支出、經調整淨利率</td><td>未驗證</td></tr><tr><td>淨現金與回購提供下行保護</td><td>現金類資產 242.7 億元（占市值 20.9%）；Q2 回購 8.8 億港元</td><td>現金類資產、回購金額與均價</td><td>成立</td></tr><tr><td>可靈分拆能釋放價值</td><td>投後 180 億美元、快手持股 83.3%；但母公司股價未受益</td><td>下一輪融資估值、是否披露單體損益</td><td>部分成立</td></tr></tbody></table><div class="note">證據取自快手 2026Q2 業績公告（2026/08/18）與 2026/07/02 可靈增資公告。可靈年化 34 億元 = 8.5×4，與 ARR 5 億美元（約 35.5 億元）互相印證。狀態判定為分析師主觀。</div><div class="section"><div class="section-title">兩條已證偽，含義完全不同</div><p class='txt'><b>直播止跌這條，是真證偽。</b>2025 年市場普遍預期直播會「降幅收窄、2026 年企穩」，實際是 -13.5%、連續兩年負增長。行業在萎縮（監管、消費降級、流量向電商傾斜），這不是快手一家的執行問題，是賽道終點。<b>這條假設應該從論文裡永久刪除，而不是「再等兩個季度」。</b></p><p class='txt'><b>廣告維持 4% 這條，是「半證偽」。</b>4.4% 本身還沒轉負，但它低於一致預期 6.3%，也低於行業大盤。更麻煩的是指引：管理層自己說下半年電商營銷和佣金承壓。<b>「維持 4%」已經從基準假設降級為樂觀假設。</b></p></div><div class="section"><div class="section-title">兩條在動搖，關鍵看 2027 年第一季</div><p class='txt'><b>可靈成為第二曲線這件事，只差一個數字。</b>Q2 8.5 億元、環比 +31%，年化 34 億元；如果保持環比 25% 三個季度，2027Q2 單季就能到 17 億元、年化 68 億元——那才夠得上「第二曲線」。<b>觀察點不是增速，是環比斜率能不能守住。</b></p><p class='txt'><b>AI 投入見頂這件事，目前沒有證據。</b>研發費用率從 9.7% 到 12.9%，資本支出從高位回落到 59 億元，兩個信號矛盾：人力投入在加、算力投入在減。合理的解讀是「訓練成本前置、推理成本後置」，也就是明年還會高。<b>如果 2027 年研發費用率還在 13% 以上，這條就證偽了。</b></p></div><div class="section"><div class="section-title">假設是怎麼寫下來的：先說清「我錯在哪」</div><p class='txt'>一份合格的論文表，每條假設都要能被一個具體數字推翻。<b>「快手會好起來」不是假設，「線上營銷同比回到 8%」才是。</b>這條紀律的價值不在於預測準，而在於錯的時候你能立刻知道。</p><p class='txt'>回頭看，2025 年底市場給快手的論文是這樣寫的：直播企穩、廣告雙位數、可靈打開第二曲線。三條裡兩條今天已經不成立，第三條還在驗證。這就是為什麼現在的估值是 10 倍而不是 20 倍——<b>市場不是情緒化地殺估值，是逐條劃掉了假設。</b></p></div><div class="section"><div class="section-title">證偽條件：什麼情況下徹底放棄</div><p class='txt'><b>四條硬性證偽條件，任意兩條同時觸發就徹底移除觀察名單：</b>① 線上營銷收入同比轉負；② 可靈季度收入環比停止增長（連續兩個季度）；③ 現金類資產降至 190 億元以下（對應市值佔比不足 17%）；④ 研發費用率超過 15% 而收入增速低於 3%。</p><p class='txt'>四條裡最靈敏的是第一條。廣告是這家公司的 58%，它一轉負，整個估值體系要重來。</p></div><div class="section"><div class="section-title">觀察日曆：未來四個季度看什麼</div><p class='txt'><b>2026 年 11 月（三季報）：</b>廣告增速、研發費用率、管理層對全年的口徑。<b>2027 年 3 月（年報）：</b>可靈全年收入與是否披露單體損益、資本支出計畫、回購是否延續。<b>2027 年 5 月（一季報）：</b>廣告能否回到 6%、直播降幅是否收窄。<b>2027 年 8 月（中報）：</b>可靈年化是否過 60 億元、經調整淨利率是否止跌。</p><p class='txt'>每個節點只記兩個數：廣告同比、可靈環比。其餘都是噪音。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>論文狀態：<b>不成立。</b>六條假設裡兩條已證偽、兩條動搖，只有淨現金這一條是硬的。這不是「需要更多時間驗證」，是「核心邏輯已經被數據推翻」。</p><p class='txt'>下一步：不建倉，保留在觀察名單。觸發重新評估的門檻見證偽條件的反面——廣告回到 8% 以上，或可靈年化 60 億元且披露盈虧。</p></div>
+</div>
+<div class="footer">快手 (01024) · 2026/10/12</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組合管理 — 小米集團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/xiaomi/14-组合管理建议/小米集团-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/xiaomi/14-組合管理建議/小米集團-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/xiaomi/14-Portfolio-Action/Xiaomi Corporation-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>組合管理 — 小米集團</h1>
+  <div class="subtitle">小米集團 (01810) | 14 · 組合管理</div>
+  <div class="meta">研究日期 2026/08/21 &nbsp;·&nbsp; 股價 HK$29.02（+4.54%） &nbsp;·&nbsp; 市值 約 7,470 億港元 &nbsp;·&nbsp; PE(TTM) 約 19.6x（2026E 約 28x，推算）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/xiaomi/00-小米集團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>這是一個「還沒有部位」的標的，所以部位建議從 0 開始：<b>29.02 港元不給部位，24 港元以下建首倉 3%，19 港元以下加到 6%，手機毛利率回到 10% 以上可以到 8%。</b></p><p class='txt'>停損條件不看股價，看毛利率：<b>汽車毛利率跌破 15%、或手機毛利率跌破 7%，無條件清倉。</b>理由很簡單——股價跌是市場情緒，毛利率跌是生意壞了，兩者必須分開處理。</p></div><table class="dt"><caption>分情境倉位建議（組合佔比）</caption><thead><tr><th>情境</th><th>觸發價／條件</th><th>建議倉位</th><th>理由</th></tr></thead><tbody><tr><td>現在</td><td>29.02 港元（28x 2026E）</td><td>0%</td><td>賠率負 1:0.68，期望值 22.6 港元低於現價</td></tr><tr><td>價格觸發</td><td>≤24 港元（約 23x 2026E）</td><td>3%</td><td>期望值轉正，安全邊際出現</td></tr><tr><td>深度折價</td><td>≤19 港元（約 18x 2026E）</td><td>6%</td><td>接近製造業估值上限，向下空間有限</td></tr><tr><td>基本面觸發</td><td>手機毛利率連續兩季 ≥10%</td><td>8%</td><td>記憶體壓力見頂，利潤拐點確認</td></tr><tr><td>雙觸發</td><td>價格 ≤24 且毛利率 ≥10%</td><td>10%</td><td>賠率與勝率同時改善，可上到單一標的上限</td></tr><tr><td>減倉</td><td>股價 ≥40 港元（樂觀情景達成）</td><td>降至 3%</td><td>樂觀情景已兌現，落袋</td></tr><tr><td>清倉</td><td>汽車毛利率 &lt;15% 或手機毛利率 &lt;7%</td><td>0%</td><td>生意惡化，不是週期</td></tr></tbody></table><div class="note">單一標的上限 10% 為本報告組合紀律設定；倉位按「占股票總倉位」計，非占總資產。</div><div class="section"><div class="section-title">為什麼不給底倉：28 倍買下滑 43% 的利潤</div><p class='txt'>有一種常見的做法是「先買一點，跌了再加」。這個做法在小米身上不適用，因為<b>它的下跌是有基本面支撐的</b>——不是情緒殺，是 EPS 下修。</p><p class='txt'>算一下：2026 年淨利 246億元、28 倍，市值 6,872億元。如果 2027 年淨利掉到 200億元（悲觀情景），同樣 28 倍只有 5,590億元市值，對應 23.6 港元。<b>也就是說，什麼都不做，只要利潤按悲觀情景走，股價還有 19% 的下跌空間。</b></p><p class='txt'>「先買一點」在這種結構裡是負期望的。<b>0 倉位不是保守，是算過帳的選擇。</b></p></div><div class="section"><div class="section-title">為什麼 24 港元是第一個買點</div><p class='txt'>24 港元對應 23 倍 2026E、20 倍 2027E（中性 300億元）。這個倍數的含義是：<b>市場只給「製造業 + 一點成長」，不給「生態溢價」。</b></p><p class='txt'>在 24 港元，三個情景的賠率變成：樂觀 40.1（+67%）、中性 25.3（+5%）、悲觀 12.7（-47%）。<b>期望值約 24.5 港元，略高於買入價——從負期望變成微正期望。</b></p><p class='txt'>這不是「便宜到閉眼買」，是「賠率終於不虧」。所以只給 3%，不加碼。</p></div><div class="section"><div class="section-title">為什麼停損看毛利率不看股價</div><p class='txt'>大部分人停損用價格，例如跌 20% 就走。這條規則在週期股上會兩頭挨打：<b>跌 20% 可能是錯殺（該加），也可能是生意壞了（該走），價格分不出來。</b></p><p class='txt'>毛利率能分出來。手機毛利率 8.5% 是週期（記憶體漲價），跌破 7% 是生意（連代工都不如）；汽車毛利率 19.2% 是競爭（價格戰），跌破 15% 是模式（覆蓋不了固定成本）。<b>兩條線都是「結構性」與「週期性」的分界。</b></p><p class='txt'>所以紀律寫成：<b>價格跌，看毛利率決定加還是等；毛利率破線，不看價格直接走。</b></p></div><div class="section"><div class="section-title">與其他持倉的相關性：它不是分散工具</div><p class='txt'>小米與幾類資產的相關性大致是這樣（粗算，基於 2026 年日度數據的方向判斷）：</p><ul><li><b>與恒生科技：0.8 左右。</b>高相關，買它等於加槓桿買港股科技。</li><li><b>與新能源車（比亞迪、理想、特斯拉）：0.6—0.7。</b>汽車業務讓它越來越像車企。</li><li><b>與記憶體股（三星電子、SK 海力士、兆易）：負 0.3 左右。</b>成本端相反——記憶體漲價，小米毛利跌。</li><li><b>與蘋果鏈：0.5 左右。</b>同屬消費電子，但蘋果鏈賺的是代工錢，邏輯不同。</li></ul><p class='txt'><b>結論：小米不能用來分散港股科技倉位，它只會放大。</b>如果要配，必須減掉同類的恒生科技或車企倉位，否則總敞口會失控。</p></div><div class="section"><div class="section-title">組合層面的三條紀律</div><p class='txt'><b>第一，單一標的不超過 10%。</b>小米的治理結構（一人決策）決定了它應該有倉位上限，不管多看好。</p><p class='txt'><b>第二，不與同類持倉疊加。</b>如果已經持有比亞迪或恒生科技 ETF，小米的倉位要相應扣減。</p><p class='txt'><b>第三，觸發條件寫死，不做臨場判斷。</b>24 港元買 3%、19 港元買 6%、毛利率兩季 ≥10% 加到 8%、破線清倉——四條規則提前寫好，執行時不需要「再想想」。</p><p class='txt'>這套紀律的核心是：<b>把「看好這家公司」和「現在買不買」徹底分開。</b>前者是研究結論（好公司），後者是賠率計算（不便宜）。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>組合結論：現價 0 倉位，等 24 港元或等毛利率。</b>倉位路徑 3% → 6% → 8% → 10%，每一步都有明確觸發條件；停損不看股價看毛利率，汽車 <15%、手機 <7% 無條件清倉。<b>它是港股科技的高相關品種，不能用來分散，只能用來加注或減注。</b></p></div>
+</div>
+<div class="footer">小米集團 (01810) · 2026/08/21</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>六關篩選 — 美團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20260828/1-六关快速筛选/美团-六关筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meituan-20260828/1-六關快速篩選/美團-六關篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meituan-20260828/1-Six-Gate-Screen/Meituan-Six-Gate Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>六關篩選 — 美團</h1>
+  <div class="subtitle">美團 (03690) | 01 · 六關篩選</div>
+  <div class="meta">研究日期 2026/08/28 &nbsp;·&nbsp; 股價 HK$77.50（+0.00%） &nbsp;·&nbsp; 市值 約 4,786 億港元（61.75 億股） &nbsp;·&nbsp; PE —（2026 年上半年稅後淨損 46.7 億元，PE 失真）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meituan-20260828/00-美團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>六關 43/60：能力圈 9、好生意 7、護城河 8、管理層 7、安全邊際 6、紀律 6，五關通過，安全邊際勉強。<b>扣分全部集中在一件事上——利潤率被補貼戰打掉了多少，還能回來多少。</b>2026Q2 收入 1,046.4 億元、同比 +14.4%，營業利益 26.9 億元轉正，核心本地商業營業利益 56.7 億元、同比 +52.3%，這是拐點的第一個證據。但上半年仍淨虧 46.7 億元，外送單量份額一年從約 65% 掉到約 51%，護城河被證明可以被資本填平。價格上 4,786 億港元市值對應 2027 年正常化利潤約 15 倍、扣淨現金約 12 倍，賠率 1:1.8。結論：可以買，只能小倉位分批，因為管理層自己預告三季度比二季度差。</p></div><table class="dt"><caption>六關篩選（2026/08/28，股價 77.50 港元，市值 4,786 億港元）</caption><thead><tr><th>關卡</th><th>判定</th><th>評分</th><th>依據</th></tr></thead><tbody><tr><td>第一關：能力圈</td><td>透過</td><td>9/10</td><td>外送、到店、即時零售三塊生意半小時能講清；難的是判斷補貼何時結束，那是行業問題</td></tr><tr><td>第二關：好生意</td><td>透過</td><td>7/10</td><td>穩態單位經濟極好（2024 年核心本地商業營業利益率 20.9%），但規模效應有地理邊界，且被騎手成本反覆抽稅</td></tr><tr><td>第三關：護城河</td><td>透過</td><td>8/10</td><td>600 萬名騎手、800 萬家商戶、2,800 個縣市區的履約密度；但份額一年丟了 14 個百分點</td></tr><tr><td>第四關：管理層</td><td>透過</td><td>7/10</td><td>補貼最兇時選擇守 UE 不守單量，AI 投入克制；出海是新的資本消耗點</td></tr><tr><td>第五關：安全邊際</td><td>勉強通過</td><td>6/10</td><td>扣除淨現金約 1,200 億元後，2027 年正常化利潤對應 11–13 倍；但「正常化」是假設</td></tr><tr><td>第六關：紀律</td><td>透過</td><td>6/10</td><td>買入前提三個月內可驗證：Q3 核心本地商業營業利益不低於 20 億元</td></tr><tr><td>綜合</td><td>買入（小倉位）</td><td>43/60</td><td>拐點是真的，斜率取決於對手；分批建倉，把倉位留給更差的價格</td></tr></tbody></table><div class="note">資料來源：美團 2026 年中期業績公告（2026/08/28 盤後）；股價與市值取港交所 2026/08/28 收盤（61.75 億股）。評分為本報告打分，60 分制。</div><div class="section"><div class="section-title">第一關：能力圈（9/10，通過）</div><p class='txt'>美團的收入只有兩條腿：核心本地商業 715.3 億元、新業務 331.1 億元，2026Q2 合計 1,046.4 億元。核心本地商業再拆三塊——配送服務 267.8 億元（+13.1%）、商家服務 396.0 億元（+4.0%）、商品銷售約 51.5 億元（用分部收入減前兩項倒算，同比 +78.9%，主要是藥品、酒類等自營品類）。新業務是食雜零售（小象超市覆蓋 68 城、快樂猴 40 家店、快驢）加海外 Keeta。<b>看財報只需要盯三行：配送服務收入、商家服務收入、核心本地商業營業利益。</b></p><p class='txt'>看得懂不等於能預測。收入能預測：單量×客單價、商戶數×佣金率、廣告加載率，三個變數都有歷史區間。利潤不能預測：它取決於這個季度管理層和對手各願意燒多少錢。2025 年全年收入 3,648.5 億元、只增 8.1%，營業利益卻從 2024 年的 +451 億元變成 -170 億元，<b>收入只差 8 個點，利潤差了 621 億元——這就是這門生意現在的樣子。</b>扣 1 分扣在這裡。</p></div><div class="section"><div class="section-title">第二關：好生意（7/10，通過）</div><p class='txt'>先看它好的時候有多好：<b>2024 年核心本地商業營業利益率 20.9%、營業利益 451 億元（集團口徑）</b>，一門毛利率 33%、幾乎不需要資本支出、現金流先收後付的生意，這是中國網路裡最好的商業模式之一。再看它壞的時候有多壞：2025 年核心本地商業營業虧損 69 億元，2026Q1 再虧 20.3 億元。同一條業務線，兩年內從 +20.9% 掉到 -2.6%。</p><p class='txt'>本質是「用履約密度換時間價值」：三公里內三十分鐘送到，單均成本隨訂單密度下降，這是真實的規模效應。但這條曲線有兩個天花板。第一，密度是地理的——北京朝陽區的密度不能攤薄河北縣城的成本，規模效應在 2,800 個縣市區裡是分段成立的。第二，成本裡最大的一項是騎手，這是人力成本，只能漲不能降；2026 年 7 月 1 日起騎手「新職傷」保險全國覆蓋、保費平台全額承擔，就是一條不可逆的成本台階。</p><p class='txt'>7 分的含義：穩態下是好生意，但它的損益表永遠有一半由別人（對手的補貼、監管的成本、騎手的供給）決定。</p></div><div class="section"><div class="section-title">第三關：護城河（8/10，通過）</div><p class='txt'>三樣東西別人短期造不出來：<b>履約網路</b>（約 600 萬有單騎手、2,800 個縣市區、分鐘級調度系統）、<b>商戶供給</b>（約 800 萬活躍商戶，尤其是有內用的中小餐飲）、<b>使用者心智</b>（「點外送上美團」，在高客單價正餐上幾乎無替代）。這三樣互相加固：商戶多→使用者多→騎手多→配送快→商戶更離不開。</p><p class='txt'>但 2025 年這場仗證明了一件事：<b>這條護城河擋得住新進入者，擋不住願意虧錢的巨頭。</b>按高盛 2026 年 3 月的單量口徑估算，美團份額從 2025 年初約 65% 掉到 2026 年 2 月約 51%；公司自己在 2025 年報裡強調的「GTV 份額 60% 以上」是金額口徑，兩個數字都對，說的是不同的事——美團守住的是高客單價，丟掉的是低價單。<b>護城河還在，寬度變窄了，而且第一次被量化證明可以買。</b></p><p class='txt'>8 分而不是 6 分：因為補貼買來的是份額，買不來密度。淘寶閃購 45% 的單量對應的履約成本仍高於美團，這一點在 2026Q2 兩家的 UE 走勢裡已經能看出來。</p></div><div class="section"><div class="section-title">第四關：管理層（7/10，通過）</div><p class='txt'>這一關考的不是能力，是取捨。2025 年補貼最兇的時候，王興公開講「堅決反內卷」，選擇保單位經濟而不是保單量——結果就是份額丟 14 個百分點、全年營業虧損 170 億元。<b>短期看是輸，長期看是把錢花在了能收回來的地方</b>：2026Q2 核心本地商業營業利益 56.7 億元、同比 +52.3%，靠的是減少用戶激勵開支和單均配送成本下降，不是提價、不是提高抽佣。</p><p class='txt'>資本配置有兩面。好的一面：AI 投入克制，2026Q2 研發 76.7 億元、占收入 7.3%，王興明確說「不做 Token 工廠」，不參與算力軍備競賽；2024 年 6 月批准 20 億美元回購計劃，2026 年 6 月股東會重新授權後開始在 66.5–69 港元區間小額回購（6 月 29–30 日兩天 292.48 萬股、約 2 億港元），CFO 陳少暉在 6 月公開說「公司價值被嚴重低估」。差的一面：Keeta 出海是新的資本消耗，巴西已簽 5 年 10 億美元投資協議，這是唯一可能失控的變量。</p><p class='txt'>7 分：會算賬、能忍、不瞎花錢，但還沒有一次「用利潤換未來」的決策被完整驗證過。回購力度也偏小——2 億港元對 4,786 億市值等於沒動。</p></div><div class="section"><div class="section-title">第五關：安全邊際（6/10，勉強通過）</div><p class='txt'>算術先擺出來。77.50 港元 × 61.75 億股 = <b>4,785.6 億港元</b>，按 1 港元≈0.92 元人民幣折 4,403 億元。2026 年 6 月 30 日帳上現金及等價物 1,047 億元、短期理財 636 億元，合計 1,683 億元；扣除有息負債與受限資金後，底稿採用淨現金約 1,200 億元（媒體口徑估算，非公告值）。<b>企業價值約 3,203 億元。</b></p><p class='txt'>分母有兩個版本。保守版：2027 年淨利 250 億元（核心本地商業營業利益 375 億元、新業務 -30 億元、AI 等未分配 -50 億元，稅後粗算），對應市值 17.6 倍、EV 12.8 倍。稍樂觀版：正常化利潤 290 億元，對應 15.2 倍、EV 11.0 倍。底稿說的「約 15 倍、扣淨現金約 12 倍」就是這兩個版本的上下沿，不是矛盾，是區間。</p><p class='txt'>6 分而不是 8 分的理由只有一個：<b>「正常化」三個字是假設，不是事實。</b>2026 年上半年還是淨虧 46.7 億元，全年大概率仍虧（粗算 -50 至 -70 億元）。用當年的虧損算，這股票沒有 PE；用 2027 年的假設算，它便宜。這中間隔著一整年的證據。</p></div><div class="section"><div class="section-title">第六關：紀律（6/10，通過）</div><p class='txt'>紀律這一關問的不是公司好不好，是<b>我的買入理由能不能在可接受的時間內被證偽</b>。能。三條都可量化：①2026Q3 核心本地商業營業利益不低於 20 億元（Q2 是 56.7 億元，管理層已預告 Q3 單均配送成本上升、到店加大投入）；②行業補貼水平環比下降，管理層自己在業績會說「仍高於 2024 年」；③商家服務收入增速不轉負（Q2 只有 +4.0%）。</p><p class='txt'>第一條 10 月底就能看到答案，不用等三年。這是這筆投資最值錢的地方——<b>大部分「困境反轉」要靠信仰，這一個靠季報。</b></p><p class='txt'>6 分是因為前提成立的概率並不高：Q3 是旺季但也是投入高峰，20 億元這條線本身就貼著管理層指引的下沿。設這條線，是為了讓自己在錯的時候認錯，而不是為了讓自己舒服。</p></div><div class="section"><div class="section-title">否決項與待驗證項</div><p class='txt'><b>否決項：無。</b>沒有哪一條足以一票否決。但有一條硬約束寫在前面：Q3 核心本地商業營業利益跌破 20 億元，說明 Q2 的改善主要是旺季效應，評級立刻從「買入」降為「觀察」，不等下一份財報。</p><p class='txt'><b>待驗證一：補貼的環比方向。</b>管理層明確說行業補貼仍高於 2024 年水準，需要「幾個季度」正常化。看兩個外部訊號：阿里新財年淘寶閃購投入據 36 氪報導砍半、京東 7 月 17 日宣布全職騎手 100% 簽勞動合同繳五險一金（成本上升會逼它收縮）。</p><p class='txt'><b>待驗證二：到店的利潤率。</b>到店酒旅是利潤最肥的一塊，管理層已預告三、四季度加大投入、營業利潤率會低於二季度。如果 Q3 到店利潤率跌超 3 個百分點，全年核心本地商業利潤就要下修。</p><p class='txt'><b>待驗證三：騎手新成本。</b>7 月 1 日起「新職傷」保險全國覆蓋、保費平台全額承擔，Q3 是第一份完整體現的財報。按日均 6,500–7,500 萬單、每單 0.1 元粗算，年化約 25 億元，占 2027 年正常化利潤的一成——不致命，但會吃掉一部分修復。</p><p class='txt'><b>待驗證四：Keeta 巴西。</b>5 年 10 億美元是承諾，不是上限。沙烏地 22 個月盈利證明模式能複製，巴西是對手（滴滴 99Food）的主場，這是唯一可能讓「小倉位」變「錯倉位」的變數。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>六關 43/60，通過，但通過的姿態很勉強：<b>前三關靠的是資產和位置，後三關靠的是對未來的假設。</b>買入的理由只有一句話——2027 年正常化利潤 250–290 億元、扣淨現金 11–13 倍，而拐點在 2026Q2 已經出現第一次證據。</p><p class='txt'>操作：77.5 港元建 2% 倉位，跌到 65 港元附近加到 4%（對應賠率 1:3），Q3 財報核心本地商業營業利益 ≥20 億元再加到 5%。反向條件同樣清晰：Q3 低於 20 億元，或行業補貼重新上行，減到 1% 以下或清倉。</p></div>
+</div>
+<div class="footer">美團 (03690) · 2026/08/28</div>
+</body>
+</html>

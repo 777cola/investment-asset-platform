@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣篩選 — 輝達</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/nvidia/2-七条硬指标去劣/英伟达-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/nvidia/2-七條硬指標去劣/輝達-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/nvidia/2-Seven-Hard-Metrics/NVIDIA-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>去劣篩選 — 輝達</h1>
+  <div class="subtitle">輝達 (NVDA) | 02 · 去劣篩選</div>
+  <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股價 $220.78（+1.48%） &nbsp;·&nbsp; 市值 約 5.33 萬億美元（241.5 億股） &nbsp;·&nbsp; PE(TTM) 約 28x（FY2028 前瞻約 15x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/nvidia/00-輝達研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>七條硬指標過五條。營收增速、毛利率、淨利率、ROE、資產負債率五條不只是過，是遠遠過線：增速 +106%、毛利率 75.0%、淨利率 62.0%、年化 ROE 124%、資產負債率 28.5%、淨現金 232 億美元。</p><p class='txt'>不過的兩條是同一件事的兩面：<b>營業現金流只有淨利的 40.3%，自由現金流只有 35.8%。</b>一年前這兩個數是 58.1% 和 50.9%。不是會計做假，是應收帳款一個季度增加 223.46 億美元、存貨增加 57.84 億、預付增加 54.97 億，同時 77.71 億美元淨利來自股權投資重估、不帶來現金。</p></div><table class="dt"><caption>七條硬指標（FY2027Q2，單季）</caption><thead><tr><th>指標</th><th>公司數值</th><th>門檻</th><th>判定</th></tr></thead><tbody><tr><td>營收增速</td><td>+106%（962.21 億美元）</td><td>≥15%</td><td>過（連續四季加速）</td></tr><tr><td>毛利率</td><td>75.0%（第三季指引 74.0%、第四季指引 71%–72%）</td><td>≥35% 且趨勢不塌</td><td>過（趨勢扣分）</td></tr><tr><td>淨利率</td><td>62.0%（剔除投資收益 55.3%）</td><td>≥8%</td><td>過</td></tr><tr><td>ROE（年化）</td><td>124%（回購壓低了分母）</td><td>≥15%</td><td>過</td></tr><tr><td>營業現金流／稅後淨利</td><td>40.3%（241 億 / 597 億）</td><td>≥80%</td><td><b>不過</b></td></tr><tr><td>自由現金流／稅後淨利</td><td>35.8%（213 億 / 597 億）</td><td>≥50%</td><td><b>不過</b></td></tr><tr><td>資產負債率 / 淨現金</td><td>28.5% / 淨現金 232 億美元</td><td>≤50%</td><td>過</td></tr></tbody></table><div class="note">口徑：單季（2026/05–07）。營業現金流 24,077、資本支出 2,677、設備本金償還 59 百萬美元，自由現金流 21,341 百萬美元。ROE 年化 = 596.88×4 ÷ 期初期末平均權益 1,931.4 億美元。門檻為本報告自訂，與底稿「七條硬指標去劣」框架一致。</div><div class="section"><div class="section-title">五條過得很輕鬆，輕鬆到不像製造業</div><p class='txt'>毛利率 75.0%、淨利率 62.0%、費用率 8.7%，這三個數字放在一起只有一個解釋：<b>定價權在輝達手裡，不在客戶手裡。</b>同期台積電毛利率 67.7%（Q2 2026）、中際旭創光模組 46.59%（H1）、鴻海 6.12%（Q2），輝達在鏈條上拿的是最厚的一層。</p><p class='txt'>資產負債表也乾淨：總資產 3,202.72 億美元，總負債 912.88 億，資產負債率 28.5%。長期借款從 74.69 億漲到 323.66 億——本季新發債 248.96 億美元，這是十年來第一次大規模加槓桿，但相對 5.33 萬億市值和 232 億淨現金，不算問題。</p><p class='txt'>ROE 124% 要打個折看：分母被回購壓小了，權益從 1,572.93 億漲到 2,289.84 億，同時一個季度回購 197.32 億、分紅 60.47 億。<b>真實賺錢能力用 ROIC 看更準：年化 NOPAT 約 2,128 億，投入資本（權益 + 債務 − 現金及債券）約 2,059 億，ROIC 約 103%。</b>同樣是頂級。</p></div><div class="section"><div class="section-title">現金去哪了：三個「+」，一個「虛」</div><p class='txt'>營業現金流 240.77 億美元，稅後淨利 596.88 億美元，差 356 億。逐項對：</p><ul><li><b>應收帳款 +223.46 億美元。</b>餘額從 407.13 億漲到 630.59 億，環比 +54.9%，而營收只漲 18%。應收帳款週轉天數從 45 天拉到 60 天——這個 60 天是公司自己在電話會上承認的口徑，解釋是「投資級客戶大額訂單分多季度交付，付款週期更長」。</li><li><b>存貨 +57.84 億美元</b>，餘額 315.75 億，管理層說是為 Vera Rubin 上市備貨。存貨相當於 119 天的營業成本。</li><li><b>預付與其他資產 +54.97 億美元</b>，對應上游產能鎖定。</li><li><b>股權投資重估收益 77.71 億美元</b>計入稅後淨利但不進營業現金流，占稅前利潤的 10.9%。</li></ul><p class='txt'>四項加起來正好解釋缺口。這不是財務技巧，是三件事同時發生：訂單變大、帳期變長、公司自己在給客戶投錢。</p></div><div class="section"><div class="section-title">不過是否致命：不死，但決定估值上限</div><p class='txt'>給結論：<b>不致命，但足以解釋為什麼這家公司只配 15 倍 FY2028，而不是 30 倍。</b></p><p class='txt'>不致命的理由有三條。第一，客戶是投資級：超大規模雲 487 億美元收入對應的四家雲廠，帳上現金和營業現金流都在擴張，五大雲廠 2026 年資本支出合計約 8,000 億美元、2027 年預計 1.3 萬億美元（公司電話會口徑），不是靠借錢買晶片的邊緣客戶。第二，應收賬款的絕對值可控：630 億美元相當於 0.6 個季度的收入，即使全部計提壞賬也只是把一年的利潤抹掉一半，不會傷到資產負債表。第三，現金並不缺：賬上現金 224.43 億 + 可售債券 341.43 億，加上 990 億美元回購授權，公司有能力在任何時候放慢擴張。</p><p class='txt'>但它決定了估值上限。一家現金轉化率 36% 的公司，市場不會用 DCF 給它定價，只會用 PE，而且是不敢給太高的 PE。<b>真正的風險點不在本期，在下一期：如果某個季度營收增速掉到 20% 以下，應收賬款會先壞，然後是存貨，然後是那 1,085 億美元的擔保。</b></p></div><div class="section"><div class="section-title">七條之外，我還看兩個數</div><p class='txt'><b>第一個是利息覆蓋。</b>本季新發債 248.96 億美元，長期借款從 74.69 億跳到 323.66 億，看起來是十年來第一次大舉加槓桿。但公司帳上現金加債券 565.86 億，淨現金 232.20 億，其他收入淨額 77.73 億（主要是利息與投資收益），利息支出根本不構成壓力。這條不是風險，是提醒：<b>一家淨現金公司突然發 250 億美元債，動機不是缺錢，是要把現金留給股權投資和產能預付款。</b></p><p class='txt'><b>第二個是客戶集中度。</b>10-Q 披露，FY2027 上半年三家直接客戶分別貢獻 16%、15%、13% 的收入，合計 44%；前五大客戶的應收帳款占 70%。這組數字比毛利率更能說明這門生意的性質——它不是「賣給全世界」，是「賣給五個人」。<b>五個人裡任何一個人改自研，都是兩位數的收入缺口。</b></p><p class='txt'>把這兩個數放進七條框架裡，結論不變：過五條，倒在現金轉化。但你會知道該盯什麼——不是毛利率，是帳期和客戶名單。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>七條過五條，一條是會計口徑的必然（投資收益不進現金流），一條是商業模式的代價（替客戶墊資）。</b>去劣篩選的結論是「可以留，但要打折」：這家公司不是一流公司裡最乾淨的，是收入品質正在變差的一流公司。<b>觀察指標就一個：應收帳款週轉天數。守住 60 天說明是帳期問題；漲到 75 天以上就是需求問題。</b></p></div>
+</div>
+<div class="footer">輝達 (NVDA) · 2026/08/31</div>
+</body>
+</html>

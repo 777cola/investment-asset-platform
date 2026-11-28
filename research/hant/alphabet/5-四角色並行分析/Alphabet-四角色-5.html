@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組長彙總 — Alphabet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/alphabet/5-四角色并行分析/Alphabet-TeamLead-汇总.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/alphabet/5-四角色並行分析/Alphabet-四角色-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/alphabet/5-Four-Role-Analysis/Alphabet-Four Roles-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>組長彙總 — Alphabet</h1>
+  <div class="subtitle">四個視角的分歧點與裁決</div>
+  <div class="meta">研究日期 2026/10/30 &nbsp;·&nbsp; 股價 $279.84（-1.40%） &nbsp;·&nbsp; 市值 約 3.42 萬億美元 &nbsp;·&nbsp; EV/EBIT(2026E) 約 21x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/alphabet/00-Alphabet研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>四個視角在事實上完全一致，在權重上分歧明顯。商業視角給 9 分（生意好，但變重），財務視角給 7 分（利潤好，現金流差），行業視角給 7 分（站位好，週期差），風險視角給 6 分（兩個真風險）。<b>三個分歧點需要裁決：① 資本支出是投資還是燒錢；② 32% 的營業利益率能不能守住；③ 搜尋的自我替代是幾年的事。</b>裁決結果：分批買入，首倉二分之一，用價格和倉位吸收不確定性。</p></div><table class="dt"><caption>四視角評分與分歧</caption><thead><tr><th>視角</th><th>評分</th><th>最看重的事</th><th>最擔心的事</th><th>結論</th></tr></thead><tbody><tr><td>商業（段永平）</td><td>9/10</td><td>零邊際成本的搜尋 + 雲端跨過拐點</td><td>生意從輕資產變重資產</td><td>分批買</td></tr><tr><td>財務（巴菲特）</td><td>7/10</td><td>利潤率 32% 與淨現金 1,400 億</td><td>自由現金流 -90.7 億元 加上發債增發停止回購</td><td>買一半</td></tr><tr><td>行業（蒙格）</td><td>7/10</td><td>四環節通吃的位置</td><td>2027 年折舊高峰與算力過剩</td><td>等更好價格</td></tr><tr><td>風險（李錄）</td><td>6/10</td><td>Gemini 10 億用戶與 320 億 Token/分鐘</td><td>搜尋被 AI 分流、資本回報率不足</td><td>控制倉位</td></tr></tbody></table><div class="note">評分由各角色獨立給出，未互相校準。評分只反映該視角下的吸引力，不代表最終評級。</div><div class="section"><div class="section-title">分歧一：2,000 億資本支出是投資還是燒錢</div><p class='txt'>商業視角說「投資」，因為它看到雲端收入 +103%、利潤率 36.2%，需求是真實的；財務視角說「看不清」，因為它看到自由現金流為負、靠發債增發補；行業視角說「週期位置不利」，因為折舊高峰還沒到。<b>三方都對，因為他們在回答不同時間尺度的問題。</b></p><p class='txt'>裁決：<b>按「投資」處理，但要求驗證。</b>理由有三：① 雲端營業利益率從 23.7% 升到 36.2%，說明新增產能是在賺錢的，不是閒置；② 積壓訂單 561 億、55% 在 24 個月內確認，需求有合約支撐；③ 淨現金仍有 1,400 億，融資是主動選擇不是被迫。<b>如果 2027 年雲端增速掉到 30% 以下而資本支出不降，裁決立刻反轉。</b></p></div><div class="section"><div class="section-title">分歧二：32% 的營業利益率能不能守住</div><p class='txt'>這是最技術性的分歧，也是最重要的。財務視角認為 32% 是「成本還沒確認」的時點數據，2027 年會掉到 28% 以下；商業視角認為雲規模效應會抵消折舊。<b>算一下賬：2,000 億資本開支按六年折舊是每年 333 億，2027 年折舊翻倍到 500 億以上，相對 5,000 億的年化收入是 10 個百分點。</b>如果毛利不提升，營業利益率就要掉 10 個點。</p><p class='txt'>裁決：<b>中性假設 30%，悲觀 26%，樂觀 32%。</b>理由是雲收入翻倍帶來的規模效應能吃掉一部分折舊（雲營業利益率從 23.7% 到 36.2% 就是證據），但吃不掉全部。<b>這個裁決直接決定了三情景估值裡 2027 年 EPS 的差異。</b></p></div><div class="section"><div class="section-title">分歧三：搜尋的自我替代是幾年的事</div><p class='txt'>風險視角認為這是存在性風險，需要按 3–5 年窗口跟蹤；行業視角認為行業遷移已經開始，只是速度未知；商業視角認為「自己革自己的命」比被別人革命好，所以不是風險。<b>三者的差別在機率，不在方向。</b></p><p class='txt'>裁決：<b>按「3 年內不會崩塌、但每年會掉 1–2 個點增速」處理。</b>依據是 Q3 搜尋 +12%（去年更高），AI Overviews 已經上線但沒有造成收入斷層；Gemini App 10 億用戶說明公司拿到了新入口。<b>觀察指標：搜尋收入增速是否連續兩季 <8%。</b>到了那個位置，就不是估值問題，是生意模式問題。</p></div><div class="section"><div class="section-title">最終裁決：買入，分批，三條鐵律</div><p class='txt'>四個視角的加權結論是「好公司、合理價格、不確定的回報週期」。<b>這種組合的標準操作是分批買入，不是滿倉也不是空倉。</b>具體：279.84 美元建首倉目標倉位的二分之一（比如目標 8%，先買 4%），240 美元以下加滿，漲到 350 美元以上停止加倉並開始評估減倉。</p><ul><li><b>鐵律一：不用槓桿。</b>這檔股票的波動區間一年內是 273.5–402.62，加槓桿會被震出去。</li><li><b>鐵律二：不做價格停損，做論文停損。</b>雲增速 <30% 且 capex 不降、或搜尋增速連續兩季 <8%，無條件減半。</li><li><b>鐵律三：每季只做一個決定。</b>季報出來後 48 小時內決定加、減、還是不動，其餘時間不看盤。</li></ul><p class='txt'>最後說一句反面話：<b>如果 2027 年 Q2 財報顯示營業利益率掉到 26% 以下、雲增速掉到 35%，那麼現在的買入就是錯的，要認。</b>分批買入的意義不是「越跌越買」，是「留出認錯的空間」。</p></div><div class="summary-box"><h3>結論</h3><p>四視角彙總：<b>買入，分批，首倉二分之一，240 美元以下加滿。</b>三個分歧點均已裁決：資本支出按投資處理但要求驗證、2027 年營業利益率中性假設 30%、搜尋替代按每年 1–2 個點降速處理。任一條被證偽，減半。</p></div>
+</div>
+<div class="footer">Alphabet (GOOGL) · 2026/10/30</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組合管理 — SK 海力士</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/skhynix/14-组合管理建议/SK海力士-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/skhynix/14-組合管理建議/SK 海力士-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/skhynix/14-Portfolio-Action/SK hynix-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>組合管理 — SK 海力士</h1>
+  <div class="subtitle">SK 海力士 (000660.KS) | 14 · 組合管理</div>
+  <div class="meta">研究日期 2026/07/27 &nbsp;·&nbsp; 股價 ₩1,816,000（+3.24%） &nbsp;·&nbsp; 市值 約 1,291 萬億韓元（約 9,200 億美元） &nbsp;·&nbsp; 本益比（TTM，截至 2026Q1） 約 17.2 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/skhynix/00-SK 海力士研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>這是一檔「高品質、高波動、強 β」的股票，在組合裡的角色是進攻倉，不是壓艙石。它跟 AI 算力鏈的相關性接近 1，跟任何防禦資產的分散效果都很差。</p><p class='txt'>當前建議倉位 0%，觸發價 165 萬韓元建 1/3，140 萬以下加至 1/2，單一記憶體股上限為該標的原目標倉位的 100%、組合權益的 10%。</p></div><table class="dt"><caption>倉位建議（按情景與成本）</caption><thead><tr><th>情境</th><th>建議倉位</th><th>理由</th></tr></thead><tbody><tr><td>空倉</td><td>0%</td><td>現價對應 2027 年 7 倍，中性目標 165 萬，比現價低 9%；兩天後財報，等成本為零</td></tr><tr><td>已持倉、成本低於 120 萬</td><td>維持 100%，不加</td><td>帳面利潤厚，賣出要付稅與錯失期權；但不加倉，因為賠率已反轉</td></tr><tr><td>已持倉、成本高於 200 萬</td><td>減至 50%</td><td>賠率不對稱：中性 -9%、悲觀 -52%。先降敞口，留一半等財報</td></tr><tr><td>股價 165 萬以下且財報未證偽</td><td>建 1/3 倉</td><td>2027 年 6 倍，安全邊際一成；賠率轉正需 140 萬</td></tr><tr><td>股價 140 萬以下</td><td>加至 1/2 倉</td><td>2027 年 5 倍；悲觀情景只剩 -37%，期望值轉正</td></tr><tr><td>合約價連續兩月環比下跌</td><td>降至 0</td><td>週期反轉第一硬訊號，歷史上確認後跌幅加速</td></tr><tr><td>三星 HBM 市占率披露 &gt;35%</td><td>降至 0—1/3</td><td>估值中樞下移，6 倍變 4 倍</td></tr></tbody></table><div class="note">倉位以「該標的的目標倉位」為 100%，不是組合總倉位。單一記憶體股建議不超過權益倉位的 10%—15%；若同時持有美光、三星，合併計算敞口。</div><div class="section"><div class="section-title">三條價位紀律</div><p class='txt'>第一，165 萬是「可以開始買」的價格，不是「應該滿倉」的價格。它對應 2027 年 6 倍營業利益，只給了一成安全邊際——週期股的一成安全邊際不夠，因為下行時 EPS 會砍半。</p><p class='txt'>第二，140 萬是「可以買重」的價格。對應 2027 年 5 倍，悲觀情景（110 萬億營業利益 × 4.6 倍 + 淨現金）算下來是 88 萬，屆時悲觀情景只剩 -37%，中性情景 +18%，期望值轉正。</p><p class='txt'>第三，不設機械停損，設證偽停損。<b>週期股的價格停損最容易被洗出去</b>——2022 年那輪，股價從高點跌 60%，中途有三次 20% 以上的反彈。停損應該跟論文掛鉤：合約價轉跌、份額流失，這兩個訊號比價格可靠。</p></div><div class="section"><div class="section-title">相關性：它是 AI 交易的 β，不是分散化工具</div><p class='txt'>SK 海力士跟輝達、AMD、台積電、美光的日度相關性在 0.7 以上，跟 A 股記憶體概念股（兆易創新、江波龍）的相關性 0.5—0.6。它不能用來分散 AI 倉位的風險，它就是 AI 倉位的一部分。</p><p class='txt'>真正能分散的是：現金流穩定的公用事業、消費必需品、以及和 AI 資本支出無關的資產（比如醫藥、部分金融）。如果組合裡已經有 20% 以上的 AI 算力鏈（GPU、光模組、記憶體、伺服器），再加海力士就是把雞蛋放進同一個籃子。</p><p class='txt'>7 月 13 日那天是個好例子：海力士 -15.4%、三星 -11%、A 股記憶體概念跌停、美股記憶體盤前跌 6%—9%。<b>同一條產業鏈上，沒有分散</b>。</p></div><div class="section"><div class="section-title">再平衡紀律：季度檢查，不做月度</div><p class='txt'>記憶體股的波動以週為單位，月度再平衡會被噪音牽著走。建議按季度做三件事：一，核對 H1 與 H2 假設的狀態（合約價、份額）；二，重算 2027 年營業利益與目標價；三，如果倉位因為上漲超過了目標權重的 1.5 倍，減回目標。</p><p class='txt'>另外一條實用建議：如果只能透過 ETF（比如南方兩倍做多海力士）參與，不要用。槓桿 ETF 在震盪市裡的損耗極大，7 月 13 日單日跌 30% 就是例子。<b>要買就買正股或 ADR</b>。</p></div><div class="section"><div class="section-title">如果組合裡已經有 AI 鏈</div><p class='txt'>假設組合裡已經有輝達、台積電、光模組，那麼海力士的邊際分散效果接近於零。這時正確的做法不是「再加一個記憶體」，而是算總曝險：GPU + 代工 + 光模組 + 記憶體 + 伺服器，這五項加起來就是「AI 資本支出」這一個風險因子。</p><p class='txt'>經驗值是：單一風險因子不超過權益倉位的 30%。如果已經接近，海力士再便宜也不該買——不是它不好，是買它等於在同一件事上加倍下注。</p><p class='txt'>反過來，如果組合裡一個 AI 鏈的標的都沒有，海力士是一個「品質最好、波動最大」的入口。這時候 165 萬以下的 1/3 倉，是有意義的。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>組合建議：目標倉位 0%，165 萬建 1/3，140 萬加至 1/2，證偽無條件清零。單一記憶體敞口不超過權益的 10%—15%，與美光、三星合併計算。它不是壓艙石，是進攻倉——按「可能虧一半」設計倉位，而不是按「跌了 38% 很便宜」設計倉位。</p></div>
+</div>
+<div class="footer">SK 海力士 (000660.KS) · 2026/07/27</div>
+</body>
+</html>

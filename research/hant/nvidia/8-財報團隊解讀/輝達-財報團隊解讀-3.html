@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀（蒙格） — 輝達</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/nvidia/8-财报团队解读/英伟达-大师精读-芒格.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/nvidia/8-財報團隊解讀/輝達-財報團隊解讀-3.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/nvidia/8-Earnings-Team-Read/NVIDIA-Earnings Team-3.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀（蒙格） — 輝達</h1>
+  <div class="subtitle">輝達 (NVDA) | 先想清楚什麼會讓它崩</div>
+  <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股價 $220.78（+1.48%） &nbsp;·&nbsp; 市值 約 5.33 萬億美元（241.5 億股） &nbsp;·&nbsp; PE(TTM) 約 28x（FY2028 前瞻約 15x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/nvidia/00-輝達研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>蒙格讀財報的方法是倒著讀：先找最可能壞的地方，再看它有沒有在壞。<b>輝達最可能壞的三處：存貨（316 億）、應收帳款（631 億）、表外擔保（1,085 億）。</b>這份財報裡，前兩處已經開始動了，第三處只有上限沒有結構。</p></div><table class="dt"><caption>倒著讀：三個可能先壞的地方</caption><thead><tr><th>位置</th><th>本季</th><th>變化</th><th>壞掉的訊號</th></tr></thead><tbody><tr><td>存貨</td><td>315.75 億美元</td><td>較上季 +57.84 億，119 天成本</td><td>下季營收不及指引而存貨繼續增</td></tr><tr><td>應收帳款</td><td>630.59 億美元</td><td>較上季 +54.9%，帳期 45→60 天</td><td>帳期突破 75 天，或計提比例上升</td></tr><tr><td>表外擔保</td><td>上限 1,085 億美元</td><td>本季首次大額披露</td><td>任一交易對手違約觸發代償</td></tr></tbody></table><div class="note">資料來源：FY2027Q2 財報與 10-Q。存貨天數按期末存貨/單季營業成本×91 計算。</div><div class="section"><div class="section-title">先壞的一定是存貨</div><p class='txt'>存貨 315.75 億元，一個季度增加 57.84 億元，相當於 119 天的營業成本。管理層說是為 Vera Rubin 備貨，這個解釋合理——新產品爬坡必須提前鋪貨。</p><p class='txt'>但芒格會追問：<b>如果 Rubin 的爬坡比計劃慢一個季度，這 316 億元會怎樣？</b>答案是：不會立刻減值，會先壓毛利（降價清庫存），再壓現金流（佔用更多營運資金）。半導體行業的歷史上，存貨永遠是第一個報警的指標，1985 年的英特爾、2001 年的思科、2018 年的輝達自己（礦卡庫存）都是這樣。</p><p class='txt'>輝達有一個別人沒有的緩衝：2,790 億美元的供應承諾不是死庫存，是可以調整的採購節奏。但承諾已經簽了，FY2027 剩餘要付 920 億元、FY2028 870 億元、FY2029 880 億元。<b>這意味著未來三年它的成本是鎖定的，而收入不是。</b></p></div><div class="section"><div class="section-title">然後壞的是帳期，而且它是結構性的</div><p class='txt'>應收帳款 630.59 億元，季增 +54.9%，營收季增僅 18%。帳期從 45 天拉長到 60 天。公司解釋是投資級客戶大額訂單分季交付。</p><p class='txt'>這個解釋能成立一次，不能成立四次。芒格式的檢驗很簡單：<b>如果帳期是因為客戶變大、訂單變大，那麼它應該穩定在某個新水準；如果是因為客戶付不出錢，它會繼續往上走。</b>下個季度看兩個數就知道：帳期是否超過 65 天，以及應收帳款增速是否繼續高於營收增速。</p><p class='txt'>還有一個更硬的證據：前五大客戶的應收帳款占 70%。<b>這意味著一筆壞帳就能影響 5% 以上的應收。</b>如果其中一家是 NeoCloud，而它的融資環境在 2027 年收緊，壞帳不是機率問題，是時間問題。</p></div><div class="section"><div class="section-title">最後壞掉的是客戶名單，而且它不會恢復</div><p class='txt'>芒格最看重的不是數字，是結構。<b>這門生意的結構是：五個客戶，其中四個正在造自己的晶片。</b></p><p class='txt'>谷歌 TPU 做到第七代，亞馬遜 Trainium 大規模自用，OpenAI 的 Jalapeño 號稱超過 Blackwell，Meta 一直在試自研推理晶片。輝達的應對是把 Groq 收進來做專用推理（Groq 3 LPX 已量產），這是在承認「通用 GPU 不是所有場景的最優解」。</p><p class='txt'>他的判斷框架是這樣：短期（1–2 年）客戶離不開，因為產能和生態；中期（3–5 年）訓練還是輝達，推理會被切走一部分；長期（5 年以上）如果 AI 算力變成標準化商品，毛利率會向 50% 靠攏，估值會向 20 倍靠攏。</p><p class='txt'>「反過來想，總是反過來想。」——如果十年後輝達的毛利率是 50%、增速 15%，那麼今天的 5.33 萬億市值貴不貴？<b>按 50% 毛利率、25% 淨利率、15% 增長算，十年後淨利約 2,600 億，給 20 倍是 5.2 萬億——也就是說，今天的價格已經把十年後的成功定價完了。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>芒格式結論：三個可能壞的地方，兩個已經在動（存貨、帳期），一個看不見（擔保）。</b>他不會說「不要買」，他會說「如果你買，你要知道自己買的是一個正在從賣方市場轉向買方融資市場的生意」。<b>他的原話式表達大概是：「告訴他們問題在哪，他們自己會做決定。」</b></p></div>
+</div>
+<div class="footer">輝達 (NVDA) · 2026/08/31</div>
+</body>
+</html>

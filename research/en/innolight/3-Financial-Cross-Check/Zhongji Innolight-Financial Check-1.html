@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Check — Zhongji Innolight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/innolight/3-财务数据交叉验证/中际旭创-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/innolight/3-財務數據交叉驗證/中際旭創-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/innolight/3-Financial-Cross-Check/Zhongji Innolight-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Financial Check — Zhongji Innolight</h1>
+  <div class="subtitle">Zhongji Innolight (300308) | 03 · Financial Check</div>
+  <div class="meta">Research date 2026/09/18 &nbsp;·&nbsp; Price ¥925.24 (+3.40%) &nbsp;·&nbsp; Market cap About RMB 1.09 trillion &nbsp;·&nbsp; PE(TTM) Approximately 53.3x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/innolight/00-Zhongji Innolight-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>Eight key data points were cross-checked against two sources: six match exactly, two need handling. <b>The largest deviation is the 2025 net margin: the data platform gives 30.28%, but net profit of RMB 10.797 billion divided by revenue of RMB 38.240 billion gives only 28.24%, a gap of 7.2 percentage points — the platform's basis includes minority interests; this report uses 28.24%.</b> The other is total share count: 1.1697 billion shares in the interim report versus 1.178 billion shares after the over-allotment closed on August 31, a 0.7% difference; valuation uses 1.178 billion shares uniformly. TTM net profit of RMB 20.453 billion and market cap of RMB 1.09 trillion both pass internal verification.</p></div><table class="dt"><caption>Dual-source comparison (amounts in RMB 100 million)</caption><thead><tr><th>Metric</th><th>Source A</th><th>Source B</th><th>Deviation</th><th>Processing</th></tr></thead><tbody><tr><td>2026H1 operating revenue 417.78</td><td>2026 Interim Report (2026/08/21)</td><td>21st Century Business Herald (2026/08/24)</td><td>0%</td><td>Adopt 417.78</td></tr><tr><td>2026H1 net profit attributable to parent RMB 13.65 billion</td><td>2026 Interim Report</td><td>BT Finance (2026/09/07)</td><td>0%</td><td>Adopt 136.51</td></tr><tr><td>Optical module gross margin 46.59%</td><td>2026 Interim Report</td><td>Brokerage commentary (2026/09/08)</td><td>0%</td><td>Adopt 46.59%</td></tr><tr><td>Operating cash flow 18.00 (YoY −44.08%)</td><td>2026 Interim Report</td><td>Caixin / Business Times (2026/08/24)</td><td>0.05%</td><td>Working paper takes −44.1%, rounding difference</td></tr><tr><td>Full-year 2025 revenue 382.40 / net profit 107.97</td><td>2025 Annual Report (2026/03/30)</td><td>CSI Intelligent Financial News (2026/03/31)</td><td>0%</td><td>Adopts annual report</td></tr><tr><td>2025 net margin</td><td>Data platform 30.28%</td><td>Back-solve 107.97/382.40 = 28.24%</td><td>7.2%</td><td>28.24% adopted; platform basis includes minority interest</td></tr><tr><td>Total share capital</td><td>Interim report: 1.1697 billion shares (including 54.50 million H shares)</td><td>2026/09/01 1.178 billion shares (including 8.175 million shares under the over-allotment option)</td><td>0.7%</td><td>Use 1.178 billion shares for valuation across the board</td></tr><tr><td>Top five customers account for 81.9%</td><td>2026Q1 disclosure basis</td><td>Media citations (July–August 2026), 8.0</td><td>Basis difference</td><td>Labeled as Q1 basis, not treated as H1 data</td></tr></tbody></table><div class="note">Deviation = |A−B|/A. Row 6 reflects a definitional conflict, not a transcription error; row 8 reflects different reporting periods (Q1 vs H1) and cannot be compared directly.</div><div class="section"><div class="section-title">The only deviation above 1%: 2025 net margin</div><p class='txt'>30.28% and 28.24% differ by 7.2% — that is not a decimal-point issue, it is two different bases. <b>RMB 10.797 billion is net profit attributable to shareholders; RMB 38.240 billion is operating revenue; dividing one by the other necessarily gives 28.24%.</b> The platform shows 30.28%, implying the numerator used total net profit (including minority interests) — but Zhongji Innolight's minority interest is very small, so a 7-percentage-point gap looks more like the platform conflating pre/post non-recurring or including other businesses. </p><p class='txt'>The fix is simple: <b>for any ratio, recalculate using the numerator and denominator from the same table; never cite a third-party pre-computed ratio.</b> Same for the 2026H1 net margin: 136.51/417.78 = 32.68%, versus 32.7% in the working papers — consistent after rounding.</p></div><div class="section"><div class="section-title">One item differs in scope: which date's total share count to use</div><p class='txt'>The half-year report cover shows 1,169,734,641 shares (including 54.50 million H shares), which is the figure as of June 30. The H shares listed on July 30, and the over-allotment of 8.175 million shares was completed on August 31, bringing total share capital to about 1.178 billion shares. <b>Valuation must use the latest 1.178 billion shares; otherwise market cap will be understated by RMB 7 billion.</b></p><p class='txt'>Cross-check: RMB 925.236 × 1.178 billion shares = RMB 10,899 billion, consistent with the working paper's "about RMB 1.09 trillion"; using 1.1697 billion shares by mistake gives RMB 10,822 billion, a 0.7% difference that is still within an acceptable range but would feed through to the target price.</p></div><div class="section"><div class="section-title">Self-consistency check: TTM vs. single-quarter breakdown</div><p class='txt'>Three figures must reconcile; if they do not, one has been copied wrong. <b>TTM net profit = full-year 2025 107.97 − 2025H1 39.95 + 2026H1 136.51 = RMB 20.453 billion</b>, matching the RMB 20.45 billion in the working papers; EPS = 204.53/11.78 = RMB 17.36, and 53.3x PE = 925.24/17.36, so it closes.</p><p class='txt'>The quarterly breakdown also closes: Q1 revenue RMB 19.496 billion (disclosed in the Q1 report, +192.12%), H1 RMB 41.778 billion, Q2 = RMB 22.282 billion, up 14.3% QoQ; Q1 net profit RMB 5.735 billion (+262.28%), Q2 = RMB 7.916 billion, up 38.0% QoQ.<b>Q2 profit grew far faster than revenue QoQ, showing that the 1.6T structural upgrade only truly reached gross margin in Q2.</b></p></div><div class="section"><div class="section-title">Final adopted basis</div><p class='txt'>Conventions: <b>Revenue and profit use consolidated attributable-to-parent figures; all ratios are self-calculated; total shares 1.178 billion; market cap RMB 1.09 trillion; PE 53.3x (TTM); full-year 2026 net profit of RMB 31 billion is a rough estimate (H1 already delivered RMB 13.651 billion, assuming H2 slightly better than H1), used only for forward PE, not as a forecast.</b></p><p class='txt'>One point must be made clear: <b>customer concentration of 81.9% and largest customer at 25.1% are on the 2026Q1 disclosure basis</b>; the interim report did not update these figures. This report uses the Q1 basis throughout and flags it, does not use it for quarter-on-quarter comparison, and cites it only as evidence of structural risk.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Conclusion: the data is usable, but two definitional points need to be kept in mind.</b> Net margin is always calculated in-house (28.24% for 2025), and total share count is always 1.178 billion shares. Beyond that, six of the eight items show zero deviation between the interim report and public reports, and TTM, EPS, PE and market cap are internally consistent.<b>This set of figures can support the judgments that follow without any discount.</b></p></div>
+</div>
+<div class="footer">Zhongji Innolight (300308) · 2026/09/18</div>
+</body>
+</html>

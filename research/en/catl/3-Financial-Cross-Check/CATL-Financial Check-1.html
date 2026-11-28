@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Check — CATL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/catl/3-财务数据交叉验证/宁德时代-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/catl/3-財務數據交叉驗證/寧德時代-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/catl/3-Financial-Cross-Check/CATL-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Financial Check — CATL</h1>
+  <div class="subtitle">CATL (300750.SZ) | 03 · Financial Check</div>
+  <div class="meta">Research date 2026/09/28 &nbsp;·&nbsp; Price ¥291.99 (-0.51%) &nbsp;·&nbsp; Market cap Approximately RMB 1.35 trillion (A+H combined 4.627 billion shares) &nbsp;·&nbsp; PE(2026E) Approximately 14x (2026 net profit consensus of RMB 95.2 billion)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/catl/00-CATL-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>Six core data points were cross-checked against two sources: the interim report itself versus media interpretations/sell-side commentary. Revenue of RMB 276.92 billion, net profit attributable to shareholders of RMB 43.28 billion, power batteries RMB 192.13 billion, energy storage RMB 53.26 billion, overseas RMB 87.13 billion, R&D RMB 11.38 billion — <b>deviations all within 0.1%, adopted directly</b>.</p><p class='txt'>What really needs explaining is not whether the numbers are right, but three definitional issues: segment gross profit sums to RMB 5.3 billion less than consolidated gross profit; the energy storage share sits somewhere between 19.2% and 25%; and whether 525GWh is annual capacity or half-year capacity. <b>All three can lead readers to misread the company — taken one by one below.</b></p></div><table class="dt"><caption>Core data cross-checked across two sources (2026H1, RMB billion)</caption><thead><tr><th>Metric</th><th>Source A (interim report)</th><th>Source B (media/sell-side)</th><th>Deviation</th><th>Processing</th></tr></thead><tbody><tr><td>Operating revenue</td><td>2,769.17</td><td>2,769.17 (China Financial Information Network)</td><td>0.00%</td><td>Adopt</td></tr><tr><td>Net profit attributable to shareholders</td><td>432.84</td><td>432.84 (up 41.98% YoY)</td><td>0.00%</td><td>Adopt</td></tr><tr><td>Power battery revenue</td><td>1,921.25</td><td>RMB 192.1 billion (sell-side commentary)</td><td>0.01%</td><td>Adopt</td></tr><tr><td>Energy storage battery revenue</td><td>532.61</td><td>RMB 53.2 billion (+87.5% YoY)</td><td>0.11%</td><td>Adopt</td></tr><tr><td>Overseas revenue</td><td>871.29</td><td>RMB 87.1 billion (+42.4% YoY)</td><td>0.03%</td><td>Adopt</td></tr><tr><td>Consolidated gross margin</td><td>23.93%</td><td>23.9% (media estimate)</td><td>0.03pct</td><td>Adopt 23.93%</td></tr><tr><td>R&amp;D investment</td><td>113.76</td><td>RMB 11.4 billion (up 12.7% YoY)</td><td>0.21%</td><td>Adopt 113.76</td></tr></tbody></table><div class="note">Source A: CATL 2026 interim report (2026/07/24). Source B: China Financial Information Network same-day news brief, Huachuang Securities interim results review (2026/07). Deviation = |A−B|/A. Source B is a rounded restatement; deviations of 0.1%–0.2% are normal.</div><div class="section"><div class="section-title">The first accounting-basis issue: segment gross profit sums to RMB 5.3 billion less</div><p class='txt'>Gross profit by segment: power batteries 1,921.25 × 20.63% = RMB 39.64 billion; energy storage 532.61 × 23.96% = RMB 12.76 billion; total RMB 52.40 billion. The remaining battery materials and recycling, and other businesses, at RMB 31.531 billion, at a materials gross margin of 27.04% gives RMB 8.53 billion. The three sum to <b>RMB 60.93 billion</b>. But the blended gross margin of 23.93% times revenue of RMB 276.917 billion is <b>RMB 66.27 billion</b>. The gap is RMB 5.34 billion, or 8.1%.</p><p class='txt'>The gap is not an arithmetic error; it is a definitional difference. Segment "gross margins" are typically disclosed on a basis that nets out inter-segment transactions, while the blended gross margin includes unallocated other business revenue, the recycling business and the difference from internal eliminations. <b>Approach: use segment gross margins to compare structural shifts (power vs energy storage vs materials), and the blended gross margin to size the total; do not cross-use the two.</b> Forcing segment figures to back out blended gross profit understates it by RMB 5.3 billion, equivalent to understating net profit by 12%.</p></div><div class="section"><div class="section-title">The second measurement issue: energy storage at 19.2% or 25%</div><p class='txt'>Energy storage came to RMB 53.261 billion, 19.2% of operating revenue and 21.7% of battery segment revenue (power + storage, RMB 245.386 billion). The "about 25%" in the working papers does not reconcile with these two figures — most likely energy storage system integration and overseas energy storage project company revenue were included, and that portion sits outside the battery segment. <b>This report uses 19.2% (of total revenue) / 21.7% (of battery revenue) throughout.</b></p><p class='txt'>The gap looks small but matters in use: reading it as 25% would overstate energy storage's contribution to total gross profit by about 1 percentage point, and in turn overstate the speed at which "energy storage is taking over from power." <b>The actual picture is "close to one-fifth, growing at twice the pace of power," not "already a quarter."</b></p></div><div class="section"><div class="section-title">The third scope issue: 525GWh is half-year capacity, not annual capacity</div><p class='txt'>The interim report gives output of 498GWh and a capacity utilization rate of 94.86%. 498÷0.9486 = 525GWh—<b>so 525GWh is the effective capacity for the first half (half-year basis), or roughly 1,050GWh annualized</b>. Misreading it as annual capacity yields the absurd conclusion of "189% capacity utilization" and also doubles the relative scale of the 764GWh under construction (it is actually 73% of existing annualized capacity, not 145%).</p><p class='txt'>The 764GWh under construction, at a rough investment intensity of RMB 300–400 million/GWh, implies RMB 230–310 billion of capital expenditure. This is the key number for understanding "why free cash flow can only barely stay positive," and the second cash sink after consumption tax. <b>Of the three basis issues, this one is the easiest to get wrong and the one that most affects the conclusion.</b></p></div><div class="section"><div class="section-title">Final adopted basis</div><p class='txt'>All financial data use the original half-year report figures: revenue 276.917 billion, net profit attributable to parent 43.284 billion, power batteries 192.125 billion, energy storage 53.261 billion, overseas 87.129 billion, blended gross margin 23.93%, R&D 11.376 billion (unit: RMB billion). Quarterly figures are derived by subtracting the Q1 report from the half-year report (Q2 revenue 147.786 billion, net profit 22.546 billion); year-on-year growth rates are calculated from back-solved prior-year comparatives and marked "back-solved".</p><p class='txt'>Valuation uses combined A+H shares of 4.627 billion and 2026 consensus net profit of RMB 95.2 billion (Huachuang Securities, 2026/07), giving a PE of 14.2x. <b>Market cap is RMB 1.35 trillion, including H shares; looking only at A-share free-float market cap would understate it by about 30%.</b> All estimated figures (unit net profit RMB 98/kWh, consumption tax RMB 9.8 billion/year, capex under construction RMB 230–310 billion) are marked "rough calculation" in the text.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>The data holds up; the conclusions do not depend on definitions.</b> Six core data points match across two sources (deviation ≤0.2%), and all three definitional gaps fall within explainable bounds: the segment gross-profit difference stems from internal allocation, the energy-storage share difference from whether system integration is included, and the capacity definition drives the read on capex intensity. Every estimate used here is labeled "rough calculation" with the formula shown, so readers can recompute it themselves.</p></div>
+</div>
+<div class="footer">CATL (300750.SZ) · 2026/09/28</div>
+</body>
+</html>

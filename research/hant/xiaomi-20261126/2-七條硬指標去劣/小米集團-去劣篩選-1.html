@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣篩選 — 小米集團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/xiaomi-20261126/2-七条硬指标去劣/小米集团-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/xiaomi-20261126/2-七條硬指標去劣/小米集團-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/xiaomi-20261126/2-Seven-Hard-Metrics/Xiaomi Corporation-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>去劣篩選 — 小米集團</h1>
+  <div class="subtitle">小米集團 (01810) | 02 · 去劣篩選</div>
+  <div class="meta">研究日期 2026/11/26 &nbsp;·&nbsp; 股價 HK$26.60（+0.15%） &nbsp;·&nbsp; 市值 約 6,850 億港元（257.41 億股） &nbsp;·&nbsp; 本益比（年化） 約 32x（按 Q3 經調整淨利年化 195 億元粗算）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/xiaomi-20261126/00-小米集團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>七條硬指標過五條、存疑一條、不過一條。不過的那條最要緊：<b>2026Q3 淨利率 3.6%，低於 5% 的門檻</b>——去劣框架裡，這一條的作用是防止你把「薄生意」當成「週期底部」。</p><p class='txt'>存疑的是營業現金流：記憶體漲價迫使公司提前備貨，2026 年上半年營業現金流對淨利的覆蓋已經掉到 1 倍以下，Q3 單季未披露。過的五條說明這不是一家會被淘汰的公司：十年平均 ROE 8.5%、利息覆蓋遠高於門檻、長期毛利率 17%—22%、五年股本只膨脹 3%。<b>含義是「別急著排除」，不是「可以買」。</b></p></div><table class="dt"><caption>七條硬指標（截至 2026Q3 可得資料）</caption><thead><tr><th>指標</th><th>小米數值</th><th>門檻</th><th>判定</th></tr></thead><tbody><tr><td>① 10 年平均 ROE</td><td>約 8.5%（2016—2025，粗算）；2026 年化降至約 7.5%</td><td>≥8%</td><td>邊界通過</td></tr><tr><td>② 5 年累計自由現金流</td><td>為正，但 2024—2026 造車資本支出吃掉大半，最近四個季度接近打平</td><td>為正</td><td>邊界通過</td></tr><tr><td>③ 利息覆蓋倍數</td><td>遠高於 10 倍（有息負債極低，帳上淨現金）</td><td>≥2 倍</td><td>透過</td></tr><tr><td>④ 長期毛利率</td><td>20.2%（2026Q3）；近五年 17%—22%</td><td>≥15%</td><td>透過</td></tr><tr><td>⑤ 營業現金流／稅後淨利</td><td>2026H1 已降至 1 倍以下（備貨消耗）；Q3 單季未披露</td><td>≥0.7</td><td>存疑</td></tr><tr><td>⑥ 長期淨利率</td><td>3.6%（2026Q3 稅後淨利口徑）；近五年 5%—9%</td><td>≥5%</td><td><b>不過</b></td></tr><tr><td>⑦ 5 年總股本膨脹</td><td>+3%（2025/03 配股 425 億港元後 257.41 億股），2026 年回購淨減少</td><td>≤20%</td><td>透過</td></tr></tbody></table><div class="note">ROE 為按各年淨利與年末權益的粗算均值，非 Wind 口徑；自由現金流 = 經營現金流 − 資本支出（估算，造車資本支出未單獨披露）；利息覆蓋按「幾乎無有息負債」定性判斷；2026 年化 ROE 用 Q3 年化淨利 155 億元 ÷ 權益約 2,050 億元粗算。資料來源：小米集團 2018—2025 年年報、2026Q2 與 2026Q3 業績公告。</div><div class="section"><div class="section-title">唯一一條真不過：淨利率 3.6%</div><p class='txt'>把七條攤開來看，最刺眼的是第⑥條。2026Q3 淨利 38.76億元、收入 1,072.39億元，淨利率 3.6%；去年同期是 10.8%（122.7÷1,131.2）。即使按經調整淨利計算，也只有 4.6%，同樣低於 5% 的門檻。<b>這不是「一年裡最差的季度」這種修辭，是把過去五年的下限又往下推了一格。</b></p><p class='txt'>為什麼這條重要。去劣框架裡其他六條都是「會不會死」的問題，只有淨利率是「賺不賺錢」的問題。<b>一家淨利率 3.6% 的硬體公司，抗風險能力等於零</b>：匯率波動 1 個點、記憶體再漲 10%、汽車再降一次價，任何一個都能把利潤抹平。2026 年第三季度恰好三件事同時發生。</p><p class='txt'>不過要說清楚：這條不過，不等於公司要出問題。小米帳上有淨現金、有息負債極低、營業現金流為正，短期沒有償付風險。<b>不過的含義是「不能按好公司的價格買」，不是「會出事」。</b></p></div><div class="section"><div class="section-title">存疑的那條：現金流被備貨吃掉了</div><p class='txt'>第⑤條給「存疑」而不是「不通過」，是因為資料不全。2026 年上半年記憶體合約價一路漲，小米為了鎖定成本和供應，把備貨週期從常規的 6—8 週拉長到 12 週以上，現金變成庫存。結果是營業現金流對稅後淨利的覆蓋掉到 1 倍以下——這是<b>主動選擇</b>，不是收不回來錢。</p><p class='txt'>判斷依據有兩條。一是應收帳款週轉沒有惡化：小米對通路是現款或短帳期，這一點十年沒變。二是存貨雖然上升，但結構是記憶體顆粒和整機，不是滯銷機型——2026 年手機出貨雖然有壓力，但沒有出現通路壓貨的跡象。</p><p class='txt'><b>真正的風險在 Q4 和 2027Q1：</b>如果記憶體價格在 2027 年上半年見頂回落，這批高價庫存要在報表上計提減值，那才是現金流和利潤雙殺。這一條要盯著看。</p></div><div class="section"><div class="section-title">過的五條：說明它是「不會被淘汰」的那一類</div><p class='txt'>十年平均 ROE 8.5%，2026 年年化掉到 7.5% 左右——剛過 8% 的門檻，靠的是「幾乎不借錢 + 週轉快」，不是高利潤率。利息覆蓋遠高於 10 倍，因為公司幾乎沒有有息負債，帳上是淨現金。<b>在一個需要持續投入的行業裡，資產負債表乾淨是最實用的一條護城河。</b></p><p class='txt'>長期毛利率 17%—22% 的區間很穩：2019 年 13.9%（價格戰）、2021 年 17.7%、2024 年 20.9%、2025 年 22.5%。2026Q3 的 20.2% 還在區間內，只是回到了下沿。五年股本只膨脹 3%（2025 年 3 月配股 425 億港元是主要來源），2026 年回購 200 億港元反而在淨減少——<b>這一條在港股硬體公司裡算優秀。</b></p></div><div class="section"><div class="section-title">結論：去劣通過，但通過得很勉強</div><p class='txt'>七條過五條，按框架算「可以進入下一輪研究」，不能算「一流公司」。<b>這份報告後面十七個資料夾都在回答同一個問題：一家淨利率 3.6%、毛利率 20% 的公司，值不值 32 倍。</b></p><p class='txt'>我的答案是現在不值。不是因為七條不過的那條致命，而是因為不過的那條正好是估值最依賴的那條——<b>淨利率是所有 PE 的分母，分母在往下走的時候，倍數再合理也沒用。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'>七條裡唯一真正過關的是淨利率 3.6%，唯一存疑的是現金流覆蓋，其餘五條都在及格線上。<b>這個組合的畫像很清楚：一家不會倒、但也賺不到超額利潤的公司，正在替上游記憶體廠和下游價格戰買單。</b>去劣的結論是「保留觀察」，不是「排除」，也不是「買入」。下一步的判定交給 m01 的六關和 m04 的估值。</p></div>
+</div>
+<div class="footer">小米集團 (01810) · 2026/11/26</div>
+</body>
+</html>

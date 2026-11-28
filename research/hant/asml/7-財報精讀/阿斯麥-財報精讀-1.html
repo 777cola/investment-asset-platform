@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀 — 阿斯麥</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/asml/7-财报精读/阿斯麦-财报精读.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/asml/7-財報精讀/阿斯麥-財報精讀-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/asml/7-Earnings-Deep-Read/ASML-Earnings Read-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀 — 阿斯麥</h1>
+  <div class="subtitle">阿斯麥 (ASML) | 07 · 財報精讀</div>
+  <div class="meta">研究日期 2026/10/16 &nbsp;·&nbsp; 股價 $1,641.52（-0.96%） &nbsp;·&nbsp; 市值 約 6,240 億美元（約 5,380 億歐元） &nbsp;·&nbsp; PE(TTM) 約 41 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/asml/00-阿斯麥研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：這是一份「結構改善」的財報，不只是「數字變大」</h3><p class='txt'>淨銷售額 116.62 億歐元、同比 +55.2%、環比 +25.0%，落在 110–120 億歐元指引的高位。真正重要的是三條：毛利率 57.5%（高於指引上限 0.5 個百分點）、裝機管理收入 32.89 億（高於約 29 億的指引）、現金單季增加 51.5 億（同期還回購了 41 億）。淨利潤 49.60 億含約 5 億歐元一次性收益，剔除後仍超預期 7%。</p></div><table class="dt"><caption>損益表（百萬歐元）</caption><thead><tr><th>專案</th><th>2026Q3</th><th>2025Q3</th><th>同比</th><th>備註</th></tr></thead><tbody><tr><td>淨銷售額</td><td>11,662</td><td>7,516</td><td>+55.2%</td><td>指引 110–120 億高位</td></tr><tr><td>毛利</td><td>6,706</td><td>—</td><td>毛利率 57.5%</td><td>計算值，指引上限 57%</td></tr><tr><td>裝機管理收入</td><td>3,289</td><td>—</td><td>約 +50%</td><td>高於約 29 億指引</td></tr><tr><td>稅後淨利</td><td>4,960</td><td>2,125</td><td>+133.4%</td><td>含約 500 一次性</td></tr><tr><td>淨利率</td><td>42.5%</td><td>28.3%</td><td>+14.2pct</td><td>剔除一次性約 38%</td></tr><tr><td>每股盈餘</td><td>12.93 歐元</td><td>5.48 歐元</td><td>+136%</td><td>股本約 3.84 億股</td></tr></tbody></table><table class="dt"><caption>現金與股東回報（百萬歐元）</caption><thead><tr><th>專案</th><th>2026Q3</th><th>2026Q2 末</th><th>變化</th></tr></thead><tbody><tr><td>現金及短期投資</td><td>12,735</td><td>7,582</td><td>+5,153</td></tr><tr><td>單季回購</td><td>約 4,100</td><td>—</td><td>股本降至約 3.84 億股</td></tr><tr><td>中期股息</td><td>1.88 歐元/股</td><td>—</td><td>全年股息預計 7 歐元上下</td></tr><tr><td>營業現金流（反推）</td><td>8,000 以上</td><td>—</td><td>現金淨增 + 回購</td></tr></tbody></table><div class="note">營業活動現金流為反推值：單季現金淨增 5,153 加回購 4,100（未計分紅與匯率影響），實際值可能更高。</div><table class="dt"><caption>收入結構（百萬歐元，反推）</caption><thead><tr><th>分部</th><th>金額</th><th>佔比</th><th>說明</th></tr></thead><tbody><tr><td>EUV 系統</td><td>約 4,100</td><td>35%</td><td>同比 +94%，17 台</td></tr><tr><td>非 EUV 系統</td><td>約 4,273</td><td>37%</td><td>96 台，含 ArFi/ArF/KrF/i-line</td></tr><tr><td>裝機管理</td><td>3,289</td><td>28%</td><td>升級、翻新、備件、服務</td></tr><tr><td>合計</td><td>11,662</td><td>100%</td><td>新機 113 台 + 二手 8 台</td></tr></tbody></table><div class="note">EUV 金額取智通財經口徑（約 41 億歐元、同比 +94%），非 EUV 與占比為反推。單台均價粗算：EUV 約 2.41 億歐元、非 EUV 約 4,450 萬歐元。</div><div class="section"><div class="section-title">第一層：收入——三塊同時加速</div><p class='txt'>116.62 億歐元，同比 +55.2%，環比 +25.0%。結構上三塊都在漲：EUV 系統約 41 億、同比 +94%（17 台，單台均價約 2.41 億歐元）；非 EUV 系統約 42.7 億（96 台，單台約 4,450 萬歐元，反推）；裝機管理 32.89 億、明顯高於約 29 億的指引。</p><p class='txt'>最值錢的是第三塊。機器賣出去是一次性的，裝機管理是跟著存量基數走的年金——它超預期說明兩件事：客戶的產能利用率高（願意花錢升級）、存量設備在變多。這兩件事都比「本季多賣了幾台」更能說明 2027 年。</p></div><div class="section"><div class="section-title">第二層：毛利率——3.5 個百分點的來源</div><p class='txt'>57.5%，比 Q2 的 54.0% 高 3.5 個百分點，也高於 55%–57% 的指引上限。三個原因按重要性排：裝機服務占比提升（結構性）、EUV 與浸潤式 DUV 的組合改善（週期性）、出貨量攤薄固定成本（週期性）。</p><p class='txt'>判斷這 3.5 個百分點能不能守住，看 Q4 指引：公司給的是約 57%。<b>如果 2027 年能站在 57% 以上，說明價值定價真的落地了；如果回到 54%–55%，說明這次是產品組合的運氣。</b>這是整份財報裡最該跟蹤的一個數。</p></div><div class="section"><div class="section-title">第三層：費用與利潤——淨利率要打折看</div><p class='txt'>稅後淨利 49.60 億、同比 +133.4%，淨利率 42.5%。其中約 5 億歐元是 Mistral AI 股權重估，不產生現金。剔除後淨利 44.6 億，同比仍增長約 110%，超市場預期（41.65 億）約 7%。</p><p class='txt'>研發費用沒有單獨披露在本季新聞稿裡，但按歷史水平（收入的 15% 上下）推算約 17 億歐元。這個投入強度是護城河的維護費——EUV 和 High-NA 的每一代都是十年期研發砸出來的，省這筆錢等於自殺。營業利益率大約 36%–38%（粗算）。</p></div><div class="section"><div class="section-title">第四層：現金流與資產負債——最硬的一段</div><p class='txt'>現金及短期投資從 75.82 億增至 127.35 億，單季增加 51.5 億，同期回購 41 億。兩項相加推得單季營業現金流在 80 億歐元以上，超過稅後淨利。<b>來源是客戶預收款</b>：訂單制下客戶先付錢，公司後交貨，營運資金是負的。</p><p class='txt'>這是設備行業裡最好的資產負債表形態——淨現金、低息債務、負營運資金。它給了公司兩個能力：在週期下行時不用融資就能扛（2019 年、2022 年都驗證過），以及在股價低迷時大額回購。</p><p class='txt'>反面也要說：預收款是「客戶對未來交付的承諾」，如果訂單被推遲，這部分錢會變成交付壓力甚至退款。看現金不能只看增加，要看合約負債的到期結構——本季新聞稿沒有披露，只能等季報全文。</p></div><div class="section"><div class="section-title">第五層：指引——440–450 億是怎麼來的</div><p class='txt'>全年指引從 430–450 億上調到 440–450 億，只上調了低端。算術上：前三季合計約 298 億（Q1 約 88 億、Q2 約 93.3 億、Q3 116.6 億，Q1/Q2 為反推），加 Q4 指引 142–152 億，落點 440–450 億，中間值 445 億、同比約 +36%。</p><p class='txt'>Q4 指引 142–152 億、毛利率約 57%，意味著環比再增 22%–30%。這個增速在第四季做到，說明交付節奏在加快——EUV 全年約 65 台、同比 +50% 以上，產能是唯一約束。全年毛利率指引約 56%，比 2025 年抬升明顯。</p></div><div class="section"><div class="section-title">三個容易被誤讀的地方</div><p class='txt'><b>第一，淨利增速 133.4% 不是經營改善的全部。</b>剔除 5 億歐元重估收益後約 110%，仍然很強，但看不到「翻倍」。<b>第二，中國占比 23% 不是需求回來了。</b>Q2 的 14% 是許可證審批延後，Q3 是把延後的單補上，全年指引仍是 20%。<b>第三，112 台新機裡有 17 台 EUV。</b>數量上看 EUV 只占 15%，金額上占 35%——EUV 單台均價約 2.41 億歐元，是非 EUV 的五倍多（反推）。</p></div><div class="section"><div class="section-title">第六層：Q2 到 Q3 之間發生了什麼</div><p class='txt'>Q2 收入約 93.3 億（反推：Q3 環比 +25.0%）、毛利率 54.0%、新機 86 台、中國占 14%。一個季度之後，收入多了 23 億、毛利率高了 3.5 個百分點、新機多了 27 台、中國占比跳到 23%。</p><p class='txt'>四個數字裡，最值得注意的是毛利率。收入翻上去的同時毛利率還能抬 3.5 個百分點，說明不是靠降價搶量——如果是降價，毛利率會掉。這是「量價齊升」，在設備行業裡只有供不應求時才會出現。</p><p class='txt'>另一個是台數：86 台到 113 台，環比 +31%，比收入增速（+25%）還快。這說明非 EUV 的中低端機型交付在加速，中國客戶補單是主要來源。</p></div><div class="section"><div class="section-title">現金流的品質檢查：三個問題</div><p class='txt'><b>第一，現金增加是經營來的還是融資來的？</b>是經營來的——公司當期沒有大規模發債或增發，反而在回購。<b>第二，預收款會不會是「寅吃卯糧」？</b>有可能，但客戶是台積電、三星這類資產負債表極強的公司，違約機率低。<b>第三，回購是不是在托股價？</b>41 億歐元相當於市值的 0.8%，規模不小，但公司過去五年一直在回購，屬於常規操作，不是臨時救場。</p><p class='txt'>三個問題過完，這份現金流可以信。它比稅後淨利更能代表這家公司 2026 年的真實賺錢能力。</p></div><div class="section"><div class="section-title">57.5% 在歷史上的位置</div><p class='txt'>把毛利率拉成一條線：2019 年 44.7%（週期底部、EUV 爬坡）、2021 年 52.7%（缺晶片、EUV 放量）、2024 年 51.3%（產品組合偏 DUV）、2025 年約 52%–54%、2026Q3 57.5%。七年抬了約 13 個百分點，中間只有一次明顯回落。</p><p class='txt'>這條線的斜率在 2025 年之後變陡，原因不是行業景氣，是產品結構：EUV 占系統收入的比例從三成抬到近五成，而 EUV 的毛利率比 DUV 高十幾個點。再加上服務占比從 24% 抬到 28%。<b>這兩個結構變化都不是一年能反轉的。</b></p><p class='txt'>所以 57.5% 大概率不是孤峰，是一個新平台的下沿。真正要擔心的是「平台」變「山峰」的那一天——判斷標準是連續兩個季度跌破 55%。</p></div><div class="summary-box"><h3>結論</h3><p>四層拆完，結論是「結構改善」而非「數字變大」：毛利率上台階、服務占比提升、現金流超過利潤。唯一要打折的是淨利率和淨利增速。下一份財報（2027 年 1 月）看三件事：Q4 毛利率能否守住 57%、裝機管理能否繼續 +50%、以及全年訂單的表述。</p></div>
+</div>
+<div class="footer">阿斯麥 (ASML) · 2026/10/16</div>
+</body>
+</html>

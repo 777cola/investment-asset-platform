@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>八、決策框架：什麼價格買，什麼情況賣 — 美團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20260828/16-八篇深度长文/美团-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meituan-20260828/16-八篇深度長文/美團-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meituan-20260828/16-Eight-Long-Essays/Meituan-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>八、決策框架：什麼價格買，什麼情況賣 — 美團</h1>
+  <div class="subtitle">把判斷變成可執行的規則</div>
+  <div class="meta">研究日期 2026/08/28 &nbsp;·&nbsp; 股價 HK$77.50（+0.00%） &nbsp;·&nbsp; 市值 約 4,786 億港元（61.75 億股） &nbsp;·&nbsp; PE —（2026 年上半年稅後淨損 46.7 億元，PE 失真）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meituan-20260828/00-美團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>這份報告的所有分析，最後要落成四個數字：<b>77.5 港元建 2%、65 港元加到 5%、110 港元減半、150 港元清倉。</b>以及三條證偽線：Q3 核心本地商業營業利益 20 億元、阿里補貼是否重啟、商家服務增速是否轉負。規則寫在這裡，執行的時候不需要再想。</p></div><table class="dt"><caption>決策規則表</caption><thead><tr><th>情形</th><th>動作</th><th>依據</th></tr></thead><tbody><tr><td>目前 77.5 港元</td><td>建立部位 2%</td><td>2027 年正常化利潤 15–18 倍，賠率 1:1.8</td></tr><tr><td>跌至 65 港元</td><td>加到 4%–5%</td><td>對應 12.8 倍、扣現金 9 倍，賠率 1:3；公司 6 月回購區間</td></tr><tr><td>Q3 核心本地商業營業利益 ≥40 億元</td><td>加到 4%</td><td>拐點從一季變成兩季</td></tr><tr><td>Q3 核心本地商業營業利益 &lt;20 億元</td><td>減到 1%</td><td>旺季幻覺被證實</td></tr><tr><td>漲到 110 港元</td><td>減一半</td><td>中性目標價，20 倍</td></tr><tr><td>漲到 150 港元</td><td>清倉</td><td>樂觀目標價，21 倍</td></tr><tr><td>阿里重新加碼補貼</td><td>減到 1%</td><td>外部條件惡化</td></tr></tbody></table><div class="note">規則與 m13、m14 一致。目標價口徑見 m17 第十章。</div><div class="section"><div class="section-title">第一條規則：倉位由確定性決定</div><p class='txt'>我的倉位公式很簡單：<b>倉位 = 賠率 × 確定性 ÷ 波動率。</b>美團的賠率 1:1.8（不錯）、確定性 50%（一般）、波動率 65%（很高），三個數乘起來，答案是 2%–3%。</p><p class='txt'>對比一下騰訊：賠率 1:2、確定性 75%、波動率 30%，同樣的公式給 8%–10%。<b>這就是為什麼同樣是「買入」，騰訊可以重倉，美團只能小倉位。</b></p><p class='txt'>這個公式不精確，但它強迫你把「我有多確定」量化。說不清確定性的人，不配談倉位。</p></div><div class="section"><div class="section-title">第二條規則：只買「可驗證」的拐點</div><p class='txt'>「困境反轉」是最容易虧錢的策略，因為大多數困境不會反轉。判斷標準只有一個：<b>反轉的證明能不能在 12 個月內出現？</b></p><p class='txt'>美團能。Q3 財報在 10 月底，核心本地商業營業利益這個數字只有兩個方向：≥20 億元（拐點成立）或 <20 億元（不成立）。<b>一個數字、一個日期、兩個結果，這是最好的驗證結構。</b></p><p class='txt'>對比一下「新能源車滲透率」「AI 應用落地」這類主題——它們永遠無法被證偽，所以永遠可以講故事。<b>能證偽的才是投資，不能證偽的是信仰。</b></p></div><div class="section"><div class="section-title">第三條規則：估值用正常化，不用當期</div><p class='txt'>用 2026 年的虧損算，美團沒有 PE，任何倍數都失效；用 2027 年的正常化利潤算，它 15–18 倍。這兩個答案差了一倍。</p><p class='txt'>我的處理是：<b>用正常化利潤算中樞，用當期虧損算下限。</b>正常化 250 億元 → 110 港元；如果修復失敗、2027 年只賺 100 億元 → 60 港元。兩個數都算出來，賠率就出來了。</p><p class='txt'>這個方法的危險在於「正常化」三個字可以被濫用——任何一家虧損公司都可以說「正常化之後很便宜」。<b>防止濫用的辦法是：正常化利潤必須用歷史數據校準。</b>美團 2024 年賺 358 億元，所以 250 億元不是幻想，是打折。</p></div><div class="section"><div class="section-title">第四條規則：寫下你錯的樣子</div><p class='txt'>買入之前，先寫下「這筆投資錯了是什麼樣子」。我寫的是三條：Q3 核心本地商業營業利益低於 20 億元、阿里重新加碼補貼、商家服務收入增速轉負。</p><p class='txt'>寫下這三條的好處不是「停損」，是<b>防止自己在壞消息面前改口</b>。人在持倉之後會自動尋找支持自己的證據——這叫確認偏誤，是所有投資者最大的敵人。</p><p class='txt'>規則寫在這裡：三條觸發一條，減到 1%；兩條觸發，清倉。<b>不討論、不猶豫、不等下個季度。</b>因為「再等等看」是這筆投資最貴的成本——你有 2% 的倉位在等，機會成本一直在付。</p></div><div class="section"><div class="section-title">最後：這筆投資賺的是什麼錢</div><p class='txt'>把這筆投資拆到底，賺的是三種錢。</p><p class='txt'>第一種是<b>修復的錢</b>：利潤率從 7.9% 回到 12%–13%，利潤從 250 億元走到 290 億元。這部分最確定，但也最慢，需要兩到三年。</p><p class='txt'>第二種是<b>倍數修復的錢</b>：市場從「給虧損公司折價」變成「給穩定現金流公司正常倍數」，從 12 倍到 20 倍。這部分最快，可能一個季度就完成（比如 Q3 財報後）。</p><p class='txt'>第三種是<b>期權的錢</b>：Keeta 在巴西成功、AI 真的降低履約成本、或者行業出現併購整合。這部分最不確定，但彈性最大。</p><p class='txt'><b>三種錢裡，第一種是基本盤，第二種是催化劑，第三種是驚喜。</b>買入的理由應該是第一種，等待的是第二種，第三種不預期。如果搞反了——為了第三種買、指望第二種、忽略第一種——那就是投機，不是投資。</p></div><div class="section"><div class="section-title">寫給三個月後的自己</div><p class='txt'>三個月後你會看到這份報告，那時候 Q3 財報已經出來了。我要提前說三句話。</p><p class='txt'>第一句：<b>如果 Q3 好，不要後悔買少了。</b>2% 是當時確定性對應的倉位，事後知道結果再回頭算倉位，是自欺。</p><p class='txt'>第二句：<b>如果 Q3 差，不要找理由。</b>管理層已經預告成本上升，你當時把 20 億元寫成底線，就該執行。改口的成本比虧錢更高——因為它會讓你下一次也不守紀律。</p><p class='txt'>第三句：<b>如果股價漲到 110 港元但 Q3 沒驗證，還是要減半。</b>估值到位就該賣，不要因為「故事還在」而多等一個季度。<b>賣出的理由只能是價格或邏輯，不能是情緒。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'>決策框架的終點是一張紙：<b>買什麼價、買多少、什麼情況加、什麼情況賣、什麼情況認錯。</b>這張紙寫完之後，投資就變成執行，不再是判斷。</p><p class='txt'>美團的這張紙上寫著：77.5 買 2%、65 加 5%、110 減半、150 清倉；三條證偽線守住。就這麼簡單。</p></div>
+</div>
+<div class="footer">美團 (03690) · 2026/08/28</div>
+</body>
+</html>

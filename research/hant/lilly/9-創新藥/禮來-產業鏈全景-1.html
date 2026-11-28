@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>產業鏈全景 — 禮來</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/lilly/9-创新药/礼来-产业链全景.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/lilly/9-創新藥/禮來-產業鏈全景-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/lilly/9-Innovative-drugs/Eli Lilly-Industry Chain-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>產業鏈全景 — 禮來</h1>
+  <div class="subtitle">禮來 (LLY) | 09 · 產業鏈全景</div>
+  <div class="meta">研究日期 2026/11/09 &nbsp;·&nbsp; 股價 $1,411.95（+4.28%） &nbsp;·&nbsp; 市值 約 1.33 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 48x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/lilly/00-禮來研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>創新藥產業鏈的價值分布極不均衡：禮來這類專利藥企拿 84.4% 毛利率、52% 營業利益率；上游多肽 API 與注射筆供應商拿 20%–40%；下游 PBM 和零售藥局稅後淨利率只有 2%–5%，但它們握著「誰能進處方集」的開關。<b>禮來在鏈條上的位置是「微笑曲線的頂端」，但它的租金來自專利，不是來自規模。</b>現在鏈條正在發生三件變化：產能從短缺轉過剩、價格從藥企轉向支付方、口服把通路從醫院搬到線上。</p></div><table class="dt"><caption>創新藥（GLP-1）產業鏈價值分布</caption><thead><tr><th>環節</th><th>代表公司</th><th>價值量／毛利率</th><th>議價權</th></tr></thead><tbody><tr><td>上游：多肽原料藥（API）</td><td>Bachem、PolyPeptide、藥明康德（合全）、諾泰生物</td><td>毛利率 30%–40%，多肽固相合成產能是瓶頸</td><td>中。產能緊缺時有議價權，2027 年後隨擴產下降</td></tr><tr><td>上游：注射筆與給藥裝置</td><td>Ypsomed、SHL Medical</td><td>毛利率 20%–30%，單支價值 2–5 美元</td><td>中低。技術門檻在專利與模具，可替代性尚可</td></tr><tr><td>上游：玻璃瓶、膠塞、冷鏈</td><td>Schott、Gerresheimer、Thermo Fisher</td><td>毛利率 25%–35%</td><td>低。標準化程度高</td></tr><tr><td>中游：製劑與灌裝（CDMO）</td><td>Lonza、藥明生物、三星生物；禮來部分自建</td><td>毛利率 35%–45%</td><td>中低。禮來用自建產能削弱這塊的議價</td></tr><tr><td>中游：專利藥企（品牌與臨床）</td><td>禮來、諾和諾德</td><td>毛利率 84.4%，營業利益率 52%–52.5%</td><td>高。專利期內獨家定價，但受支付方約束</td></tr><tr><td>下游：PBM／藥品福利管理</td><td>CVS Caremark、Express Scripts、Optum Rx</td><td>淨利率 2%–5%，但掌握處方集目錄</td><td>高。決定藥品能否進保、患者自付多少</td></tr><tr><td>下游：零售藥房與遠距醫療</td><td>CVS、Walgreens、Hims &amp; Hers</td><td>零售淨利率 3%–5%；遠距醫療高成長、低毛利</td><td>中。口服藥讓通路權重上升</td></tr><tr><td>終端支付方</td><td>Medicare／Medicaid、商業保險、病患自費</td><td>Medicare 淨價 245 美元/月，患者自付上限 50 美元</td><td>最高。價格由它定，不由藥企定</td></tr></tbody></table><div class="note">毛利率區間為行業公開資料與各公司財報的量級估計，非逐項核對；禮來 84.4% 為 2026Q3 非 GAAP 口徑，52%–52.5% 為 2026 年營業利益率指引。Medicare 淨價來自 2025 年 11 月 MFN 協議。</div><div class="section"><div class="section-title">上游：真正的瓶頸在發酵槽和純化線</div><p class='txt'>替爾泊肽是多肽，不是小分子。多肽的生產靠固相合成加純化，收率低、週期長、放大難——一條商業化產線從設計到投產要三到四年。這就是為什麼 2023–2024 年全球 GLP-1 一直缺貨：<b>不是沒需求，是灌裝不出來。</b></p><p class='txt'>禮來的應對是把這塊吃進自己肚子裡：2025 年 2 月宣布至少 270 億美元在美國建四個基地（三個做 API、一個做注射劑，2030 年前建成），加康科德 17 億美元單廠 2027 年完工，2020 年以來在美投資累計超過 500 億美元。<b>自建產能的好處是不受制於人，壞處是重資產、週期長、退出難。</b>上游供應商在這一輪的議價權，正隨著禮來和諾和的擴產從「緊缺」滑向「過剩」。</p></div><div class="section"><div class="section-title">中游：84% 毛利是專利租金，不是製造能力</div><p class='txt'>禮來在鏈條中游拿走的利潤，幾乎全部來自「獨家」這兩個字。同一支替爾泊肽，生產成本占售價的比例很低，扣掉銷售費用、研發、PBM 返點之後，淨利率還有 26.4%。<b>這不是製造業的利潤，是法律授予的租金。</b>專利期一到，同一家工廠、同一條產線，毛利率會掉到 60% 以下。</p><p class='txt'>所以看禮來的產業鏈地位，要分清兩層：<b>製造層面它是重資產投入者，定價層面它是收租者。</b>2026Q3 的銷量 +53%、價格 -15% 說明收租的比例正在被壓縮——用更多的量、更低的價格維持總租金增長。這個模式能跑多久，取決於滲透率還有多少空間（美國符合條件人口超 1 億、實際用藥幾百萬）。</p></div><div class="section"><div class="section-title">禮來的位置：縱向一體化，用重資產換份額</div><p class='txt'><b>禮來在鏈條上的位置有一個容易被低估的優勢：縱向一體化。</b>大多數藥企只做研發和銷售，生產外包給 CDMO；禮來把 API、製劑、灌裝甚至給藥裝置都往自己手裡收。2025 年那 270 億美元的四個基地裡，三個做 API、一個做注射劑——<b>這在「產能即份額」的階段是決定性優勢</b>：2023–2024 年諾和因為產能不足丟掉的市場，禮來是靠自建產能接住的。</p><p class='txt'>代價是資本回報率的形態變了：從「輕資產高 ROE」變成「重資產高 ROE」。ROE 還能維持 70% 以上，是因為利潤增長快過淨資產增長；一旦增速掉下來，重資產會迅速把 ROE 拉回 30% 以下。<b>這是 2028 年之後最該盯的一個數。</b></p></div><div class="section"><div class="section-title">下游：定價權已經轉到支付方手裡</div><p class='txt'>這是整條鏈上最重要的變化，也是最容易被忽略的。2025 年 11 月禮來、諾和與白宮達成 MFN 協議：Medicare 從 2026 年起按每月 245 美元淨價覆蓋減重 GLP-1，患者自付上限 50 美元，TrumpRx 平台 2026 年 1 月上線。<b>這是美國聯邦醫保第一次為肥胖適應症買單，也是第一次把價格釘在 245 美元。</b></p><p class='txt'>在鏈條語言裡，這意味著「定價權從藥企轉移到支付方」。藥企換來的是銷量（Medicare 覆蓋會帶來大量新患者），付出的是價格。<b>Q3 美國銷量 +41%、價格 -7%，海外銷量 +76%、價格 -29%——美國現在的 -7% 是暫時的，海外今天的 -29% 才是美國明天的樣子。</b>PBM 和保險公司淨利率只有 3%，但它們決定誰能進目錄，這就是「低利潤、高權力」的典型位置。</p></div><div class="section"><div class="section-title">週期位置：三條曲線不在同一個位置</div><p class='txt'>需求在早期（滲透率個位數）、價格在中期（已進入單向下行）、產能在中後期（2027–2029 年集中投產）。<b>這個錯位是本輪最大的認知差。</b>市場盯著滲透率算空間，我盯著產能和價格算利潤。</p><p class='txt'>參照歷史：2010 年代的C肝藥（Sovaldi）走過同樣的路——上市兩年價格被打掉一半，銷量見頂後整個品類估值從 20 倍掉到 8 倍。GLP-1 的處境比C肝好（慢性病、需長期用藥、患者基數大十倍），但「價格單向下行 + 產能集中投產」這兩條是一樣的。<b>週期的方向盤在支付方手裡，不在禮來手裡。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'>產業鏈給 8 分：禮來佔據最賺錢的位置（84.4% 毛利、52% 營業利益率），上游自建、下游用 LillyDirect 繞開部分 PBM，鏈條控制力是製藥業裡最強的一檔。<b>但它的租金來自專利，租期 2036 年 5 月到期；而定價權已經在往支付方轉移。</b>這兩件事決定它不該拿 48 倍。</p></div>
+</div>
+<div class="footer">禮來 (LLY) · 2026/11/09</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理層縱深 — 美團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20261128/6-管理层纵深/美团-管理层纵深.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meituan-20261128/6-管理層縱深/美團-管理層縱深-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meituan-20261128/6-Management-Deep-Dive/Meituan-Management-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>管理層縱深 — 美團</h1>
+  <div class="subtitle">美團 (03690) | 06 · 管理層縱深</div>
+  <div class="meta">研究日期 2026/11/28 &nbsp;·&nbsp; 股價 HK$67.85（+8.21%，2026/11/27 收盤，11/28 休市） &nbsp;·&nbsp; 市值 約 4,190 億港元（61.75 億股） &nbsp;·&nbsp; PE(TTM) —（TTM 仍為虧損，PE 失真；2027E 約 16.8x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meituan-20261128/00-美團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>王興 47 歲，創業二十一年，從校內網、飯否到美團，<b>最長的一次堅持是把「三公里三十分鐘」這件事做了十六年。</b>2025 年他做了一個反共識的選擇：不打單量戰、守單位經濟，代價是全年淨虧 233.55 億元、份額丟 14 個百分點。2026Q3 的報表證明這個選擇是對的，但代價也是真的。</p><p class='txt'>資本配置兩條線：一條克制（AI 不做 Token 工廠、研發增速 11.3% 低於收入增速），一條激進（Keeta 出海，巴西 5 年 10 億美元）。<b>真正扣分的是第三條——帳上 1,200 億元淨現金、回購只用了 20 億美元授權的一小部分。</b></p></div><table class="dt"><caption>關鍵人與治理結構（2026/11）</caption><thead><tr><th>人物</th><th>職務</th><th>持股／投票權</th><th>履歷與分工</th></tr></thead><tbody><tr><td>王興</td><td>董事長兼 CEO</td><td>約 9%（A 類股，投票權超 40%）</td><td>1979 年生，清華電子工程；校內網、飯否創辦人；2010 年創辦美團，負責策略與海外</td></tr><tr><td>穆榮均</td><td>聯合創辦人、資深副總裁</td><td>約 2%</td><td>清華電腦；負責技術體系、資料與合規，公司內部「第二決策人」</td></tr><tr><td>王莆中</td><td>核心本地商業 CEO</td><td>未披露</td><td>2015 年加入，從外送業務一路做到核心本地商業一把手（2024 年 4 月任職），Q3 電話會議主要答問人</td></tr><tr><td>陳少暉</td><td>CFO</td><td>未披露</td><td>2014 年加入，主導 2021 年百億美元級融資、2024 年起回購執行；2026 年 6 月公開稱「價值被嚴重低估」</td></tr></tbody></table><div class="note">持股為 2025 年報披露的經濟權益約數，投票權因 A/B 股結構放大，具體比例以年報為準；薪酬未單列，高管現金薪酬在數百萬元級，主要激勵來自股權。王慧文 2023 年退出日常管理，不參與本季經營。</div><div class="section"><div class="section-title">資本配置：三條線，兩好一壞</div><p class='txt'>第一條是回購。2024 年 6 月批准 20 億美元回購計劃，2026 年 6 月股東會重新授權後在 66.5–69 港元區間小額執行，兩天買了 292.48 萬股、約 2 億港元。<b>問題在規模：20 億美元對 4,190 億港元市值只有 0.4%，按現在的執行速度要買十年。</b>一家帳上 1,200 億元淨現金、自認被低估的公司，這個力度是不夠的——這是本報告對管理層最主要的保留意見。</p><p class='txt'>第二條是研發與 AI。2026Q3 研發約 86.5 億元（推算）、同比 +11.3%，占收入 7.5%，<b>增速低於收入增速 10 個點，這是主動克制的結果。</b>王興在 2025 年說過「不做 Token 工廠」，2026 年重申不參與算力軍備競賽——在一個所有大廠都在搶卡的環境裡，這句話是要付代價的（份額、敘事、估值），但它保住了現金流。</p><p class='txt'>第三條是出海。Keeta 香港 2025 年 10 月單位經濟盈利，沙特 2026 年 7 月盈利、只用了 22 個月，沙特已占 Keeta 日單量約 25%。<b>但巴西簽了 5 年 10 億美元的投資協議，這是唯一一個「虧多少自己定、賺多少對手定」的戰場。</b>Q3 新業務虧損環比從 17.4 億元擴大到約 21.6 億元，主要就是巴西開城。這一條不是錯，是賭。</p></div><div class="section"><div class="section-title">誠信與治理：三次考驗</div><p class='txt'>第一次是 2021 年 10 月的反壟斷處罰，34.42 億元、責令退還商戶獨家合作保證金，公司沒有申訴、按期繳清，隨後取消了「二選一」。<b>處理方式是「認罰、改結構」，沒有拖。</b>第二次是 2025 年的騎手權益，演算法取悅監管、社保試點、2026 年 7 月 1 日「新職傷」保險全國覆蓋且保費平台全額承擔——這是用真金白銀換合規，每年成本在百億元級。第三次是 2026 年的補貼戰，管理層在電話會上被問「份額掉了 14 個點怎麼辦」，回答是「份額不是目標、單位經濟是」，<b>這句話事後被 Q3 的數字驗證了。</b></p><p class='txt'>治理結構上的隱憂是同股不同權：王興以約 9% 的經濟權益掌握超 40% 的投票權，股東大會對管理層的制衡有限。<b>好在歷史上沒有出現過大股東套現或關聯交易爭議，穆榮均、陳少暉的持股與公司綁定很深。</b>這件事只能觀察，不能量化。</p></div><div class="section"><div class="section-title">接班人：不是問題，但也沒有答案</div><p class='txt'>王興 47 歲，距離退休還有很長時間，接班人問題現在不是風險。<b>但要說清楚一件事：這家公司目前沒有「二號人物」的明確安排。</b>穆榮均管技術與合規，王莆中管核心本地商業（收入佔 69%），陳少暉管資本——三個人各管一塊，沒有一個人被公開定位為「下一任 CEO」。</p><p class='txt'>對比同業：阿里有明確的合夥人制度與輪崗，京東有徐雷之後的梯隊，拼多多有陳磊。<b>美團的組織更像「王興 + 一群事業部負責人」，策略集中度高、執行效率高，但傳承風險也集中。</b>這條不構成當下的扣分項，構成的是十年後的折價項——如果 2027–2028 年看不到清晰的梯隊，估值上應該再打 5%–10% 的折扣。</p></div><div class="section"><div class="section-title">給管理層打 8 分，扣的 2 分在哪</div><p class='txt'>加分的部分很具體：在最慘的季度選擇守住 UE；在所有人搶算力的時候說「不做 Token 工廠」；在 8 月主動預告「Q3 會比 Q2 差」，11 月拿出的數字對得上。<b>最後這一條最值錢——管理層給壞指引並且兌現，比給好指引更稀缺。</b></p><p class='txt'>扣分兩條。第一，股東回報太保守：1,200 億元淨現金、0.4% 的回購力度，等於把資本配置的權力無限期留在自己手裡。第二，出海的節奏偏急：沙烏地用 22 個月做到盈利，是很好的成績，但巴西在同一時間點進入，等於把剛賺到的錢投進一個更難的戰場。<b>如果 2027 年巴西虧損超過 50 億元，這一條會從「扣分」變成「減分」。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>8/10。能力沒問題，取捨有紀律，壞指引敢說也兌現了。</b>扣分全在資本配置的另一端：賺回來的錢既不分紅、也不大力回購，而是投向了巴西這個看不清的戰場。<b>觸發條件：如果 2027 年上半年回購規模累計超過 10 億美元，或者首次宣布分紅，這一關可以給到 9 分；如果巴西年度虧損超過 50 億元，降到 7 分。</b></p></div>
+</div>
+<div class="footer">美團 (03690) · 2026/11/28</div>
+</body>
+</html>

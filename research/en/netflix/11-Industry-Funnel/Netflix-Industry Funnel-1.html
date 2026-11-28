@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industry Funnel — Netflix</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/netflix/11-行业漏斗对比/奈飞-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/netflix/11-行業漏斗對比/網飛-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/netflix/11-Industry-Funnel/Netflix-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Industry Funnel — Netflix</h1>
+  <div class="subtitle">Netflix (NFLX) | 11 · Industry Funnel</div>
+  <div class="meta">Research date 2026/10/23 &nbsp;·&nbsp; Price $65.85 (-1.79%) &nbsp;·&nbsp; Market cap About USD 270 billion &nbsp;·&nbsp; PE(2026E) ~18x (including one-off gains, ~21x excluding them)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/netflix/00-Netflix-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Industry funnel: why only it remains</h3><p class='txt'>Run the six major global streaming and content platforms through a funnel: Netflix, Disney, Paramount Skydance, Warner Bros. Discovery, Amazon Prime Video, YouTube. <b>The three elimination criteria in the coarse screen are: can it generate its own cash, does it have global distribution, and is shareholder return positive.</b></p><p class='txt'>Four are eliminated: WBD is being acquired (no longer independent), Paramount carries high debt, Disney's streaming margins are thin, YouTube is not separately listed (it belongs to Alphabet). <b>Two remain: Netflix and Amazon. Amazon's video business does not profit on a standalone basis and is not disclosed, so it cannot be priced, making Netflix the final choice.</b></p></div><table class="dt"><caption>Funnel screening of six candidates</caption><thead><tr><th>The company</th><th>Position</th><th>Profitability</th><th>Valuation/capital status</th><th>Funnel determination</th></tr></thead><tbody><tr><td>Netflix</td><td>Global subscriptions rank first; advertising is just getting started</td><td>Operating margin 31.5% (2026 guidance)</td><td>18x 2026E PE, roughly RMB 19 billion in annual buybacks (rough estimate)</td><td>Final selection</td></tr><tr><td>Disney+</td><td>Strongest IP, second in global distribution</td><td>Streaming business margin in the single digits to low double digits</td><td>Group valuation dragged down by parks and cable</td><td>Eliminated: streaming margins too thin</td></tr><tr><td>Paramount Skydance</td><td>Cinemas + streaming</td><td>Consolidation phase, profit under pressure</td><td>Acquired WBD for about USD 110 billion in February 2026, debt high</td><td>Eliminated: leverage and integration risk</td></tr><tr><td>Warner Bros. Discovery</td><td>Traditional cable + streaming</td><td>Offline declines, streaming just turned profitable</td><td>Acquired, no longer independently listed</td><td>Eliminated: target removed</td></tr><tr><td>Amazon Prime Video</td><td>Bundled into Prime</td><td>Not disclosed separately; video profitability not broken out</td><td>Cannot be priced separately</td><td>Eliminated: not priceable</td></tr><tr><td>YouTube</td><td>US viewing share 14%</td><td>High ad monetization efficiency</td><td>Part of Alphabet, not separately listed</td><td>Eliminated: not directly investable</td></tr></tbody></table><div class="note">Netflix figures refer to Q3 2026 results and full-year guidance; other companies are compared qualitatively only, with no unverified 2026 financial figures cited. The Paramount acquisition of WBD follows publicly reported terms as of February 2026 (about USD 110 billion, USD 31 per share).</div><div class="section"><div class="section-title">Coarse screen: three elimination lines — first cut those that cannot generate their own cash flow</div><p class='txt'>The first test is "can it generate its own cash." <b>The streaming business must produce positive free cash flow on its own, not rely on cash infusions from other group businesses.</b> By this test, Disney gets cut in half — its streaming business has only just turned profitable, margins are thin, and there is little room to raise prices (IP dependence means users leave once they finish watching).</p><p class='txt'>The second test is "does it have global distribution." <b>A company running streaming in only two or three markets cannot spread content costs thin enough.</b> Paramount and WBD both have this problem: their scale is insufficient to support global content investment, so one chose to merge and the other chose to be acquired.</p><p class='txt'>The third test is "is shareholder return positive." <b>This cuts out companies that survive on equity issuance and debt.</b> After acquiring WBD, Paramount carries high debt, and its cash flow over the next three years must go to debt repayment — buybacks are impossible.</p></div><div class="section"><div class="section-title">The four eliminated players: what killed each of them</div><p class='txt'><b>Disney:</b> Killed by "streaming margins too thin." It owns the world's best IP, but IP is a double-edged sword—users come for one show, leave when it ends, and retention depends on "waiting for the next one." This model supports only 2%–3% pricing power, versus 5%–8% for Netflix. <b>Strong IP does not equal strong pricing power.</b></p><p class='txt'><b>Paramount Skydance:</b> Killed by leverage. Its roughly USD 110 billion acquisition of WBD in February 2026 loads on debt that must be repaid in coming years. Integration takes two years, during which it has no spare capacity for content investment or buybacks. <b>Bought right, but bought expensive.</b></p><p class='txt'><b>WBD:</b> Killed by scale. Its streaming just turned profitable while cable is in rapid decline—stuck in the middle. Being acquired is the best outcome it could get.</p><p class='txt'><b>Amazon and YouTube:</b> Not killed by fundamentals, but by "unpricability." Prime Video does not disclose financials separately, and YouTube sits inside Alphabet. <b>You can buy Alphabet and Amazon, but you cannot buy "pure streaming exposure."</b></p></div><div class="section"><div class="section-title">Why Netflix: it is the only one that meets all three conditions at once</div><p class='txt'>The final pick is not "it is the best" but "it is the only one that satisfies all three conditions at once." <b>Condition one: self-funding</b> — operating margin of 31.5%, FCF of RMB 12 billion, no reliance on parent-company capital injections. <b>Condition two: global distribution</b> — over 190 countries, nearly 1 billion viewers, content costs spread the thinnest. <b>Condition three: positive shareholder returns</b> — roughly RMB 19 billion in annual buybacks (rough estimate), share count down 6%–7% a year.</p><p class='txt'>It is the only company in this industry that satisfies all three at once. Amazon satisfies one and three, but its video business cannot be priced; Disney satisfies two, but one is insufficient; Paramount satisfies none.</p><p class='txt'>But note: <b>none of the answers to "why this one" is "fastest-growing."</b> Its growth rate is below the middle of the six. That is the most important finding of this screen — in this industry, the current winner is not the fastest-growing, but the one with the highest margin and the steadiest cash flow. <b>That also explains why its valuation has fallen from 45x to 18x: the market has finally started to look at it by the same standard.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p>The funnel's conclusion: <b>six screened down to one, and Netflix wins on "satisfying all three at once," not on growth.</b> That conclusion has direct operational implications — buying it means buying "stable cash flow + shareholder returns," not "the next explosive story." <b>So the fair valuation is 18–22x, not above 30x; so you buy in tranches, not with a concentrated bet.</b></p></div>
+</div>
+<div class="footer">Netflix (NFLX) · 2026/10/23</div>
+</body>
+</html>

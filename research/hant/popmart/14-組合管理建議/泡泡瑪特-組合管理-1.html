@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組合管理 — 泡泡瑪特</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/popmart/14-组合管理建议/泡泡玛特-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/popmart/14-組合管理建議/泡泡瑪特-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/popmart/14-Portfolio-Action/Pop Mart-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>組合管理 — 泡泡瑪特</h1>
+  <div class="subtitle">泡泡瑪特 (09992) | 14 · 組合管理</div>
+  <div class="meta">研究日期 2026/09/07 &nbsp;·&nbsp; 股價 HK$156.20（+1.43%） &nbsp;·&nbsp; 市值 約 2,090 億港元 &nbsp;·&nbsp; PE(TTM) 約 14.2x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/popmart/00-泡泡瑪特研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：這是一張「等價格」的票，不是「等業績」的票</h3><p class='txt'>三情境期望值 148.75 港元，低於現價 156.2 港元 4.8%，所以現在倉位是 0。<b>建倉區間 120 港元以下，首筆 3%；三季報海外環比止跌再加到 5%；上限 8%，永遠不到 10%。</b></p><p class='txt'>理由不是「不看好」，是「不確定」。這門生意的勝負手在下一個爆款，而爆款無法預測——只能用小倉位去承受不確定性，不能用重倉去賭。</p></div><table class="dt"><caption>倉位建議（按價格與情景）</caption><thead><tr><th>情境</th><th>價格區間</th><th>建議倉位</th><th>理由</th></tr></thead><tbody><tr><td>現價</td><td>156.2 港元</td><td>0%</td><td>期望值 148.75 低於現價；PEG 1.4–1.7；四家大行目標價全在現價之下</td></tr><tr><td>小幅回調</td><td>140–156 港元</td><td>0%</td><td>對應 2026E 15.5–17 倍，仍無賠率；只是「不那麼貴」</td></tr><tr><td>進入價值區</td><td>120–140 港元</td><td>3%</td><td>中性情景 150 港元有 7%–25% 空間，悲觀 100 港元只有 -17%–-29%</td></tr><tr><td>悲觀已定價</td><td>100–120 港元</td><td>5%</td><td>對應 2026E 11–13 倍，接近消費股下限；需確認不是基本面惡化</td></tr><tr><td>極端恐慌</td><td><100 港元</td><td>7%–8%</td><td>需同時滿足：現金 124 億元、零負債、國內仍正成長；否則不碰</td></tr><tr><td>業績確認</td><td>不限價格</td><td>+3%（累計上限 8%）</td><td>三季報海外環比止跌 + 存貨回 150 天，兩條同時成立</td></tr></tbody></table><div class="note">倉位為占股票組合的比例，不是占總資產。價格區間按 2026 年淨利 110 億元、13.42 億股、0.914 匯率折算的 PE 反推。</div><div class="section"><div class="section-title">為什麼現在 0 倉位：不是看空，是賠率不夠</div><p class='txt'>一個簡單的演算法：三情境 100 / 150 / 225 港元，機率 30% / 45% / 25%，期望值 148.75 港元。現價 156.2 港元，<b>期望報酬 -4.8%</b>。一個負期望的賭局，部位應該是 0，不管公司多好。</p><p class='txt'>有人會說「長期看好，短期波動不重要」。這個說法在兩種情況下成立：一是你持有十年不動，二是公司的內在價值每年成長 15% 以上。泡泡瑪特現在兩條都不滿足——它的內在價值取決於下一個爆款，不是時間的朋友。</p><p class='txt'>所以 0 部位不是「迴避」，是「等待」。等待的成本是機會成本（如果它漲上去），等待的收益是賠率（如果它跌下來）。以現在的估值，等更划算。</p></div><div class="section"><div class="section-title">加倉、減倉、停損：三個價位寫死</div><p class='txt'><b>加碼：120 港元以下，分三筆。</b>第一筆 120 港元（3%），第二筆 110 港元（+1%），第三筆 100 港元（+1%）。<b>不要在 130 港元就急著買</b>——那個位置只是「從很貴變成貴」，不是「便宜」。</p><p class='txt'><b>減碼：200 港元以上。</b>對應 2026E 24 倍，已經把樂觀情景（225 港元）走完大半。到這個位置，不管基本面多好，都該減。<b>泡泡瑪特不是茅台，不配 30 倍 PE。</b></p><p class='txt'><b>停損／重估：跌破 100 港元且基本面惡化。</b>注意是「且」——單純跌破 100 港元是加碼機會，只有疊加「國內同店轉負」或「毛利率跌破 66%」才是停損。區別在於：價格跌是市場情緒，基本面壞是生意變了。</p><p class='txt'>還有一條紀律：<b>不在財報發布前後各一週內建倉。</b>泡泡瑪特的財報波動極大（8/20 中報後單日 -6%、8/24 +4%），在資訊密集期買入，等於把「判斷」交給運氣。等塵埃落定，價格通常更好。</p></div><div class="section"><div class="section-title">相關性：它會和你的其他持倉一起下跌</div><p class='txt'>泡泡瑪特在組合裡的角色，不是「分散」，是「同一個 beta 的加強版」。2026 年新消費整體退潮：老鋪黃金從高點跌 46%、蜜雪跌 45%、名創優品年內跌 48%、泡泡瑪特跌 45.8%（距 52 週高點）。<b>這四檔股票的走勢高度同步，因為它們共享同一個宏觀變數——中國消費者的可選支出。</b></p><p class='txt'>如果組合裡已經有老鋪、蜜雪、名創，再加泡泡瑪特，等於把「新消費」的倉位放大 1.5 倍，而不是分散。真正的分散是配一些「必需消費」或「現金流資產」。</p><p class='txt'>另一個相關性是匯率。海外收入占 29%，人民幣升值時匯兌虧損（上半年 7.20 億元），人民幣貶值時匯兌收益。<b>這條相關性和出口股相反，可以作為對沖工具，但不要為了對沖去買它。</b></p></div><div class="summary-box"><h3>結論</h3><p>組合建議：<b>0 倉位，掛 120 港元以下的三筆買單，上限 8%。</b>這不是一個「買了就忘」的倉位，是一個「每季度檢查一次」的倉位。檢查清單三條：海外環比、存貨周轉、國內同店。三條裡壞兩條，無條件減半；三條全好，加到上限。</p></div>
+</div>
+<div class="footer">泡泡瑪特 (09992) · 2026/09/07</div>
+</body>
+</html>

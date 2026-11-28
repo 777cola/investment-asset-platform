@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>決策框架：三個數字、兩個觸發、一條紅線 — 小米集團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/xiaomi/16-八篇深度长文/小米集团-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/xiaomi/16-八篇深度長文/小米集團-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/xiaomi/16-Eight-Long-Essays/Xiaomi Corporation-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>決策框架：三個數字、兩個觸發、一條紅線 — 小米集團</h1>
+  <div class="subtitle">把「看好」和「買入」徹底分開</div>
+  <div class="meta">研究日期 2026/08/21 &nbsp;·&nbsp; 股價 HK$29.02（+4.54%） &nbsp;·&nbsp; 市值 約 7,470 億港元 &nbsp;·&nbsp; PE(TTM) 約 19.6x（2026E 約 28x，推算）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/xiaomi/00-小米集團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>研究做到最後，必須變成一張可以執行的表。<b>小米的決策只需要三個數字、兩個觸發條件、一條紅線。</b>多一個都不需要。</p></div><table class="dt"><caption>決策表</caption><thead><tr><th>項目</th><th>數值／條件</th><th>含義</th></tr></thead><tbody><tr><td>觀察指標 1</td><td>手機毛利率 ≥10%（連續兩季）</td><td>記憶體壓力見頂，利潤拐點</td></tr><tr><td>觀察指標 2</td><td>汽車毛利率 ≥19%</td><td>價格戰沒有失控</td></tr><tr><td>觀察指標 3</td><td>汽車季度虧損 ≤10億元</td><td>規模效應開始兌現</td></tr><tr><td>價格觸發 A</td><td>≤24 港元（23x 2026E）</td><td>賠率轉正，建立首倉 3%</td></tr><tr><td>價格觸發 B</td><td>≤19 港元（18x 2026E）</td><td>接近製造業上限，加到 6%</td></tr><tr><td>基本面觸發</td><td>指標 1 達成</td><td>加到 8%</td></tr><tr><td>紅線</td><td>手機毛利率 &lt;7% 或汽車毛利率 &lt;15%</td><td>清倉，移出名單</td></tr></tbody></table><div class="note">本表為本報告的操作紀律，非投資建議；倉位按佔股票總倉位計。</div><div class="section"><div class="section-title">第一步：把結論壓成一句話</div><p class='txt'>這家公司是什麼？<b>一家執行力頂級、護城河真實、但生意薄利、當前被上游漲價和下游降價兩頭擠壓的製造公司。</b></p><p class='txt'>值多少錢？<b>製造業的好公司 15—20 倍，成長型 25—30 倍。小米卡在中間，20 倍左右合理。</b>2026 年淨利 246億元 × 20 倍 ÷ 0.92 ÷ 257.41 億股 = 20.8 港元。</p><p class='txt'>現在多少？29.02 港元、28 倍。<b>貴了 39%。</b>這就是全部結論。剩下的都是執行細節。</p></div><div class="section"><div class="section-title">第二步：三個數字，代替一切敘事</div><p class='txt'><b>手機毛利率（8.5%）：</b>它是記憶體週期的溫度計，也是這家公司能不能自己呼吸的證明。回到 10% 以上，說明成本壓力見頂；跌破 7%，說明連代工都不如。</p><p class='txt'><b>汽車毛利率（19.2%）：</b>它是價格戰的溫度計。守住 19%，說明「效率型造車」成立；跌破 15%，說明覆蓋不了固定成本，模式有問題。</p><p class='txt'><b>汽車季度虧損（26億元）：</b>它是規模效應的溫度計。收窄到 10億元以內，說明產能利用率上來了；擴大到 40億元，說明越賣越虧。</p><p class='txt'><b>三個數字都能在季報裡讀到，不需要調研、不需要打聽。</b>其餘所有資訊——澎程訂單、生態協同、AI 戰略——都是輔助，不能替代這三個。</p></div><div class="section"><div class="section-title">第三步：兩個觸發條件，代替「感覺便宜」</div><p class='txt'><b>價格觸發：24 港元。</b>對應 23 倍 2026E、20 倍 2027E（中性 300億元）。在 24 港元，三情景賠率變成 +67% / +5% / -47%，期望值 24.5 港元，從負轉正。<b>這是「算出來的便宜」，不是「感覺跌多了」。</b></p><p class='txt'><b>基本面觸發：手機毛利率連續兩季 ≥10%。</b>這個條件比價格更重要，因為它改變的是分子。如果毛利率回到 11%，2027 年淨利能到 350億元，28 倍就變成 20 倍——估值自己會下來。</p><p class='txt'>兩個條件哪個先到都行。<b>但不要因為「兩個都沒到，但我怕踏空」而提前買。</b>踏空的成本是機會成本，買錯的成本是本金。</p></div><div class="section"><div class="section-title">第四步：倉位與紅線</div><p class='txt'>倉位路徑：24 港元 3% → 19 港元 6% → 毛利率達標 8% → 雙觸發 10%。<b>每一步都有明確條件，不臨場判斷。</b></p><p class='txt'>紅線：<b>手機毛利率 <7% 或汽車毛利率 <15%，無條件清倉。</b>理由：這兩條線是「週期性」與「結構性」的分界——跌破它們，說明不是週期波動，是生意壞了。</p><p class='txt'>最後一條紀律：<b>單一標的不超過 10%，且不與同類持倉（比亞迪、恒生科技 ETF）疊加。</b>小米與恒生科技相關性 0.8、與車企 0.6—0.7，它不是分散工具，是放大器。</p></div><div class="section"><div class="section-title">反面檢驗：如果我錯了，會錯在哪</div><p class='txt'>任何框架都要寫清「什麼情況下它失效」。</p><p class='txt'><b>錯法一：把週期當趨勢。</b>如果記憶體 2026Q4 就見頂，手機毛利率 2027Q1 回到 11%，那 28 倍其實是「週期底部的合理估值」，我按 20 倍算的合理價 20.8 港元就偏低了 30%。<b>這是最可能的錯法。</b></p><p class='txt'><b>錯法二：低估汽車的非線性。</b>汽車是產能利用率生意，從 40 萬輛到 60 萬輛，利潤不是線性增長而是跳變。如果澎程超預期，2027 年汽車可能單季扭虧，估值方法會從「重資產」切回「成長」。<b>那時候 25 倍是合理的。</b></p><p class='txt'><b>錯法三：把治理折價算太重。</b>我給了 10% 的治理折價，但如果雷軍的執行力持續兌現，市場可能不給這個折價——2025 年就完全沒給。</p><p class='txt'>三種錯法的共同點是「都指向我算得太保守」。<b>所以框架裡留了一條：手機毛利率連續兩季 ≥10%，可以直接加到 8%，不管股價在哪。</b>這是給「我錯了」留的出口。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>決策框架：合理價 20.8 港元（20 倍），現價 29.02 貴 39%；買點 24 港元（3%）與 19 港元（6%），加碼看手機毛利率兩季 ≥10%；紅線是手機 <7% 或汽車 <15%。</b>三個數字、兩個觸發、一條紅線——<b>框架的作用不是預測，是讓你在情緒最激動的時候還能按表操作。</b></p></div>
+</div>
+<div class="footer">小米集團 (01810) · 2026/08/21</div>
+</body>
+</html>

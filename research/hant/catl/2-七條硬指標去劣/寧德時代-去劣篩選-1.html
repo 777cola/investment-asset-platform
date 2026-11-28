@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣篩選 — 寧德時代</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/catl/2-七条硬指标去劣/宁德时代-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/catl/2-七條硬指標去劣/寧德時代-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/catl/2-Seven-Hard-Metrics/CATL-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>去劣篩選 — 寧德時代</h1>
+  <div class="subtitle">寧德時代 (300750.SZ) | 02 · 去劣篩選</div>
+  <div class="meta">研究日期 2026/09/28 &nbsp;·&nbsp; 股價 ¥291.99（-0.51%） &nbsp;·&nbsp; 市值 約 1.35 萬億元（A+H 合計 46.27 億股） &nbsp;·&nbsp; PE(2026E) 約 14x（2026 年稅後淨利一致預期 952 億元）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/catl/00-寧德時代研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>七項硬指標過六項。唯一沒過的是第 7 條「五年股本膨脹」——股本從約 24 億股漲到 46.27 億股，看著翻倍，但其中絕大部分是 2023 年資本公積轉增，不是融資稀釋。<b>真正的稀釋只有 2022 年 450 億元定增和 2025 年 H 股 IPO 兩次，合計攤薄不到 6%。</b></p><p class='txt'>其餘六項過得比較舒服：毛利率 23.93% 是門檻 15% 的 1.6 倍，淨利率 15.6% 是門檻 5% 的三倍，利息覆蓋在 20 倍以上（公司淨現金狀態）。最弱的是第 2 條五年累計自由現金流——它在 2021—2022 年擴產期是負的，靠 2023 年之後的經營現金流補回來，屬於「剛過線」。</p></div><table class="dt"><caption>七條硬指標（去劣篩選）</caption><thead><tr><th>指標</th><th>公司數值</th><th>門檻</th><th>判定</th></tr></thead><tbody><tr><td>① 10 年平均 ROE</td><td>約 22%—25%（2016 年上市以來）</td><td>&gt;8%</td><td>透過</td></tr><tr><td>② 5 年累計自由現金流</td><td>為正，2021—2022 年為負、2023 年起轉正</td><td>&gt;0</td><td>透過（薄）</td></tr><tr><td>③ 利息覆蓋（EBIT/利息）</td><td>20 倍以上（淨現金，有息負債率低）</td><td>&gt;2 倍</td><td>透過</td></tr><tr><td>④ 長期毛利率</td><td>23.93%（2026H1），近五年 20%—26%</td><td>&gt;15%</td><td>透過</td></tr><tr><td>⑤ 營業現金流／稅後淨利</td><td>近三年均值約 1.9 倍</td><td>&gt;0.7</td><td>透過</td></tr><tr><td>⑥ 長期淨利率</td><td>15.6%（2026H1），近五年 10%—18%</td><td>&gt;5%</td><td>透過</td></tr><tr><td>⑦ 5 年股本膨脹</td><td>約 24 億股 → 46.27 億股，名義 +93%</td><td><20%</td><td>不過（因轉增所致）</td></tr></tbody></table><div class="note">各條數值為公開年報與半年報口徑的近似值；ROE、OCF／淨利為 2016—2025 年區間的均值估計，未逐年列示。股本變動見下方說明。</div><div class="section"><div class="section-title">過得舒服的三條：ROE、毛利率、淨利率</div><p class='txt'>這三條是製造業的分水嶺，寧德都過了而且有餘量。十年平均 ROE 在 22%—25%，門檻 8%，意味著它長期用股東的錢賺三倍於機會成本的回報；長期毛利率 23.93%，門檻 15%，說明它不是靠「薄利多銷」活著的組裝廠；淨利率 15.6%，門檻 5%，是門檻的三倍。</p><p class='txt'>要注意的是趨勢在走弱：淨利率從去年同期的 17.0% 降到 15.6%，毛利率從約 25.0% 降到 23.93%。<b>過線沒問題，方向不好看。</b>按現在每年 1—2 個點的下滑速度，三年後毛利率還在 20% 上方，淨利率會掉到 13% 附近——依然過線，但那時候的 14 倍 PE 就對應更低的利潤了。</p></div><div class="section"><div class="section-title">勉強過關的兩項：自由現金流與利息覆蓋</div><p class='txt'>第 2 條是這七條裡唯一讓寧德出汗的。2021—2022 年是它擴產最猛的兩年，每年資本支出都是數百億量級，自由現金流為負；2023 年之後營業現金流上來了（稅後淨利 400 億以上、淨現比接近 2 倍），累計才由負轉正。<b>結論是「過，但不厚」——它沒有留下一大筆可以隨時分掉的現金。</b></p><p class='txt'>原因就在產能上：在建 764GWh，接近現有年化產能（上半年 525GWh 折年約 1,050GWh）的七成。按行業 3—4 億元/GWh 的投資強度粗算，這批在建對應 2,300—3,100 億元的資本支出。第 3 條利息覆蓋之所以高，正是因為錢大部分是自己的、借得少——<b>它用股權和營業現金流擴產，而不是用槓桿。</b>這是優點，也是為什麼第 2 條只能「薄過」。</p></div><div class="section"><div class="section-title">不過的那一條：轉增不是稀釋</div><p class='txt'>第 7 條按字面不過：五年股本從約 24 億股增至 46.27 億股。但拆開來看，2023 年實施了一次資本公積轉增，股本幾乎翻倍，股東手中的股數同比例增加，<b>權益沒有被攤薄一分錢</b>。真正的融資稀釋只有兩次：2022 年 450 億元定向增發（約 1.1 億股）、2025 年 H 股 IPO（約 1.4 億股，募資用於匈牙利工廠），合計占現有股本 5% 出頭。</p><p class='txt'>所以這條判「名義不過、實質通過」。寫進報告的意義在於提醒：如果只看數字，會把一家對股東友好的公司篩掉；<b>去劣指標必須看構成，不能只看漲跌幅。</b>後面要看的是它還會不會再融資——764GWh 在建產能是個大數目，如果港股再發一輪，稀釋就不再是「誤傷」。</p></div><div class="section"><div class="section-title">不過是否致命：不致命，但要盯再融資</div><p class='txt'>不過，七條裡沒有一條是「生意模式壞了」級別的。毛利率、淨利率、ROE 都在門檻之上有餘量，現金流雖薄但為正，利息覆蓋毫無壓力。真正需要盯的是兩件事：<b>一是 764GWh 在建產能的錢從哪來</b>（如果再融資，第 7 條會從「誤傷」變成「真傷」）；<b>二是毛利率的下滑速度</b>（跌破 19% 時，第 4 條仍在過線，但生意的定價權已經換性質了）。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>過六條，其中一條是誤傷，結論是通過。</b>寧德不屬於「看起來很好但經不起篩」的那類公司——它的高 ROE、高淨利率是十幾年攢下來的，不是一輪週期的高點。扣分項集中在資本強度：擴產吃掉自由現金流，這是電池生意的宿命，不是管理層的失誤。去劣通過只說明「不值得排除」，是否買入還要看價格與敘事（見六關與四大師）。</p></div>
+</div>
+<div class="footer">寧德時代 (300750.SZ) · 2026/09/28</div>
+</body>
+</html>

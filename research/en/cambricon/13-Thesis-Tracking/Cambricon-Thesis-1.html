@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thesis — Cambricon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/cambricon/13-持仓论文追踪/寒武纪-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/cambricon/13-持倉論文追蹤/寒武紀-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/cambricon/13-Thesis-Tracking/Cambricon-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Thesis — Cambricon</h1>
+  <div class="subtitle">Cambricon (688256) | 13 · Thesis</div>
+  <div class="meta">Research date 2026/08/17 &nbsp;·&nbsp; Price ¥1,156.00 (+5.76%) &nbsp;·&nbsp; Market cap Approximately RMB 727.1 billion &nbsp;·&nbsp; PE(TTM) Approximately 218x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/cambricon/00-Cambricon-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>Break the "bullish on Cambricon" case into six verifiable assumptions: <b>the domestic compute gap persists (holds), capacity keeps pace (to be verified), gross margin holds at 53% (holds), cash conversion returns to 0.5 (does not hold), customer concentration falls below 80% (does not hold), valuation offers a margin of safety (does not hold).</b> Only two and a half of the six stand up.</p><p class='txt'>No surprise—it is a company only two years past breakeven, so the assumptions were always going to be half true, half false. What matters is knowing which one gets falsified first: <b>the earliest test is the late-October Q3 report</b>, and three numbers settle it: Q3 revenue QoQ, quarterly gross margin, operating cash flow. There is no position right now, so this tracking sheet is not for "managing a holding" but for "preparing to enter."</p></div><table class="dt"><caption>Core assumptions and validation status</caption><thead><tr><th>Assumptions</th><th>Current evidence</th><th>Validation metrics</th><th>Status</th></tr></thead><tbody><tr><td>① Domestic computing power gap persists; second-supplier position holds firm</td><td>2026H1 revenue +108.13%; contract liabilities rose from RMB 0.61 million to RMB 188 million; Q2 still +75.83% YoY</td><td>Top five customers' share, contract liabilities, tender volumes from carriers and cloud providers</td><td>Incorporated</td></tr><tr><td>② Delivery capacity keeps pace (wafers + HBM + packaging)</td><td>Prepayments RMB 2.914 billion (+291.37%), inventory RMB 8.248 billion; plans to deliver about 500,000 units in 2026</td><td>Q3 revenue up ≥15% QoQ, inventory turnover days down</td><td>To be verified</td></tr><tr><td>③ Gross margin holds above 53%</td><td>2026H1 55.25%, Q2 single quarter 56.10% (+1.77pct QoQ)</td><td>Single-quarter gross margin, whether volume is being traded for price cuts</td><td>Established</td></tr><tr><td>④ Profit conversion into cash (OCF/net profit ≥0.5)</td><td>2026H1 OCF RMB 311 million, net profit RMB 2.311 billion, ratio 0.135</td><td>Q3 report operating cash flow, receivables and inventory changes</td><td>Does not hold</td></tr><tr><td>⑤ Lower customer concentration (top five &lt;80%)</td><td>88.66% in 2025; not disclosed in the 2026 interim report</td><td>2026 annual report customer concentration disclosure</td><td>Does not hold</td></tr><tr><td>⑥ Valuation offers a margin of safety</td><td>218x TTM PE, 75.6x PS, 53.6x PB; neutral target RMB 830 (−28%)</td><td>PE falls below 100x or share price &lt;800 yuan</td><td>Does not hold</td></tr></tbody></table><div class="note">Evidence sources: 2026 interim report, 2025 annual report, 2026 incentive plan draft (2026/07/28), batchdata (2026/08/17). Status determinations are defined by this report: Confirmed = supported by current-period data; To be verified = insufficient data; Not confirmed = current-period data contradict the assumption.</div><div class="section"><div class="section-title">Two things that hold: the gap is real, and so is the gross profit</div><p class='txt'>The first point (the gap persists) needs almost no argument. As long as US controls are not relaxed and Ascend capacity is prioritized for internal use, customers must keep a non-Huawei path. In the first half, contract liabilities rose from RMB 610,000 to RMB 188 million—<b>customers voted with prepayments</b>; Q2 was still +75.83% year on year, showing demand has not collapsed.</p><p class='txt'>The third point (gross margin) is actually more valuable. 55.25%, Q2 single-quarter 56.10%, up another 1.77 points sequentially—<b>gross margin was still improving in the same quarter that growth shifted gears</b>—this rules out "price cuts for volume." If it were sustaining growth by cutting prices, gross margin should have dropped 5 points long ago.</p></div><div class="section"><div class="section-title">The most critical one remains unverified: whether deliveries can keep pace</div><p class='txt'>The second point is the core of the entire tracking table. The company has staked RMB 2.914 billion in prepayments and RMB 8.248 billion in inventory on capacity, with plans to deliver about 500,000 units in 2026 (media citation; the company has not issued formal guidance). <b>If capacity comes online, Q3 revenue should grow more than 15% quarter-on-quarter; if it does not, Q2's 7.84% becomes the new normal.</b></p><p class='txt'>The verification method is simple: watch Q3 single-quarter revenue. RMB 3.111 billion × 1.15 = RMB 3.58 billion is the passing line; below RMB 3.3 billion (up 5% quarter-on-quarter) is a fail. <b>This number will be available in late October; no need to wait a year.</b></p></div><div class="section"><div class="section-title">Three that do not hold: cash, concentration, valuation</div><p class='txt'>Criterion four (cash) is the hardest to fix. OCF/net profit of 0.135 needs to return to 0.5, meaning second-half operating cash flow must exceed RMB 2 billion—nearly impossible while inventory build continues. <b>This criterion will most likely improve only in 2027, when capacity stops expanding.</b></p><p class='txt'>Criterion five (customer concentration) must wait for the annual report. <b>The 88.66% for 2025 is historical data; the 2026 interim report did not disclose it</b>, so strictly speaking it is "unknown." I treat it as "not met" because there is no evidence of improvement. Criterion six (valuation) changes daily; at 218x now, it is still more than half way from offering a margin of safety.</p></div><div class="section"><div class="section-title">Falsification conditions: three red lines</div><p class='txt'>① <b>Q3 single-quarter revenue down more than 5% QoQ (below RMB 3.27 billion) with inventory still rising</b> — this shows the shift is not a timing issue but a demand issue; walk away and stop waiting for RMB 800. ② <b>Single-quarter gross margin falls below 50%</b> — this shows the company has begun cutting prices to move volume, the moat is leaking, and the valuation framework needs to be rebuilt. ③ <b>Top five customers rise above 90% of revenue, or public information emerges of a major customer shifting orders to Ascend</b> — the second-supplier thesis is broken.</p><p class='txt'>If any one of the three red lines triggers, move the company from the "watch list" to "no longer covered." <b>The value of falsification conditions lies not in forecasting, but in deciding in advance "under what circumstances I admit I am wrong."</b></p></div><div class="section"><div class="section-title">Watch calendar for next steps</div><ul><li><b>Late October 2026</b>: Q3 report — QoQ revenue, quarterly gross margin and operating cash flow in one look; the shortest validation window.</li><li><b>December 2026</b>: industry tenders and cloud vendors' 2027 capex guidance — determines whether the second assumption (a persistent gap) still holds next year.</li><li><b>January 2027</b>: annual earnings pre-announcement — whether the RMB 13.5 billion assessment line is met directly determines whether incentives unlock.</li><li><b>March 2027</b>: annual report — top five customer concentration updated for the first time; the fifth assumption is settled.</li><li><b>April 2027</b>: Q1 report — whether Siyuan 690 volume ramp materializes determines the credibility of the RMB 27 billion assessment line for 2027.</li></ul><p class='txt'>Of the five dates, only the first requires preparation now. <b>Leave the rest until they arrive; no need to worry ahead of time.</b></p></div><div class="summary-box"><h3>Conclusion</h3><b>Tracking conclusion: two of six hypotheses hold, one awaits verification, three do not; overall rating "Watch."</b> The gap and gross margin are genuine supports; cash and valuation are clear drags. <b>The Q3 report in late October is the first gate</b>: if Q3 revenue grows ≥15% QoQ, upgrade to "Watch"; if <5% with inventory still rising, remove from the list. No position currently; the tracking table is for preparing entry, not managing holdings.</div>
+</div>
+<div class="footer">Cambricon (688256) · 2026/08/17</div>
+</body>
+</html>

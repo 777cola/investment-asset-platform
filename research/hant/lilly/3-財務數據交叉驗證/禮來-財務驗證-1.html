@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務驗證 — 禮來</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/lilly/3-财务数据交叉验证/礼来-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/lilly/3-財務數據交叉驗證/禮來-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/lilly/3-Financial-Cross-Check/Eli Lilly-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務驗證 — 禮來</h1>
+  <div class="subtitle">禮來 (LLY) | 03 · 財務驗證</div>
+  <div class="meta">研究日期 2026/11/09 &nbsp;·&nbsp; 股價 $1,411.95（+4.28%） &nbsp;·&nbsp; 市值 約 1.33 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 48x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/lilly/00-禮來研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>八項關鍵數字做了雙源核對：營收 24,397、淨利 6,451、替爾泊肽 160.75 億、指引 910–920 億，四個來源完全一致，可以直接用。<b>兩處偏差超過 1%，都出在「基數」和「共識」上，不是公司披露本身有錯。</b>第一處是 2025Q3 營收基數：草稿寫 17,552，公司財報與證券之星均為 17,601，差 0.28%，我把同比改成 +38.6%。第二處是 Foundayo 的共識預期 2.29 億 vs 實際 1.84 億，這是預測差異，不是數據錯誤，必須分開講。</p></div><table class="dt"><caption>關鍵數據雙源對照</caption><thead><tr><th>指標</th><th>來源 A</th><th>來源 B</th><th>偏差</th><th>處理</th></tr></thead><tbody><tr><td>2026Q3 營收</td><td>禮來財報／公司新聞稿：243.97 億美元</td><td>財聯社、智通財經：243.97 億美元</td><td>0.00%</td><td>採用 24,397 百萬美元</td></tr><tr><td>2025Q3 營收基數</td><td>公司財報與證券之星：176.01 億美元</td><td>底稿表：175.52 億美元</td><td>0.28%（175.52 vs 176.01）</td><td>採用 17,601，同比修正為 +38.6%</td></tr><tr><td>2026Q3 稅後淨利</td><td>禮來財報：64.51 億美元</td><td>金吾財訊：64.51 億美元</td><td>0.00%</td><td>採用 6,451 百萬美元</td></tr><tr><td>替爾泊肽 Q3 合計</td><td>Mounjaro 107.23 + Zepbound 53.52 = 160.75 億元</td><td>媒體口徑：Mounjaro 107.2、Zepbound 53.5，合計約 160.7 億</td><td>0.03%</td><td>採用 160.75 億元，占營收 65.9%</td></tr><tr><td>替爾泊肽前三季</td><td>437.68 億美元（Q1–Q3 相加）</td><td>騰訊財經、東方財富：前三季 437 億美元</td><td>0.16%</td><td>採用 437.68 億</td></tr><tr><td>Foundayo（orforglipron）Q3</td><td>禮來財報：1.84 億美元（美國 1.24 億）</td><td>介面新聞／破繭Bio：1.84 億美元，低於共識約 5,000 萬</td><td>0.00%</td><td>採用 1.84 億；共識 2.29 億單獨作為「預期差」</td></tr><tr><td>全年營收指引</td><td>公司新聞稿：910–920 億美元（中位 +55 億）</td><td>財聯社、21 世紀經濟報導：910–920 億</td><td>0.00%</td><td>採用 910–920 億</td></tr><tr><td>全年 Non-GAAP EPS 指引</td><td>公司：35.00–36.00 美元（含 4.57 美元收購 IPR&amp;D）</td><td>財聯社：由 35.50–36.50 下調至 35.00–36.00</td><td>0.00%</td><td>採用 35.00–36.00，估值用中值 35.50</td></tr><tr><td>市值</td><td>1,411.95 × 9.41 億股 = 1.3287 萬億美元</td><td>東方財富／meta：約 1.33 萬億美元</td><td>0.10%</td><td>採用約 1.33 萬億美元</td></tr><tr><td>PE(TTM)</td><td>1,411.95 ÷ 29.32 = 48.2 倍</td><td>meta：約 48 倍</td><td>0.42%</td><td>採用 48 倍，估值段用 48.2</td></tr></tbody></table><div class="note">來源：禮來 2026Q3 財報與公司新聞稿（2026/10/29）、財聯社（2026/10/29）、智通財經（2026/10/28）、證券之星（2026/10/29）、界面新聞/破繭Bio（2026/11/09）、東方財富個股頁（2026/11 讀數）。</div><div class="section"><div class="section-title">兩處超過 1% 的偏差，怎麼解釋</div><p class='txt'><b>第一處是營收基數。</b>草稿把 2025Q3 營收寫成 175.52 億美元，公司披露和證券之星都是 176.01 億。差異 0.49 億美元，看起來微不足道，但它讓同比從 +38.6% 變成 +39.0%——一個跨過整數的差別。我改用 176.01 億，同比寫 +38.6%，並在所有表格裡統一。這類錯誤通常來自把「2025 年前三季度的某個切片」誤當成單季，或者從同比反推時四捨五入。<b>凡是同比反推出來的基數，都不該當作公司披露值。</b></p><p class='txt'><b>第二處不是偏差，是預期差。</b>Foundayo 賣出 1.84 億美元，市場共識 2.29 億，差 4,500 萬（-20%）。很多報導寫成「低於預期 2,500 萬」或「5,000 萬」，口徑不同：有的是 LSEG 共識，有的是 Visible Alpha，有的只算美國市場。<b>我不用這個差額做推理，只用它與口服 Wegovy 的絕對規模對比（8.11 億美元 vs 1.84 億）</b>，這個對比不受共識口徑影響。</p></div><div class="section"><div class="section-title">三處口徑不同，不是誰錯了</div><p class='txt'><b>量價口徑。</b>公司口徑說全公司銷量 +53%、實際售價 -15%；美國單一市場是銷量 +41%、價格 -7%；海外是銷量 +76%、價格 -29%。三個數字都對，指的是不同範圍。寫報告時如果只取一個，會得出完全相反的結論——只取美國，會說「降價溫和」；只取海外，會說「價格崩了」。<b>我的處理是兩個都給，並明確說海外 -29% 是未來美國的樣子。</b></p><p class='txt'><b>PE 的年份。</b>底稿裡有一句「約 40 倍 2027 年預期」，但按 2027 年中性 EPS 42 美元算，現價只有 33.6 倍；40 倍對應的是 2026 年指引 35.50 美元（39.8 倍）。這是把兩個年份混在一句話裡。本報告統一為：TTM 48.2 倍、2026 年指引 39.8 倍、2027 年中性 33.6 倍，三檔並列。<b>結論不變——三檔都不便宜——但讀者有權知道自己在看哪一年的倍數。</b></p><p class='txt'><b>Non-GAAP EPS 含一次性項。</b>35.00–36.00 美元裡已經扣掉 4.57 美元的收購 IPR&amp;D。如果加回去是 39.57–40.57 美元。用哪個做估值？我用扣掉的口徑，因為併購是這家公司的常規動作，不是偶發事件——<b>連續三年都在買管線，就不該把它當一次性。</b></p></div><div class="section"><div class="section-title">最終採用的口徑</div><p class='txt'>營收與利潤用公司 GAAP 口徑（24,397 / 6,451 百萬美元）；每股盈餘用 Non-GAAP（Q3 7.48、全年 35.00–36.00）；毛利率用非 GAAP 84.4%，並註明 GAAP 口徑會低 3–4 個百分點（收購 IPR&D 與攤銷計入成本）；市值用 1,411.95 × 9.41 億股 = 1.33 萬億美元，不調整淨債務；估值倍數用 TTM 29.32 美元與 2026/2027 預測 EPS 並列，不給單一 PE。<b>所有推算值在文中標註「粗算」或「反推」，沒有一處把推算寫成披露。</b></p><p class='txt'>補一條沒進表的核對：Q3 攤薄每股盈餘 7.22 美元、同比 +16%，與淨利 64.51 億 / 同比 +16% 一致，說明股本沒有變化、沒有大額優先股息，利潤表的傳遞鏈是通的。這種「小項對得上」比任何單一數字都更能證明財報沒被拼接。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：八項數據可用，兩處修正已落到全文。</b>營收基數改為 176.01 億、同比 +38.6%；PE 拆成 TTM 48.2／2026 年 39.8／2027 年 33.6 三檔。這兩處不改變任何投資判斷，但改變了數字的誠實度。下次核對清單裡再加一條：凡是從同比反推的基數，必須找到公司原始披露才算數。</p></div>
+</div>
+<div class="footer">禮來 (LLY) · 2026/11/09</div>
+</body>
+</html>

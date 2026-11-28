@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理層縱深 — 鴻海精密</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/foxconn/6-管理层纵深/鸿海精密-管理层纵深.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/foxconn/6-管理層縱深/鴻海精密-管理層縱深-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/foxconn/6-Management-Deep-Dive/Hon Hai Precision-Management-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>管理層縱深 — 鴻海精密</h1>
+  <div class="subtitle">鴻海精密 (2317.TW) | 06 · 管理層縱深</div>
+  <div class="meta">研究日期 2026/10/19 &nbsp;·&nbsp; 股價 NT$240（-1.84%） &nbsp;·&nbsp; 市值 約 3.37 萬億元新台幣 &nbsp;·&nbsp; PE(2026E) 約 12.6x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/foxconn/00-鴻海精密研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：這一代管理層把公司換了個賽道，錢花得不算精</h3><p class='txt'>劉揚偉 2019 年接棒，六年做成了一件大事：把鴻海從「蘋果組裝廠」重構成「AI 基礎設施供應商」，2026Q2 雲端網路產品占營收四成以上，AI 伺服器市占超四成。<b>執行力這一項在代工業裡是頂配。</b>但資本配置只配 6 分：夏普、Lordstown 兩筆併購與投資都沒賺到錢，配息率約 55%、殖利率不到 3%，同時四地擴產把風險前置給股東。</p><p class='txt'>治理上沒有致命缺陷：九人經營委員會替代一人拍板，郭台銘退出日常經營但仍是大股東。真正要在意的是歷史承諾的兌現記錄——威斯康辛州的投資與就業承諾大幅縮水，說明這家公司對外的數字要打折聽。</p></div><table class="dt"><caption>關鍵人與決策機制</caption><thead><tr><th>姓名／機制</th><th>職務</th><th>持股</th><th>履歷與角色</th></tr></thead><tbody><tr><td>劉揚偉</td><td>董事長（2019/07 至今）</td><td>未單獨披露（經營團隊合計低於 1%）</td><td>交通大學電子物理系、南加大電機碩士；曾任鴻海 S 事業群總經理、夏普董事，主導半導體與 AI 伺服器布局</td></tr><tr><td>郭台銘</td><td>創辦人</td><td>約一成，最大個人股東</td><td>1974 年創立鴻海，2019 年交棒；仍對重大投資有影響力</td></tr><tr><td>鄭弘孟</td><td>工業富聯（601138.SH）董事長</td><td>—（FII 高階主管持股未逐人揭露）</td><td>雲端網路業務的實際操盤人，AI 機櫃訂單的第一線</td></tr><tr><td>九人經營委員會</td><td>集體決策機制（2019 年起）</td><td>—</td><td>取代創辦人一人拍板，重大資本支出與事業部調整須經委員會</td></tr></tbody></table><div class="note">台灣董監酬金僅按級距揭露總額，個人年酬金不可得，故不列薪酬欄以免編造。持股為 2025 年報口徑的約數；劉揚偉個人持股未單獨公告。</div><table class="dt"><caption>資本配置記錄（2016–2026）</caption><thead><tr><th>年份</th><th>動作</th><th>金額</th><th>結果與評價</th></tr></thead><tbody><tr><td>2016</td><td>收購夏普 66% 股權</td><td>約 3,888 億日元</td><td>取得面板、品牌與家電通路，前期連年虧損，2020 年後轉盈；戰略必要，財務回報平庸</td></tr><tr><td>2018</td><td>工業富聯 A 股上市</td><td>募資約 271 億人民幣</td><td>雲端業務獨立平台，成為這輪 AI 行情的估值錨；結構清晰的一步</td></tr><tr><td>2020</td><td>發起 MIH 電動車開放平台</td><td>輕資產結盟</td><td>至今未形成規模營收，聯盟聲量大、訂單小</td></tr><tr><td>2022</td><td>收購俄亥俄州 Lordstown 工廠</td><td>約 2.3 億美元</td><td>電動車代工，2023 年合作收縮，產能閒置；公認的失敗案例</td></tr><tr><td>2023</td><td>退出印度半導體合資（Vedanta）</td><td>—</td><td>及時止損，避免繼續投入無果的晶圓項目</td></tr><tr><td>2024–2026</td><td>美國、墨西哥、越南、印度 AI 機櫃擴產</td><td>資本支出逐年抬升（未給單一年度絕對值）</td><td>這輪週期的勝負手，也是自由現金流轉負的主因</td></tr></tbody></table><div class="note">金額來源：鴻海當年重大訊息與公開報導（夏普 2016/03、FII 2018/06、Lordstown 2022/05）。資本支出未披露單一年度總額，法說會僅表述為「AI 相關產能投資持續增加」。</div><div class="section"><div class="section-title">劉揚偉這六年：把賽道換了，沒把利潤率換了</div><p class='txt'>2019 年 7 月接任時，鴻海的問題很清楚：營收 5 兆多新台幣，七成靠蘋果，毛利率 5% 出頭。劉揚偉做的三件事都對——把雲端網路產品做成第一大部門、用工業富聯把 AI 業務裝進獨立平台、把產能鋪到墨西哥與越南對沖關稅。<b>2026Q2 雲端網路占營收四成以上，AI 伺服器市占超四成，這不是運氣。</b></p><p class='txt'>但也要說清楚他沒做到的：毛利率從 2019 年的 5.9% 到現在 6.12%，六年只挪了 0.2 個百分點。<b>換賽道解決了「增長在哪」，沒解決「利潤在哪」。</b>這是生意結構決定的，不算他的失分，但投資者不該把「轉型成功」誤讀成「盈利改善」。</p></div><div class="section"><div class="section-title">資本配置：兩筆大錢花得不好</div><p class='txt'>夏普這筆帳最好算：3,888 億日圓買 66%，換來面板、品牌和家電通路，2016–2019 年連年減值與虧損，靠關廠、裁員、賣資產才在 2020 年後轉正。<b>財務回報平庸，戰略上必要——沒有夏普，鴻海進不了品牌與面板。</b></p><p class='txt'>Lordstown 則純粹是錯判：2.3 億美元買通用汽車的舊廠，賭電動車代工，2023 年客戶合作收縮，產能閒置。電動車這條線從 MIH 到 Lordstown，六年沒做出規模營收。<b>兩筆加起來說明一件事：這家公司擅長把別人設計好的東西造出來，不擅長從零定義一個產品。</b>所以 2024 年之後它把資本全押回 AI 機櫃，是對的。</p></div><div class="section"><div class="section-title">股東回報：配息率 55%，殖利率不到 3%</div><p class='txt'>鴻海的分紅政策穩定但不慷慨：近年配息率約 55%，239.5 元對應殖利率不到 3%（粗算）。同時四年連續擴產，資本支出優先級高於分紅與回購。<b>對一家淨利率 2.37% 的公司，這個選擇可以理解——不進產能就丟訂單；但對股東來說，這意味著持有期回報幾乎全部來自股價。</b></p><p class='txt'>對比同業：廣達、緯創的配息率也在 60%–70% 區間，鴻海不算最差；但它的 ROE 只有 9%–12%，留存收益的再投資回報率低於資金成本的機會區間。<b>這是「擴張優先」策略的隱形成本。</b></p></div><div class="section"><div class="section-title">誠信與治理：一條要打折聽的記錄</div><p class='txt'>2017 年宣布威斯康辛州投資 100 億美元、創造 1.3 萬個職位，最終實際投資與就業大幅縮水，州政府補貼隨之重談。<b>這不是欺詐，是典型的「對外承諾按最好情景給、對內按現金流做」。</b>讀它的產能規劃、營收目標時，都要按這個折扣率調整。</p><p class='txt'>治理結構上，九人經營委員會是實質進步：重大資本支出不再由一人拍板，2019 年之後沒有再出現「董事長一句話改公司方向」的情況。郭台銘仍是最大個人股東、約持一成，對重大投資有影響力但不管日常。<b>沒有掏空、沒有關聯交易醜聞、沒有財務重述——這一項可以放心。</b></p></div><div class="section"><div class="section-title">接班人：機制有了，人選沒有</div><p class='txt'>劉揚偉 1956 年生，2026 年 70 歲。公司沒有公開接班時間表，但機制已經搭好：九人經營委員會 + 事業群總經理負責制，理論上不依賴某一個人。<b>真正的接班考驗不是誰上位，而是 AI 機櫃這塊業務在誰手裡——目前實際操盤的是工業富聯的鄭弘孟。</b></p><p class='txt'>對投資者的含義：這家公司的連續性風險低於一般家族企業，但戰略彈性也低——委員會制意味著不會犯大錯，也不會做特別冒險的正確決定。<b>放在「觀察」這一檔，這個治理結構是加分項，不是買入理由。</b></p></div><div class="summary-box"><h3>結論</h3><p>管理層這一關給 7/10：執行力頂配，資本配置中等，股東回報偏緊。<b>劉揚偉把公司送進了 AI 基建的主航道，但沒改變 6% 毛利率的宿命；兩筆失敗投資說明它擅長製造、不擅長定義產品。</b>治理上沒有硬傷，九人委員會是實質進步。評級不因管理層上調——好管理層配上壞生意結構，仍然是「觀察」。</p></div>
+</div>
+<div class="footer">鴻海精密 (2317.TW) · 2026/10/19</div>
+</body>
+</html>

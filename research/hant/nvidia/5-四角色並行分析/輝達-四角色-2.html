@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務分析（巴菲特視角） — 輝達</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/nvidia/5-四角色并行分析/英伟达-财务分析-巴菲特.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/nvidia/5-四角色並行分析/輝達-四角色-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/nvidia/5-Four-Role-Analysis/NVIDIA-Four Roles-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務分析（巴菲特視角） — 輝達</h1>
+  <div class="subtitle">輝達 (NVDA) | 利潤表漂亮，現金流量表說實話</div>
+  <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股價 $220.78（+1.48%） &nbsp;·&nbsp; 市值 約 5.33 萬億美元（241.5 億股） &nbsp;·&nbsp; PE(TTM) 約 28x（FY2028 前瞻約 15x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/nvidia/00-輝達研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>利潤表是完美的：營收 962.21 億、毛利率 75.0%、營業利益率 66.2%、稅後淨利 596.88 億。現金流量表不完美：營業現金流 240.77 億，只有稅後淨利的 40.3%；自由現金流 213.41 億，只有 35.8%。<b>差額不是造假，是應收帳款 +223 億、存貨 +58 億、預付 +55 億，加上 77.71 億投資收益不進現金。</b></p></div><table class="dt"><caption>三張表的關鍵數（百萬美元，單季）</caption><thead><tr><th>專案</th><th>FY2027Q2</th><th>FY2026Q2</th><th>讀法</th></tr></thead><tbody><tr><td>營業收入</td><td>96,221</td><td>46,743</td><td>同比 +106%，環比 +18%</td></tr><tr><td>毛利率</td><td>75.0%</td><td>72.4%</td><td>成本端還沒被記憶體漲價咬到</td></tr><tr><td>營業利益</td><td>63,734</td><td>28,440</td><td>費用率 8.7%，槓桿極高</td></tr><tr><td>稅後淨利</td><td>59,688</td><td>26,422</td><td>含 7,771 投資收益</td></tr><tr><td>營業現金流</td><td>24,077</td><td>15,365</td><td>佔稅後淨利 40.3%，去年同期 58.1%</td></tr><tr><td>資本支出</td><td>2,677</td><td>1,894</td><td>輕資產，自由現金流 21,341</td></tr><tr><td>應收帳款</td><td>63,059</td><td>—</td><td>週轉天數 60 天，上季約 45 天</td></tr><tr><td>存貨</td><td>31,575</td><td>—</td><td>為 Vera Rubin 備貨，約 119 天成本</td></tr></tbody></table><div class="note">資料來源：輝達 FY2027Q2 財報與 10-Q（2026/08/26）。FY2026Q2 為同期對比，應收帳款與存貨的上季餘額按現金流量表變動額倒推。</div><div class="section"><div class="section-title">損益表：三個數字互相咬得住</div><p class='txt'>營收 96,221、營業成本 24,079、毛利 72,142、營業費用 8,408、營業利益 63,734。這五個數字自洽，沒有一次性項目拉抬。營業利益率 66.2%，比上一季 65.6% 還高，說明規模效應還在。</p><p class='txt'>稅後淨利 59,688 要拆一層：其他收入淨額 77.73 億元，其中股權證券收益 77.71 億元（H1 累計 237.07 億元）。這塊錢來自對 OpenAI、Anthropic、CoreWeave 這類公司的股權投資重估，會隨市場波動反向咬人。<b>剔除後淨利 532 億元、淨利率 55.3%——這才是核心盈利能力，也已經高得離譜。</b></p><p class='txt'>每股：GAAP 攤薄 2.46 美元、非 GAAP 2.22 美元。非 GAAP 比 GAAP 低，是因為從 FY2027Q1 起公司把股權激勵計入非 GAAP 口徑，這是一個更誠實的做法，值得記一筆。</p></div><div class="section"><div class="section-title">現金流量表：印鈔機在轉，但轉速掉了一半</div><p class='txt'>營業現金流 240.77 億元，去年同期 153.65 億元，絕對值成長 57%。但稅後淨利從 264.22 億元增至 596.88 億元，成長 126%。<b>現金增速落後利潤增速 69 個百分點，轉化率從 58.1% 降至 40.3%。</b></p><p class='txt'>資金流向何處，逐項可見：應收帳款增加 223.46 億元（餘額 630.59 億元，帳期 60 天）；存貨增加 57.84 億元（餘額 315.75 億元）；預付款項及其他資產增加 54.97 億元。三項合計 336 億元，恰好等於稅後淨利與營業現金流的差額減去投資收益。</p><p class='txt'>投資活動方面更值得關注：本季購買股權證券 158.22 億元，H1 累計 424.04 億元；購置固定資產 26.77 億元。<b>購買他人股權的金額是購置自身設備的 6 倍。</b>籌資活動：發行債券 248.96 億元、回購 197.32 億元、現金股利 60.47 億元。一家淨現金公司發行 250 億元債券去購買他人股權，這是 2026 年英偉達最該被追問的問題。</p></div><div class="section"><div class="section-title">資產負債表：乾淨，但乾淨的方式變了</div><p class='txt'>總資產 3,202.72 億，總負債 912.88 億，資產負債率 28.5%；權益 2,289.84 億，半年增 717 億。現金 224.43 億 + 可售債券 341.43 億 − 債務 333.66 億 = 淨現金 232.20 億，仍然是淨現金公司。</p><p class='txt'>變的是資產結構。可售股權證券 427.83 億（年初 128.86 億）+ 非上市股權 511.57 億（年初 222.51 億）= <b>939.40 億美元股權投資，佔總資產的 29.3%</b>。半年前這個比例是 16.3%。公司自己說，向前沿 AI 實驗室投了近 500 億美元。</p><p class='txt'>一家晶片公司把三成資產放在客戶和潛在客戶的股權上，這在會計上沒問題，在商業上意味著兩件事：這些股權的公允價值會進利潤表（所以利潤會跟著市場波動）；這些客戶同時是收入來源（所以收入的品質和股權的價值綁在一起）。<b>巴菲特會在這裡停下來，因為這是他最不喜歡的那種循環。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>一句話：損益表說的是需求，現金流量表說的是誰在為需求付錢。</b>兩張表都真實，但後者更重要。當一家公司的淨利增速是現金增速的兩倍，估值就該按現金流給，不該按淨利給。<b>盯三個數：應收週轉天數（60 天）、營業現金流/淨利（40%）、股權投資占資產比（29%）。這三個數一起惡化，就是這門生意性質改變的訊號。</b></p></div>
+</div>
+<div class="footer">輝達 (NVDA) · 2026/08/31</div>
+</body>
+</html>

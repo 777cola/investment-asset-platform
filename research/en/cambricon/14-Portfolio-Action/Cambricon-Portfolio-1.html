@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Cambricon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/cambricon/14-组合管理建议/寒武纪-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/cambricon/14-組合管理建議/寒武紀-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/cambricon/14-Portfolio-Action/Cambricon-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Portfolio — Cambricon</h1>
+  <div class="subtitle">Cambricon (688256) | 14 · Portfolio</div>
+  <div class="meta">Research date 2026/08/17 &nbsp;·&nbsp; Price ¥1,156.00 (+5.76%) &nbsp;·&nbsp; Market cap Approximately RMB 727.1 billion &nbsp;·&nbsp; PE(TTM) Approximately 218x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/cambricon/00-Cambricon-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>结论很干脆：<b>现在 0 仓位，不设观察仓。</b>理由是赔率——中性目标 830 元（−28%）、悲观 400 元（−65%）、乐观 1,450 元（+25%），按 25/50/25 加权期望收益 −24%。在这种赔率上建“观察仓”，等于用真金白银买一个“我怕错过”的心理安慰。</p><p class='txt'>价位纪律写清楚：<b>800—900 元开第一档 3%；700 元以下加到 5%；1,400 元以上不新增、已持有则减半。</b>止损不适用于零仓位；一旦建仓，止损线设在“Q3 环比 <5% 且存货继续增加”这条基本面上，而不是价格上——因为这家公司的波动会先打掉价格止损，再回到基本面。</p></div><table class="dt"><caption>Position sizing and price-level discipline</caption><thead><tr><th>Scenario</th><th>Position</th><th>Rationale</th></tr></thead><tbody><tr><td>Current price RMB 1,156 (218x PE)</td><td>0%</td><td>Expected return −24%, with the odds stacked the wrong way; no observation position, to avoid the psychological trap of "just buy a little first"</td></tr><tr><td>RMB 800–900 (corresponding to 71–80x 2027 neutral net profit)</td><td>3%</td><td>Odds improve to about 1:1, first tranche can be opened; Q3 data still needs to not deteriorate</td></tr><tr><td>Below RMB 700 (corresponding to 68x 2027 neutral net profit)</td><td>5%</td><td>Even the bear case leaves only −43%, so a margin of safety is beginning to emerge; this is the upper limit permitted by the framework</td></tr><tr><td>Above RMB 1,400</td><td>0% (halve existing holdings)</td><td>That corresponds to over 100x under the optimistic 2028 assumptions — pure sentiment pricing</td></tr><tr><td>Q3 QoQ &lt;5% and inventory continues to rise</td><td>Liquidate / Do not initiate</td><td>If the fundamentals are disproven, don't buy no matter how low the price</td></tr></tbody></table><div class="note">Position cap 5%: a name with 88.66% single-customer concentration, negative cash flow and a 218x valuation should not exceed 5% of the portfolio. See m04 for target price and scenarios.</div><div class="section"><div class="section-title">Why 0% and not "try 1%"</div><p class='txt'>Many will say: with a company this good, buy 1% to watch it. I do not accept this approach. <b>A 1% position makes no money; it only makes you stare at the stock price every day.</b> It also creates a psychological anchor—once you buy, you start looking for bullish reasons, which is called "position bias."</p><p class='txt'>The more practical reason is the payoff. An expected return of −24% means every purchase at this level loses money over the long run; a 24% loss on a 1% position affects the portfolio by only 0.24%, but it consumes attention and judgment. <b>At 218x P/E, attention is more expensive than money.</b></p><p class='txt'>One more piece of portfolio-level arithmetic: assume a portfolio of RMB 1 million and a 5% cap (RMB 50,000). Under the neutral scenario (RMB 830), a 4% gain; the optimistic scenario (RMB 1,450), a 25% gain; and the pessimistic scenario (RMB 400), a 65% loss—the expected contribution of a 5% position is −1.2%. <b>In other words, even if this position is right, it contributes only 1 point; if wrong, it loses 3 points.</b> With risk-reward this asymmetric, the only correct action is not to do it.</p></div><div class="section"><div class="section-title">How was the RMB 800 threshold set?</div><p class='txt'>This is not a guess. 2027 neutral net profit of RMB 6.5 billion × 80x = RMB 520 billion market cap ÷ 628.29 million shares = RMB 827. Setting 800 leaves a 3% buffer. <b>At this price, the neutral case offers 4% upside, the optimistic case 81% upside, and the pessimistic case −50%, shifting the risk-reward from 1:2.6 to about 1:1.</b></p><p class='txt'>Why not wait for RMB 700? Because waiting for RMB 700 means you believe even the neutral case will not materialize—that is the pricing of the "pessimistic case." If it does reach RMB 700, one thing must first be confirmed: <b>has the valuation fallen, or has the thesis broken.</b> If the latter, do not buy even at RMB 700.</p></div><div class="section"><div class="section-title">Triggers for adding to and trimming positions</div><b>Three conditions to add to the position (3% → 5%), all of which must be met simultaneously:</b> ① Q3 and Q4 revenue up more than 15% QoQ (full-year RMB 13.5 billion achieved); ② operating cash flow/net profit back above 0.5; ③ gross margin no lower than 53%. <b>Three conditions to cut the position (5% → 0), any one of which triggers:</b> ① single-quarter gross margin falls below 50%; ② top-five customer concentration rises above 90% or a major customer shifts orders; ③ share price returns above RMB 1,400 (valuation overextended).<p class='txt'>Note there is no "stop-loss price" here. For a stock that swings 5% a day on average, a price stop-loss will only shake you out at the bottom. <b>Use fundamentals for stop-loss, use price for take-profit</b>—this is the only workable discipline for high-volatility growth stocks.</p></div><div class="section"><div class="section-title">Correlation with other holdings: it is not a diversification tool</div><p class='txt'>Cambricon's earnings driver is "domestic AI compute capex," which moves highly in the same direction as the following assets: Hygon Information (same track, rough correlation coefficient 0.7–0.8), SMIC (upstream capacity, 0.6–0.7), and memory and optical modules (AI compute chain, 0.5–0.7). <b>If your portfolio already holds AI compute chain positions, adding Cambricon amounts to adding leverage, not diversification.</b></p><p class='txt'>Its correlation with consumer, dividend and utility assets is low or even negative, so in theory it can hedge — but that is "hedging low-volatility assets with high-volatility assets," putting the cart before the horse. <b>The right approach: cap the AI compute chain as a whole at 10%–15% of the portfolio, with Cambricon only a small slice of that.</b></p><p class='txt'>Correlation coefficients are rough estimates based on industry logic and historical price action, without rigorous regression; they serve only to judge position diversification and are not a quantitative basis.</p></div><div class="summary-box"><h3>Conclusion</h3><b>Portfolio conclusion: 0 position, no watchlist position.</b> At 218x P/E and -24% expected return, any position is negative EV. Price discipline: open 3% at RMB 800–900, 5% below RMB 700, halve above RMB 1,400; fundamental stop-loss (exit if Q3 QoQ growth <5% and inventory rises). <b>Highly correlated with Hygon, SMIC and memory/optical module names; it cannot serve as a diversification tool.</b></div>
+</div>
+<div class="footer">Cambricon (688256) · 2026/08/17</div>
+</body>
+</html>

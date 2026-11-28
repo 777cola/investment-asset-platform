@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新聞異動 — 百度</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/baidu/12-新闻异动归因/百度-新闻异动.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/baidu/12-新聞異動歸因/百度-新聞異動-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/baidu/12-News-Attribution/Baidu-News-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>新聞異動 — 百度</h1>
+  <div class="subtitle">百度 (9888.HK) | 12 · 新聞異動</div>
+  <div class="meta">研究日期 2026/11/23 &nbsp;·&nbsp; 股價 HK$63.55（-0.78%） &nbsp;·&nbsp; 市值 約 1,680 億港元（約 215 億美元） &nbsp;·&nbsp; PE(TTM) 約 19.7x（報表口徑，受減值擾動）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/baidu/00-百度研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>歸因結論</h3><p class='txt'>近三個月七件值得記的事，按性質分三類：<b>真訊號兩件</b>（Q3 財報廣告 -22%、信報報導首次派息臨近），<b>敘事噪音三件</b>（蘿蔔快跑里程、管理層「回收週期縮短」、賣方目標價），<b>板塊擾動兩件</b>（11/20 全球 AI 股暴跌、11/23 反彈）。<b>最值得注意的不是跌，是 11/23 輝達單日 +31% 而百度 -0.78%——市場已經不把它當 AI 股定價了。</b></p></div><table class="dt"><caption>近三個月關鍵事件（2026/08–11/23）</caption><thead><tr><th>日期</th><th>事件</th><th>股價反應</th><th>性質</th></tr></thead><tbody><tr><td>2026/08 下旬</td><td>Q2 財報：資本支出 114 億元創單季新高，AI 雲延續高成長</td><td>平淡，未形成趨勢</td><td>基本面確認（偏負）</td></tr><tr><td>2026/09</td><td>蘿蔔快跑營運城市擴至 30 個，累計自動駕駛里程 3.9 億公里</td><td>無明顯反應</td><td>敘事，噪音</td></tr><tr><td>2026/11/15</td><td>業績會：李彥宏稱「AI 雲投資回收週期在縮短」</td><td>小幅波動，未獲支撐</td><td>管理層喊話，噪音</td></tr><tr><td>2026/11/15</td><td>信報：經調整少賺 36%，料年底前宣布首次派息</td><td>小幅波動</td><td>訊號（股東回報）</td></tr><tr><td>2026/11/16</td><td>Q3 財報：營收 308.07 億元 -1.1%，AI 占比 53%</td><td>小跌，無反彈</td><td>核心訊號</td></tr><tr><td>2026/11/18</td><td>摩根大通下調目標價至 130 港元：AI 雲過測試、廣告未過</td><td>無顯著反彈</td><td>賣方分歧，參考</td></tr><tr><td>2026/11/20</td><td>全球 AI 股暴跌，輝達單日 -14%，恒科跟跌</td><td>跟隨下跌</td><td>板塊 beta，噪音</td></tr><tr><td>2026/11/23</td><td>輝達反彈 +31%，百度收 63.55 港元、-0.78%</td><td>未跟漲，距高點 -60.4%</td><td>結構性折價證據</td></tr></tbody></table><div class="note">日期來自公開報導；除 2026/11/23 收盤價 63.55 港元、-0.78%、52 週高 160.5 港元（batchdata）外，其餘單日漲跌幅未逐日核對，股價反應為定性描述。</div><div class="section"><div class="section-title">時間線讀法：壞消息跌得少，好消息也不漲</div><p class='txt'>把七件事按時間排開，會看到一個反常識的形態：<b>利空出來，股價沒有暴跌；利好出來，股價也不漲。</b>Q2 財報資本支出創高，反應平淡；Q3 財報營收負成長，小跌；11/20 全球科技股崩盤，跟著跌；11/23 輝達 +31%，百度 -0.78%。</p><p class='txt'>這種「鈍化」是典型的籌碼結構特徵：想賣的人在前幾個月已經賣完了，剩下的人不打算賣；但也沒有新資金願意進來。日均成交萎縮、波動收斂，股價就貼著 52 週低位橫盤。<b>這不是「跌不動」，是「沒人關心」。</b>對一個靠催化劑才能重估的標的，沒人關心比跌更難受。</p></div><div class="section"><div class="section-title">三件雜訊：里程、喊話、目標價</div><p class='txt'><b>蘿蔔快跑 30 城、3.9 億公里</b>是最容易被當成利多的消息。但它沒有對應的收入行——Robotaxi 的收入被併進「AI 應用」或其他口徑，財報裡看不到單均成本、單車收入、毛利。沒有財務數據支撐的營運數字，只能算敘事。</p><p class='txt'><b>「AI 雲投資回收週期在縮短」</b>是管理層在業績會上的表述，屬於定性判斷，沒有任何量化口徑：回收週期原來是幾年、現在是幾年、按什麼口徑算，都沒說。<b>這類話的功能是穩定預期，不是提供資訊。</b></p><p class='txt'><b>摩根大通 130 港元目標價</b>看著比現價高 105%，但它是一份賣方報告的觀點，不是事實。它的價值在於提供了一個外部參照：<b>連最看多的賣方也只給 130 港元，對應市值約 3,400 億港元，仍低於現金加投資</b>——這本身說明市場對這個資產的定價共識有多低。</p></div><div class="section"><div class="section-title">兩個真訊號：廣告降幅與派息</div><p class='txt'>真正的訊號只有兩個，都在財報和公告裡。<b>第一個是在線營銷 -22%</b>——這是連續多季雙位數下滑的延續，而且 AI 原生營銷 24 億元、-15% 說明新形態也沒接上。這個數字決定了總收入的方向，也決定了估值該給 10 倍還是 20 倍。</p><p class='txt'><b>第二個是首次派息。</b>信報 2026/11/15 報導公司「料年底前宣布首次派息」。這條消息的重要性被市場低估了：一家從未分紅的公司，第一次分紅意味著資本配置哲學的改變——從「錢留著投 AI」變成「錢要還給股東」。<b>如果落地，0.52 倍 PB 的修復就有了內生動力，不需要等 AI 贏。</b></p><p class='txt'>判斷標準很簡單：看公告，不看報導。派息金額、回購授權額度、執行節奏，三個數字出來才算數。</p></div><div class="section"><div class="section-title">最值得注意的一天：11 月 23 日</div><p class='txt'>11 月 20 日全球科技股暴跌，輝達單日 -14%；11 月 23 日輝達反彈 +31%。同一天，百度收 63.55 港元、跌 0.78%。<b>這個對比比任何研報都有資訊量：市場已經不給百度「AI beta」了。</b></p><p class='txt'>2023 年百度是「中國 AI 概念龍頭」，輝達漲它跟漲、OpenAI 發新模型它跟漲。現在這個聯動斷了。原因不難理解：AI 交易的主線是算力與模型能力，百度的 AI 雲是第三梯隊，模型是第二梯隊，廣告還是負成長——<b>它既不是算力受益者，也不是模型贏家，只是一個「有 AI 業務的老網路公司」。</b></p><p class='txt'>這個定價是對的。反過來講，也意味著一旦它真的做出利潤（雲分部轉正、派息落地），重估的空間會很大——因為它現在的定價裡，AI 成分是零。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>歸因結論：<b>七件事裡只有兩件是訊號——廣告 -22% 和派息臨近；其餘是敘事與板塊擾動。</b>股價在 63.55 港元、52 週低位橫盤，不是因為跌不動，是因為沒有新資金關心。11/23 輝達 +31% 而百度 -0.78%，是「AI 定價歸零」的最直接證據。<b>操作上：不為敘事買單，只等兩個可驗證的訊號。</b></p></div>
+</div>
+<div class="footer">百度 (9888.HK) · 2026/11/23</div>
+</body>
+</html>

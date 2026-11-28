@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Check — Berkshire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/berkshire/3-财务数据交叉验证/伯克希尔-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/berkshire/3-財務數據交叉驗證/波克夏-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/berkshire/3-Financial-Cross-Check/Berkshire-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Financial Check — Berkshire</h1>
+  <div class="subtitle">Berkshire (BRK.B) | 03 · Financial Check</div>
+  <div class="meta">Research date 2026/11/16 &nbsp;·&nbsp; Price $592.85 (-0.02%) &nbsp;·&nbsp; Market cap About USD 1.26 trillion &nbsp;·&nbsp; PE(TTM) Approximately 16.6x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/berkshire/00-Berkshire-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Cross-validation conclusion</h3><p class='txt'>Eight core data points were cross-checked against two sources; three deviations exceeded 1%: market cap 2.4%, PE 3.0%, PB 3.1%, all due to different pricing timestamps. One report also wrote "USD 761.4 billion shareholder equity" as "USD 76.14 billion", a unit typo, which has been corrected to the 10-Q basis.</p><p class='txt'>The final figures use one internally consistent basis: market cap of USD 1.26 trillion recalculated at the 11/16 closing price, PE of 16.6x on TTM GAAP net income, and PB of 1.66x on B-share equivalent book value of USD 357.7. All multiples in this report derive from these three numbers.</p></div><table class="dt"><caption>Core data: dual-source comparison</caption><thead><tr><th>Metric</th><th>Source A (company disclosure)</th><th>Source B (secondary check)</th><th>Deviation</th><th>Processing</th></tr></thead><tbody><tr><td>2026Q3 operating profit</td><td>USD 12.705 billion (quarterly report)</td><td>RMB 13.485 billion (prior-year period, -5.8% YoY, restated)</td><td>0.0%</td><td>Adopt RMB 12.71 billion</td></tr><tr><td>2026 Q3 GAAP net profit</td><td>USD 22.112 billion (quarterly report)</td><td>RMB 30.80 billion (prior-year period, -28.2% YoY, restated)</td><td>0.0%</td><td>Adopt RMB 22.112 billion, marked as including investment gains and losses</td></tr><tr><td>Shareholders' equity</td><td>USD 761.4 billion (10-Q)</td><td>RMB 76.14 billion (Quartr summary, unit missing)</td><td>100x</td><td>Ruled a clerical error; RMB 761.4 billion used</td></tr><tr><td>Book value per share</td><td>A-share USD 536,590 (10-Q)</td><td>Discounting B shares at USD 357.7 (÷1,500)</td><td>0.0%</td><td>Adopt USD 357.7</td></tr><tr><td>Market cap</td><td>USD 1.26 trillion (592.85 × 2.13 billion shares)</td><td>RMB 1.23 trillion (stockanalysis, mid-November)</td><td>-2.4%</td><td>Use HKD 1.26 trillion, noting recalculation based on the November 16 close</td></tr><tr><td>PE(TTM)</td><td>16.6x (RMB 1.26 trillion / approx. RMB 76 billion)</td><td>16.11x（stockanalysis）</td><td>-3.0%</td><td>Using 16.6x</td></tr><tr><td>PB</td><td>1.66x（592.85/357.7）</td><td>1.61x（stockanalysis）</td><td>-3.1%</td><td>Using 1.66x</td></tr><tr><td>Share buybacks in the first three quarters</td><td>USD 14.4 billion (10-Q)</td><td>Q3 single quarter RMB 9.65 billion + Q2 RMB 4.53 billion = RMB 14.17 billion</td><td>-1.6%</td><td>Use RMB 14.4 billion, with the difference being the first quarter</td></tr></tbody></table><div class="note">Source A: Berkshire 2026Q3 financial report and 10-Q (2026/11/07). Source B: Quartr summary, stockanalysis.com/stocks/brk.b/statistics/, Zhitong Finance and Securities Times reports (2026/11/08–11/16).</div><div class="section"><div class="section-title">Deviation one: a 2.4% market-cap gap, purely a matter of pricing timing</div><p class='txt'>stockanalysis shows USD 1.23 trillion; our figure is USD 1.26 trillion. The USD 30 billion gap equates to a USD 14 per-share difference (about 2.4%), exactly the move driven by the mid-November safe-haven buying.</p><p class='txt'>The report-date share price of USD 592.85 is batchdata's closing data, so market cap must be recalculated at that price: 592.85 × 2.13 billion shares (B-share equivalent, with A shares converted at 1:1,500) = USD 1.263 trillion. <b>The gap is not a data error; it is a difference in dates.</b></p><p class='txt'>The same cause produces a 3% difference in both PE and PB. This kind of deviation does not need to be explained as a "definitional difference", but it must be flagged in the table, otherwise readers will assume someone made a calculation error.</p></div><div class="section"><div class="section-title">Deviation 2: RMB 761.4 billion written as RMB 76.14 billion, a 100-fold difference</div><p class='txt'>Quartr's summary says "shareholders' equity USD 76.14 billion," but the balance sheet in the 10-Q shows USD 761.4 billion. The basis for judgment is simple: <b>market cap of USD 1.26 trillion ÷ 761.4 billion = 1.66x PB, which matches exactly the 1.66x calculated from share price/book value</b>; if equity really were 76.1 billion, PB would become 16.6x, which is absurd.</p><p class='txt'>This kind of error is common in Chinese financial media—mixing up the units "USD billion" and "USD hundred million." The fix is not to "take the average" but to go back to the original statements.</p><p class='txt'>A related pitfall worth mentioning: Berkshire's "cash and short-term Treasuries of USD 377.4 billion" is a <b>gross</b> figure; after deducting working capital at the railroad and energy businesses and Treasuries purchased but not yet settled, it is USD 352.3 billion. Both figures have been disclosed by the company, and mixing them would change "cash as a percentage of market cap" from 30% to 28%. This article uses the gross figure throughout and notes it wherever ratios are involved.</p></div><div class="section"><div class="section-title">Deviation 3: buyback RMB 14.4 billion vs RMB 14.17 billion — the shortfall is Q1</div><p class='txt'>Q2 RMB 4.527 billion + Q3 RMB 9.647 billion = RMB 14.17 billion, but the company says RMB 14.4 billion for the first three quarters. The RMB 230 million gap is Q1 buybacks, rarely mentioned in market reports, because the stock traded near USD 540 in Q1, making the buyback small and not newsworthy.</p><p class='txt'>The gap itself does not matter; what matters is the <b>pace</b>: about RMB 230 million in Q1, RMB 4.527 billion in Q2, RMB 9.647 billion in Q3. Buybacks are accelerating, and the acceleration came as the stock hit new highs. That is the fact that needs explaining.</p></div><div class="section"><div class="section-title">Final adopted basis and two pitfalls that must not be conflated</div><p class='txt'><b>Basis used:</b> Market cap USD 1.26 trillion (recalculated on the 11/16 close), PE(TTM) 16.6x (TTM GAAP net profit of about USD 76 billion), PB 1.66x (B-share equivalent book value USD 357.7), operating profit multiple 24.8x (annualized USD 50.82 billion). The four multiples are internally consistent; change one and you must change them all.</p><p class='txt'><b>Pitfall one: GAAP net profit and operating profit cannot be mixed.</b> GAAP net profit of USD 22.112 billion includes large unrealized investment gains and swings wildly by quarter (the -28.2% year-on-year is mainly this); operating profit of USD 12.705 billion is the business itself. PE on GAAP gives 16.6x; PE on operating profit gives 24.8x, <b>and the latter is the answer to "is it expensive"</b>.</p><p class='txt'><b>Pitfall two: book value per share has two versions.</b> A shares USD 536,590, B shares USD 357.7, a ratio of 1,500:1. Every P/B must use the B-share price against B-share book value; mixing them produces absurd figures like 1,000x.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'>Eight checks, data credible. All three >1% deviations stem from pricing timing; one unit typo has been corrected. <b>The only thing readers need to remember: the 16.6x PE is on a GAAP basis; 24.8x is the operating basis — the latter determines whether this investment is expensive.</b></p><p class='txt'>Looking only at media headlines citing "16.6x PE, cheaper than the S&P" leads to the completely opposite conclusion. This is the valuation trap most easily fallen into with Berkshire.</p></div>
+</div>
+<div class="footer">Berkshire (BRK.B) · 2026/11/16</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀（李錄） — 特斯拉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/tesla/8-财报团队解读/特斯拉-大师精读-李录.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/tesla/8-財報團隊解讀/特斯拉-財報團隊解讀-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/tesla/8-Earnings-Team-Read/Tesla-Earnings Team-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀（李錄） — 特斯拉</h1>
+  <div class="subtitle">看資本週期，不看單季利潤</div>
+  <div class="meta">研究日期 2026/07/22 &nbsp;·&nbsp; 股價 $374.01（-1.30%） &nbsp;·&nbsp; 市值 約 1.48 萬億美元 &nbsp;·&nbsp; PE(TTM) —（利潤太薄，PE 已失真）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/tesla/00-特斯拉研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3>李錄讀財報先看資本投到哪裡、投多久、回報率多少。特斯拉這個季度投了 57.89 億，回報率要等三到五年才知道——這是資本週期最早期、也最危險的階段。</div><div class="section"><div class="section-title">資本週期：從一個輕資產故事變成一個重資產故事</div><p class='txt'>2019–2023 年，特斯拉的故事是「輕資產、軟體定義汽車、毛利率 25%」。2026 年的故事是「AI 基礎設施、機器人工廠、自建晶圓廠」，資本支出從 85 億跳到 250 億。<b>這是一次商業模式的根本切換，不是一次季度波動。</b></p><p class='txt'>李錄的框架裡，資本週期的關鍵問題是：<b>這一輪投資結束後，行業會變得更好還是更差？</b>如果所有玩家都在投 AI 與機器人，三年後產能過剩、回報率下降，那麼今天的投資就是價值毀滅。</p><p class='txt'>特斯拉的特殊之處在於它投的東西別人投不了：訓練算力、自有晶片、整車製造、能源網路四件事同時做的，全球只有它一家。<b>這種獨特性是護城河，也是資本效率的黑洞——每一件事都要單獨養一條產線。</b></p></div><div class="section"><div class="section-title">單位經濟：Robotaxi 的帳要先算清才能信</div><p class='txt'>財報沒有披露 Robotaxi 的任何單位經濟數據，只有一句「覆蓋美國七大都會區」。<b>要判斷這塊業務，得自己搭一個模型：</b>一輛 Cybercab 成本約 3 萬美元，日跑 20 單、單均 8 美元，年收入 5.8 萬美元；扣除電費、保險、維護、平台抽成，毛利率 40%，年毛利 2.3 萬美元，兩年回本。</p><p class='txt'>這個模型的關鍵變數有三個：<b>利用率（能否做到 20 單/天）、監管（能否無安全員）、事故成本（保險與訴訟）。</b>Waymo 跑了八年、10 個城市、每週 50 萬單，至今沒有公布單車盈利——這本身就是答案：<b>如果單位經濟很好，它早就公布了。</b></p><p class='txt'>所以對 Robotaxi 的估值，應該按「期權」而不是「業務」處理：給它一個成功機率，再乘以成功後的價值。<b>現在的市場做法相反——先給成功後的價值，再假裝機率是 100%。</b></p></div><div class="section"><div class="section-title">長期視角：三個趨勢，一個贏家位置</div><p class='txt'>電動化、自動駕駛、具身智能，三件事都是文明級的效率躍遷。特斯拉在三件事上都有真實資產，這在全球公司裡是獨一份。<b>李錄會承認這一點，也會承認這不足以支撐當前價格。</b></p><p class='txt'>因為長期視角還有下半句：<b>趨勢的正確性會被所有資本看到，最終把超額利潤抹平。</b>光伏、航空、鐵路都是正確的趨勢，長期回報接近於零，因為資本支出吞掉了全部利潤。</p><p class='txt'>特斯拉要避免這個命運，只有一條路：<b>在趨勢被資本抹平之前，建立起別人複製不了的東西。</b>超充網路、自有晶片、車隊資料是候選，但都還沒有形成定價權。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>李錄式結論：</b>方向對、位置好、時點早。<b>早的意思是：現在買入，你要為還沒發生的事付全價，還要承擔資本週期下行的風險。</b>正確的做法是等——等到單位經濟被披露、等到資本支出見頂、等到估值回到能用機率算清的區間。</p></div>
+</div>
+<div class="footer">特斯拉 (TSLA) · 2026/07/22</div>
+</body>
+</html>

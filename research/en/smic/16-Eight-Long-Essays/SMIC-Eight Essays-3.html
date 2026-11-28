@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>③ Moat anatomy — SMIC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/smic/16-八篇深度长文/中芯国际-03-护城河解剖.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/smic/16-八篇深度長文/中芯國際-八篇長文-3.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/smic/16-Eight-Long-Essays/SMIC-Eight Essays-3.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>③ Moat anatomy — SMIC</h1>
+  <div class="subtitle">The river is wide, but the water is shallow.</div>
+  <div class="meta">Research date 2026/08/10 &nbsp;·&nbsp; Price ¥126.25 (-1.75%) &nbsp;·&nbsp; Market cap About RMB 1.08 trillion &nbsp;·&nbsp; PE(TTM) Approximately 205x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/smic/00-SMIC-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>A moat must answer two questions: can competitors get in, and can customers get out. SMIC's answer is "they can't get in, they can't get out" — both are solid. But a third question is often overlooked: <b>can the moat protect profit?</b> SMIC's answer is "no". This is a wide moat with shallow water.</p></div><div class="section"><div class="section-title">First moat: licenses and production capacity quotas (9/10)</div><p class='txt'>Building a 12-inch line takes three things: USD 10 billion, three years, and equipment licenses. The third is the hardest—after being added to the Entity List in 2020, SMIC needs licenses to buy equipment; EUV has never been obtainable, and by April 2026 even DUV was placed on the proposed ban list. This barrier was not formed by market competition but by administrative action, which makes it harder to cross than any technical barrier.</p><p class='txt'>Add capacity quotas (local governments approving land, power and environmental permits) and funding from the Big Fund, and no new players have entered the domestic market in the past five years—nor will any in the next five. This is the hardest river to cross.</p><p class='txt'>But it has a side effect: <b>the administrative barrier also constrains its expansion.</b> Others cannot get in, and it cannot get out—expanding capacity requires permits first, and buying equipment depends on policy. The two-sided nature of the moat is clearest here.</p></div><div class="section"><div class="section-title">Second moat: customer switching costs (8/10)</div><p class='txt'>Automotive-grade chips take 18–24 months to qualify, requiring AEC-Q100 certification, volume-production validation and long-term supply agreements. Industrial and automotive revenue accounts for 14.0%, up 62.6% year on year — the stickiest part of the business, since switching fabs means redoing two years of certification.</p><p class='txt'>Leading-edge processes are more extreme still: for a domestic design house to build 7nm-class chips, SMIC is the only option — switching fabs means switching countries. Huawei takes about 43% of N+2 capacity and Cambricon about 11%; this allocation is not market bidding but capacity quotas.</p><p class='txt'>But switching cost has a precondition: <b>switching cost only exists when the customer has alternatives; without alternatives, it is not choice but no choice.</b> Many SMIC customers fall into the latter category. Revenue from no choice is stable, but pricing power is not there — which is why SMIC can only raise prices selectively.</p></div><div class="section"><div class="section-title">Third moat: scale and cost (8/10, 5/10)</div><p class='txt'>Scale: 1.078 million wafers/month (8-inch equivalent), third globally and first in mainland China. Scale brings two benefits—procurement bargaining power (though still weak against equipment vendors) and capacity allocation (orders can be shifted across four fabs). Hua Hong has 508,000 wafers and Nexchip is smaller still; neither can catch up in the near term.</p><p class='txt'>Cost: 5 points. Depreciation is 43.4% of revenue, twice TSMC's; no bargaining power in wafer procurement; DUV multi-patterning raises unit costs for advanced nodes. Cost is SMIC's weakest link, and it is structural—not something management can fix.</p><p class='txt'>Technology: 5 points. N+2 in mass production, N+3 advancing, but two generations behind, no EUV, yields undisclosed. Technology can hold orders but not gross margin.</p></div><div class="section"><div class="section-title">The time dimension of moats: how many will remain in five years</div><p class='txt'>Moats are not static. Look at the five moats five years out: the licence moat is the most stable (regulation will not loosen), the switching-cost moat will weaken (as domestic EDA and IP mature, the cost of changing foundries falls), the scale moat will be closed in on (Hua Hong and Nexchip are both expanding capacity), the cost moat may improve (depreciation rolling off, lower costs from domestic equipment), and the technology moat depends on whether there is an alternative path without EUV.</p><p class='txt'>In other words, five years out the aggregate moat score will fall, and the fastest-falling components are "scale" and "switching costs" — precisely the two that support the valuation today.</p><p class='txt'>This is also why it cannot be valued on a "perpetual" basis. For a company whose moat is shrinking, fair value should decline over time; today's 6.3x PB implies a moat that is permanent and widening.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Moat anatomy conclusion:</b> wide river (licence 9, switching 8, scale 8), shallow water (cost 5, technology 5), weighted score 6.6. It guarantees "revenue exists", not "profits are rich". Paying 6.3x PB for such a moat mistakes "won't disappear" for "highly profitable". One line to remember: a moat keeps rivals out, not depreciation, so it protects revenue, not profit. See this layer clearly, and you won't treat the moat as a reason for valuation.</p></div>
+</div>
+<div class="footer">SMIC (688981) · 2026/08/10</div>
+</body>
+</html>

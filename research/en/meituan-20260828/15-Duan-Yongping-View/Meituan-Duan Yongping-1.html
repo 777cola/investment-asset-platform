@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duan Yongping — Meituan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20260828/15-段永平视角/美团-段永平视角.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/meituan-20260828/15-段永平視角/美團-段永平視角-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/meituan-20260828/15-Duan-Yongping-View/Meituan-Duan Yongping-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Duan Yongping — Meituan</h1>
+  <div class="subtitle">Meituan (03690) | 15 · Duan Yongping</div>
+  <div class="meta">Research date 2026/08/28 &nbsp;·&nbsp; Price HK$77.50 (+0.00%) &nbsp;·&nbsp; Market cap Approximately HKD 478.6 billion (6.175 billion shares) &nbsp;·&nbsp; PE — (net loss of RMB 4.67 billion in H1 2026; PE distorted)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/meituan-20260828/00-Meituan-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>Ask again the way Duan Yongping would: Is this a good business? Yes, but not the best kind—it earns hard money. Will it still be here in ten years? Yes, because "delivered in thirty minutes" is not going away. Can I understand it? Yes, revenue is just three lines. At what price do I buy? HKD 77.5 is a fair price; only HKD 65 is cheap. What do I fear most? Most of all, a competitor that does not run the numbers. <b>Five questions asked, and the answer is still four words: buy a little.</b></p></div><div class="section"><div class="section-title">Q: Is this a good business?</div><p class='txt'>Good, but it depends on what you compare it with.</p><p class='txt'>Against Moutai, it is not good. Moutai can raise prices without asking anyone; Meituan has to negotiate with merchants, users and regulators. Against JD.com, it is far better. JD.com's self-operated retail operating margin is 4.6%, while Meituan's core local commerce can reach a steady-state 20.9% — on the same yuan of revenue, Meituan earns four times what JD.com does.</p><p class='txt'>So the precise answer is: <b>this is a business that is very good in good years and very bad in bad years.</b>It earned RMB 35.8 billion in 2024 and lost RMB 23.355 billion in 2025, with revenue differing by only 8 points. With a business like this, you have to accept its volatility.</p></div><div class="section"><div class="section-title">Q: Will it still be around in ten years?</div><p class='txt'>Yes. And most likely still number one.</p><p class='txt'>The reason is that demand will not disappear: people always need to eat, cities always need delivery, and once the 30-minute habit takes hold, there is no going back. The supply side is harder to replicate: 6 million riders, 8 million merchants, and a dispatch network spanning 2,800 counties and districts represent time that new entrants cannot buy with money.</p><p class='txt'>But "still there" does not equal "still profitable." <b>In ten years it could be a utility-type company earning RMB 20 billion a year with a market cap of RMB 500 billion, or a consumer-infrastructure company earning RMB 50 billion a year with a market cap of RMB 1.5 trillion.</b> The difference lies not in the company itself but in the competitive landscape. That is why I only buy a little — I can clearly see that it will still be there in ten years, but I cannot clearly see how much it will earn in ten years.</p></div><div class="section"><div class="section-title">Q: Can you understand it?</div><p class='txt'>It is understandable. Three revenue lines: delivery services RMB 26.78 billion, merchant services RMB 39.60 billion, product sales RMB 5.15 billion; one cost line: riders and fulfillment; two expense lines: marketing RMB 24.72 billion, R&D RMB 7.67 billion. Explainable in half an hour.</p><p class='txt'>Only one part is not understandable: <b>when the subsidies stop.</b> This is not the company's problem, it is the industry's problem, and no one can forecast an industry problem—including Wang Xing. What he said at the earnings call was "industry subsidies remain higher than in 2024 and will need several quarters to normalize"—that is all he can say.</p><p class='txt'>So the precise meaning of "understandable" is: <b>I know how it makes money, and I know what I am betting on.</b> I am not betting that Meituan gets stronger; I am betting that its rivals work out the math and conclude it does not pay. That bet I understand.</p></div><div class="section"><div class="section-title">Q: At what price to buy</div><p class='txt'>HKD 77.5, 15–18x 2027 normalized profit, 11–13x ex-net cash. That price is fair, but not cheap.</p><p class='txt'>What counts as cheap? <b>HKD 65, about 12.8x, 9x ex-cash, a 1:3 risk-reward.</b> That was the level at which the company itself bought back stock in June, and also the 52-week low. What counts as expensive? Above HKD 110, over 20x, the price at which "the recovery has already succeeded."</p><p class='txt'>My approach: <b>buy a little at HKD 77.5 (2%), buy more at HKD 65 (4%–5%), sell half at HKD 110, sell the rest at HKD 150.</b> Ignore tomorrow's moves; ask only whether the risk-reward at that price is worth it.</p></div><div class="section"><div class="section-title">Q: What is the biggest fear</div><p class='txt'>The biggest fear is not losing money, but <b>this industry never returning to rationality</b>.</p><p class='txt'>If the three players keep fighting, each losing money, each refusing to exit, the end result is: the industry survives, the companies survive, but profits do not. This state can persist for a long time—Chinese internet has precedents; video sites fought for ten years, and in the end three remained, none of which made big money.</p><p class='txt'>The second fear is rider costs spiraling out of control. From occupational injury protection to pension insurance to the full five insurances and one housing fund, every step is irreversible. If per-order cost rises by RMB 1 within three years, that is RMB 25 billion a year—more than normalized profit in 2027. <b>This is not a black swan, but a visible gray rhino.</b></p><p class='txt'>The third fear is overseas expansion. Brazil at USD 1 billion over 5 years—if that becomes USD 3 billion over 5 years, the nature of this investment changes. So I wrote "Brazil quarterly loss exceeding RMB 2 billion" as one of the falsification conditions.</p></div><div class="section"><div class="section-title">Q: What would you do if it fell 30%?</div><p class='txt'>First, distinguish between "the stock falling" and "the business changing."</p><p class='txt'>If the business has changed — Q3 core local commerce operating profit drops below RMB 2 billion, Alibaba re-escalates, merchant services turn negative — then admit the mistake, cut to 1% or exit entirely, regardless of cost basis.</p><p class='txt'>If it is the stock falling — fundamentals unchanged, only market sentiment — then add. A 30% drop from 77.5 is HKD 54, corresponding to roughly 10x 2027 normalized profit and 7x ex-cash. <b>At that price, as long as the business hasn't changed, I will add up to 6%.</b></p><p class='txt'>The key to this framework: <b>decide what to do if it falls before you buy.</b> Decide after buying, and emotion will carry you away.</p></div><div class="section"><div class="section-title">Q: Under what circumstances would you change your view?</div><p class='txt'>Three scenarios.</p><p class='txt'>First, <b>Q3 core local commerce operating profit below RMB 2 billion</b>. That would mean Q2 was a peak-season illusion, the inflection does not hold, and I will cut to below 1% and admit I misread the slope.</p><p class='txt'>Second, <b>Alibaba steps up subsidies again</b>. That is not Meituan's fault; it is my assumption that "the competitor will do the math" that was wrong. In that case I will wait rather than rush to add, because once a subsidy war restarts it could run four quarters.</p><p class='txt'>Third, <b>Meituan does something foolish itself</b>. For example, restarting a price war to grab share, or spending well above USD 1 billion in Brazil. The former would mean management has changed; the latter, that capital-allocation discipline is gone.</p><p class='txt'>Share-price moves outside these three scenarios will not change my view. <b>No adding on dips, no chasing rallies — I watch only these three.</b> That is what "knowing why you bought" means — anyone who cannot explain why they bought cannot explain when to sell either.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'>Five questions, five "buts." <b>A good business but hard-earned money; still around in ten years but unclear how much it will earn; understandable but the bet is on the competitor; fairly priced but not cheap; the biggest fear is industry irrationality.</b></p><p class='txt'>The conclusion stands: buy a little, and buy more when it gets cheaper or more certain. That is the entire meaning of "buy in small tranches."</p></div>
+</div>
+<div class="footer">Meituan (03690) · 2026/08/28</div>
+</body>
+</html>

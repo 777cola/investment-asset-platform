@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀 — 台積電</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/tsmc/7-财报精读/台积电-财报精读.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/tsmc/7-財報精讀/台積電-財報精讀-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/tsmc/7-Earnings-Deep-Read/TSMC-Earnings Read-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀 — 台積電</h1>
+  <div class="subtitle">台積電 (2330.TW) | 07 · 財報精讀</div>
+  <div class="meta">研究日期 2026/09/11 &nbsp;·&nbsp; 股價 NT$2,410（-1.63%） &nbsp;·&nbsp; 市值 約 62.5 萬億元新台幣（約 1.95 萬億美元） &nbsp;·&nbsp; PE(TTM) 約 27.9x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/tsmc/00-台積電研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：這是週期頂部最好看的一張財報</h3><p class='txt'>2026Q2 營收 12,703.8 億元（同比 +36.0%）、毛利率 67.7%（同比 +9.1pct）、稅後淨利 7,065.6 億元（同比 +77.4%）、EPS 27.25 元，四項全是歷史新高。現金流與資產負債表無懈可擊。<b>但 Q3 指引把毛利率拉回到 65%–67%，這是本輪週期第一個轉向訊號</b>——利潤增速見頂通常早於營收增速見頂一到兩個季度。</p></div><table class="dt"><caption>合併損益表（新台幣億元）</caption><thead><tr><th>項目</th><th>2026Q2</th><th>2026Q1</th><th>2025Q2</th><th>同比</th></tr></thead><tbody><tr><td>合併營收</td><td>12,703.8</td><td>11,341.0</td><td>9,341</td><td>+36.0%</td></tr><tr><td>營業毛利</td><td>8,600（粗算，67.7%）</td><td>7,507（粗算，66.2%）</td><td>5,474（粗算）</td><td>+57.1%</td></tr><tr><td>營業利益</td><td>7,240（粗算，約 57%）</td><td>—</td><td>—</td><td>—</td></tr><tr><td>稅後淨利</td><td>7,065.6</td><td>5,724.8</td><td>3,983</td><td>+77.4%</td></tr><tr><td>淨利率</td><td>55.6%</td><td>50.5%</td><td>42.6%</td><td>+13.0pct</td></tr><tr><td>每股盈餘（元）</td><td>27.25</td><td>22.08</td><td>15.36</td><td>+77.4%</td></tr></tbody></table><div class="note">營收、稅後淨利、毛利率、EPS 為公司披露值；營業毛利、營業利益為按披露比率粗算。2025Q2 各行按同比增速反推，非原始報表值。</div><table class="dt"><caption>現金流與資產負債（新台幣億元，粗算）</caption><thead><tr><th>專案</th><th>2026Q2</th><th>說明</th></tr></thead><tbody><tr><td>營業活動現金流</td><td>約 9,500</td><td>稅後淨利 7,065.6 + 折舊約 2,000 + 營運資金變動</td></tr><tr><td>資本支出</td><td>約 4,950</td><td>157 億美元 × 31.5 匯率折算</td></tr><tr><td>自由現金流</td><td>約 4,550</td><td>營業活動現金流 − 資本支出</td></tr><tr><td>現金及約當現金</td><td>約 35,000</td><td>含短期投資</td></tr><tr><td>有息負債</td><td>約 10,000</td><td>以公司債為主，多為新台幣與美元債</td></tr><tr><td>淨現金</td><td>約 25,000</td><td>無債務壓力</td></tr></tbody></table><div class="note">本表全部為粗算值：以公司披露的資本支出（157 億美元）與淨利為起點，折舊與營運資金變動按歷史季度均值假設。僅用於判斷量級，不作精確依據。</div><table class="dt"><caption>收入結構（占營收比重）</caption><thead><tr><th>平台／製程</th><th>2026Q2 佔比</th><th>環比</th><th>說明</th></tr></thead><tbody><tr><td>HPC（高效能運算）</td><td>66%</td><td>+20%</td><td>AI 加速器與 CPU，唯一成長引擎</td></tr><tr><td>智慧型手機</td><td>22%</td><td>-4%</td><td>淡季 + 換機週期拉長</td></tr><tr><td>物聯網</td><td>5%</td><td>+4%</td><td>需求平淡</td></tr><tr><td>汽車電子</td><td>4%</td><td>+15%</td><td>庫存回補</td></tr><tr><td>數位消費電子</td><td>1%</td><td>+5%</td><td>佔比極小</td></tr><tr><td>2 奈米</td><td>3%</td><td>首個完整季度</td><td>下半年快速爬坡</td></tr><tr><td>7 奈米及以下合計</td><td>77%</td><td>—</td><td>5nm 33%、3nm 30%、7nm 11%</td></tr></tbody></table><div class="note">資料來源：台積電 2026Q2 法說會簡報。環比為各平台營收環比增速，不是占比變化。</div><div class="section"><div class="section-title">第一層：收入結構——增長已完全綁定 AI</div><p class='txt'>Q2 營收 402 億美元（按 31.5 匯率折算約 1.27 萬億元新台幣），同比 +36%。拆開來看，HPC 佔 66%、環比 +20%，智慧型手機 22%、環比 -4%。這是結構性的翻轉：三年前手機是半壁江山，現在是配角。</p><p class='txt'>製程結構同樣說明問題：7 奈米及以下合計 77%，其中 5 奈米 33%、3 奈米 30%、7 奈米 11%，2 奈米剛起步佔 3%。<b>先進製程佔比越高，單價越高、毛利率越高</b>——這是 67.7% 毛利率的結構基礎。</p><p class='txt'>一個細節值得記：2 奈米首個完整季度只有 3%，意味著下半年的爬坡空間很大。這既是 Q3/Q4 營收的支撐，也是毛利率被稀釋的原因。</p><p class='txt'>再看區域與客戶。北美客戶佔營收約七成，中國客戶佔一成出頭（受出口管制影響，先進製程部分基本清零），其餘為亞太與歐洲。客戶集中度高：前兩大客戶合計佔四成以上（估算），這是風險，也是議價權——兩大客戶都不敢轉單，因為轉過去沒有同等良率的產能。</p><p class='txt'>一個容易忽略的細節：<b>汽車電子只佔 4%，但環比 +15%</b>，是增速第二快的平台。車用晶片的認證週期長達兩年，一旦進入供應鏈就很難被替換，這塊業務的價值是「穩定」而不是「成長」。它對沖了手機的週期波動。</p><p class='txt'>再補一個製程經濟的細節：2 奈米每片晶圓能切出的合格晶片數量比 3 奈米少（因為晶片面積更大、工藝更難），但單價高 30%–50%，所以單片晶圓的收入更高。這是「先進製程佔比提升→毛利率提升」的傳導機制，也是 2027 年營收能繼續增長的原因之一。</p></div><div class="section"><div class="section-title">第二層：毛利率——67.7% 是什麼概念</div><p class='txt'>代工業歷史毛利率：聯電 30%–35%、格羅方德 25%、中芯 20%–25%、三星代工估 30%–40%。台積電 67.7%，是行業平均的兩倍以上。這個數字的含義是：<b>它對每一片晶圓都有絕對定價權。</b></p><p class='txt'>拆解毛利率的變動：同比 +9.1pct 裡，約 5–6pct 來自漲價與產品組合（3 奈米佔比提升），2–3pct 來自產能利用率滿載帶來的固定成本攤薄，1–2pct 來自匯率與成本改善（估算）。三條腿都是週期性的，沒有一條是永久性的。</p><p class='txt'>所以 Q3 指引 65%–67% 比表面上更重要：它不是「季節波動」，是三條腿裡第一條（漲價）已經用盡、第二、三條被 2 奈米爬坡抵消的開始。</p><p class='txt'>和同業放一起看更直觀：聯電約 30%、格羅方德約 25%、中芯約 22%、三星代工估 30%–40%。台積電 67.7% 是同業的兩到三倍。這個差距不是一年形成的——2019 年台積電 46%、聯電 15%，差距 31 個百分點；2026 年差距擴大到 35 個百分點以上。<b>週期上行時，龍頭的毛利率彈性是別人的兩倍以上，這是「先進製程佔比」決定的槓桿。</b></p></div><div class="section"><div class="section-title">第三層：費用與利潤——營業利益率約 57%</div><p class='txt'>毛利率 67.7% 減去費用率約 10.7 個百分點，營業利益率約 57%。費用裡研發占 6%–7%（2026 年研發支出估約 2,500 億元新台幣量級），管理費用 3% 左右。研發強度在半導體行業屬於中上，絕對值全球前三。</p><p class='txt'>稅後淨利率 55.6%，同比 +13.0pct。注意這個跳升幅度大於毛利率的 +9.1pct，差額來自兩處：營業費用率被營收攤薄、以及利息收入隨現金規模增長。<b>這兩項都是「好年份的順風」，不會每年重複。</b></p><p class='txt'>再補一個稅負細節。台積電的有效稅率長期在 13%–15%，低於名義稅率 20%，原因是《產業創新條例》下的研發投資抵減與海外所得課稅規則。這個優勢不是永久的——台灣的租稅優惠每幾年修訂一次，2026 年之後如果抵減縮減，稅率每上升 1 個百分點，EPS 減少約 1.2 元。<b>這不是主要變量，但在做 2027 年 EPS 時該留一點餘量。</b></p></div><div class="section"><div class="section-title">第四層：現金流與資產負債表——挑不出毛病</div><p class='txt'>Q2 資本支出 157 億美元（約 4,950 億元新台幣），占營收 39%。營業現金流約 9,500 億元（粗算），自由現金流約 4,550 億元，仍然為正。這個組合意味著：<b>即使在史上最重的投資週期裡，它自己賺的錢也夠花。</b></p><p class='txt'>資產負債表：現金約 3.5 萬億元、有息負債約 1 萬億元、淨現金 2.5 萬億元。應付帳款與合約負債（客戶預付）是重要的無息資金來源。沒有財務風險，沒有任何需要解釋的科目。</p><p class='txt'>唯一的隱憂是折舊的未來壓力：2026 年 600–640 億美元資本開支，按五年折舊、2027 年起集中體現，每年新增折舊約 130 億美元（約 4,100 億元新台幣），相當於 2026 年淨利的 15%。<b>這是 2027–2028 年毛利率的結構性下壓。</b></p><p class='txt'>做個折舊敏感性測算：2026 年 600–640 億美元資本開支，按五年折舊、2027 年起全面攤提，每年新增折舊約 120–130 億美元（約 3,800–4,100 億元新台幣）。以 2026 年營收 14.5 萬億元為基數，這相當於營業費用率上升 2.6–2.8 個百分點。<b>如果營收增速低於 10%，折舊的攤薄效應就會變成毛利率殺手</b>——這是 2027 年最需要提前算清楚的一筆帳。</p></div><div class="section"><div class="section-title">最該盯的三件事</div><p class='txt'>一，毛利率的斜率。Q3 中值 66%，若 Q4 跌破 63%，說明 2 奈米稀釋與海外廠成本比指引更重，那時 2027 年 EPS 預期要下修 10% 以上。</p><p class='txt'>二，2027 年資本支出。繼續上調是需求強；停止上調可能是客戶在踩剎車。這是最靈敏的領先指標。</p><p class='txt'>三，月度營收的環比。8 月 5,148.06 億元是歷史新高，接下來看 9–10 月能否站穩 5,000 億元。AI 訂單的真假，在環比裡，不在同比裡。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：財報品質 A，位置在頂部。</b>三項新高（營收、毛利率、淨利）同時出現，同時公司自己給出毛利率下行的指引——這是我讀這份財報最在意的一組訊號。持有的理由是三張表都乾淨；不加碼的理由是毛利率的斜率已經轉向。</p></div>
+</div>
+<div class="footer">台積電 (2330.TW) · 2026/09/11</div>
+</body>
+</html>

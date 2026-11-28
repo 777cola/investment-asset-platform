@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務驗證 — 百度</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/baidu/3-财务数据交叉验证/百度-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/baidu/3-財務數據交叉驗證/百度-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/baidu/3-Financial-Cross-Check/Baidu-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務驗證 — 百度</h1>
+  <div class="subtitle">百度 (9888.HK) | 03 · 財務驗證</div>
+  <div class="meta">研究日期 2026/11/23 &nbsp;·&nbsp; 股價 HK$63.55（-0.78%） &nbsp;·&nbsp; 市值 約 1,680 億港元（約 215 億美元） &nbsp;·&nbsp; PE(TTM) 約 19.7x（報表口徑，受減值擾動）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/baidu/00-百度研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>驗證結論</h3><p class='txt'>8 項核心數據做了雙源核對，6 項偏差在 1% 以內，<b>2 項超過 1%——市值（2.1%）和 PE（2.0%）</b>，偏差都來自股本口徑與淨利口徑，不是數據錯誤。百度的報表有三個容易踩的坑：愛奇藝並表但被排除在「一般性業務」之外、非 GAAP 口徑每年調整、A/B 類普通股與 ADS 的換算（1 ADS = 8 股）。這篇把每個數字的來源和取捨寫清楚，後面所有模組的數字都以此為準。</p></div><table class="dt"><caption>雙源交叉核對（2026Q3，單位：億元人民幣，另註明者除外）</caption><thead><tr><th>指標</th><th>來源 A</th><th>來源 B</th><th>偏差</th><th>處理</th></tr></thead><tbody><tr><td>總營收</td><td>308.07（公司財報 11/16）</td><td>308（人民網 11/16）</td><td>0.02%</td><td>採用 308.07</td></tr><tr><td>線上營銷收入</td><td>119（公司財報）</td><td>119（澎湃 11/15）</td><td>0</td><td>採用 119</td></tr><tr><td>AI 雲端基礎設施</td><td>82（公司財報）</td><td>82（澎湃 11/15）</td><td>0</td><td>採用 82</td></tr><tr><td>歸母淨利潤</td><td>13.95（公司財報）</td><td>13.9（人民網 11/16）</td><td>0.4%</td><td>採用 13.95</td></tr><tr><td>非 GAAP 稅後淨利</td><td>23.95（公司財報）</td><td>23.9（信報「少賺 36%」反推）</td><td>0.2%</td><td>採用 23.95</td></tr><tr><td>市值</td><td>1,680 億港元（63.55 × 26.4 億股）</td><td>1,643 億港元（stockanalysis，11 月下旬）</td><td>2.1%</td><td>採用 1,680 億港元，見下文</td></tr><tr><td>PE(TTM)</td><td>19.7x（1,680 ÷ 反推 TTM 稅後淨利 85.3 億港元）</td><td>19.31x（stockanalysis）</td><td>2.0%</td><td>採用 19.7x 並標註「受減值擾動」</td></tr><tr><td>PB</td><td>0.52x（stockanalysis）</td><td>0.52x（1,530 億元 ÷ 反推淨資產 2,942 億元）</td><td>0</td><td>採用 0.52x</td></tr></tbody></table><div class="note">來源 A 為公司 2026Q3 財報（2026/11/16 發布）及其業績說明；來源 B 為同日／次日媒體報導與第三方資料庫。偏差 = |A−B| / B。人民幣與港元折算按 1 港元 ≈ 0.911 元。</div><div class="section"><div class="section-title">為什麼百度必須交叉驗證</div><p class='txt'>百度的報表比多數中概複雜，有三個結構性坑。</p><p class='txt'><b>第一是愛奇藝。</b>愛奇藝是併表子公司，但公司在 2025 年起改用「百度一般性業務」這個口徑講故事——250 億元、同比 +1%，把愛奇藝剔除在外。同一份財報裡，總營收 308.07 億元和一般性業務 250 億元差了 58 億元，這 58 億元主要是愛奇藝。用哪個口徑算增速，結論完全不同：總營收 -1.1%，一般性業務 +1%。<b>本報告統一用總營收算增速，用一般性業務看結構。</b></p><p class='txt'><b>第二是非 GAAP。</b>非 GAAP 淨利 23.95 億元、同比 -36%，剔除了股權激勵、減值、投資公允價值變動。這個數比歸母淨利 13.95 億元高 10 億元，差額主要是股權激勵。判斷主業趨勢要看非 GAAP，判斷會計利潤要看 GAAP，兩個都得列。</p><p class='txt'><b>第三是股本。</b>百度港股 9888 與美股 ADR 並存，1 份 ADS = 8 股普通股，還有 Class A / Class B 兩類普通股（B 類 1 股 10 票，李彥宏持有）。算市值必須用總股本約 26.4 億股，不能只用流通股。</p></div><div class="section"><div class="section-title">兩處超過 1% 的偏差：市值與 PE</div><p class='txt'><b>市值差 2.1%（1,680 對 1,643 億港元）。</b>不是算錯，是兩個原因疊加：一是取價時點，stockanalysis 是 11 月下旬某日收盤，本報告鎖定 11/23 收盤 63.55 港元；二是股本口徑，第三方資料庫有時用 ADS 折算後的等效股數，四捨五入會差 0.1–0.2 億股。按 63.55 × 26.4 = 1,677.7 億港元，本報告取整 1,680 億港元。<b>這個差異對結論無影響</b>——無論 1,643 還是 1,680，都是現金及投資 2,766 億元的六成左右。</p><p class='txt'><b>PE 差 2.0%（19.7x 對 19.31x）。</b>分子是市值，差 2.1%；分母是 TTM 淨利，兩家都用同一份財報，差別在是否把 161.90 億元長期資產減值計回。19.7x 對應 TTM 淨利約 85.3 億港元（約 77.7 億元人民幣），19.31x 對應約 85.1 億港元。<b>PE 19.7x 這個數字本身沒有意義</b>——去年一次性減值把 TTM 利潤打得極低，PE 被動抬高，所以報告中一律標註「報表口徑，受減值擾動」，不作為估值依據，估值走 SOTP。</p></div><div class="section"><div class="section-title">最終採用口徑（後續所有模組統一）</div><ul><li><b>營收與分部</b>：2026Q3 財報原值，人民幣，總營收 308.07 億元、線上營銷 119 億元、AI 業務 132 億元（雲 82 + 應用 26 + AI 原生營銷 24）。</li><li><b>利潤</b>：歸母淨利 13.95 億元、非 GAAP 淨利 23.95 億元、營業利益 6.3 億元、經調整營業利益 17 億元，均為公司披露。</li><li><b>現金</b>：現金及投資 2,766 億元，為公司口徑（含現金、短期投資、長期投資），未剔除愛奇藝部分。</li><li><b>市值</b>：1,680 億港元 = 63.55 港元 × 26.4 億股，粗算；折人民幣約 1,530 億元。</li><li><b>估值</b>：SOTP，淨現金及投資折後取 1,600 億元，主業按 2027 年淨利 90–110 億元 × 10–20x。</li><li><b>不用</b>：PE 19.7x（失真）、PS（雲與廣告混在一起無意義）、EV/EBITDA（淨現金太大，EV 為負）。</li></ul></div><div class="section"><div class="section-title">三項僅有單一來源，不作為硬事實使用</div><p class='txt'>有三項數據只有單一來源，沒有做交叉核對，列出來備查。<b>一是現金及投資 2,766 億元</b>：只有公司合併口徑，第三方資料庫通常拆成現金、短期投資、長期投資三項，合併範圍是否含愛奇藝未逐項核實。<b>二是蘿蔔快跑 30 城與累計 3.9 億公里</b>：公司溝通口徑，無第三方審計，季度里程 3,400 萬公里同源。<b>三是首次派息「預期年底前宣布」</b>：信報引述，公司未正式公告。</p><p class='txt'>這三項在正文裡都按「公司口徑／媒體引述」標註，不當作硬事實。它們影響的是樂觀情景的想像力，不影響 0.52 倍 PB 這個結論——那個數只用市值和淨資產，兩者都是硬的。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>8 項核對，6 項偏差在 1% 以內，2 項超過 1% 且都能解釋：市值差在取價時點與股本口徑，PE 差在淨利是否計回減值。<b>沒有發現數據打架的地方，可以放心用這套數字。</b>唯一需要提醒的是：百度這份財報的「好看」與「難看」取決於口徑——總營收 -1.1% 難看，一般性業務 +1% 好看，歸母淨利扭虧好看，非 GAAP -36% 難看。本報告一律兩個口徑並列，不做選擇性引用。</p></div>
+</div>
+<div class="footer">百度 (9888.HK) · 2026/11/23</div>
+</body>
+</html>

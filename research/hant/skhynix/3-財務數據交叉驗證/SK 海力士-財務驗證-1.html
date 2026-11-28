@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務驗證 — SK 海力士</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/skhynix/3-财务数据交叉验证/SK海力士-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/skhynix/3-財務數據交叉驗證/SK 海力士-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/skhynix/3-Financial-Cross-Check/SK hynix-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務驗證 — SK 海力士</h1>
+  <div class="subtitle">SK 海力士 (000660.KS) | 03 · 財務驗證</div>
+  <div class="meta">研究日期 2026/07/27 &nbsp;·&nbsp; 股價 ₩1,816,000（+3.24%） &nbsp;·&nbsp; 市值 約 1,291 萬億韓元（約 9,200 億美元） &nbsp;·&nbsp; 本益比（TTM，截至 2026Q1） 約 17.2 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/skhynix/00-SK 海力士研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>八個關鍵數字做了雙源對照。七項偏差在 0.2% 以內，可以直接用；<b>一項差得離譜：第二季 DRAM 價格漲幅，券商口徑 +30%、TrendForce 口徑 +58%—63%</b>。差的不是數據，是口徑——一個是公司混合 ASP，一個是通用 DRAM 合約價。</p><p class='txt'>這個分歧恰好是整份報告的核心：海力士因為 HBM 長約佔比高，在這輪漲價裡「吃得少」，所以第二季利潤可能低於共識。最終採用雙口徑並列，估值用保守的 30%。</p></div><table class="dt"><caption>關鍵數字雙源對照（截至 2026/07/27）</caption><thead><tr><th>指標</th><th>來源 A</th><th>來源 B</th><th>偏差</th><th>處理</th></tr></thead><tbody><tr><td>2026Q1 營收</td><td>公司財報 52.5763 萬億元</td><td>韓聯社／新華財經 52.6 萬億元</td><td>0.05%</td><td>採用 52.58 萬億元</td></tr><tr><td>2026Q1 營業利益</td><td>公司財報 37.6103 萬億元</td><td>市場共識 35.7 萬億元（財報前）</td><td>+5.4%（實際超預期）</td><td>採用 37.61 萬億元，註明超預期</td></tr><tr><td>2026Q1 稅後淨利</td><td>公司財報 40.35 萬億元</td><td>東方財富／搜狐 40.3 萬億元</td><td>0.12%</td><td>採用 40.35 萬億元</td></tr><tr><td>2025 全年營收</td><td>公司財報 97.1467 萬億元</td><td>stockanalysis.com 97.15 萬億元</td><td>0.003%</td><td>採用 97.15 萬億元</td></tr><tr><td>2026/06/22 市值</td><td>報導口徑 2,072 萬億元</td><td>2,919,000 韓元 × 7.11 億股 = 2,075 萬億</td><td>0.14%</td><td>反證股本 7.11 億股可用</td></tr><tr><td>2026Q2 營業利益</td><td>KIS 60.4 萬億元</td><td>市場共識 65 萬億</td><td>-7.1%</td><td>採用區間 60—65，估值取 60.4</td></tr><tr><td>2026Q2 DRAM 價格</td><td>KIS 混合 ASP 較上季約 +30%</td><td>TrendForce 通用 DRAM 合約價 +58%—63%</td><td>口徑差約 28pct</td><td>並列披露，估值用 30%</td></tr><tr><td>2026 年資本支出</td><td>券商 38 萬億元</td><td>另一券商 40 萬億元以上</td><td>5%</td><td>採用 38—40 萬億元區間</td></tr><tr><td>HBM 市佔（2026E）</td><td>底稿 56%</td><td>Counterpoint HBM4 市占口徑 54%</td><td>2pct</td><td>採用 54%—56%</td></tr></tbody></table><div class="note">偏差 =（B−A）/ A。公司財報為 K-IFRS 合併口徑，2026/04/22 披露；共識數據來自財報前媒體彙總。市值反算用 7.11 億股，與公司披露的 146.1 百萬股 SK Square 持股（20.5%）倒推的總股本 7.13 億股基本吻合。</div><div class="section"><div class="section-title">七項對得上，說明底稿的財務底子是硬的</div><p class='txt'>營收、營業利益、稅後淨利、全年營收四項跟公司披露完全一致，媒體轉引的誤差都在 0.2% 以內。市值那一項有用：用 6 月 22 日收盤價 291.9 萬乘以 7.11 億股，得到 2,075 萬億元，與當日報導的 2,072 萬億元差 0.14%——<b>這反證了股本口徑沒錯</b>，後面所有每股計算都建立在這個數上。</p><p class='txt'>營業利益超預期 5.4% 這一點也要記下來：一季度市場預期 35.7 萬億元，實際 37.61 萬億元。營收卻是小幅低於預期（預期 53.6 萬億元、實際 52.58 萬億元）。收入沒達標、利潤超預期，說明費用端和產品結構比市場想的更好。</p></div><div class="section"><div class="section-title">唯一的大偏差：第二季價格到底漲多少</div><p class='txt'>KIS 7 月 13 日的報告說第二季混合 ASP 環比約 +30%；TrendForce 4 月的調查說第二季通用 DRAM 合約價環比 +58%—63%、NAND +70%—75%。兩個數字差 28 個百分點，不是誰算錯了。</p><p class='txt'>差別在結構：海力士 HBM 收入占比高，而 HBM 大多走長期供貨協議（LTA），價格提前鎖定、漲幅固定；通用 DRAM 和 NAND 在現貨市場彈性大得多。<b>所以行業合約價漲 60%，公司混合 ASP 只漲 30%，這是「HBM 占比高的代價」</b>。KIS 正是用這個邏輯把第二季營業利益壓到 60.4 萬億、把 2026/2027 年預測下調 9%/11%。</p><p class='txt'>處理方式：表裡並列，估值用保守的 30%。如果 TrendForce 對、公司混合 ASP 實際漲 45% 以上，第二季營業利益會落在 65—70 萬億，現價就明顯便宜了。這就是 7 月 29 日要驗證的第一件事。</p></div><div class="section"><div class="section-title">最終採用的口徑</div><p class='txt'>財務：一律用公司 K-IFRS 合併口徑，萬億韓元，保留兩位小數。匯率：1 美元 ≈ 1,390 韓元（2026 年 7 月中），只用於把美元數字折成韓元做量級比較，不做精確換算。</p><p class='txt'>估值：用 2027 年營業利益乘倍數加淨現金，不用 PE(TTM)，也不用稅後淨利——因為 2026Q1 稅後淨利 40.35 萬億高於營業利益 37.61 萬億，差額來自股權投資重估等非經營項，這個口徑不能用來判斷晶片業務的盈利能力。</p><p class='txt'>股價：韓國交易所收盤價，2026/07/27 為 1,816,000 韓元（+3.24%）。52 週高點 2,919,000 韓元為 2026/06/22 收盤，盤中最高 2,987,000 韓元（6 月 24 日），本報告統一用收盤價口徑。</p></div><div class="section"><div class="section-title">無法驗證的兩件事</div><p class='txt'>一是 HBM 長約的具體價格機制。公司只說「多年期、鎖量、部分鎖價」，沒有披露價格公式與上下限，所以無法判斷 2027 年 HBM 漲價時它能不能分到。二是 2026 年資本支出的最終數字，公司在一季度只說「大幅增加」，38—40 萬億元是券商估算，7 月 29 日的說明會應該會給明確口徑。</p><p class='txt'>這兩個缺口不影響結論，但影響精度。本報告凡涉及這兩處的表述都標了「券商估算」或「粗算」。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>資料可信：七項對得上，一項是口徑分歧而非錯誤。採用口徑為 K-IFRS 合併、萬億韓元、2027 年營業利益估值法。唯一需要盯的分歧是第二季混合 ASP 漲幅——30% 是券商保守值，58%—63% 是行業合約價，7 月 29 日財報會給出答案。</p></div>
+</div>
+<div class="footer">SK 海力士 (000660.KS) · 2026/07/27</div>
+</body>
+</html>

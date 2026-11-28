@@ -7,13 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
-.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
 .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
 .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
 .header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
 .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
 .section { margin-bottom: 2.5rem; }
 .section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -48,22 +53,19 @@ table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; colo
 .badge-blue { background: #e6f0ff; color: #1a4b8c; }
 .footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
 .back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
-.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
-.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
-.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
-
 </style>
 </head>
 <body>
 <div class="header">
+  <div class="lang-switch"><a class="lang zh active" data-lang="zh" href="/research/microsoft/13-持仓论文追踪/微软-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/microsoft/13-持倉論文追蹤/微軟-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/microsoft/13-Thesis-Tracking/Microsoft-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
   <h1>论文追踪 — 微软</h1>
-  <div class="subtitle">微软 (MSFT) | 13-持仓论文追踪</div>
+  <div class="subtitle">微软 (MSFT) | 13 · 论文追踪</div>
   <div class="meta">研究日期 2026/07/31 &nbsp;·&nbsp; 股价 $464.72（+3.02%） &nbsp;·&nbsp; 市值 约 3.45 万亿美元 &nbsp;·&nbsp; PE(TTM，FY2026) 约 25.8x</div>
 </div>
 <div class="container">
-<a class="back" href="../00-微软研究报告总目录.html">← 返回总目录</a>
+<a class="back" href="/research/microsoft/00-微软研究报告总目录.html">← 返回总目录</a>
 <div class="summary-box"><h3>核心判断：论文没被证伪，但有一条正在被折旧改写</h3><p class='txt'>买入微软的论文可以压缩成五条可验证的假设：Azure 增速、RPO 转化、Copilot 变现、资本开支见顶、云毛利率。</p><p class='txt'>FY2026Q4 之后，三条成立（Azure、RPO、毛利）、一条部分成立（Copilot）、一条未成立（资本开支见顶）。<b>论文还活着，但第 4 条正在变成主要的跟踪项</b>——它决定 2028 年的自由现金流。</p></div><table class="dt"><caption>核心假设与验证状态（截至 2026/07/31）</caption><thead><tr><th>假设</th><th>当前证据</th><th>验证指标</th><th>状态</th></tr></thead><tbody><tr><td>Azure 在 FY2027 四个季度保持 35% 以上增速</td><td>Q4 +43%，下季指引 45%（固定汇率），连续两季加速</td><td>季度 Azure 固定汇率增速</td><td>成立</td></tr><tr><td>RPO 6,780 亿中 30% 在 12 个月内转化为收入</td><td>公司披露加权期限 2.3 年、30% 在 12 个月内确认</td><td>商业未履约收入的季度转化额</td><td>待验证</td></tr><tr><td>Copilot 席位从 3,000 万走到 6,000 万，并开始披露 ARPU</td><td>Q4 3,000 万（上季 2,000 万），净新增环比翻倍；ARPU 未披露</td><td>席位数、ARPU、续费率</td><td>部分成立</td></tr><tr><td>资本开支在 FY2027 见顶，FY2028 自由现金流恢复增长</td><td>FY2027 计划 1,750 亿，自由现金流同比 -23%</td><td>季度资本开支与自由现金流</td><td>未成立</td></tr><tr><td>云毛利率守住 60% 以上</td><td>云毛利率 65%，同比下滑；整体毛利率 67.2%、-1.4pct</td><td>云毛利率、blended 毛利率</td><td>成立，但趋势向下</td></tr></tbody></table><div class="note">证据来自微软 FY2026Q4 财报与业绩说明会（2026/07/29）。状态判断为主观口径：成立=证据明确支持；部分成立=方向对但关键指标缺失；未成立=与假设方向相反。</div><div class="section"><div class="section-title">成立的三条：需求、订单、毛利都还在</div><p class='txt'><b>Azure 增速 43%</b> 是最硬的一条。它不仅高于上季的 40%，还给出了 45% 的下季指引——管理层不会在市场面前虚报一个自己做不到的数，因为这个数下个季度就要对账。</p><p class='txt'><b>RPO 6,780 亿、同比 +84%</b>，剔除 OpenAI 后仍 +25%，说明订单来源在扩散。这一条的价值不在总量，在于它反驳了「微软的 AI 收入是关联交易」这个最流行的质疑。</p><p class='txt'><b>云毛利率 65%</b>，虽然同比下滑，但仍在 60% 以上。考虑到 Azure 的算力占比在快速提高，能守住 65% 说明定价权还在。</p></div><div class="section"><div class="section-title">部分成立的一条：Copilot 有量无价</div><p class='txt'>3,000 万席位、净新增环比翻倍，量的部分是超预期的。但价的部分完全空白：ARPU 没披露、续费率没披露、按量计费的收入贡献没披露。</p><p class='txt'>按挂牌价 30 美元粗算年化 108 亿美元，占营收 3.3%——<b>这是一个「不足以改变估值、但足以证明需求」的量级。</b>所以状态定为「部分成立」：假设的方向对了，验证的指标还没拿到。下一次财报如果还不披露 ARPU，就要把这条从「待验证」降级为「不可验证」。</p></div><div class="section"><div class="section-title">未成立的一条：资本开支没有见顶的迹象</div><p class='txt'>原本的假设是「FY2026 是资本开支高峰，FY2027 开始回落」。实际是 FY2027 计划 1,750 亿，比 FY2026 的 1,159 亿还高 51%。自由现金流同比 -23%，连续两季负增长。</p><p class='txt'>这条假设必须改写，而不是丢弃。改写后的版本是：<b>资本开支在 FY2027 见顶，FY2028 折旧见顶，FY2029 自由现金流开始释放。</b>时间轴整体后移两年——这意味着持有期要按五年算，不是三年。买入价必须反映这个延期，这就是「分批」的数学理由。</p></div><div class="section"><div class="section-title">证伪条件：什么情况下彻底放弃</div><p class='txt'>三条，任何一条出现就减仓，两条同时出现就清仓：</p><ul><li><b>Azure 增速连续两个季度低于 30%</b>，且管理层解释是「需求放缓」而不是「容量约束」。</li><li><b>RPO 同比增速掉到 20% 以下</b>，同时 12 个月转化率低于 25%——订单簿开始漏水。</li><li><b>云毛利率跌破 55%</b>，说明价格战真的打起来了，成本优势 6 分的短板暴露。</li></ul><p class='txt'>注意：股价下跌不是证伪条件。跌 30% 而基本面没坏，那是加仓机会；基本面坏了而股价没跌，那才是危险。</p></div><div class="section"><div class="section-title">下一步观察日历</div><ul><li><b>2026 年 10 月下旬（FY2027Q1）</b>：Azure 增速是否 ≥40%（指引 45% 的第一个对账点）、资本开支单季是否超过 450 亿、Copilot 席位是否到 4,000 万。</li><li><b>2027 年 1 月下旬（FY2027Q2）</b>：折旧同比增速（判断折旧曲线陡不陡）、云毛利率是否守住 62%。</li><li><b>2027 年 4 月下旬（FY2027Q3）</b>：FY2027 资本开支的最终落点，是否真的 1,750 亿。</li><li><b>2027 年 7 月（FY2027 年报）</b>：FY2028 资本开支指引——这是「见顶」是否成立的唯一证据。</li></ul></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>结论：论文有效，持有条件不变，但时间轴后移两年。</b>五条假设里三条成立，说明生意本身没问题；一条未成立，说明现金流回归要等到 2029 年。这不需要卖出，需要的是把「三年翻倍」的预期改成「五年一倍」，并在 430 以下用第二笔仓位把成本摊下来。</p></div>
 </div>
-<div class="footer">微软 (MSFT) 投资研究报告集 · 2026/07/31</div>
+<div class="footer">微软 (MSFT) · 2026/07/31</div>
 </body>
 </html>

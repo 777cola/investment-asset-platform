@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組合管理 — 百度</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/baidu/14-组合管理建议/百度-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/baidu/14-組合管理建議/百度-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/baidu/14-Portfolio-Action/Baidu-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>組合管理 — 百度</h1>
+  <div class="subtitle">百度 (9888.HK) | 14 · 組合管理</div>
+  <div class="meta">研究日期 2026/11/23 &nbsp;·&nbsp; 股價 HK$63.55（-0.78%） &nbsp;·&nbsp; 市值 約 1,680 億港元（約 215 億美元） &nbsp;·&nbsp; PE(TTM) 約 19.7x（報表口徑，受減值擾動）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/baidu/00-百度研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>組合建議</h3><p class='txt'>百度在組合裡的角色是<b>「資產折價期權」，不是核心持倉</b>。建議：當前 0–2%（觀察倉，可以不給），觸發條件成立建 3%，雙條件成立加到 5%–6%，上限 6%。<b>不設價格止損，設證偽止損</b>——廣告降幅擴大到 -30%、capex 回升到單季 100 億元以上、毛利率跌破 30%，任一觸發即清。與騰訊、阿里相關性高，合併計算不超過組合 15%。</p></div><table class="dt"><caption>倉位建議（按狀態分檔）</caption><thead><tr><th>狀態</th><th>倉位</th><th>理由</th></tr></thead><tbody><tr><td>當前（未觸發）</td><td>0–2%</td><td>資產便宜但主業在縮，觀察倉只為保持跟蹤與手感</td></tr><tr><td>觸發一：廣告降幅收窄至 -10% 以內</td><td>3%</td><td>總收入有望轉正，估值從衰退折價回到正常區間</td></tr><tr><td>觸發二：AI 雲單季過 100 億元且營業利益轉正</td><td>3%–5%</td><td>成長轉化為利潤，SOTP 主業部分可給 15–20x</td></tr><tr><td>雙觸發</td><td>5%–6%</td><td>兩條腿同時站穩，接近中性情景 85 港元</td></tr><tr><td>任一證偽條件觸發</td><td>0%</td><td>論文被推翻，不留倉位等反彈</td></tr></tbody></table><div class="note">倉位為佔組合總市值的比例，非個股倉位上限的絕對值。觸發條件需連續兩個季度確認，避免單季雜訊。</div><table class="dt"><caption>買賣價位與條件（港元）</caption><thead><tr><th>動作</th><th>價位／條件</th><th>說明</th></tr></thead><tbody><tr><td>加碼（價格型）</td><td>55 港元以下且廣告未惡化</td><td>僅在未觸發訊號時使用，最多加到 2%</td></tr><tr><td>加碼（訊號型）</td><td>廣告 -10% 以內，或雲端 100 億元 + 利潤轉正</td><td>訊號優先於價格，不看股價漲跌</td></tr><tr><td>減倉</td><td>反彈至 100 港元以上</td><td>接近中性 85 港元的 1.2 倍，兌現一半</td></tr><tr><td>清倉（證偽）</td><td>廣告 -30% / 資本支出&gt;100 億且雲端增速&lt;40% / 毛利率&lt;30%</td><td>不設價格止損，只看證偽條件</td></tr></tbody></table><div class="note">100 港元對應市值約 2,640 億港元（約 2,405 億元人民幣），仍低於現金及投資 2,766 億元，屬「接近資產價值」而非高估。</div><div class="section"><div class="section-title">為什麼不給重倉：它是期權，不是債券</div><p class='txt'>重倉的前提是「下行可控 + 上行確定」。百度只有前半句：2,766 億元現金及投資、0.52 倍 PB，下行確實有底。但上行不確定——廣告在縮、雲在燒錢、派息沒落地。<b>一個只有下行保護、沒有上行確定性的標的，配置邏輯是「期權」，倉位必須小。</b></p><p class='txt'>具體算一下：如果給 10% 倉位，中性情景 +34%、悲觀 -29%，對組合的貢獻是 +3.4% 或 -2.9%。同樣 10% 給騰訊，能拿到社交現金流的確定性。機會成本擺在這裡，6% 已經是上限。</p></div><div class="section"><div class="section-title">相關性：它買的是中概 beta，不是 AI alpha</div><p class='txt'>相關性是倉位管理裡最容易被忽略的一項。百度的走勢跟恒生科技高度同步——2026 年內恒科跌逾 25%，百度跌 60.4%，方向一致、幅度更大（beta 大於 1）。<b>它跟騰訊、阿里的相關係數粗算在 0.7–0.8，跟輝達鏈只有 0.3 左右。</b></p><p class='txt'>這意味著兩件事。第一，配百度不能算「分散」，它和騰訊、阿里是同一筆中概倉位的三個表達，合併計算不超過組合 15%。第二，<b>它已經不在 AI 交易裡了</b>——11/23 輝達 +31% 而百度 -0.78%，就是證據。想買 AI 敞口，百度不是工具；想買中概資產折價，它才是。</p></div><div class="section"><div class="section-title">再平衡紀律：三個季度不動，就是答案</div><p class='txt'>這條規則比價位重要：<b>如果連續三個季度（2027 年 Q1–Q3）兩個觸發條件都沒出現，就把觀察倉清零，不再跟蹤。</b>理由不是看空，是機會成本——一隻股票如果兩年都不給訊號，說明「便宜」是結構性的，不是錯殺。</p><p class='txt'>反過來，如果派息落地且金額有意義（比如年度分紅率 2% 以上），即使廣告沒止跌，也可以給到 3%。<b>資本配置的改變本身就值得定價</b>，因為它把「資產」變成了「現金流」，這是價值股的定義。</p></div><div class="section"><div class="section-title">如果組合裡已經有中概：先看總量，再談個股</div><p class='txt'>大多數配置百度的組合，手裡已經有騰訊或阿里。<b>這種情況下第一步不是決定百度買多少，是算中概總敞口。</b>假設組合 100%，騰訊 8%、阿里 5%、百度 2%，中概合計 15%，已經到上限——再想加百度，只能從騰訊或阿里裡騰。</p><p class='txt'>騰的順序有講究：<b>先減彈性最小的，不是先減虧得最多的。</b>騰訊的社交現金流確定性最高，是壓艙石；阿里的雲重估彈性最大，是進攻位；百度的資產折價是防守位。三者功能不同，減倉順序應該是「減百度、留阿里、守騰訊」，而不是反過來。</p><p class='txt'>還有一個現金視角：如果組合現金比例低於 10%，百度這 2% 乾脆不給——<b>它不是必須持有的資產，是一張可以不買的期權。</b>留著現金等觸發信號，比提前佔位更划算。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>組合結論：<b>0–2% 觀察倉（可以不給），觸發後 3%–6%，永不重倉。</b>角色是「中概資產折價期權」，與騰訊、阿里合併計算不超過 15%。不設價格止損，設四條證偽條件。三個季度無信號即清零。<b>這筆倉位賺的不是 AI 的錢，是「市場終於願意給資產定價」的錢。</b></p></div>
+</div>
+<div class="footer">百度 (9888.HK) · 2026/11/23</div>
+</body>
+</html>

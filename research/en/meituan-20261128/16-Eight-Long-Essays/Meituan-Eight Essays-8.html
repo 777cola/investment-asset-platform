@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⑧ Decision framework: how much to buy, at what price, and when to sell — Meituan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20261128/16-八篇深度长文/美团-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/meituan-20261128/16-八篇深度長文/美團-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/meituan-20261128/16-Eight-Long-Essays/Meituan-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>⑧ Decision framework: how much to buy, at what price, and when to sell — Meituan</h1>
+  <div class="subtitle">Turn judgment into executable rules</div>
+  <div class="meta">Research date 2026/11/28 &nbsp;·&nbsp; Price HK$67.85 (+8.21%, Market close on 2026/11/27; market closed on 11/28) &nbsp;·&nbsp; Market cap Approximately HKD 419 billion (6.175 billion shares) &nbsp;·&nbsp; PE(TTM) — (TTM still loss-making, PE distorted; about 16.8x on 2027E)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/meituan-20261128/00-Meituan-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>The previous seven pieces all answered "what this is"; this one answers "how to do it". <b>There are three rules: buy in three tranches, trim on facts, and replace annual forecasts with quarterly verification.</b></p></div><table class="dt"><caption>Decision rules table</caption><thead><tr><th>Action</th><th>Conditions</th><th>Execute</th></tr></thead><tbody><tr><td>Buy the first batch</td><td>Current price HKD 67.85; Q3 turnaround confirmed</td><td>Target position 30% (1.5% of portfolio)</td></tr><tr><td>Buy the second batch</td><td>Share price ≤HKD 58</td><td>Raise to 60% (3.0% of portfolio)</td></tr><tr><td>Buy the third tranche</td><td>Q4 core local commerce operating profit ≥ RMB 5 billion</td><td>Raise to 100% (5.0% of portfolio)</td></tr><tr><td>No adding to positions</td><td>Share price &gt;HKD 74</td><td>Maintain existing positions; do not chase.</td></tr><tr><td>Cut position by half</td><td>Q4 operating profit &lt;RMB 3.5 billion or share &lt;48%</td><td>Falls below 0.5%</td></tr><tr><td>Liquidate the position</td><td>Marketing expense ratio &gt;26% for two consecutive quarters</td><td>0%</td></tr></tbody></table><div class="note">Price levels and position sizing are set for this report, derived from 2027E net profit of RMB 23 billion and net cash of RMB 120 billion; they must be adjusted in tandem if assumptions change.</div><div class="section"><div class="section-title">Why split into three tranches instead of buying all at once?</div><p class='txt'>The core assumption behind this investment—"margins back to 10%"—needs 15 months to verify (Q4 data in March 2027, interim results in August 2027). <b>Until then, any full position is a matter of faith in the assumption.</b></p><p class='txt'>Another benefit of scaling in is psychological: <b>after the first tranche, a 20% drop won't panic you because you still have 70% of your ammunition; a 20% rally won't leave you with regret because you've already built 30%.</b> This isn't mysticism—it's the basic function of position management.</p><p class='txt'>The cost of scaling in: if the stock rallies straight up, you only earn on 30% of your position. <b>But at this payoff ratio (1:1.9), missing part of the upside is acceptable—because the 23% downside risk is real.</b></p></div><div class="section"><div class="section-title">Why trim on fundamentals rather than price stops</div><p class='txt'>The problem with a price stop-loss: <b>it washes you out at the moment of maximum panic.</b> Meituan closed at HKD 62.70 on 26 November, down 41% from its high; anyone who sold that day missed the +8.21% move the very next day.</p><p class='txt'>The advantage of a fundamental stop-loss: <b>it only triggers when the fundamentals actually deteriorate.</b> Q4 core local commerce operating profit below RMB 3.5 billion, market share falling below 48%, marketing expense ratio back to 26% — any one of these three numbers would signal that "the ceasefire is over" or a "peak-season illusion", and at that point selling is justified.</p><p class='txt'>The only exception is an extreme case: <b>if the stock falls below HKD 45 (6x ex-net-cash) with no fundamental news at all, the issue is not the stop-loss — it is checking whether you got the math wrong.</b></p></div><div class="section"><div class="section-title">When to sell: three scenarios</div><p class='txt'><b>Scenario 1: Price reaches target.</b> Neutral HKD 98 (19x 2027E plus net cash); cut the position by half on arrival. <b>Not because the outlook sours, but because the risk/reward has shifted</b> — HKD 98 implies 0% upside and 23% downside.</p><p class='txt'><b>Scenario 2: Thesis disproved.</b> Share falls below 48%, marketing expense ratio returns to 26%, in-store share falls below 50% — if two of the three occur, exit fully. <b>If the thesis is wrong, admit it; don't fall in love with the stock.</b></p><p class='txt'><b>Scenario 3: A better opportunity emerges.</b> If the portfolio holds another company that is "equally cheap but controls its own profit," switch. <b>Meituan's flaw is that its profit is not self-determined — that is why it can only be a 5% position in the portfolio.</b></p></div><div class="section"><div class="section-title">Finally: where does this report's bias lie?</div><p class='txt'>Every report carries bias; better to state it than hide it. <b>This report has three biases:</b></p><p class='txt'><b>One: too optimistic on the "ceasefire".</b> The report assumes no price war for the next 4–6 quarters, an assumption with no guarantee—it is merely the inference that "none of the three players can make the math work".</p><p class='txt'><b>Two: too pessimistic on in-store.</b> The report treats 60% in-store share as the central case, but Douyin's growth has already slowed from 60% to 30%; if it keeps slowing, in-store could beat expectations.</p><p class='txt'><b>Three: too little value assigned to overseas expansion.</b> The base case assigns zero overseas profit; if Brazil succeeds, this valuation is clearly too low. <b>But an option should not be paid for at full price—that is discipline, not judgment.</b></p><p class='txt'>These three biases are laid out so you know: <b>if future data contradict this report, where it is most likely to be wrong.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Three rules: buy in three tranches (30% at 67.85, raise to 60% at 58, fill out on Q4 data confirmation); cut on facts (Q4 &lt;RMB 3.5 billion or share &lt;48%); halve the position at HKD 98.</b> Three biases: too optimistic on the truce, too pessimistic on in-store, too little value given to overseas expansion. <b>Fix the rules; leave the rest to quarterly data.</b></p></div>
+</div>
+<div class="footer">Meituan (03690) · 2026/11/28</div>
+</body>
+</html>

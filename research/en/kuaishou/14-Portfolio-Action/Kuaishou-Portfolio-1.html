@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Kuaishou</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/kuaishou/14-组合管理建议/快手-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/kuaishou/14-組合管理建議/快手-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/kuaishou/14-Portfolio-Action/Kuaishou-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Portfolio — Kuaishou</h1>
+  <div class="subtitle">Kuaishou (01024) | 14 · Portfolio</div>
+  <div class="meta">Research date 2026/10/12 &nbsp;·&nbsp; Price HK$29.26 (-2.79%) &nbsp;·&nbsp; Market cap About HKD 126.7 billion &nbsp;·&nbsp; PE(TTM) About 10.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/kuaishou/00-Kuaishou-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>The conclusion is blunt: <b>current position 0%.</b> This is not a bearish call that warrants shorting; the trade's current risk-reward (expected return -8.4%) does not justify any position. If the portfolio needs a "short video" exposure, it ranks behind Tencent.</p><p class='txt'>Two triggers to add: price ≤HKD 20 (build a 1%–2% observation position), or ad growth back above 8% (build a 3%–4% standard position). The stop-loss condition is not price-based; it is logic-based.</p></div><table class="dt"><caption>Positioning recommendation (portfolio weight, assuming a total portfolio of 100%)</caption><thead><tr><th>Scenario</th><th>Position</th><th>Trigger conditions</th><th>Rationale</th></tr></thead><tbody><tr><td>At current price (HKD 29.26)</td><td>0%</td><td>—</td><td>Expected return -8.4%, negative payoff; stay out</td></tr><tr><td>The price fell below HKD 20.</td><td>1%–2%</td><td>At 7x 2027E net profit plus net cash, with Kling valued at 0</td><td>Pure options position, accepts no upside for an extended period</td></tr><tr><td>Advertising growth back above 8%</td><td>3%–4%</td><td>Online marketing up at least 8% year on year for two consecutive quarters</td><td>Business recovery validated; 12–15x justified</td></tr><tr><td>Both hold true at the same time</td><td>5%</td><td>Price ≤HKD 24 and advertising ≥8%</td><td>Position cap: no single holding may exceed 5%</td></tr><tr><td>Advertising turned negative year on year</td><td>0% (fully exited)</td><td>Online marketing declined year on year in any quarter &lt;0</td><td>Valuation framework repriced, unconditional exit</td></tr></tbody></table><div class="note">The 5% position cap is this framework's general constraint for "any single China internet name"; the current rating is Avoid, so the baseline position is 0. Trigger prices are analyst estimates, not company guidance.</div><div class="section"><div class="section-title">Why 0%, not "a small position to test the waters"</div><p class='txt'>The psychology of a small position is "participation," not "return." A 1% position, even if it doubles, contributes only 1% to portfolio return, yet it consumes attention and distorts judgment on other opportunities. <b>For a stock with negative expected return, the most expensive cost is not the loss, it is the attention.</b></p><p class='txt'>A small position only makes sense when the payoff is asymmetrically skewed upward—for example, if the price falls below HKD 20, with 20% downside and 100% upside, then 1%–2% is a reasonable option premium.</p></div><div class="section"><div class="section-title">Three add-on price levels, each mapping to a distinct thesis</div><p class='txt'><b>HKD 20:</b> 2027E net profit of RMB 5.5–7.0 billion × 7x + net cash of RMB 24.27 billion, which means the market is pricing Kling at 0. Buying here is buying a "free option," and you can accept continued decline in the core business.</p><p class='txt'><b>HKD 24:</b> A 10% discount to the neutral-case HKD 26.6. If ad growth also returns to 8%, this level can justify 4% — because the denominator stops shrinking, the multiple can rise from 9x to 12x.</p><p class='txt'><b>HKD 29.26 (current price):</b> No position. Not because the price isn't low enough, but because there is no evidence that things will stop getting worse.</p></div><div class="section"><div class="section-title">Trim and stop-loss: follow the thesis, not the price</div><p class='txt'>If you already hold it (say, bought near HKD 45), the current level is not a "stop-loss level" but a "re-decision level." Ask yourself: <b>If I were flat today, would I buy at this price?</b> If the answer is no, then you should trim.</p><p class='txt'>Three hard exit conditions: advertising turns negative year on year, Kling fails to grow quarter on quarter for two consecutive quarters, or cash-like assets fall below RMB 19 billion. If any one of the three holds, exit unconditionally, regardless of price.</p></div><div class="section"><div class="section-title">Rebalancing: where the money comes from and where it goes</div><p class='txt'>If a buy trigger occurs in future, where should the money come from? Three candidates: trim Tencent, trim Meituan, trim cash. The correct order is <b>trim the same exposure first (Tencent's short-video exposure)</b>, because the two have a correlation above 0.7; switching positions does not change the portfolio's risk exposure, only its payoff odds; only then consider total position size.</p><p class='txt'>If a sale becomes necessary in future, who gets sold first? Within the same China internet basket, Kuaishou is the only name with "core business growth of 1.4%, margin compression, and 40% of its space resting on a story" — <b>it should be the first to be sold, not the last.</b></p></div><div class="section"><div class="section-title">Correlation: it is the same money as China internet stocks</div><p class='txt'>Kuaishou's correlation with Tencent, Alibaba, Meituan and Pinduoduo exceeds 0.7 — they share the same macro factor (Chinese consumption), the same flow backdrop (southbound plus foreign allocation to China internet ADRs) and the same regulatory environment. <b>Buying Kuaishou is not diversification; it is another bet on China internet.</b></p><p class='txt'>For genuine diversification, short-video exposure should be replaced with Tencent (which spans Video Accounts, gaming, payments and cloud), and the freed-up position allocated to assets with low correlation to China internet (gold, Vietnamese manufacturing, AI hardware).</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'>Portfolio action: <b>no position, no participation, watchlist only.</b> If the portfolio already holds China internet exposure, Kuaishou offers no diversification value; if not, Tencent is the better expression.</p><p class='txt'>Discipline rules: single-name cap 5%, and 0% under an avoid rating. When both apply, the stricter limit governs.</p></div>
+</div>
+<div class="footer">Kuaishou (01024) · 2026/10/12</div>
+</body>
+</html>

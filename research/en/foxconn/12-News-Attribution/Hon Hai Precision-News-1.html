@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News — Hon Hai Precision</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/foxconn/12-新闻异动归因/鸿海精密-新闻异动.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/foxconn/12-新聞異動歸因/鴻海精密-新聞異動-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/foxconn/12-News-Attribution/Hon Hai Precision-News-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>News — Hon Hai Precision</h1>
+  <div class="subtitle">Hon Hai Precision (2317.TW) | 12 · News</div>
+  <div class="meta">Research date 2026/10/19 &nbsp;·&nbsp; Price NT$240 (-1.84%) &nbsp;·&nbsp; Market cap About TWD 3.37 trillion &nbsp;·&nbsp; PE(2026E) Approximately 12.6x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/foxconn/00-Hon Hai Precision-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core call: the market is pricing gross margin; everything else is noise</h3><p class='txt'>From July to October, 7 notable events occurred at Hon Hai. Three were signals: Q2 earnings call gross margin of 6.12% missed expectations (-4.5% that day), the US capacity plan announcement triggered capex concerns (-2.0%), and September revenue broke the trillion mark yet the stock fell (-1.8%, good news fully priced). Four were noise: TrendForce raised its 2027 rack output value forecast (+2.8%), Apple's new product launch (+0.5%), June revenue met target (-1.5%), and foreign brokerage reports made minor adjustments. <b>Classify the 7 events by whether they change gross margin or cash flow, and the answer is immediately clear: the market has spent these three months doing just one thing—repricing a 6% gross margin.</b></p></div><table class="dt"><caption>Key events and share price reactions over the past three months</caption><thead><tr><th>Date</th><th>Event</th><th>Share price reaction</th><th>Nature</th></tr></thead><tbody><tr><td>2026/07/06</td><td>June revenue released; Q2 revenue TWD 2,525.9 billion, +41% YoY</td><td>-1.5%</td><td>Noise: revenue in line, no incremental information</td></tr><tr><td>2026/07/15</td><td>Foreign report cuts gross margin assumption, keeps target price</td><td>-2.2%</td><td>Weak signal: sell-side views on gross margin start to diverge</td></tr><tr><td>2026/08/12</td><td>Q2 earnings call: gross margin 6.12%, EPS 4.27, Q3 guidance points to double-digit QoQ growth</td><td>-4.5%</td><td>Signal: gross margin below consensus, full-year EPS assumptions under pressure</td></tr><tr><td>2026/08/28</td><td>TrendForce raises 2027 NVL72 rack output value forecast to +214%</td><td>+2.8%</td><td>Noise: upward revision to industry output does not change Hon Hai's gross margin</td></tr><tr><td>2026/09/10</td><td>Apple unveils iPhone 18, Foxconn the largest assembler</td><td>+0.5%</td><td>Noise: smartphone business no longer a share-price driver</td></tr><tr><td>2026/09/22</td><td>Texas AI rack capacity plan announced; capex raised</td><td>-2.0%</td><td>Signal: the market is repricing the cash cost of expansion</td></tr><tr><td>2026/10/05</td><td>September revenue reached TWD 1 trillion 158.6 billion, topping TWD 1 trillion for the first time; Q3 +47.1%</td><td>-1.8%</td><td>Signal: good news priced in, focus shifts to gross margin</td></tr></tbody></table><div class="note">Share-price reaction is the close-to-close move on the event day or the next trading day (TWSE daily data, rough calculation, used only to gauge the nature of the reaction, not for precise attribution). The event date is the announcement or report date. Over the period, the share price fell from its 52-week high of TWD 309 to TWD 239.5, a drawdown of 22.5%.</div><div class="section"><div class="section-title">First, split the seven items into two categories</div><p class='txt'>There is only one classification criterion: whether the event changes expectations for "gross margin" or "free cash flow." What changes them is signal; what does not is noise. <b>By this standard, only 3 of the 7 items are signal, and all three point in the same direction—margins are deteriorating.</b></p><p class='txt'>The four noise items are noise because they change "scale" without changing "unit profit": revenue meeting targets, upward revision to industry output value, the new Apple model, and minor foreign broker target-price tweaks. Scale contributes almost nothing to Hon Hai's valuation, because its valuation ceiling is set by gross margin (see Part 4). <b>The market responded to the upward revision in industry output value with a 2.8% gain, and to the 0.21 percentage point decline in gross margin with a 4.5% drop—this asymmetry is itself information.</b></p></div><div class="section"><div class="section-title">Signal one: that 4.5% drop on the earnings call</div><p class='txt'>At the August 12 earnings call, revenue, operating profit and EPS all came in above the consensus, yet the stock fell 4.5%. The market is not looking at Q2, which is already history, but at three implicit assumptions: ① whether Q3 gross margin can stop falling; ② what will fill the gap to full-year EPS of 19; ③ how much more capex will rise. <b>Of these three questions, the first determines the other two.</b></p><p class='txt'>Management's language was "product mix improvement in the second half", but it gave no gross margin guidance. The market expressed its distrust of the word "improvement" through the selloff — after all, the same thing was said in Q1 2026, and Q2 gross margin still fell 0.06 percentage points. <b>This is a textbook information-deficit decline, not a collapse in fundamentals.</b></p></div><div class="section"><div class="section-title">Signal two: capex is being recalculated</div><p class='txt'>On September 22, the US Texas capacity plan was announced and the stock fell 2.0%. The logic is straightforward: expansion across four locations means depreciation rises from 2027, with no sign of gross margin improvement. <b>The market is starting to reclassify "expansion" from a growth story to a cost story.</b></p><p class='txt'>This shift matters. In 2024–2025, every expansion announcement from Hon Hai lifted the stock; from the second half of 2026, the same news sends it lower. The dividing line was the Q2 results — once gross margin was shown not to improve with scale, capex turned from "investment" into "burden".</p></div><div class="section"><div class="section-title">Signal three: the -1.8% on the day it broke the trillion mark</div><p class='txt'>On October 5, September revenue came in at NT$1 trillion 158.6 billion, the first single month above NT$1 trillion for any Taiwanese company, and the stock fell 1.8%. That day deserves recording, because it put "all good news priced in" right on the face of it. <b>Breaking NT$1 trillion was the brightest number in the company's history, and the market's response was to sell.</b></p><p class='txt'>The reason is not complicated: the trillion mark was already flagged in the Q3 outlook at the August earnings call ("double-digit quarter-on-quarter growth"), and October 5 merely confirmed it. Meanwhile, news of DRAM and NAND price increases kept coming, and the market's worry was "the bigger the revenue, the lower the gross margin." <b>When revenue becomes a negative signal, it shows pricing power has shifted entirely to the gross margin line.</b></p></div><div class="section"><div class="section-title">Why noise is noise: three counterexamples</div><p class='txt'>TrendForce raised its 2027 rack output value forecast by +214%, and the stock rose 2.8%. For Hon Hai, this number means "orders are still there," but it also means "tighter component supply and steeper price increases"—negative for gross margin. <b>The market only read the first half of the sentence.</b></p><p class='txt'>Apple unveiled the iPhone 18, with Hon Hai as the largest assembler, and the stock rose 0.5%. The handset business will account for less than 30% of revenue in 2026 and carries a lower gross margin than cloud networking; it is no longer a stock-price driver. <b>This is a classic "news-relevance illusion."</b></p><p class='txt'>June revenue hitting target and foreign brokers nudging target prices are both repricing of known information and do not constitute a change in the long-term thesis. <b>There is only one kind of real signal: the few numbers that can change 2027 EPS—gross margin, capex, and customer mix.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p>7 events in 3 months, and the market is really saying just one thing: <b>a 6.12% gross margin does not justify a 12.6x PE.</b> All three signals point to margin; all four noise items are about scale. The implication for investors: do not trade on revenue headlines—watch the gross margin at the November Q3 earnings call. That is the answer to all the declines of the past three months, and the precondition for all the gains to come.</p></div>
+</div>
+<div class="footer">Hon Hai Precision (2317.TW) · 2026/10/19</div>
+</body>
+</html>

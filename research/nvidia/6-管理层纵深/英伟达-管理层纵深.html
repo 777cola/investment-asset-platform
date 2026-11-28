@@ -7,13 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
-.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
 .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
 .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
 .header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
 .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
 .section { margin-bottom: 2.5rem; }
 .section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -48,22 +53,19 @@ table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; colo
 .badge-blue { background: #e6f0ff; color: #1a4b8c; }
 .footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
 .back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
-.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
-.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
-.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
-
 </style>
 </head>
 <body>
 <div class="header">
+  <div class="lang-switch"><a class="lang zh active" data-lang="zh" href="/research/nvidia/6-管理层纵深/英伟达-管理层纵深.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/nvidia/6-管理層縱深/輝達-管理層縱深-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/nvidia/6-Management-Deep-Dive/NVIDIA-Management-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
   <h1>管理层纵深 — 英伟达</h1>
-  <div class="subtitle">英伟达 (NVDA) | 6-管理层纵深</div>
+  <div class="subtitle">英伟达 (NVDA) | 06 · 管理层纵深</div>
   <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股价 $220.78（+1.48%） &nbsp;·&nbsp; 市值 约 5.33 万亿美元（241.5 亿股） &nbsp;·&nbsp; PE(TTM) 约 28x（FY2028 前瞻约 15x）</div>
 </div>
 <div class="container">
-<a class="back" href="../00-英伟达研究报告总目录.html">← 返回总目录</a>
+<a class="back" href="/research/nvidia/00-英伟达研究报告总目录.html">← 返回总目录</a>
 <div class="summary-box"><h3>核心判断</h3><p class='txt'>黄仁勋是过去三十年最成功的创始人 CEO 之一：1993 年创立，三十三年只做加速计算，把一家做图形芯片的公司做成 5.33 万亿美元市值的 AI 基础设施公司。持股 8.706 亿股、3.58%，FY2026 总薪酬 3,634 万美元——在同量级公司里算低的。</p><p class='txt'>资本配置这一栏可以打 A：不分红到小额分红、大额回购（单季 200 亿、授权余额 990 亿）、并购克制（Mellanox 69 亿美元是范例，ARM 400 亿美元果断放弃）。<b>但 2026 年出现了一个新动作：发债 249 亿美元、买客户股权 424 亿美元、替客户担保 1,085 亿美元。这是资本配置，也是风险配置。</b>治理这一栏只能打 B-：没有董事长、没有公开的接班计划、家族成员在关键岗位。</p></div><table class="dt"><caption>关键人（截至 2026/08/31）</caption><thead><tr><th>姓名</th><th>职务</th><th>持股 / 薪酬</th><th>履历要点</th></tr></thead><tbody><tr><td>黄仁勋 Jensen Huang</td><td>创始人、总裁、CEO、董事</td><td>8.706 亿股（3.58%，2026/03/23）；FY2026 薪酬 3,634 万美元（底薪 149 万 + 股票 2,480 万 + 现金奖金 600 万 + 其他 405 万）</td><td>1993 年与 Chris Malachowsky、Curtis Priem 共同创立；俄勒冈州立本科、斯坦福硕士；曾在 LSI Logic、AMD 任职</td></tr><tr><td>科莱特·克雷斯 Colette Kress</td><td>执行副总裁、CFO</td><td>未单独披露</td><td>2013 年加入，此前在思科、微软任财务高职；每季财报电话会主讲指引与表外口径</td></tr><tr><td>Jay Puri</td><td>全球运营执行副总裁</td><td>未单独披露</td><td>负责全球销售与运营体系，是公司对外的第二张面孔</td></tr><tr><td>Ian Buck</td><td>加速计算业务负责人</td><td>未单独披露</td><td>CUDA 的早期推动者，2004 年随 PeakStream 加入</td></tr><tr><td>董事会</td><td>无董事长（Chair 空缺）</td><td>—</td><td>由独立董事轮流主持；黄仁勋为唯一执行董事</td></tr></tbody></table><div class="note">持股与薪酬数据来自英伟达 2026 年股东会委托书（proxy statement，披露截至 2026/03/23）与媒体报道；未单独披露的高管薪酬不在本报告猜测。公司自 2024 年起不设董事长一职，由独立董事主持董事会。</div><div class="section"><div class="section-title">资本配置：A 的三条证据和一条新证据</div><p class='txt'>第一条证据是回购。FY2027Q2 回购 197.32 亿美元、分红 60.47 亿，合计返还 260 亿；H1 回购 390.44 亿、分红 62.90 亿。<b>公司口径是“目标返还 50% 以上自由现金流，今年迄今实际 60%”。</b>回购授权余额 990 亿美元。在股价 220 美元附近大额回购，说明管理层认为自己的股票不贵——这是一个可以被检验的表态。</p><p class='txt'>第二条证据是并购的克制。2019 年 69 亿美元收购 Mellanox，拿到了 InfiniBand 与网络能力，今天 Spectrum-X 以太网同比 +260%、公司自称全球最大网络厂商，这笔钱花得极值。2020–2022 年 400 亿美元收购 ARM，被监管挡住后干脆放弃，没有拖成泥潭。</p><p class='txt'>第三条证据是股息的节奏。季度股息 0.25 美元/股（年化 1.00 美元），分红率不到 10%，把绝大部分现金留给再投资与回购。<b>对于一家还在高速扩张的公司，这是对的选择。</b></p><p class='txt'>新证据是 2026 年的三个动作：发债 248.96 亿美元（长期借款从 74.69 亿跳到 323.66 亿）、H1 购买股权证券 424.04 亿美元（累计向前沿 AI 实验室投入近 500 亿美元）、为数据中心项目提供上限 1,085 亿美元的信用担保。加上 Groq 资产交易（约 200 亿美元，本季现金支付 29.44 亿）。<b>这四笔加起来，是公司历史上最大的一次资本配置转向：从买资产，变成买客户。</b></p></div><div class="section"><div class="section-title">诚信与治理：没有丑闻，但有结构缺陷</div><p class='txt'>先说没有的：没有财务重述，没有 SEC 会计调查，没有创始人套现式减持的指控。黄仁勋持股 3.58%，是他从 1993 年一路持有下来的，不是期权兑现。<b>这一点在创始人 CEO 里算干净的。</b></p><p class='txt'>再说有的，三条结构缺陷。</p><p class='txt'><b>第一，没有董事长。</b>公司自 2024 年起不设董事长，由独立董事轮流主持董事会。官方理由是“避免权力集中”，实际效果是黄仁勋作为唯一执行董事，在董事会里没有对等的制衡者。</p><p class='txt'><b>第二，没有公开的接班计划。</b>公司没有 COO，没有明确的二号人物。CFO 科莱特·克雷斯是唯一能在短期内接管的人，但她是财务背景，不是产品背景。对一家依赖架构路线图的公司，这不是理想的备胎。</p><p class='txt'><b>第三，家族色彩。</b>黄仁勋的子女在公司任职（分别在 Omniverse 与机器人相关团队），这在硅谷大公司里罕见。这不是违规，但它让“能力优先”的用人文化多了一层解释成本。</p><p class='txt'>还有一条外部压力：2026 年 6 月 11 日，黄仁勋应参议员沃伦邀请就芯片出口合规出席参议院听证会，6 月 5 日消息公布当天股价跌超 6%。<b>这说明公司的对华业务已经不只是商业问题，是政治问题。</b></p></div><div class="section"><div class="section-title">激励结构：他和股东站在同一边吗</div><p class='txt'>黄仁勋 FY2026 总薪酬 3,634 万美元，比上一年的 4,990 万下降 27%，其中股票奖励 2,480 万、现金奖金 600 万。相对 5.33 万亿美元市值，这个数字可以忽略。</p><p class='txt'>真正的激励来自持股：8.706 亿股 × 220.78 美元 ≈ 1,922 亿美元，占其个人财富的绝大部分。公司只有单一类别股票，没有 AB 股双重结构，所以他的投票权与经济利益一致——<b>这是英伟达治理结构里最好的一条，比很多科技公司强。</b></p><p class='txt'>但这也意味着另一件事：他的财富高度集中于一只股票，且这只股票的估值依赖他自己给的指引。<b>一个把 97% 身家押在公司上的人，在做“替客户担保”这种决定时，风险偏好会和分散持股的股东不一样。</b>这不是道德问题，是激励结构问题。</p></div><div class="section"><div class="section-title">接班人：这是五年内最需要回答的问题</div><p class='txt'>黄仁勋 1963 年生，2026 年 63 岁。以他的精力，再做五年没有问题。但投资者需要知道“如果明天他不在，公司会怎样”。</p><p class='txt'>现在的答案是：不知道。公司没有公开的接班计划，没有指定二号人物，董事会没有设立首席独立董事之外的过渡机制。<b>对一家 5.33 万亿美元的公司，这是最大的单点风险，而且这条风险不在任何一份财报里。</b></p><p class='txt'>可观察的线索有三条：CFO 科莱特·克雷斯在电话会上的角色越来越重（本季她讲了指引、毛利率路径、表外口径，几乎覆盖了所有关键披露）；Ian Buck 作为 CUDA 体系的负责人，是技术路线的连续性所在；董事会如果在未来 12 个月新设 COO 职位，那就是接班计划启动的信号。</p><p class='txt'>我的处理方式：把这条风险计入仓位而不是估值。仓位上限 8%，就是因为这个位置坐着一个不可替代的人。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>资本配置 A：回购大方、并购克制、股息节制；但 2026 年的三个新动作（发债 249 亿、买客户股权 424 亿、担保 1,085 亿）把资本配置变成了风险配置。</b>治理 B-：单一股权结构是优点，无董事长、无接班计划、家族任职是缺点。<b>结论：管理层不扣分到影响持有，但足以影响仓位上限——8%，不能再高。</b></p></div>
 </div>
-<div class="footer">英伟达 (NVDA) 投资研究报告集 · 2026/08/31</div>
+<div class="footer">英伟达 (NVDA) · 2026/08/31</div>
 </body>
 </html>

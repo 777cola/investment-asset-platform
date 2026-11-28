@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀（蒙格） — Meta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meta/8-财报团队解读/Meta-大师精读-芒格.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meta/8-財報團隊解讀/Meta-財報團隊解讀-3.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meta/8-Earnings-Team-Read/Meta-Earnings Team-3.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀（蒙格） — Meta</h1>
+  <div class="subtitle">先找會計裡的坑，再找生意裡的坑</div>
+  <div class="meta">研究日期 2026/11/02 &nbsp;·&nbsp; 股價 $606.73（-1.34%） &nbsp;·&nbsp; 市值 約 1.58 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 21x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meta/00-Meta研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>芒格讀財報從哪裡可能騙我開始。這份報表有三處要盯：<b>折舊年限、一次性項目的歸類、以及經營現金流很好這句話背後的資本支出。</b>三處都不算造假，但都會讓數字比真實情況好看。</p></div><div class="section"><div class="section-title">第一處：折舊年限</div><p class='txt'>1,400 億美元資本支出裡，大宗是 GPU 伺服器。這類資產的真實經濟壽命可能只有三到四年，技術迭代太快，但會計上常按五到六年折舊。<b>年限拉長一年，每年折舊就少兩三百億，利潤就多兩三百億。</b></p><p class='txt'>公司沒有單獨披露 AI 伺服器的折舊年限，這是這份財報最大的資訊缺口。如果微軟、谷歌開始縮短年限，Meta 大概率要跟進，那會是一次性的利潤下修。</p></div><div class="section"><div class="section-title">第二處：98.9 億和解費的歸類</div><p class='txt'>這筆錢計入管理費用，把該項從 35.1 億推到 148.6 億。公司強調一次性，媒體也照抄。<b>但總額 185.9 億、分十年支付，意味著未來九年每年還有 8 到 9 億要計入。</b>它不是一次性，是分期一次性。</p><p class='txt'>蒙格會問：如果每年都有一次性，那它還是不是一次性。過去五年 Meta 的一次性項目包括 FTC 罰款、歐盟罰款、稅務變更、重組費用，年年都有。</p></div><div class="section"><div class="section-title">第三處：營業現金流的光環</div><p class='txt'>營業現金流 327.9 億、同比漲 9.3%，依然強勁，幾乎所有報導都這麼寫。這句話沒錯，但漏了後半句：同期資本支出 349.1 億。<b>只看前半句會得出公司很健康，看完整句會得出公司在燒錢。</b></p><p class='txt'>他的規矩是：任何被單獨引用的現金流數字，都要問一句扣掉維持性資本支出了嗎。Meta 的維持性資本支出大概 200 億一季，剩下的 150 億是擴張性的，可以停，但停了就沒有增長。</p></div><div class="section"><div class="section-title">反過來想：什麼會讓這份財報變好看</div><p class='txt'>三條：廣告單價繼續漲 10% 以上；資本支出停在 1,400 億不再上調；Reality Labs 虧損真的收到 150 億。三條同時發生，2027 年 EPS 能到 32 到 35 美元，現價對應 18 倍。</p><p class='txt'><b>但三條裡沒有一條是公司能單方面決定的</b>：廣告看宏觀，資本支出看競爭，Reality Labs 看產品。所以這是一家好公司，不是一個好賭局。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>精讀結論：數字沒有造假，但有修飾。</b>折舊年限、一次性項目、現金流口徑都偏向讓報表好看。不是騙人，是人之常情。投資者的工作是把修飾還原，然後問一句：還原之後 21 倍還便宜嗎。答案是不便宜。</p></div>
+</div>
+<div class="footer">Meta (META) · 2026/11/02</div>
+</body>
+</html>

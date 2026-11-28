@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>風險評估（李錄視角） — 甲骨文</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/oracle/5-四角色并行分析/甲骨文-风险评估-李录.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/oracle/5-四角色並行分析/甲骨文-四角色-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/oracle/5-Four-Role-Analysis/Oracle-Four Roles-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>風險評估（李錄視角） — 甲骨文</h1>
+  <div class="subtitle">五個可能讓這筆投資歸零的變數</div>
+  <div class="meta">研究日期 2026/09/14 &nbsp;·&nbsp; 股價 $144.79（-3.65%） &nbsp;·&nbsp; 市值 約 4,400 億美元 &nbsp;·&nbsp; PE(GAAP TTM) 約 23.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/oracle/00-甲骨文研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>這筆投資的風險不在經營，在結構。<b>五條風險裡，有四條的開關不在甲骨文手上。</b>這不是管理層能力問題，是位置問題——它把公司放在了「必須持續融資才能兌現訂單」的位置上。</p></div><table class="dt"><caption>風險清單與觸發訊號</caption><thead><tr><th>風險</th><th>觸發條件</th><th>影響量級</th><th>可觀察訊號</th></tr></thead><tbody><tr><td>客戶集中</td><td>OpenAI 縮減訂單或重談價格</td><td>RPO 增速失速、OCI 增速掉到 40% 以下</td><td>OpenAI 融資新聞、合約變更披露</td></tr><tr><td>融資成本</td><td>評級降至 BB+ 或利率上行 200bp</td><td>年利息 +20–30 億元，稅後淨利 -40% 以上</td><td>CDS 利差、新債票息</td></tr><tr><td>技術迭代</td><td>Rubin 量產後 Hopper 租金跌 30%</td><td>折舊假設失效，帳面利潤消失</td><td>GPU 現貨租金、舊卡續約價</td></tr><tr><td>產能過剩</td><td>2027 年行業供給超需求</td><td>租金跌 15%，EBITDA 跌 25%</td><td>同業資本開支指引、機櫃空置率</td></tr><tr><td>監管</td><td>AI 算力出口管制擴大、反壟斷</td><td>區域收入受限、合約拆分</td><td>BIS 規則、歐盟調查</td></tr></tbody></table><div class="note">影響量級為按當前槓桿與利潤結構的敏感性粗算，非公司指引。</div><div class="section"><div class="section-title">風險一：一個客戶撐起半個訂單簿</div><p class='txt'>6,640 億美元的 RPO 裡，市場估算一半以上與 OpenAI 相關（分析師推算，公司未披露）。這意味著甲骨文的訂單品質，等價於 OpenAI 的信用品質。而 OpenAI 是一家仍在虧損、依賴持續融資的私營公司，它的付款能力取決於下一輪融資，不是取決於它的收入。</p><p class='txt'>李錄會把這稱為「<b>用投資級資產負債表，承保一家初創公司的信用</b>」。這種結構在金融史上出現過很多次，最典型的是 2000 年代的電信設備商給新興營運商做賣方信貸——設備賣出去了，錢收不回來。</p></div><div class="section"><div class="section-title">風險二：融資成本是這門生意的生死線</div><p class='txt'>1,295 億債務、4.3 倍槓桿、BBB- 評級。這個組合意味著公司每年要滾動再融資幾百億。<b>利率每上行 100 個基點，年利息多 13 億，等於本季淨利的 27%。</b>如果評級降到 BB+，進入高收益債市場，票息大概要到 7.5%–8.5%，年利息從 65 億跳到 100 億以上。</p><p class='txt'>這時候項目回報會變成負數——資料中心資產回報率大概 10%–12%，資金成本 8%，扣掉折舊和營運，股東幾乎不賺錢。<b>也就是說，評級下調一級，這門生意從「薄利」變成「白做」。</b></p></div><div class="section"><div class="section-title">風險三：折舊假設是整個模型的暗門</div><p class='txt'>公司按六年折舊 GPU 和相關設備。如果真實經濟壽命是四年（輝達 18–24 個月一代，推理卡的實際可用期更長但租金會掉），每年要多提 50% 的折舊。按 FY27 資本支出 900 億算，折舊差一年就是 75 億美元，超過本季稅後淨利。</p><p class='txt'>本季披露的兩個數字值得記住：老卡續約溢價 20%、整體利用率 97.9%。<b>這兩個數字現在是支撐折舊假設的證據，將來也會是推翻它的證據</b>——一旦利用率掉到 85%，溢價就沒了，租金和折舊同時惡化。</p></div><div class="section"><div class="section-title">風險四：產能過剩的時點比想像中近</div><p class='txt'>2026 年全行業新增容量是 2023 年的三倍。按建設週期 18–24 個月推算，2027 年下半年到 2028 年上半年是集中投產期。<b>如果 AI 需求增速在那之前沒有加速，就會出現「機房建好了、客戶不夠」的局面。</b></p><p class='txt'>對一家槓桿 4.3 倍、自由現金流為負的公司，這個時點是致命的——它沒有餘糧熬過一個下行週期。三大雲廠有，CoreWeave 和甲骨文沒有。李錄的判斷框架裡，<b>「能不能熬過最差的一年」比「最好的年份能賺多少」重要十倍。</b></p></div><div class="section"><div class="section-title">風險五：歷史類比——光纖與鐵路</div><p class='txt'>1998–2001 年，全球鋪設了超過 8,000 萬公里光纖，需求確實爆發了，但供給爆發得更快，最終 Level 3、Global Crossing 破產，康寧的股價從 113 美元跌到 1.1 美元。<b>需求成長 100 倍，不代表建設者能賺到錢。</b></p><p class='txt'>鐵路也一樣：1870–1890 年美國鋪了四分之一條地球周長的鐵路，運量成長了十倍，但一半的鐵路公司在 1893 年危機中破產。<b>基礎設施的規律是：社會受益，債權人受損，股權歸零，設備商發財。</b>甲骨文現在站在「建設者 + 借款人」的位置上。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：風險不可控，且高度相關。</b>五條風險不是獨立事件，它們都由同一個變數驅動——AI 資本支出週期的位置。週期見頂時，客戶縮單、租金下跌、評級下調、利用率下滑會同時發生。<b>對這種「單因子決定生死」的持倉，唯一的紀律是不建倉，或只用可以歸零的倉位參與。</b></p></div>
+</div>
+<div class="footer">甲骨文 (ORCL) · 2026/09/14</div>
+</body>
+</html>

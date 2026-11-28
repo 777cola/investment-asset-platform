@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>編輯潤色版：一份可以發布的財報解讀 — 泡泡瑪特</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/popmart/8-财报团队解读/泡泡玛特-编辑润色版.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/popmart/8-財報團隊解讀/泡泡瑪特-財報團隊解讀-6.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/popmart/8-Earnings-Team-Read/Pop Mart-Earnings Team-6.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>編輯潤色版：一份可以發布的財報解讀 — 泡泡瑪特</h1>
+  <div class="subtitle">泡泡瑪特 2026 中報：50 億利潤背後，三個數字在打架</div>
+  <div class="meta">研究日期 2026/09/07 &nbsp;·&nbsp; 股價 HK$156.20（+1.43%） &nbsp;·&nbsp; 市值 約 2,090 億港元 &nbsp;·&nbsp; PE(TTM) 約 14.2x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/popmart/00-泡泡瑪特研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>8 月 20 日，泡泡瑪特交出 2026 年中報：營收 171.73 億元、同比 +23.8%，歸母淨利 50.38 億元、同比 +10.1%。當天股價收 153.7 港元，市值 2,046.94 億港元，比今年 2 月的高點跌了四成多。這份財報裡，有三個數字在互相打架。</p></div><div class="section"><div class="section-title">第一個矛盾：門店在增加，海外收入在下降</div><p class='txt'>上半年，泡泡瑪特在海外淨增 36 家門店：美洲從 41 家開到 86 家，歐洲從 18 家開到 45 家，亞太 90 家。全球門店總數 676 家，機器人商店 2,827 台。</p><p class='txt'>按常理，門店翻倍，收入應該跟著漲。實際是海外收入 49.72 億元、同比 -11.1%，占比從 40.3% 掉到 29.0%。<b>門店 +19%，收入 -11%，兩個數字放在一起只有一個解釋：單店產出在大幅下滑。</b></p><p class='txt'>公司沒有迴避這個問題。COO 司德在業績會上說得很直白：去年海外的高增長主要由 LABUBU 拉動，大量新增用戶缺乏潮玩文化認知，「他們只是來搶 LABUBU 的」。財報裡也寫：線上渠道的外部流量紅利正在消退。</p><p class='txt'>拆開看更清楚：亞太線上 -39.8%、美洲線上 -45.6%、歐洲線上 -59.0%、Shopee -62.1%。<b>崩的是線上，長的是線下。</b>這不是需求消失，是獲客方式換了——從「刷短影音下單」換成「走進門店買」。</p></div><div class="section"><div class="section-title">第二個打架：毛利率只掉 0.6 個點，淨利率掉了 3.7 個點</div><p class='txt'>毛利率 69.7%，去年同期 70.3%，只掉 0.6 個百分點。在一個品類結構劇變的半年裡，這個數字算穩——毛絨從配角變成主角，收入 98.25 億元、占 57.2%、同比 +60%，手辦 51.92 億元、只增 0.3%。</p><p class='txt'>但淨利率從 33.0% 掉到 29.3%，掉了 3.7 個百分點。差額去哪了？兩塊。</p><p class='txt'><b>一塊是匯兌。</b>上半年匯兌虧損 7.20 億元，去年同期是 1.20 億元收益，一進一出 8.4 億元，占收入 4.9 個百分點。<b>另一塊是費用。</b>經銷及銷售費用 +23.1%，看著和收入同步，但租賃開支 +43.3%、員工薪酬 +45.7%，銷售團隊從 6,219 人擴到 9,734 人。</p><p class='txt'>這兩塊性質完全不一樣。匯兌是一次性的、不可控的；費用是主動的、投資性的。把它剔掉，利潤增速約 28%，比收入還快。<b>所以「利潤下滑」這個說法要修正：下滑的是報表利潤，不是經營利潤。</b></p></div><div class="section"><div class="section-title">第三個矛盾：賺了 50 億元，現金少了 13 億元</div><p class='txt'>這是最容易被忽略的一條。上半年淨利 50.38 億元，現金從年初 137.8 億元降到 124.4 億元，少了 13.4 億元。同期派息 31.5 億元、回購約 15.5 億元，兩項合計 47 億元。</p><p class='txt'>粗算一下：50.38 - 47 = 3.4 億元，現金本該微增，實際少了 13.4 億元。<b>差額約 17 億元，壓在存貨和營運資本上。</b>存貨週轉天數從 123 天拉到 201 天，按半年營業成本 52 億元算，多壓了約 11 億元的貨。</p><p class='txt'>公司的解釋是海外提前備貨。這個解釋成立一半——美洲門店從 41 家開到 86 家，新店確實要鋪貨。不成立的另一半是：<b>門店在增加、收入在下降、庫存還在漲，三個方向不一致的時候，通常是需求端出了問題。</b></p><p class='txt'>好消息是資產表乾淨：資產負債率 24.9%、零銀行借款、現金 124.4 億元。就算現金流再差兩個季度，公司也不會出問題。壞消息是「不會出問題」和「賺錢效率高」是兩件事——賺的利潤有一半變成了倉庫裡的貨。</p></div><div class="section"><div class="section-title">那麼，14 倍 PE 便宜嗎</div><p class='txt'>156.2 港元對應約 2,090 億港元市值、14.2 倍 TTM PE。第一眼看便宜：一家毛利率 70% 的消費公司，A 股港股都難找 14 倍。</p><p class='txt'>但分母要看清。TTM 淨利 134.7 億元的構成是：2025 全年 130.12 億元 + 2026 上半年 50.38 億元 - 2025 上半年 45.76 億元。拆開就是——<b>2025 下半年單半年賺了 84.36 億元，那是 Labubu 全球爆紅、門店天天排隊的半年。</b></p><p class='txt'>按 2026 年全年 110 億元淨利粗算，PE 是 17.4 倍；按摩根大通預測的三季度收入 -35%、四季度 -20%，2026 年淨利可能只有 95–105 億元，PE 是 18–20 倍。匯豐 8 月 20 日的報告寫，現價相當於 2026 年預測 PE 16.4 倍。</p><p class='txt'>三個口徑指向同一件事：<b>它不是 14 倍，是 17 倍上下。</b>對一家利潤增速 10%、海外還在衰退的公司，17 倍是合理，不是便宜。</p></div><div class="section"><div class="section-title">結論：等兩個訊號</div><p class='txt'>這家公司的問題不是「好不好」，是「貴不貴」。好在生意模式、管理層、資產表；差在增長的可持續性和現金轉化。</p><p class='txt'>等兩個訊號，任意一個出現就可以重估：<b>① 三季報海外收入環比止跌，存貨週轉回到 150 天以內；② 股價回到 120 港元以下，對應 2026 年 110 億元淨利約 13 倍。</b></p><p class='txt'>在這之前，評級是「觀察，等回調」。不是不看好，是價格還沒把壞消息算進去。</p></div><div class="summary-box"><h3>結論</h3><p>一句話總結：<b>50 億元利潤是真的，但三個數字在打架——門店在增、收入在降；毛利穩、淨利降；利潤增、現金降。三個矛盾指向同一個結論：增長的質量在下降。</b>14 倍 PE 修不回這個結論，17 倍才是真實的價格。</p></div>
+</div>
+<div class="footer">泡泡瑪特 (09992) · 2026/09/07</div>
+</body>
+</html>

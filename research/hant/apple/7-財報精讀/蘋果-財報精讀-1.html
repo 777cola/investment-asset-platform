@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀 — 蘋果</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/apple/7-财报精读/苹果-财报精读.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/apple/7-財報精讀/蘋果-財報精讀-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/apple/7-Earnings-Deep-Read/Apple-Earnings Read-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀 — 蘋果</h1>
+  <div class="subtitle">蘋果 (AAPL) | 07 · 財報精讀</div>
+  <div class="meta">研究日期 2026/08/03 &nbsp;·&nbsp; 股價 $303.42（-1.78%） &nbsp;·&nbsp; 市值 約 4.41 萬億美元 &nbsp;·&nbsp; PE(TTM，FY2026Q3) 約 34x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/apple/00-蘋果研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>這份財報要分四層讀。第一層收入：iPhone +21.7%、Mac +28.7%，六年最強的六月季；第二層毛利：50.1% 是歷史最高，但下季指引 47%–48%；第三層費用與利潤：營業利益率 32.6%、稅後淨利率 27.2%，EPS 裡含 0.11 美元退稅；第四層現金：一年自由現金流約 1,030 億美元，全部還給股東。</p><p class='txt'><b>四層裡前三層都在「好但見頂」，第四層是唯一沒有爭議的。</b>這也解釋了為什麼股價在財報後跌 7.35%——市場不是不信這份財報，是不信下一份。</p></div><table class="dt"><caption>損益表（百萬美元，GAAP）</caption><thead><tr><th>專案</th><th>FY26Q3</th><th>FY25Q3</th><th>同比</th></tr></thead><tbody><tr><td>總營收</td><td>109,417</td><td>94,036</td><td>+16.4%</td></tr><tr><td>產品收入</td><td>78,678</td><td>66,613</td><td>+18.1%</td></tr><tr><td>服務收入</td><td>30,739</td><td>27,423</td><td>+12.1%</td></tr><tr><td>毛利</td><td>54,770</td><td>43,718</td><td>+25.3%</td></tr><tr><td>毛利率</td><td>50.1%</td><td>46.5%</td><td>+3.6pct</td></tr><tr><td>營業利益</td><td>35,695</td><td>28,202</td><td>+26.6%</td></tr><tr><td>稅後淨利</td><td>29,789</td><td>23,434</td><td>+27.1%</td></tr><tr><td>稀釋每股盈餘（美元）</td><td>2.02</td><td>1.57</td><td>+28.7%</td></tr></tbody></table><div class="note">來源：蘋果 FY2026Q3 合併損益表（2026/07/30 盤後）。EPS 含 0.11 美元關稅退稅，剔除後約 1.91 美元。</div><table class="dt"><caption>分部與區域收入（百萬美元）</caption><thead><tr><th>專案</th><th>FY26Q3</th><th>FY25Q3</th><th>同比</th><th>評價</th></tr></thead><tbody><tr><td>iPhone</td><td>54,252</td><td>44,582</td><td>+21.7%</td><td>六月季歷史最高</td></tr><tr><td>Mac</td><td>10,352</td><td>8,046</td><td>+28.7%</td><td>M5 換代，供不應求</td></tr><tr><td>iPad</td><td>6,191</td><td>6,581</td><td>−5.9%</td><td>換機週期拉長，結構性</td></tr><tr><td>穿戴式與家居</td><td>7,883</td><td>7,404</td><td>+6.5%</td><td>持平預期</td></tr><tr><td>服務</td><td>30,739</td><td>27,423</td><td>+12.1%</td><td>三年多來首次低於預期</td></tr><tr><td>大中華區</td><td>18,816</td><td>15,369</td><td>+22.4%</td><td>低於預期 3.9%</td></tr><tr><td>美洲</td><td>45,781</td><td>41,198</td><td>+11.1%</td><td>增速低於整體</td></tr><tr><td>歐洲</td><td>29,395</td><td>24,014</td><td>+22.4%</td><td>本季最穩的區域</td></tr></tbody></table><div class="note">來源：蘋果 FY2026Q3 分部收入表。日本與亞太其餘未單列，差額 154.25 億美元（倒算，同比約 +14.8%）。</div><table class="dt"><caption>現金流與資產負債（十億美元，粗算）</caption><thead><tr><th>項目</th><th>金額</th><th>說明</th></tr></thead><tbody><tr><td>營業現金流（TTM）</td><td>約 115</td><td>按季度經營現金流率推算，未取公司單季披露</td></tr><tr><td>資本支出（TTM）</td><td>約 12</td><td>門店、資料中心、製造設備</td></tr><tr><td>自由現金流（TTM）</td><td>約 103</td><td>營業現金流減資本支出</td></tr><tr><td>回購與股息（TTM）</td><td>約 115</td><td>回購約 100、股息約 15.6，超過自由現金流</td></tr><tr><td>現金及證券</td><td>約 130</td><td>含長期有價證券</td></tr><tr><td>長期債務</td><td>約 98</td><td>以低息債置換海外現金，非經營風險</td></tr><tr><td>淨現金</td><td>約 30</td><td>現金減債務；連續三年下降</td></tr></tbody></table><div class="note">現金流為按去年現金流率與本季利潤水平推算的粗算值，公司未在季報中單列單季營業現金流；現金、債務為資產負債表約數。所有帶「約」的數字不應被當作公司披露值引用。</div><div class="section"><div class="section-title">第一層 收入：iPhone 與 Mac 雙引擎，iPad 是唯一短板</div><p class='txt'>總營收 1,094.17 億美元、同比 +16.4%，是六月季的歷史最高。拆開看，成長幾乎全部來自兩條線：iPhone 542.52 億、+21.7%；Mac 103.52 億、+28.7%。<b>兩條線合計貢獻了 118 億美元增量，佔總增量 153 億的 77%。</b></p><p class='txt'>iPhone 的 +21.7% 要拆成量價兩部分。全球出貨量同比個位數成長，所以大部分增量來自均價——Pro 與 Pro Max 的佔比繼續提升，折疊機的缺位反而讓高階用戶集中到了 Pro 線上。<b>這個結構對毛利率有利，對銷量彈性不利</b>：一旦高階換機結束，量價雙降會同時出現。</p><p class='txt'>Mac 的 +28.7% 是 M5 換代的直接結果。M5 系列的 MacBook Pro 從發布起就供不應求，交付週期一度到 6 週。<b>這是蘋果少見的「產品力直接驅動收入」的季度</b>——過去幾年 Mac 的成長主要靠企業換機，這次是消費者主動升級。</p><p class='txt'>iPad 是唯一負成長：61.91 億、−5.9%。原因不是競爭，是換機週期——iPad 的使用壽命太長（平均 5 年以上），而 2026 年沒有形態變化。<b>這條線對整體影響有限（佔營收 5.7%），但它是「蘋果也會賣不動」的證據。</b></p><p class='txt'>服務這條線要單獨說，因為它是這份財報裡唯一的壞消息。307.39 億、同比 +12.1%，低於一致預期 2.0%，環比還下滑 0.8%——三年多來第一次。<b>拆開看，四塊收入裡抽成（App Store）受監管壓制、搜尋預設位（谷歌）受 AI 搜尋威脅，只有訂閱與廣告還在兩位數成長。</b>高毛利的那兩塊在被侵蝕，成長的那兩塊體量不夠。</p></div><div class="section"><div class="section-title">第二層 毛利：50.1% 是頂，產品的 40.1% 值得追問</div><p class='txt'>毛利率 50.1%、同比 +3.6pct、毛利 547.70 億美元。拆開來看：產品毛利率 40.1%、服務 75.6%。<b>服務的 75.6% 與去年持平，所以這 3.6 個點的提升全部來自產品端。</b></p><p class='txt'>倒算一下去年同期的產品毛利率：產品收入 666.13 億、服務 274.23 億，按總毛利率 46.5% 與服務 75.6% 反推，產品毛利率約 34.5%。<b>一年抬了 5.6 個百分點——這是本季最該追問的數字。</b>公司給的解釋只有「mix」一個詞，但 mix 解釋不了 5.6 個點。</p><p class='txt'>三個可能的來源：① Pro 機型占比提升（結構 +2 個點左右）；② 關稅退稅約 16 億美元計入產品成本（約 +2 個點）；③ 通路補貼與促銷減少（約 +1.5 個點）。<b>三者相加正好約 5.5 個點，但這只是我的拆法，公司沒有披露。</b></p><p class='txt'>所以下季指引 47%–48% 就很好理解了：退稅不再有、記憶體成本開始進表、Pro 占比的邊際提升放緩。<b>47.5% 的中值意味著「回到正常水準」，而不是「變差」</b>——50.1% 才是不正常的那一季。</p><p class='txt'>再往下拆一層：記憶體這一輪到底吃掉多少。iPhone 的記憶體 BOM 占比約 12%（粗算），DRAM 合約價 2026 年初漲 60%–70%、NAND 翻倍，加權漲幅約 75%，對應 BOM 上升 9%、整機毛利率潛在下降 4.5 個點。<b>蘋果只讓毛利率掉了 2.6 個點，說明吸收了一半，另一半靠 Pro 結構與長約鎖價抵掉了。</b>緩衝還剩多少？如果 2027 年再漲一輪，就沒有緩衝了。</p></div><div class="section"><div class="section-title">第三層 費用與利潤：營業利益率 32.6%，費用控制是隱形的護城河</div><p class='txt'>毛利 547.70 億元、營業利益 356.95 億元，意味著總費用 189.52 億元、費用率 17.3%。其中研發約 99 億元（占營收 9.0%）、銷售管理費用約 90 億元（8.2%）。<b>一家 4,600 億元營收的公司，把銷售管理費用壓在 8% 以內，這在硬體行業裡是異類</b>——三星約 17%、小米約 9%（但毛利率只有 19.8%）。</p><p class='txt'>研發占比 9% 是歷史高位。錢花在哪？三個方向：A 系列與 M 系列晶片、自研 5G 基帶（C 系列）、AI 模型與端側推理。<b>這三項都是「花了不一定成、不花一定落後」的投入</b>，也是毛利率長期會被壓制的結構性原因。</p><p class='txt'>稅後淨利 297.89 億元、淨利率 27.2%，同比 +27.1%。<b>但要說清質量：2.02 美元的 EPS 裡有 0.11 美元來自關稅退稅，剔除後 1.91 美元</b>，同比 +21.7%。營收超預期 0.5%、EPS 靠一次性、指引低於預期——三條加起來就是財報後跌 7.35% 的全部原因。</p><p class='txt'>還有一個細節：攤薄股本同比減少 1.9%，所以 EPS 增速（+28.7%）高於淨利增速（+27.1%）。<b>回購每年自動貢獻約 2% 的每股增長，這是蘋果財報裡最穩定的「隱藏增長」。</b></p><p class='txt'>營業利益這一層還有個被忽略的對照：營業利益率 32.6%，三星電子同期約 15%（粗算，按記憶體漲價前的結構估算）。<b>同樣做硬體，蘋果的營業利益率是它的兩倍以上</b>——這就是「整合者 vs 零部件商」的差別。但反過來說，三星在記憶體漲價週期裡受益，蘋果承受成本，兩者的利潤率正在收斂。</p></div><div class="section"><div class="section-title">第四層 現金流與資產負債：一年 1,000 億還給股東</div><p class='txt'>營業現金流一年約 1,150 億美元、資本支出約 120 億、自由現金流約 1,030 億（粗算）。這筆錢幾乎全部用於回購與分紅：過去四個季度回購約 1,000 億、股息約 156 億，合計超過自由現金流。<b>差額靠帳上現金與發債補，這是蘋果十幾年的標準操作。</b></p><p class='txt'>資產負債表很乾淨：現金及證券約 1,300 億、長期債務約 980 億、淨現金約 300 億。<b>淨現金連續三年下降</b>——不是經營變差，是回購花得太快。如果這個趨勢繼續，2028 年蘋果會從「淨現金公司」變成「淨負債公司」，那時候回購的節奏必須放慢。</p><p class='txt'>輕資產結構是這份報表最容易被忽略的優勢。資本支出只占營收 2.6%，意味著每多賺 100 億美元，幾乎全部能變成自由現金流。<b>對比台積電（資本支出占營收 30% 以上）、三星（20% 以上），蘋果是「用別人的產能賺自己的毛利」。</b></p><p class='txt'>要盯的一件事：AI 會不會改變這個結構。如果蘋果開始自建大模型訓練叢集，資本支出可能從 120 億漲到 300 億，自由現金流立刻少 15%。<b>這是 2027 年最值得追蹤的財務變數，比毛利率更重要。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：四層拆完，前三層「好但見頂」，第四層「沒有爭議」。</b>收入結構史上最強，毛利率史上最高且不可持續，費用控制是隱形護城河，現金流厚到可以支撐每年 1,000 億回購。</p><p class='txt'>下一季要驗證三件事：毛利率是否真落到 47%–48%、服務增速能否止跌、大中華區是否還在 20% 以上。<b>三條裡兩條不及預期，FY2027 的 EPS 共識 10.0 美元就要下修。</b></p></div>
+</div>
+<div class="footer">蘋果 (AAPL) · 2026/08/03</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>論文追蹤 — 寧德時代</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/catl/13-持仓论文追踪/宁德时代-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/catl/13-持倉論文追蹤/寧德時代-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/catl/13-Thesis-Tracking/CATL-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>論文追蹤 — 寧德時代</h1>
+  <div class="subtitle">寧德時代 (300750.SZ) | 13 · 論文追蹤</div>
+  <div class="meta">研究日期 2026/09/28 &nbsp;·&nbsp; 股價 ¥291.99（-0.51%） &nbsp;·&nbsp; 市值 約 1.35 萬億元（A+H 合計 46.27 億股） &nbsp;·&nbsp; PE(2026E) 約 14x（2026 年稅後淨利一致預期 952 億元）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/catl/00-寧德時代研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>買入論點可以壓縮成五條假設：份額守住、單位盈利止跌、海外放量、消費稅可承受、固態不提前。<b>其中三條已經驗證（單位盈利仍在 90 元以上、海外毛利率 29.97%、消費稅影響 5%—10%），兩條待驗證（國內份額、固態進度）。</b></p><p class='txt'>最脆弱的是份額：國內乘用車裝車 46.7%，理想 + 小米已佔 13.6%，如果 2027 年二線擴散到 25%—30%，這條假設就破了。<b>證偽條件寫成數字，每季度對一次帳。</b></p></div><table class="dt"><caption>核心假設與驗證狀態</caption><thead><tr><th>假設</th><th>當前證據</th><th>驗證指標</th><th>狀態</th></tr></thead><tbody><tr><td>國內乘用車份額守住 44% 以上</td><td>2026 年國內裝車 46.7%；理想、小米已雙供</td><td>季度裝車份額（乘聯會/SNE）</td><td>待驗證（餘量 2.7pct）</td></tr><tr><td>單位淨利不低於 90 元/kWh</td><td>H1 約 98 元（Q1 104、Q2 94）</td><td>季度淨利 ÷ 銷量</td><td>勉強成立（Q2 已 94）</td></tr><tr><td>境外收入占比升至 35% 以上</td><td>H1 31.5%、毛利率 29.97%</td><td>半年報地區收入</td><td>待驗證（差 3.5pct）</td></tr><tr><td>消費稅影響可控（稅後淨利 -5%—10%）</td><td>2% 已實施，2027/09 升至 4%</td><td>稅金及附加／毛利率</td><td>成立（2% 層級）</td></tr><tr><td>固態電池不早於 2028 年規模量產</td><td>2026 半固態小規模裝車、2027 全固態試製</td><td>裝車量、客戶定點</td><td>成立（暫）</td></tr></tbody></table><div class="note">驗證指標均為可公開取得的季度／半年度資料；狀態按 2026 年 9 月 28 日之前的資訊判定。</div><div class="section"><div class="section-title">假設一：份額——餘量只有 2.7 個點</div><p class='txt'>國內乘用車裝車份額 46.7%，論文要求守住 44%。<b>餘量 2.7 個百分點，相當於一個季度的波動。</b>理想新 L8 全系換欣旺達、小米龍甲電池雙供、問界引入中創新航與國軒，這三件事會在 2026 年下半年到 2027 年上半年體現在裝車數據上。</p><p class='txt'>測算一下：理想 + 小米合計佔國內裝機 13.6%，如果它們把寧德的份額從 100% 降到 60%，影響約 5.4 個點；如果二線再拿下 10% 的其他車企，累計影響 7—8 個點，寧德國內份額會掉到 39% 附近。<b>那就破了 44% 的線。</b></p><p class='txt'>所以這條假設不是「會不會破」，是「破多快」。<b>2026 年 Q4 的裝車數據是第一道讀數。</b></p></div><div class="section"><div class="section-title">假設二：單位盈利——Q2 已經 94 元，離 90 元只有一步</div><p class='txt'>H1 單位淨利約 98 元/kWh，Q1 104、Q2 94。<b>按這個速度，Q3 就可能跌破 90 元。</b>這條假設是五條裡最緊的一條，因為它直接決定 14 倍 PE 是便宜還是合理。</p><p class='txt'>敏感性：單位淨利每降 5 元，全年淨利減約 22 億元（440GWh×2 半年粗算），對應 2026 年預期淨利 -2.3%。<b>降 20 元，淨利減 9%，14 倍變 15.4 倍——還能接受；降 40 元，淨利減 18%，估值就不便宜了。</b></p></div><div class="section"><div class="section-title">假設三：海外——差 3.5 個點，但方向對</div><p class='txt'>境外占比 31.5%，論文要求 35%。匈牙利 2026 年投產、初期 40GWh 已預訂，印尼年底量產，西班牙合資廠推進。<b>如果三個基地按期爬坡，2027 年境外占比到 40% 是有可能的。</b></p><p class='txt'>風險在爬坡速度：海外工廠的良率與人工效率通常低於國內，初期毛利率可能低於 29.97%。<b>要看的不是「投產」，是「投產後第二個季度的毛利率」。</b></p></div><div class="section"><div class="section-title">假設四五：消費稅與固態——一個已定價，一個沒定價</div><p class='txt'>消費稅 2% 已於 9 月 1 日落地，影響 5%—10%，市場已經定價。真正的變數是 2027 年 9 月的 4%——<b>那會把影響從 10% 推到 20%，且和二線的成本差無關（二線同樣要交）。</b>這意味著全行業漲價，反而可能利好龍頭（小廠撐不住）。</p><p class='txt'>固態電池是唯一「沒被定價」的變數。2026 年半固態小規模裝車、2027 年全固態小批試製，寧德不領先。<b>如果 2027 年某家二線宣布全固態量產裝車，寧德的液態產能會被重新估值。</b>這條無法提前驗證，只能跟蹤裝車數據與客戶定點。</p></div><div class="section"><div class="section-title">觀察日曆（2026/10—2027/04）</div><p class='txt'><b>10 月 20 日前後：三季報。</b>看三個數——單季淨利同比（門檻 25%）、動力電池毛利率（門檻 19%）、單位淨利（門檻 90 元）。<b>2027 年 1 月：</b>2026 年報與全年裝車份額，驗證 44%。<b>2027 年 4 月：</b>一季報與匈牙利工廠爬坡數據，驗證境外佔比 35%。</p><p class='txt'>三個時點、六個數字，構成完整的對帳鏈條。<b>任何一個破了，就執行減倉，不辯論敘事。</b></p></div><div class="section"><div class="section-title">補一條：什麼叫「論文沒破但股價跌」</div><p class='txt'>投資裡最常見的困惑是「我看對了，為什麼還虧」。寧德的情況是：論點（份額、單位盈利、海外）都還成立，但估值中樞在下移——<b>市場把它的合理倍數從 25 倍調到 15 倍，這個調整跟論點無關，跟「確定性溢價消失」有關。</b></p><p class='txt'>應對辦法不是修改論點，是修改買入價格。論點決定「買不買」，估值決定「什麼價買」。<b>14 倍買一個論點成立的製造業龍頭，即使倍數不再擴張，靠利潤增長也能賺 20% 一年。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>論文狀態：成立，但脆弱點在份額與單位盈利。</b>五條假設三條成立、兩條待驗證，且兩條待驗證的餘量都很薄（2.7pct 份額、8 元單位淨利）。<b>證偽條件：國內份額跌破 44%、或單位淨利跌破 90 元、或動力電池毛利率跌破 19%——任一發生，減倉一半；兩條同時發生，清倉。</b></p></div>
+</div>
+<div class="footer">寧德時代 (300750.SZ) · 2026/09/28</div>
+</body>
+</html>

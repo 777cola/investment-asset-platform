@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>六關篩選 — 百度</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/baidu/1-六关快速筛选/百度-六关筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/baidu/1-六關快速篩選/百度-六關篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/baidu/1-Six-Gate-Screen/Baidu-Six-Gate Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>六關篩選 — 百度</h1>
+  <div class="subtitle">百度 (9888.HK) | 01 · 六關篩選</div>
+  <div class="meta">研究日期 2026/11/23 &nbsp;·&nbsp; 股價 HK$63.55（-0.78%） &nbsp;·&nbsp; 市值 約 1,680 億港元（約 215 億美元） &nbsp;·&nbsp; PE(TTM) 約 19.7x（報表口徑，受減值擾動）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/baidu/00-百度研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>六關 37/60，評級「觀察」。<b>通過的關卡都很輕鬆，卡住的關卡都很致命。</b>第五關安全邊際 8/10：市值約 1,530 億元人民幣，帳上現金及投資 2,766 億元，市淨率 0.52 倍，等於市場白送 AI 雲、搜尋和蘿蔔快跑。第一關能力圈 8/10：三塊業務都看得懂。真正卡住的是第二關好生意（4/10）和第三關護城河（5/10）——線上營銷 119 億元、同比 -22%，AI 雲 82 億元、+94%，兩者正好抵消，總收入 308.07 億元、同比 -1.1%。<b>便宜是真的，生意在縮也是真的。</b>便宜不能抵消衰退，只能給衰退定價，所以是觀察不是買入。</p></div><table class="dt"><caption>六關篩選（2026/11/23，股價 63.55 港元）</caption><thead><tr><th>關卡</th><th>判定</th><th>評分</th><th>依據</th></tr></thead><tbody><tr><td>第一關：能力圈</td><td>透過</td><td>8/10</td><td>搜尋廣告、AI 雲、自動駕駛的業務模型都能看懂；難的是判斷 AI 搜尋會不會毀掉廣告模型</td></tr><tr><td>第二關：好生意</td><td>不通過</td><td>4/10</td><td>廣告是高毛利輕資產，AI 雲是低毛利重資產；收入結構在往差的方向換</td></tr><tr><td>第三關：護城河</td><td>存疑</td><td>5/10</td><td>APP 月活 6.04 億，但使用者獲取資訊的路徑從「搜尋」變成「問 AI」，護城河被繞過</td></tr><tr><td>第四關：管理層</td><td>透過</td><td>6/10</td><td>方向判斷對、執行不慢；但回購年內僅 3.73 億美元，首次派息仍待宣布</td></tr><tr><td>第五關：安全邊際</td><td>透過</td><td>8/10</td><td>市值 1,530 億元 vs 現金及投資 2,766 億元，PB 0.52 倍，主業定價接近零</td></tr><tr><td>第六關：紀律</td><td>透過</td><td>6/10</td><td>買入理由可驗證（廣告止跌 / 雲利潤轉正），不能是「中概反彈」這種宏觀賭注</td></tr><tr><td>綜合</td><td>觀察</td><td>37/60</td><td>資產便宜、生意在縮；等廣告降幅收窄到 -10% 以內，或 AI 雲單季過 100 億元且營業利益轉正</td></tr></tbody></table><div class="note">評分口徑：0–10 分，6 分及以上算通過，「存疑」按 0.5 關計。綜合 37 分對應評級「觀察，等拐點」。</div><div class="section"><div class="section-title">第一關：能力圈——生意看得懂，變數看不懂</div><p class='txt'>三塊業務的賺錢方式都能講清楚：搜尋廣告按點擊和曝光賣流量，AI 雲按算力賣小時，蘿蔔快跑按里程賣運力。<b>但「看懂業務」和「看懂這家公司的未來」是兩件事。</b>真正難的是回答一個問題：當使用者不再點連結、而是直接讀 AI 給出的答案，廣告位在哪裡，單價多少，轉換率幾成？</p><p class='txt'>這個問題百度自己也在試。AI 原生行銷單季 24 億元、同比 -15%，說明新的廣告形態還沒跑通——不是成長慢，是負成長。所以我給 8 分而不是 10 分：<b>生意的形態看得懂，生意的遷移看不懂。</b>能力圈的邊界就在這兒，越過這條線做判斷，就是賭。</p></div><div class="section"><div class="section-title">第二關：好生意——用高毛利換了低毛利</div><p class='txt'>搜尋廣告曾經是中文網際網路最好的一門生意：邊際成本接近零，毛利率 70% 以上，幾乎不需要資本支出，客戶是幾十萬家中小企業，預付款、無帳期。現在這門生意在縮：線上營銷 119 億元、同比 -22%，佔總收入的比例從幾年前的 70% 以上掉到 39%。</p><p class='txt'>頂上來的是 AI 雲：82 億元、同比 +94%，其中 GPU 雲 +191%、環比 +43%。數字漂亮，但雲的商業結構完全不同——<b>要先買卡、租機房、付電費，再按小時賣出去</b>。本季銷售成本 199 億元、同比 +9%，整體毛利率被壓到 35.4%（粗算：(308.07−199)/308.07）。同樣是 100 元收入，廣告能留下 70 元毛利，雲業務的毛利率量級只有 20%–30%（粗算），還要先墊幾十億資本支出。</p><p class='txt'>所以這一關不是「生意變差了」，而是「生意換了，換成了更差的那個」。收入結構從廣告換到雲，等於同時放棄了高毛利和輕資產兩個屬性。4 分。</p></div><div class="section"><div class="section-title">第三關：護城河——不是被攻破，是被繞過</div><p class='txt'>百度手上還有四樣別人不容易複製的東西：6.04 億月活的 APP 入口、二十年積累的中文搜尋語料與使用者意圖資料、崑崙芯帶來的算力供應安全、蘿蔔快跑 30 城營運與 3.9 億公里累計自動駕駛里程。</p><p class='txt'>問題在於，護城河的定義是「對手繞不過去」。而現在字節的豆包、阿里的夸克、騰訊的元寶，全都不從搜尋正面進攻——<b>它們改的是使用者的行為習慣：有問題直接問 AI，不再打開搜尋框。</b>河道還在，水改道了。6.04 億月活是真實的，但月活不等於入口價值，入口價值取決於「使用者帶著意圖來」，而意圖正在流向對話框。</p><p class='txt'>給 5 分而不是更低，是因為蘿蔔快跑這一條確實稀缺：30 個城市、單季自動駕駛里程 3,400 萬公里，是全球營運範圍最廣的 Robotaxi 之一，這條護城河短期沒人追得上，只是還沒變成利潤。</p></div><div class="section"><div class="section-title">第四關：管理層——方向對，回報少</div><p class='txt'>李彥宏對 AI 的判斷比多數同業早了五年：2013 年建深度學習研究院，2019 年做文心，2023 年 all in 大模型，2024 年起把昆侖芯、AI 雲、蘿蔔快跑三條線同時推。執行也不慢——AI 雲基礎設施單季 82 億元、+94%，這個增速在體量過 300 億元年化的雲裡算快的。</p><p class='txt'>扣分在資本配置。年內回購 3.73 億美元，對 215 億美元市值不到 2%；公司帳上現金及投資 2,766 億元，是市值的 1.8 倍，卻至今沒有一 次分紅，首次派息還停在「預期年底前宣布」（信報 2026/11/15）。<b>一家淨現金超過市值的公司，回購力度不到 2%，這不叫保守，這叫選擇。</b>管理層的選擇是把錢留在表上繼續投 AI，這個選擇可以理解，但它把「便宜」變成了「長期便宜」。6 分。</p></div><div class="section"><div class="section-title">第五關：安全邊際——市場給主業的定價接近零</div><p class='txt'>這一關最好算。市值 1,680 億港元，按 63.55 港元匯率折算約 1,530 億元人民幣；現金及投資 2,766 億元，市淨率 0.52 倍。就算把 2,766 億元裡的長期股權投資打對折、再把有息負債全部扣掉，剩下的淨額仍高於當前市值——<b>換句話說，市場給 AI 雲、搜尋、蘿蔔快跑這三塊業務的定價是零，甚至是負數。</b></p><p class='txt'>PB 0.52 倍在港股網路股裡是極值。騰訊當前 PB 在 3 倍以上，阿里在 1.5 倍以上（粗算，口徑為港股報價與最近一期淨資產）。百度不是「估值低」，是「資產被打折」。8 分。</p><p class='txt'>邊界條件要說清楚：這個安全邊際只在「現金不被燒掉」的前提下成立。本季資本支出 73 億元、營業現金流 28 億元，自由現金流 -45 億元（粗算），如果雲繼續擴張，現金會從「安全墊」變成「燃料」。</p></div><div class="section"><div class="section-title">第六關：紀律——買入理由必須可驗證</div><p class='txt'>這一關考的是自己，不是公司。買百度最容易滑進去的理由是「中概跌太久了，總會反彈」——這是宏觀賭注，不可驗證，也沒法設停損。可以驗證的理由只有兩條：<b>廣告同比降幅收窄到 -10% 以內</b>，或者<b>AI 雲單季收入過 100 億元且分部營業利益轉正</b>。兩條都是季度財報能看到的硬指標。</p><p class='txt'>我把這兩條寫成觸發條件，而不是寫成「長期看好 AI」。6 分：紀律框架清楚，但執行上容易破——因為這檔股票太便宜，便宜本身就是最大的誘惑。</p></div><div class="section"><div class="section-title">否決項與待驗證項</div><p class='txt'><b>否決項：核心生意在萎縮。</b>線上營銷連續多季雙位數下滑（本季 -22%），AI 雲的增長剛好對沖，導致總收入同比 -1.1%、非 GAAP 淨利同比 -36%。便宜不能抵消衰退，只能給衰退定價——這是六關裡唯一一條可以直接否掉「買入」的。</p><ul><li><b>廣告降幅</b>：Q4 能否收窄到 -10% 以內，還是繼續惡化到 -25%。這是最重要的單一指標。</li><li><b>雲分部利潤</b>：管理層稱「AI 雲投資回收週期在縮短」（2026/11/15 業績會），需要看到雲分部營業利益轉正的具體數字，而不是整體經調整營業利益率 5.6%。</li><li><b>股東回報</b>：首次派息是否在 2026 年底前落地、2027 年回購是否加碼到 10 億美元級。</li><li><b>蘿蔔快跑單均經濟</b>：目前仍配安全員，人車比監管要求不低於 1:3，單車盈虧平衡還沒驗證。</li></ul></div><div class="summary-box"><h3>結論</h3><p class='txt'>六關 37/60，評級<b>「觀察，等拐點」</b>。通過的關卡是「資產便宜 + 業務看得懂」，卡住的是「生意在縮 + 護城河被繞過」。這兩組事實同時成立，結論只能是不動手：<b>63.55 港元不是買點，是觀察點</b>。觸發條件寫死兩條——廣告同比降幅收窄到 -10% 以內，或 AI 雲單季收入過 100 億元且營業利益轉正。任何一條成立再談建倉；兩條都不成立，就繼續看，不在 0.52 倍 PB 上搶反彈。</p></div>
+</div>
+<div class="footer">百度 (9888.HK) · 2026/11/23</div>
+</body>
+</html>

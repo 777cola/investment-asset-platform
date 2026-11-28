@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組合管理 — 阿斯麥</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/asml/14-组合管理建议/阿斯麦-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/asml/14-組合管理建議/阿斯麥-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/asml/14-Portfolio-Action/ASML-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>組合管理 — 阿斯麥</h1>
+  <div class="subtitle">阿斯麥 (ASML) | 14 · 組合管理</div>
+  <div class="meta">研究日期 2026/10/16 &nbsp;·&nbsp; 股價 $1,641.52（-0.96%） &nbsp;·&nbsp; 市值 約 6,240 億美元（約 5,380 億歐元） &nbsp;·&nbsp; PE(TTM) 約 41 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/asml/00-阿斯麥研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：先想清楚它在組合裡幹什麼</h3><p class='txt'>ASML 在組合裡的角色是「AI 資本開支的高 beta 表達」——它和費城半導體指數、台積電、應用材料高度同向。這意味著：如果你的組合裡已經有輝達、台積電、AMD，再加 ASML 不會分散風險，只會放大同一個賭注。<b>倉位紀律：單一持倉上限 6%，與現有半導體持倉合併計算不超過 20%。</b></p></div><table class="dt"><caption>倉位建議（按價格分檔）</caption><thead><tr><th>情境</th><th>價格區間</th><th>建議倉位</th><th>理由</th></tr></thead><tbody><tr><td>現價</td><td>1,600 美元以上</td><td>0%</td><td>2027 年 PE 31 倍，中性情景 4% 上行，風險報酬不對稱</td></tr><tr><td>第一檔</td><td>1,300–1,400 美元</td><td>2%</td><td>2027 年 PE 25 倍，賠率轉為向下 19%、向上 83%</td></tr><tr><td>第二檔</td><td>1,150–1,250 美元</td><td>4%–5%</td><td>2027 年 PE 22 倍，接近 2022 年週期底部估值</td></tr><tr><td>上限</td><td>—</td><td>6%</td><td>出口管制敞口 23%，單一政策風險決定上限</td></tr></tbody></table><table class="dt"><caption>相關性（粗算，近兩年週報酬）</caption><thead><tr><th>標的</th><th>與艾司摩爾相關性</th><th>說明</th></tr></thead><tbody><tr><td>費城半導體指數 SOX</td><td>約 0.85</td><td>幾乎是同一個 beta</td></tr><tr><td>台積電 TSM</td><td>約 0.75</td><td>客戶關係，同向</td></tr><tr><td>應用材料 AMAT</td><td>約 0.80</td><td>同為設備，客戶重疊</td></tr><tr><td>輝達 NVDA</td><td>約 0.60</td><td>需求同源，但輝達彈性更大</td></tr><tr><td>納斯達克 100</td><td>約 0.55</td><td>大盤 beta</td></tr></tbody></table><div class="section"><div class="section-title">它在組合裡是什麼：不是防守，是進攻</div><p class='txt'>很多人把阿斯麥當成「穩健的科技龍頭」來買，這是誤解。它的收入跟著客戶資本支出走，而資本支出是半導體鏈上波動最大的變數。2022 年它跌了 60%，比輝達跌得還早——因為設備訂單是資本支出的先行指標，先反映在設備公司的訂單上，再反映在晶片公司的收入上。</p><p class='txt'>所以它的角色是「週期早鳥」：漲得早、跌得早。這個特性對擇時有用（訂單轉負就是減碼訊號），對「買了就不管」的人是災難。</p></div><div class="section"><div class="section-title">加倉／減倉／停損的具體價位</div><p class='txt'>加碼：1,300 美元（2027 年 PE 25 倍）建立 2%，1,150 美元（22 倍）加至 4%–5%。此區間對應 2022 年週期底部的估值水準，是歷史上唯一被驗證過的「便宜」區間。</p><p class='txt'>減碼：2,380 美元以上（樂觀情境）開始減，每漲 10% 減三分之一。理由不是「貴了要跑」，是「樂觀情境已經實現，賠率反轉」。</p><p class='txt'>停損：不設價格停損，設事件停損——如果連續兩個季度毛利率跌破 55%，或者訂單同比轉負，無條件減半。這類公司用價格停損會被週期洗出去。</p></div><div class="section"><div class="section-title">相關性：別把同一個賭注下三次</div><p class='txt'>它和 SOX 的相關性約 0.85，和台積電 0.75，和應用材料 0.80（粗算）。如果你的組合裡已經有輝達 + 台積電 + 艾司摩爾，實際敞口不是三個標的，是一個「AI 資本支出」賭注，三倍槓桿。</p><p class='txt'>紀律：半導體相關持倉合計不超過 20%，其中艾司摩爾不超過 6%。如果已經超配，買艾司摩爾之前先減別的，不要加法。</p></div><div class="section"><div class="section-title">如果已經持有：怎麼管</div><p class='txt'>不加碼、不減碼、設事件停損。理由：生意沒有變壞的任何證據，減碼等於賭週期，而週期不可預測；加碼等於在 31 倍 PE 上追加同一個賭注，賠率不划算。</p><p class='txt'>事件停損的具體條件寫在 13 號資料夾（論文追蹤）裡：連續兩季毛利率跌破 55%、訂單同比轉負、中國占比跌破 10%。這三條是「論文被證偽」的訊號，不是「股價跌了」的訊號。用價格停損會把你在 2022 年那種正常回檔裡洗出去。</p><p class='txt'>另外一條紀律：如果艾司摩爾漲到 2,380 美元（樂觀情境），減到 2%–3%。不是因為看空，是因為那時候的賠率已經反轉——向上空間被估值吃掉，向下空間被週期放大。</p></div><div class="section"><div class="section-title">再平衡：半年一次的機械動作</div><p class='txt'>規則寫死：每半年檢查一次權重。如果阿斯麥因為上漲超過組合的 8%，減回 6%；如果因為下跌低於 2% 且論文未變，補回 4%。這個動作不看觀點，只看權重——它的作用是防止「贏家變重倉、重倉變風險」。</p><p class='txt'>對這類高 beta 的週期股，再平衡的收益比選時更可靠。2021 年高點買入的人如果機械再平衡，回撤會小一半；2022 年低點不敢買的人，如果有「低於 2% 補回」的規則，會被強制買在底部。</p></div><div class="summary-box"><h3>結論</h3><p>操作結論：現價 0 倉位、只觀察。1,300 美元建 2%，1,150 美元加到 5%，上限 6%。不設價格止損，設事件止損（毛利率、訂單）。與現有半導體持倉合併計算，總敞口不超過 20%。</p></div>
+</div>
+<div class="footer">阿斯麥 (ASML) · 2026/10/16</div>
+</body>
+</html>

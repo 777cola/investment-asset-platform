@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀 — 寒武紀</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/cambricon/7-财报精读/寒武纪-财报精读.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/cambricon/7-財報精讀/寒武紀-財報精讀-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/cambricon/7-Earnings-Deep-Read/Cambricon-Earnings Read-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀 — 寒武紀</h1>
+  <div class="subtitle">寒武紀 (688256) | 07 · 財報精讀</div>
+  <div class="meta">研究日期 2026/08/17 &nbsp;·&nbsp; 股價 ¥1,156.00（+5.76%） &nbsp;·&nbsp; 市值 約 7,271 億元 &nbsp;·&nbsp; PE(TTM) 約 218x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/cambricon/00-寒武紀研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>2026 年中報是一份「利潤表漂亮、現金流量表難看」的財報。營收 59.96 億元（+108.13%）、歸母淨利 23.11 億元（+122.61%）、扣非 21.66 億元（+137.30%）、毛利率 55.25%——<b>四項都是硬數據，沒有一筆靠非經常性損益撐起來</b>（扣非占淨利 93.7%）。</p><p class='txt'>問題全在資產端：存貨 82.48 億元（較年初 +33.04 億元，占總資產 45.32%、占淨資產 60.84%）、預付款 29.14 億元（+291.37%），換來的是經營現金流只有 3.11 億元（−65.83%），淨利現金含量 0.135。<b>這不是造假，是「先付錢鎖產能」的代價</b>；但它決定了這份財報的利潤含金量要打折。</p></div><table class="dt"><caption>損益表關鍵項（億元）</caption><thead><tr><th>專案</th><th>2026H1</th><th>2025H1</th><th>同比</th></tr></thead><tbody><tr><td>營業收入</td><td>59.96</td><td>28.81</td><td>+108.13%</td></tr><tr><td>毛利</td><td>33.13</td><td>16.11</td><td>+105.62%</td></tr><tr><td>毛利率</td><td>55.25%</td><td>55.93%</td><td>−0.68pct</td></tr><tr><td>歸母淨利潤</td><td>23.11</td><td>10.38</td><td>+122.61%</td></tr><tr><td>扣非歸母淨利</td><td>21.66</td><td>9.13</td><td>+137.30%</td></tr><tr><td>淨利率</td><td>38.54%</td><td>36.04%</td><td>+2.50pct</td></tr><tr><td>研發投入</td><td>7.02</td><td>5.42</td><td>佔收入 11.72%（上年 18.81%）</td></tr><tr><td>基本每股盈餘</td><td>3.68 元</td><td>1.79 元</td><td>+105.6%</td></tr></tbody></table><div class="note">來源：寒武紀 2026 年半年度報告（2026/08/07）。2025H1 營收 28.81 億元、淨利 10.38 億元為公開披露值；毛利、淨利率、EPS 按披露增速與股本反推，非原始報表數。總股本 6.2829 億股（轉增後）。</div><div class="section"><div class="section-title">第一層：收入結構——一塊業務，兩類客戶，三個季度三種速度</div><p class='txt'>收入只有一塊：雲端智慧晶片及加速卡。拆解客群是兩類：網際網路雲廠商（大模型訓練與推理）和電信商／地方智算中心（政企算力）。上半年 59.96 億元裡，沒有任何一條業務線能單獨撐起成長，全靠加速卡出貨。</p><p class='txt'>速度在換檔。2025 年全年 64.97 億元（+453.21%）；2026Q1 28.85 億元（同比 +159.56%）；2026Q2 31.11 億元（同比 +75.83%、<b>環比只有 +7.84%</b>）。同比增速從三位數掉到七成，環比從翻倍掉到個位數——同一門生意，三個季度三種速度。</p><p class='txt'>公司沒有解釋這個換檔。8 月 12 日業績說明會上，投資者反覆追問 Q2 增速與硬體交付節奏，陳天石未作進一步說明。<b>從財務角度來看，最可能的解釋是交付節奏：預付款 29.14 億元、存貨 82.48 億元都在等晶圓和 HBM 回來</b>，產能到位才能確認收入。這是「卡在上游」，不是「需求消失」。</p></div><div class="section"><div class="section-title">第二層：毛利——55.25% 是這份財報裡最結實的一行</div><p class='txt'>毛利率 55.25%，同比只降 0.68 個百分點；Q2 單季 56.10%，環比還升 1.77 個百分點。對照 2025 年全年 55.15%，一年半時間幾乎沒有波動。<b>在國產晶片普遍靠降價搶份額的年份，這個數字說明它沒有降價換量。</b></p><p class='txt'>為什麼能守住？供給稀缺。客戶要的不是最便宜的卡，是「能拿到貨、能跑通模型」的卡。實體清單把競爭者擋在門外，中芯 N+2 的產能配額又有限，<b>供需關係給了它定價權</b>。這也是為什麼我在六關裡給護城河 7 分——不是技術領先，是位置稀缺。</p><p class='txt'>需要留一道口子：55% 的毛利率在半導體設計裡偏高，長期會向 45%—50% 回歸。回歸的觸發點有兩個——華為昇騰產能放開打價格戰，或者雲廠商自研晶片（字節、阿里都在做）替代通用採購。<b>哪一個先來，毛利率就先鬆。</b></p></div><div class="section"><div class="section-title">第三層：費用與利潤——經營槓桿釋放，但只釋放了兩年</div><p class='txt'>淨利率 38.54%，同比 +2.50 個點。拆開來看不是毛利改善（毛利率還降了），是費用率下降：研發投入 7.02 億元、占收入 11.72%，去年同期 18.81%，2024 年更是三位數。<b>收入漲得比研發快，利潤就出來了</b>——這是典型的經營槓桿。</p><p class='txt'>但槓桿是有上限的。研發的絕對值還在漲（7.02 億元對 5.42 億元，+29.5%），只是被收入增速蓋住了。要維持 38% 的淨利率，收入必須繼續以 50% 以上的速度增長；一旦增速掉到 20%，研發費用率會重新抬頭，淨利率會掉到 30% 以下。<b>這就是「增速換擋」最直接的財務後果。</b></p><p class='txt'>另外兩個科目值得注意：非經常性損益只有 1.45 億元（淨利 23.11 − 扣非 21.66），占 6.3%，主要是政府補助與理財收益，<b>比例健康</b>；所得稅負擔輕（高新技術與積體電路優惠稅率），這也是淨利率偏高的一個技術原因，不是經營改善。</p></div><div class="section"><div class="section-title">第四層：現金流與資產負債——利潤在倉庫裡，不在帳上</div><p class='txt'>營業現金流 3.11 億元，同比 −65.83%（上年同期 9.11 億元），淨利現金含量 0.135。差額的去處清清楚楚：存貨從 49.44 億元增至 82.48 億元（+33.04 億元），其中原材料 57.49 億元、委託加工物資 25.37 億元；預付款項 29.14 億元（+291.37%）。<b>公司把錢變成了晶圓、HBM 和在製晶片。</b></p><p class='txt'>資產負債表因此變形：總資產 181.99 億元（+35.43%），歸母淨資產 135.55 億元（+14.53%），存貨佔總資產 45.32%、佔淨資產 60.84%，資產負債率約 25%（粗算）。<b>這是一張「重資產化的 Fabless 表」</b>——名義上不建廠，實際上把產能押金付到了極致。</p><p class='txt'>好的一面是合約負債從年初 61 萬元飆到 1.88 億元，說明客戶在打預付款，訂單是真的。壞的一面是 1.88 億元只覆蓋 82.48 億元存貨的 2.3%，<b>備貨的錢幾乎全是自己出的</b>。如果客戶驗收推遲一個季度，這 82 億元就要在報表上多躺三個月，跌價風險也跟著多三個月。</p></div><div class="section"><div class="section-title">三件最該盯的事</div><p class='txt'>① <b>存貨週轉與跌價準備</b>：82.48 億元帳面價值對應 90.15 億元餘額，已計提約 7.67 億元（8.5%）。思元 690 在 2026 年初量產，590 的庫存能賣多久，決定這筆計提夠不夠。計提 10% 就是 8.2 億元，等於砍掉三成半年利潤。</p><p class='txt'>② <b>Q3 增速</b>：2026 年激勵考核線 135 億元，上半年完成 59.96 億元（44.4%），下半年要交 75.04 億元——Q3、Q4 平均環比要 +12% 以上。Q2 只有 7.84%，Q3 是三年來最關鍵的一個季度。</p><p class='txt'>③ <b>前五大客戶佔比</b>：2025 年 88.66%，2026 中報未披露。這個數不降，單一大客戶的採購節奏就永遠能決定一個季度的報表；降下來，才說明它從「某個客戶的供應商」變成「行業的供應商」。</p><p class='txt'>補一句會計口徑的話：存貨 82.48 億元是「帳面價值」，對應餘額 90.15 億元，差額 7.67 億元是已計提的跌價準備（8.5%）。<b>這個比例在半導體設計公司裡偏低</b>——同業通常在 10%—15%，因為晶片的過時風險高於普通電子元器件。如果 2026 年報把計提提到 12%，多計提約 3.2 億元，正好吃掉一個季度的淨利。</p></div><div class="summary-box"><h3>結論</h3><b>財報結論：業績是真的，含金量要打折。</b>營收翻倍、稅後淨利 23.11 億元、毛利率 55.25%、扣非占 93.7%，四項都經得起核對；但營業現金流 3.11 億元只有稅後淨利的 13.5%，82.48 億元存貨壓住了利潤的變現。<b>這是一份「訂單先行、現金後到」的財報</b>——如果 Q3 收入跟上、存貨開始周轉，它就是成長股的標準形態；如果 Q3 掉下來，82 億元存貨就是估值殺的第二把刀。評級不變：迴避，等 800 元以下或 Q3 環比 15%。</div>
+</div>
+<div class="footer">寒武紀 (688256) · 2026/08/17</div>
+</body>
+</html>

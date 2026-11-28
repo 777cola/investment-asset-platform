@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>產業鏈全景 — 甲骨文</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/oracle/9-企业软件与云计算/甲骨文-产业链全景.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/oracle/9-企業軟體與雲端運算/甲骨文-產業鏈全景-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/oracle/9-Enterprise-software-and-cloud-computing/Oracle-Industry Chain-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>產業鏈全景 — 甲骨文</h1>
+  <div class="subtitle">甲骨文 (ORCL) | 09 · 產業鏈全景</div>
+  <div class="meta">研究日期 2026/09/14 &nbsp;·&nbsp; 股價 $144.79（-3.65%） &nbsp;·&nbsp; 市值 約 4,400 億美元 &nbsp;·&nbsp; PE(GAAP TTM) 約 23.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/oracle/00-甲骨文研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>產業鏈判斷</h3><p class='txt'>在企業軟體與雲端運算這條鏈上，甲骨文橫跨三個環節：資料庫（軟體，毛利 90%）、OCI（IaaS，毛利三成）、行業 SaaS（毛利七成）。<b>價值密度最高的是軟體，成長最快的是 IaaS，而 IaaS 恰好是這條鏈上議價權最弱的一環。</b>上游輝達拿走 70% 毛利，下游 AI 實驗室按小時比價，中間還要跟電力公司搶併網額度。它賺的是工程速度和資本週轉的錢。</p></div><table class="dt"><caption>企業軟體與雲端運算產業鏈價值分布（2026 年中）</caption><thead><tr><th>環節</th><th>代表公司</th><th>毛利率區間</th><th>議價權</th><th>價值量說明</th></tr></thead><tbody><tr><td>上游：GPU 與加速卡</td><td>輝達、AMD、博通（客製化 ASIC）</td><td>55%–75%</td><td>極強</td><td>單台 AI 伺服器中 GPU 占成本 60%–70%</td></tr><tr><td>上游：記憶體與光模組</td><td>美光、SK 海力士、中際旭創、博通</td><td>35%–55%</td><td>強</td><td>HBM 與 800G/1.6T 光模組持續緊缺</td></tr><tr><td>上游：電力與製冷</td><td>伊頓、西門子能源、維諦</td><td>25%–35%</td><td>強</td><td>變壓器交期 2 年以上，併網排隊 3–5 年</td></tr><tr><td>中游：伺服器與系統整合</td><td>鴻海、廣達、戴爾</td><td>5%–12%</td><td>弱</td><td>代工屬性，按單議價</td></tr><tr><td>中游：雲端基礎設施 IaaS</td><td>AWS、Azure、GCP、OCI、CoreWeave</td><td>25%–70%</td><td>分化</td><td>三大雲靠生態 60%+，純算力租賃 25%–40%</td></tr><tr><td>中游：企業軟體與資料庫</td><td>甲骨文、SAP、Salesforce、微軟</td><td>70%–90%</td><td>強</td><td>遷移成本決定定價權</td></tr><tr><td>下游：模型公司</td><td>OpenAI、Anthropic、xAI、Meta</td><td>不確定</td><td>需求方強</td><td>採購量巨大但普遍未盈利</td></tr><tr><td>下游：傳統企業客戶</td><td>銀行、電信、政府、醫療</td><td>—</td><td>弱</td><td>被軟體廠商鎖定，按年付費</td></tr></tbody></table><div class="note">毛利率區間取自各公司最近財年公開財報與行業報導的近似值，用於相對排序；IaaS 區間跨度大是因為三大雲（含生態溢價）與純算力租賃的盈利結構完全不同。</div><div class="section"><div class="section-title">價值鏈的錢在哪一層</div><p class='txt'>這條鏈上，錢集中在兩個位置：<b>供給最緊的上游，和鎖定最強的軟體層。</b>輝達的毛利率 70% 以上，因為它供給的是「唯一選擇」；甲骨文的資料庫毛利率 90%，因為客戶換不掉。這兩頭都是「別無可選」的生意。</p><p class='txt'>中間層最難。伺服器代工毛利率個位數，純算力租賃 25%–40%，都是「可選之一」的生意——客戶隨時可以換供應商，價格由邊際成本決定。<b>甲骨文的問題不是它不在好位置，而是它的增量收入全在難位置。</b>OCI 貢獻了本季幾乎全部成長，也貢獻了幾乎全部資本支出。</p></div><div class="section"><div class="section-title">甲骨文在鏈條上的真實位置</div><p class='txt'>它同時是三個角色。對上游，它是<b>輝達的大客戶</b>——採購量大，但沒有定價權，GPU 漲價只能接受。對下游，它是<b>AI 實驗室的供應商</b>——提供機櫃、電力、網路，按合約價收費，但客戶有能力自建。對自己，它是<b>專案融資方</b>——用債務和股權把錢墊進去，等客戶按月付款。</p><p class='txt'>這個組合意味著：<b>它把上游的成本波動和下游的價格壓力都留在了自己身上，只賺中間那段工程差價。</b>行業緊缺時這段差價很厚（本季 OCI 增速 121% 就是證據），行業過剩時這段差價會被兩頭擠掉。真正的「二房東」還有租約保護，它的合約裡帶著終止條款。</p></div><div class="section"><div class="section-title">週期位置：建設高峰期，收穫期在 2028 之後</div><p class='txt'>2026 年是這輪 AI 基建的投資高峰：四大雲廠合計資本支出 7,000 億美元量級，甲骨文單家 900–950 億。按 18–24 個月建設週期，2027 年下半年到 2028 年上半年是集中投產期。</p><p class='txt'>週期位置可以這樣定位：<b>需求端在「加速期尾部」，供給端在「投產前夜」。</b>這兩個時點錯開的時候最賺錢，重合的時候最危險。甲骨文現在把 900 億押在「重合時仍然緊缺」這個假設上，而歷史上所有資本密集行業在這個階段都出現過過剩。<b>判斷週期位置，比判斷公司好壞更重要——因為在這個位置，好公司也會被過剩拖下水。</b></p></div><div class="section"><div class="section-title">兩個容易被忽略的環節：電力和併網</div><p class='txt'>AI 資料中心最稀缺的不是 GPU，是電。一台 GB300 機櫃功率約 130–140 千瓦，一個 1GW 的園區相當於一座中型城市的用電量。美國主要電網的併網排隊時間是 3–5 年，變壓器交期 2 年以上。<b>甲骨文在阿比林自建燃料電池，就是為了繞開這個排隊——這不是環保選擇，是時間套利。</b></p><p class='txt'>這個細節說明兩件事。第一，它的工程能力確實強，願意為速度付溢價；第二，它的成本結構裡有一塊「為了快而多付的錢」，這部分在電價正常化之後會變成劣勢。<b>用燃氣發電跑資料中心的度電成本，通常比併網貴 30%–50%。</b>行業緊缺時這筆錢花得值，過剩時就是負擔。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：鏈條位置偏弱，週期位置偏高。</b>甲骨文守住了軟體層（資料庫 90% 毛利、遷移成本極高），但成長押在鏈條最薄的一環（IaaS，25%–40% 毛利、客戶可自建）。<b>這不是經營失誤，是策略選擇——它用低毛利業務換成長，用資產負債表換時間。</b>投資含義：在建設高峰期買入這類公司，等於在週期頂部為「工程能力」付溢價。</p></div>
+</div>
+<div class="footer">甲骨文 (ORCL) · 2026/09/14</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣篩選 — 甲骨文</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/oracle/2-七条硬指标去劣/甲骨文-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/oracle/2-七條硬指標去劣/甲骨文-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/oracle/2-Seven-Hard-Metrics/Oracle-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>去劣篩選 — 甲骨文</h1>
+  <div class="subtitle">甲骨文 (ORCL) | 02 · 去劣篩選</div>
+  <div class="meta">研究日期 2026/09/14 &nbsp;·&nbsp; 股價 $144.79（-3.65%） &nbsp;·&nbsp; 市值 約 4,400 億美元 &nbsp;·&nbsp; PE(GAAP TTM) 約 23.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/oracle/00-甲骨文研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>去劣結論</h3><p class='txt'>七條硬指標過三條，看上去不算難看，但<b>過的三條全是假象</b>。ROE 高是因為股東權益被十年回購壓到幾百億美元級別；毛利率和淨利率高是因為折舊還沒追上資本支出。真正決定這家公司質地的是沒過的那四條：自由現金流 -53.96 億、EBIT/利息約 4.6 倍、淨債務/EBITDA 4.3 倍、單季股本稀釋 4.5%。<b>去劣篩選的意義在於：這四條不過，就不必再看估值了。</b></p></div><table class="dt"><caption>七條硬指標（FY27Q1 / TTM，2026/09/14）</caption><thead><tr><th>指標</th><th>甲骨文數值</th><th>門檻</th><th>判定</th><th>說明</th></tr></thead><tbody><tr><td>ROE</td><td>TTM 80% 以上（粗算）</td><td>≥15%</td><td>過（失真）</td><td>股東權益僅約 200 億美元量級，長期回購所致；本季 200 億增發又把分母抬起來</td></tr><tr><td>毛利率</td><td>約 65%（本季，粗算）</td><td>≥40%</td><td>過</td><td>軟體與支援毛利率 90% 以上，OCI 拖低整體；趨勢向下</td></tr><tr><td>淨利率</td><td>24.6%（GAAP，本季）</td><td>≥10%</td><td>過</td><td>47.60 億 / 193.45 億；含一次性收益，可持續性待驗證</td></tr><tr><td>自由現金流</td><td>-53.96 億美元（單季）</td><td>為正</td><td>不過</td><td>FY26 全年 -237 億；FCF／稅後淨利為負值</td></tr><tr><td>利息覆蓋率</td><td>EBIT／利息約 4.6 倍（粗算）</td><td>≥8 倍</td><td>不過</td><td>FY27 EBIT 約 300 億、年利息約 60–65 億；利息仍隨債務增長</td></tr><tr><td>淨債務/EBITDA</td><td>4.3 倍</td><td>≤2.5 倍</td><td>不過</td><td>總債務 1,295 億；BBB- 評級，距垃圾級一級</td></tr><tr><td>股本稀釋</td><td>單季 +4.5%（200 億增發）</td><td>≤1%/年</td><td>不過</td><td>ATM 增發替代回購；分紅年化 2.00 美元、股息率約 1.4%，靠新增債務支撐</td></tr></tbody></table><div class="note">門檻沿用 AI Berkshire 七條硬指標口徑。ROE、毛利率、EBIT、年利息為粗算值：ROE 以 TTM 淨利約 187 億 ÷ 權益約 200 億推得；毛利率按分部結構加權；年利息按 1,295 億債務 × 4.7% 估算。公司未在季報中單列上述三項，故標註粗算。</div><div class="section"><div class="section-title">過去的三條為什麼不算數</div><p class='txt'>ROE 是第一個陷阱。這家公司十年來把自由現金流大部分拿去回購，股東權益被壓到只有幾百億美元，分母小，ROE 自然高。<b>但 2026 年這個邏輯反轉了：它不再回購，開始增發。</b>本季 200 億美元 ATM 增發相當於市值的 4.5%，權益分母被抬高，明年 ROE 會自己掉下來。用 ROE 判斷現在的甲骨文，等於用後照鏡開車。</p><p class='txt'>毛利率和淨利率同樣有時滯。折舊是資本支出的影子，今天的 900 億資本支出，要在未來五到六年裡慢慢進利潤表。<b>現在的 65% 毛利率，反映的是三年前那批便宜資產；三年後的毛利率，取決於今天這批貴資產的折舊速度。</b>指標過線，方向反了。</p></div><div class="section"><div class="section-title">不過的四條是硬約束</div><p class='txt'>自由現金流是第一條，也是最硬的一條。單季 -53.96 億、全年指引缺口更大，意味著公司必須持續從外部拿錢。利息覆蓋 4.6 倍，看著還行，但這是用「EBIT 300 億」算的，而 EBIT 裡已經扣掉了當期折舊 76 億左右；如果折舊按新資產年化 120 億算，覆蓋率會掉到 4 倍以下。</p><p class='txt'>淨債務/EBITDA 4.3 倍，配上 BBB- 評級，是這四條裡最要命的一條。<b>評級決定發債利率，利率決定項目回報，項目回報決定訂單能不能變成利潤。</b>這條鏈條上，甲骨文只控制中間一環。股本稀釋 4.5% 是結果而不是原因：因為現金流不夠，所以賣股票；因為賣股票，所以每股價值被攤薄。四個不過的指標，其實是同一件事的四個側面。</p></div><div class="section"><div class="section-title">不過是否致命：分兩種情況</div><p class='txt'><b>如果 AI 算力需求在 2028 年前不出現過剩，這四條不過只是「階段性難看」。</b>資料中心建成後，資本支出會掉下來，折舊雖高但收入更持久，自由現金流會在某個季度轉正，那時候槓桿會自己降。微軟 2015–2018 年也經歷過類似階段，市場當時同樣罵它「重資產化」。</p><p class='txt'><b>如果需求在 2027 年出現過剩，這四條不過就是致命的。</b>因為過剩意味著租金下跌、RPO 轉化放緩、客戶要求重談價格，而債務是剛性的——1,295 億不會因為租金下跌少還一分。這時候股權就是一張被槓桿放大的看跌期權。<b>去劣篩選不去判斷哪種情況概率更大，它只告訴你：這是一家「結果對錯全靠外部條件」的公司，不值得用重倉去賭。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：去劣不通過。</b>七條過三條，過的三條都因分母失真而不可信，不過的四條指向同一件事——增長靠外部融資。這類公司在篩選階段就該出局，不需要進入估值討論。<b>唯一值得保留觀察的理由是：如果 FY28 自由現金流轉正、債務/EBITDA 降到 3 倍以下，它會重新變成一家可以估值的公司。</b>那之前，七條裡那四條不修補，任何 PE 都是幻覺。</p></div>
+</div>
+<div class="footer">甲骨文 (ORCL) · 2026/09/14</div>
+</body>
+</html>

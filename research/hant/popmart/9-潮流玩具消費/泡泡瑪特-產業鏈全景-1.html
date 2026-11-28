@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>產業鏈全景 — 泡泡瑪特</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/popmart/9-潮玩消费/泡泡玛特-产业链全景.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/popmart/9-潮流玩具消費/泡泡瑪特-產業鏈全景-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/popmart/9-Pop-toy-consumption/Pop Mart-Industry Chain-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>產業鏈全景 — 泡泡瑪特</h1>
+  <div class="subtitle">泡泡瑪特 (09992) | 09 · 產業鏈全景</div>
+  <div class="meta">研究日期 2026/09/07 &nbsp;·&nbsp; 股價 HK$156.20（+1.43%） &nbsp;·&nbsp; 市值 約 2,090 億港元 &nbsp;·&nbsp; PE(TTM) 約 14.2x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/popmart/00-泡泡瑪特研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：它站在鏈條最肥的兩端，也在最不穩的一端</h3><p class='txt'>潮玩產業鏈的價值分布是典型的微笑曲線：<b>上游 IP 和下游通路各拿 65%–70% 的毛利率，中游代工只有 15%–25%。</b>泡泡瑪特同時站在兩端——自有 IP（152.9 億元、+25%）+ 676 家自營門市，這是它能做到 69.7% 毛利率的結構原因。</p><p class='txt'>代價是它必須持續為「上游」付費：簽設計師、買授權、賭爆款。鏈條上唯一不可替代的環節是「讓人想要的那個形象」，而這個環節沒有規模效應，只有機率。</p></div><table class="dt"><caption>潮玩產業鏈價值分布</caption><thead><tr><th>環節</th><th>代表公司／主體</th><th>價值量或毛利率</th><th>議價權</th></tr></thead><tbody><tr><td>上游 IP 創作</td><td>獨立藝術家、泡泡瑪特自有 IP（THE MONSTERS、星星人、MOLLY）</td><td>自有 IP 毛利率 70%+；藝術家分成通常為銷售額 5%–10%</td><td>強（超頭 IP）/ 弱（新 IP）</td></tr><tr><td>上游 授權 IP</td><td>迪士尼、三麗鷗、2026 世界盃</td><td>授權金通常為批發價 8%–12%，保底 + 分成</td><td>強（授權方）</td></tr><tr><td>上游 原材料</td><td>搪膠（PVC）、毛絨布料、填充物</td><td>佔零售價 8%–12%</td><td>弱</td></tr><tr><td>中游 代工製造</td><td>廣東東莞、越南的代工廠</td><td>毛利率 15%–25%</td><td>弱</td></tr><tr><td>中游 品類營運</td><td>泡泡瑪特（毛絨 57.2%、公仔 30.2%）</td><td>品類毛利率 65%–70%</td><td>強</td></tr><tr><td>下游 自營通路</td><td>676 家門市、2,827 台機器人商店、抽盒機 App</td><td>門店毛利率約 70%；租金占收入 8%–10%</td><td>強</td></tr><tr><td>下游 第三方電商</td><td>Shopee、天貓、抖音</td><td>平台佣金 5%–10%；流量成本上升最快</td><td>中（平台）→ 弱（品牌）</td></tr><tr><td>下游 二手流通</td><td>閒魚、得物</td><td>溢價決定一手需求，不產生公司收入</td><td>中</td></tr></tbody></table><div class="note">價值量與毛利率為行業通行區間與本報告估算，非公司披露值；泡泡瑪特自有 IP 收入 152.895 億元、同比 +25% 來自 2026 年中期業績公告。代工毛利率區間參考玩具代工行業（OEM）公開水平，僅作量級參考。</div><div class="section"><div class="section-title">上游：IP 是唯一稀缺資源，也是唯一不可控環節</div><p class='txt'>泡泡瑪特的上游有兩類。一類是自有藝術家 IP：上半年藝術家 IP 總收入 152.895 億元、同比 +25%，11 個 IP 過億、6 個破 10 億。這部分公司自己簽約、自己分成，毛利率最高。另一類是授權 IP：迪士尼、三麗鷗，以及 2026 年世界盃——LABUBU 是世界盃歷史上首個受邀的中國原創 IP。授權模式要付保底金和分成，毛利率低 10–15 個百分點。</p><p class='txt'>關鍵在議價權。<b>對一個還沒紅的設計師，泡泡瑪特是甲方；對一個已經紅了的 IP，設計師是甲方。</b>Labubu 的創作者龍家升（Kasing Lung）在爆紅之後，續約條件必然上移。這就是為什麼公司要拼命做自有 IP 矩陣——不是為了分散風險，是為了把議價權留在自己手裡。</p><p class='txt'>原材料在最上游，但價值量很低，占零售價 8%–12%。2026 年上半年毛利率被原材料漲價拉低，說明這個環節雖然不值錢，卻能傳導壓力——因為代工廠沒有能力吸收。</p></div><div class="section"><div class="section-title">中游：代工是彈性，也是軟肋</div><p class='txt'>泡泡瑪特不自己生產。搪膠公仔、絨毛玩具都交給廣東、越南的代工廠，自己只管設計、品控和交期。這是輕資產模式的精髓——<b>產能可以隨需求彈性調整，不用為淡季養工廠。</b></p><p class='txt'>但 2026 年的品類切換暴露了這個模式的軟肋。絨毛占比從去年的不到 40% 升到 57.2%，絨毛的工序比搪膠多（裁剪、縫製、填充、植絨），交期長 30–50%，能做的工廠少。上半年存貨週轉從 123 天拉到 201 天，一部分原因就是絨毛備貨週期長。</p><p class='txt'>代工廠的毛利率只有 15%–25%，議價權弱，理論上品牌可以把壓力全部轉移給它們。但現實是：<b>爆款起量的時候，是代工廠挑客戶，不是客戶挑代工廠。</b>2025 年 Labubu 全球斷貨，就是這個邏輯的極端版本。所以「輕資產」在需求爆發時是負債，不是資產。</p></div><div class="section"><div class="section-title">下游：自營門店是護城河，第三方電商是漏斗</div><p class='txt'>下游分兩條腿。自營門店 676 家（海外 221 家）+ 機器人商店 2,827 台，這條腿毛利率約 70%，因為它同時賺「零售加價」和「體驗溢價」。門店不只是賣貨，是讓消費者「摸到、抱到、拍照」的場所——毛絨品類占比升到 57.2% 之後，這個功能比過去更重要。</p><p class='txt'>第三方電商是另一條腿，也是 2026 年跌得最慘的一條。Shopee -62.1%、亞太線上 -39.8%、美洲線上 -45.6%。<b>平台電商的本質是「租流量」，流量便宜的時候是增長引擎，流量貴的時候是成本中心。</b>泡泡瑪特過去兩年吃到了 TikTok 的紅利，現在紅利結束，平台開始收租。</p><p class='txt'>所以公司把重心轉到門店，倫敦設歐洲總部，計劃在米蘭、倫敦、巴黎、紐約開旗艦店。<b>這是從「租流量」轉向「買地段」——一次性投入大，但資產是自己的。</b>方向對，只是回報週期從 3 個月變成 18–24 個月。</p></div><div class="section"><div class="section-title">週期位置：從「通路擴張期」進入「IP 輪動期」</div><p class='txt'>潮玩行業過去五年經歷了兩輪週期。2021–2023 年是「通路擴張期」：誰開店快誰贏，泡泡瑪特靠 400 多家店做到 60 億元收入。2024–2025 年是「單品爆發期」：Labubu 一個 IP 把公司從 130 億元拉到 371 億元，增長 184.7%。</p><p class='txt'>2026 年進入第三個階段：<b>IP 輪動期。</b>特徵是——沒有單一 IP 能撐起增長，收入靠 5–7 個 10 億元級 IP 的組合；門店還在開，但單店產出下降；線上流量紅利結束，增長回到「選址 + 營運」的苦活。這個階段的行業增速會從 20%+ 降到 10%–15%，龍頭的利潤率會從 33% 降到 25%–28%。</p><p class='txt'>週期位置判斷：<b>不是衰退，是正常化。</b>從「一年翻倍」回到「一年多 15%」，這是所有爆款品類的必經之路。問題在於估值——市場給它的倍數，還停留在單品爆發期。</p></div><div class="summary-box"><h3>結論</h3><p>產業鏈給 7 分：<b>站在微笑曲線兩端，是這門生意最好的位置。</b>但它站的「上游」不是資源型的上游，是創意型的上游——沒有礦、沒有專利、沒有牌照，只有簽約和概率。這決定了它的護城河只能建在下游（通路、會員），不能建在上游。看這家公司，重點看門市單產和會員回購，別太在意它簽了哪個新設計師。</p></div>
+</div>
+<div class="footer">泡泡瑪特 (09992) · 2026/09/07</div>
+</body>
+</html>

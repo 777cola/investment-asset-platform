@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行業漏斗 — 快手</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/kuaishou/11-行业漏斗对比/快手-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/kuaishou/11-行業漏斗對比/快手-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/kuaishou/11-Industry-Funnel/Kuaishou-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>行業漏斗 — 快手</h1>
+  <div class="subtitle">快手 (01024) | 11 · 行業漏斗</div>
+  <div class="meta">研究日期 2026/10/12 &nbsp;·&nbsp; 股價 HK$29.26（-2.79%） &nbsp;·&nbsp; 市值 約 1,267 億港元 &nbsp;·&nbsp; PE(TTM) 約 10.5 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/kuaishou/00-快手研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>把短影音賽道的六家玩家過一遍漏斗：三家未上市（抖音、小紅書、紅果）、一家在騰訊體內（視頻號）、一家規模偏小（B 站）、只有快手是可買的純標的。<b>漏斗的終點是「只能買它」，不是「最該買它」。</b></p><p class='txt'>快手在這個名單裡的位置很尷尬：規模第二、增速倒數第一（+1.4%）、估值居中（10.5x TTM / 12.9x 前瞻）。<b>如果要在短影音上下注，買騰訊拿到的是視頻號的期權加一份現金流；買快手拿到的是純粹的行業 beta 加一個 AI 期權。</b></p></div><table class="dt"><caption>短影音賽道玩家漏斗（2026 年 10 月）</caption><thead><tr><th>玩家</th><th>資本狀態</th><th>規模</th><th>最新增速</th><th>盈利</th><th>相對估值</th></tr></thead><tbody><tr><td>抖音（字節）</td><td>未上市</td><td>短影音加電商第一，DAU 量級高於快手</td><td>廣告與電商雙位數成長（定性）</td><td>高度盈利</td><td>無公開市場定價</td></tr><tr><td>微信影音號</td><td>騰訊體內，不單獨披露</td><td>依附微信 13 億月活</td><td>廣告加載率仍低，成長快於行業</td><td>盈利，但不單獨核算</td><td>包含在騰訊估值內</td></tr><tr><td>快手</td><td>港股 01024，市值 1,267 億港元</td><td>DAU 4.12 億、MAU 7.97 億</td><td>收入 +1.4%</td><td>經調整淨利 39.13 億元/季，-30.3%</td><td>10.5x TTM，12.9x 前瞻</td></tr><tr><td>小紅書</td><td>未上市</td><td>月活 3 億量級</td><td>廣告 + 電商雙位數（定性）</td><td>已獲利（公司口徑）</td><td>一級市場估值高</td></tr><tr><td>紅果短劇（字節）</td><td>位元組體內，不單獨披露</td><td>免費短劇第一</td><td>高速成長（定性）</td><td>以虧損換取市佔率</td><td>無公開市場定價</td></tr><tr><td>嗶哩嗶哩</td><td>美股／港股雙重上市</td><td>月活 3 億量級，DAU 低於快手</td><td>廣告成長快於快手</td><td>微利或損益兩平</td><td>估值高於快手</td></tr></tbody></table><div class="note">快手資料取自 2026Q2 業績公告與 2026/10/12 收盤；其餘公司為定性描述，不列未經核實的財務數字（未上市或無單獨披露）。增速與盈利的定性判斷依據各公司公開資訊與 2026 年 9–10 月行業報導。</div><div class="section"><div class="section-title">第一輪粗篩：能不能買</div><p class='txt'>六家裡三家買不到：抖音、小紅書、紅果都未上市。<b>這一輪淘汰不是因為它們不好，是因為買不到——而買不到的好公司，對組合沒有任何意義。</b></p><p class='txt'>騰訊能買，但視頻號只占它收入的一小部分，買騰訊等於用 30 倍 PE 買一個 8 倍 PE 的生意搭一個視頻號期權。B 站能買，規模比快手小一個量級，廣告增速更快但盈利能力弱。</p><p class='txt'>剩下的就是快手：<b>它是港股唯一一個純粹押注短視頻 + 直播 + AI 視頻的標的。</b>這一輪它贏了，贏在稀缺性，不是贏在質量。</p></div><div class="section"><div class="section-title">第二輪篩選：增速與盈利</div><p class='txt'>把可買的三家放在一起比：<b>快手收入 +1.4%、經調整淨利 -30.3%；B 站廣告增速更快但淨利率接近零；騰訊視頻號增長快但被母公司體量攤薄。</b></p><p class='txt'>如果標準是「增速 + 盈利」，三家都不及格。如果標準是「現金流 + 估值」，騰訊最優、快手次之、B 站最差。如果標準是「純粹的賽道彈性」，快手最優。</p><p class='txt'>這就是漏斗的尷尬處：<b>沒有一個維度上快手是第一。</b>它只是在「純度」這一項上無可替代。</p></div><div class="section"><div class="section-title">最終選擇：為什麼是它，為什麼又不是它</div><p class='txt'><b>為什麼是它：</b>① 港股唯一純標的，機構要配短影音賽道只能買它；② 4.12 億 DAU 是硬資產，跌到 1,267 億港元後 EV 只有 918 億元，等於白送一個 AI 業務；③ 可靈是全球影片生成第一梯隊裡唯一有獨立融資定價的資產。</p><p class='txt'><b>為什麼又不是它：</b>① 增速倒數第一，且公司自己指引下半年承壓；② 利潤率在下行（毛利率 -4.1pct、淨利率從 16.0% 到 11.0%）；③ 可靈的估值不可驗證，占收入只有 2.4%。</p><p class='txt'>漏斗的結論是：<b>「沒有更好的選擇」不等於「這是一個好選擇」。</b>在只能買它的前提下，正確的動作是等價格，不是現在買。</p></div><div class="section"><div class="section-title">漏斗之外的一句話：為什麼估值不是第一道篩子</div><p class='txt'>很多人做漏斗第一刀就砍估值——PE 最低的留下。這個順序是錯的，因為<b>低估值的公司往往是因為生意在變差才便宜</b>，快手就是例子：10.5 倍 TTM PE 在港股互聯網裡算低的，但它的前瞻 12.9 倍高於騰訊、高於 B 站。</p><p class='txt'>正確的順序是：先問能不能買（可及性），再問生意在變好還是變壞（趨勢），最後才問價格。快手的漏斗終點卡在第二步——<b>它能買、但不該在趨勢向下時買，無論多便宜。</b>這條順序也解釋了為什麼「低估值 + 高股息」的清單裡經常藏著一堆正在衰退的公司。</p></div><div class="section"><div class="section-title">如果一定要在這個賽道裡配置</div><p class='txt'>給三個選項的排序：<b>騰訊 &gt; 快手 &gt; B 站。</b>騰訊拿到的是「現金流 + 視頻號期權 + AI 應用（元寶）」，下行有保護；快手拿到的是「純 beta + 可靈期權」，下行無保護；B 站拿到的是「小市值彈性」，但沒有盈利支撐。</p><p class='txt'>如果只能買快手，那就把它當期權買：小倉位、只在極端價格（20 港元以下）買、並且接受它可能長期不漲。<b>這不是投資，是下注。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'>漏斗篩選的結論與六關一致：<b>快手是唯一可買的純短影音標的，但它的可買性來自稀缺，不來自品質。</b>在一家增速墊底、利潤率下行的公司身上，稀缺性只值一個「觀察」，不值一個「買入」。</p><p class='txt'>等待條件：廣告增速回到 8%，或價格跌到 20 港元以下（對應 2027E 7 倍 + 淨現金）。兩者都不滿足時，最優選擇是不參與這個賽道。</p></div>
+</div>
+<div class="footer">快手 (01024) · 2026/10/12</div>
+</body>
+</html>

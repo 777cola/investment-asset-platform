@@ -7,13 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
-.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
 .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
 .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
 .header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
 .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
 .section { margin-bottom: 2.5rem; }
 .section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -48,22 +53,19 @@ table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; colo
 .badge-blue { background: #e6f0ff; color: #1a4b8c; }
 .footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
 .back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
-.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
-.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
-.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
-
 </style>
 </head>
 <body>
 <div class="header">
+  <div class="lang-switch"><a class="lang zh active" data-lang="zh" href="/research/coreweave/16-八篇深度长文/CoreWeave-02-生意本质.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/coreweave/16-八篇深度長文/CoreWeave-八篇長文-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/coreweave/16-Eight-Long-Essays/CoreWeave-Eight Essays-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
   <h1>生意本质：包工头的经济学 — CoreWeave</h1>
   <div class="subtitle">每 1 兆瓦电力能赚多少，能借多少</div>
   <div class="meta">研究日期 2026/11/20 &nbsp;·&nbsp; 股价 $39.51（-12.02%） &nbsp;·&nbsp; 市值 约 220 亿美元 &nbsp;·&nbsp; PE(TTM) —（GAAP 亏损，PE 无意义）</div>
 </div>
 <div class="container">
-<a class="back" href="../00-CoreWeave研究报告总目录.html">← 返回总目录</a>
+<a class="back" href="/research/coreweave/00-CoreWeave研究报告总目录.html">← 返回总目录</a>
 <div class="summary-box"><h3>核心判断</h3><p class='txt'>CoreWeave 的生意可以压缩成一个模型：<b>每兆瓦算力 = 约 3,000 万美元设备投入 + 每年约 700 万美元租金收入 + 每年约 250 万美元利息</b>。这个模型的关键不是收入，是「设备投入的回收期」和「利息的刚性」。它本质上是一个包工头：接活、垫资、雇设备、交工、收钱。</p></div><div class="section"><div class="section-title">单位经济：一兆瓦算一遍</div><p class='txt'>按 2026Q3 的数据粗算：营收 36.61 亿 ÷ 1.7GW 在运 ≈ <b>每 MW 每季 21.5 万美元</b>，年化约 86 万美元/MW。设备投入按行业量级 3,000 万美元/MW，回收期约 3.5 年（不计利息与运维）。<b>看起来不错——3.5 年回本，设备能用 6 年。</b></p><p class='txt'>但加上资金成本就变了：3,000 万美元/MW 的投入若按 7.9% 计息，每年利息 237 万美元，占年收入 86 万的 2.75 倍。<b>也就是说，单看一兆瓦，租金连利息都不够付，更别说还本。</b>这就是为什么它的净利息 8.46 亿是调整后经营利润 2.2 倍——不是财务技巧，是单位经济决定的。</p></div><div class="section"><div class="section-title">为什么必须一直扩张</div><p class='txt'>因为停下来立刻亏损。做个静态测算：只运营现有 1.7GW、不再新建。<b>设备投入约 510 亿美元（按 3,000 万美元/MW），6 年折旧即每年 85 亿；年化营收约 146 亿美元，调整后 EBITDA 按 62% 约 91 亿；净利息年化约 34 亿。</b>结果：91 − 85 − 34 = <b>-28 亿美元</b>。</p><p class='txt'>这个测算说明一件很硬的事：<b>它现在的规模还不足以覆盖「折旧 + 利息」这两项刚性支出</b>。要让它变正，只有两条路——租金继续涨（依赖短缺），或者规模继续扩（需要更多债）。而扩张的每一兆瓦要再投 3,000 万美元、再背 2,400 万债务。<b>换句话说，增长不是选择，是维持融资飞轮转动的必要条件。</b></p><p class='txt'>这也解释了为什么它的资本开支指引是 370–390 亿美元、而不是「按现金流能力安排」。<b>一旦停止扩张，财报会立刻暴露「折旧 + 利息 > EBITDA」的事实，融资窗口会当天关上。</b>飞轮停了，公司就停了。</p></div><div class="section"><div class="section-title">包工头模型的三条死线</div><p class='txt'><b>第一条，客户不能跑。</b>前两大客户 54%，微软正在收回外包。<b>第二条，钱不能贵。</b>7.9% 的平均成本对 4.85% 的微软，在薄利行业里是结构性劣势；现在新债要 15%。<b>第三条，设备不能太快过时。</b>英伟达年更一代，6 年折旧假设是它利润的全部来源。</p><p class='txt'>三条死线，它同时踩在边缘。<b>而包工头的宿命是：活越多、垫资越多、越离不开甲方。</b>这就是为什么它的 backlog 越大，我越不放心——订单是甲方的承诺，债务是自己的义务。</p></div><div class="section"><div class="section-title">一个反例：为什么它能撑到现在</div><p class='txt'><b>因为客户需要它。</b>OpenAI 的训练集群、Meta 的推理峰值，短期内没有第二家能按它的速度交付。这解释了它为什么能签下 1,325 亿订单，也解释了为什么它的债务有人买——债权人相信「客户不会让它立刻倒」。但「不会立刻倒」和「股东能赚钱」是两件事。</p><p class='txt'>反过来也要承认一点：<b>只要它还能借到钱，飞轮就会继续转，营收就会继续涨。</b>所以「它会立刻出问题」的判断是错的——问题不一定在 2026 年冬天发生，可能拖到 2027 年某个季度。这种「方向确定、时点不确定」的标的，最好的处理是不参与，而不是做空。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>生意本质：一个高杠杆的算力包工头。</b>单位经济上，租金覆盖不了利息；结构上，必须靠新融资填补老项目的折旧与利息；位置上，被上游（英伟达）和下游（hyperscaler）同时挤压。这不是「成长股的早期」，是「重资产行业的高杠杆中段」。</p></div>
 </div>
-<div class="footer">CoreWeave (CRWV) 投资研究报告集 · 2026/11/20</div>
+<div class="footer">CoreWeave (CRWV) · 2026/11/20</div>
 </body>
 </html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務驗證 — 甲骨文</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/oracle/3-财务数据交叉验证/甲骨文-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/oracle/3-財務數據交叉驗證/甲骨文-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/oracle/3-Financial-Cross-Check/Oracle-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務驗證 — 甲骨文</h1>
+  <div class="subtitle">甲骨文 (ORCL) | 03 · 財務驗證</div>
+  <div class="meta">研究日期 2026/09/14 &nbsp;·&nbsp; 股價 $144.79（-3.65%） &nbsp;·&nbsp; 市值 約 4,400 億美元 &nbsp;·&nbsp; PE(GAAP TTM) 約 23.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/oracle/00-甲骨文研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核對結論</h3><p class='txt'>八項關鍵數字做了雙源對照：<b>五處偏差在 1% 以內，三處超過 1%，但沒有一處是「錯報」，全部是口徑差。</b>最大的一處是總債務——公司披露口徑 1,295 億含經營租賃，媒體引用的 1,180 億只算長期票據，差 9.7%。其次是自由現金流，-53.96 億按「資本支出含融資租賃」算，剔除後是 -48.5 億，差 10%。第三處是稅後淨利，GAAP 47.60 億對非 GAAP 50.2 億，差 5.5%。<b>本報告全程用 GAAP + 含租賃口徑，理由寫在最後一節。</b></p></div><table class="dt"><caption>關鍵財務數據雙源對照（FY27Q1，億美元）</caption><thead><tr><th>指標</th><th>來源 A（公司財報／法說會）</th><th>來源 B（媒體／第三方庫）</th><th>偏差</th><th>處理</th></tr></thead><tbody><tr><td>總營收</td><td>193.45</td><td>193.4（格隆匯、口袋學堂四捨五入）</td><td>0.03%</td><td>採用 193.45</td></tr><tr><td>雲端基礎設施 OCI</td><td>73.88</td><td>74（媒體轉述）</td><td>0.16%</td><td>採用 73.88</td></tr><tr><td>RPO 剩餘履約義務</td><td>6,640</td><td>6,600（媒體概括口徑）</td><td>0.60%</td><td>採用 6,640，同比 +46% 為公司披露</td></tr><tr><td>GAAP 稅後淨利</td><td>47.60</td><td>50.2（媒體多用非 GAAP）</td><td>5.5%</td><td>兩者都保留，正文以 GAAP 為主</td></tr><tr><td>資本支出</td><td>284.99</td><td>285（媒體轉述）</td><td>0.003%</td><td>採用 284.99</td></tr><tr><td>自由現金流</td><td>-53.96</td><td>-48.5（剔除融資租賃後）</td><td>10.0%</td><td>採用 -53.96，註明含融資租賃</td></tr><tr><td>總債務</td><td>約 1,295（含營業租賃）</td><td>1,180（僅長期票據）</td><td>9.7%</td><td>採用 1,295，槓桿更高更保守</td></tr><tr><td>營業現金流</td><td>約 231（推算）</td><td>228（媒體估算）</td><td>1.3%</td><td>採用推算值並標註</td></tr></tbody></table><div class="note">來源 A：甲骨文 FY2027Q1 財報與法說會（2026/09/10 盤後）、FY2026 年報（2026/06/10）。來源 B：格隆匯（2026/09/10）、口袋學堂（2026/09/11）、iFast 研報（2026/07/29）轉述口徑。營業現金流未在季報摘要中單列，由自由現金流 + 資本支出反推（-53.96 + 284.99 = 231.03），故標註推算。</div><div class="section"><div class="section-title">為什麼必須做這一步</div><p class='txt'>甲骨文這季的數字有一個特點：<b>同一份財報能算出兩套完全不同的結論。</b>用非 GAAP 淨利 50.2 億、剔除融資租賃的資本支出，自由現金流是 -48.5 億；用 GAAP 淨利 47.60 億、含租賃的資本支出，是 -53.96 億。前者讀起來像「小幅失血」，後者讀起來像「大出血」。差 5.4 億美元，占單季營收 2.8%，夠讓一篇看多報告和一篇看空報告都顯得有道理。</p><p class='txt'>交叉驗證不是為了找錯，是為了<b>確認自己站在哪個口徑上，並且一直站在這兒</b>。這份報告後面所有關於槓桿、現金流、估值的判斷，都建立在含租賃的 1,295 億和 -53.96 億之上，換口徑就要重算全部結論。</p></div><div class="section"><div class="section-title">三處超過 1% 的偏差，逐一解釋</div><p class='txt'><b>第一處：總債務 1,295 億 vs 1,180 億（差 9.7%）。</b>差額 115 億主要是經營租賃負債和本季新增的建設項目融資。媒體習慣只統計長期票據（notes payable），因為那部分寫在資產負債表最顯眼的位置；但對一家正在大規模租地、租電、租機房的公司，租賃負債和票據一樣剛性——不付租金，機房就用不了。<b>所以本報告用 1,295 億，並把債務/EBITDA 定在 4.3 倍。</b></p><p class='txt'><b>第二處：自由現金流 -53.96 億 vs -48.5 億（差 10%）。</b>公司口徑的資本支出包含融資租賃取得的設備（GPU 也可以透過租賃拿到），剔除這一塊後單季現金流好看 5.4 億。但租賃的設備同樣要付錢，只是付在後面的年度裡。<b>把租賃挪出資本支出，是把支出從「現在」挪到「以後」，不改變總量。</b></p><p class='txt'><b>第三處：淨利 47.60 億 vs 50.2 億（差 5.5%）。</b>非 GAAP 加回了股權激勵（本季約 3.4 億，粗算）和重組費用。對一家正在瘋狂擴招資料中心維運和銷售的公司，股權激勵是真成本，只是在會計上不出現金。<b>本報告以 GAAP 為主，非 GAAP 只在討論管理層指引（FY27 EPS 8.10 美元）時使用，並明確標註。</b></p></div><div class="section"><div class="section-title">最終採用的口徑與不用的數字</div><p class='txt'>本報告統一準則：<b>收入與利潤採用 GAAP；資本支出包含融資租賃；債務包含經營租賃；自由現金流 = 營業現金流 − 資本支出；估值同時提供 GAAP TTM PE 與非 GAAP FY27 PE，並優先採信 EV/EBITDA。</b>市值按 30.4 億稀釋股（含增發後）計算，與 4,400 億美元市值準則一致。</p><p class='txt'><b>有一個數字本報告刻意不用：市場上流傳的「OpenAI 合約總額 3,000 億美元、為期五年」。</b>這個數字沒有出現在甲骨文的任何一份公告或財報裡，只在媒體和賣方報告中反覆出現，且各家給出的期限、準則都不一致。它可能接近事實，但它不是可核驗的數據。本報告只使用公司披露的 RPO 6,640 億，以及「市場估算一半以上與 OpenAI 相關」這一帶有明確不確定性的表述。<b>把不可核驗的數字當基礎，是這類研究報告最常見的翻車方式。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：資料可用，口徑統一，無錯報。</b>八項核對，五處差異在四捨五入範圍內，三處超 1% 的差異都能追到具體口徑，而不是公司改數或媒體編數。這讓後面的判斷有了一個可靠的地基：<b>甲骨文的問題不是「數字有沒有造假」，而是「真實的數字本身就不好看」。</b>自由現金流 -53.96 億、債務 1,295 億、評級 BBB-，這三個數字在任何口徑下都成立。</p></div>
+</div>
+<div class="footer">甲骨文 (ORCL) · 2026/09/14</div>
+</body>
+</html>

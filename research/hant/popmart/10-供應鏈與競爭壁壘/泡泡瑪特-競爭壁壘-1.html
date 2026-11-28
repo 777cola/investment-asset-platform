@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>競爭壁壘 — 泡泡瑪特</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/popmart/10-供应链与竞争壁垒/泡泡玛特-竞争壁垒.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/popmart/10-供應鏈與競爭壁壘/泡泡瑪特-競爭壁壘-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/popmart/10-Moat-and-Supply-Chain/Pop Mart-Moat-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>競爭壁壘 — 泡泡瑪特</h1>
+  <div class="subtitle">泡泡瑪特 (09992) | 10 · 競爭壁壘</div>
+  <div class="meta">研究日期 2026/09/07 &nbsp;·&nbsp; 股價 HK$156.20（+1.43%） &nbsp;·&nbsp; 市值 約 2,090 億港元 &nbsp;·&nbsp; PE(TTM) 約 14.2x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/popmart/00-泡泡瑪特研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：它守得住店，守不住「為什麼進店」</h3><p class='txt'>六個維度打分合計 37/60。<b>通路 9 分、會員 8 分是真壁壘，品牌 6 分、IP 7 分、供應鏈 6 分、規模 7 分只能算「營運優勢」。</b>區別在於：通路和會員需要十年和幾十億才能複製，品牌和 IP 只需要一個爆款就能被繞過。</p><p class='txt'>最危險的對手不是布魯可、不是 TOP TOY，是 Jellycat 和「下一個 Labubu」——前者搶的是毛絨品類（占收入 57.2%）的心智，後者搶的是注意力。</p></div><table class="dt"><caption>護城河逐項評分（每項 10 分）</caption><thead><tr><th>維度</th><th>評分</th><th>依據</th><th>可複製性</th></tr></thead><tbody><tr><td>管道</td><td>9/10</td><td>676 家自營門市（海外 221 家）、2,827 台機器人商店；核心商圈位置是有限供給</td><td>需 5–10 年 + 數十億租金，難</td></tr><tr><td>會員</td><td>8/10</td><td>國內 8,244 萬會員、貢獻 92.9% 收入、回購 51.6%；全球逾 1 億</td><td>需長期營運，較難</td></tr><tr><td>IP 矩陣</td><td>7/10</td><td>11 個 IP 過億、6 個破 10 億；但超頭 IP 生命週期 18 個月</td><td>簽設計師即可，中等</td></tr><tr><td>規模</td><td>7/10</td><td>收入是布魯可的 7 倍；採購與租金議價力強</td><td>需資本，中等</td></tr><tr><td>品牌</td><td>6/10</td><td>潮玩圈內絕對頭部，圈外比不過樂高、迪士尼、Jellycat</td><td>心智遷移慢，但可被新爆款覆蓋</td></tr><tr><td>供應鏈</td><td>6/10</td><td>代工模式靈活，毛絨產能緊張時議價權轉移到工廠</td><td>可複製，容易</td></tr></tbody></table><div class="note">評分為本報告主觀判斷。依據資料來自 2026 年中期業績公告：門店 676 家、會員 8,244 萬、複購 51.6%、IP 收入結構。</div><table class="dt"><caption>競品對比（2026 年中）</caption><thead><tr><th>公司</th><th>定位</th><th>收入規模</th><th>毛利率</th><th>與泡泡瑪特的差異</th></tr></thead><tbody><tr><td>泡泡瑪特</td><td>自有 IP + 自營門店 + 全球化</td><td>2026H1 171.73 億元</td><td>69.7%</td><td>唯一跑通海外自營門市的中國潮玩品牌</td></tr><tr><td>布魯可</td><td>拼搭角色玩具（以授權 IP 為主）</td><td>2026Q1 5.95 億元（+2.7%），年化約 24 億元</td><td>約 55%</td><td>單價低、通路下沉、靠授權 IP 走量</td></tr><tr><td>TOP TOY（名創優品）</td><td>潮流玩具集合店</td><td>2026H1 9.85 億元（+32.7%），營業虧損 0.72 億元</td><td>約 40%</td><td>通路強、自有 IP 弱，靠聯名與性價比</td></tr><tr><td>52TOYS</td><td>硬核收藏玩具</td><td>年營收約 6 億元</td><td>—</td><td>自有 IP 24.5%、授權 64.5%，淨利率 4.7%</td></tr><tr><td>Jellycat（英國）</td><td>絨毛禮品</td><td>未上市</td><td>—</td><td>歐美毛絨心智更強，是毛絨主戰場的正面對手</td></tr><tr><td>卡遊</td><td>集換式卡牌</td><td>未上市（份額 71.1%）</td><td>—</td><td>品類不同，但爭奪同一批「收集型」使用者</td></tr></tbody></table><div class="note">資料來源：泡泡瑪特 2026 年中報；布魯可 2026 年一季報；名創優品 2026 年中報（TOP TOY 分部）；行業研究報告（52TOYS、卡遊份額）。年化值為季度×4 的粗算。</div><div class="section"><div class="section-title">產業鏈位置：它不是「品牌商」，是「IP 營運商 + 零售商」的混合體</div><p class='txt'>把泡泡瑪特放在產業鏈上看，它同時做三件事：簽 IP（上游）、管品類（中游）、開門店（下游）。這三件事在財報上對應三個數字：藝術家 IP 收入 152.9 億元、毛利率 69.7%、門店 676 家。</p><p class='txt'>這種「全鏈條」結構的優點是利潤全吃——從設計到零售，中間沒有別人分錢。缺點是每一環都要自己建能力：簽 IP 要眼光、管品類要供應鏈、開門店要選址和地推。<b>三件事裡，只有開店是可以靠錢堆出來的，簽 IP 不能。</b></p><p class='txt'>所以它的產業鏈地位是「強在通路、弱在上游」。對代工廠，它是甲方（訂單大）；對頂級藝術家，它是乙方（IP 稀缺）；對商場，它是甲方（客流）；對消費者，它是「可替代的選項之一」（形象不喜歡就不買）。</p></div><div class="section"><div class="section-title">供應鏈：代工模式的彈性，在毛絨時代變成了軟肋</div><p class='txt'>過去公仔時代，代工是完美的：搪膠工藝標準化，廣東有幾百家工廠能做，誰便宜給誰。泡泡瑪特不用投產能，毛利率還能做到 70%。</p><p class='txt'>2026 年品類切換到毛絨（占 57.2%），情況變了。毛絨的工序多、良率低、交期長 30–50%，能承接大單的工廠少。上半年存貨週轉從 123 天拉到 201 天，一部分是備貨，一部分是「毛絨產能排不上」。</p><p class='txt'>更麻煩的是品控。毛絨是「手感生意」，縫線、填充、面料手感差一點，消費者一摸就知道。代工廠良率不穩，退貨和口碑損失由品牌承擔。<b>這就是「輕資產」的代價：省錢的時候是真省，出事的時候也是真出事。</b></p></div><div class="section"><div class="section-title">最危險的對手：Jellycat，以及所有「下一個 Labubu」</div><p class='txt'>先說 Jellycat。它是英國毛絨品牌，在歐美市場的心智比泡泡瑪特深得多——買 Jellycat 的人不覺得自己在買潮玩，覺得自己在買「一個陪伴」。而毛絨已經是泡泡瑪特 57.2% 的收入來源，這是正面戰場。</p><p class='txt'>Jellycat 的優勢在於「沒有 IP 週期」。它不靠某個形象爆紅，靠的是一整套「軟、怪、可愛」的審美體系，每年出新款，老款不退。泡泡瑪特靠的是「某個形象突然爆紅」，兩者的商業模式不同：一個是品牌，一個是爆款機器。</p><p class='txt'>再說無形的對手：任何一個在 TikTok 上突然爆紅的形象，都能在三個月內複製 Labubu 的路徑。潮玩行業沒有產能壁壘、沒有專利壁壘、沒有通路獨占——商場歡迎新品牌進場，代工廠歡迎新訂單。<b>唯一的壁壘是注意力，而注意力不可繼承。</b></p><p class='txt'>國內對手反而不危險。布魯可、TOP TOY、52TOYS 都在做「更便宜」的生意，它們搶的是價格敏感客群，不是泡泡瑪特的核心會員。真正能殺死泡泡瑪特的，是一個比它更會造爆款的公司——現在還沒出現，但門檻不高。</p></div><div class="section"><div class="section-title">壁壘結論：夠守三年，不夠守十年</div><p class='txt'>把六項評分加起來 37/60，及格線以上，但不是「寬護城河」。用巴菲特的三檔分類：寬護城河（可口可樂、穆迪）、窄護城河（喜詩糖果）、無護城河（大部分零售商）。<b>泡泡瑪特在「窄」和「無」之間，偏窄。</b></p><p class='txt'>窄在哪裡？通路和會員。676 家門市、1 億會員，這是別人三年砸 50 億元也複製不了的東西。管理層知道這一點，所以 2026 年把錢花在開店和會員營運上，而不是砸廣告。</p><p class='txt'>不夠寬在哪裡？<b>消費者進店的第一個理由不是「泡泡瑪特」，是「這個形象好看」。</b>通路再強，也只能把「好看的形象」更快地送到貨架上；如果形象不好看，通路越強，庫存越高。2026 年上半年 201 天的存貨週轉，就是這個邏輯的證明。</p><p class='txt'>再給一個可量化的判斷：護城河的「維護成本」。泡泡瑪特的銷售費用率約 30%，其中租金 +43.3%、薪酬 +45.7%，這兩項是維持通路和會員的必要支出。<b>如果哪天它必須把銷售費用率提到 35% 才能維持收入，說明護城河在漏水。</b>現在 30% 是健康的，因為門市還在擴張期，費率會被新店攤薄。</p></div><div class="summary-box"><h3>結論</h3><p>護城河 37/60，<b>夠守三年，不夠守十年</b>。三年內，通路和會員能保證它活得還不錯；十年內，能不能守住取決於兩件它控制不了的事——下一個爆款什麼時候來、消費者的注意力往哪走。這就是為什麼它值 14 倍而不是 25 倍。</p></div>
+</div>
+<div class="footer">泡泡瑪特 (09992) · 2026/09/07</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>③ 護城河解剖：不是技術，是四層綁定 — 微軟</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/microsoft/16-八篇深度长文/微软-03-护城河解剖.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/microsoft/16-八篇深度長文/微軟-八篇長文-3.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/microsoft/16-Eight-Long-Essays/Microsoft-Eight Essays-3.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>③ 護城河解剖：不是技術，是四層綁定 — 微軟</h1>
+  <div class="subtitle">八篇深度長文之三 · 遷移成本到底有多高</div>
+  <div class="meta">研究日期 2026/07/31 &nbsp;·&nbsp; 股價 $464.72（+3.02%） &nbsp;·&nbsp; 市值 約 3.45 萬億美元 &nbsp;·&nbsp; PE(TTM，FY2026) 約 25.8x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/microsoft/00-微軟研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>說微軟有護城河的人很多，能說清護城河是什麼的人很少。「生態好」「客戶黏性高」都是空話。真實的機制是四層具體的綁定，每一層都能算出遷移成本。<b>這四層加起來，讓一家五萬人公司換掉微軟的決策成本超過 3,000 萬美元和 18 個月。</b></p></div><div class="section"><div class="section-title">第一層：身分與權限（Entra）</div><p class='txt'>員工的帳號、密碼、單一登入、多因素驗證、裝置管理，全在 Entra（原 Azure AD）上。換掉它意味著：所有員工的帳號重建、所有第三方應用程式的 SSO 重配、所有權限策略重寫。</p><p class='txt'>這一層的遷移成本以「人月」計。一家五萬人的公司，IT 團隊大概 300 人，其中三分之一要投入 6–12 個月。<b>而且這一層出事就是全公司停工，沒有人願意承擔這個責任。</b></p></div><div class="section"><div class="section-title">第二層：合規與審計</div><p class='txt'>稽核日誌、資料駐留地、行業認證（金融的 PCI、醫療的 HIPAA、政府的 FedRAMP），這些都掛在 Azure 的合規資質上。換雲意味著重新過審——不是技術問題，是流程問題，通常要 12–24 個月。</p><p class='txt'>這一層是 Azure 最硬的護城河，也是最容易被低估的。技術可以追，資質要時間。<b>微軟在 60 多個區域有主權雲，這個網路是二十年建起來的，不是錢能買的。</b></p></div><div class="section"><div class="section-title">第三層：文件格式與存量資料</div><p class='txt'>全世界有幾十億個 docx、xlsx、pptx 檔案。這些檔案在別的軟體裡開啟會變形、公式會出錯、巨集會失效。對企業來說，遷移不是「換個軟體」，是「把二十年的文件全部驗證一遍」。</p><p class='txt'>這一層的護城河在減弱——雲原生的協作文件（Google Docs、Notion）在年輕人族群裡更流行。但企業存量資料的慣性還在，尤其是金融、製造、政府這些「文件就是資產」的行業。</p></div><div class="section"><div class="section-title">第四層：流程與整合</div><p class='txt'>審批流程、報銷、合約、專案看板，很多掛在 Teams、SharePoint、Power Platform 上。這一層最隱蔽：它不是「買了什麼軟體」，是「公司怎麼運轉」。</p><p class='txt'>換掉它等於重做流程，而流程重做會牽動組織架構。<b>這一層的護城河不靠技術，靠組織惰性——而組織惰性是最難被打破的東西。</b></p></div><div class="section"><div class="section-title">Azure 的護城河不一樣：資本與資質</div><p class='txt'>上面四層是 Office 的護城河，屬於「慣性型」。Azure 的護城河是另一類：<b>資本密集型 + 牌照型。</b>建一個區域的資料中心要 10 億美元以上、兩年時間、幾十項審批；建 60 個區域要多少錢多少年，算得出來。</p><p class='txt'>這類護城河的特點是不會被技術顛覆，只會被資本顛覆——只要有人願意燒更多的錢，就能追上。甲骨文靠 OpenAI 的單子追了一部分，CoreWeave 靠融資追了一部分。<b>所以 Azure 的護城河是「寬但不深」：擋住小玩家，擋不住巨頭。</b></p></div><div class="section"><div class="section-title">遷移成本的帳單：一家五萬人公司算給你看</div><p class='txt'>粗算一筆帳。一家五萬人的公司要換掉 M365 + Entra + Azure：</p><ul><li><b>人力</b>：IT 團隊約 100 人投入 12 個月，按人均年薪 12 萬美元算，約 1,200 萬美元。</li><li><b>外部實施</b>：遷移、整合、培訓，通常是軟體年費的 1–2 倍，約 1,000–2,000 萬美元。</li><li><b>業務中斷</b>：三個月的效率損失，按人均產出粗算，可能上千萬美元。</li></ul><p class='txt'>合計 3,000 萬美元以上、18 個月以上。<b>而換掉之後能省多少錢？M365 年費約 4,000 萬美元，即使新方案便宜三成，一年省 1,200 萬——要三年才回本，而且期間沒有任何人人願意承擔「遷移失敗」的責任。</b></p><p class='txt'>這就是護城河的真實形態：不是「別人做不到」，是「別人算完帳不做」。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：Office 的護城河是時間，Azure 的護城河是錢。</b>前者幾乎不可攻破（二十年的組織慣性），後者可以被資本追平（三到五年）。這意味著微軟的估值應該「按 Office 的穩定性給溢價、按 Azure 的資本屬性給折價」——兩部分加權，就是 22–26 倍。</p></div>
+</div>
+<div class="footer">微軟 (MSFT) · 2026/07/31</div>
+</body>
+</html>

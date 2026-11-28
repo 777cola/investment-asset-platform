@@ -7,13 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
-.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
 .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
 .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
 .header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
 .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
 .section { margin-bottom: 2.5rem; }
 .section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -48,22 +53,19 @@ table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; colo
 .badge-blue { background: #e6f0ff; color: #1a4b8c; }
 .footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
 .back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
-.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
-.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
-.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
-
 </style>
 </head>
 <body>
 <div class="header">
+  <div class="lang-switch"><a class="lang zh active" data-lang="zh" href="/research/palantir/16-八篇深度长文/Palantir-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/palantir/16-八篇深度長文/Palantir-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/palantir/16-Eight-Long-Essays/Palantir-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
   <h1>08 决策框架：把「什么价格买」写成一条规则 — Palantir</h1>
   <div class="subtitle">不靠判断，靠纪律</div>
   <div class="meta">研究日期 2026/10/05 &nbsp;·&nbsp; 股价 $189.40（+0.34%） &nbsp;·&nbsp; 市值 约 4,560 亿美元 &nbsp;·&nbsp; PS(TTM) 约 74 倍</div>
 </div>
 <div class="container">
-<a class="back" href="../00-Palantir研究报告总目录.html">← 返回总目录</a>
+<a class="back" href="/research/palantir/00-Palantir研究报告总目录.html">← 返回总目录</a>
 <div class="summary-box"><h3>核心判断</h3><p class='txt'>这一系列八篇，前七篇都在讲这家公司是什么。这一篇讲一个更实际的问题：<b>面对一家好公司、坏价格，你到底该怎么办？</b></p><p class='txt'>答案不是「等」，是「把等的条件写下来，然后不看盘」。</p></div><div class="section"><div class="section-title">第一步：区分「公司判断」和「价格判断」</div><p class='txt'>这两件事经常被混在一起。公司判断的结论是「好公司」，价格判断的结论是「太贵」。分开之后，动作就很清楚：<b>好公司进观察名单，太贵的价格决定不买。</b></p><p class='txt'>混乱发生在第二步：因为「好公司」而买入，然后用「长期看好」解释「短期亏损」。这是最常见的亏钱路径。<b>好公司可以让你亏钱，只要你付的价够高——可口可乐 1998 年的例子摆在那儿。</b></p></div><div class="section"><div class="section-title">第二步：把买入条件写成可验证的数字</div><p class='txt'>「等便宜一点」不是条件，「PS 30 倍」才是。三个条件，按优先级：</p><ul><li><b>价格：</b>PS(TTM) ≤30 倍，约 80 美元。这是硬条件，不看情绪。</li><li><b>基本面：</b>TCV/收入 ≥1.5 倍（现在是 1.74），美国商业增速 ≥40%。</li><li><b>质量：</b>SBC/收入 ≤10%（现在 13.7%），营业利润率 ≥45%。</li></ul><p class='txt'>价格到了、基本面没坏，才买。<b>价格没到、基本面再好，不买。</b>价格到了、基本面坏了，也不买——那是价值陷阱。</p></div><div class="section"><div class="section-title">第三步：仓位与止损，提前定好</div><p class='txt'>80 美元首仓 3%，55 美元加到 5%（上限）。为什么不一次买满？因为你对「它的增速能维持多久」没有绝对把握，分批是对不确定性的定价。</p><p class='txt'>止损不设价格，设论文。<b>四条论文止损：TCV/收入连续两季 <1.2、美国商业增速连续两季 <40%、营业利润率跌破 40%、美国政府收入连续两季负增长。</b></p><p class='txt'>价格只决定「买不买」，不决定「卖不卖」。<b>买的时候价格是朋友，卖的时候基本面是朋友。</b></p></div><div class="section"><div class="section-title">第四步：更新频率——每季度二十分钟</div><p class='txt'>不需要每天看盘。每季度财报出来，花二十分钟看四个数：收入增速、TCV/收入、营业利润率、SBC 占比。四个数都在区间内，什么都不做。</p><p class='txt'>触发论文止损，动手。触发买入条件，重新做一遍估值。<b>其余时间，不看。</b></p><p class='txt'>这条纪律的价值不在于「看得准」，在于「不被波动带着走」。<b>Palantir 三个月里有三天单日跌超 5%，没有公告——如果你每天看盘，你一定会做点什么，而做的那些事大概率是错的。</b></p></div><div class="section"><div class="section-title">第五步：接受「可能永远等不到」</div><p class='txt'>最难的其实是这一条。一家好公司可能永远不回到 30 倍市销率——如果它一直保持 50% 以上的增速，市场会一直给它高倍数。</p><p class='txt'>那时候怎么办？<b>不怎么办。错过它。</b>你的组合里不需要拥有每一家好公司，只需要拥有那些「价格低于价值」的好公司。</p><p class='txt'>段永平说过类似的话：投资不是考试，不需要每道题都答。你可以只答自己有把握的那几道，其他跳过。<b>跳过 Palantir 不会让你的年化回报从 15% 掉到 14%，但在 74 倍市销率上买它，可能让你的某一年变成 −50%。</b></p></div><div class="summary-box"><h3>结论</h3><p>决策框架的结论：<b>把判断变成规则，把规则写成数字，然后执行。</b>买入条件：PS 30 倍（约 80 美元）+ TCV/收入 ≥1.5 + 美国商业增速 ≥40%。仓位：3% 起、5% 上限。止损：论文四条，不看价格。<b>当前状态：等待，每季度二十分钟。可能永远等不到，接受它。</b></p></div>
 </div>
-<div class="footer">Palantir (PLTR) 投资研究报告集 · 2026/10/05</div>
+<div class="footer">Palantir (PLTR) · 2026/10/05</div>
 </body>
 </html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣篩選 — 阿斯麥</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/asml/2-七条硬指标去劣/阿斯麦-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/asml/2-七條硬指標去劣/阿斯麥-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/asml/2-Seven-Hard-Metrics/ASML-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>去劣篩選 — 阿斯麥</h1>
+  <div class="subtitle">阿斯麥 (ASML) | 02 · 去劣篩選</div>
+  <div class="meta">研究日期 2026/10/16 &nbsp;·&nbsp; 股價 $1,641.52（-0.96%） &nbsp;·&nbsp; 市值 約 6,240 億美元（約 5,380 億歐元） &nbsp;·&nbsp; PE(TTM) 約 41 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/asml/00-阿斯麥研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：這不是「及格」，是每條都遠超門檻</h3><p class='txt'>七條去劣指標，阿斯麥全部通過，而且不是擦線過：10 年平均 ROE 約 30%（門檻 8%）、長期毛利率 45%–57%（門檻 15%）、營業現金流/稅後淨利接近 1（門檻 0.7）、五年股本不增反降。這套指標是用來「排除壞公司」的，對阿斯麥這種標的沒有區分度——<b>它證明的是下限，不是買點。</b>真正需要盯的是第七條的構成：回購規模能不能持續覆蓋股權激勵。</p></div><table class="dt"><caption>七項去劣指標（截至 2026Q3）</caption><thead><tr><th>指標</th><th>公司數值</th><th>門檻</th><th>判定</th></tr></thead><tbody><tr><td>10 年平均 ROE</td><td>約 30%（粗算，2016 年約 12% 升至 2026 年 50%+）</td><td>≥8%</td><td>通過，3.7 倍餘量</td></tr><tr><td>5 年累計自由現金流</td><td>為正，且逐年抬升（2026 年前三季營業現金流強勁）</td><td>為正</td><td>透過</td></tr><tr><td>利息覆蓋倍數（EBIT/利息）</td><td>50 倍以上（粗算，有息負債以低息債券為主）</td><td>≥2 倍</td><td>透過</td></tr><tr><td>長期毛利率</td><td>44.7%（2019 低點）–57.5%（2026Q3）</td><td>≥15%</td><td>透過，且在上行</td></tr><tr><td>營業現金流／稅後淨利（5 年均值）</td><td>約 0.95–1.05</td><td>≥0.7</td><td>透過</td></tr><tr><td>長期淨利率</td><td>22%–42%（2026Q3 含一次性）</td><td>≥5%</td><td>透過</td></tr><tr><td>5 年總股本膨脹</td><td>負成長：約 4.17 億股（2021）降至 3.84 億股</td><td>≤+20%</td><td>通過，回購大於稀釋</td></tr></tbody></table><div class="section"><div class="section-title">哪幾條最值得看</div><p class='txt'>七條裡真正有資訊量的是第一條和第七條。ROE 十年平均 30%，說明這家公司不是靠某一年景氣衝上來的——2019 年半導體設備下行、2022 年訂單斷崖，兩年 ROE 都還在 20% 以上。這不是週期運氣，是資本效率的結構性問題：一條 EUV 產線的資本支出攤到幾十年，產能一建好，增量收入的邊際資本極低。</p><p class='txt'>第七條更有意思：股本在縮。2021 年約 4.17 億股，2026 年約 3.84 億股，五年減了 8%。同期它還發了大量股權激勵，說明回購規模遠大於稀釋。Q3 單季回購 41 億歐元，按現價相當於每年註銷 2.5% 左右的股本——這是實實在在的每股價值增厚。</p></div><div class="section"><div class="section-title">毛利率這一項，看的是波動不是水準</div><p class='txt'>57.5% 的毛利率對設備商是異常值（應用材料約 47%、泛林約 48%、東京電子約 45%）。但門檻只有 15%，所以這一條不是用來判斷「好不好」，是用來判斷「有沒有定價權」。阿斯麥的毛利率低點在 2019 年的 44.7%，那一年行業資本支出下滑、EUV 還在爬坡，它沒有一年跌破 40%。</p><p class='txt'>對比一下就清楚了：同一輪週期裡，記憶體廠毛利率可以從 50% 掉到負值，代工廠可以從 50% 掉到 15%。阿斯麥的毛利率下限鎖在 45% 附近，這是訂單制 + 獨家供應的直接結果。</p></div><div class="section"><div class="section-title">有沒有擦線的？只有利息覆蓋要打個問號</div><p class='txt'>ASML 有存續債券（以歐元債為主），帳面有息負債在數十億歐元量級，現金及短期投資 127.35 億歐元，處於淨現金狀態。EBIT 一個季度就超過 40 億歐元，利息費用在數千萬歐元量級，覆蓋倍數 50 倍以上沒有問題。<b>唯一的邊界是它不是零負債公司</b>——如果利率長期高企，續發成本會上升，但對這個現金流規模來說不構成風險。</p><p class='txt'>其餘六條都沒有擦線。這套篩選的結果是「沒有可排除項」，這在報告集裡並不常見：多數公司會卡在毛利率或股本稀釋上。</p></div><div class="section"><div class="section-title">全過意味著什麼，不意味著什麼</div><p class='txt'>意味著：這不是一家需要擔心「財務造假、利潤注水、大股東稀釋」的公司，可以把精力全部放在生意和價格上。這家公司的報表也確實是乾淨的那種：沒有大額商譽、沒有複雜的表外結構、沒有靠應收帳款堆收入，預收款反而讓現金流走在利潤前面。</p><p class='txt'>不意味著：可以買。七條指標裡沒有一條涉及估值，全部通過只說明它是「一流公司」，不說明它是「一流投資」。</p><p class='txt'>阿斯麥的買入錯誤從來不是買錯公司，是買錯時點——2021 年 11 月高點買入的人，要到 2024 年才回本，期間的跌幅超過 50%，而公司這三年每一條硬指標都是通過的。<b>好公司 + 壞價格 = 壞投資，這條七條指標測不出來。</b></p></div><div class="summary-box"><h3>結論</h3><p>七條全過，且六條有大幅餘量，只有利息覆蓋屬於「有負債但極安全」。去劣篩選對阿斯麥沒有排除作用，結論是：可進入深度研究，估值討論放到第四關。下一步不是找它哪裡不好，是算清楚 2027 年的盈利和該給多少倍。</p></div>
+</div>
+<div class="footer">阿斯麥 (ASML) · 2026/10/16</div>
+</body>
+</html>

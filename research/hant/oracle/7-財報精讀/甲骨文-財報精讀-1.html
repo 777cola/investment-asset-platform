@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀 — 甲骨文</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/oracle/7-财报精读/甲骨文-财报精读.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/oracle/7-財報精讀/甲骨文-財報精讀-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/oracle/7-Earnings-Deep-Read/Oracle-Earnings Read-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀 — 甲骨文</h1>
+  <div class="subtitle">甲骨文 (ORCL) | 07 · 財報精讀</div>
+  <div class="meta">研究日期 2026/09/14 &nbsp;·&nbsp; 股價 $144.79（-3.65%） &nbsp;·&nbsp; 市值 約 4,400 億美元 &nbsp;·&nbsp; PE(GAAP TTM) 約 23.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/oracle/00-甲骨文研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>財報解讀</h3><p class='txt'>FY27Q1 是一份「上半張臉好看、下半張臉難看」的財報。營收 193.45 億、同比 +30%，OCI +121%，RPO 6,640 億，GAAP 稅後淨利 47.60 億、EPS 1.56 美元——全部超預期。<b>但資本支出 284.99 億、同比 +235%，自由現金流 -53.96 億，同時完成 200 億美元增發。</b>一句話：損益表在講成長故事，現金流量表在講融資故事。</p></div><table class="dt"><caption>損益表（億美元，FY27Q1 vs FY26Q1）</caption><thead><tr><th>專案</th><th>FY27Q1</th><th>FY26Q1（推算）</th><th>同比</th><th>佔營收</th></tr></thead><tbody><tr><td>營業收入</td><td>193.45</td><td>148.81</td><td>+30%</td><td>100%</td></tr><tr><td>營業成本</td><td>約 67.4</td><td>約 52.1</td><td>+29%</td><td>34.8%</td></tr><tr><td>毛利</td><td>約 126.0</td><td>約 96.7</td><td>+30%</td><td>65.2%</td></tr><tr><td>營業費用（銷售／研發／管理）</td><td>約 44.8</td><td>約 36.6</td><td>+22%</td><td>23.2%</td></tr><tr><td>營業利益</td><td>約 81.2</td><td>約 60.1</td><td>+35%</td><td>42.0%</td></tr><tr><td>淨利息費用</td><td>約 16</td><td>約 11</td><td>+45%</td><td>8.3%</td></tr><tr><td>GAAP 稅後淨利</td><td>47.60</td><td>29.27</td><td>+62.6%</td><td>24.6%</td></tr><tr><td>GAAP EPS（美元）</td><td>1.56</td><td>0.98</td><td>+59%</td><td>—</td></tr></tbody></table><div class="note">營收、稅後淨利、EPS 為公司披露；營業成本、毛利、費用、營業利益由披露的毛利率與營業利益率（約 42%）反推，FY26Q1 按同比增速回算，均為推算值。淨利息費用按 1,295 億債務 × 約 5% 年化 ÷ 4 估算。</div><table class="dt"><caption>現金流與資產負債表（億美元）</caption><thead><tr><th>專案</th><th>FY27Q1</th><th>2026 財年全年</th><th>說明</th></tr></thead><tbody><tr><td>營業現金流</td><td>約 231（推算）</td><td>320</td><td>由自由現金流 + 資本支出反推</td></tr><tr><td>資本支出</td><td>284.99</td><td>556.6</td><td>FY27 指引 900–950，淨額上限 700</td></tr><tr><td>自由現金流</td><td>-53.96</td><td>-237</td><td>連續多季為負</td></tr><tr><td>股權融資（ATM）</td><td>200</td><td>—</td><td>本季完成，相當於市值 4.5%</td></tr><tr><td>總債務</td><td>約 1,295</td><td>—</td><td>債務/EBITDA 4.3 倍，評級 BBB-</td></tr><tr><td>RPO 剩餘履約義務</td><td>6,640</td><td>6,380</td><td>同比 +46%，單季 +260</td></tr></tbody></table><div class="note">資料來源：公司 FY27Q1 財報與法說會（2026/09/10）、FY2026 年報（2026/06/10）。營業現金流為推算；總債務含營業租賃口徑。</div><table class="dt"><caption>分部收入與盈利品質（FY27Q1）</caption><thead><tr><th>分部</th><th>收入（億美元）</th><th>同比</th><th>佔比</th><th>毛利率估計</th></tr></thead><tbody><tr><td>雲端基礎設施 OCI</td><td>73.88</td><td>+121%</td><td>38%</td><td>約 25%–35%</td></tr><tr><td>雲端應用程式 SaaS</td><td>42.19</td><td>+10%</td><td>22%</td><td>約 65%–75%</td></tr><tr><td>軟體授權與支援</td><td>55.50</td><td>-3%</td><td>29%</td><td>約 90%</td></tr><tr><td>硬體</td><td>7.74</td><td>+15%</td><td>4%</td><td>約 30%</td></tr><tr><td>服務</td><td>14.14</td><td>+5%</td><td>7%</td><td>約 20%</td></tr></tbody></table><div class="note">營收與同比為公司披露；毛利率為按行業慣例的估計區間，公司未按分部披露毛利率，故標註估計。</div><div class="section"><div class="section-title">第一層：收入結構——增長全部來自賣算力</div><p class='txt'>193.45 億元裡，OCI 73.88 億元、同比 +121%，單獨貢獻了 40 億美元的增量，是全部增長的來源。雲端服務合計 116.07 億元、佔 60%，歷史上第一次超過軟體授權與支援（55.50 億元、-3%）。SaaS 只增 10%，硬體 +15%，服務 +5%。</p><p class='txt'><b>這個結構變化的分量，比增速本身更大。</b>軟體授權與支援是 90% 毛利率、零資本支出的生意；OCI 是三成毛利率、每美元收入配 1.5 美元資產的生意。收入結構每往 OCI 挪一個百分點，公司的整體資本回報就往下走一檔。<b>市場在為 +121% 歡呼，但沒有人問：如果 OCI 增速是 20%、軟體是 +5%，這家公司值多少錢？</b></p></div><div class="section"><div class="section-title">第二層：毛利與費用——經營槓桿還在，但快到頭了</div><p class='txt'>毛利率約 65%，比三年前的 80% 下了 15 個點，這是 OCI 佔比上升的必然結果。但營業利益率守在 42%，比毛利率的下滑幅度小——因為費用控制極狠：銷售、研發、管理三項合計只佔營收 23.2%，同比只增 22%，慢於收入增速。</p><p class='txt'><b>這是典型的「用費用紀律對沖毛利下滑」。</b>它能撐住一兩年，撐不住五年：折舊從每年 76 億往 130 億走，每增加 10 億折舊，營業利益率掉 0.5 個百分點。而且研發費用不可能長期只增 20%——OCI 要跟輝達、微軟拼軟體堆疊，研發投入遲早要補上來。<b>42% 的營業利益率，可能是這一輪週期的頂部。</b></p></div><div class="section"><div class="section-title">第三層：訂單——6,640 億是真的，但它不是現金</div><p class='txt'>RPO 6,640 億美元、同比 +46%、單季新增 260 億，超市場預期的 6,306 億。管理層給了轉化節奏：約 12%（766 億）在 12 個月內轉收入，34%（2,258 億）在 36 個月內轉。本季新簽 AI 合約逾 300 億美元。</p><p class='txt'>要看清三件事。<b>第一，RPO 是合約義務，不是應收帳款</b>，客戶違約要賠償，但 AI 客戶的合約裡普遍有「產能未達標可終止」的條款。<b>第二，集中度</b>——市場估算一半以上與 OpenAI 相關，這意味著訂單簿的品質等於一家虧損私人公司的信用。<b>第三，轉化節奏決定現金流</b>：12 個月轉 766 億，按 65% 毛利率算，毛利約 500 億，剛好夠覆蓋一年的資本支出的一半。</p></div><div class="section"><div class="section-title">第四層：現金流與資產負債——這是全篇最難看的一段</div><p class='txt'>營業現金流約 231 億（推算），資本支出 284.99 億，自由現金流 -53.96 億。為了填補缺口，本季完成 200 億美元 ATM 增發。<b>一家單季稅後淨利 47.6 億美元的公司，在賣股票建機房——這句話本身就是對估值的判決。</b></p><p class='txt'>資產負債端：總債務約 1,295 億、債務/EBITDA 4.3 倍、標普 BBB-（2026/07 下調）。FY27 資本支出指引 900–950 億、淨現金資本支出上限 700 億，意味著全年還要再融 300–400 億。<b>算一筆粗帳：如果 2027 年融資成本上行 100 個基點，全年多付利息 13 億；如果評級降一級到 BB+，多付 25–35 億。這兩個數字，都比本季稅後淨利的 25% 大。</b></p></div><div class="section"><div class="section-title">第五層：資產質量——900 億資本開支買的是什麼</div><p class='txt'>資本支出只有拆到「買什麼」才有意義。FY27 的 900–950 億大致分三塊：GPU 與伺服器（約六成）、機房與電力設施（約三成）、網路與軟體（約一成）。<b>這三塊的折舊年限完全不同：GPU 四到六年、機房二十年起、網路設備五到七年。</b>公司整體按六年折舊，等於把最短命、最貴的資產和最長命的資產混在一個籃子裡攤。</p><p class='txt'>後果是：早期折舊壓力被低估，後期集中爆發。到 2029 年，如果累計投入 3,000 億美元、平均按六年攤，年折舊要到 500 億——相當於 2026 年全年稅後淨利的三倍。<b>那時候的損益表，取決於 2029 年的租金，而不是 2026 年的訂單。</b>這就是為什麼這份財報最該看的不是本季稅後淨利，而是折舊政策與在建工程規模。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：財報證明了兩件事——需求是真的，模式變差了。</b>收入、訂單、利潤三項都超預期，說明甲骨文確實搶到了 AI 算力的位置；資本支出、自由現金流、債務三項同時惡化，說明這個位置要用股東的錢來買。<b>下一份財報只看三個數：OCI 毛利率、資本支出／營收比、RPO 的 12 個月轉化率。</b>這三個數不改善，收入增速再高也只是把更多現金變成更多折舊。</p></div>
+</div>
+<div class="footer">甲骨文 (ORCL) · 2026/09/14</div>
+</body>
+</html>

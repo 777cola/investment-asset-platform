@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⑧ Decision framework: what price to buy at, what signal to sell on, what situations to avoid — NVIDIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/nvidia/16-八篇深度长文/英伟达-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/nvidia/16-八篇深度長文/輝達-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/nvidia/16-Eight-Long-Essays/NVIDIA-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>⑧ Decision framework: what price to buy at, what signal to sell on, what situations to avoid — NVIDIA</h1>
+  <div class="subtitle">The eighth of eight long reads | Turning judgment into executable rules</div>
+  <div class="meta">Research date 2026/08/31 &nbsp;·&nbsp; Price $220.78 (+1.48%) &nbsp;·&nbsp; Market cap Approximately USD 5.33 trillion (24.15 billion shares) &nbsp;·&nbsp; PE(TTM) About 28x (roughly 15x forward FY2028)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/nvidia/00-NVIDIA-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>The previous seven pieces covered "what this company is"; this piece covers "what you should do." <b>The first step in a decision framework is not valuation, but determining who you are</b> — a long-term holder, a swing trader, or someone unwilling to bear volatility. These three types map to three completely different sets of actions.</p><p class='txt'>For long-term holders: hold 5%, add up to 8% below USD 180. For swing traders: the stock's three-month displacement is −0.9% with a 20% amplitude, making it unsuitable for trend trading. For those unwilling to bear volatility: do not buy, because its reasonable volatility range is ±40%.</p></div><table class="dt"><caption>Three scenarios and actions</caption><thead><tr><th>Scenario</th><th>Target price</th><th>Probability</th><th>Action</th></tr></thead><tbody><tr><td>Bear case (FY2028 +30%)</td><td>USD 168 (-24%)</td><td>30%</td><td>Add: this is a price that does not require believing the guidance</td></tr><tr><td>Neutral (FY2028 +60%)</td><td>USD 248 (+12%)</td><td>45%</td><td>Hold, no change to position</td></tr><tr><td>Optimistic (FY2028 +77%)</td><td>USD 386 (+75%)</td><td>25%</td><td>Cut to 5%: at 386 it is 23x FY2028, too expensive</td></tr><tr><td>Tail end (three things happen at once)</td><td>USD 138 (-37%)</td><td>15% (overlaps with the above)</td><td>Cut to 3% or exit entirely — watch for the signal</td></tr></tbody></table><div class="note">Target prices and probabilities are set by this report; probabilities do not sum to 100% because the tail scenario partially overlaps the three scenarios. See the notes to the three-scenario table in m04 for the valuation basis.</div><div class="section"><div class="section-title">Step one: first determine who you are</div><p class='txt'>For the same stock, three types of investors should take three different actions.</p><p class='txt'><b>Long-term holders (five years or more, able to withstand a 40% drawdown):</b> Buy 5% now, add to 8% below USD 180. Rationale: this business occupies a position that comes once in twenty years; as long as AI capex does not collapse, it keeps making money.</p><p class='txt'><b>Swing traders (three months to one year):</b> This stock is not suited to trend-following. Over the past three months it moved from 222.82 to 220.78, a displacement of −0.9%, with a range of 190–228 (20%) in between. <b>Trend traders get stopped out repeatedly in this kind of pattern.</b></p><p class='txt'><b>Those who cannot stomach volatility:</b> Do not buy. Its reasonable volatility range is ±40%; any 5% intraday move will keep you up at night. Buying something like this requires both "understanding it" and "holding through it" — missing either one is disqualifying.</p><p class='txt'><b>This step matters more than valuation, because valuation is objective while risk tolerance is subjective.</b> The same USD 220 is an opportunity for A and a disaster for B.</p></div><div class="section"><div class="section-title">Step two: define "cheap" clearly</div><p class='txt'>"Cheap" has three definitions, corresponding to three prices.</p><p class='txt'><b>Definition one: cheap on net income.</b> FY2028 EPS of USD 14.61; USD 220.78 corresponds to 15.1x. For a company growing 70%, that is cheap. <b>But that denominator is the company's own guidance.</b></p><p class='txt'><b>Definition two: cheap on cash flow.</b> FY2027 free cash flow of about USD 140 billion; a market cap of USD 5.33 trillion corresponds to 38x; if FY2028 doubles to USD 280 billion, that is 19x. <b>Paying 19x for a company whose growth may fall from 70% to 20% is not cheap.</b></p><p class='txt'><b>Definition three: cheap on the worst case.</b> Bear-case EPS of USD 11.22; demanding 15x gives a price of USD 168. <b>Only below USD 168 can you say "even if guidance is cut by 70%, you don't lose."</b></p><p class='txt'>My approach: definition two (cash flow) as the primary basis, definition three as the floor. That yields two prices: <b>USD 180 (add-to-position line, 15.5x FY2028 free cash flow) and USD 168 (heavy-position line, 15x the bear case).</b></p></div><div class="section"><div class="section-title">Step 3: Hard-code the sell signal</div><p class='txt'>There are only three reasons to sell. Everything else is noise.</p><p class='txt'><b>Reason one: the thesis is disproven.</b> Five signals: quarterly revenue turns negative quarter on quarter, receivables days break 75, Q4 gross margin falls below 71% with no recovery guided for FY2028, the guarantee sees its first compensation payment, and two cloud vendors cut 2027 capex by more than 10%. <b>Two signals: trim to 3%. Three signals: exit entirely.</b></p><p class='txt'><b>Reason two: valuation is stretched.</b> Above USD 386 (23x FY2028), trim below 5%; above USD 450 (30x), trim to 3%. <b>Even a good company can get too expensive to hold.</b></p><p class='txt'><b>Reason three: a better opportunity emerges.</b> If the same money offers better odds elsewhere (say TSMC falls to 18x), switching is fine. But do not sell to "lock in gains" — this company's earnings are still growing.</p><p class='txt'><b>Not reasons to sell:</b> a 10% share-price drop, a big-name investor turning bearish, news out of China, AI bubble talk, a quarterly gross margin 1 point light. <b>All five happened in the past three months, and anyone who sold on each one has already capitulated below USD 190.</b></p></div><div class="section"><div class="section-title">Step 4: Timeline</div><p class='txt'>Writing down the key milestones for the next twelve months is more useful than watching the tape every day.</p><ul><li><b>September–October 2026:</b> Watch Q3 supply-chain data (TSMC CoWoS capacity, SK hynix HBM shipments), the leading indicators for whether Nvidia's Q3 guidance can be met.</li><li><b>21 October 2026:</b> GTC Berlin — watch the Rubin follow-on roadmap, LPU customer progress and sovereign AI orders.</li><li><b>17 November 2026:</b> FY2027Q3 results — the most important checkpoint. Three numbers: revenue vs RMB 108 billion, gross margin 74%, receivables days within 65.</li><li><b>December 2026–January 2027:</b> Cloud capex guidance for 2027 (Microsoft, Amazon, Google and Meta report between October and February), the leading indicator for Nvidia's FY2028 demand.</li><li><b>February 2027:</b> FY2027Q4 results — the quarter gross margin bottoms, to verify 71%–72%.</li><li><b>May 2027:</b> FY2028Q1 results — the quarter price increases land, to verify whether gross margin returns to 72%–73%.</li></ul><p class='txt'>One last point: <b>the core of this framework is not prediction, it is preparation.</b> I do not know whether AI capex will peak in 2028, but I know which three numbers to watch when it does and how far to cut the position. <b>The only thing investors control is their own actions in each scenario.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Decision framework: first determine who you are (long-term / swing / cannot tolerate volatility), then define "cheap" precisely (15x net profit, 19x cash flow, worst case USD 168), then hard-code the sell signals (five thesis signals, two valuation lines), and finally track against a timetable.</b><b>Current action: hold 5%, add on dips at USD 180, cap at 8%, November 17 is the nearest watershed.</b></p></div>
+</div>
+<div class="footer">NVIDIA (NVDA) · 2026/08/31</div>
+</body>
+</html>

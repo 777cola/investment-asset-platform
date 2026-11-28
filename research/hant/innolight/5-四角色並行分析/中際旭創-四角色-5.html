@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組長彙總 — 中際旭創</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/innolight/5-四角色并行分析/中际旭创-TeamLead-汇总.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/innolight/5-四角色並行分析/中際旭創-四角色-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/innolight/5-Four-Role-Analysis/Zhongji Innolight-Four Roles-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>組長彙總 — 中際旭創</h1>
+  <div class="subtitle">四個視角的分歧點、裁決與最終動作</div>
+  <div class="meta">研究日期 2026/09/18 &nbsp;·&nbsp; 股價 ¥925.24（+3.40%） &nbsp;·&nbsp; 市值 約 1.09 萬億元 &nbsp;·&nbsp; PE(TTM) 約 53.3x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/innolight/00-中際旭創研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>四份獨立分析，結論一致、理由不同。<b>一致的部分：公司是行業第一，1.6T 放量是真業績，53 倍 TTM PE 已預支 2027 年。</b>分歧的部分集中在三處：毛利率能守多久、現金流是備料還是壓貨、CPO 的時間表。裁決結果是：中性假設毛利率 42%、現金流待三季報驗證、CPO 影響 2028 年後。最終動作：0% 倉位，條件單 700 元。</p></div><table class="dt"><caption>分歧與裁決</caption><thead><tr><th>分歧點</th><th>商業（段）</th><th>財務（巴）</th><th>行業（芒）</th><th>風險（李）</th><th>裁決</th></tr></thead><tbody><tr><td>46% 毛利率能守多久</td><td>1.6T 到 2027 仍是主力，可守 42%</td><td>不判斷，看單隻均價</td><td>2027 回到 38%</td><td>價格戰一觸即破</td><td>中性取 42%，悲觀取 38%</td></tr><tr><td>現金流是備料還是壓貨</td><td>主動備料，合理</td><td>長期應付款 50.6 億支持備料說</td><td>看不出來</td><td>198 億存貨是風險</td><td>待三季報淨現比驗證</td></tr><tr><td>CPO 時間表</td><td>2027 前不影響</td><td>不判斷</td><td>2028 後才成規模</td><td>2026 已量產，需警惕</td><td>2027 前不影響，2028 後壓估值</td></tr><tr><td>如何評價 H 股融資</td><td>攤薄 5.6% 換 490 億，划算</td><td>證明造血不夠</td><td>擴產軍備競賽</td><td>攤薄即風險</td><td>兩者都成立，不加分不減分</td></tr></tbody></table><div class="note">裁決原則：以可驗證的證據優先，無法驗證的分歧按保守情景計入估值。</div><div class="section"><div class="section-title">四個人的共識：不買，但不是因為公司差</div><p class='txt'>四份報告沒有一份說這家公司不行。<b>商業視角算出單只毛利 637 → 1,015 元；財務視角確認 2025 年淨現比 101%；行業視角確認全球份額 23%、800G 矽光約 50%；風險視角確認它經歷過兩輪下行還活著。</b>這是一家通過了「好公司」測試的企業。</p><p class='txt'>四個人同時按下暫停鍵，原因只有一個：<b>價格已經把好消息用完了。</b>925.24 元 = 53.3 倍 TTM PE = 35 倍 2026 年預期 PE。中性情景 772 元低於現價 17%，悲觀情景 407 元低 56%，樂觀情景 1,131 元只高 22%。這個賠率結構不需要爭論，算術就能否決。</p></div><div class="section"><div class="section-title">裁決一：毛利率，取 42% 而不是 46%</div><p class='txt'>行業角色認為 2027 年回到 38%（新易盛 1.6T 量產後報價戰），商業角色認為能守 42%（1.6T 到 2027 仍是主力，3.2T 接棒時又有新溢價）。<b>裁決取 42%：既承認 1.6T 的窗口比 800G 長，也承認對手的追趕速度。</b></p><p class='txt'>依據是 2026H1 的一個細節：新易盛的毛利率 48.44%，已經高於中際旭創的 46.4%。<b>如果對手的報價能力不弱，46% 就不可能是行業穩態，只能是窗口讀數。</b>用 42% 做中性假設，是給自己留了安全邊際。</p></div><div class="section"><div class="section-title">裁決二：現金流，等三季報而不是現在判斷</div><p class='txt'>財務角色給了「主動備料」的證據鏈：長期應付款 +41.6 億元（鎖一年以上物料）、預付款 9.5 億元、存貨 198.26 億元。<b>風險角色反駁：證據只能說明「買了料」，不能說明「賣得掉」。</b>兩個人都對。</p><p class='txt'>裁決：不預判，設觀察點。<b>三季報的三個數字會給出答案——淨現比是否回到 50% 以上、存貨是否環比下降、應收增速是否低於收入增速。</b>三個裡中兩個，備料說成立；三個都不中，壓貨說成立。這就是持倉論文的驗證節點（見 13 資料夾）。</p></div><div class="section"><div class="section-title">裁決三：CPO 與 H 股，兩者都不改變當期結論</div><p class='txt'>CPO：輝達 Spectrum-X 2026 年 3 月宣布全面量產是真的，但替代的是交換器側短距互連，不是全部可插拔。<b>裁決：2027 年前不影響業績，2028 年後壓估值上限。所以它影響的是「給多少倍」，不是「買不買」。</b></p><p class='txt'>H 股：7 月 30 日 980 港元發行、募資 534 億港元，首日破發收 950 港元附近，攤薄約 5.6%。<b>裁決：商業角色說「換到 490 億元彈藥划算」，財務角色說「這是造血不足的證據」，兩者同時成立——融資本身中性，但它把「股本膨脹 +47%」這條硬指標釘死了。</b></p></div><div class="section"><div class="section-title">最終操作：0% 倉位，條件單 700 元</div><p class='txt'>綜合四份報告，形成三條執行規則。<b>第一，現在不建倉，也不做空</b>——53 倍 PE 可以做空估值，但 241% 的增速隨時能逼空，賠率不允許。<b>第二，700 元以下開始建倉</b>（對應 2027 年約 23 倍 PE），分三批，每跌 50 元加一批。<b>第三，600 元以下是有安全邊際的位置</b>（約 20 倍），可以加到目標倉位的 3%–5%。</p><p class='txt'>提前觸發的條件也寫清楚：<b>如果三季報淨現比回到 50% 以上、單隻均價環比沒有下跌、股價仍在 800 元以下，可以不等 700 元，先建三分之一。</b>反向條件：客戶集中度升破 85%、1.6T 均價環比下跌超過 8%，則取消買入計劃，下調至迴避。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>Team Lead 結論：觀察，等回調，0% 倉位。</b>四個視角沒有分歧的地方是「公司好」，有分歧的地方都不影響「現在不買」。<b>700 元是第一檔買入價，600 元是安全邊際價，三季報淨現比是提前入場的唯一鑰匙。</b>在這三個條件滿足之前，任何買入都是為別人的資本支出預算付 53 倍 PE。</p></div>
+</div>
+<div class="footer">中際旭創 (300308) · 2026/09/18</div>
+</body>
+</html>

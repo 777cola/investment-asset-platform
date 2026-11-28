@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>論文追蹤 — 美光科技</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/micron/13-持仓论文追踪/美光科技-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/micron/13-持倉論文追蹤/美光科技-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/micron/13-Thesis-Tracking/Micron Technology-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>論文追蹤 — 美光科技</h1>
+  <div class="subtitle">美光科技 (MU) | 13 · 論文追蹤</div>
+  <div class="meta">研究日期 2026/09/25 &nbsp;·&nbsp; 股價 $1,082.28（+0.16%） &nbsp;·&nbsp; 市值 約 1.22 萬億美元（按 11.3 億股粗算） &nbsp;·&nbsp; PE(2027E) 約 6.5x（一致預期口徑，9 月中為 5.77x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/micron/00-美光科技研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>把持有美光的理由拆成六條可驗證的假設：<b>三條成立</b>（2027 年供需缺口、淨現金不稀釋、資本支出節奏可控），<b>兩條臨界</b>（毛利率 2027 年不見頂、SCA 覆蓋率提升），<b>一條惡化</b>（HBM 份額守住 18%）。</p><p class='txt'>最關鍵的一條是毛利率：Q4 指引 86%、環比只 +1pct，這是這輪週期第一次「漲不動」。如果 2027 年某個季度毛利率環比下滑，其餘五條假設即使都成立，股價也會先跌——<b>因為 6.5 倍的分母就是這個毛利率撐起來的。</b></p></div><table class="dt"><caption>持倉核心假設追蹤（截至 2026/09/25）</caption><thead><tr><th>假設</th><th>當前證據</th><th>驗證指標</th><th>狀態</th></tr></thead><tbody><tr><td>2027 年 DRAM 供需仍有缺口</td><td>一般 DRAM 位元增速 15% 對比需求 22%（SK 海力士 CEO 7 月說法）；三星／SK 庫存不足 10 天；有意義的供給增長要等到 2028 年</td><td>季度合約價環比、庫存天數、TrendForce 供需預測</td><td>成立</td></tr><tr><td>毛利率 2027 年不見頂</td><td>Q3 84.9%、Q4 指引 86%（環比 +1pct）；漲幅從同比 +90% 收窄到環比 +10%—15%</td><td>季度毛利率指引與實際值、合約價環比</td><td>臨界</td></tr><tr><td>SCA 覆蓋率從 20% 提升到 30%—50%</td><td>16 份協議、五年期、1,000 億美元最低收入、220 億美元客戶存款</td><td>財報披露的覆蓋率、新增 SCA 數量</td><td>未驗證</td></tr><tr><td>HBM 市占守住 18%</td><td>2026Q2 18%、較上季 -3pct；三星從 21% 升至 33%；三星 2 月全球首發 HBM4 量產</td><td>Counterpoint 季度市占、Vera Rubin 供貨結構</td><td>惡化</td></tr><tr><td>資本支出擴張但不失控</td><td>FY26 270 億元、FY27 指引超 400 億元、Q4 約 100 億元；三家同步擴產</td><td>FY27 資本支出細則、設備訂單、2028 年供給預測</td><td>成立（需警惕）</td></tr><tr><td>淨現金、不稀釋、股東回報溫和</td><td>現金及投資 302 億、流動性 322 億；股本 11.3 億股五年持平；股息 0.15 美元/季</td><td>季度現金流、股本變動、回購公告</td><td>成立</td></tr></tbody></table><div class="note">狀態定義為：成立（證據支持）、臨界（證據混合）、未驗證（尚無資料）、惡化（證據反向）。驗證指標均為公開可得資料。</div><div class="section"><div class="section-title">三條成立的假設：它們保證「不會死」</div><p class='txt'>供需缺口：這不是預測，是算術。2027 年晶圓供給 +12%、一半被 HBM 吃掉，普通 DRAM 位元增速 15%，需求 22%，缺口 7 個百分點；三星與 SK 海力士的成品庫存不足 10 天。只要 AI 資本開支不突然煞車，2027 年上半年缺貨是大概率。</p><p class='txt'>資本開支節奏：FY26 270 億、FY27 超 400 億，看起來激進，但節奏是漸進的——Q3 71 億、Q4 約 100 億、FY27 每季 115 億左右。公司沒有一次性梭哈，這是對的。要警惕的是「2027 年如果再上調一次」，那才是失控訊號。</p><p class='txt'>資產負債表：302 億現金、11.3 億股五年沒變、股息只上調 30%。這三條合起來意味著「就算 2027 年價格崩了，也不需要增發或賣資產」。這是持有者最踏實的部分。</p></div><div class="section"><div class="section-title">兩條臨界的假設：它們決定「值多少」</div><p class='txt'>毛利率：Q4 指引 86%，環比 +1pct。這是整輪週期裡第一次「漲不動」。注意，漲不動不等於要跌——只要維持在 84% 以上，2027 年 EPS 166 美元的假設就還站得住。<b>臨界的意義是：再漲一個季度就安全，環比下滑就是警報。</b></p><p class='txt'>SCA 覆蓋率：16 份、1,000 億美元、五年，攤到每年 200 億，對 FY26 營收 1,290 億是 15%—20%。管理層說過「長約對應的是最低量最低價」，實際收入會更高。但「實際更高」不能用來估值，只有披露的覆蓋率能。<b>這條假設如果成立，估值可以從 6.5 倍抬到 8—9 倍。</b></p></div><div class="section"><div class="section-title">一個惡化的假設：它是這輪最該盯的變數</div><p class='txt'>HBM 市占：2026Q2 美光 18%、季減 3 個百分點；三星 21%→33%，SK 海力士 58%→50%。三星 2026 年 2 月全球首發 HBM4 量產，6 月黃仁勳確認三家都通過輝達認證——<b>美光的「HBM4 認證紅利」只維持了一個季度。</b></p><p class='txt'>這條為什麼重要？因為 HBM 是這輪估值擴張的敘事核心：HBM 單價是同容量 DDR5 的 5—8 倍，誰市占高，誰的產品結構就好。如果美光市占從 18% 掉到 15%，它的 ASP 提升會落後於行業，毛利率的「結構性支撐」就弱了。</p><p class='txt'>反面證據也要公平記錄：美光 HBM 月產能年底要翻倍到 10 萬片（2025 年底 4—5 萬片），12 層 HBM4 爬坡速度是上代兩倍。產能翻倍 + 良率領先，市占未必繼續掉。<b>所以狀態是「惡化」而不是「證偽」。</b></p></div><div class="section"><div class="section-title">證偽條件：三條線，觸發任何一條就重估</div><ul><li>合約價環比轉負（連續兩個月）：這是週期反轉的第一個硬訊號，歷史上股價會在 3—6 個月前見頂，但確認反轉後跌幅會加速</li><li>毛利率指引跌破 80%：說明價格已經開始侵蝕利潤，2027 年 EPS 166 美元的假設失效，6.5 倍立刻變成 9—10 倍（按下修的 E 算）</li><li>HBM 份額跌破 15% 且三星份額超過 40%：說明 HBM 競爭格局定型，美光淪為第三供應商，產品結構升級的故事結束</li></ul><p class='txt'>反向的「證實條件」也寫清楚：SCA 覆蓋率被披露超過 30%，或 FY27 資本支出細則裡 HBM 佔比超過 50%——這兩條任何一條落地，可以上調估值中樞。</p></div><div class="summary-box"><h3>結論</h3><b>結論：六條假設三條成立、兩條臨界、一條惡化，持有邏輯沒有被證偽，但也沒有被加強。</b>最該盯的是毛利率（Q4 指引環比 +1pct，已到臨界）與 HBM 份額（18%、環比 -3pct，已惡化）。<b>動作：持有不加倉；毛利率指引跌破 80% 或合約價連續兩月環比轉負，減倉；SCA 覆蓋率披露超過 30%，重新評估加倉。</b></div>
+</div>
+<div class="footer">美光科技 (MU) · 2026/09/25</div>
+</body>
+</html>

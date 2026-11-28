@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務分析（巴菲特視角） — 小米集團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/xiaomi/5-四角色并行分析/小米集团-财务分析-巴菲特.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/xiaomi/5-四角色並行分析/小米集團-四角色-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/xiaomi/5-Four-Role-Analysis/Xiaomi Corporation-Four Roles-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務分析（巴菲特視角） — 小米集團</h1>
+  <div class="subtitle">毛利率、現金轉化、資本開支：三個數字定生死</div>
+  <div class="meta">研究日期 2026/08/21 &nbsp;·&nbsp; 股價 HK$29.02（+4.54%） &nbsp;·&nbsp; 市值 約 7,470 億港元 &nbsp;·&nbsp; PE(TTM) 約 19.6x（2026E 約 28x，推算）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/xiaomi/00-小米集團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>用巴菲特的四個問題讀這份財報：賺不賺錢、賺的是不是現金、需不需要不斷投錢、投出去的錢有沒有回報。<b>四個答案分別是：勉強、一般、需要、偏低。</b></p></div><div class="section"><div class="section-title">賺不賺錢：毛利率 19.8%，淨利率 5.7%</div><p class='txt'>2026Q2 收入 1,089.22億元、毛利 215.7億元、毛利率 19.8%，比去年 22.5% 掉 2.7pct。淨利 94.63億元、淨利率 8.7%；但其中 32億元是投資公允價值，<b>主營淨利率只有 5.7%（62.19 ÷ 1,089.22）。</b></p><p class='txt'>這個水準在製造業裡算中等：比代工（3%—5%）好，比品牌（10%—15%）差。巴菲特會注意一件事——<b>毛利率下滑 2.7pct，對應毛利少了 45億元，正好等於經調整淨利少掉的 46億元。</b>也就是說，這一季利潤下滑幾乎全部來自毛利率，不是費用失控，也不是銷量。</p><p class='txt'>這是好消息也是壞消息：好消息是費用紀律沒問題（研發還加了 18.9%）；壞消息是毛利率的下滑由 BOM 決定，公司改不了。</p></div><div class="section"><div class="section-title">賺的是不是現金：營業現金流在變薄</div><p class='txt'>小米歷史上現金轉化不錯：預收款多（手機、汽車都要付定金）、應付帳款帳期長、存貨週轉快。2024 年之前營業現金流常年高於淨利。</p><p class='txt'>2026 年變了。兩件事同時發生：<b>一是記憶體漲價，必須提前備貨</b>，存貨佔用現金；<b>二是汽車業務，整車庫存和在製品佔款比手機重得多</b>（一輛車 20 多萬元，一個月的產量就是幾十億元）。結果就是營業現金流／淨利從 1.3 掉到 1.0 附近（粗算，中報現金流全表未出）。</p><p class='txt'>巴菲特會盯這個比值，因為它是「利潤是不是真的」的唯一檢驗。1.0 還算及格，但如果掉到 0.7 以下，就意味著利潤是紙面的。<b>現在的風險不在利潤真假，在現金被存貨和產能吃掉。</b></p></div><div class="section"><div class="section-title">需不需要不斷投錢：需要，而且是重投</div><p class='txt'>這是小米最大的變化。手機時代它的資本支出很輕（幾十億/年），造車之後變成重資產：北京一期 15 萬輛/年、二期再加一倍，加上晶片流片（玄戒 O1 是 3nm 級，一次流片成本以億元計）、AI 算力投入。</p><p class='txt'>研發費用是最直觀的證據：2026Q2 單季 92億元、同比 +18.9%，年化 368億元。<b>這個數字相當於 2026 年經調整淨利（約 246億元）的 1.5 倍。</b>一家公司把 1.5 倍的淨利投進研發，只有兩種可能：要么在賭未來，要么在填過去。</p><p class='txt'>巴菲特對資本支出的態度很明確：<b>只有當 1 元投入能創造超過 1 元市值時才值得。</b>小米汽車的投入目前創造的是收入（+17.1%）和份額（單季 10 萬輛），還不是利潤。這筆賬要等 2027 年才算得清。</p></div><div class="section"><div class="section-title">回報率：ROE 8.5%，配不上 28 倍</div><p class='txt'>十年平均 ROE 8.5%，2026 年還會更低（利潤下滑、淨資產因配股變大）。用杜邦拆解：淨利率 5.7% × 資產週轉約 1.0 × 權益乘數約 1.7 ≈ 9.7%（粗算，含投資收益口徑略有差異）。</p><p class='txt'><b>三個因子沒有一個突出。</b>淨利率低是因為硬體；週轉率不低但被汽車的重資產拉下去；槓桿低是優點，但也意味著 ROE 上不去。</p><p class='txt'>巴菲特的原則是「用合理的價格買偉大的公司」，不是「用便宜的價格買平庸的公司」。小米介於兩者之間：公司不偉大，價格也不便宜。<b>ROE 8.5% 對應 28 倍本益比，隱含的假設是三年內 ROE 翻倍——這需要汽車轉虧為盈 + 記憶體回落同時發生。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>財務結論：一門毛利中等、現金轉化尚可、但需要持續重投的生意。</b>毛利率 19.8% 的下滑全部來自 BOM，費用紀律沒問題；營業現金流／稅後淨利約 1.0，還在及格線；研發 92億元／季、年化是稅後淨利的 1.5 倍，投入期遠未結束；ROE 8.5% 支撐不起 28 倍。<b>巴菲特會給的評語是：好管理層，普通生意，太貴的價格。</b></p></div>
+</div>
+<div class="footer">小米集團 (01810) · 2026/08/21</div>
+</body>
+</html>

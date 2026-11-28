@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>論文追蹤 — 小米集團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/xiaomi/13-持仓论文追踪/小米集团-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/xiaomi/13-持倉論文追蹤/小米集團-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/xiaomi/13-Thesis-Tracking/Xiaomi Corporation-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>論文追蹤 — 小米集團</h1>
+  <div class="subtitle">小米集團 (01810) | 13 · 論文追蹤</div>
+  <div class="meta">研究日期 2026/08/21 &nbsp;·&nbsp; 股價 HK$29.02（+4.54%） &nbsp;·&nbsp; 市值 約 7,470 億港元 &nbsp;·&nbsp; PE(TTM) 約 19.6x（2026E 約 28x，推算）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/xiaomi/00-小米集團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>把買進邏輯拆成六條可驗證的假設，逐條對帳：<b>兩條已經破了（毛利率修復、估值安全），一條待驗證（記憶體見頂），三條進行中（汽車規模、生態變現、回購托底）。</b></p><p class='txt'>這篇不是「持倉追蹤」，是「觀察清單」——因為現在沒有倉位。<b>它的作用是：等假設轉向時，能第一時間知道。</b></p></div><table class="dt"><caption>核心假設與驗證狀態</caption><thead><tr><th>假設</th><th>當前證據</th><th>驗證指標</th><th>狀態</th></tr></thead><tbody><tr><td>① 手機毛利率在 2026Q3 見底回升</td><td>2026Q2 為 8.5%，同比 -3.0pct，環比繼續下滑</td><td>Q3 手機毛利率 ≥10%，且環比回升</td><td>已破（待重估）</td></tr><tr><td>② 汽車毛利率守住 19%</td><td>2026Q2 為 19.2%，同比 -7.2pct，環比仍在降</td><td>Q3 ≥19%，澎程上市後不跌破 18%</td><td>成立但脆弱</td></tr><tr><td>③ 汽車年銷站上 50 萬輛</td><td>第二季交付 104,199 輛，年化約 41.7 萬輛，年增 2.0%。</td><td>單季交付 ≥12.5 萬輛</td><td>進行中</td></tr><tr><td>④ 汽車 2027 年轉虧為盈</td><td>第二季營業虧損 26億元，較去年同期擴大 8.7 倍</td><td>季度虧損收窄至 ≤10億元</td><td>未達成（方向相反）</td></tr><tr><td>⑤ 生態協同帶來網路服務增量</td><td>Q2 手機×AIoT 收入 -11.3%，服務收入未單獨披露</td><td>網際網路服務收入同比轉正</td><td>待驗證</td></tr><tr><td>⑥ 28 倍 2026E 有安全邊際</td><td>現價 29.02 港元，對應 28 倍；中性目標 25.3</td><td>股價 ≤24 港元（23 倍）</td><td>已破</td></tr></tbody></table><div class="note">假設①⑥為底稿評級的核心前提，均已不成立，故評級為「觀察」而非「持有」。資料取自 2026Q2 業績公告與 batchdata 2026/08/21 收盤。</div><div class="section"><div class="section-title">已破的兩條：毛利率修復與估值安全</div><p class='txt'>假設①原本的推演是：2026Q1 手機毛利率 9% 左右，Q2 記憶體漲幅放緩，毛利率能回到 10%。實際是 8.5%，同比 -3.0pct，環比還在降。<b>這條破了，意味著「等毛利見底」的時間要往後推至少一個季度。</b></p><p class='txt'>假設⑥原本的推演是：股價跌 51% 之後，19.6 倍 TTM 有安全邊際。實際是：TTM 分母含兩個未被記憶體污染的好季度，用 2026 年 246億元淨利算，是 28 倍。<b>這條也破了——跌了 51% 還是不便宜。</b></p><p class='txt'>兩條同時破，說明一件事：<b>市場下修的不是股價，是盈利預期。</b>股價跑在預期前面，但預期還在往下走。</p></div><div class="section"><div class="section-title">唯一還在的一條：汽車毛利率 19.2%</div><p class='txt'>這條是六條裡最關鍵的支撐。19.2% 雖然比去年 26.4% 掉了 7.2pct，但仍然高於行業平均（多數新勢力在 15% 以下），說明小米汽車的 BOM 控制和製造效率是真實的。</p><p class='txt'>它的脆弱之處在於：<b>這個毛利率是靠「單季 10.4 萬輛的規模」撐起來的。</b>如果澎程上市後為了搶量再降價，毛利率跌破 18%，這條也會破。觀察窗口是 2026Q4 到 2027Q1。</p><p class='txt'>另一個角度：單車毛利 4.4萬元、單車經營虧損 2.5萬元。<b>只要毛利率守 19%，年銷過 60 萬輛就能打平。</b>所以「守住 19%」是比「銷量增長」更重要的前提。</p></div><div class="section"><div class="section-title">進行中的三條：規模、變現、回購</div><p class='txt'><b>規模：</b>Q2 年化 41.7 萬輛，要到 50 萬輛需要單季 12.5 萬輛。澎程是關鍵——如果它能複製 SU7 的爬坡曲線，2027 年上半年能到。<b>這是六條裡最可能實現的一條。</b></p><p class='txt'><b>變現：</b>生態協同（人車家）理論上能提升網路服務收入，但 Q2 手機×AIoT 收入 -11.3%，服務收入沒單獨披露。<b>這條暫時無法驗證，屬於「敘事」，不該給估值。</b></p><p class='txt'><b>回購：</b>Q1 的 200 億港元是史上最大手筆，占市值 2.7%。<b>它的作用是托底，不是拉升。</b>如果 Q3 繼續加碼到 300 億以上，可以升級為「管理層認為嚴重低估」的訊號。</p></div><div class="section"><div class="section-title">證偽條件：什麼情況下徹底放棄</div><p class='txt'>三條紅線，任意一條觸發就把小米從觀察名單移出：</p><ul><li><b>手機毛利率跌破 7%</b>：說明記憶體壓力超出承受範圍，手機業務從「薄利」變成「虧損」。</li><li><b>汽車毛利率跌破 15%</b>：單車毛利只剩 3.4萬元，覆蓋不了 6.9萬元的固定成本，虧損會擴到 40億元/季。</li><li><b>汽車季度交付環比連續兩季下滑</b>：說明以價換量的策略失效，規模故事結束。</li></ul><p class='txt'>三條都不是「股價跌」，都是「生意壞」。<b>股價跌可以加倉，生意壞只能走。</b>這個區分是紀律的核心。</p></div><div class="section"><div class="section-title">觀察日曆：接下來六個月看什麼</div><p class='txt'><b>2026 年 10 月：</b>Q3 記憶體合約價談判結果，決定 Q4 手機成本；澎程月度交付數據。</p><p class='txt'><b>2026 年 11 月：</b>Q3 財報（關鍵），看三件事——手機毛利率、汽車毛利率、汽車季度虧損。這一次財報是「觀察」評級的第一個檢驗點。</p><p class='txt'><b>2026 年 12 月—2027 年 1 月：</b>雙十一與年貨節銷量，驗證 IoT 是否止跌；澎程完整季度交付。</p><p class='txt'><b>2027 年 3 月：</b>全年財報與 2027 年指引，決定「汽車扭虧」的時間表。<b>如果 Q3 財報三條裡兩條改善，評級可以從「觀察」上調；如果一條都沒改善，考慮移出名單。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>假設追蹤結論：六條裡兩條已破、一條成立但脆弱、三條進行中。</b>「手機毛利率見底」這條破了，所以評級是「觀察」不是「買入」；「估值安全」這條破了，所以現價不能買。<b>接下來六個月只有一件事重要：11 月 Q3 財報的手機毛利率。</b>回到 10% 以上，假設重建；跌破 7%，徹底放棄。</p></div>
+</div>
+<div class="footer">小米集團 (01810) · 2026/08/21</div>
+</body>
+</html>

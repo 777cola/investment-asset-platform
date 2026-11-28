@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀（巴菲特） — 快手</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/kuaishou/8-财报团队解读/快手-大师精读-巴菲特.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/kuaishou/8-財報團隊解讀/快手-財報團隊解讀-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/kuaishou/8-Earnings-Team-Read/Kuaishou-Earnings Team-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀（巴菲特） — 快手</h1>
+  <div class="subtitle">現金流比利潤誠實，但要看是誰的現金</div>
+  <div class="meta">研究日期 2026/10/12 &nbsp;·&nbsp; 股價 HK$29.26（-2.79%） &nbsp;·&nbsp; 市值 約 1,267 億港元 &nbsp;·&nbsp; PE(TTM) 約 10.5 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/kuaishou/00-快手研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>利潤可以調，現金流很難調。這一季經調整淨利 39.13 億元、降 30.3%，但經調整 EBITDA 71 億元、只降 7.7%——<b>兩個數字差 32 億元，差額是折舊攤銷和股權激勵，說明利潤下滑裡有一部分不花錢。</b></p></div><div class="section"><div class="section-title">EBITDA 71 億元，資本支出 59 億元</div><p class='txt'>這是這份財報裡最值得算的一行。71 - 59 = 12 億元，粗算的自由現金流。它沒有扣稅、沒有扣營運資本變動，所以是上限。真實數字我估計在 20 億–40 億元之間，因為快手的預收模式會帶來正的營運資本。</p><p class='txt'>為什麼要在意這個數？因為<b>它是公司還能自己養活自己的證據</b>。一家淨利下滑 30% 但自由現金流仍為正的公司，不會被逼著融資、不會被迫賣資產，可以按自己的節奏走。快手的 242.7 億元現金讓它更從容。</p></div><div class="section"><div class="section-title">現金的歸屬：帳面不等於股東</div><p class='txt'>242.7 億元聽起來很多，但要問三個問題：在哪個主體？能不能匯出？有沒有對應負債？</p><p class='txt'>快手的現金大部分在境內營運主體，受外匯管制；一部分對應商家保證金和創作者待結算款，是別人的錢；還有一部分是監管要求的備付金。<b>真正能自由支配的可能只有一半。</b></p><p class='txt'>這也是為什麼我不把「淨現金佔市值 21%」直接當成安全邊際。它是個緩衝，不是分紅能力。</p></div><div class="section"><div class="section-title">回購：唯一誠實的估值表態</div><p class='txt'>Q2 用 8.8 億港元買了 1,960 萬股，均價 44.9 港元。管理層用真金白銀說了一句「我們值 45 港元」。現在 29.26。<b>我不怪他們看錯——我怪的是他們用接近 20 倍前瞻 PE 的價格回購，那不是價值投資，那是市值管理。</b></p><p class='txt'>巴菲特對回購的標準只有一條：價格低於保守估算的內在價值。按我們的中性估值 26.6 港元，45 港元溢價 69%。這筆錢如果留下來做分紅，股東會更好。</p></div><div class="section"><div class="section-title">表外的兩項承諾</div><p class='txt'>資產負債表看不到兩樣東西：<b>一是內容採購承諾</b>，短劇和版權通常是長約，未來幾年要付的錢不在負債表裡；<b>二是股權激勵的稀釋</b>，快手每年用於激勵的股份在總股本的 1%–2% 量級，這部分不出現在現金流裡，但會攤薄每股盈餘。</p><p class='txt'>兩項加起來，每年對每股價值的侵蝕大概 3%–5%。對一家利潤在下降的公司，這是不可忽視的漏損——它意味著就算淨利持平，每股盈餘也會往下走。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>巴菲特式結論：<b>現金流是真的，估值是錯的。</b>一家自由現金流為正、淨現金充裕的公司，值得放在名單上；但它現在的價格，是管理層自己都沒算清楚的價格。等價格，不等故事。</p></div>
+</div>
+<div class="footer">快手 (01024) · 2026/10/12</div>
+</body>
+</html>

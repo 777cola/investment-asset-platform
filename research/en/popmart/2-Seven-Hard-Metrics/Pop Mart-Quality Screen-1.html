@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quality Screen — Pop Mart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/popmart/2-七条硬指标去劣/泡泡玛特-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/popmart/2-七條硬指標去劣/泡泡瑪特-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/popmart/2-Seven-Hard-Metrics/Pop Mart-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Quality Screen — Pop Mart</h1>
+  <div class="subtitle">Pop Mart (09992) | 02 · Quality Screen</div>
+  <div class="meta">Research date 2026/09/07 &nbsp;·&nbsp; Price HK$156.20 (+1.43%) &nbsp;·&nbsp; Market cap About HKD 209 billion &nbsp;·&nbsp; PE(TTM) Approximately 14.2x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/popmart/00-Pop Mart-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core call: the first hurdle in weeding out the weak is growth quality</h3><p class='txt'>Four of seven hard metrics pass; <b>fails</b>. Gross margin 69.7%, net margin 29.3%, debt-to-asset ratio 24.9% with zero bank borrowings, and a rough ROE of 35% — these four are top-tier consumer-goods levels, no dispute.</p><p class='txt'>The three failures all point to the same problem: <b>growth was bought with distribution push and store openings.</b> Inventory turnover stretched from 123 days to 201 days, net profit rose only 10.1%, and the net cash ratio backed out from the change in cash is about 0.7x. Each of the three can be explained on its own (advance stockpiling, FX losses, front-loaded store investment), but together they mean "goods are stuck in the channel and the cash hasn't come back yet."</p></div><table class="dt"><caption>Seven hard metrics assessed one by one (H1 2026 data)</caption><thead><tr><th>Indicator</th><th>Company figures</th><th>Threshold</th><th>Determination</th></tr></thead><tbody><tr><td>ROE (2025)</td><td>About 35% (rough estimate)</td><td>≥20%</td><td>Through</td></tr><tr><td>Gross margin</td><td>69.7% (-0.6pct YoY)</td><td>≥40%</td><td>Through</td></tr><tr><td>Net margin</td><td>29.3% (down 3.7 pct YoY)</td><td>≥15%</td><td>Through</td></tr><tr><td>Debt-to-asset ratio / Interest-bearing debt</td><td>24.9% / zero bank borrowings</td><td>≤50% and no interest-bearing debt</td><td>Through</td></tr><tr><td>Inventory turnover days</td><td>201 days (123 days in the same period last year)</td><td>≤120 days</td><td>Fails to pass</td></tr><tr><td>Revenue and net profit growth</td><td>Revenue +23.8%, net profit +10.1%</td><td>Both are ≥15%</td><td>Fails to pass</td></tr><tr><td>Cash flow to net income ratio (operating cash flow/net profit)</td><td>Approximately 0.7x (rough calculation based on cash movements)</td><td>≥0.9</td><td>Fails</td></tr></tbody></table><div class="note">Sources: 2026 interim results announcement, 2025 annual results announcement. ROE is a rough calculation: net profit of RMB 12.776 billion / year-end net assets of approximately RMB 36.5 billion, using year-end rather than average net assets. Cash flow ratio is a rough calculation: period-end cash of RMB 12.44 billion, down RMB 1.34 billion from RMB 13.78 billion at the start of the year; dividends of RMB 3.15 billion and buybacks of approximately RMB 1.55 billion during the period imply operating cash flow of approximately RMB 3.5 billion, without adjusting for FX and wealth-management movements.</div><div class="section"><div class="section-title">Four criteria cleared: this is top-tier among consumer goods, no doubt about it.</div><p class='txt'>What does a 69.7% gross margin mean? Kweichow Moutai is at 91%, Hermès around 70%, Nike 44%, MINISO just over 40%. Pop Mart sits in Hermès's bracket, yet its average selling price is only tens to a few hundred yuan. <b>This is the result of two layers stacking: IP premium plus direct-operated channels</b> — the company designs its own products and sets its own retail prices, with no distributor taking a cut in between.</p><p class='txt'>Net margin of 29.3% fell 3.7 percentage points year on year, driven mainly not by gross profit (down only 0.6pct) but by expenses: distribution and selling expenses rose 23.1% year on year, of which rental costs rose 43.3% and employee compensation rose 45.7%, with the sales team expanding from 6,219 to 9,734 people. Store-opening costs came first; revenue has not caught up yet.</p><p class='txt'>A debt-to-asset ratio of 24.9%, zero bank borrowings and RMB 12.44 billion in cash — this is the most solid line item. Designer toys are a cash business: collect payment first, ship later, so in theory no borrowing is needed to expand. On this point it beats most consumer companies.</p></div><div class="section"><div class="section-title">But the first point: 201 days of inventory — this is the most glaring number</div><p class='txt'>Last year it was 123 days; this year 201 days — 78 days more, nearly two and a half months of goods sitting in warehouses and in transit. Management's explanation is overseas pre-stocking: Americas stores grew from 41 to 86, Europe from 18 to 45, and new stores need inventory. That explanation is half valid.</p><p class='txt'>The half that does not hold: <b>overseas revenue is falling, stores are increasing, and stocking is still accelerating.</b> Asia-Pacific revenue -9.7%, Americas -16.5%, while net store additions in the period were 36. When store count rises, revenue falls and inventory rises — three diverging directions — the problem is usually on the demand side, not supply-chain pacing.</p><p class='txt'>201 days of inventory is not fatal for a company with a 70% gross margin — designer toys do not go out of season, rot, or face much pressure to be cleared at a discount. But it is a signal on <b>profit quality</b>: if overseas destocking falls short of expectations in the second half, impairments will hit gross profit directly. On this item I grade it "fail but fixable," with a two-quarter observation window.</p></div><div class="section"><div class="section-title">But points two and three: net profit growth lags, and cash flow has not kept pace with profit</div><p class='txt'>Net profit +10.1%, revenue +23.8% — a 13.7 percentage point gap. The company attributes it to FX: H1 FX loss of RMB 720 million versus a RMB 120 million gain last year, an RMB 840 million swing. Ex-FX, profit growth is about 28%, in line with revenue. The explanation is genuine, but <b>FX is not a one-off</b> — overseas revenue is 29% of the total, and as long as the RMB keeps moving against the USD and Southeast Asian currencies, this line item will recur every year.</p><p class='txt'>The cash conversion ratio is more worrying. Backing out from the change in cash, H1 operating cash flow was about RMB 3.5 billion, only 0.7x net profit. Where did the money go? Inventory build (+78 days turnover), receivables (overseas channels), and RMB 3.15 billion of dividends plus RMB 1.55 billion of buybacks. The first two are working capital; the last two are deliberate choices.</p><p class='txt'>Verdict: <b>failing these three tests is not the failure of accounting fraud — it is the failure of a growth model shifting from asset-light to operations-heavy.</b> Stores, inventory and headcount are upfront heavy-asset investment; the returns come later. If Q3 revenue recovers and inventory falls, all three repair at once; if revenue keeps sliding, all three deteriorate together. That is why the valuation cannot carry a growth-stock multiple.</p></div><div class="section"><div class="section-title">But is it fatal? Not fatal, but it caps the valuation.</div><p class='txt'>The seven hard metrics are a "weed-out" tool, not a "pick-the-best" tool. Their job is to exclude companies that look cheap but are actually leaking. Pop Mart does not belong in the leaking category — it is cash-rich, debt-free and has very high gross margins; the worst case is profit reverting to 2024 levels, not bankruptcy.</p><p class='txt'>But failing these three metrics caps its valuation ceiling. <b>A company with 201 days of inventory turnover, 10% net profit growth and a 0.7 net cash ratio will not get a 25x PE from the market.</b> 14x TTM and 17x 2026E is the fair pricing for this state. A re-rating requires fixing these three first — inventory turnover back to 150 days, net profit growth back above 15%, and the net cash ratio back to 1x.</p></div><div class="summary-box"><h3>Conclusion</h3><p>Four out of seven criteria pass. <b>Not fatal, but enough to keep the valuation pinned in consumer-stock territory</b>. The company's balance sheet is clean to the point of near-zero risk; the problems all sit in the quality of the income statement: growth depends on store openings, profit is eaten by FX and front-loaded expenses, and cash is tied up in inventory. Of the three failures, inventory and the net cash ratio are two sides of the same problem, verifiable once the Q3 report lands; net profit growth hinges on when overseas stops declining. Until two of the three are fixed, 14x PE is a fair price, not a cheap one.</p></div>
+</div>
+<div class="footer">Pop Mart (09992) · 2026/09/07</div>
+</body>
+</html>

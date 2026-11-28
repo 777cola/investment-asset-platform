@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>產業鏈全景 — 亞馬遜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/amazon/9-电商与云计算/亚马逊-产业链全景.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/amazon/9-電商與雲端運算/亞馬遜-產業鏈全景-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/amazon/9-E-commerce-and-cloud-computing/Amazon-Industry Chain-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>產業鏈全景 — 亞馬遜</h1>
+  <div class="subtitle">亞馬遜 (AMZN) | 09 · 產業鏈全景</div>
+  <div class="meta">研究日期 2026/11/06 &nbsp;·&nbsp; 股價 $259.30（-0.35%） &nbsp;·&nbsp; 市值 約 2.80 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 20.8x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/amazon/00-亞馬遜研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>亞馬遜站在兩條產業鏈的交叉口：一條是算力鏈（晶片—伺服器—資料中心—雲），一條是零售鏈（品牌—平台—物流—消費者）。<b>兩條鏈的利潤分布完全相反</b>：算力鏈的錢被上游的記憶體和晶片吃掉，雲廠靠規模和利用率把它搶回來一部分；零售鏈的錢幾乎全在平台與廣告環節，賣貨和送貨都是苦活。</p><p class='txt'>2026 年的週期位置：資本支出超級週期的中段偏前，記憶體漲價是逆風（DRAM 合約價年內漲 60%–70%），電力接入是硬約束，需求端 AI 推理剛開始生產化。</p></div><table class="dt"><caption>電商與雲端運算產業鏈價值分布</caption><thead><tr><th>環節</th><th>代表公司</th><th>毛利率／價值量</th><th>議價權</th><th>對亞馬遜的影響</th></tr></thead><tbody><tr><td>HBM / DRAM / NAND</td><td>三星、SK 海力士、美光</td><td>45%–55%（2026 年漲價後抬升）</td><td>極強，產能為王</td><td>逆風：記憶體漲價直接咬 AWS 毛利</td></tr><tr><td>AI 晶片設計</td><td>輝達、博通、AMD</td><td>70% 以上</td><td>極強</td><td>逆風：採購成本高，自研 Trainium 對沖</td></tr><tr><td>先進製程代工</td><td>台積電</td><td>約 58%</td><td>強，產能排隊</td><td>逆風：產能分配不由買方決定</td></tr><tr><td>光模組／電源／變壓器</td><td>中際旭創、Vertiv、伊頓</td><td>25%–35%</td><td>中偏強（交付週期長）</td><td>逆風：交付週期成為投產瓶頸</td></tr><tr><td>伺服器與機櫃代工</td><td>鴻海、廣達、緯創</td><td>5%–8%</td><td>弱</td><td>中性：可替代，議價權在買方</td></tr><tr><td>資料中心與電力</td><td>公用事業、Digital Realty、Equinix</td><td>租金回報 8%–10%</td><td>中（併網排隊 3–5 年）</td><td>關鍵：自建 + 長期租約鎖供給</td></tr><tr><td>雲與算力出租</td><td>AWS、Azure、Google Cloud</td><td>AWS 營業利益率 38.7%</td><td>強（遷移成本）</td><td>亞馬遜主場，利潤池</td></tr><tr><td>電商平台與廣告</td><td>亞馬遜、沃爾瑪、Temu</td><td>平台佣金高、廣告毛利極高</td><td>強（流量與交易意圖）</td><td>亞馬遜主場，零售利潤來源</td></tr><tr><td>物流履約</td><td>亞馬遜物流、UPS、FedEx</td><td>低個位數營業利益率</td><td>中（密度決定成本）</td><td>亞馬遜已內化，成本優勢來源</td></tr></tbody></table><div class="note">毛利率為行業區間估計，取自各公司近四季財報與 2026 年行業報告，非逐項核對；亞馬遜相關數字（AWS 38.7%、北美零售 7.7%）為公司 2026Q3 披露值。記憶體漲價幅度引自 2026 年記憶體行業公開數據（DRAM 合約價年內漲 60%–70%）。</div><div class="section"><div class="section-title">上游：亞馬遜是最大的買家，也是最沒有議價權的買家</div><p class='txt'>算力鏈的利潤分配很清楚：錢在記憶體和晶片手裡。2026 年 DRAM 合約價漲 60%–70%、NAND 翻倍以上，HBM 供不應求，機構預計緊缺延續到 2027 年。CFO 在電話會上直接說「零部件價格仍是不利因素」，賈西也點了「記憶體等組件成本上升」。<b>這是一家兩萬八千億市值的公司，在向三家記憶體廠低頭。</b></p><p class='txt'>它的應對是兩條：一是自研晶片，Graviton 性價比比同類高 30%–40%、Trainium 在推理場景對標輝達，客戶本季因此省下超 20 億美元；二是把採購量做到別人做不到的規模——但採購量大不等於價格低，在產能受限時，量大只意味著「優先供貨」，不意味著「折扣」。</p><p class='txt'>所以上游這一段給它 4 分（10 分制議價權）。<b>它唯一真正的槓桿是時間：等記憶體擴產（2027 年）、等自研晶片上量（2027 年底外銷）。</b>這兩年只能忍。</p></div><div class="section"><div class="section-title">中游：它把物流和雲都做成了自己的基礎設施</div><p class='txt'>中游是亞馬遜真正強的地方。物流這一環它已經內化：百萬台機器人、區域化倉儲、當日達覆蓋，單季 15 億件當日或次日達，Amazon Now 覆蓋 450 多個城鎮。<b>結果是運費增速低於銷量增速 400 個基點——這是把「外部成本」變成「內部效率」的直接證據。</b></p><p class='txt'>雲這一環它是全球最大，單季 460 億美元、年化 1,840 億。但要注意結構：它的優勢是「企業把核心系統搬上來之後的遷移成本」，不是「最新的模型」。所以它必須同時抱 Anthropic 和 OpenAI 兩條腿——3 月之後微軟的 OpenAI 獨家期結束，亞馬遜立刻把 GPT-6 Astra、Kimi、GLM 搬上 Bedrock，財富 500 強在 Bedrock 上的支出同比漲近 7 倍。</p><p class='txt'>中游議價權給 8 分。扣分在電力：資料中心可以建，電要排隊三到五年，這一段的議價權在公用事業手裡，不在亞馬遜手裡。</p></div><div class="section"><div class="section-title">下游：3 億會員是需求，也是議價權的來源</div><p class='txt'>下游的分散度是亞馬遜的護身符。零售端有幾億 Prime 會員、數百萬第三方賣家（貢獻 61% 的付費銷量）；雲端的客戶從初創公司到財富 500 強，沒有任何單一客戶能威脅它。<b>分散的客戶結構意味著它可以在單個客戶身上漲價而不失去生意。</b></p><p class='txt'>但也有一處集中風險：AI 需求越來越依賴少數模型公司。Anthropic 是它最大外部股東（也是浮盈來源），OpenAI 是 2026 年新簽的 500 億美元級夥伴。這兩家的算力決策會直接影響 AWS 的增速——<b>這是產業鏈裡唯一「客戶比供應商更強」的環節。</b></p></div><div class="section"><div class="section-title">週期位置：資本開支超級週期的中段偏前</div><p class='txt'>四個座標可以定位現在的位置。一，<b>資本支出</b>：亞馬遜 2,200 億、微軟 1,700 億、Alphabet 1,950–2,050 億，四家合計每季超 2,000 億，2026 年是爬坡第二年。二，<b>記憶體</b>：DRAM 漲 60%–70%，緊缺預計延續到 2027 年，2027 年 HBM 可能再漲 80%–100%。三，<b>電力</b>：美國部分區域併網排隊三到五年，2027–2028 年是併網高峰。四，<b>需求</b>：推理已占 AWS AI 收入一半以上，企業規模化使用「仍處於非常早期階段」（賈西原話）。</p><p class='txt'>四個座標合起來：這是週期的中段偏前，不是尾聲。<b>尾聲的特徵是資本支出持平、價格戰、利用率下降——現在一個都沒有。</b>但也要承認，中段偏前意味著最陡的那段坡已經爬完一半，估值不該再給「從零開始」的溢價。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>產業鏈結論：亞馬遜在兩條鏈上都是「整合者」，不是「被整合者」。</b>上游受制於記憶體與晶片（議價權 4 分），中游靠自己建成基礎設施（8 分），下游客戶分散（9 分）。這個結構決定了它的利潤率上限由上游決定，下限由中游決定。買它的核心邏輯不是「AI 需求大」，而是「它在鏈條裡的位置允許它把上游漲價轉嫁給下游客戶」——這一點在 2026Q3 被驗證了一半（AWS 漲價沒有引發客戶流失，利潤率仍 38.7%）。</p></div>
+</div>
+<div class="footer">亞馬遜 (AMZN) · 2026/11/06</div>
+</body>
+</html>

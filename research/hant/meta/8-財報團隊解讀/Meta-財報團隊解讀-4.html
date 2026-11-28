@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀（李錄） — Meta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meta/8-财报团队解读/Meta-大师精读-李录.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meta/8-財報團隊解讀/Meta-財報團隊解讀-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meta/8-Earnings-Team-Read/Meta-Earnings Team-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀（李錄） — Meta</h1>
+  <div class="subtitle">從一張利潤表看一家公司在文明裡的位置</div>
+  <div class="meta">研究日期 2026/11/02 &nbsp;·&nbsp; 股價 $606.73（-1.34%） &nbsp;·&nbsp; 市值 約 1.58 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 21x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meta/00-Meta研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>李錄讀財報，看的是這家公司在人類協作網路裡的位置有沒有變。這份財報給出的答案是：<b>位置沒變，但它在為下一個位置付定金，定金是每年 1,400 億美元。</b></p></div><div class="section"><div class="section-title">位置：36.4 億人的日常</div><p class='txt'>日活 36.4 億、同比漲 3%，看起來只是溫和成長。但基數已經接近全球網路使用者的一半，<b>在這個體量上還能漲 3%，說明它沒有被任何新平台取代。</b>對比一下：Snap 日活 4.95 億、Pinterest 月活 6.61 億、Reddit 日活約 1.3 億，加起來不到 Meta 的三分之一。</p><p class='txt'>廣告主願意為這個位置付多少錢？單價漲 14%。這就是位置的定價。</p></div><div class="section"><div class="section-title">轉型：從連結人到替人做事</div><p class='txt'>Muse 的意義不在收入，在關係。過去二十年 Meta 賣的是人和人的連結，現在它想賣人和任務的連結。成了，它就從社交公司變成作業系統級入口；不成，它還是社交公司，只是多花了五千億美元。</p><p class='txt'>財報裡的早期訊號：上線 40 天 1,000 萬帳戶，日活占 25%，購物場景使用率超 25%，平均客單 200 美元以上，Stripe 因交易量超預期臨時提高信用額度。<b>這些是需求真實存在的證據，不是收入已經發生的證據。</b></p></div><div class="section"><div class="section-title">資本：錢從哪來，決定了回報歸誰</div><p class='txt'>2026 年前九個月營業現金流 970 億，資本支出 830.6 億，剩下的不夠付股息和稅。於是有 10 月 26 日的 950 億美元融資框架。</p><p class='txt'>李錄會在意這一點：<b>用自有現金投入，回報全歸現有股東；用股權融資投入，回報要在新股東之間分。</b>Meta 選擇後者，說明它自己也不確定回報能否覆蓋資金成本，否則應該發債，利息可抵稅且不稀釋。</p></div><div class="section"><div class="section-title">終局：三種可能</div><p class='txt'>一，智慧體成功，Meta 成為個人運算入口，廣告加訂閱加交易抽成三條腿，估值重估到 30 倍以上。二，智慧體平庸，但廣告基本盤穩固，公司變成高投入中成長的成熟企業，估值 15 到 18 倍。三，入口被 OpenAI 或谷歌拿走，Meta 退化為內容供應商，估值 10 到 12 倍。</p><p class='txt'><b>三種可能的機率，我給 25%、50%、25%。</b>期望值大致等於現價，這就是觀察的數學依據。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>精讀結論：位置穩固，轉型未驗證，資金結構變了。</b>他會給這家公司很高的長期關注度和很低的當期倉位。最好的買點是轉型被驗證、市場還沒反應的那一刻，不是轉型剛開始、市場已經付了訂金的現在。</p></div>
+</div>
+<div class="footer">Meta (META) · 2026/11/02</div>
+</body>
+</html>

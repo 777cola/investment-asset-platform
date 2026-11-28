@@ -7,13 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
-.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
 .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
 .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
 .header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
 .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
 .section { margin-bottom: 2.5rem; }
 .section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -48,22 +53,19 @@ table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; colo
 .badge-blue { background: #e6f0ff; color: #1a4b8c; }
 .footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
 .back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
-.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
-.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
-.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
-
 </style>
 </head>
 <body>
 <div class="header">
+  <div class="lang-switch"><a class="lang zh active" data-lang="zh" href="/research/meituan-20260828/5-四角色并行分析/美团-商业分析-段永平.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/meituan-20260828/5-四角色並行分析/美團-四角色-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meituan-20260828/5-Four-Role-Analysis/Meituan-Four Roles-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
   <h1>商业分析（段永平视角） — 美团</h1>
   <div class="subtitle">这门生意到底在卖什么，用户为什么非它不可</div>
   <div class="meta">研究日期 2026/08/28 &nbsp;·&nbsp; 股价 HK$77.50（+0.00%） &nbsp;·&nbsp; 市值 约 4,786 亿港元（61.75 亿股） &nbsp;·&nbsp; PE —（2026 年上半年净亏 46.7 亿元，PE 失真）</div>
 </div>
 <div class="container">
-<a class="back" href="../00-美团研究报告总目录.html">← 返回总目录</a>
+<a class="back" href="/research/meituan-20260828/00-美团研究报告总目录.html">← 返回总目录</a>
 <div class="summary-box"><h3>核心判断</h3><p class='txt'>美团卖的不是流量，是“三公里内三十分钟”这个确定性。它把骑手的時間切成分钟卖出去，中间赚的是履约效率的差价。这门生意好的时候能赚 20.9% 的经营利润率（2024 年核心本地商业），坏的时候能亏到 -2.6%（2025 年）。<b>差别不在生意本身，在有没有人愿意亏钱抢它的单。</b></p></div><table class="dt"><caption>三块生意的赚钱方式（2026Q2）</caption><thead><tr><th>分部</th><th>收入</th><th>怎么赚钱</th><th>关键变量</th></tr></thead><tbody><tr><td>配送服务（外卖）</td><td>267.8 亿元（+13.1%）</td><td>向用户收配送费 + 向商家收履约服务费</td><td>单量密度、单均配送成本、客单价</td></tr><tr><td>商家服务（佣金+广告）</td><td>396.0 亿元（+4.0%）</td><td>交易佣金 + 推广位与广告</td><td>商户数、GTV、广告加载率</td></tr><tr><td>商品销售（自营）</td><td>约 51.5 亿元（+78.9%）</td><td>药品、酒类等自营差价</td><td>品类扩张、毛利率</td></tr><tr><td>新业务（食杂+海外）</td><td>331.1 亿元（+25%）</td><td>小象超市、快乐猴、快驴、Keeta</td><td>亏损率（Q2 5.3%）、海外投入</td></tr></tbody></table><div class="note">商品销售为倒算值：核心本地商业 715.3 亿元 − 配送 267.8 亿元 − 商家服务 396.0 亿元。数据来源：美团 2026 年中期业绩公告。</div><div class="section"><div class="section-title">用户为什么还打开它</div><p class='txt'>这个问题只有一个答案：确定性。你晚上十点想吃一碗面，能保证三十分钟送到的平台，全国只有一家能做到 2,800 个县市区全覆盖。<b>这不是价格问题，是能力问题。</b>补贴能让人下一次单，不能让人下一次还下——2026Q2 的数据说明了这一点：补贴退潮，闪购老用户频次反而提升，配送服务收入恢复 +13.1% 的正增长。</p><p class='txt'>生意的本质是“用履约密度换时间价值”。密度越高，单均成本越低，送达越快，用户体验越好，订单越多——正循环。但这个循环只在自己的城市、自己的商圈里成立，跨出三公里就归零重来。<b>所以美团必须一个县一个县地建，这是苦活，也是别人不愿意干的活。</b></p></div><div class="section"><div class="section-title">好生意的证据与反证</div><p class='txt'>证据：2024 年核心本地商业经营利润率 20.9%、集团经营利润 451 亿元、净利 358 亿元；2026Q2 单季经营利润 26.9 亿元转正，核心本地商业 56.7 亿元、同比 +52.3%。<b>一门不需要大量资本开支、现金流先收后付、还能赚 20% 经营利润率的生意，是好生意。</b></p><p class='txt'>反证：2025 年集团经营亏损 170 亿元、净亏 233.55 亿元，收入还增长了 8.1%。同一条业务线，从 +451 亿元到 -170 亿元，只用了四个季度。<b>这说明它的定价权不在自己手里</b>——对手愿意亏，它就必须跟着亏，否则丢份额。</p><p class='txt'>所以这门生意的定性是：<b>好生意，但没有定价权。</b>它赚的是效率的钱，不是垄断的钱。效率可以积累，垄断不能指望。</p></div><div class="section"><div class="section-title">本分：管理层做得对不对</div><p class='txt'>段永平讲“本分”，落到美团身上是两件事：把履约做好，不坑用户；不为了短期数字做伤害生态的事。</p><p class='txt'>第一件做到了：骑手养老保险补贴全国覆盖、新职伤保险 2026 年 7 月 1 日全国落地且保费平台全承担、明厨亮灶与食安大模型“星眸”上线。这些都是成本，不是宣传。<b>把成本花在履约和合规上，是本分。</b></p><p class='txt'>第二件勉强：2025 年补贴战里美团选择“反内卷”、保单位经济，这个取舍是对的；但 2021 年的“二选一”被罚 34.42 亿元，是实实在在的不本分。人不坏，但会在竞争压力下走捷径——这一点要记住。</p></div><div class="section"><div class="section-title">什么价格买</div><p class='txt'>好生意不等于好价格。77.5 港元对应 2027 年正常化利润 15–18 倍，扣净现金 11–13 倍。<b>这是“公道价”，不是“便宜价”。</b>段永平的说法是：如果你只能用这个价格买一家公司十年，你愿不愿意？愿意，但只会买一点点。</p><p class='txt'>真正的便宜价在 65 港元附近——那是 2026 年 6 月回购的价位（66.5–69 港元），也是 52 周低点 64.25 港元所在。<b>公司自己都在那个价位买，说明那个价位是有人认的。</b></p></div><div class="summary-box"><h3>结论</h3><p class='txt'>生意是好的，管理层基本本分，价格公道。<b>三件事都对，但没有一件是“极好”。</b>这就是为什么评级是“买入，小仓位分批”——不是不看好，是好东西还没到打骨折的价。</p></div>
 </div>
-<div class="footer">美团 (03690) 投资研究报告集 · 2026/08/28</div>
+<div class="footer">美团 (03690) · 2026/08/28</div>
 </body>
 </html>

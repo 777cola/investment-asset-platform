@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — BYD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/byd/14-组合管理建议/比亚迪-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/byd/14-組合管理建議/比亞迪-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/byd/14-Portfolio-Action/BYD-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Portfolio — BYD</h1>
+  <div class="subtitle">BYD (002594) | 14 · Portfolio</div>
+  <div class="meta">Research date 2026/09/04 &nbsp;·&nbsp; Price ¥87.40 (+0.10%) &nbsp;·&nbsp; Market cap Approximately RMB 796.8 billion (91.17 billion total shares, A+H) &nbsp;·&nbsp; PE(TTM) Approximately 27x (about 24x on the RMB 32.6 billion net profit reported for 2025)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/byd/00-BYD-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core judgment: first be clear about "what I already have," then decide "whether to buy it"</h3><p class='txt'>The position recommendation for BYD does not start from "whether it is a good company" but from "who is already in the portfolio." <b>If you already hold CATL, Tesla or a new energy vehicle ETF, buying BYD is adding to the same beta and offers no diversification benefit.</b></p><p class='txt'>Standalone build-up plan: 0% now, initial 1.5% position on trigger, add to 3% after thesis validation, cap at 5%. <b>Not because of any lack of conviction, but because with 37% downside and 3% upside, the risk-reward dictates it merits only a "probe position," not a "core holding."</b></p></div><table class="dt"><caption>Position plan (% of portfolio NAV)</caption><thead><tr><th>Scenario</th><th>Positioning</th><th>Rationale</th><th>Trigger conditions</th></tr></thead><tbody><tr><td>As of September 4, 2026</td><td>0%</td><td>27x TTM, +3% base case, -37% bear case — risk/reward does not hold up</td><td>—</td></tr><tr><td>Scenario A: price reaches target</td><td>1.5%–2%</td><td>RMB 70–75 corresponds to 23x neutral net profit, 29% upside</td><td>Share price ≤RMB 75</td></tr><tr><td>Scenario B: Fundamentals turn positive</td><td>1.5%–2%</td><td>Domestic sales turn positive year on year for a second straight month; neutral net profit revised up to RMB 40 billion</td><td>Monthly sales volume ≥0 year on year for two consecutive months</td></tr><tr><td>Scenario A+B simultaneously</td><td>3%–4%</td><td>Price and fundamentals double-click, best odds</td><td>Both conditions are met at the same time</td></tr><tr><td>Cap</td><td>5%</td><td>Single automaker exposure cap; high sector volatility</td><td>—</td></tr><tr><td>Reduce position</td><td>Halved</td><td>Auto gross margin falling below 20%, or export growth dropping below 30%</td><td>Quarterly data</td></tr><tr><td>Liquidate position (stop-loss)</td><td>0%</td><td>Auto gross margin below 18% for two consecutive quarters, or R&amp;D expense ratio below 5.5%</td><td>Thesis invalidated, not a price stop-loss</td></tr></tbody></table><div class="note">Position sizing is expressed as relative weights within the portfolio-management framework, not absolute amounts. EV stocks are volatile (52-week range RMB 110.63 to 77.84, about 30%), so single-name exposure is capped at 5%.</div><div class="section"><div class="section-title">First, correlation: how similar is it to your other holdings?</div><p class='txt'>Three factors drive BYD's share price: <b>NEV sales (largest beta), the China export chain (medium beta), and A-share growth-stock style (medium beta).</b> Any portfolio holding CATL, Tesla, XPeng, Li Auto or NEV ETFs is already exposed to the first factor.</p><p class='txt'>Rough correlation coefficients (estimated on daily returns): <b>above 0.6 with CATL (same battery-OEM chain, shared cost drivers), above 0.8 with NEV ETFs, around 0.4 with the export chain (home appliances, shipping), and close to zero or even negative with Geely Automobile (share shifts between the two).</b></p><p class='txt'>So the first step is not valuation, it is checking your holdings. <b>If NEV exposure already exceeds 8%, buying BYD only enlarges the same risk and delivers no diversification benefit.</b></p></div><div class="section"><div class="section-title">Why is the initial position only 1.5%?</div><p class='txt'>Three reasons. <b>First, the risk/reward.</b> Downside 37%, upside 3% — any heavy position under this structure is a gamble; even at the trigger price of RMB 70, upside 29% against downside 21% (to RMB 55) is only 1.4:1 — enough to build a position, not enough to size it heavily.</p><p class='txt'><b>Second, volatility.</b> The 52-week range is RMB 77.84–110.63, an amplitude of 42%; the H-share low of HKD 71.4 in June to HKD 91.95 in August is 29% in two months. At this volatility, a 1.5% position already contributes 0.4%-level swings to the portfolio.</p><p class='txt'><b>Third, uncertainty.</b> Three of the four assumptions are unverified (domestic, R&D, FX). <b>Unverified theses warrant only small positions; talk about adding after verification — that is discipline, not courage.</b></p></div><div class="section"><div class="section-title">Adding and trimming positions: pre-set price levels, no judgment calls in the moment</div><p class='txt'><b>Add:</b> Build 1.5% at RMB 75, add to 3% at RMB 70. If domestic volume also turns positive, go to 4%. <b>Do not "top up a little" between RMB 85–90; that is emotional adding, not disciplined adding.</b></p><p class='txt'><b>Trim:</b> Halve the position when the stock returns above RMB 105 (28x 2027 neutral net profit), as upside is consumed; halve when auto gross margin falls below 20%, as the first leg of the thesis is broken.</p><p class='txt'><b>Stop-loss:</b> No price stop; use a logic stop. <b>Auto gross margin below 18% for two consecutive quarters, or R&D expense ratio below 5.5%, or export growth falling below 20% — exit fully on any one of these.</b> A price drop to RMB 60 with the logic intact is an adding opportunity, not a stop signal.</p></div><div class="section"><div class="section-title">Portfolio perspective: what role does it play in the portfolio</div><p class='txt'>If you must hold it, its role is <b>"a representative of Chinese manufacturing going global"</b>, not "a representative of new energy vehicles." The former maps to global capacity replication capability (four overseas plants, eight ro-ro ships); the latter maps to domestic penetration — and domestic penetration has already passed 50%, so that story is over.</p><p class='txt'>A more sensible portfolio structure, therefore: <b>new energy vehicle exposure via CATL (battery side, 40% global share) + BYD (vehicle side, global capacity), combined no more than 8%; if you want to buy the "going global" theme, group BYD with home appliances, shipping and construction machinery, not with domestic consumption.</b></p><p class='txt'>One last point: <b>if you want to buy only one Chinese automaker, BYD is the answer; if you already own CATL, BYD is a duplicate bet.</b> The two statements are not contradictory — the answer depends on what you already hold.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Portfolio conclusion: 0 position, wait for trigger.</b> After the trigger, open an initial 1.5% position (RMB 75 or domestic sales turning positive), add to 3% after validation, cap at 5%. <b>Highly correlated with CATL and new-energy vehicle ETFs; do not add if exposure already exists; negatively correlated with Geely, usable as a hedging idea but no need to actually execute it.</b> Use logic, not price, for the stop-loss: gross margin, R&D expense ratio and export growth — exit if any one breaks.</p></div>
+</div>
+<div class="footer">BYD (002594) · 2026/09/04</div>
+</body>
+</html>

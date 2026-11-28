@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moat — Oracle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/oracle/10-供应链与竞争壁垒/甲骨文-竞争壁垒.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/oracle/10-供應鏈與競爭壁壘/甲骨文-競爭壁壘-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/oracle/10-Moat-and-Supply-Chain/Oracle-Moat-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Moat — Oracle</h1>
+  <div class="subtitle">Oracle (ORCL) | 10 · Moat</div>
+  <div class="meta">Research date 2026/09/14 &nbsp;·&nbsp; Price $144.79 (-3.65%) &nbsp;·&nbsp; Market cap About USD 440 billion &nbsp;·&nbsp; PE(GAAP TTM) Approximately 23.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/oracle/00-Oracle-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Barrier conclusion</h3><p class='txt'>Oracle's moat is <b>two-stage</b>: the database stage scores 9, with customer migration costs measured in years and even AWS and Azure forced to connect; the OCI stage scores 3, selling standardized compute where customers comparison-shop, the supplier is single-source, and rivals are stronger. <b>Weighted, that is 6 — just at the passing line.</b> The problem is that this moat protects 29% of revenue (RMB 5.55 billion in software licenses), while 60% of revenue already sits on the side without a moat.</p></div><table class="dt"><caption>Moat scorecard, item by item (10-point scale)</caption><thead><tr><th>Dimension</th><th>Score</th><th>Based on</th><th>Trend</th></tr></thead><tbody><tr><td>Brand</td><td>7/10</td><td>The byword for enterprise databases and the default option on every CIO's procurement list; but among AI compute customers its brand premium is close to zero</td><td>Flat</td></tr><tr><td>Cost</td><td>4/10</td><td>Self-generated fuel-cell power bypasses grid-connection queues and is a cost advantage; but its cost of capital is about 300 basis points higher than Microsoft's, and it has no edge on GPU purchase prices.</td><td>Deterioration</td></tr><tr><td>Network effects</td><td>5/10</td><td>The database ecosystem (developers, ISVs, certifications) has weak network effects; OCI does not—one more customer does not make the platform more useful</td><td>Flat</td></tr><tr><td>Switching costs</td><td>8/10 (database 9 / OCI 3)</td><td>Core system migration takes years and carries billion-scale risk; OCI migration only requires redeploying containers, completed in weeks</td><td>Divergence</td></tr><tr><td>Licences and qualifications</td><td>6/10</td><td>Government cloud certifications (FedRAMP High, IL5) and financial and healthcare compliance certifications are the barrier to entry; the TikTok joint venture brings unique data-hosting credentials</td><td>Improvement</td></tr></tbody></table><div class="note">Scores are subjective, with 6 as the passing threshold for "has a moat"; OCI scores 3 as a segment standalone, and the weighted composite is 6. Weighting method: switching-cost sub-score weighted by revenue share (software 29%, OCI 38%, SaaS 22%, other 11%).</div><div class="section"><div class="section-title">Position in the supply chain: Nvidia at one end, OpenAI at the other</div><p class='txt'>Upstream, it faces Nvidia—the only company globally capable of supplying GB300-class full systems—so it has zero bargaining power and can only accept quoted prices and delivery schedules. It even has to build its own fuel cells (Bloom Energy) to bypass grid connection queues, which shows that it is a passive party even on the most basic input, electricity.</p><p class='txt'>Downstream, it faces OpenAI, xAI and Meta—customers with massive procurement volumes, strong technical capabilities and the ability to build in-house at any time. The best terms Oracle can secure in contracts are "multi-year commitments + prepayments," but contracts generally carry capacity and acceptance clauses.<b>It is squeezed between two parties that both have pricing power, and earns the engineering fee for "getting racks powered on schedule."</b></p></div><div class="section"><div class="section-title">The truth about moats: strong in the old world, weak in the new</div><p class='txt'>The database moat was built brick by brick over four decades: customers' accounting, inventory and reporting all run on Oracle, and the DBA skill stack, ISV certifications and audit compliance records all revolve around it. This quarter the database business grew 353% year on year, and both AWS and Azure now connect to Oracle Database—<b>a competitor's cloud voluntarily connecting to your database is the hardest evidence of a moat; there is no second explanation.</b></p><p class='txt'>OCI has no such luck. Compute is a commodity: given the same 1,000 cards, customers look at price per GPU hour, powered-on time and network oversubscription ratio. Oracle's advantages are fast delivery (24-hour acceptance) and self-supplied power—<b>these are execution advantages that can be caught; they are not structural advantages. What cannot be replicated is customer dependence.</b> OCI customers feel no dependence on it, only price comparison.</p></div><div class="section"><div class="section-title">Competitive comparison: who is taking its two yuan</div><p class='txt'>In databases, the real rival is not AWS's Aurora but "customers re-architecting themselves onto the cloud." SAP's HANA, open-source PostgreSQL and cloud vendors' migration tools are steadily eating away at Oracle's foundation — software licenses and support at -3% this quarter is evidence that this foundation is shrinking.</p><p class='txt'>In compute, the rivals are three cloud vendors with positive free cash flow. They can use in-house chips to push costs down to 60% of Nvidia's solution, subsidize compute with cloud gross margin, and then trade that compute for long-term cloud contracts with AI customers.<b>Oracle lacks this cross-subsidy capability; it has only higher leverage.</b></p></div><div class="section"><div class="section-title">The most dangerous competitor: Microsoft</div><p class='txt'>Not CoreWeave. CoreWeave and Oracle are the same kind of company—same leverage, same customers, same absence of a moat. Both will be squeezed by price wars together; they die together, they do not kill each other.</p><p class='txt'>Microsoft is the most dangerous, for three reasons.<b>First, it is OpenAI's largest shareholder and cloud partner</b>, Oracle's largest source of orders, and was already a customer inside the Microsoft ecosystem; <b>second, it has cross-subsidies</b>—cash flow from Office, Azure and GitHub can subsidize compute indefinitely; <b>third, it collides head-on with Oracle in enterprise software</b>, with Fabric, SQL Server and Dynamics each competing for Fusion and database budgets. <b>A company fighting you in both your new business and your old business—that is what makes it the most dangerous competitor.</b></p></div><div class="section"><div class="section-title">Pricing the Moat: Which Segment the Market Is Valuing</div><p class='txt'>A useful test: value Oracle as two separate companies. The software business (database + SaaS + support, roughly RMB 17 billion revenue per quarter, 85% gross margin, almost zero capex) at 18x EBIT is worth about USD 300–350 billion. The remaining OCI plus hardware services, with revenue of RMB 9.6 billion per quarter, 30% gross margin and RMB 90 billion of capex a year, at 8x EBITDA is worth about USD 150 billion, but only after deducting USD 100 billion of net debt.</p><p class='txt'>Together that is roughly USD 400–450 billion, about the same as the current USD 440 billion market cap.<b>The conclusion is clear: the market has already given the software business a decent price and OCI a fair price, leaving no margin of safety.</b> In other words, USD 144.79 is not "the moat is undervalued" but "both businesses are reasonably priced".</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Conclusion: moat 6/10, passing grade but mismatched.</b> The database moat is real and still strengthening (competitors connect voluntarily), but it protects only 29% of revenue; OCI has no moat yet carries 60% of revenue and nearly all capex. <b>Investment implication: "Oracle has a database moat" cannot justify OCI's capex—these are two businesses with two valuations.</b></p></div>
+</div>
+<div class="footer">Oracle (ORCL) · 2026/09/14</div>
+</body>
+</html>

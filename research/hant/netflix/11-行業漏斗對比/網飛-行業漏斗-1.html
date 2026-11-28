@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行業漏斗 — 網飛</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/netflix/11-行业漏斗对比/奈飞-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/netflix/11-行業漏斗對比/網飛-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/netflix/11-Industry-Funnel/Netflix-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>行業漏斗 — 網飛</h1>
+  <div class="subtitle">網飛 (NFLX) | 11 · 行業漏斗</div>
+  <div class="meta">研究日期 2026/10/23 &nbsp;·&nbsp; 股價 $65.85（-1.79%） &nbsp;·&nbsp; 市值 約 2,700 億美元 &nbsp;·&nbsp; PE(2026E) 約 18x（含一次性收益，剔除後約 21x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/netflix/00-網飛研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>行業漏斗：為什麼最後只剩它</h3><p class='txt'>把全球串流與內容平台的六家主要玩家放進漏斗：Netflix、迪士尼、Paramount Skydance、華納兄弟探索、Amazon Prime Video、YouTube。<b>粗篩的三條淘汰線是：能不能自己造血、有沒有全球分發、股東回報是不是正向。</b></p><p class='txt'>四家被淘汰：WBD 被收購（不再獨立）、Paramount 負債高、迪士尼串流利潤薄、YouTube 不獨立上市（屬於 Alphabet）。<b>剩兩家：Netflix 和 Amazon。Amazon 的視頻業務不單獨盈利、也不披露，無法定價，所以終選 Netflix。</b></p></div><table class="dt"><caption>六家候選的漏斗篩選</caption><thead><tr><th>公司</th><th>位置</th><th>盈利能力</th><th>估值／資本狀態</th><th>漏斗判定</th></tr></thead><tbody><tr><td>網飛</td><td>全球訂閱第一，廣告剛起步</td><td>營業利益率 31.5%（2026 指引）</td><td>18 倍 2026E PE，年回購約 190 億（粗算）</td><td>終選</td></tr><tr><td>Disney+</td><td>IP 最強，全球發行第二</td><td>串流業務利潤率個位數至低雙位數</td><td>集團估值受樂園與有線拖累</td><td>淘汰：串流媒體利潤太薄</td></tr><tr><td>Paramount Skydance</td><td>影院 + 串流媒體</td><td>整合期，利潤承壓</td><td>2026/2 以約 1,100 億美元收購 WBD，負債高</td><td>淘汰：槓桿與整合風險</td></tr><tr><td>華納兄弟探索</td><td>傳統有線 + 串流媒體</td><td>有線下下滑，串流媒體剛轉正</td><td>已被收購，不再獨立上市</td><td>淘汰：標的消失</td></tr><tr><td>Amazon Prime Video</td><td>綁定在 Prime 裡</td><td>不單獨披露，不以影片盈利</td><td>無法單獨定價</td><td>淘汰：不可定價</td></tr><tr><td>YouTube</td><td>美國觀看份額 14%</td><td>廣告變現效率高</td><td>隸屬 Alphabet，不獨立上市</td><td>淘汰：不可直接投資</td></tr></tbody></table><div class="note">Netflix 資料為 2026Q3 財報與全年指引；其餘公司僅作定性比較，未引用未經核實的 2026 年財務數字。Paramount 收購 WBD 的交易為 2026 年 2 月公開報導口徑（約 1,100 億美元、每股 31 美元）。</div><div class="section"><div class="section-title">粗篩：三條淘汰線，先砍掉不能自己造血的</div><p class='txt'>第一條線是「能不能自己造血」。<b>串流業務必須自己產生正自由現金流，不能靠集團其他業務輸血。</b>按這條，迪士尼被砍一半——它的串流剛獲利，利潤薄，漲價空間小（IP 依賴導致用戶看完就走）。</p><p class='txt'>第二條線是「有沒有全球分發」。<b>只在兩三個市場做串流的公司，攤不薄內容成本。</b>Paramount 和 WBD 都是這個問題：它們的規模不足以支撐全球內容投入，所以一個選擇合併、一個選擇被收購。</p><p class='txt'>第三條線是「股東回報是不是正向」。<b>這條砍掉的是那些靠增發和借債維持的公司。</b>Paramount 收購 WBD 後背了高負債，未來三年現金流要拿去還債，不可能回購。</p></div><div class="section"><div class="section-title">被淘汰的四家，各自死於什麼</div><p class='txt'><b>迪士尼：</b>死於「串流利潤太薄」。它有全世界最好的 IP，但 IP 是雙面刃——使用者為一部劇來，看完就走，留存靠「等下一部」。這種模式提價空間只有 2%–3%，而 Netflix 是 5%–8%。<b>IP 強不等於定價權強。</b></p><p class='txt'><b>Paramount Skydance：</b>死於槓桿。2026 年 2 月以約 1,100 億美元收購 WBD，背的債要在未來幾年還。整合期兩年，這兩年它沒有餘力做內容投入，也沒有餘力回購。<b>買得對，但買貴了。</b></p><p class='txt'><b>WBD：</b>死於規模。它的串流剛轉正，有線電視在快速下滑，兩頭不靠。被收購是它最好的結局。</p><p class='txt'><b>Amazon 與 YouTube：</b>不是死於基本面，是死於「不可定價」。Prime Video 不單獨披露財務，YouTube 隸屬 Alphabet。<b>你能買 Alphabet 和 Amazon，但你買不到「純串流敞口」。</b></p></div><div class="section"><div class="section-title">為什麼是 Netflix：三個條件同時滿足的只有它</div><p class='txt'>終選的邏輯不是「它最好」，是「它是唯一同時滿足三個條件的」。<b>條件一：自己造血</b>——營業利益率 31.5%、FCF 120 億，不靠母公司輸血。<b>條件二：全球分發</b>——190 多個國家、近 10 億觀眾，內容成本攤到最薄。<b>條件三：股東回報為正</b>——年回購約 190 億（粗算），股本每年降 6%–7%。</p><p class='txt'>三條同時滿足的公司，在這個行業裡只有它一家。Amazon 滿足一和三，但視頻業務不可定價；迪士尼滿足二，但一不充分；Paramount 三條都不滿足。</p><p class='txt'>但要注意：<b>「為什麼是它」的答案裡，沒有一條是「增長最快」。</b>它的增速是六家裡面中等偏下的。這正是這次篩選最重要的發現——在這個行業裡，現在的贏家不是增長最快的，是利潤率最高、現金流最穩的。<b>這也解釋了為什麼市場給它的估值從 45 倍掉到 18 倍：市場終於開始用同一個標準看它了。</b></p></div><div class="summary-box"><h3>結論</h3><p>漏斗的結論：<b>六家篩到一家，Netflix 勝在「三條同時滿足」，不是勝在成長。</b>這個結論對操作有直接含義——買它是買「穩定的現金流 + 股東回報」，不是買「下一個爆發」。<b>所以合理估值是 18–22 倍，不是 30 倍以上；所以是分批買，不是重倉押注。</b></p></div>
+</div>
+<div class="footer">網飛 (NFLX) · 2026/10/23</div>
+</body>
+</html>

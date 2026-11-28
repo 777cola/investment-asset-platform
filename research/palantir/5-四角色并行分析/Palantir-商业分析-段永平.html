@@ -7,13 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
-.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
 .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
 .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
 .header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
 .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
 .section { margin-bottom: 2.5rem; }
 .section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -48,22 +53,19 @@ table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; colo
 .badge-blue { background: #e6f0ff; color: #1a4b8c; }
 .footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
 .back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
-.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
-.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
-.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
-
 </style>
 </head>
 <body>
 <div class="header">
+  <div class="lang-switch"><a class="lang zh active" data-lang="zh" href="/research/palantir/5-四角色并行分析/Palantir-商业分析-段永平.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/palantir/5-四角色並行分析/Palantir-四角色-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/palantir/5-Four-Role-Analysis/Palantir-Four Roles-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
   <h1>商业分析（段永平视角） — Palantir</h1>
   <div class="subtitle">这门生意到底在卖什么，客户为什么付钱</div>
   <div class="meta">研究日期 2026/10/05 &nbsp;·&nbsp; 股价 $189.40（+0.34%） &nbsp;·&nbsp; 市值 约 4,560 亿美元 &nbsp;·&nbsp; PS(TTM) 约 74 倍</div>
 </div>
 <div class="container">
-<a class="back" href="../00-Palantir研究报告总目录.html">← 返回总目录</a>
+<a class="back" href="/research/palantir/00-Palantir研究报告总目录.html">← 返回总目录</a>
 <div class="summary-box"><h3>核心判断</h3><p class='txt'>一句话：<b>它卖的是「把混乱变成可执行的决策」。</b>政府和企业的痛点不是没有数据，是数据在二十个系统里、口径互相打架、没人敢签字。Palantir 把这堆东西接成一张本体图，让决策有唯一版本。这个痛点值钱，而且越大的组织越值钱。</p><p class='txt'>生意的经济特征极好：一次交付、多次复制，客户上线后加模块的边际成本接近零。但要注意它的收入里有一块是驻场人力——这是它和纯 SaaS 最大的区别，也是毛利率只有 80% 而不是 85% 的原因。</p></div><div class="section"><div class="section-title">客户为什么愿意付这个价</div><p class='txt'>政府端的逻辑是「不敢不买」。情报整合、后勤调度、战场态势，这些场景错一次的代价是人的生命或一次行动的失败。Palantir 的 Gotham 在这些场景里跑了十五年，从伊拉克战场到现在的联合作战指挥，客户换掉的成本不是钱，是重新验证一遍的三年。</p><p class='txt'>商业端的逻辑不一样，是「算得过来」。空客用它的 Skywise 管 A350 的生产排程，把供应链上的延误提前几天看见；制造业客户用它做预测性维护，停线一小时损失几十万美元。AIP 出来后，逻辑又变了一层——过去要派工程师驻场半年，现在客户自己的业务人员在 bootcamp 里五天就能搭出一个能跑的 agent。<b>这是它 2026 年美国商业收入同比 +149% 的真正原因：销售周期从九个月缩到五周。</b></p><p class='txt'>段永平会问一句：「客户不买会怎么样？」答案分两半。政府客户不买，项目会延期、预算会被别家拿走，但日子还能过；商业客户不买，只是继续用 Excel 和 BI 报表。所以这门生意的需求不是刚性的，是「效率驱动」的——经济好的时候卖得动，预算紧的时候第一个被砍。这一点必须记住。</p></div><div class="section"><div class="section-title">单位经济：客户数只增 24%，收入增 93%</div><p class='txt'>这是整份财报里最能说明生意本质的一组数字。客户总数 1,049 家、同比 +24%，收入 +93%。<b>收入增速是客户增速的四倍，意味着增长几乎全部来自老客户加单。</b></p><p class='txt'>单客户年收入（TTM 61.62 亿 ÷ 1,049 家）约 587 万美元。这个数字在软件业里属于顶级——Salesforce 的单客户年均支出大约十几万美元。它卖的不是席位，是「一套系统」。</p><p class='txt'>老客户为什么加单？因为本体图有网络效应：接进来的数据源越多、跑起来的场景越多，下一个场景的上线成本越低。客户第一年买一个用例，第三年买十个，第五年整个部门都在上面跑。美国商业剩余合同价值 62.38 亿美元、同比 +124%，这个蓄水池比当期收入大三倍多，说明加单还在加速。</p><p class='txt'>但反过来看也有隐忧：客户面窄。1,049 家客户撑起 4,560 亿市值，平均每家客户对应 4.3 亿美元市值（粗算）。<b>这意味着任何一批大客户的预算变化，都会被市值放大成两位数百分点的波动。</b></p></div><div class="section"><div class="section-title">定价权：为什么它能收 62% 的调整后营业利润率</div><p class='txt'>定价权来自三件事，缺一不可。第一，替代品少——能做机密环境部署、又能在上面跑 AI 的，全球不超过三家。第二，切换成本高——业务逻辑写进本体之后，换供应商等于重做流程。第三，价值可归因——客户能算出这套系统省了多少钱，所以不砍价。</p><p class='txt'>段永平判断定价权的标准很朴素：<b>「你敢不敢涨价，客户跑了没有。」</b>Palantir 的答案在过去八个季度里是清楚的：单客户收入年年涨，客户流失率低。这一关它过了。</p><p class='txt'>边界在哪里？在中小企业。这套东西的实施成本太高，年付几十万美元以下的客户养不起驻场团队。所以它的 TAM 天然被限制在「大政府 + 大企业」，全球大约三千到五千家机构。这个池子够大（现在只渗透了 1,049 家），但也意味着<b>它的天花板不是「所有企业」，是「所有付得起的大机构」</b>。</p></div><div class="summary-box"><h3>结论</h3><p>商业本质的判断：这是一门好生意，需求真实、定价权真实、单位经济优秀。<b>它的边界不在需求侧，在客户结构</b>——1,049 家大客户撑起全部收入，增长靠加单而非扩客，这让它同时具备高利润和高波动。段永平会说这生意他看得懂，也会说这价格他下不了手。</p></div>
 </div>
-<div class="footer">Palantir (PLTR) 投资研究报告集 · 2026/10/05</div>
+<div class="footer">Palantir (PLTR) · 2026/10/05</div>
 </body>
 </html>

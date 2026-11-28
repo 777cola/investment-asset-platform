@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industry Chain — JD.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/jd/9-电商与物流/京东集团-产业链全景.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/jd/9-電商與物流/京東集團-產業鏈全景-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/jd/9-E-commerce-and-logistics/JD.com-Industry Chain-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Industry Chain — JD.com</h1>
+  <div class="subtitle">JD.com (9618.HK) | 09 · Industry Chain</div>
+  <div class="meta">Research date 2026/10/26 &nbsp;·&nbsp; Price HK$99.40 (-0.60%) &nbsp;·&nbsp; Market cap Approximately HKD 280 billion &nbsp;·&nbsp; PE (2026E adjusted) Approximately 7.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/jd/00-JD.com-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>Looked at across China's e-commerce and logistics chain, value is distributed highly unevenly: <b>upstream brand owners take gross margins (Apple, Midea, Haier at 20%–50%), midstream platforms take commissions and advertising (Alibaba and Pinduoduo at gross margins above 60%), while the layer that bears warehousing, delivery and owned inventory sees operating margins compressed to 4.6% (JD Retail) and 3.5% (JD Logistics).</b> JD.com stands in both the "owned retail" and "fulfilment" layers at once—the heaviest, thinnest and hardest two layers of the chain. Its bargaining power comes from procurement scale, not from position.</p></div><table class="dt"><caption>Value distribution across the e-commerce and logistics chain (2026)</caption><thead><tr><th>Segment</th><th>Representative companies</th><th>Value / gross margin</th><th>Bargaining power</th></tr></thead><tbody><tr><td>Upstream: brands and manufacturing</td><td>Apple, Xiaomi, Midea, Haier, white-label factories</td><td>Brand gross margin 20%–50%; OEM 10%–15%</td><td>Strong (brand) / weak (contract manufacturing)</td></tr><tr><td>Midstream: platforms and traffic allocation</td><td>Alibaba, Pinduoduo, Douyin E-commerce, JD.com (platform side)</td><td>Platform gross margin above 60%, driven mainly by commissions and advertising</td><td>Strongest: deciding who gets to sell</td></tr><tr><td>Midstream: self-operated procurement and sales</td><td>JD self-operated, Vipshop, supermarkets</td><td>Gross margin 8%–15%, operating margin 4.6%</td><td>Sourcing scale in exchange for rebates</td></tr><tr><td>Midstream: warehousing, distribution and fulfillment</td><td>JD Logistics, SF Express, ZTO Express, YTO Express, J&amp;T Express</td><td>JD Logistics operating margin 3.5%; thin per-parcel profit in express delivery</td><td>Weak: prices anchored by e-commerce platforms</td></tr><tr><td>Midstream: on-demand fulfillment</td><td>Meituan, Ele.me, Shanguang, JD Waimai</td><td>Meituan has proven the model; JD Food Delivery loss ratio 135.7%</td><td>Strong (density leader) / Weak (catch-up player)</td></tr><tr><td>Downstream: consumers and enterprises</td><td>600 million annual active users, enterprise procurement</td><td>—</td><td>Fragmented, but highly price-sensitive</td></tr></tbody></table><div class="note">Gross margin and profit margin ranges reflect levels commonly disclosed in public industry filings (2025–2026); JD.com figures are taken from its 2026Q2 results announcement; peer figures are order-of-magnitude references, not precise like-for-like comparisons for the same period.</div><div class="section"><div class="section-title">Who makes money in the chain: a three-tier structure</div><p class='txt'>The first layer is <b>brand premium</b>. Apple's online sales in China, whether through JD.com, Tmall or Pinduoduo, all carry gross margins above 30%; Midea and Haier home appliances run gross margins around 25%. This layer makes money because consumers recognize the label.</p><p class='txt'>The second layer is <b>traffic allocation</b>. Alibaba and Pinduoduo post gross margins above 60% because what they sell is not goods but "the chance to be seen" — commissions, advertising, promotional slots. This is the most profitable layer in the entire chain because it controls the entry point to demand.</p><p class='txt'>The third layer is <b>fulfillment and inventory</b>. JD Retail's gross margin is 8%–15% with a 4.6% operating margin; JD Logistics runs a 3.5% margin; the Tongda couriers earn per-parcel profit measured in "cents". <b>This layer bears the most capex, the most employees and the heaviest assets, and takes the thinnest profit.</b></p><p class='txt'>What sets JD apart is that it stands in half of the second layer and all of the third: it has platform commission and advertising revenue (Q2 platform advertising RMB 30.9 billion, +8.3%), but its core remains first-party merchandising and self-built fulfillment.</p></div><div class="section"><div class="section-title">JD.com's position in the chain: the heaviest one</div><p class='txt'>In one sentence: <b>JD.com is the only Chinese retailer that controls both the goods and the last mile.</b> Control of goods (first-party procurement and sales) lets it govern quality and after-sales service; the last mile (over 1,500 warehouses, 211 delivery) lets it govern experience. The cost is that both ends are heavy — inventory is its money, warehouses are its assets, and 900,000 ecosystem employees are its cost.</p><p class='txt'>The advantage of this position is defensibility: brands need it (one of the largest single online channels for 3C and home appliances), consumers trust it (the first reflex for expensive big-ticket items), and competitors cannot build it in the short term (time cannot be compressed).</p><p class='txt'>The disadvantage is that it cannot raise prices: it sits between brands and consumers, and both sides are stronger than it. Brands can offer lower prices to other channels, and consumers can compare prices at any time. <b>The only party it can raise prices on is merchants (commissions and advertising), and that depends on traffic — which in turn depends on category breadth, precisely its weak spot.</b></p></div><div class="section"><div class="section-title">Cycle position: three cycles overlap</div><p class='txt'><b>The first layer is the policy cycle.</b> The 2025 home-appliance trade-in subsidy pulled demand forward; the 2026 rollback directly drove Q2 electronics and appliances to -11.8%. This cycle fully unwinds in the first half of 2027, making it the most certain of the three.</p><p class='txt'><b>The second layer is the competition cycle.</b> The 2025–2026 food-delivery war was industry-wide: Meituan, Taobao Shangou and JD.com all burned cash together, with two-year investment running into the hundreds of billions. It has now entered a contraction phase, and all three are cutting subsidy intensity — good for JD.com, which holds the smallest share and has the least to show for its losses.</p><p class='txt'><b>The third layer is the technology/infrastructure cycle.</b> Instant retail's displacement of far-field e-commerce is a long-term trend that will not stop because someone pulls back. This cycle runs upward, but it works against JD.com. <b>The three overlap: the policy cycle is up (2027 recovery), the competition cycle is up (subsidies receding), and the infrastructure cycle is down (its position being displaced).</b></p><p class='txt'>So the cycle-position call is this: <b>the next four quarters are a dual recovery window in policy and competition; in two to three years the company must confront structural pressure at the infrastructure layer.</b> That defines the nature of this investment — a two-to-three-year recovery trade, not a ten-year compounder.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'>Conclusion from a supply-chain perspective: <b>JD.com sits on the heaviest and thinnest layer of the chain; its moat comes from infrastructure, not position.</b> It earns from efficiency, not from allocation. This position will improve in 2027 as the national subsidy taper ends and subsidies recede, but over a ten-year horizon it will be steadily eroded by instant retail.</p><p class='txt'>Trading implication: the time window for this investment is two to three years, not ten; buy it when the "cycle bottom + price bottom" coincide, not on the "infrastructure narrative."</p></div>
+</div>
+<div class="footer">JD.com (9618.HK) · 2026/10/26</div>
+</body>
+</html>

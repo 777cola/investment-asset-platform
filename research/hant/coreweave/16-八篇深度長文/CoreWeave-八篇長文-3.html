@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>護城河解剖：一個會關閉的時間窗口 — CoreWeave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/coreweave/16-八篇深度长文/CoreWeave-03-护城河解剖.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/coreweave/16-八篇深度長文/CoreWeave-八篇長文-3.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/coreweave/16-Eight-Long-Essays/CoreWeave-Eight Essays-3.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>護城河解剖：一個會關閉的時間窗口 — CoreWeave</h1>
+  <div class="subtitle">六項評分，一項及格</div>
+  <div class="meta">研究日期 2026/11/20 &nbsp;·&nbsp; 股價 $39.51（-12.02%） &nbsp;·&nbsp; 市值 約 220 億美元 &nbsp;·&nbsp; PE(TTM) —（GAAP 虧損，本益比無意義）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/coreweave/00-CoreWeave研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>護城河的定義是「別人搶不走的東西」。按這個標準逐項檢查，CoreWeave 唯一及格的是供應鏈（6/10），而它的來源是輝達的策略意願，不是自己的能力。<b>其餘五項——品牌 2 分、成本 3 分、網路效應 1 分、轉換成本 1 分、資源 4 分——全部在及格線下。</b></p></div><div class="section"><div class="section-title">先分清「時間窗口」和「結構性壁壘」</div><p class='txt'>時間窗口是「我比你先到」，結構性壁壘是「你到了也搶不走」。<b>前者會隨對手到達而消失，後者會隨規模擴大而加厚。</b>CoreWeave 的優勢幾乎全是前者：早 9 個月拿到 GB300、早 6 個月通電、早兩年攢下 4.6GW 電力指標。</p><p class='txt'>驗證方法很簡單：問「如果對手砸兩倍的錢，能不能在 18 個月內追上？」<b>對 CoreWeave，答案是能。</b>Nebius、Crusoe 在同樣的時間窗口裡建了同樣規格的園區；微軟一年 1,700 億的資本支出，只要挪 5% 過來就是它的全部規模。能追上的，不是護城河。</p></div><div class="section"><div class="section-title">為什麼「算力」天生不是好生意</div><p class='txt'>三個屬性決定它。<b>同質性：</b>同樣是 GB300 機櫃，客戶感知不到差異，只比價格、交付、SLA。<b>可替代性：</b>工作負載遷移以週計，沒有資料鎖定、沒有生態鎖定。<b>重資產：</b>每 1 元收入要 2.58 元設備，退出成本極高。</p><p class='txt'>三個屬性疊加，結果就是「價格由邊際供給決定，利潤由資本成本決定」。<b>這就是為什麼這個行業裡活得久的是微軟、亞馬遜、谷歌——它們資本成本最低；而不是 CoreWeave——它資本成本最高。</b></p></div><div class="section"><div class="section-title">唯一的真資源：4.6GW 電力，但會被買走</div><p class='txt'>4.6GW 合約電力是它最硬的資產，因為併網指標是行政分配的、稀缺的、有排他性的。這一項給 4 分，是全表第二高。<b>但它的排他性只在合約期內，且可以被更高出價者（地方政府更願意要誰的投資？）重新分配。</b></p><p class='txt'>更關鍵的是只有 1.7GW 在運。<b>剩下 2.9GW 是「已付預留費、未產生收入」的容量</b>，對應的併網費、容量費、設備預付款都在花錢。資源在稀缺時是護城河，在過剩時是負擔——而瓶頸正在從「卡」轉向「電」，電的爭奪者比卡多得多。</p></div><div class="section"><div class="section-title">護城河的另一種可能：客戶願不願意讓它死</div><p class='txt'>有一種非典型的「壁壘」值得討論：<b>如果 CoreWeave 倒了，它的客戶會疼嗎？</b>Meta 的 210 億、OpenAI 的 65 億合約意味著短期內它們是利益共同體——算力一斷，模型訓練就得停。</p><p class='txt'>這個邏輯聽起來像「大到不能倒」，但它有致命缺陷：<b>客戶有能力自建，只是慢；債權人沒有能力寬限，只是不肯。</b>所以危機來時，客戶會選擇等它重組（合約作廢、重新議價），而不是救它。這一點在 2000 年的電信設備與 2008 年的航空公司身上都驗證過——客戶不會為供應商的債務買單。</p></div><div class="section"><div class="section-title">打分之外的一句判斷</div><p class='txt'>護城河打分是工具，判斷是人做的。<b>我的判斷是：它的壁壘能撐 12 個月，而它的債務要還 24 個月。</b>兩個時間尺度不匹配，這就是全部問題。</p><p class='txt'>12 個月 vs 24 個月這個錯配，可以用兩個日期驗證：<b>2027 年 3 月的首批到期債務</b>、以及 2027 年 1–2 月給出的資本支出指引。如果指引沒有下調、而再融資票息高於 12%，錯配就會變成危機。這兩個日期是公開的，不需要猜。</p></div><div class="section"><div class="section-title">如果護城河真的不存在，它憑什麼活到今天</div><p class='txt'>靠三樣東西同時成立：卡不夠、電沒通、客戶等不及。<b>2026 年這三樣裡第一樣正在緩解（輝達產能釋放）、第二樣變成新瓶頸（變壓器交期 2–3 年）、第三樣被客戶用「自建 + 壓價」回應。</b>三個條件的保質期是同時到期的。</p><p class='txt'>這也是為什麼它的護城河不能靠「再等兩年」來驗證——<b>兩年後這三個條件反過來對它不利。</b>護城河不存在不是當下的判斷，是對終局的判斷：算力這門生意，終局屬於資本成本最低的人。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>護城河結論：17/60，沒有結構性壁壘。</b>它擁有的是一條 9–12 個月的時間窗口，以及一份會被更高出價者買走的電力指標。這類公司在行業上行期能拿到超額利潤（稀缺定價），在下行期第一個被擠壓（無定價權 + 高槓桿）。<b>投資含義：不存在「等護城河建起來」的路徑</b>，因為算力這門生意的屬性決定了護城河建不起來。</p></div>
+</div>
+<div class="footer">CoreWeave (CRWV) · 2026/11/20</div>
+</body>
+</html>

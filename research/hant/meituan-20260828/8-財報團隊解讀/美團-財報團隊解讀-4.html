@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀（李錄） — 美團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20260828/8-财报团队解读/美团-大师精读-李录.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meituan-20260828/8-財報團隊解讀/美團-財報團隊解讀-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meituan-20260828/8-Earnings-Team-Read/Meituan-Earnings Team-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀（李錄） — 美團</h1>
+  <div class="subtitle">用十年的尺子量這份季報</div>
+  <div class="meta">研究日期 2026/08/28 &nbsp;·&nbsp; 股價 HK$77.50（+0.00%） &nbsp;·&nbsp; 市值 約 4,786 億港元（61.75 億股） &nbsp;·&nbsp; PE —（2026 年上半年稅後淨損 46.7 億元，PE 失真）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meituan-20260828/00-美團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>一份季報看不出十年的事，但能看出方向。<b>這份季報裡指向長期的三條線：即時零售的品類在擴張（商品銷售 +78.9%）、海外開始盈利（Keeta 沙特 22 個月）、AI 投入進了真實場景（340 萬商戶用 AI 助手）。</b>三條都不是這一季的利潤來源，但都是三年後的利潤來源。</p></div><div class="section"><div class="section-title">即時零售：從應急到日常</div><p class='txt'>商品銷售 51.5 億元、+78.9%，是增速最快的一條線。絕對額不大，但方向重要——它說明閃購的品類正在從「藥品、酒類」這種應急品，往「商超、日用」這種日常品擴。</p><p class='txt'>這個變化的意義在於頻次。<b>應急品一年買三次，日用品一個月買三次。</b>頻次上去了，單均履約成本才能攤薄，即時零售才從「補貼生意」變成「效率生意」。</p><p class='txt'>李錄會看的是滲透率：中國即時零售的滲透率還低，但履約成本也高。這兩條曲線什麼時候交叉，決定了這個行業的天花板。<b>他的判斷通常是：在中國，效率紅利的釋放速度比大多數人想的快，因為城市密度和勞動力供給都是獨一無二的。</b></p></div><div class="section"><div class="section-title">出海：22 個月盈利意味著什麼</div><p class='txt'>Keeta 在沙烏地阿拉伯 2026 年 7 月實現盈利，用了 22 個月；香港 2025 年第四季 UE 轉正；沙烏地阿拉伯已占 Keeta 日單量約 25%。中東已覆蓋沙烏地阿拉伯、卡達、科威特、阿聯酋，巴西已在展業。</p><p class='txt'>22 個月盈利這個數字，比它賺的錢重要得多。<b>它證明了美團的調度系統、地推打法、騎手管理體系可以跨文化複製</b>——這是很多中國公司出海做不到的，它們能輸出產品，輸出不了組織。</p><p class='txt'>但李錄也會提醒：<b>沙烏地阿拉伯是一個客單價高、競爭弱、勞動力便宜的市場，巴西不是。</b>巴西的對手是滴滴的 99Food，客單價低、補貼兇、稅制複雜。5 年 10 億美元是門票，不是上限。如果巴西能複製沙烏地阿拉伯，美團的故事就從「中國平台」變成「全球即時配送」，估值體系要重寫；如果複製不了，這就是又一個「出海交學費」的案例。</p></div><div class="section"><div class="section-title">AI：這次不是故事</div><p class='txt'>研發 76.7 億元、+22.5%，未分配項目虧損同比擴大 57.2%。這兩個數字放在一起，說明 AI 投入是真的在花錢，不是在發布會上花錢。</p><p class='txt'>花在哪：LongCat 系列模型、「小美」「小團」兩個面向用戶的 AI 助手（春節期間超億人次用「小團」規劃消費）、340 萬商戶在用 AI 經營助手、無人機 70 條航線累計 78 萬單、無人車。</p><p class='txt'>李錄會關心的是：<b>這些投入是在替代人力成本，還是在增加功能？</b>如果是前者，它會在三五年後體現為毛利率提升；如果是後者，它就是營銷費用。從公開信息看，無人配送和 AI 調度屬於前者，AI 助手屬於後者。<b>王興說「不做 Token 工廠」，說明他知道區別在哪。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'>李錄式結論：<b>這份季報的長期資訊量大於短期資訊量。</b>短期是 26.9 億元和 2.6%，長期是品類擴張、出海驗證、AI 落地三件事同時推進。他會在 77.5 港元買一點，因為他買的是「中國效率紅利 + 出海複製」的十年，不是下一季度的利潤。</p></div>
+</div>
+<div class="footer">美團 (03690) · 2026/08/28</div>
+</body>
+</html>

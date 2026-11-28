@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組合管理 — 網飛</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/netflix/14-组合管理建议/奈飞-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/netflix/14-組合管理建議/網飛-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/netflix/14-Portfolio-Action/Netflix-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>組合管理 — 網飛</h1>
+  <div class="subtitle">網飛 (NFLX) | 14 · 組合管理</div>
+  <div class="meta">研究日期 2026/10/23 &nbsp;·&nbsp; 股價 $65.85（-1.79%） &nbsp;·&nbsp; 市值 約 2,700 億美元 &nbsp;·&nbsp; PE(2026E) 約 18x（含一次性收益，剔除後約 21x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/netflix/00-網飛研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>組合裡的位置：一個「防守型成長」倉位</h3><p class='txt'>Netflix 在這個組合裡不是進攻手，是<b>「防守型成長」</b>——它的作用是在科技股普跌時提供現金流支撐，而不是在牛市裡領漲。所以倉位不該重，6% 是上限。</p><p class='txt'>分批的節奏：現價 65.85 建 2%，55 美元以下加到 4%，45 美元附近加滿 6%。<b>三檔對應三種證據：現價買「生意品質」，55 買「估值安全」，45 買「悲觀已定價」。</b></p></div><table class="dt"><caption>倉位與情景對應</caption><thead><tr><th>情境</th><th>觸發條件</th><th>目標倉位</th><th>理由</th></tr></thead><tbody><tr><td>首倉</td><td>現價 65.85（18 倍 2026E PE）</td><td>2%</td><td>生意品質已驗證，估值處於合理區間下沿</td></tr><tr><td>加倉一</td><td>股價 ≤55 美元（約 15 倍正常化 PE）</td><td>4%</td><td>接近巴菲特出價區間，安全邊際出現</td></tr><tr><td>加滿</td><td>股價 ≤45 美元且基本面未破</td><td>6%</td><td>悲觀情景已定價，機率 25%</td></tr><tr><td>減倉</td><td>2027 年營收指引個位數成長</td><td>2%</td><td>增速假設被證偽</td></tr><tr><td>清倉</td><td>2027 年營業利益率跌破 30%</td><td>0%</td><td>利潤率與敘事雙殺</td></tr></tbody></table><div class="note">倉位為占股票組合的比例，非占總資產。PE 口徑：65.85 ÷ 3.66（2026E EPS 反推）≈ 18 倍；55 ÷ 3.66 ≈ 15 倍。假設單票上限 10%，Netflix 因管理層 6 分而設 6% 上限。</div><div class="section"><div class="section-title">為什麼上限是 6%，不是 10%</div><p class='txt'>單票上限通常設 10%，但奈飛要打七折。原因只有一個：<b>管理層 6 分。</b>一年三次組織動作、內容長與電影負責人同時離場，這些事的代價要 18 個月後才顯形。<b>看不清的風險，要用倉位來兜，不是用判斷來兜。</b></p><p class='txt'>另一個原因是相關性。奈飛和組合裡的科技股（尤其廣告驅動的 Meta、Alphabet）在「廣告預算週期」上同向，同時持有等於放大同一個風險。<b>6% 的奈飛 + 已有的科技倉位，實際的廣告週期敞口可能已經超過 15%。</b></p><p class='txt'>還有第三個原因：它的賠率結構是「向下 32%、向上 20%（中性）」。</p><p class='txt'><b>這種賠率不適合重倉，適合中等倉位 + 逢跌加。</b>重倉要求向上空間遠大於向下，這裡不是。</p></div><div class="section"><div class="section-title">加倉價位是怎麼算出來的</div><p class='txt'>55 美元對應 15 倍正常化 PE（55 ÷ 3.66）。<b>15 倍是 Netflix 2023 年以來 PE 區間的絕對底部</b>，歷史上只在 2022 年會員淨減時短暫觸及。到這個位置，說明市場已經把「增速降到 8%」定價了。</p><p class='txt'>45 美元對應悲觀情景（EPS 3.0 × 15 倍）。<b>這個價格意味著「廣告徹底失敗 + 利潤率回落 + 增速 8%」三件事同時發生。</b>機率我給 25%，但如果真到了，賠率就變成「向下 10%、向上 75%」，值得加滿。</p><p class='txt'>兩個價位之間不設機械加倉。<b>如果跌到 55 是因為財報暴雷（比如營收低於 133 億），那不叫機會，叫證據。</b>加倉的前提是「基本面未破」，不是「價格到了」。</p></div><div class="section"><div class="section-title">不設價格止損，設論文止損</div><p class='txt'>這檔股票不該用價格停損。<b>原因是它的波動率太高——年內跌 29%、距高點跌 39.8%，任何 15% 的價格停損都會被反覆觸發。</b>停損的目的是控制損失，不是控制波動。</p><p class='txt'>正確的做法是論文停損：<b>買入時寫的五條假設，任何一條被證偽，就減碼。</b>比如 2027 年營收指引個位數成長，說明「提價 + 廣告撐住雙位數」這條假設破了，減到 2%；2027 年營業利益率跌破 30%，說明「成本可控」破了，清倉。</p><p class='txt'>這個方法的代價是「反應慢」——財報一年四次，事件一年幾次，停損總是滯後的。<b>但它避免了「被噪音洗出去」的風險，而後者對長期持有的傷害更大。</b></p></div><div class="section"><div class="section-title">與其他持倉的相關性：三個敞口要分開算</div><p class='txt'><b>廣告週期曝險。</b>與 Meta、Alphabet 同向——廣告主預算好，三家都好；預算差，三家都差。Netflix 的廣告只占 5.3%，曝險小，但方向一致。</p><p class='txt'><b>內容與 IP 週期曝險。</b>與迪士尼反向多於同向——它們搶同一批用戶的訂閱費。如果組合裡同時有迪士尼，等於在做對沖，但兩邊都不賺錢。</p><p class='txt'><b>利率曝險。</b>負相關。Netflix 的估值靠現金流折現，利率上行壓估值；同時它的債務是固定利率，利息成本鎖定，所以利率上行對利潤影響小、對估值影響大。<b>如果組合裡已經有很多長天期資產（比如高估值軟體股），Netflix 的加入會增加利率敏感度。</b></p></div><div class="summary-box"><h3>結論</h3><p>倉位結論：<b>上限 6%，首倉 2%，55 美元加至 4%，45 美元加滿。</b>不設價格止損，設三條論文止損線。它在組合裡的角色是「提供現金流的防守倉」，不是「進攻倉」——<b>如果你的組合已經有 30% 以上的科技成長股，奈飛的邊際分散作用有限，倉位應該更低。</b></p></div>
+</div>
+<div class="footer">網飛 (NFLX) · 2026/10/23</div>
+</body>
+</html>

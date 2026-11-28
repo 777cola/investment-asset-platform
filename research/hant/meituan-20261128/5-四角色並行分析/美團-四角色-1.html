@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>商業分析（段永平視角） — 美團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20261128/5-四角色并行分析/美团-商业分析-段永平.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meituan-20261128/5-四角色並行分析/美團-四角色-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meituan-20261128/5-Four-Role-Analysis/Meituan-Four Roles-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>商業分析（段永平視角） — 美團</h1>
+  <div class="subtitle">使用者為什麼還開啟它，以及這門生意的差異化在哪</div>
+  <div class="meta">研究日期 2026/11/28 &nbsp;·&nbsp; 股價 HK$67.85（+8.21%，2026/11/27 收盤，11/28 休市） &nbsp;·&nbsp; 市值 約 4,190 億港元（61.75 億股） &nbsp;·&nbsp; PE(TTM) —（TTM 仍為虧損，PE 失真；2027E 約 16.8x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meituan-20261128/00-美團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>Q3 收入 +21.6%、環比 +10.4%，在補貼退坡的背景下加速——這是本次財報最硬的一條證據：<b>用戶沒跑。</b>段永平式的問題是「用戶為什麼還打開它」，答案是三公里三十分鐘這件事目前只有美團做得最穩。</p></div><div class="section"><div class="section-title">這門生意的本質是什麼</div><p class='txt'>把美團拆到最底層，它賣的只有一樣東西：<b>把「現在」賣給使用者。</b>使用者願意為「30 分鐘送到」多付 5 元，本質是在買時間。這門生意的成本結構也跟著這個定義走——距離越短、密度越高、單均成本越低。所以它的規模效應是地理的，不是全國的：北京朝陽區的密度不能攤薄河北縣城的成本。</p><p class='txt'>段永平會追問一句：這門生意的差異化在哪？<b>不是價格，是密度。</b>同樣的黃燜雞，三家平台都能送，但美團的騎手在 3 公里內有 40 個，對手只有 15 個，這就是差異化——它不體現在菜單上，體現在「預計送達時間」那一行字上。</p><p class='txt'>差異化的另一面是它的天花板：<b>密度只在有人口密度的地方值錢。</b>中國有 2,800 個縣市區，前 300 個貢獻了大部分訂單，剩下 2,500 個是「覆蓋但不賺錢」的。這就是為什麼它必須往品類擴張（閃購、藥品、酒類）——同樣的騎手、同樣的路線，多送一單就多賺一單。</p></div><div class="section"><div class="section-title">使用者還在不在：三個證據</div><p class='txt'><b>證據一，收入加速。</b>Q1 +9.2%、Q2 +14.4%、Q3 +21.6%，三個季度連續加速。補貼退坡通常意味著單量下滑，實際卻是加速，說明用戶不是被補貼留下的。</p><p class='txt'><b>證據二，配送服務收入約 300 億元、同比約 +20%。</b>配送收入＝單量×單均配送費，這個數字漲 20%，說明單量和客單價至少有一個在漲，大概率是兩個都漲。</p><p class='txt'><b>證據三，毛利率 34.7%（推算）、同比提升 1.7 個點。</b>補貼退坡期毛利率還能提升，說明高毛利品類（到店、閃購自營）佔比在上升，用戶買的東西變貴了、變多了。<b>用戶不會為自己不想要的東西多付錢。</b></p><p class='txt'>反過來看一條不好的：商家服務收入約 440 億元、同比只增 8%。<b>商戶恢復得比用戶慢，說明 2025 年那場仗傷到了供給側。</b>這門生意是雙邊網路，一邊恢復一邊沒恢復，長期看會有摩擦。</p></div><div class="section"><div class="section-title">管理層做的事對不對</div><p class='txt'>2025 年最慘的時候，王興公開講「堅決反內卷」，選擇守單位經濟、放棄單量份額，代價是全年淨虧 233.55 億元、份額從 65% 掉到 51%。<b>這在段永平的框架裡叫「做對的事情」——明知會被罵，還是不打沒意義的價格戰。</b></p><p class='txt'>2026Q3 的報表是對這個選擇的回報：利潤回來了（20.71 億元），用戶沒走（收入 +21.6%）。<b>如果當初選擇保份額，現在大概率是「份額 60%、單季虧 80 億元」，那才是真的沒救。</b></p><p class='txt'>第二個選擇也值得記一筆：AI。<b>2026 年所有大廠都在搶算力，王興說「不做 Token 工廠」，研發只增 11.3%、占收入 7.5%。</b>這句話讓他少了一個故事，但保住了現金流。段永平會認可這種「不做什麼」的判斷——不為清單比願望清單重要。</p></div><div class="section"><div class="section-title">什麼價格買，買多少</div><p class='txt'>67.85 港元、4,190 億港元市值，2027E 16.8 倍、扣淨現金 11.5 倍。<b>段永平會說「不貴，但也沒到打骨折」。</b>他的倉位邏輯是確定性匹配：生意不會消失（確定），利潤什麼時候回來、回來多少（不確定）。</p><p class='txt'>所以動作分三批：<b>現在買 30%，跌到 58 港元加 30%，2027 年一季報確認 Q4 核心本地商業營業利益守住 50 億元後加 40%。</b>不預測季度利潤，只看年度方向和價格。</p><p class='txt'>他最忌諱的是把「便宜」當「安全」。美團的便宜是有條件的——條件寫在阿里和抖音的預算表裡，不寫在美團的報表裡。<b>所以是「買一點」，不是「全押」。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>商業視角的結論：生意還在、用戶還在、管理層做對了選擇，價格不貴但也不極端便宜。</b>唯一沒恢復的是商戶側（商家服務只增 8%），這是下一個要觀察的變數。<b>動作：首批 30%，58 港元加第二批。</b></p></div>
+</div>
+<div class="footer">美團 (03690) · 2026/11/28</div>
+</body>
+</html>

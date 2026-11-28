@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial analysis (Buffett's perspective) — CoreWeave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/coreweave/5-四角色并行分析/CoreWeave-财务分析-巴菲特.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/coreweave/5-四角色並行分析/CoreWeave-四角色-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/coreweave/5-Four-Role-Analysis/CoreWeave-Four Roles-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Financial analysis (Buffett's perspective) — CoreWeave</h1>
+  <div class="subtitle">The balance sheet tells the truth earlier than the income statement</div>
+  <div class="meta">Research date 2026/11/20 &nbsp;·&nbsp; Price $39.51 (-12.02%) &nbsp;·&nbsp; Market cap Approximately USD 22 billion &nbsp;·&nbsp; PE(TTM) — (GAAP loss, PE not meaningful)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/coreweave/00-CoreWeave-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>The income statement tells one growth story; the balance sheet tells another. <b>Revenue was RMB 3.661 billion and adjusted EBITDA RMB 2.256 billion, but net interest of RMB 846 million was 2.2x adjusted operating profit of RMB 379 million, and the net loss was RMB 709 million</b>. This is not an income-statement problem but a capital-structure problem: RMB 46.87 billion of debt, RMB 13.4 billion maturing within two years, and RMB 5.5 billion of cash on hand.</p></div><table class="dt"><caption>Three layers of profit and one layer of cash (USD million, 2026Q3)</caption><thead><tr><th>Tier</th><th>Amount</th><th>Note</th></tr></thead><tbody><tr><td>Revenue</td><td>3,661</td><td>Up 168% YoY, above the upper end of guidance</td></tr><tr><td>Adjusted EBITDA</td><td>2,256</td><td>62% margin, excluding depreciation, interest and share-based compensation</td></tr><tr><td>Adjusted operating profit</td><td>379</td><td>Margin 10.4%, excluding equity incentives and one-off items</td></tr><tr><td>GAAP operating profit</td><td>207</td><td>Turned positive for the first time, with a margin of 5.7%</td></tr><tr><td>Net interest expense</td><td>846</td><td>4.1 times operating profit</td></tr><tr><td>Net loss</td><td>-709</td><td>Prior-year period -110; loss widened 6.4x</td></tr><tr><td>Free cash flow</td><td>-7,466</td><td>OCF 1,975 − cash capex 9,441</td></tr></tbody></table><div class="note">Data source: Q3 2026 financial statements and 10-Q (November 10, 2026). Adjusted operating income is on the company's non-GAAP basis.</div><div class="section"><div class="section-title">Quality of operating cash flow</div><p class='txt'>Operating cash flow was USD 1.975 billion, which looks healthy in isolation. But break down the components: <b>customer prepayments rose by 2.127 billion, more than all of operating cash flow</b>. In other words, strip out prepayments and day-to-day operations were net cash outflow. Prepayments are essentially "future service fees paid in advance by customers," booked as deferred revenue in accounting, and must be delivered in future through data centers that come online on schedule — otherwise they become liabilities.</p><p class='txt'>Buffett's stance on such projects has always been clear: <b>prepayments are a good thing, but parading prepayments as operating cash flow dresses up financing activities as operating activities</b>. True operating cash flow should come from "cash received for services already rendered," not "cash received before services are rendered." This is also why the line in the Q4 guidance — "about USD 9 billion of prepayments over the next three months" — should be read as a financing plan, not an operating result.</p></div><div class="section"><div class="section-title">The structure of the debt is more frightening than its size</div><p class='txt'>Total debt of RMB 46.87 billion at an average cost of 7.9%, of which RMB 41.6 billion is recourse — meaning creditors can reach the parent company directly, not non-recourse financing at the project-company level. About RMB 13.4 billion matures over the next two years against roughly RMB 5.5 billion of cash on hand; the RMB 7.9 billion gap must be covered by refinancing or operating cash flow, and operating cash flow itself is propped up by prepayments.</p><p class='txt'><b>This is a textbook case of duration mismatch plus cost mismatch</b>: the assets are GPUs depreciated over 6 years and data halls with 15–20 year lives, while the liabilities are debt maturing within 2 years. If the refinancing window shuts for even one quarter, the gap must be filled with equity — and the equity has already fallen from 137.98 to 39.51. The June unsecured bond with a 9.625% coupon yielded 15% in mid-November; the market is already pricing it as distressed debt.</p></div><div class="section"><div class="section-title">Depreciation is the biggest hidden liability in this business.</div><p class='txt'>The company depreciates GPUs over about 6 years. If the true economic life is 3–4 years (NVIDIA ships a new generation every year, and Hopper rental rates step down once Rubin launches), then <b>the depreciation understated each year turns into future impairment or a profit collapse</b>. A rough calculation: the equipment investment behind 4.6GW of contracted power, at USD 30 million/MW, is about USD 138 billion. Cutting the depreciation life from 6 years to 4 years raises annual depreciation from USD 23 billion to USD 34.5 billion—a gap larger than its adjusted EBITDA for a full year.</p><p class='txt'>This is also the most dangerous part of the "62% EBITDA margin": <b>it packages a number determined by accounting assumptions as operating capability</b>. There is only one real test: what price these cards can still be rented out at in five years.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Financial verdict: a substandard balance sheet plus an income statement built on assumptions.</b> Operating progress is real (GAAP operating profit turned positive for the first time at RMB 20.7 million), but RMB 84.6 million of interest swallowed that profit, and customer prepayments of RMB 212.7 million plus new debt covered the remaining gap. <b>Buffett-style conclusion: do not invest.</b> His logic on such companies: "If you have to depend on someone else continuing to lend you money to survive, you are not running a business, you are running a financing." Only two metrics to watch: whether the quarterly free cash flow gap narrows, and whether unsecured bond yields fall back below 10%.</p></div>
+</div>
+<div class="footer">CoreWeave (CRWV) · 2026/11/20</div>
+</body>
+</html>

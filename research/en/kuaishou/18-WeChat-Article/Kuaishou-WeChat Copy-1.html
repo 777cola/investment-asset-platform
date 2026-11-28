@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WeChat Copy — Kuaishou</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/kuaishou/18-公众号宣传文案/快手-公众号文案.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/kuaishou/18-公眾號宣傳文案/快手-公眾號文案-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/kuaishou/18-WeChat-Article/Kuaishou-WeChat Copy-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>WeChat Copy — Kuaishou</h1>
+  <div class="subtitle">Kuaishou (01024) | 18 · WeChat Copy</div>
+  <div class="meta">Research date 2026/10/12 &nbsp;·&nbsp; Price HK$29.26 (-2.79%) &nbsp;·&nbsp; Market cap About HKD 126.7 billion &nbsp;·&nbsp; PE(TTM) About 10.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/kuaishou/00-Kuaishou-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>412 million people open Kuaishou every day, contributing RMB 35.5 billion in revenue and RMB 3.9 billion in adjusted net profit to the company in a single quarter. Sounds like a lot, but put the two numbers together: <b>revenue rose just 1.4% year on year, while net profit fell 30.3%.</b></p><p class='txt'>The stock fell from 82.95 to 29.26, a drop of 65%. Many ask whether this is a buying opportunity. My answer is no, and the reason is not valuation — it is this subtraction.</p></div><div class="section"><div class="section-title">One subtraction tells you what this company is really worth</div><p class='txt'>Kuaishou's revenue this quarter was RMB 35.535 billion, up RMB 495 million from a year earlier.</p><p class='txt'>Of that, Kling AI's revenue rose from about RMB 280 million to RMB 850 million, an increase of RMB 567 million.</p><p class='txt'>495 minus 567 equals -0.7.<b>In other words: excluding Kling, Kuaishou's revenue across all its businesses combined was shrinking.</b></p><p class='txt'>The arithmetic is not hard, but few bother to do it. Because once you do, the claim that "total revenue is still growing" no longer holds up.</p></div><div class="section"><div class="section-title">How big is the AI story? 2.4% of revenue</div><p class='txt'>Kling is genuinely a good asset. Launched in June 2024, it reached 100 million global users, nearly 50,000 enterprise customers and annualized revenue (ARR) approaching USD 500 million within two years, growing 200% year on year. In July it also closed USD 3 billion in financing at a post-money valuation of USD 18 billion, with Kuaishou itself holding 83.3%.</p><p class='txt'>It is the fastest-monetizing Chinese AI application, without dispute.</p><p class='txt'>But its quarterly revenue is RMB 850 million, or <b>2.4%</b> of total revenue. At a USD 18 billion valuation it is worth HKD 116.3 billion, equivalent to 92% of Kuaishou's current total market cap.</p><p class='txt'>That is the problem: <b>either the private-market price is wrong, or the market believes Kuaishou's core business is worth little.</b> One of the two must hold.</p></div><div class="section"><div class="section-title">Where did profit go? Revenue sharing and R&amp;D each take a bite</div><p class='txt'>Gross margin fell from 55.7% to 51.6%. One point is RMB 355 million; 4.1 points is RMB 1.46 billion. The company calls it "higher revenue-sharing costs" — translated: to retain streamers and short-drama creators, the platform gave up more money.</p><p class='txt'>R&D rose from RMB 3.4 billion to RMB 4.6 billion, up nearly RMB 1.2 billion, mainly into AI training.</p><p class='txt'>The two together total RMB 2.6 billion, compressing adjusted net profit from RMB 5.6 billion to RMB 3.9 billion.</p><p class='txt'>The interesting part: had the R&D expense ratio held at last year's level, net profit would have fallen only 9.7%.<b>In other words, two-thirds of the profit decline was management's own choice; one-third was forced by competition.</b>The voluntary part can be stopped; the involuntary part cannot.</p></div><div class="section"><div class="section-title">Is 10.5x PE cheap? Depends on which denominator you use</div><p class='txt'>Many people get excited when they see a 10.5x PE. But the denominator of PE changes.</p><p class='txt'>The market consensus for 2026 adjusted net profit has already been cut to RMB 8.99 billion. On that number, the market cap of roughly RMB 116 billion implies a forward PE of <b>12.9x</b> — more expensive than the 10.5x TTM.</p><p class='txt'>Forward being more expensive than TTM has only one cause: <b>profit is heading down.</b> This is not cheap; this is the classic "value trap" pattern — cheap on a static basis, increasingly expensive on a dynamic one.</p><p class='txt'>That said, it holds RMB 24.27 billion in cash-like assets, 21% of market cap, or HKD 6.1 per share. That is a real buffer. But a buffer keeps you alive; it does not make you money.</p></div><div class="section"><div class="section-title">Three scenarios: 45% downside, 57% upside</div><p class='txt'>Bear case: advertising turns negative, Kling falls behind, 2027 net profit of RMB 5.5 billion at 7x, plus net cash = HKD 16, 45% below the current price.</p><p class='txt'>Base case: advertising +3%, Kling doubles but remains loss-making = HKD 26.6, 9% below the current price.</p><p class='txt'>Bull case: advertising back to +8%, Kling ARR breaks USD 1 billion = HKD 46, 57% above the current price.</p><p class='txt'>Weighted at 35/45/20 probabilities, expected return is <b>-8.4%</b>. <b>The upside looks larger, yet the math comes out negative—that is the difference between odds and probabilities.</b></p></div><div class="section"><div class="section-title">What is the market betting on?</div><p class='txt'>Two bets are buried in the current share price.</p><p class='txt'>The first bet is that "Kling wins." Video generation is the hottest technology theme of 2026, and Kling sits in the first tier. If it breaks out the way Douyin did, Kuaishou becomes the next ByteDance. The odds are long, but nobody knows the probability of success.</p><p class='txt'>The second bet is that "advertising comes back." Chinese consumption recovers in 2027, ad budgets rebound, and Kuaishou, as a platform with 400 million DAU, benefits automatically. This bet has a higher hit rate but limited upside — if advertising returns, Kuaishou is still just a 12x PE company.</p><p class='txt'><b>One bet offers upside without certainty; the other offers certainty without upside.</b> The market packages both and sells them to you at HKD 29.</p></div><div class="section"><div class="section-title">Under what circumstances would I change my mind?</div><p class='txt'>Two conditions, and neither takes long to wait for:</p><p class='txt'>First, online marketing revenue growth returns above 8%. That means advertisers are willing to raise budgets on Kuaishou again and the core business is recovering.</p><p class='txt'>Second, Kling discloses revenue and profit/loss on a comparable basis, with annualized revenue exceeding RMB 6 billion. That means AI turns from a story into a business.</p><p class='txt'>Before either happens, a single quarter of negative advertising growth is all it takes for the price to fall from 29 to 20. That is not a black swan; that is the base case.</p></div><div class="section"><div class="section-title">One last thing.</div><p class='txt'>Kuaishou is not a bad company. Its 400 million users are still there, its RMB 24.2 billion in cash is still there, and Kling's technology is still there.</p><p class='txt'>But investing does not pay for "still there"; investing pays only for "getting better."</p><p class='txt'>This quarter's results contain no evidence of improvement.</p><p class='txt'>If such evidence appears one day, I will not reject it just because I was bearish today. But today there is none.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Avoid.</b> Not because it has fallen 65%, but because the investment case cannot be verified by the financials. Advertising returning to 8%, or Kling reaching an annualized RMB 6 billion with disclosed profit and loss—until either signal appears, price is not a reason.</p></div>
+</div>
+<div class="footer">Kuaishou (01024) · 2026/10/12</div>
+</body>
+</html>

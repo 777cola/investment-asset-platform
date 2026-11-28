@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Check — ASML</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/asml/3-财务数据交叉验证/阿斯麦-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/asml/3-財務數據交叉驗證/阿斯麥-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/asml/3-Financial-Cross-Check/ASML-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Financial Check — ASML</h1>
+  <div class="subtitle">ASML (ASML) | 03 · Financial Check</div>
+  <div class="meta">Research date 2026/10/16 &nbsp;·&nbsp; Price $1,641.52 (-0.96%) &nbsp;·&nbsp; Market cap About USD 624 billion (about EUR 538 billion) &nbsp;·&nbsp; PE(TTM) Approximately 41x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/asml/00-ASML-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core call: the numbers hold up; the risk is in the definitions, not in their veracity</h3><p class='txt'>Eight key figures were cross-checked against two sources: net sales, gross margin, installed-base management revenue, market cap and PE all match, with deviations within 0.1%. Two items need handling on definitional grounds — net profit of EUR 4.96 billion includes roughly EUR 500 million from revaluation of the Mistral AI stake (some media report 4.46 billion; that is not wrong, it is the figure after excluding it); and the 23% mainland China share versus "about 20% for the full year" is not a contradiction either — one is the single-quarter actual, the other the full-year guidance. <b>Conclusion: this earnings report is usable, but any citation must carry the definitional basis.</b></p></div><table class="dt"><caption>Key data cross-checked against two sources (2026Q3, EUR million)</caption><thead><tr><th>Indicator</th><th>Source A</th><th>Source B</th><th>Deviation</th><th>Processing</th></tr></thead><tbody><tr><td>Net sales</td><td>Earnings 11,662</td><td>AWP/Alliance News RMB 11.66 billion</td><td>0.03%</td><td>Adopt 11,662</td></tr><tr><td>Gross margin</td><td>Financial report 57.5%</td><td>Chinese media 57.5% (a few write 57.4%)</td><td>0.1pct</td><td>Adopt 57.5%</td></tr><tr><td>Net profit</td><td>Earnings RMB 49.60 billion</td><td>Media RMB 4.96 billion / another RMB 4.46 billion (excluding one-offs)</td><td>10.7% (definitional difference)</td><td>Adopt 4,960, annotate once throughout the text</td></tr><tr><td>Installation management revenue</td><td>Earnings report 3,289</td><td>Conference call RMB 3.29 billion</td><td>0.03%</td><td>Adopt 3,289</td></tr><tr><td>EUV system sales</td><td>Zhitong Finance approximately RMB 4.1 billion (YoY +94%)</td><td>The report does not break out this line item separately</td><td>Single source</td><td>Labeled "single source, media figures"</td></tr><tr><td>Mainland China accounts for net system sales</td><td>Earnings 23% (single quarter)</td><td>Chinese media 20% (full-year guidance)</td><td>3pct (definitional difference)</td><td>Keep both figures and state them separately</td></tr><tr><td>Market cap</td><td>Share price × share count: 1,641.52 × 380 million shares = USD 623.8 billion</td><td>EUR 538 billion × 1.16 = USD 624.1 billion</td><td>0.05%</td><td>Use "approximately USD 624 billion"</td></tr><tr><td>PE(TTM)</td><td>6,240 ÷ TTM net profit of RMB 15.2 billion ≈ 41x</td><td>≈ 43x excluding one-off items</td><td>5%</td><td>Headline 41x, footnote 43x</td></tr></tbody></table><div class="section"><div class="section-title">First discrepancy: EUR 500 million in net profit</div><p class='txt'>Of the EUR 4.96 billion, about EUR 500 million came from the revaluation of the Mistral AI stake — ASML invested EUR 1.3 billion in the French model company in September 2025 for a roughly 11% stake, and after the company's valuation was marked up in the third quarter of 2026, ASML recognized this book gain under the equity method. <b>It generates not a single euro of cash and should not be included in operating profit.</b></p><p class='txt'>Excluding it, net profit is about EUR 4.46 billion, still above the market expectation of EUR 4.165 billion, above the consensus by about 7%. So both things hold at once: the results are genuinely good, but part of the 133.4% net profit growth is "valuation revaluation," not "money earned selling machines." Every reference to net profit in this report carries this caveat.</p></div><div class="section"><div class="section-title">Second measurement gap: China 23% or 20%</div><p class='txt'>The 23% is the single-quarter share of net system sales from mainland China in 2026Q3; the 20% is the company's full-year 2026 guidance. The two figures do not conflict, but read together they are easily misread as "the share is set to decline." The actual path is Q1 19%, Q2 14%, Q3 23% — down first, then up, landing near 20% for the full year.</p><p class='txt'>Why Q2 was only 14%: after export controls tightened, license approvals for some Chinese customers were delayed, pushing order deliveries into Q3. Why Q3 rebounded to 23%: the delayed DUV orders were delivered in a cluster. <b>This is delivery timing, not a change in demand.</b> Judging Chinese demand requires looking at orders rather than single-quarter revenue, and order value was not disclosed separately this quarter — a data gap that must be acknowledged.</p></div><div class="section"><div class="section-title">Third point: the market cap and PE calculation methods must be spelled out</div><p class='txt'>The USD 624 billion market cap is calculated as USD 1,641.52 × about 380 million shares, with share count on a post-buyback basis (about 417 million shares in 2021). Cross-checked in EUR: EUR 538 billion × 1.16 = USD 624.1 billion, a 0.05% difference between the two routes, so they corroborate each other.</p><p class='txt'>Be careful with the PE denominator. TTM net profit is about USD 15.2 billion (backed out from 6,240 ÷ 41), which includes a EUR 500 million one-off gain in Q3. Excluding it, TTM net profit is about USD 14.6 billion and PE is about 43x. <b>Industry convention uses the figure excluding one-offs, but market quotes use reported net profit</b>—so the report states 41x as the primary basis (consistent with market data software), while the analysis uses 43x (more conservative).</p></div><div class="section"><div class="section-title">Final adopted basis</div><p class='txt'>One easily overlooked cross-check: earnings per share. The report gives EUR 12.93; backing out share count from net profit 4,960 ÷ 12.93 gives about 384 million shares, consistent with the post-buyback share base, indicating EPS uses the current-period weighted average rather than the year-end count. This matters for valuation — using 380 million shares slightly understates market cap, while 384 million shares is closer to reality.</p><p class='txt'>Revenue, gross margin, installed-base management revenue and EPS (EUR 12.93) all use the company's reported figures. Net profit uses the reported 4,960 with one-off items flagged at each occurrence. EUV segment revenue of EUR 4.1 billion is single-source (media) and used only when discussing mix, not as a valuation input. Mainland China share is shown as both 23% (Q3 actual) and 20% (full-year guidance).</p><p class='txt'>Valuation inputs: 2026 EPS of about EUR 38, 2027 EPS of EUR 46 (base case), 384 million shares, exchange rate 1.16. The 2026 EPS is a derived figure (current price EUR 1,415 ÷ 37x) and is flagged as such. All derived figures are labeled "rough calculation/derived" in the text and are not mixed with disclosed values.</p></div><div class="summary-box"><h3>Conclusion</h3><p>Eight numbers, zero data errors, two definitions that need clarification (net profit includes a EUR 500 million revaluation; China's 23% is a single-quarter figure). This is a high-quality earnings report and can be used with confidence as a valuation basis. There is only one real data gap: net order intake was not disclosed, and that is the leading indicator for 2027–2028 revenue.</p></div>
+</div>
+<div class="footer">ASML (ASML) · 2026/10/16</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>風險評估（李錄視角） — 快手</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/kuaishou/5-四角色并行分析/快手-风险评估-李录.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/kuaishou/5-四角色並行分析/快手-四角色-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/kuaishou/5-Four-Role-Analysis/Kuaishou-Four Roles-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>風險評估（李錄視角） — 快手</h1>
+  <div class="subtitle">先算能虧多少，再算能賺多少</div>
+  <div class="meta">研究日期 2026/10/12 &nbsp;·&nbsp; 股價 HK$29.26（-2.79%） &nbsp;·&nbsp; 市值 約 1,267 億港元 &nbsp;·&nbsp; PE(TTM) 約 10.5 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/kuaishou/00-快手研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>風險不是「股價會跌」，是「本金永久損失的機率」。快手當前價 29.26 港元、距高點 -64.7%、距 52 週低點僅 +2.5%，市場已經定價了很多壞消息。但<b>已經跌了很多不等於跌到位</b>，要逐條算永久損失的可能。</p></div><div class="section"><div class="section-title">風險一：主業失速變成主業衰退（機率高、影響中）</div><p class='txt'>從 +1.4% 到負成長只有一步：廣告從 +4.4% 掉到 -2%。管理層自己在 8 月 18 日電話會上說下半年電商行銷服務和佣金收入承壓，這不是外部推測。如果 2027 年收入負成長，估值體系會從「PE」換成「PS 或 EV/EBITDA」，而那通常意味著更低的倍數。</p></div><div class="section"><div class="section-title">風險二：AI 投入沒有回報（機率中、影響大）</div><p class='txt'>研發 46 億元、+34.7%，資本支出 59 億元，兩者合計超過 100 億元/季。可靈 Q2 收入 8.5 億元，即使全部算作增量，投入產出比也是 1:0.08。<b>如果 2027 年可靈收入到 60 億元而仍然虧損，這 100 億元的年度投入就變成了純粹的利潤侵蝕。</b></p></div><div class="section"><div class="section-title">風險三：分拆後的利益分配（機率中、影響大但難量化）</div><p class='txt'>7 月可靈增資 30 億美元、投後 180 億美元、快手持股 83.3%。分拆的好處是估值可見、融資獨立；壞處是<b>虧損留在合併報表、估值留在少數股東權益之外</b>。如果可靈繼續虧損而母公司按權益法承擔，報表利潤會被二次拖累。這一條現在無法量化，因為公司沒有披露可靈的單體損益。</p></div><div class="section"><div class="section-title">風險四：監管（機率低、影響中）</div><p class='txt'>直播打賞的未成年人保護、演算法推薦的備案要求、AI 生成內容的標識義務，三條都在收緊。對快手而言，監管通常表現為「合規成本上升 + 某些變現方式被限制」，不是致命打擊，但會持續壓低利潤率。</p></div><div class="section"><div class="section-title">風險五：估值錨斷裂（機率中高、影響大）</div><p class='txt'>現在的多頭邏輯依賴「可靈值 180 億美元」。這個錨一旦在下一輪融資裡被下修到 80 億美元，母公司權益價值就從 1,163 億港元掉到 517 億港元，<b>相當於市值的 41% 憑空消失</b>。一級市場估值下修不需要理由，只需要一個不願意接盤的領投方。</p></div><div class="section"><div class="section-title">尾部風險：三件事同時發生</div><p class='txt'>廣告轉負 + 可靈估值腰斬 + 港股流動性收縮。三件事的單獨機率都不高，但同時發生時，股價看到 15 港元以下不奇怪（對應 5 倍 2027E 淨利 + 淨現金）。<b>這不是基準情景，但它決定了倉位上限。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'>風險視角的結論：<b>五類風險裡，有兩類（主業衰退、估值錨斷裂）是當下正在發生的，不是假設。</b>已經下跌 65% 只說明市場提前定價了一部分，不說明風險出清。在永久損失機率沒有明顯下降之前，正確的動作是不參與。</p></div>
+</div>
+<div class="footer">快手 (01024) · 2026/10/12</div>
+</body>
+</html>

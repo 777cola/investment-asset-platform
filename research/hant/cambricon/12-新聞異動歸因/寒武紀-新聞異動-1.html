@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新聞異動 — 寒武紀</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/cambricon/12-新闻异动归因/寒武纪-新闻异动.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/cambricon/12-新聞異動歸因/寒武紀-新聞異動-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/cambricon/12-News-Attribution/Cambricon-News-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>新聞異動 — 寒武紀</h1>
+  <div class="subtitle">寒武紀 (688256) | 12 · 新聞異動</div>
+  <div class="meta">研究日期 2026/08/17 &nbsp;·&nbsp; 股價 ¥1,156.00（+5.76%） &nbsp;·&nbsp; 市值 約 7,271 億元 &nbsp;·&nbsp; PE(TTM) 約 218x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/cambricon/00-寒武紀研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>6 月 30 日到 8 月 17 日，股價從 1,595.55 元跌到 1,156.00 元，−27.6%。把這段跌幅拆開：<b>估值（PE）從 368.97 倍降到 217.9 倍，貢獻 −40.9%；業績（TTM 淨利）從 27.17 億元漲到 33.32 億元，貢獻 +22.6%</b>。−40.9% × +22.6% ≈ −27.6%，一分不差。</p><p class='txt'>這說明一件事：<b>跌的不是公司，是倍數。</b>三個月裡公司交出了翻倍的中報、發布了「三年千億」的激勵、把設備投入加了 11.6 億元，全是加分項；而股價跌了，因為 369 倍市盈率這個起點本身就撐不住。七條事件裡，真正有資訊量的只有三條：6/30 公司自己發風險提示、8/7 中報換檔、8/12 業績會上的沉默。</p></div><table class="dt"><caption>近三個月關鍵事件（2026/05/17—08/17）</caption><thead><tr><th>日期</th><th>事件</th><th>股價反應</th><th>性質</th></tr></thead><tbody><tr><td>6/17</td><td>市場流傳交流紀要：寒武紀向字節跳動供應 580/690，Q2 交付 12—16 萬張 580，690 下半年交付；公司否認「向互聯網廠商大量供貨」</td><td>股價再創新高</td><td>噪音（未證實紀要）</td></tr><tr><td>6/30</td><td>盤中 1,620 元、收 1,595.55 元（+7.66%），市值 10,025 億元，成科創板首檔兆元市值股；當晚發布風險提示公告（滾動 PE 368.97x、PB 77.88x，行業 74.86x/8.06x）</td><td>+7.66%，成交 254.87 億元</td><td>訊號（估值極端 + 公司示警）</td></tr><tr><td>7/1—7/2</td><td>風險提示後連續兩日回調，市值合計蒸發超 1,400 億元</td><td>兩日大跌</td><td>估值修正</td></tr><tr><td>7/24</td><td>調整募投項目內部結構：設備及產品試製投入 +11.6 億元（晶片平台 +7.6 億、軟體平台 +4.0 億），相應減少人員工資投入 9.1 億元</td><td>反應平淡</td><td>基本面（備貨擴產）</td></tr><tr><td>7/28</td><td>2026 年限制性股票激勵草案：500 萬股（占總股本 0.80%）、授予價 750 元/股、考核 135/405/1,000 億元</td><td>短期提振</td><td>訊號（管理層預期）</td></tr><tr><td>8/7</td><td>半年報：營收 59.96 億元（+108.13%）、歸母淨利 23.11 億元（+122.61%）；當日收 1,199.93 元</td><td>當日基本持平</td><td>基本面（業績兌現）</td></tr><tr><td>8/10</td><td>半年報後首個交易日 −6.33%、收 1,124 元，市值蒸發約 480 億元；市場聚焦 Q2 環比僅 7.84% 與 82.48 億元存貨</td><td>−6.33%</td><td>估值修正（增速換檔）</td></tr></tbody></table><div class="note">股價資料：6/30 收盤 1,595.55 元（+7.66%，成交 254.87 億元）、8/7 收盤 1,199.93 元、8/10 收盤 1,124 元、8/17 收盤 1,156.00 元（+5.76%）。來源：交易所公告、證券時報、國際金融報、新浪財經（2026/06/30—08/12）。</div><div class="section"><div class="section-title">先做一次歸因：跌的是倍數，不是業績</div><p class='txt'>用股價 = 本益比 × 每股盈餘拆一遍。6 月 30 日：股價 1,595.55 元，TTM 淨利 27.17 億元（2025 年報 20.59 + 2026Q1 10.13 − 2025Q1 3.55），PE 368.97 倍。8 月 17 日：股價 1,156.00 元，TTM 淨利 33.32 億元（含 2026Q2），PE 217.9 倍。</p><p class='txt'>PE 變化 −40.9%，EPS(TTM) 變化 +22.6%，相乘 −27.6%——<b>股價的跌幅，正好等於「倍數壓縮」吃掉「業績成長」之後的餘額</b>。這個拆解比任何敘事都可靠：三個月裡公司做的每一件事都是加分，市場給的每一個倍數都是減分。</p><p class='txt'>所以「為什麼跌」這個問題有一個精確答案：<b>不是因為業績不好，是因為起點太貴。</b>6 月 30 日的 369 倍本益比需要「每個季度都翻倍」來支撐，Q2 交出 7.84% 的環比，故事就斷了。</p></div><div class="section"><div class="section-title">三則有資訊量的事件</div><b>第一條是 6/30 的風險提示公告。</b>一家公司在自己股價創歷史新高、市值破萬億元的當天晚上，公告寫明「滾動市盈率 368.97 倍、市淨率 77.88 倍，顯著高於行業水準（74.86 倍/8.06 倍），存在估值較高的風險」。這在 A 股是罕見的坦誠——<b>公司比市場更清楚自己的價格有多貴。</b><b>第二條是 8/7 的中報。</b>營收 59.96 億元、淨利 23.11 億元，都是硬數據；但同一天市場已經開始算 Q2 環比 7.84%、存貨 82.48 億元、現金流 3.11 億元。<b>業績兌現與增速換擋同時發生，這是最尷尬的組合。</b><b>第三條是 8/12 的業績說明會。</b>投資者反覆追問 Q2 增速、硬體交付節奏、預付款與存貨的關係，陳天石「未作進一步說明」。<b>沉默不是回答，但在資本市場裡，沉默會被讀成「不好說」。</b></div><div class="section"><div class="section-title">哪些是雜訊：四件事可以忽略</div><p class='txt'>① <b>6/17 的「字節 12—16 萬張 580」紀要</b>：來源是未署名的交流紀要，公司當天否認「向互聯網廠商大量供貨」，字節從未公開承認採購關係。這種數字無法驗證，唯一作用是點火。<b>但它透露了一個真實資訊：市場把寒武紀的估值錨在了「字節的採購量」上，這本身就是風險。</b></p><p class='txt'>② <b>7/24 的募投結構調整</b>：設備 +11.6 億元、人工资 −9.1 億元，是「硬體更貴、產能更急」的應對，不改變收入模型。③ <b>7/28 的激勵</b>：500 萬股、0.80%，攤薄很小，真正的資訊在考核目標（135/405/1,000 億元），不在授予價。④ <b>8/17 的 +5.76%</b>：超跌反彈，沒有新資訊。</p><p class='txt'>把噪音去掉，三個月裡真正需要記住的只有兩個數字：<b>218 倍（現在的估值）和 7.84%（現在的環比增速）</b>。前者是價格，後者是方向。</p></div><div class="section"><div class="section-title">從事件裡能讀出的三件事</div><p class='txt'>第一，<b>公司在意股價，但更在意不背鍋。</b>6/30 主動風險提示、8/12 不解釋 Q2，兩件事合起來看：管理層知道估值高、也知道增速有問題，但不願意在公開場合給出指引。這對投資者意味著——<b>不要指望公司幫你判斷，得自己算。</b></p><p class='txt'>第二，<b>事件驅動的波動遠大於基本面變化。</b>三個月裡基本面從「翻倍增長」變成「翻倍但換檔」，變化幅度有限；股價波動幅度 27.6%，市盈率波動 40.9%。<b>在 218 倍市盈率上，任何一條新聞的槓桿都被放大十倍。</b></p><p class='txt'>第三，<b>「萬億市值」是一個心理關口。</b>6/30 破萬億當天成交 254.87 億元，隨後兩日蒸發 1,400 億元。這種級別的換手說明持倉結構裡短線資金佔比很高——<b>籌碼不穩的公司，估值回歸會比基本面回歸更早發生。</b></p></div><div class="summary-box"><h3>結論</h3><b>歸因結論：−27.6% 的跌幅 = 估值 −40.9% × 業績 +22.6%。</b>公司沒有變差，是中報把「翻倍」變成了「翻倍但換檔」，369 倍本益比失去支撐。七條事件裡三條有資訊量（6/30 風險提示、8/7 中報、8/12 沉默），四條是噪音。<b>對投資者的用法：把 218 倍和 7.84% 記住，其他都可以忘。</b></div>
+</div>
+<div class="footer">寒武紀 (688256) · 2026/08/17</div>
+</body>
+</html>

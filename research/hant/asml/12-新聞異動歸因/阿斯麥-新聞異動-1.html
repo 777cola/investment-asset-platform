@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新聞異動 — 阿斯麥</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/asml/12-新闻异动归因/阿斯麦-新闻异动.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/asml/12-新聞異動歸因/阿斯麥-新聞異動-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/asml/12-News-Attribution/ASML-News-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>新聞異動 — 阿斯麥</h1>
+  <div class="subtitle">阿斯麥 (ASML) | 12 · 新聞異動</div>
+  <div class="meta">研究日期 2026/10/16 &nbsp;·&nbsp; 股價 $1,641.52（-0.96%） &nbsp;·&nbsp; 市值 約 6,240 億美元（約 5,380 億歐元） &nbsp;·&nbsp; PE(TTM) 約 41 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/asml/00-阿斯麥研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：真正的新資訊只有一句，其餘都是噪音</h3><p class='txt'>近三個月（7 月中到 10 月中）與阿斯麥相關的七件事，真正改變基本面判斷的只有一件：10 月 13 日電話會上「2027–2028 年產能仍不足、正在研究再擴產」。其餘的——Q2 財報、許可證傳聞、Mistral 重估、回購——要麼是已知資訊的確認，要麼是不影響現金流的帳面事。<b>而股價的反應給出了另一個訊號：最好的財報出來，股價反而跌了 2% 以上。</b></p></div><table class="dt"><caption>近三個月關鍵事件（2026/07–2026/10）</caption><thead><tr><th>時間</th><th>事件</th><th>股價反應</th><th>性質</th></tr></thead><tbody><tr><td>2026-07-15</td><td>Q2 財報：營收約 93.3 億歐元（反推）、毛利率 54.0%、新機 86 台、中國占 14%</td><td>—（未取得逐日資料）</td><td>基本面確認</td></tr><tr><td>2026-08</td><td>市場討論 DUV 對華許可進一步收緊，尚無正式文件落地</td><td>—（未取得逐日資料）</td><td>政策雜訊</td></tr><tr><td>2026-09</td><td>北美雲廠上調 2026 年資本支出、HBM 緊缺延續到 2027 年</td><td>板塊整體走強（定性）</td><td>需求側訊號</td></tr><tr><td>2026-10-13</td><td>Q3 財報：收入 116.62 億、毛利率 57.5%、上調全年指引至 440–450 億</td><td>財報後兩日累計下跌 2% 以上</td><td>利多出盡</td></tr><tr><td>2026-10-13</td><td>電話會議：2027–2028 年產能增 30% 仍不足，正研究再擴產</td><td>同上（與財報同日）</td><td>真正的訊號</td></tr><tr><td>2026-10-13</td><td>揭露 Mistral AI 股權重估收益約 5 億歐元</td><td>被市場忽略</td><td>雜訊（非現金）</td></tr><tr><td>2026-10-16</td><td>收盤 1,641.52 美元、-0.96%，距 52 週高點 -17.5%</td><td>當日 -0.96%</td><td>估值消化</td></tr></tbody></table><div class="section"><div class="section-title">唯一的新資訊：產能不足，而且要再擴</div><p class='txt'>這句話以前沒說過。阿斯麥過去的表態是「2026 年產能被訂滿」，這次升級為「2027 和 2028 年都無法滿足需求，正在研究在 +30% 之上繼續擴產」。差別的分量在於：從「一年可見」變成「三年可見」，而且公司願意為看不見的需求投資本開支。</p><p class='txt'>客戶已經在談 2029–2030 年的訂單——這句話如果為真，意味著這一輪設備週期的長度超過歷史任何一輪。它也是中性情景（2027 年 520 億歐元收入）的基礎。</p></div><div class="section"><div class="section-title">為什麼最好的財報換不來上漲</div><p class='txt'>三層原因。第一，預期已經打滿：市場預期 Q3 收入 110–120 億、毛利率 55%–57%，實際落在上位，屬於「超預期但在框內」。第二，淨利的超預期有一部分來自 5 億歐元重估收益，機構一眼就看穿了。第三，AI 交易在 10 月的波動加大，設備股作為「AI 資本支出的影子」被一起賣。</p><p class='txt'>更根本的一層：<b>股價從 2025 年到 2026 年上半年的漲幅，已經把「2028 年前供不應求」這件事定價了。</b>財報只是把這件事說得更清楚，沒有增加新的現值。</p></div><div class="section"><div class="section-title">哪些是噪音</div><p class='txt'>三件事可以歸為噪音。第一，DUV 許可傳聞——沒有正式文件，且公司立場是反對進一步限制，屬於「討論中的政策」，不影響當期收入。第二，Mistral 重估 5 億歐元——帳面收益，不進現金，估值時應當剔除。第三，單季中國占比從 14% 跳到 23%——交付節奏，不是需求變化。</p><p class='txt'>噪音的特徵是：一個月後沒人記得，但發布當天會被寫成標題。分清噪音和信號的方法很簡單——問一句「這改變了 2027 年的現金流嗎」。</p></div><div class="section"><div class="section-title">訊號與噪音的比例，決定了該做什麼</div><p class='txt'>七件事裡，一件是訊號（產能到 2028 年仍不足），六件是噪音或已知資訊。這個比例說明：<b>這家公司沒有「意外」可挖，它的價值變化是緩慢的、可預期的。</b>對這種公司，交易的收益不來自「猜消息」，來自「等價格」。</p><p class='txt'>所以短期股價的下跌（-0.96%、距高點 -17.5%）不構成買入理由。17.5% 的回撤對一隻 41 倍 PE 的股票來說，只是把超買的泡沫擠掉一點，離「便宜」還差 20% 以上。</p></div><div class="section"><div class="section-title">10 月 13 日那天的三段行情</div><p class='txt'>財報是盤前發的。第一段：開盤衝高，因為收入 116.62 億、毛利率 57.5% 都超指引；第二段：電話會開始後回落，因為管理層對 2027 年的表述雖然樂觀，但沒有給出超出預期的數字，且淨利潤裡的 5 億歐元重估被分析師當場問了出來；第三段：收盤與次日繼續走弱，兩天累計跌 2% 以上。</p><p class='txt'>這個走法和 2024 年、2025 年的幾次財報後反應一致——<b>阿斯麥的股價對「超預期」已經脫敏，只對「指引上修幅度」有反應。</b>這次指引只上調了低端（430→440 億），屬於「符合預期的小幅上修」，不夠推動股價。</p><p class='txt'>10 月 16 日再跌 0.96%，是 AI 板塊整體波動的延續，與公司無關。把它當成「市場不看好」是誤讀，把它當成「便宜了」也是誤讀。</p></div><div class="section"><div class="section-title">噪音的辨識清單</div><p class='txt'>四條標準，符合兩條以上就歸為噪音。一，不影響當期現金流（比如股權重估）；二，沒有正式文件（比如許可傳聞）；三，屬於交付節奏而非需求變化（比如中國占比的季度跳動）；四，一個月後不會被提起（比如某家投行的目標價調整）。</p><p class='txt'>用這四條過濾近三個月的資訊，七件事裡只剩一件是訊號：產能到 2028 年仍不足、正在研究再擴產。其餘的都可以不看。這也是持有這類公司的好處——需要讀的東西很少，需要等的很久。</p></div><div class="summary-box"><h3>結論</h3><p>歸因結論：財報超預期但股價下跌，原因是預期已滿 + 一次性收益被看穿 + AI 交易波動。真正的新資訊只有一句（產能到 2028 年仍不足），它支撐的是 2027 年而不是今天。操作含義：不追跌，也不因為跌了 17.5% 就認為便宜。</p></div>
+</div>
+<div class="footer">阿斯麥 (ASML) · 2026/10/16</div>
+</body>
+</html>

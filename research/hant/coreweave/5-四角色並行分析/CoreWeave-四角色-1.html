@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>商業分析（段永平視角） — CoreWeave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/coreweave/5-四角色并行分析/CoreWeave-商业分析-段永平.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/coreweave/5-四角色並行分析/CoreWeave-四角色-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/coreweave/5-Four-Role-Analysis/CoreWeave-Four Roles-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>商業分析（段永平視角） — CoreWeave</h1>
+  <div class="subtitle">这门生意到底赚谁的钱</div>
+  <div class="meta">研究日期 2026/11/20 &nbsp;·&nbsp; 股價 $39.51（-12.02%） &nbsp;·&nbsp; 市值 約 220 億美元 &nbsp;·&nbsp; PE(TTM) —（GAAP 虧損，本益比無意義）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/coreweave/00-CoreWeave研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>一句話：<b>CoreWeave 賺的是「時間差」的錢——比客戶早拿到晶片、早通電，然後把這段稀缺期賣成 5 年合約</b>。它不是技術公司，是一家資產租賃公司，資產是會折舊的 GPU，負債是 7.9% 成本的債。段永平會先問：這個差價能持續多久？</p></div><table class="dt"><caption>單位經濟拆解（2026Q3）</caption><thead><tr><th>環節</th><th>數字</th><th>含義</th></tr></thead><tbody><tr><td>合約電力 / 在運電力</td><td>4.6GW / 1.7GW</td><td>37% 的合約電力已投產，其餘在建</td></tr><tr><td>單季營收</td><td>36.61 億美元（環比 +42%）</td><td>增長來自新機櫃上電，不是單價翻倍</td></tr><tr><td>調整後 EBITDA 利潤率</td><td>62%</td><td>扣電費、人力、維運後的現金毛利率</td></tr><tr><td>GAAP 營業利益率</td><td>5.7%</td><td>扣折舊後的真實營業利益率</td></tr><tr><td>淨利息 / 營收</td><td>23.1%（8.46 / 36.61）</td><td>每 100 元收入有 23 元付給債權人</td></tr><tr><td>資本支出 / 營收</td><td>258%（現金口徑 94.41 / 36.61）</td><td>每 1 元收入要投 2.58 元設備</td></tr></tbody></table><div class="note">資料來源：2026Q3 財報與 10-Q。資本支出採現金口徑 94.41 億元；按權責口徑 145 億元則為營收的 396%。</div><div class="section"><div class="section-title">差價來自哪裡</div><p class='txt'>拆開來看，它的毛利有三塊來源。第一塊是<b>稀缺定價</b>：7 月提價約 25%、季末再提 10%，老一代 Ampere 和 Hopper 卡的租金比第二季高 30%–50%——這是供給不足給的錢，不是能力給的錢。第二塊是<b>交付速度</b>：4.6GW 合約電力、1.7GW 已運行，單季新增 900MW 合約、200MW 投運，這個速度全球 neocloud 第一。第三塊是<b>電價與選址</b>：把機房放在電便宜、併網快的地方。</p><p class='txt'>三塊裡，只有第二塊算是能力，第一塊是週期禮物，第三塊是可複製的資源。<b>週期禮物會在供給追上時消失，而且消失得很快</b>——輝達產能一釋放、微軟和甲骨文自建一投產，租金就是下坡。</p></div><div class="section"><div class="section-title">客戶為什麼簽它，而不是自己建</div><p class='txt'>答案在時間。OpenAI、Meta 這類買方 2026 年的算力需求成長速度，超過任何一家自建項目的通電速度：一個 GW 級資料中心從選址到通電要 3–5 年，CoreWeave 能把已有園區的空機櫃在 6 個月內裝滿晶片。所以客戶付的是「加速費」。</p><p class='txt'>但加速費只在「你比我快」的時候成立。11 月 18 日納德拉公開說「只賣給一兩個客戶不是生意」，微軟同時審查超過 800 億美元的外部 AI 算力承諾、取消 32.2 億美元的 Nscale 訂單。<b>這是買方在算完帳之後的選擇：當自建的單瓦成本更低時，加速費就不值了。</b></p></div><div class="section"><div class="section-title">這門生意的十年問題</div><p class='txt'>段永平會問：十年後它還在嗎？誠實的回答是：<b>作為一家公司可能在，作為一門有護城河的生意大概不在</b>。GPU 雲的終局會像 IDC（資料中心託管）：一個薄利、靠規模和資本成本競爭的公用事業，前幾名活著，但沒有誰有定價權。</p><p class='txt'>而它現在的位置是：規模不是第一（微軟單季資本開支 452 億，是它單季營收的 12 倍），資本成本不是最低（7.9% 對微軟不到 5%），技術沒有獨占。<b>三個條件都不占，卻背著 469 億債務</b>——這不是「成長中的龍頭」，是「週期頂部的槓桿玩家」。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>商業判斷：好需求、壞生意。</b>它的收入成長是真實的（+168%），但成長的動力來自供給短缺和客戶趕工期，兩者都在減弱。這門生意最終會變成薄利的算力公用事業，而它帶著最貴的資本結構進入那個階段。<b>段永平式結論：看得懂，不想擁有；除非價格低到「不看未來也能賺錢」，而那需要股價再腰斬、同時債務不爆。</b></p></div>
+</div>
+<div class="footer">CoreWeave (CRWV) · 2026/11/20</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business analysis (Duan Yongping's perspective) — NVIDIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/nvidia/5-四角色并行分析/英伟达-商业分析-段永平.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/nvidia/5-四角色並行分析/輝達-四角色-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/nvidia/5-Four-Role-Analysis/NVIDIA-Four Roles-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Business analysis (Duan Yongping's perspective) — NVIDIA</h1>
+  <div class="subtitle">NVIDIA (NVDA) | Who pays, why they pay, and how long they can keep paying</div>
+  <div class="meta">Research date 2026/08/31 &nbsp;·&nbsp; Price $220.78 (+1.48%) &nbsp;·&nbsp; Market cap Approximately USD 5.33 trillion (24.15 billion shares) &nbsp;·&nbsp; PE(TTM) About 28x (roughly 15x forward FY2028)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/nvidia/00-NVIDIA-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>The essence of this business is selling "the right to use compute," not selling chips. What customers pay for is time—launch a quarter late and your model falls a version behind. So price is not the sensitive variable; lead time is. <b>But something changed in 2026: the payers spread from four cash-rich cloud providers to a batch of AI labs and compute-leasing firms that are not yet profitable.</b> It is still a good business, but the payers have changed.</p></div><table class="dt"><caption>Where the money comes from (FY2027Q2)</caption><thead><tr><th>Client type</th><th>Revenue</th><th>Year on year</th><th>Payment capacity</th></tr></thead><tbody><tr><td>Hyperscale cloud (mainly the 4 players)</td><td>USD 48.71 billion</td><td>+102%</td><td>Strong: operating cash flow expands; 2026 capex about RMB 800 billion</td></tr><tr><td>AI Cloud / Industrial and Enterprise (ACIE)</td><td>USD 40.313 billion</td><td>+138%</td><td>Divergence: cloud providers and sovereign clients strong, NeoCloud reliant on debt</td></tr><tr><td>Edge computing</td><td>USD 7.20 billion</td><td>+27%</td><td>PCs, autos, robots: cyclical characteristics</td></tr><tr><td>Total</td><td>USD 96.221 billion</td><td>+106%</td><td>—</td></tr></tbody></table><div class="note">Data source: NVIDIA FY2027Q2 earnings report (2026/08/26). ACIE covers AI Clouds, Industrial &amp; Enterprise, including NeoCloud, sovereign AI, enterprises and AI-native companies.</div><div class="section"><div class="section-title">Who pays: five people paid 44%</div><p class='txt'>Start with the customer structure. The 10-Q discloses that in the first half of FY2027, three direct customers contributed 16%, 15% and 13% of revenue respectively, 44% combined; receivables from the top five customers account for 70%. This is not a business of "selling to the whole world," <b>it is a business of "selling to five people."</b></p><p class='txt'>The market broadly knows who these five are: Microsoft, Amazon, Google, Meta, Oracle. What they share is abundant cash and capex funded by operating cash flow. Amazon announced this quarter that it will deploy an additional 2 million GPUs from this quarter through fiscal Q2 2029, paired with Vera CPUs—only one kind of customer can place such an order: one that can pay without relying on financing.</p><p class='txt'>But they are not the fastest-growing. Hyperscale cloud rose 102% year over year, ACIE rose 138% year over year. ACIE houses NeoCloud (CoreWeave, Nebius, Nscale, Firmus, YTL), sovereign AI, enterprise and AI-native companies. <b>This segment accounts for 45% of data center revenue and is the fastest-growing, weakest-paying part.</b></p></div><div class="section"><div class="section-title">Why pay: revenue per kWh sold is doubling</div><p class='txt'>Why must customers buy? The company offered a very useful framing: the commercial value per gigawatt of compute — USD 18 billion in the Hopper era, USD 25 billion for Grace Blackwell, USD 40 billion for Vera Rubin. <b>Same rack, same power, more than double the revenue it can generate.</b></p><p class='txt'>That number explains three things. First, why customers are willing to queue: they are not buying chips, they are buying "30x higher throughput per megawatt and 35x lower cost per token" (the company's comparison against Grace Blackwell Ultra). Second, why price increases stick: prices rise starting FY2028Q1, passing through memory cost inflation, and customers accept it because the revenue growth from compute outpaces cost growth. Third, why in-house chips are not easily substitutable: customers' own XPUs target inference for a single cloud and a single workload, whereas Nvidia sells a general-purpose asset spanning the full chain of data processing, pre-training, post-training and agentic inference. <b>The value of generality is that the asset can be reused, and reuse means it keeps earning throughout its depreciation life.</b></p><p class='txt'>The simplicity of the business lies here too: it does not matter what customers do with the compute, only that they keep buying the next generation.</p></div><div class="section"><div class="section-title">How long can it pay: that is the only question that needs answering</div><p class='txt'>Duan Yongping-style questions boil down to one: will anyone still be paying in ten years? My answer has three layers.</p><p class='txt'>Layer one: demand has not peaked. Global AI venture funding exceeded USD 400 billion in the first half of 2026, roughly 70% of it for compute procurement; the five major cloud providers hold over USD 2 trillion in backlog. These are company figures, but the direction can be verified by third parties — the cloud providers' own capex guidance is being revised up, not down.</p><p class='txt'>Layer two: supply is the bottleneck. The company puts it plainly: real demand is about 100%, guidance covers only 70%, and the entire gap is capacity — wafers, HBM, power, data centers, all four are tight. The shortage lasts at least through the end of FY2028. <b>When supply is short, the seller has the easiest business in town — that is common sense.</b></p><p class='txt'>Layer three, the most uncertain: do the people paying have the money? Of the USD 400 billion in AI venture funding in the first half of 2026, how much ultimately becomes Nvidia revenue, and how much becomes Nvidia receivables and guarantees? By the company's own account, AI lab business requiring support from Nvidia's balance sheet will be about a quarter of total business next year. <b>A quarter — that ratio is what turns this from "selling shovels" into "selling shovels plus financing the buyers."</b></p><p class='txt'>So my judgment: the business is good, good enough that it needs no argument; the payers are changing, shifting to a group that needs Nvidia's help. That does not change the business. It changes how the business should be valued.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>A good business, but the payment structure is deteriorating.</b> The hyperscale cloud half still generates rock-solid cash flow; the ACIE half is propped up by financing. The former supports a 20x valuation; the latter cannot support 30x. <b>One metric to watch: ACIE as a share of data center revenue. It is 45% now; if it climbs above 55% by 2027 while payment terms keep lengthening, the quality of this business is heading downhill.</b></p></div>
+</div>
+<div class="footer">NVIDIA (NVDA) · 2026/08/31</div>
+</body>
+</html>

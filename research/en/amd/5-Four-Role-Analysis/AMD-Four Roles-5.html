@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeamLead summary — AMD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/amd/5-四角色并行分析/AMD-TeamLead-汇总.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/amd/5-四角色並行分析/AMD-四角色-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/amd/5-Four-Role-Analysis/AMD-Four Roles-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>TeamLead summary — AMD</h1>
+  <div class="subtitle">AMD (AMD) | Consensus, debate and verdict</div>
+  <div class="meta">Research date 2026/08/07 &nbsp;·&nbsp; Price $483.36 (-1.21%) &nbsp;·&nbsp; Market cap About USD 802 billion &nbsp;·&nbsp; PE(TTM，GAAP) Approximately 125x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/amd/00-AMD-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>After reading all four, consensus outweighs disagreement. The consensus: the business is improving, management is first-rate, the price is too expensive. There are three disagreements: whether growth can last through 2028, where the gross margin ceiling lies, and whether the current price warrants even a small position. <b>The verdict is as follows.</b></p></div><div class="section"><div class="section-title">Three points of consensus</div><p class='txt'>First, the data center growth is real. RMB 6.718 billion, +107%, and segment operating profit of RMB 2.1 billion — these three numbers corroborate each other. If this were low-price volume chasing, segment margin would not be 31.3%.</p><p class='txt'>Second, management is this company's hardest asset. Lisa Su's twelve-year capital allocation record — spinning off manufacturing, acquiring Xilinx, acquiring ZT, betting on chiplet — is matched in the semiconductor industry only by Jensen Huang. <b>None of the four pieces raised a substantive challenge to management.</b></p><p class='txt'>Third, the current price offers no margin of safety. 125x TTM, 24x the most optimistic 2027 EPS — four perspectives independently reach the same conclusion: this is not a price at which to build a position.</p><p class='txt'>Of the three points of consensus, the third is the firmest. The first two still have room for debate — how many years growth can last, whether management can win again — both are arguable. But "125x TTM offers no margin of safety" is arithmetic, not opinion. The four perspectives show no divergence whatsoever on this point, which is uncommon in four-role analysis.</p></div><div class="section"><div class="section-title">Divergence one: can growth last through 2028</div><p class='txt'>The commercial view says yes — the second-supplier policy is institutional, and there is five years of room to go from 9% to 20% share. The industry view says no — cloud capex is in the third year of the cycle, growth will most likely fall back to 10%–15% in 2028, and industry contraction will offset share gains.</p><b>Verdict: lean toward the industry view.</b>The second-supplier policy sets a floor, not a ceiling: it guarantees AMD a 15% share, not 25%. And 2028 industry growth will most likely be below 2027, so the assumption of "continued high growth after doubling in 2027" does not hold. That is also why our base case gives only USD 19 in EPS.</div><div class="section"><div class="section-title">Divergence 2: The ceiling for gross margin</div><p class='txt'>The financial view holds that 56% can rise further, as product mix keeps improving and Helios full-rack systems can command a system premium. The risk view holds that 56% is already near the ceiling, and HBM4 price increases will take off 3–5 points.</p><b>Verdict: 55%–57% is the reasonable range; 60% requires Helios to succeed.</b>Helios is AMD's first full-rack offering (72 GPUs, liquid cooling, networking). If it wins more than 20% of rack orders, the system premium can push gross margin to 60%; if AMD only sells chips, 55% is the ceiling. Watch the Helios revenue share in Q4 2026.</div><div class="section"><div class="section-title">Disagreement three: whether to keep some position at the current price</div><p class='txt'>The business lens favors "buy 1%–2% first, then add as you watch," on the grounds that the opportunity cost of missing this company is high. The risk lens insists on "zero position, wait for USD 350."</p><b>Verdict: zero position, but put it in the first tier of the watchlist.</b>The reason is asymmetric odds: upside of +49% (optimistic) requires "better than the company's own target," while downside of -50% (pessimistic) only requires "industry normalization." At these odds, a 1%–2% position makes no money and only consumes attention. Wait for one of two signals before acting: the stock price below USD 350, or MI450 quarterly revenue above USD 3 billion.<p class='txt'>One more discipline: do not buy high-valuation growth stocks by "testing the waters with a small position." A 1% position loses only 0.5% at -50%, which has no impact on the portfolio; but it keeps you tracking the stock and sustaining the mental account of "I own it," so that by the time the real opportunity arrives your position is already used up.<b>Either 3% or more, or 0%.</b></p></div><div class="section"><div class="section-title">Action</div><p class='txt'>Position: 0%. Watchlist: Tier 1, review price and order news once a week.</p><p class='txt'>Add triggers: ① share price ≤ USD 350 (18x 2027 neutral EPS); ② MI450 quarterly revenue ≥ USD 3 billion with gross margin ≥ 55%; ③ 2027 Q1 guidance confirms data center revenue ≥ 80% YoY. Meeting one of the three warrants a 2% position; meeting two adds to 4%.</p><p class='txt'>Trim/avoid triggers: ① gross margin falls below 52%; ② cloud capex guidance cut by more than 10%; ③ Nvidia publicly cuts prices by more than 15%. Any one of these downgrades the rating to Avoid.</p><p class='txt'>One more note on the definition of "watching." Watching is not "doing nothing"; it is three things: check price and order news once a month, read three numbers from the quarterly report each quarter (DC revenue, gross margin, operating cash flow), and build the position in tranches when a buy point appears rather than going all in at once.<b>Watching is an action; it just costs no money.</b></p></div><div class="summary-box"><h3>Conclusion</h3><b>Overall: Watch, do not chase.</b> The four-perspective consensus is "good company, bad price." This company deserves a place in the pool, not payment at today's price. <b>Zero position does not mean bearish; it means the price has not arrived.</b></div>
+</div>
+<div class="footer">AMD (AMD) · 2026/08/07</div>
+</body>
+</html>

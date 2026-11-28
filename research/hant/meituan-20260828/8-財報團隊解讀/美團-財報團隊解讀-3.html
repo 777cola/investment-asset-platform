@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀（蒙格） — 美團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20260828/8-财报团队解读/美团-大师精读-芒格.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meituan-20260828/8-財報團隊解讀/美團-財報團隊解讀-3.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meituan-20260828/8-Earnings-Team-Read/Meituan-Earnings Team-3.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀（蒙格） — 美團</h1>
+  <div class="subtitle">反過來問：這 46.7 億元的虧損是怎麼來的</div>
+  <div class="meta">研究日期 2026/08/28 &nbsp;·&nbsp; 股價 HK$77.50（+0.00%） &nbsp;·&nbsp; 市值 約 4,786 億港元（61.75 億股） &nbsp;·&nbsp; PE —（2026 年上半年稅後淨損 46.7 億元，PE 失真）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meituan-20260828/00-美團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>上半年淨虧 46.7 億元，全在一季度（-68.3 億元）。二季度賺 21.6 億元，把半年拉回 -46.7 億元。<b>同一個行業、同一個季度、同一家公司，三個月內利潤擺動 90 億元——這種生意，芒格會說「可預測性太差」。</b></p></div><div class="section"><div class="section-title">虧損的來源：補貼，不是經營</div><p class='txt'>把第一季和第二季擺在一起：收入 910.4 億元對 1,046.4 億元（環比 +14.9%），營業利益 -64.7 億元對 +26.9 億元（擺動 91.6 億元）。</p><p class='txt'>收入只增了 15%，利潤擺動 91.6 億元，說明<b>利潤不是被收入驅動的，是被費用驅動的</b>。第一季的錢花在了用戶激勵和騎手補貼上，第二季收回來了，就這麼簡單。</p><p class='txt'>這就是蒙格最討厭的生意類型：<b>損益表被對手的動作控制，而不是被自己的經營控制。</b>他不知道下個季度賺多少，因為那取決於阿里想虧多少。</p></div><div class="section"><div class="section-title">那為什麼還值得看：對手也在流血</div><p class='txt'>反過來的問題是：如果這門生意這麼差，為什麼三家巨頭還在打？答案是——<b>打的時候都以為能贏，打到一半發現都輸不起。</b></p><p class='txt'>看兩筆帳。阿里：淘寶閃購五個季度累計虧損約 1,000 億元，剔除原有業務後的增量收入只有 330–350 億元。京東：新業務單季虧約 98.5 億元，份額從峰值 31% 掉到 7%。<b>這兩筆帳都不成立，所以兩家都在收縮——阿里新財年投入砍半，京東轉去講「全職騎手合規」。</b></p><p class='txt'>芒格會說：<b>不理性的競爭不會因為誰有道理而結束，只會因為誰沒錢而結束。</b>現在三家都還有錢，但都開始算帳了。這就是拐點的真實含義——不是美團贏了，是這場仗打不下去了。</p></div><div class="section"><div class="section-title">財報裡最容易被忽略的一段：新業務</div><p class='txt'>新業務收入 331.1 億元、+25%，虧損 17.4 億元、虧損率從 7.1% 降到 5.3%。市場把這段當「減虧故事」讀，我覺得它比減虧更重要。</p><p class='txt'>裡面有三件事：小象超市覆蓋 68 城（2025 年底 39 城，半年翻倍）、快樂猴 40 家店、Keeta 香港與沙烏地阿拉伯盈利。<b>第一件是規模，第二件是模式試驗，第三件是出海驗證。</b></p><p class='txt'>蒙格會問：這三件事哪一件能在三年內貢獻利潤？答案是第三件。生鮮自營（小象、快樂猴）是重資產生生意，中國做過的人沒有一個賺到大錢；Keeta 沙烏地阿拉伯 22 個月盈利，反而是最像「可複製生意」的那一個。<b>如果哪天新業務的估值要靠沙烏地阿拉伯和巴西，那這家公司的屬性就變了——從中國本地生活平台，變成新興市場外送平台。</b>那是另一個故事，另一個倍數。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>芒格式結論：<b>這是一門「利潤不可預測」的生意，但它現在的價格已經包含了這個缺點。</b>26.9 億元的季度利潤、2.6% 的利潤率，說明它離「好生意」還很遠；但對手的收縮說明「最壞的競爭」已經過去。他會買，但會要求折價——這個折價就是 15 倍與 25 倍之間的差。</p></div>
+</div>
+<div class="footer">美團 (03690) · 2026/08/28</div>
+</body>
+</html>

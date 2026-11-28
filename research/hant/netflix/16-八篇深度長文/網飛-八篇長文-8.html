@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第八篇：決策框架——買多少、什麼價、什麼條件賣 — 網飛</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/netflix/16-八篇深度长文/奈飞-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/netflix/16-八篇深度長文/網飛-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/netflix/16-Eight-Long-Essays/Netflix-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>第八篇：決策框架——買多少、什麼價、什麼條件賣 — 網飛</h1>
+  <div class="subtitle">把判斷變成可執行的三張紙</div>
+  <div class="meta">研究日期 2026/10/23 &nbsp;·&nbsp; 股價 $65.85（-1.79%） &nbsp;·&nbsp; 市值 約 2,700 億美元 &nbsp;·&nbsp; PE(2026E) 約 18x（含一次性收益，剔除後約 21x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/netflix/00-網飛研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>框架的價值在於「事先寫死」，不在於「事後解釋」</h3><p class='txt'>前面七篇都是分析，這一篇是執行。<b>分析可以模糊，執行必須具體：買多少、什麼價、什麼條件下賣、怎麼驗證。</b></p><p class='txt'>框架的核心是一句話：<b>買假設，不買價格。</b>所以建倉分三批（對應三種證據），減倉設三條線（對應三條假設被證偽），全程不看盤。</p></div><table class="dt"><caption>執行框架一頁紙</caption><thead><tr><th>項目</th><th>請提供要翻譯的內容。</th><th>依據</th></tr></thead><tbody><tr><td>目標倉位</td><td>6%（占股票組合）</td><td>管理層 6 分，單一持股上限 10% 打七折</td></tr><tr><td>首倉</td><td>現價 65.85 建 2%</td><td>18 倍 2026E PE，估值區間下沿</td></tr><tr><td>加倉一</td><td>≤55 美元加至 4%</td><td>15 倍正常化 PE，歷史絕對底部</td></tr><tr><td>加滿</td><td>≤45 美元且基本面未破加至 6%</td><td>悲觀情景已定價，賠率反轉</td></tr><tr><td>減倉線</td><td>2027 年營收指引個位數成長</td><td>增速假設被證偽</td></tr><tr><td>清倉線</td><td>2027 年營業利益率 &lt; 30%</td><td>利潤率與敘事雙殺</td></tr><tr><td>停手線</td><td>淨負債／營業利益 &gt; 1 倍</td><td>回購開始侵蝕財務彈性</td></tr></tbody></table><div class="note">倉位為占股票組合比例。PE 口徑：2026E EPS 3.66 美元（65.85 ÷ 18 反推）；55 ÷ 3.66 ≈ 15 倍。三條線均為事件觸發，不看股價。</div><div class="section"><div class="section-title">第一張紙：買多少——用管理層評分定上限</div><p class='txt'>倉位上限不是憑感覺，是<b>「確定性 × 賠率」的結果</b>。Netflix 的確定性中等（管理層 6 分、時長風險未解），賠率中等（向下 32%、向上 20%–62%）。<b>兩者都中等，倉位就該中等——6% 是合理值，不是保守值。</b></p><p class='txt'>如果你更看重「現金流確定性」而不在乎成長，可以給到 8%；如果你組合裡科技股已經很重，應該壓到 4%。<b>6% 是基準，不是教條。</b></p><p class='txt'>分批的節奏對應三種證據：<b>現價買「生意品質」（已兌現）、55 美元買「估值安全」（等市場給）、45 美元買「悲觀已定價」（等恐慌）。</b>每一檔都有明確的「為什麼現在買」，而不是「跌了就買」。</p></div><div class="section"><div class="section-title">第二張紙：什麼條件賣——三條線，不看價格</div><p class='txt'>減碼看事件：<b>①2027 年營收指引個位數成長；②2027 年營業利益率跌破 30%；③淨負債／營業利益超過 1 倍。</b></p><p class='txt'>為什麼不用價格停損？<b>因為它的波動率太高——年內跌 29%、距高點跌 39.8%，任何 15% 的價格停損都會被反覆觸發。</b>停損的目的是控制損失，不是控制波動。</p><p class='txt'>為什麼是這三條？因為它們分別對應買入時的三個核心假設：成長能撐住（營收）、成本可控（利潤率）、資本配置不失控（槓桿）。<b>任何一條破了，買入理由就不成立了，跟股價高低無關。</b></p></div><div class="section"><div class="section-title">第三張紙：怎麼驗證——一張日曆勝過一百個模型</div><p class='txt'>驗證日曆：<b>2027 年 1 月中下旬</b> Q4 財報（營收是否 ≥133 億、Q4 營業利益率是否 ≥26.0%、2027 年指引第一句話）；<b>2027 年 3 月</b> 廣告擴 15 國；<b>2027 年 4 月</b> Q1 財報（廣告環比、流失率）；<b>每季度</b> 回購額與淨負債。</p><p class='txt'>這張日曆比目標價有用。<b>目標價是猜的，日曆是等事實。</b>投資做到最後，賺的是「等事實兌現」的錢，不是「猜對價格」的錢。</p><p class='txt'>最後一個提醒：<b>別在財報前一天加倉。</b>Netflix 單季財報的波動經常超過 8%，在資訊不對稱最大的時候下注，是最差的時機。分批的意義之一，就是把「下注時點」分散到不同的資訊狀態裡。</p></div><div class="section"><div class="section-title">三個常見錯誤：買它的人最容易犯的錯</div><p class='txt'><b>錯誤一：用「串流媒體顛覆者」的框架給它估值。</b>這會導致在 45 倍時買入、在 18 倍時不敢買。正確的框架是「成熟內容現金流資產」——18–22 倍。</p><p class='txt'><b>錯誤二：用價格停損。</b>它的年波動率超過 40%，15% 的停損會被反覆觸發，最後的結果是「在最低點被洗出去」。<b>正確的做法是用事件停損：三條線，一年只可能觸發一次。</b></p><p class='txt'><b>錯誤三：把「廣告下修」當成「生意變差」。</b>27 億只占營收 5.3%，它影響估值，不影響利潤。<b>把估值問題和質量問題混在一起，是這檔股票上最常見的認知錯誤。</b></p></div><div class="summary-box"><h3>結論</h3><p>框架三張紙：<b>買多少（6%，分三批）、什麼條件賣（三條事件線）、怎麼驗證（四個時間節點）。</b>全部事先寫死，事後只做一件事——對照檢查。<b>這就是「買入，分批」的完整執行版本。</b></p></div>
+</div>
+<div class="footer">網飛 (NFLX) · 2026/10/23</div>
+</body>
+</html>

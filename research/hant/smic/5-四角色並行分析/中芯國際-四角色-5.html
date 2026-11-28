@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeamLead 彙總 — 中芯國際</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/smic/5-四角色并行分析/中芯国际-TeamLead-汇总.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/smic/5-四角色並行分析/中芯國際-四角色-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/smic/5-Four-Role-Analysis/SMIC-Four Roles-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>TeamLead 彙總 — 中芯國際</h1>
+  <div class="subtitle">四個視角的分歧點與裁決</div>
+  <div class="meta">研究日期 2026/08/10 &nbsp;·&nbsp; 股價 ¥126.25（-1.75%） &nbsp;·&nbsp; 市值 約 1.08 萬億元 &nbsp;·&nbsp; PE(TTM) 約 205x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/smic/00-中芯國際研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>四個角色獨立分析後，結論在「公司好壞」上沒有分歧——都認它是中國大陸唯一的規模化代工節點。分歧集中在三處：漲價的可持續性、折舊的峰值時點、以及該用什麼指標定價。三條分歧都指向同一個動作：不買，但留在名單上。</p></div><table class="dt"><caption>四視角結論對照</caption><thead><tr><th>視角</th><th>核心結論</th><th>最看重的一個數</th><th>對現價的態度</th></tr></thead><tbody><tr><td>商業（段永平）</td><td>位置 A、生意 C，錢歸產能不歸股東</td><td>折舊／收入 40.9%</td><td>不買，等價格</td></tr><tr><td>財務（巴菲特）</td><td>安全性 9 分、報酬率 3 分</td><td>ROE 2.7%</td><td>不買，等回報率</td></tr><tr><td>行業（蒙格）</td><td>市佔第三、週期上行中後段</td><td>份額 5%</td><td>不買，等週期</td></tr><tr><td>風險（李錄）</td><td>折舊與內捲是正在發生的風險</td><td>2027 年折舊仍增</td><td>不買，等緩衝</td></tr><tr><td>彙總</td><td>基本面向上、估值向下</td><td>期望收益 -6.9%</td><td>觀察</td></tr></tbody></table><div class="note">四視角為同一套資料的獨立推演，非四位本人觀點。</div><div class="section"><div class="section-title">四方結論對照</div><p class='txt'><b>商業（段永平）：</b>位置 A，生意 C。收入結構裡消費電子 46.2%、工業汽車 14.0% 是真需求，但錢最後歸產能不歸股東，2025 年不分紅是明證。<b>財務（巴菲特）：</b>安全性 9 分、回報率 3 分。ROE 2.7%、ROA 1.3%、自由現金流為負，EBITDA 52.56億和淨利 6.85億之間那道 38.1億的折舊鴻溝是核心。<b>行業（芒格）：</b>份額第三、週期上行中後段，但 2027 年中國大陸產能占 33% 會把價格打回去。<b>風險（李錄）：</b>折舊和內捲是正在發生的風險，管制是尾部風險，溢價和治理是慢變量。</p><p class='txt'>四個視角沒有互相推翻，是各自在不同的時間尺度上得出同一個結論：<b>未來 12 個月基本面向上、估值向下，兩者的賽跑決定股價。</b></p></div><div class="section"><div class="section-title">分歧一：漲價能持續多久</div><p class='txt'>商業視角偏樂觀：AI 虹吸效應至少延續到 2027 年，8 吋產能全球不新增，漲價有基本面支撐。風險視角偏謹慎：漲價只覆蓋供不應求的品類，手機和面板驅動一分沒漲，說明漲價是結構性的、不是全面的。</p><p class='txt'><b>裁決：兩邊都對，但含義不同。</b>結構性漲價足以支撐收入增長（二季度指引環比 +14%–16%），不足以支撐毛利率大幅躍升（指引 20%–22%）。換句話說，漲價能救收入，救不了利潤。這一點上風險視角更接近事實，商業視角的樂觀需要「全面漲價」才能兌現，而全面漲價需要供給真正短缺。</p></div><div class="section"><div class="section-title">分歧二：折舊什麼時候見頂</div><p class='txt'>財務視角強調 2026 年折舊 +30% 到 50億是硬約束；行業視角認為 2027 年新增產能爬坡完成後折舊增速會自然放緩；公司自己的說法是「2027 年還會增長，峰值取決於擴產節奏」——等於沒給答案。</p><p class='txt'><b>裁決：不能假設 2027 年見頂。</b>四大 12 吋新廠（中芯京城、中芯東方、中芯深圳、中芯西青）的設計產能各約 10 萬片/月，2026–2027 年逐步達產，達產意味著折舊繼續按月計提。只要資本支出維持在 81億美元，折舊就不可能見頂。<b>折舊見頂的前提是資本支出先降，而資本支出降的前提是產能目標完成——這兩件事都不在 2027 年之前。</b></p></div><div class="section"><div class="section-title">分歧三：該用什麼指標定價</div><p class='txt'>財務視角傾向 EV/EBITDA（約 11 倍，看起來不貴）；風險視角傾向 PB（6.3 倍，看起來很貴）；賣方傾向 PE 或 PS（目標價 160 元）；本報告用 PB。</p><p class='txt'><b>裁決：用 PB，因為利潤失真。</b>2026 年折舊 50 億美元、稅後淨利預計 60 億元上下，PE 的分母被折舊壓得沒有代表性；EV/EBITDA 忽略了維持性資本支出——代工的 EBITDA 裡有很大一塊必須立刻投回設備，不能當成自由現金流。PB 最穩，因為它對應的是「重置一條產線要多少錢」，而這正是代工廠的真實價值錨。</p><p class='txt'>用 PB 的結論：6.3 倍對應 ROE 2.7%，隱含 ROE 要漲到 15% 以上才合理。這個假設可以討論，但不能當成前提。</p></div><div class="section"><div class="section-title">裁決與分工</div><p class='txt'><b>裁決：觀察，不建倉。</b>四個視角的共識區間是「基本面向上、估值向下」，中性目標價 120 元低於現價 5%，悲觀 88 元低於現價 30%，樂觀 155 元高於現價 23%。按 30/50/20 加權，期望收益 -6.9%。<b>負期望的交易不做，哪怕公司很好。</b></p><p class='txt'>分工：商業視角盯 ASP 與產品結構（每季度環比），財務視角盯折舊絕對值與資本開支指引（每季度），行業視角盯中國大陸產能與台積電成熟製程報價（每季度），風險視角盯管制政策與 A/H 溢價（每週）。四個指標裡任何一個轉向，重新開一次會。</p><p class='txt'>觸發條件：價格 100 元以下，或二季度財報後毛利率連續兩個季度站上 24%。放棄條件：DUV 禁令落地、折舊 2027 年繼續增三成、國內成熟製程出現全面價格戰。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>TeamLead 結論：觀察，等回調。</b>四個視角在三處分歧上都被「折舊」這條主線收束：漲價救收入不救利潤、折舊 2027 年前不會見頂、估值只能用 PB。三條合起來就是一句話——好公司在錯誤的價位上，等的不是信心，是價格。</p></div>
+</div>
+<div class="footer">中芯國際 (688981) · 2026/08/10</div>
+</body>
+</html>

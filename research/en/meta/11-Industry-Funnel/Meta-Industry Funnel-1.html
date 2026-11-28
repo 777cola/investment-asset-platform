@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industry Funnel — Meta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meta/11-行业漏斗对比/Meta-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/meta/11-行業漏斗對比/Meta-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/meta/11-Industry-Funnel/Meta-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Industry Funnel — Meta</h1>
+  <div class="subtitle">Meta (META) | 11 · Industry Funnel</div>
+  <div class="meta">Research date 2026/11/02 &nbsp;·&nbsp; Price $606.73 (-1.34%) &nbsp;·&nbsp; Market cap About USD 1.58 trillion &nbsp;·&nbsp; PE(TTM) Approximately 21x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/meta/00-Meta-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Industry funnel: from six to one, and from one to "wait and see"</h3><p class='txt'>Put the comparables in one table and Meta's position is clear: its 26% ad growth ranks first, its USD 1.58 trillion market cap is among the smallest, its 21x PE sits in the middle, and its free cash flow is the only negative one. <b>The funnel narrows to just Meta and Google, with Meta winning on growth and Google winning on price and cash flow.</b> Final call: Meta goes on the watchlist, not the buy list.</p></div><table class="dt"><caption>Comparable company comparison (2026Q3 data; market cap and PE as of end-October)</caption><thead><tr><th>The company</th><th>Market cap (approx.)</th><th>Revenue growth</th><th>Advertising/core growth</th><th>PE(TTM)</th><th>Free cash flow</th><th>Funnel determination</th></tr></thead><tbody><tr><td>Meta</td><td>USD 1.58 trillion</td><td>+26.1%</td><td>Advertising +25.9%</td><td>21x</td><td>-USD 2.12 billion</td><td>Final selection (watch)</td></tr><tr><td>Google</td><td>USD 3.47 trillion</td><td>+24.7%</td><td>Advertising +10.6%</td><td>Approximately 14.8x</td><td>Negative</td><td>Final selection (comparison)</td></tr><tr><td>Amazon</td><td>USD 2.70 trillion</td><td>+12.1%</td><td>Advertising +10.9%</td><td>Approximately 20.4x</td><td>Negative</td><td>Second-round elimination</td></tr><tr><td>Microsoft</td><td>USD 3.70 trillion</td><td>+18.8%</td><td>Cloud +48.2%</td><td>Approximately 25.9x</td><td>+USD 18.63 billion</td><td>Second-round elimination</td></tr><tr><td>Pinterest</td><td>—</td><td>+11.9%</td><td>Advertising +11.9%</td><td>—</td><td>—</td><td>First-round elimination</td></tr><tr><td>Reddit</td><td>—</td><td>+53%</td><td>Advertising +53%</td><td>—</td><td>—</td><td>First-round elimination</td></tr></tbody></table><div class="note">Meta market cap based on USD 606.73 × 2.596 billion shares; Google, Amazon and Microsoft market caps and P/E ratios use public quotes as of end-October 2026 (East Money/Yahoo basis), approximate values only. Revenue and advertising growth figures cited from Everbright Securities (2026/10/30) compilation. Among the four major cloud players, only Microsoft has positive free cash flow (USD 18.63 billion); the rest are negative, totaling -USD 27.31 billion. Pinterest and Reddit market caps and P/E ratios unverified, left blank.</div><div class="section"><div class="section-title">Four funnel criteria: define first, then screen</div><p class='txt'>Set the criteria before looking at the data, otherwise it becomes "conclusion first, justification second." Four rules: first, advertising or core business must account for more than half of total revenue, ensuring the same kind of business is being studied; second, revenue scale of USD 50 billion or more per year, excluding long-tail small companies; third, advertising growth positive in the trailing four quarters, excluding those in structural decline; fourth, free cash flow must not be negative for four consecutive quarters — this is an exclusion criterion, not a weighted one.</p><p class='txt'><b>The fourth rule flags Meta itself</b> — its Q3 free cash flow was -USD 2.12 billion, negative for the first time, and not yet "four consecutive quarters," so it stays under observation. If free cash flow remains negative through the first half of 2027, it too will be screened out by its own funnel. That is the point of discipline: the criteria apply equally to everyone.</p></div><div class="section"><div class="section-title">First round: start by cutting those that are "not big enough"</div><p class='txt'>Snap posted RMB 1.72 billion in a single quarter (Q2 basis), Pinterest RMB 1.17 billion, Reddit RMB 895 million — combined, less than 6% of Meta. Their growth is not bad (Reddit +53%), but their business models are too one-dimensional: advertising only, no second growth curve, no in-house compute. In the AI era they will be forced to buy inference capacity from cloud providers.</p><p class='txt'><b>The reason for elimination is not that they are "bad," but that they are "not in the same weight class."</b>Their value to research lies in reading industry signals (Pinterest fell 14% after earnings, showing advertisers are pulling back experimental budgets), not in serving as investment targets.</p></div><div class="section"><div class="section-title">Round two: why Amazon and Microsoft are out</div><p class='txt'>Amazon advertising: USD 19.64 billion, +10.9%, decelerating from 26.2% in the second quarter, signaling that retail-media advertising has hit its ceiling. Capex is USD 200–220 billion, but AWS generates cash to offset it, so cash-flow pressure is lighter than at Meta. <b>The reason for exclusion: advertising is not its main business; studying it means studying retail plus cloud, which drifts off topic.</b></p><p class='txt'>Microsoft is even more extreme: revenue +18.8%, cloud +48.2%, operating margin 49.8%, free cash flow +USD 18.63 billion — the only one of the four with positive cash flow. But its advertising business is too small, and AI monetization runs through Copilot subscriptions and Azure, a different lane from Meta. <b>It is the best vehicle for "selling shovels" in AI, not a vehicle for "advertising platforms."</b></p></div><div class="section"><div class="section-title">Final pick: Meta vs Google, a trade-off between growth and price</div><p class='txt'>Both are worth tracking. Meta wins on growth: advertising +25.9% versus +10.6%, with share expanding; it loses on price and cash flow: 21x versus 14.8x, free cash flow -RMB 212 million versus (also negative but a different scale).</p><p class='txt'>Google's problem is an income statement dragged down by non-recurring investment losses (SpaceX and other equity stakes); the stock fell 13% after its October 29 earnings, wiping out USD 500 billion in market value.<b>The market's tolerance for "AI spending that doesn't translate into profit" suddenly dropped at the end of October.</b> That is a cautionary tale for Meta: it may be next to be treated this way.</p></div><div class="section"><div class="section-title">Why Meta (if you had to pick one company in this race)</div><p class='txt'>Three reasons: first, it is the only advertising platform still gaining share, growing 2.4x faster than peers; second, it trades at 21x, below Microsoft at 25.9x and near Amazon at 20.4x, yet has the highest growth; third, it is also betting on the next-generation entry point (Muse), and if that succeeds, its valuation framework will be re-rated.</p><p class='txt'>None of the three reasons solves one problem: <b>cash flow.</b> So at the final step of the funnel, the verdict is "add to watchlist," not "buy." A funnel can screen for good companies, not good prices—prices have to be waited for.</p></div><div class="section"><div class="section-title">There is another option beyond the funnel: buy nothing</div><p class='txt'>The purpose of the industry funnel is to identify "the best company in this lane," not "something that must be bought." If the best one is priced wrong, the correct answer is to hold cash and wait, not to settle for the second-best.</p><p class='txt'>Buy Google? 14.8x is indeed cheap, but its ad growth is only 10.6%, AI summaries are still eroding search clicks, and the 13% drop on October 29 shows the market hasn't figured it out either. <b>Buying a "cheap but unclear" stock is essentially trading price for certainty—that is not how value investing works.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Funnel conclusion: of the six, Meta has the strongest advertising business and the tightest financial structure.</b> If you can buy only one advertising stock, it is the first choice; if you have to buy now, the answer is wait. Wait for 2027 expense guidance, or wait for the stock to reach USD 500.</p></div>
+</div>
+<div class="footer">Meta (META) · 2026/11/02</div>
+</body>
+</html>

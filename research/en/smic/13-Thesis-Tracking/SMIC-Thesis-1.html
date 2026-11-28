@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thesis — SMIC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/smic/13-持仓论文追踪/中芯国际-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/smic/13-持倉論文追蹤/中芯國際-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/smic/13-Thesis-Tracking/SMIC-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Thesis — SMIC</h1>
+  <div class="subtitle">SMIC (688981) | 13 · Thesis</div>
+  <div class="meta">Research date 2026/08/10 &nbsp;·&nbsp; Price ¥126.25 (-1.75%) &nbsp;·&nbsp; Market cap About RMB 1.08 trillion &nbsp;·&nbsp; PE(TTM) Approximately 205x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/smic/00-SMIC-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core call: the thesis is intact; the price ran ahead of it</h3><p class='txt'>Break the bull case for SMIC into six testable assumptions: demand persists, price hikes cover costs, depreciation peaks, share is not lost, the premium does not converge, and equipment supply is not cut off. Two now hold (demand, the start of price hikes), two are unverified (depreciation, gross margin), and two are in doubt (share, premium). <b>None of the six has been falsified, but none is strong enough to support a 205x PE.</b></p></div><table class="dt"><caption>Core assumptions and validation status</caption><thead><tr><th>Assumptions</th><th>Current evidence</th><th>Validation metrics</th><th>Status</th></tr></thead><tbody><tr><td>AI spillover extends mature-node demand through 2027</td><td>Consumer electronics +26.9%, industrial and automotive +62.6%, Q2 guidance up 14%–16% QoQ</td><td>Quarterly ASP QoQ; utilization held above 90%</td><td>Established</td></tr><tr><td>Price increases can cover depreciation and wafer costs</td><td>Gross margin +0.9pct QoQ, ASP +2.5%; but -2.4pct YoY</td><td>Gross margin has held above 24% for two consecutive quarters</td><td>Partly true</td></tr><tr><td>Depreciation peaks in 2027</td><td>Company guides 2026 growth of 30%, with further growth in 2027</td><td>Annual capex falls below USD 5 billion</td><td>Unverified (weak)</td></tr><tr><td>Domestic substitution share not eroded by second-tier players</td><td>5% share, third globally; Hua Hong revenue +22.2%</td><td>SMIC share quarterly change, general-category prices</td><td>Questionable</td></tr><tr><td>A/H premium holds</td><td>A-share RMB 126.25 vs H-share HKD 66.20, a 121% premium</td><td>Premium range, southbound capital flows</td><td>Questionable (high risk)</td></tr><tr><td>Advanced-node capacity is not cut off by controls</td><td>2026/04 US plans to add DUV to China ban</td><td>Equipment licenses, capacity expansion progress, new fab ramp-up</td><td>Tail risk</td></tr></tbody></table><div class="note">Status definitions: Confirmed = supported by two consecutive quarters of data; Partially confirmed = direction correct but magnitude insufficient; Unverified = company guidance only, no actual data; Questionable = contradictory evidence; Tail risk = low probability, high impact.</div><div class="section"><div class="section-title">Assumption behind the call: demand is the most solid leg</div><p class='txt'>"AI spillover driving mature-node demand" is the most solid thesis right now. The evidence chain is complete: AI servers are absorbing advanced-node and memory capacity, pushing orders for power management, interfaces, drivers and power devices back to mainland China; SMIC's consumer electronics revenue rose 26.9% year on year, industrial and automotive 62.6%, capacity utilization reached 93.1%, and second-quarter guidance points to 14%–16% sequential growth. Four data points corroborate each other — this is not a single data point.</p><p class='txt'>The value of this thesis is that it does not rely on the grand narrative of "domestic substitution," only on the physical transmission along one supply chain: AI chips need more power and interfaces, those chips use mature nodes, and mature-node capacity sits in mainland China. As long as AI capex holds up, this chain remains intact.</p><p class='txt'>But it has boundaries: the sustainability of AI capex is itself an assumption. The four major North American cloud providers sharply raised capex in 2026; if questions about "circular financing" or order cuts emerge in 2027, this assumption will be the first to crack. So it holds, but not forever.</p></div><div class="section"><div class="section-title">Two unverified items: depreciation and gross margin</div><p class='txt'>"Depreciation peaks in 2027" is currently a weak thesis. The company's own guidance is that depreciation will rise about 30% year on year in 2026 to roughly USD 5 billion and "will continue to grow in 2027, with the peak depending on the pace of capacity expansion" — in effect, no commitment to an inflection point. Meanwhile, the four new 12-inch fabs (SMIC Beijing, SMIC East, SMIC Shenzhen, SMIC West Qing) each have design capacity of about 100,000 wafers per month, or 10.0 billion wafers per month in total, and will gradually ramp to full production in 2026–2027; reaching full production means depreciation continues to be booked.</p><p class='txt'>"Price increases can cover depreciation and wafer costs" is only half proven. First-quarter gross margin rose 0.9 points quarter on quarter, showing price increases are working; but it fell 2.4 points year on year, showing the coverage is insufficient. The additional USD 1.2 billion of depreciation in 2026 equals 12.9% of 2025 revenue, while ASP rose only 2.5% in the first quarter — the gap remains wide.</p><p class='txt'>If these two points do not hold, valuation has no upside. The signal that they do hold is the same for both: <b>gross margin above 24% for two consecutive quarters, and the quarter-on-quarter increase in depreciation begins to narrow.</b></p></div><div class="section"><div class="section-title">Two points in doubt: share and premium</div><p class='txt'>The "no share loss" thesis has already cracked. Hua Hong's 2026Q1 revenue rose 22.2% year on year, with capacity utilization above 100%; Nexchip is expanding CIS capacity; and second-tier fabs are using low prices to grab commodity categories such as PMIC and DDI. SMIC chose not to match prices, protecting gross margin, but it is losing share in commodity categories. This does not affect its strategic position (advanced process, automotive-grade); what it affects is the revenue base of mature process.</p><p class='txt'>"The A/H premium holds" is the one assumption that should least be treated as a given. A premium of 121% means A-share investors pay twice as much for the same asset. It may persist, because capital does not flow freely between the two markets; it may also compress at any time, because sentiment can turn. Writing it into the thesis amounts to treating "market sentiment" as a fundamental.</p></div><div class="section"><div class="section-title">Falsification conditions: exit on any one of them</div><p class='txt'>① Gross margin below 18% for two consecutive quarters (signalling that price hikes have completely failed); ② capacity utilisation falling below 85% (signalling a genuine drop in demand); ③ capex raised again for 2027 while revenue guidance is cut (signalling the onset of overcapacity); ④ the DUV ban taking effect with no alternative (signalling a hard cap on capacity expansion); ⑤ "no dividend + equity placement + major shareholder selling" all occurring at once (signalling a wholesale shift in capital allocation toward the financiers).</p><p class='txt'>Of these five, ① and ② are the easiest to observe, ③ is the most critical, ④ is the most lethal, and ⑤ does the most damage to sentiment.</p></div><div class="section"><div class="section-title">Watch calendar for next steps</div><p class='txt'><b>2026/08/13:</b> Q2 results — watch whether revenue reaches USD 2.86–2.91 billion, whether gross margin exceeds 21%, and Q3 guidance. <b>Late October 2026:</b> Q3 results — watch whether gross margin holds above 24% and the quarter-on-quarter change in depreciation. <b>November 2026:</b> Q3 briefing and full-year capex guidance — watch whether the USD 8.1 billion figure is maintained. <b>February 2027:</b> Q4 and full-year guidance — the key window for judging whether depreciation peaks in 2027. <b>Weekly:</b> A/H premium, southbound fund flows, and policy developments on DUV controls.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Conclusion: the thesis holds, the price does not.</b> None of the six assumptions has been falsified; demand and price increases are even stronger than three months ago. But valuation has already priced all six assumptions as fact. The action is not "buy and hold" but "hold and monitor, verify against the calendar." If any falsification condition triggers, remove it from the watchlist outright.</p></div>
+</div>
+<div class="footer">SMIC (688981) · 2026/08/10</div>
+</body>
+</html>

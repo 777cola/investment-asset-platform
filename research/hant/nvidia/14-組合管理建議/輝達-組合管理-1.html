@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組合管理 — 輝達</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/nvidia/14-组合管理建议/英伟达-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/nvidia/14-組合管理建議/輝達-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/nvidia/14-Portfolio-Action/NVIDIA-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>組合管理 — 輝達</h1>
+  <div class="subtitle">輝達 (NVDA) | 14 · 組合管理</div>
+  <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股價 $220.78（+1.48%） &nbsp;·&nbsp; 市值 約 5.33 萬億美元（241.5 億股） &nbsp;·&nbsp; PE(TTM) 約 28x（FY2028 前瞻約 15x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/nvidia/00-輝達研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>輝達在組合裡的角色是「AI 算力彈性倉」，不是壓艙石。理由：生意品質 9 分，但現金轉化 36%、表外 1,085 億擔保、無接班計畫，三條都要求倉位有上限。</p><p class='txt'><b>給 5% 現價倉位、8% 上限；180 美元以下加到 8%；跌破 150 美元重估論文而不是加倉；單季營收環比轉負或帳期破 75 天減到 3%。</b>不設機械止損——這家公司的波動是估值波動，不是基本面波動，止損只會賣在最低點。</p></div><table class="dt"><caption>倉位建議（按情景）</caption><thead><tr><th>情境</th><th>觸發條件</th><th>目標倉位</th><th>理由</th></tr></thead><tbody><tr><td>樂觀追漲</td><td>FY2027Q3 營收超 1,150 億、毛利率 75%、帳期守住 60 天</td><td>7%–8%</td><td>70% 斜率獲驗證，估值可從 15 倍抬升至 18 倍</td></tr><tr><td>基準（當前）</td><td>220.78 美元、15x FY2028、現金轉化 36%</td><td>5%</td><td>好公司、合理價、表外不可測</td></tr><tr><td>回調加倉</td><td>股價 180 美元以下（12.3x FY2028）</td><td>8%</td><td>那個位置為不確定性付了錢</td></tr><tr><td>論文受損</td><td>帳期突破 75 天，或單季營收環比轉負</td><td>3%</td><td>現金流轉壞，估值方式要重寫</td></tr><tr><td>尾部風險</td><td>1,085 億擔保出現實際代償，或兩家雲廠下修資本支出超 10%</td><td>0%–2%</td><td>不確定性變成現實虧損</td></tr></tbody></table><div class="note">倉位為占股票組合的比例，不含現金。基準倉位對應 2026/08/31 收盤 220.78 美元。情景之間不疊加，按最新事實選最接近的一檔。</div><div class="section"><div class="section-title">為什麼是 5%，不是 10%</div><p class='txt'>單看生意品質，輝達該給 10%。毛利率 75%、淨利率 62%、增速 106%、護城河 8.9 分——這是組合裡最好的資產。</p><p class='txt'>壓到 5% 的理由有三條，都是結構性的。<b>第一，現金轉化率 36%。</b>這意味著它的「利潤」有一部分是帳面數字，市場一旦開始用現金流定價，估值會重估。<b>第二，表外 1,085 億擔保 + 2,790 億供應承諾。</b>這兩筆不在資產負債表上，但會在需求轉弱時回來。<b>第三，沒有接班計畫。</b>黃仁勳 63 歲，公司沒有 COO、沒有指定二號人物——這是任何估值模型都裝不進去的風險。</p><p class='txt'>三條加起來，5% 是「參與但不押注」的倉位。漲了不會錯過，跌了不會傷筋動骨。</p></div><div class="section"><div class="section-title">加倉、減倉、不設止損</div><p class='txt'><b>加倉線 180 美元。</b>對應 FY2028 EPS 14.61 美元的 12.3 倍、FY2028 自由現金流（約 2,800 億）的 15.5 倍。這個價位的含義是：即使 FY2028 只增 30%（悲觀情景 EPS 11.22），也是 16 倍——不貴。180 美元是「不需要相信指引」的價格。</p><p class='txt'><b>減倉觸發：</b>帳期破 75 天、單季營收環比轉負、Q4 毛利率跌破 71%、兩家雲廠下修 2027 年資本支出超 10%。任一條觸發減到 3%。</p><p class='txt'><b>不設機械止損。</b>這隻股票三個月的位移是 −0.9%（222.82 → 220.78），波動區間卻是 190–228，日內 5% 的波動是常態。用 10% 止損的人，這三個月會被掃掉三次，每次都在更低的位置買回來。<b>對這種公司，止損應該設在基本面，不設在價格。</b></p><p class='txt'><b>也不做空。</b>做空一個 75% 毛利率、需求還在加速、帳上 990 億美元回購授權的公司，是拿自己的錢去賭別人犯錯。賭對了賺 20%，賭錯了被回購和業績雙殺。</p></div><div class="section"><div class="section-title">與其他持倉的相關性：它是 AI beta 的最高倍數</div><p class='txt'>輝達在這個組合裡的真實身分，不是「一家公司」，是「AI 資本支出的最高 beta」。相關係數粗算：</p><ul><li><b>與台積電、美光、博通：0.8–0.9。</b>同一條鏈，同一個驅動變數（雲廠資本支出）。持有輝達 + 台積電 + 美光，等於把 AI 算力鏈買了三遍。</li><li><b>與微軟、亞馬遜、Alphabet、Meta：0.5–0.6。</b>它們的資本支出是輝達的收入，但它們的股價還受廣告、雲業務、監管影響。</li><li><b>與 CoreWeave、Nebius：0.7–0.8。</b>NeoCloud 是輝達的客戶 + 擔保對象 + 股權標的，三重綁定。</li><li><b>與騰訊、美團、小米：0.2–0.3。</b>中國消費互聯網，驅動變數不同。</li><li><b>與波克夏、現金：接近 0 或略負。</b>避險資產。</li></ul><p class='txt'>這意味著兩件事。<b>第一，如果組合裡已經有台積電 5%、美光 3%，輝達的 5% 實際敞口相當於 AI 算力鏈的 13%——已經不低了。</b>第二，減 AI 風險的時候，第一個該減的不是台積電，是輝達，因為它的 beta 最高、估值最貴、表外最複雜。</p><p class='txt'>還有一個反直覺的點：輝達與它自己的客戶高度正相關，但方向不對稱。<b>雲廠財報好，輝達跟著漲；雲廠財報差但宣布加資本支出，輝達也漲；只有雲廠下修資本支出，輝達才跌。</b>也就是說，它把客戶的好消息全部吸收，把壞消息放大——這是 beta 1.5 以上的資產特徵，倉位必須按這個算。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>方案：現價 5%，上限 8%，加倉線 180 美元，減倉看帳期與環比，不設價格停損，不做空。</b>這套方案的核心是承認兩件事：這是一家好公司（所以要持有），這是一個算不清的表外（所以要限倉）。<b>用倉位管理不確定性，比用觀點管理它可靠。</b></p></div>
+</div>
+<div class="footer">輝達 (NVDA) · 2026/08/31</div>
+</body>
+</html>

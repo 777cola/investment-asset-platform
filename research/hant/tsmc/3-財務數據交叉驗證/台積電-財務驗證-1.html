@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務驗證 — 台積電</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/tsmc/3-财务数据交叉验证/台积电-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/tsmc/3-財務數據交叉驗證/台積電-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/tsmc/3-Financial-Cross-Check/TSMC-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務驗證 — 台積電</h1>
+  <div class="subtitle">台積電 (2330.TW) | 03 · 財務驗證</div>
+  <div class="meta">研究日期 2026/09/11 &nbsp;·&nbsp; 股價 NT$2,410（-1.63%） &nbsp;·&nbsp; 市值 約 62.5 萬億元新台幣（約 1.95 萬億美元） &nbsp;·&nbsp; PE(TTM) 約 27.9x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/tsmc/00-台積電研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：數字站得住，問題在單位和口徑</h3><p class='txt'>八個關鍵數字做了雙源核對。營收 12,703.8 億元、毛利率 67.7%、淨利 7,065.6 億元、EPS 27.25 元、8 月營收 5,148.06 億元全部對得上，偏差在 0.1% 以內。需要處理的是三處：市值單位（6.25 兆 vs 62.5 兆新台幣，差一位數）、資本支出口徑（600–640 億美元區間 vs 媒體取中值 620 億）、以及底稿裡「五年後一年賺 1.5 兆」這句明顯偏低的推算。<b>結論：財報數據可用，引用時必須帶單位和口徑。</b></p></div><table class="dt"><caption>關鍵數據雙源對照（2026Q2，新台幣億元）</caption><thead><tr><th>指標”, ”來源 A</th><th>來源 B</th><th>偏差處理</th></tr></thead><tbody><tr><td>合併營收
+法說會簡報 12,703.8</td><td>媒體 1.27 萬億元 / 402 億美元“, ”0.03%</td><td>採用 12,703.8</td></tr><tr><td>毛利率
+法說會 67.7%</td><td>媒體 67.7%（個別寫 67.6%）、0.1 個百分點</td><td>採用 67.7%</td></tr><tr><td>稅後淨利”, ”法說會 7,065.6</td><td>媒體 7,066 億（四捨五入）”, ”0.01%</td><td>採用 7,065.6</td></tr><tr><td>每股盈餘
+法說會 27.25 元
+按淨利÷259.3 億股 = 27.25 元
+0.00%</td><td>互證通過</td></tr><tr><td>8 月合併營收
+月營收公告 5,148.06</td><td>工商時報 5,148.06 億（同比 +53.3%）“, ”0.00%</td><td>採用 5,148.06</td></tr><tr><td>2026 年資本支出
+法說會 600–640 億美元
+媒體取中值 620 億美元
+區間口徑
+全文寫 600–640 億</td></tr><tr><td>市值“, ”2,410 元 × 259.3 億股 = 62.5 萬億元“, ”底稿／部分快訊寫 6.25 萬億元“, ”10 倍（單位筆誤）“, ”採用 62.5 萬億元新台幣</td></tr><tr><td>PE(TTM)</td><td>62.5 萬億元 ÷ TTM 稅後淨利 2.24 萬億元 = 27.9x</td><td>底稿 27.9x</td><td>0.00%</td><td>採用 27.9x</td></tr></tbody></table><div class="note">來源 A 為公司披露（法說會簡報、月營收公告）；來源 B 為中文財經媒體二次報導。偏差計算方式為 |A−B|÷A。市值一節為本次核對發現的最重要問題，處理見正文。</div><div class="section"><div class="section-title">第一處：市值差了一個數量級</div><p class='txt'>2,410 元 × 259.3 億股 = 62.49 萬億元新台幣。這個數字換算成美元（32 元兌 1 美元）約 1.95 萬億，和「1.95 萬億美元」完全吻合。<b>但底稿和多篇快訊寫的是「6.25 萬億元新台幣」，少了一位。</b>6.25 萬億元新台幣只有 1,950 億美元，與「1.95 萬億美元」差十倍——兩個數字不可能同時成立。</p><p class='txt'>用 PE 反證：TTM 淨利 = EPS 86.3 元 × 259.3 億股 = 2.24 萬億元新台幣；62.5 ÷ 2.24 = 27.9 倍，與底稿的 27.9x 一致。如果用 6.25 萬億元，PE 只有 2.8 倍，那是破產價，顯然不對。所以正確口徑是<b>62.5 萬億元新台幣（約 1.95 萬億美元）</b>，本報告集全部按此口徑，meta 裡的市值欄位已更正。這類錯誤很常見——萬億和億在中文裡只差一個字，但差了四個零。</p><p class='txt'>順帶說匯率。本報告用 32 元新台幣兌 1 美元做量級折算，2026 年二季度實際均值約 31.5。用 31.5 算，62.5 萬億元新台幣等於 1.98 萬億美元，與 1.95 萬億差 1.5%。這個差異對結論沒有影響，但如果要寫精確到小數點的美元市值，就必須固定匯率口徑。本報告的選擇是：<b>新台幣是唯一主口徑，美元只做量級參考</b>，所有表格不混用兩種貨幣。</p></div><div class="section"><div class="section-title">第二處：資本支出的區間不能取中值</div><p class='txt'>法說會給的是「600–640 億美元」，媒體普遍寫成「上調至 620 億美元」。620 是區間的中值，不是公司說的數。差別看起來不大，但影響兩件事：一是折舊的節奏（多 20 億美元資本支出，未來五年每年多攤約 4 億美元折舊，約 130 億新台幣），二是「管理層口徑」的嚴肅性——台積電很少給單點數字，給區間就是在說「我也在邊走邊看」。</p><p class='txt'>處理方式：全文寫「600–640 億美元」，需要取單值時用 620 並標註「區間中值」。同理，Q3 毛利率指引 65%–67% 也不取 66% 當公司口徑，只在做敏感性時用中值。</p></div><div class="section"><div class="section-title">第三處：底稿的「五年 1.5 萬億元」偏低，本次重算</div><p class='txt'>底稿（m04 段永平段）寫「如果五年後台積電一年能賺 1.5 萬億元新台幣」，這個數字有問題——2026 年本身就有 2.75 萬億元（EPS 106 元 × 259.3 億股）。五年後比現在還少，邏輯上不成立。</p><p class='txt'>這次按可比口徑重算：以 2026 年稅後淨利 2.75 萬億元為起點，中性假設 2027 年 EPS 125 元（稅後淨利 3.24 萬億元），之後四年年增 8%，2031 年稅後淨利約 4.4 萬億元、EPS 約 170 元。給 15 倍是 2,545 元/股，給 18 倍是 3,055 元。用這個數算五年回報，年化只有 2%–5%（含股息 1%）。<b>結論方向沒變——「確定性已被定價」——但算術必須站得住。</b>底稿的評級（持有）與目標價不變。</p></div><div class="section"><div class="section-title">第四處：2025Q2 的數字是反推的，要標出來</div><p class='txt'>損益表裡的 2025Q2 營收 9,341 億元、淨利 3,983 億元、毛利率 58.6%，是按公司披露的同比增速反推的（營收 +36.0%、淨利 +77.4%、毛利率同比 +9.1pct），不是原始報表值。反推誤差在 0.5% 以內，夠用，但必須在表註裡寫清楚，否則讀者會以為這是披露值去買。</p><p class='txt'>能互證的是 EPS：2025 全年 66.25 元、2026 上半年 49.33 元，TTM 86.3 元；TTM 淨利 2.24 萬億 ÷ 259.3 億股 = 86.4 元，與 86.3 差 0.1%，交叉驗證通過。<b>所以整條利潤序列是自洽的，可以放心用。</b></p><p class='txt'>再補一條自洽性檢查：2025 年全年 EPS 66.25 元、2026 上半年 49.33 元，推出 2025 下半年 37.00 元；TTM = 37.00 + 49.33 = 86.33 元，與底稿的 86.3 元一致。營收側同樣對得上：2025 年全年約 10.5 萬億，2026 上半年 2.4 萬億（Q1 11,341 + Q2 12,703.8 = 24,045 億），同比增速與公司口徑的 +36% 吻合。四條數據鏈互相印證，說明這份財務底稿可以放心使用。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：資料可用，三處必須帶口徑。</b>①市值 62.5 萬億元新台幣（約 1.95 萬億美元），不是 6.25 萬億元；②資本支出 600–640 億美元，620 是中值不是公司口徑；③2025Q2 各行為反推值；④底稿「五年 1.5 萬億元」已重算為 4.4 萬億元，評級和結論不變。所有推算值在正文均標註「粗算／推算」。</p></div>
+</div>
+<div class="footer">台積電 (2330.TW) · 2026/09/11</div>
+</body>
+</html>

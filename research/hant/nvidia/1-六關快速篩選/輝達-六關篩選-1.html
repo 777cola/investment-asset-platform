@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>六關篩選 — 輝達</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/nvidia/1-六关快速筛选/英伟达-六关筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/nvidia/1-六關快速篩選/輝達-六關篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/nvidia/1-Six-Gate-Screen/NVIDIA-Six-Gate Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>六關篩選 — 輝達</h1>
+  <div class="subtitle">輝達 (NVDA) | 01 · 六關篩選</div>
+  <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股價 $220.78（+1.48%） &nbsp;·&nbsp; 市值 約 5.33 萬億美元（241.5 億股） &nbsp;·&nbsp; PE(TTM) 約 28x（FY2028 前瞻約 15x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/nvidia/00-輝達研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>六關打 42 分，扣分全在「價格」和「角色」兩件事上，不在生意本身。前三關幾乎是滿分：FY2027Q2 營收 962.21 億美元、同比 +106%，資料中心 890.23 億美元、同比 +117%，毛利率 75.0%、淨利率 62.0%。<b>這是製造業能達到的最好形態：客戶排隊、產能被提前買光、不用自建晶圓廠。</b></p><p class='txt'>第四關扣在角色變化：供應與產能承諾從 1,190 億美元漲到 2,790 億美元，為資料中心項目提供上限 1,085 億美元的信用擔保，還承諾採購 360 億美元未來雲端服務。第五關 3 分，因為 5.33 萬億美元市值對應的 15 倍 FY2028 市盈率，分母是公司 8 月 26 日自己給的「增長約 70%」。<b>好公司、好生意、貴的確定性，動作只能是持有，不是買入。</b></p></div><table class="dt"><caption>六關篩選（10 分制，綜合 60 分）</caption><thead><tr><th>關卡</th><th>判定</th><th>評分</th><th>依據</th></tr></thead><tbody><tr><td>第一關：能力圈</td><td>透過</td><td>8/10</td><td>賣 GPU、賣機櫃、賣網路，一句話說得清；難的是看清客戶的資產負債表，而現在輝達在替客戶解決這件事</td></tr><tr><td>第二關：好生意</td><td>透過</td><td>10/10</td><td>毛利率 75.0%、稅後淨利率 62.0%、營業費用率僅 8.7%，客戶先付錢後拿貨，資產輕、周轉快</td></tr><tr><td>第三關：護城河</td><td>透過</td><td>9/10</td><td>CUDA 生態 + 機櫃級系統整合 + 對 CoWoS 與 HBM 產能的優先鎖定，三項疊加；扣 1 分給 Q4 毛利率指引 71%–72%</td></tr><tr><td>第四關：管理層</td><td>存疑</td><td>7/10</td><td>執行力二十年沒失手；扣分在邊界——從賣設備變成替客戶的專案提供土地、電力與信用</td></tr><tr><td>第五關：安全邊際</td><td>不通過</td><td>3/10</td><td>220.78 美元對應 5.33 萬億美元，FY2028 的 15 倍建立在公司自己「增長約 70%」的指引上</td></tr><tr><td>第六關：紀律</td><td>存疑</td><td>5/10</td><td>買入前提可驗證，但要等 2027 財年四個季度的資料，中間沒有安全邊際</td></tr><tr><td>綜合</td><td>持有</td><td>42/60</td><td>已有倉位繼續持有；新資金等 180 美元以下，或 FY2028 指引第一次被季報驗證</td></tr></tbody></table><div class="note">評分口徑為本報告自訂，與底稿六關表逐項一致（8+10+9+7+3+5=42）。底稿 gate_verdict 寫作「五關通過」，按六關表實際判定應為三通過、兩存疑、一不通過，總分不變。資料來源：輝達 FY2027Q2 財報（2026/08/26）、日線收盤（2026/08/31，220.78 美元）。</div><div class="section"><div class="section-title">前三關：一家「客戶排隊等貨」的公司</div><p class='txt'>先看這門生意長什麼樣子。FY2027Q2 營收 962.21 億美元，環比 +18%、同比 +106%，連續第四個季度加速。資料中心 890.23 億美元，佔總收入 92.5%；其中超大規模雲 487.10 億美元（同比 +102%）、AI 雲與工業及企業 403.13 億美元（同比 +138%）。邊緣運算 72 億美元，同比 +27%。</p><p class='txt'>利潤表乾淨得不像製造業：毛利率 75.0%，營業費用 84.08 億美元、費用率 8.7%，營業利益 637.34 億美元、營業利益率 66.2%，稅後淨利 596.88 億美元。<b>這意味著每賣 100 美元貨，66 美元落到營業利益裡</b>——同期台積電毛利率 67.7%，鴻海 6.12%，輝達站在整條鏈的最上面。</p><p class='txt'>護城河三條。第一條是 CUDA：二十年積累的遷移成本，不是錢的問題，是程式碼、人才和時間的問題。第二條是機櫃級系統：Vera Rubin 不是一個 GPU，是 Vera CPU + Rubin GPU + NVLink + Spectrum-6 網路 + 整機的組合，競爭對手要打贏它，得先造出一整套系統。第三條是產能優先權：2,790 億美元的供應承諾，本質是用現金買下未來兩年的 HBM 與先進封裝產能。公司自己在電話會上給了一個量化口徑——每吉瓦算力對應的商業價值，Hopper 時代 180 億美元、Grace Blackwell 250 億美元、Vera Rubin 400 億美元。<b>同一度電賣出的錢在翻倍，這是護城河最硬的證據。</b></p></div><div class="section"><div class="section-title">第四關：從賣鏟子到半個開發商</div><p class='txt'>管理層這一關給 7 分，扣的不是能力。黃仁勳 1993 年創立公司，三十三年只做加速運算一件事，節奏從沒錯過：2023 年 Hopper、2024 年 Blackwell、2026 年 Vera Rubin，一代接一代，且每一代都在爬坡最快的季度就宣布「史上最快」。本季度向股東返還 260 億美元（200 億回購 + 60 億股息），回購授權還剩 990 億美元。</p><p class='txt'>扣分在邊界。這個季度披露的三行數字改變了公司的風險特徵：供應與產能承諾 2,790 億美元（上季 1,190 億，+134%）；為資料中心項目提供信用擔保，最大總敞口 1,085 億美元（含項目擔保 1,050 億、AI 雲客戶 35 億）；承諾採購部分未來雲端服務 360 億美元。按《澳大利亞金融評論》對 10-Q 附註的彙總，六項表外承諾合計約 5,305 億美元。</p><p class='txt'>公司自己知道外界會怎麼讀。電話會上黃仁勳主動說了一句：「我們清楚外界會將這類安排解讀為循環融資。」他的解釋是：這些 AI 實驗室技術已驗證、需求真實，輝達投進去的錢只占同期自由現金流的一小部分，算力通用、可以調配給別的客戶，風險可控。<b>這話有一半是對的——算力確實可以轉賣；另一半沒法驗證——轉賣給誰、什麼價格、多久能賣掉。</b></p><p class='txt'>還有一句更關鍵的話被大多數人忽略了：明年需要借助輝達資產負債表支持的 AI 實驗室業務，大約占公司總業務的四分之一。一家公司四分之一的收入需要自己提供信用支持，這已經不是「賣設備」的資產負債表了。</p></div><div class="section"><div class="section-title">第五、六關：15 倍的分母是公司自己寫的</div><p class='txt'>220.78 美元、241.9 億股，市值 5.33 萬億美元，TTM 本益比約 28 倍。按公司「FY2028 營收成長約 70%」推，FY2028 營收約 6,413 億美元，淨利率 55% 對應淨利 3,527 億美元、EPS 14.61 美元——<b>15.1 倍。</b>單看倍數，這是全市場最便宜的大盤科技股之一。</p><p class='txt'>問題是這個分母的出處。它不是歷史業績，不是第三方一致預期，是財務長科萊特·克雷斯在 8 月 26 日電話會上第一次給出的、一年以上的前瞻指引，而且明確說「該指引受供給約束」，真實需求「遠高於 70%」。換句話說，70% 是產能上限，不是需求上限，聽起來更樂觀；但它同時是一家萬億美元公司對兩年後的自我預測，歷史上沒有先例。</p><p class='txt'>三情景攤開：悲觀 168 美元（FY2028 只增 30%、15 倍）、中性 248 美元（增 60%、17 倍）、樂觀 386 美元（增 77%、23 倍）。<b>上行 12%、下行 24%，賠率 1 : 0.5。</b>這就是第五關只給 3 分的原因：不是嫌貴，是嫌貴得不徹底、便宜得有條件。</p><p class='txt'>第六關給 5 分，因為買入前提能寫清楚但驗證太慢：FY2027Q3 營收 1,080 億美元、FY2028 成長 70%、毛利率 Q4 觸底 71%–72% 後回升。三個數都能在季報裡核對，但要等 11 月 17 日、明年 2 月和 5 月。<b>在那之前，任何買入都是對指引的信仰投票。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>42/60，總評持有，動作是不追高。</b>三關滿分說的是生意，兩關存疑說的是角色，一關不過說的是價格。已有倉位沒有賣出的理由——需求、供給、生態三條都沒壞；新錢也沒有買入的理由——220 美元買的是公司自己的預測。<b>觸發條件寫死：股價 180 美元以下（對應 FY2028 約 12.3 倍），或 FY2027Q3（11 月 17 日）與 FY2027Q4 連續兩個季度把 70% 的斜率跑出來。</b>兩者出現一個，評級上調一檔。</p></div>
+</div>
+<div class="footer">輝達 (NVDA) · 2026/08/31</div>
+</body>
+</html>

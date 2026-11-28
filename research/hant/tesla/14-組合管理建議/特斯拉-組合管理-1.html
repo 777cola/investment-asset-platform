@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組合管理 — 特斯拉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/tesla/14-组合管理建议/特斯拉-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/tesla/14-組合管理建議/特斯拉-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/tesla/14-Portfolio-Action/Tesla-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>組合管理 — 特斯拉</h1>
+  <div class="subtitle">特斯拉 (TSLA) | 14 · 組合管理</div>
+  <div class="meta">研究日期 2026/07/22 &nbsp;·&nbsp; 股價 $374.01（-1.30%） &nbsp;·&nbsp; 市值 約 1.48 萬億美元 &nbsp;·&nbsp; PE(TTM) —（利潤太薄，PE 已失真）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/tesla/00-特斯拉研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：這不是一隻可以「先買一點」的股票</h3><p class='txt'>對一隻 61% 市值靠期權的股票，倉位管理的核心不是「買多少」，是「什麼條件下才開始買」。<b>當前 374 美元：0 倉位。300–330 美元：1–2% 觀察倉。250 美元以下：3–5%。FSD 收入單列並年化超 50 億美元：2–3%，不看價格。</b></p><p class='txt'>它和組合裡其他持倉的相關性很高：與納指、AI 算力鏈同漲同跌，與債券負相關。<b>這意味著它不是分散工具，是加槓桿工具</b>——買了它，等於在原有成長股倉位上再加一層 beta。</p></div><table class="dt"><caption>倉位建議（按情景觸發）</caption><thead><tr><th>情境</th><th>觸發條件</th><th>建議倉位</th><th>理由</th></tr></thead><tbody><tr><td>目前</td><td>374 美元、市值 1.48 萬億</td><td>0%</td><td>期權佔比 61%，賠率不利（中性 +2%、悲觀 -33%）</td></tr><tr><td>回調一檔</td><td>300–330 美元（市值 1.19–1.31 萬億元）</td><td>1–2%</td><td>期權占比降到 55%，仍不足以覆蓋尾部風險</td></tr><tr><td>回調兩檔</td><td>低於 250 美元（市值約 0.99 萬億）</td><td>3–5%</td><td>實體業務 5,700 億 + 期權折價，賠率轉正</td></tr><tr><td>證據驅動</td><td>FSD／Robotaxi 收入單列、年化 &gt;50 億美元</td><td>2–3%</td><td>不看價格看證據，用事實替代假設</td></tr><tr><td>已持倉</td><td>成本高於 400 美元</td><td>減至 1% 以下</td><td>估值方法變了（重資產化），原買入理由失效</td></tr></tbody></table><div class="note">倉位為占股票組合的比例，不含現金與債券。觸發條件以收盤價為準，避免盤中假突破。</div><div class="section"><div class="section-title">為什麼現價是 0，而不是「買一點觀察」</div><p class='txt'>很多人習慣「先買 1% 觀察」，但 1% 倉位對研究沒有幫助，對組合有傷害。<b>它的作用是讓你在心理上「站隊」，之後所有分析都會不自覺地為持倉找理由。</b></p><p class='txt'>更重要的是賠率：中性情景目標價 380 美元、上行 2%；悲觀 250 美元、下行 33%。<b>1% 倉位在這種賠率下的期望貢獻是 -0.3%，但情緒成本很高。</b>不買，反而能保持判斷的獨立性。</p><p class='txt'>真正的觀察不需要倉位。每月看交付、每季看財報、追蹤 Robotaxi 城市數，這些都不需要持股。<b>倉位是用來表達確信的，不是用來表達興趣的。</b></p></div><div class="section"><div class="section-title">加倉、減倉、停損的具體價位</div><b>加倉：</b>首次建倉只在 300 美元以下，且分兩批——300 美元買一半、280 美元買另一半。<b>不追反彈，不因為「FSD 又開一城」加倉。</b>唯一可以突破價格條件的情況是 FSD 收入單列且年化超 50 億美元。<b>減倉：</b>若已持倉且成本高於 400 美元，反彈到 420 美元以上減至 1% 以下。<b>止損：</b>對未持倉者不存在止損；對已持倉者，跌破 320 美元（對應市值 1.27 萬億）減半，跌破 280 美元清倉。<b>止損不是因為價格，是因為邏輯——320 美元對應「期權佔比 50%」，280 美元對應「市場開始按實體業務定價」。</b><b>否決：</b>如果 Q3 財報汽車毛利率跌破 16%、FCF 連續第二季為負，無論價格多少都不建倉。<b>那說明商業模式的惡化快於估值下修。</b></div><div class="section"><div class="section-title">相關性：它不是分散工具，是加槓桿工具</div><p class='txt'>特斯拉與納指 100 的相關性長期在 0.6 以上，與 AI 算力鏈（輝達、AMD、台積電）的相關性在 2026 年升到 0.5 以上——<b>因為它的估值邏輯已經變成「AI 期權」，而不是「汽車銷量」。</b></p><p class='txt'>與債券負相關、與美元負相關（海外收入占比高、匯兌影響利潤）。<b>這意味著：如果你的組合裡已經有 20% 以上的科技成長股，再加特斯拉不會分散風險，只會放大回撤。</b></p><p class='txt'>替代方案：<b>想要自動駕駛敞口，買 Alphabet（Waymo 在體內）；想要電動車週期敞口，買寧德時代（電池環節議價權最強）；想要 AI 算力敞口，買輝達。</b>這三個都能部分替代特斯拉的某一層邏輯，且估值有錨。</p></div><div class="section"><div class="section-title">與其他持倉的衝突檢查</div><b>與比亞迪／寧德時代：</b>負相關於價格戰——特斯拉降價，比亞迪毛利受壓，兩者不該同時重倉，否則是在賭同一條產業鏈的兩個方向。<b>與輝達：</b>正相關於 AI 敘事。如果組合裡輝達已占 8%，再加特斯拉 3%，等於把 11% 押在「AI 繼續超預期」這一件事上。<b>建議兩者合計不超過 10%。</b><b>與現金：</b>特斯拉是「長久期資產」，利率上行時估值壓縮最狠。<b>在升息週期裡，它的跌幅會大於納指。</b>這也是為什麼現在不該買——2026 年下半年利率路徑仍不確定。</div><div class="summary-box"><h3>結論</h3><b>結論：0 倉位，四個價格／證據觸發點寫在紙上，不到不動。</b>300 美元以下建 1–2%，250 美元以下加到 3–5%，FSD 收入單列可破例建 2–3%。<b>這一套紀律的核心不是「等便宜」，是「等可驗證」——因為這家公司的價值，61% 建立在無法驗證的假設上。</b></div>
+</div>
+<div class="footer">特斯拉 (TSLA) · 2026/07/22</div>
+</body>
+</html>

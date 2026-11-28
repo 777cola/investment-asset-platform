@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>商業分析（段永平視角） — Palantir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/palantir/5-四角色并行分析/Palantir-商业分析-段永平.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/palantir/5-四角色並行分析/Palantir-四角色-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/palantir/5-Four-Role-Analysis/Palantir-Four Roles-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>商業分析（段永平視角） — Palantir</h1>
+  <div class="subtitle">這門生意到底在賣什麼，客戶為什麼付錢</div>
+  <div class="meta">研究日期 2026/10/05 &nbsp;·&nbsp; 股價 $189.40（+0.34%） &nbsp;·&nbsp; 市值 約 4,560 億美元 &nbsp;·&nbsp; PS(TTM) 約 74 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/palantir/00-Palantir研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>一句話：<b>它賣的是「把混亂變成可執行的決策」。</b>政府和企業的痛點不是沒有資料，是資料在二十個系統裡、口徑互相打架、沒人敢簽字。Palantir 把這堆東西接成一張本體圖，讓決策有唯一版本。這個痛點值錢，而且越大的組織越值錢。</p><p class='txt'>生意的經濟特徵極好：一次交付、多次複製，客戶上線後加模組的邊際成本接近零。但要注意它的收入裡有一塊是駐場人力——這是它和純 SaaS 最大的區別，也是毛利率只有 80% 而不是 85% 的原因。</p></div><div class="section"><div class="section-title">客戶為什麼願意付這個價</div><p class='txt'>政府端的邏輯是「不敢不買」。情報整合、後勤調度、戰場態勢，這些場景錯一次的代價是人的生命或一次行動的失敗。Palantir 的 Gotham 在這些場景裡跑了十五年，從伊拉克戰場到現在的聯合作戰指揮，客戶換掉的成本不是錢，是重新驗證一遍的三年。</p><p class='txt'>商業端的邏輯不一樣，是「算得過來」。空巴用它的 Skywise 管 A350 的生產排程，把供應鏈上的延誤提前幾天看見；製造業客戶用它做預測性維護，停線一小時損失幾十萬美元。AIP 出來後，邏輯又變了一層——過去要派工程師駐場半年，現在客戶自己的業務人員在 bootcamp 裡五天就能搭出一個能跑的 agent。<b>這是它 2026 年美國商業收入同比 +149% 的真正原因：銷售週期從九個月縮到五週。</b></p><p class='txt'>段永平會問一句：「客戶不買會怎麼樣？」答案分兩半。政府客戶不買，專案會延期、預算會被別家拿走，但日子還能過；商業客戶不買，只是繼續用 Excel 和 BI 報表。所以這門生意的需求不是剛性的，是「效率驅動」的——經濟好的時候賣得動，預算緊的時候第一個被砍。這一點必須記住。</p></div><div class="section"><div class="section-title">單位經濟：客戶數只增 24%，收入增 93%</div><p class='txt'>這是整份財報裡最能說明生意本質的一組數字。客戶總數 1,049 家、同比 +24%，收入 +93%。<b>收入增速是客戶增速的四倍，意味著增長幾乎全部來自老客戶加單。</b></p><p class='txt'>單客戶年收入（TTM 61.62 億 ÷ 1,049 家）約 587 萬美元。這個數字在軟體業裡屬於頂級——Salesforce 的單客戶年均支出大約十幾萬美元。它賣的不是席位，是「一套系統」。</p><p class='txt'>老客戶為什麼加單？因為本體圖有網路效應：接進來的資料源越多、跑起來的場景越多，下一個場景的上線成本越低。客戶第一年買一個用例，第三年買十個，第五年整個部門都在上面跑。美國商業剩餘合同價值 62.38 億美元、同比 +124%，這個蓄水池比當期收入大三倍多，說明加單還在加速。</p><p class='txt'>但反過來看也有隱憂：客戶面窄。1,049 家客戶撐起 4,560 億市值，平均每家客戶對應 4.3 億美元市值（粗算）。<b>這意味著任何一批大客戶的預算變化，都會被市值放大成兩位數百分點的波動。</b></p></div><div class="section"><div class="section-title">定價權：為什麼它能收 62% 的調整後營業利益率</div><p class='txt'>定價權來自三件事，缺一不可。第一，替代品少——能做機密環境部署、又能在上面跑 AI 的，全球不超過三家。第二，轉換成本高——業務邏輯寫進本體之後，換供應商等於重做流程。第三，價值可歸因——客戶能算出這套系統省了多少錢，所以不砍價。</p><p class='txt'>段永平判斷定價權的標準很樸素：<b>「你敢不敢漲價，客戶跑了沒有。」</b>Palantir 的答案在過去八個季度裡是清楚的：單客戶收入年年漲，客戶流失率低。這一關它過了。</p><p class='txt'>邊界在哪裡？在中小企業。這套東西的實施成本太高，年付幾十萬美元以下的客戶養不起駐場團隊。所以它的 TAM 天然被限制在「大政府 + 大企業」，全球大約三千到五千家機構。這個池子夠大（現在只滲透了 1,049 家），但也意味著<b>它的天花板不是「所有企業」，是「所有付得起的大機構」</b>。</p></div><div class="summary-box"><h3>結論</h3><p>商業本質的判斷：這是一門好生意，需求真實、定價權真實、單位經濟優秀。<b>它的邊界不在需求側，在客戶結構</b>——1,049 家大客戶撐起全部收入，增長靠加單而非擴客，這讓它同時具備高利潤和高波動。段永平會說這生意他看得懂，也會說這價格他下不了手。</p></div>
+</div>
+<div class="footer">Palantir (PLTR) · 2026/10/05</div>
+</body>
+</html>

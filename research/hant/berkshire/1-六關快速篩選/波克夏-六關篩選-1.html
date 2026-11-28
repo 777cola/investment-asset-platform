@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>六關篩選 — 波克夏</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/berkshire/1-六关快速筛选/伯克希尔-六关筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/berkshire/1-六關快速篩選/波克夏-六關篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/berkshire/1-Six-Gate-Screen/Berkshire-Six-Gate Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>六關篩選 — 波克夏</h1>
+  <div class="subtitle">波克夏 (BRK.B) | 01 · 六關篩選</div>
+  <div class="meta">研究日期 2026/11/16 &nbsp;·&nbsp; 股價 $592.85（-0.02%） &nbsp;·&nbsp; 市值 約 1.26 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 16.6x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/berkshire/00-波克夏研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>六關過五關，43 分。生意、護城河、文化三項都在一流區間，卡住的只有價格：592.85 美元對應 1.66 倍帳面價值、約 25 倍年化營業利益。這不是一家需要挑毛病的公司，是一檔需要等價格的股票。</p><p class='txt'>結論放前面：不買，但盯著。觸發條件很具體——股價回到 500 美元以下（1.4 倍帳面），或者出現單筆 300 億美元以上的併購，或者承保利潤回到 20 億美元/季。</p></div><table class="dt"><caption>六關判定（2026/11/16，股價 592.85 美元）</caption><thead><tr><th>關卡</th><th>判定</th><th>評分</th><th>依據</th></tr></thead><tbody><tr><td>第一關 能力圈</td><td>透過</td><td>9/10</td><td>「用浮存金買好生意」，一句話說得清；分部報表透明</td></tr><tr><td>第二關 好生意</td><td>透過</td><td>8/10</td><td>浮存金 1,785 億是負成本資金，鐵路與公用事業是準壟斷</td></tr><tr><td>第三關 護城河</td><td>透過</td><td>9/10</td><td>GEICO 成本、BNSF 路網、監管牌照、資產負債表四條</td></tr><tr><td>第四關 管理層</td><td>透過</td><td>7/10</td><td>阿貝爾首份獨立季報，交接平穩但資本配置紀錄未建立</td></tr><tr><td>第五關 安全邊際</td><td>不通過</td><td>3/10</td><td>1.66x 帳面、約 25x 年化營業利益，處歷史上沿</td></tr><tr><td>第六關 紀律</td><td>透過</td><td>7/10</td><td>不追 AI、拿 4.5% 短債；但高位回購 96 億美元</td></tr><tr><td>綜合</td><td>觀察</td><td>43/60</td><td>好公司，確定性溢價已寫進價格，等 1.4x 帳面</td></tr></tbody></table><div class="note">評分與底稿一致；1.4x 帳面按當期每股帳面 357.7 美元（B 股等價）折算約 500 美元。</div><div class="section"><div class="section-title">第一關：能力圈 9/10——它的報表不用猜</div><p class='txt'>波克夏的商業模式一句話說完：拿保險浮存金，買能自己產生現金流的好生意，找不到標的就買短期國債。財報把保險承保、保險投資、BNSF、BHE、製造服務零售分開列，每塊都能單獨估值，沒有「其他項」藏利潤。</p><p class='txt'>這一關在美股裡很少能拿 9 分。大多數綜合企業的問題是分部資料不透明，投資者只能看合併報表猜。波克夏相反，連浮存金成本、巨災損失、鐵路營運率都單列。你不需要相信管理層講的故事，只需要會加法。</p></div><div class="section"><div class="section-title">第二關：好生意 8/10——負成本資金 + 準壟斷資產</div><p class='txt'>好生意的標準是「別人很難搶走，且不需要持續投入就能漲價」。波克夏的前半句極強，後半句一般。</p><p class='txt'>保險端 1,785 億美元浮存金，綜合成本率 91.4%，意味著保單持有人倒貼錢給它用——這是全世界最便宜的資金，比發債便宜，比增發便宜。實體端 BNSF 與 BHE 是受監管的準壟斷，本季稅前利潤 17.29 億和 16.12 億，同比 +19.3% 和 +8.3%。製造業服務零售 40.42 億、+11.8%。</p><p class='txt'>扣分在資本回報：股東權益 7,614 億美元，年化淨利約 772 億，ROE 只有 10.4%（粗算）。不是生意差，是權益太厚、幾乎不用槓桿。</p></div><div class="section"><div class="section-title">第三關：護城河 9/10——四條，最後一條無法複製</div><p class='txt'>GEICO 的直銷成本優勢：省掉代理人佣金，同樣的保單便宜 10%–15%。BNSF 的路網：美國西部只有兩條橫貫線，另一條是聯合太平洋，誰也修不出第三條。BHE 的監管牌照：受監管的公用事業回報被限定，但競爭也被擋在門外。</p><p class='txt'>第四條是波克夏自己：3,774 億美元現金加「巴菲特的公司的招牌。2008 年高盛、奇異排著隊給它優先股，2020 年它沒出手但所有人都在等它出手。<b>這條護城河不是買來的，是六十年複利攢出來的</b>，複製它需要的不是錢，是時間加信譽。</p></div><div class="section"><div class="section-title">第四關：管理層 7/10——阿貝爾交的第一份答卷</div><p class='txt'>時間線要先擺清楚：2026 年 1 月 1 日阿貝爾接 CEO，9 月 18 日巴菲特交出董事長、霍華德接任，11 月 7 日發布這份三季報。<b>這是新團隊第一份完全沒有巴菲特署名的季報</b>，所以它既是業績，也是考試。</p><p class='txt'>答得還行。承保利潤掉 43%，綜合成本率仍在 91.4%，是「少賺」不是「虧錢」；回購從二季度 45.27 億加到 96.47 億，說明願意做資本返還。賈因繼續管保險，人事沒動。</p><p class='txt'>扣 3 分不是懷疑能力，是<b>樣本不足</b>：他沒經歷過一次真正的危機部署，也沒做過一筆 300 億美元級別的收購。這 3 分要等到下一輪恐慌才能補上。</p></div><div class="section"><div class="section-title">第五關：安全邊際 3/10——這一關否決</div><p class='txt'>每股帳面價值（A 股）536,590 美元，折 B 股 357.7 美元。股價 592.85 美元，<b>市淨率 1.66 倍</b>。歷史上波克夏在 1.2–1.4 倍時是最舒服的買點，1.5 倍以上就開始變貴，1.8 倍以上是 1998 年和 2007 年那種年份。</p><p class='txt'>換一個尺子也一樣：本季營業利益 127.05 億，年化 508 億，市值 1.26 萬億，對應 24.8 倍。一家年增長 5%–8% 的綜合控股公司，25 倍營業利益沒有安全邊際。</p><p class='txt'>唯一能給高分的是資產負債表：3,774 億美元現金加短債，相當於市值的 30%。<b>但這不是安全邊際，這是它的商業模式</b>——你付的 1.66 倍裡，本來就包含了這堆現金。</p></div><div class="section"><div class="section-title">第六關：紀律 7/10——不追熱點的自律，和一處鬆動</div><p class='txt'>2026 年最難得的一件事是：在輝達 FY2027Q3 營收 1,158 億、同比 +103% 的年份裡，波克夏一股 AI 主線都沒追，寧可讓 3,774 億美元躺在 4.4%–4.6% 的短債上。這份自律過去十年救了它很多次。</p><p class='txt'>鬆動的地方在回購。前三季回購 144 億美元，Q3 單季 96.47 億，是 2018 年新回購政策以來最激進的一季，而這發生在溢價 66% 的位置。巴菲特的原始表述是「低於內在價值才回購」，<b>現在這個價位的回購，只能解釋為「管理層認為內在價值遠高於帳面」，或者「想托住相對表現」</b>。兩種解釋對股東的含義完全不同。</p></div><div class="section"><div class="section-title">否決項與待驗證項</div><p class='txt'><b>否決項只有一個：價格。</b>公司層面找不到第二個否決理由——負債可控、現金充裕、文化沒壞、交接平穩。1.66 倍帳面是唯一讓這筆投資變成「負期望」的東西：中性情景 626 美元（+6%），悲觀 488 美元（-18%）。</p><p class='txt'>待驗證三件事：① 阿貝爾的回購價格上限寫在哪，年報會不會披露區間加權均價；② 承保利潤連續兩季下滑，2027 年綜合成本率會不會破 95%；③ 3,774 億美元最終投向什麼——繼續買短債是「沒想法」，投出去才是「有能力」。</p><p class='txt'>這三件事沒有答案之前，任何買入都是在賭「別人會更恐慌」。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>43 分，五關過。<b>不買，理由只有一個：價格。</b>592.85 美元對應 1.66 倍帳面、24.8 倍年化營運利潤，向上 6%、向下 18%，賠率不成立。</p><p class='txt'>但它是這個組合裡唯一「跌下來必須動手」的標的。買點分三檔：500 美元以下（1.4x 帳面）開始建倉，460 美元（1.3x）加到標配，430 美元以下（1.2x）重倉。別等它跌到 400 美元再研究，那時候你大概率也不敢買。</p></div>
+</div>
+<div class="footer">波克夏 (BRK.B) · 2026/11/16</div>
+</body>
+</html>

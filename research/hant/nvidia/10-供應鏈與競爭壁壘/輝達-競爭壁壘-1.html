@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>競爭壁壘 — 輝達</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/nvidia/10-供应链与竞争壁垒/英伟达-竞争壁垒.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/nvidia/10-供應鏈與競爭壁壘/輝達-競爭壁壘-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/nvidia/10-Moat-and-Supply-Chain/NVIDIA-Moat-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>競爭壁壘 — 輝達</h1>
+  <div class="subtitle">輝達 (NVDA) | 10 · 競爭壁壘</div>
+  <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股價 $220.78（+1.48%） &nbsp;·&nbsp; 市值 約 5.33 萬億美元（241.5 億股） &nbsp;·&nbsp; PE(TTM) 約 28x（FY2028 前瞻約 15x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/nvidia/00-輝達研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>護城河五項評分：品牌 9、成本 7、網路效應 10、轉換成本 10、牌照與產能 8，加權 8.9 分。這是過去二十年科技產業最深的護城河之一：CUDA 的遷移成本不是錢能解決的，機櫃級系統把競爭門檻從「造晶片」抬到「造超級電腦」，2,790 億美元鎖產能是資本壁壘。</p><p class='txt'>但護城河的邊界不在競爭，在需求。<b>客戶沒錢的時候，再深的護城河也賣不出貨。</b>最危險的對手不是 AMD，不是博通，是那批靠債務買卡的客戶——以及他們背後正在修的第二條路（自研 ASIC）。</p></div><table class="dt"><caption>護城河逐項評分（10 分制）</caption><thead><tr><th>維度</th><th>評分</th><th>依據</th><th>邊界</th></tr></thead><tbody><tr><td>品牌</td><td>9/10</td><td>「AI 算力」＝輝達，客戶點名採購，OEM 以拿到配額為榮</td><td>品牌不能阻止客戶自研</td></tr><tr><td>成本</td><td>7/10</td><td>規模帶來採購優勢，但 HBM 與代工成本由上游決定，Q4 毛利率跌到 71%–72%</td><td>成本優勢正被記憶體漲價侵蝕</td></tr><tr><td>網路效應</td><td>10/10</td><td>CUDA 數百萬開發者，模型、函式庫、教學都以輝達為預設平台</td><td>開源替代（Triton、ROCm）在慢慢累積</td></tr><tr><td>轉換成本</td><td>10/10</td><td>換平台＝重寫程式碼 + 重訓團隊 + 重做效能調校，週期以年計</td><td>推理場景的切換成本遠低於訓練</td></tr><tr><td>牌照／產能</td><td>8/10</td><td>2,790 億美元鎖定 CoWoS 與 HBM 產能；出口牌照反而限制了中國收入</td><td>產能優勢靠錢買，錢不是獨占資源</td></tr></tbody></table><div class="note">評分為本報告自訂。權重：品牌 15%、成本 15%、網路效應 25%、轉換成本 30%、牌照產能 15%，加權 8.9。資料來源：FY2027Q2 財報與電話會議。</div><table class="dt"><caption>競品對比（2026 年 8 月）</caption><thead><tr><th>玩家</th><th>路線</th><th>當前體量</th><th>威脅度</th></tr></thead><tbody><tr><td>輝達</td><td>GPU + 機櫃系統 + CUDA + LPU</td><td>資料中心單季 890 億美元，占市場主導</td><td>—</td></tr><tr><td>AMD</td><td>GPU + 開放軟體堆疊（ROCm）</td><td>2026Q2 資料中心 67.18 億美元、同比 +107%，約為輝達 1/13</td><td>繁：追參數，生態是短板</td></tr><tr><td>博通 / 谷歌 TPU</td><td>客製化 ASIC（XPU）</td><td>AI 半導體同比三位數成長，客戶自用為主</td><td>高（結構性）</td></tr><tr><td>亞馬遜 Trainium／OpenAI Jalapeño</td><td>超大客戶自研</td><td>自用規模不披露；推理單位成本優勢明顯</td><td>高（長期）</td></tr><tr><td>華為昇騰</td><td>國產替代</td><td>受製程限制，在中國市場是唯一選擇</td><td>中（區域性）</td></tr><tr><td>寒武紀</td><td>國產 ASIC</td><td>2026H1 營收 59.96 億元、同比 +108%，PE 約 218x</td><td>低（規模小）</td></tr></tbody></table><div class="note">AMD 資料取自 2026Q2 財報；寒武紀取自 2026 年半年報；博通與雲廠自研晶片無統一的口徑，只給路線與量級判斷。輝達資料中心 890.23 億美元 / AMD 67.18 億美元 = 13.3 倍。</div><div class="section"><div class="section-title">產業鏈位置：三張牌加一張新牌</div><p class='txt'>上游是台積電（先進製程 + CoWoS）、SK 海力士與三星（HBM）、光模組與電源；中游是 GPU 設計、NVLink 與 Spectrum-6 網路、機櫃級系統（GB300 / Vera Rubin）、CUDA 軟體堆疊；下游是四家超大規模雲、NeoCloud、模型公司、主權 AI、工業與企業。</p><p class='txt'>三張老牌：<b>架構定義權</b>（每一代的形態由它定）、<b>產能分配權</b>（2,790 億美元鎖定 HBM 與封裝，別人拿不到貨）、<b>軟體標準權</b>（CUDA 是 AI 開發者的預設語言）。</p><p class='txt'>一張新牌是資本：5,000 億美元融資平台、939 億美元客戶股權、1,085 億美元信用擔保。這張牌讓它能創造需求，也讓它必須承擔需求失敗。<b>前三張牌是護城河，第四張牌是槓桿。</b></p><p class='txt'>還得加上兩塊正在長出來的地盤：網路（Spectrum-X 乙太網路同比 +260%，公司自稱全球規模最大、增速最快的網路廠商）與 CPU（Vera 單季已量產，Grace 過去 12 個月營收突破 50 億美元，公司預計 FY2028 伺服器 CPU 業務營收翻倍以上，對應約 200 億美元的市場規模）。<b>這兩塊地盤的意義是：它不只賣「算力的核心」，還賣「算力的連接與調度」——賣得越多，客戶越難整體替換。</b></p></div><div class="section"><div class="section-title">為什麼這三條護城河難破：一個具體的對比</div><p class='txt'>拿 AMD 做對比最清楚。AMD 的 MI 系列在紙面參數上貼著輝達走，2026Q2 資料中心收入 67.18 億美元、同比 +107%——增速與輝達一樣，體量是十三分之一。<b>追了三年，增速一樣，份額沒動，這就是護城河的價格。</b></p><p class='txt'>原因不在硬體，在三個地方。第一，CUDA 生態：客戶換平台要重寫程式碼、重訓團隊、重做效能調優，週期以年計。第二，機櫃級系統：Vera Rubin 不是一個 GPU，是 Vera CPU + Rubin GPU + NVLink + Spectrum-6 + 整機的組合，競爭對手要打贏它，得先造出一整套系統。第三，產能：2,790 億美元的承諾讓輝達在緊缺週期裡拿到最多的 CoWoS 與 HBM，別人拿不到貨，參數再好也交不出。</p><p class='txt'>舉個具體的例子：一家模型公司要把訓練叢集從 CUDA 遷到別的平台，通常要停兩個月做算子重寫與效能調優，這兩個月的模型迭代成本，遠超省下來的那點硬體差價。<b>這就是切換成本的量級——它不是一次性支出，是機會成本。</b></p><p class='txt'>但要注意護城河護不住什麼。<b>它護不住「客戶不買」。</b>如果 2027 年雲廠資本支出失速，或者某個 NeoCloud 違約引發連鎖收縮，輝達的技術優勢一點用都沒有——它的產能承諾會變成存貨，它的擔保會變成壞帳。</p></div><div class="section"><div class="section-title">最危險的對手：不是 AMD，是客戶的資產負債表</div><p class='txt'>第一層危險是客製化 ASIC。博通的 XPU、谷歌 TPU、亞馬遜 Trainium、OpenAI 的 Jalapeño，邏輯不是比 GPU 強，是比 GPU 便宜——針對單一模型的推論，單位成本可以做到幾分之一。輝達的回應是把 Groq 收進來（約 200 億美元資產交易，Groq 3 LPX 已量產，公司稱每秒 token 輸出接近競品 4 倍），用專用晶片打專用晶片。<b>這個回應聰明，但也承認了一件事：通用 GPU 不是所有場景的最優解。</b></p><p class='txt'>第二層危險是自己創造的客戶。公司說，明年需要借助輝達資產負債表支持的 AI 實驗室業務，約佔總業務四分之一；1,085 億美元擔保的對手方沒有披露。<b>如果這批客戶在 2027 年融不到錢，輝達面對的不是「賣不動」，是「收不回」。</b></p><p class='txt'>第三層危險是監管。5,000 億美元融資平台 + 939 億美元股權投資 + 1,085 億美元擔保，這三件事湊在一起，任何反壟斷機構都會問一句「這是不是垂直整合式的市場鎖定」。<b>這條風險在 2026 年還沒定價，因為它還沒有先例。</b></p><p class='txt'>三層裡，第一層是慢性病（三到五年），第二層是急性病（一個季度就能發作），第三層是政策風險（不可預測）。<b>真正需要每天盯的是第二層。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>護城河 8.9 分，是二十年一遇的深度；但它護住的是份額，護不住現金流。</b>AMD 追不上、博通只能吃定製、華為只能吃中國，這些都不是問題。問題是這批客戶裡有多少人是用借來的錢在下單。<b>觀察指標：ACIE 增速、NeoCloud 融資成本、1,085 億擔保是否出現首次代償。前兩個是先行指標，第三個是事後確認。</b></p></div>
+</div>
+<div class="footer">輝達 (NVDA) · 2026/08/31</div>
+</body>
+</html>

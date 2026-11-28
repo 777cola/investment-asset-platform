@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組合管理 — 甲骨文</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/oracle/14-组合管理建议/甲骨文-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/oracle/14-組合管理建議/甲骨文-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/oracle/14-Portfolio-Action/Oracle-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>組合管理 — 甲骨文</h1>
+  <div class="subtitle">甲骨文 (ORCL) | 14 · 組合管理</div>
+  <div class="meta">研究日期 2026/09/14 &nbsp;·&nbsp; 股價 $144.79（-3.65%） &nbsp;·&nbsp; 市值 約 4,400 億美元 &nbsp;·&nbsp; PE(GAAP TTM) 約 23.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/oracle/00-甲骨文研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>組合建議</h3><p class='txt'>建議倉位 <b>0%</b>，不給買入價，只給觀察觸發點。<b>理由是組合層面的，不只是個股層面的</b>：甲骨文與輝達、博通、美光、CoreWeave 同屬「AI 資本支出」這一個因子，相關性約 0.8；買它不會分散風險，只會把一個已經很擁擠的敞口再加一層槓桿。<b>若要在這個因子上加倉，加輝達（賣方議價權）比加甲骨文（買方無議價權）更划算。</b></p></div><table class="dt"><caption>倉位建議（按情景）</caption><thead><tr><th>情境</th><th>觸發條件</th><th>建議倉位</th><th>理由</th></tr></thead><tbody><tr><td>目前</td><td>144.79 美元，自由現金流 -54 億/季，BBB-</td><td>0%</td><td>論文五條假設無一成立，不建倉</td></tr><tr><td>觀察倉</td><td>股價跌破 100 美元（EV/EBITDA 約 9.5x）</td><td>1%–2%</td><td>賠率反轉，但槓桿風險未解除，只能小倉試錯</td></tr><tr><td>標準倉</td><td>自由現金流單季轉正且連續兩季；評級展望回穩</td><td>3%–4%</td><td>論文第一條成立，可給正常倉位</td></tr><tr><td>上限</td><td>自由現金流轉正 + 債務/EBITDA 降至 3x 以下 + 客戶分散</td><td>5%</td><td>三條全綠才配得上重倉，這在 2028 年前難見到</td></tr><tr><td>清倉／迴避</td><td>評級降至 BB+ 或單一大客戶縮單</td><td>0%，並移出觀察名單</td><td>融資成本跳升，股權變成高槓桿期權</td></tr></tbody></table><div class="note">倉位比例為佔股票組合的比重，假設組合規模與風險預算為常規主動管理口徑。觸發條件中的 EV/EBITDA 按淨負債 1,000 億美元口徑粗算。</div><div class="section"><div class="section-title">為什麼不給買入價</div><p class='txt'>很多人會問：跌到多少可以買？我的答案是<b>「價格不是主要變數，現金流才是」</b>。這家公司的股權價值對兩個變數極度敏感：融資成本和 GPU 折舊。融資成本上行 100 個基點，股權價值掉 15%；折舊年限從六年縮到五年，掉 20%。<b>這兩個變數都不是價格能補償的。</b></p><p class='txt'>所以我給的是一個區間而不是一個點：100 美元以下可以放 1%–2% 的觀察倉，因為那時候 EV/EBITDA 約 9.5 倍，接近重資產營運商的下限；但如果那時自由現金流還是負的，就只能是小倉，不能是重倉。<b>便宜不是買入理由，便宜且能自己養活自己才是。</b></p></div><div class="section"><div class="section-title">加倉、減倉、停損的具體價位</div><p class='txt'>加碼：<b>100 美元以下建立觀察倉</b>，每跌 15% 加一次，總倉位不超過 2%。減碼：<b>反彈到 180 美元以上減半</b>（對應 EV/EBITDA 約 15 倍，已透支中性情境）。停損：<b>跌破 85 美元無條件出清</b>——該位置對應 EV/EBITDA 約 7.5 倍，市場正在給「重資產 + 高槓桿」定困境價，說明有我們不知道的事。</p><p class='txt'>注意這些價位只在「現金流仍未轉正」的前提下有效。如果期間自由現金流转正，整套價位要重算——<b>因為估值框架會從 EV/EBITDA 換回 PE。</b></p></div><div class="section"><div class="section-title">與現有持倉的相關性</div><p class='txt'>把甲骨文放進一個典型的科技組合：與輝達相關性約 0.75（同一個 AI 資本支出因子）、與博通約 0.7（客製化 ASIC 與網路）、與美光約 0.65（HBM 週期）、與 CoreWeave 約 0.85（同一商業模式，同一批客戶）。<b>與微軟的相關性反而低一些（約 0.5），因為微軟的現金流穩定，是防禦性 AI 曝險。</b></p><p class='txt'>結論：<b>買甲骨文不會分散任何風險，只會把 AI 資本支出的曝險再加一層槓桿。</b>如果組合裡已經有輝達 + 美光 + CoreWeave，再加甲骨文等於同一個賭注押四次。<b>這種情況下，正確的動作不是加碼，是檢查總曝險有沒有超過 25% 的風險預算。</b></p></div><div class="section"><div class="section-title">不建倉也要做的事</div><p class='txt'>三件事：<b>① 把 12 月 Q2 財報放進行事曆</b>，只盯三個數（RPO、資本支出、FCF）；<b>② 追蹤 BBB- 級別的信用利差</b>，這是融資環境的先行指標，比股價早一個季度反應；<b>③ 如果持有 AI 算力曝險，檢查客戶集中度</b>——甲骨文的風險會透過 CoreWeave、輝達的訂單結構傳導到整個投資組合。</p><p class='txt'><b>不買一家公司，也要研究它，因為它的財報是整條產業鏈的體溫計。</b>甲骨文這份季報告訴我們：需求還很熱，但融資端已經開始緊。這個資訊對投資組合裡其他持倉同樣有用。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：0% 倉位，設兩條觀察觸發線（100 美元 / FCF 轉正），三條清倉紅線（BB+、FCF 惡化、客戶縮單）。</b>不給買入價不是迴避責任，是因為這家公司的股權價值主要由融資成本和折舊政策決定，不由股價決定。<b>在組合層面，它提供的是「同一個因子上的更多槓桿」，而不是分散。</b></p></div>
+</div>
+<div class="footer">甲骨文 (ORCL) · 2026/09/14</div>
+</body>
+</html>

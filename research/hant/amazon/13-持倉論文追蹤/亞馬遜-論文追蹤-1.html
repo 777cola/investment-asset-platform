@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>論文追蹤 — 亞馬遜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/amazon/13-持仓论文追踪/亚马逊-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/amazon/13-持倉論文追蹤/亞馬遜-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/amazon/13-Thesis-Tracking/Amazon-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>論文追蹤 — 亞馬遜</h1>
+  <div class="subtitle">亞馬遜 (AMZN) | 13 · 論文追蹤</div>
+  <div class="meta">研究日期 2026/11/06 &nbsp;·&nbsp; 股價 $259.30（-0.35%） &nbsp;·&nbsp; 市值 約 2.80 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 20.8x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/amazon/00-亞馬遜研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>買入亞馬遜的論點可以壓縮成六條假設，每條都有可對帳的指標。目前<b>兩條已驗證</b>（AWS 加速、零售利潤率抬升），<b>兩條驗證中</b>（AWS 利潤率、廣告增速），<b>兩條是反面證據</b>（資本支出見頂、折舊年限不變）。</p><p class='txt'>這份清單的用處是：不用每天看股價，只看這六個指標。任何一條被證偽，減倉；兩條以上被證偽，退出。</p></div><table class="dt"><caption>核心假設與驗證狀態</caption><thead><tr><th>假設</th><th>目前證據</th><th>驗證指標</th><th>狀態</th></tr></thead><tbody><tr><td>AWS 2027 年增速仍超 40%（公司指引）</td><td>第3季 +39.3%，連續六季加速；在手訂單 5,780 億元、同比三位數</td><td>季度 AWS 收入同比 + 未交付訂單環比</td><td>驗證中（方向對，幅度待證）</td></tr><tr><td>北美零售營業利益率站穩 7% 以上</td><td>第3季 7.7%（上年 4.3%）；運費 +11% &lt; 銷量 +12%</td><td>Q4 假日季利潤率（無 Prime Day 移期干擾）</td><td>已驗證一次，待二次確認</td></tr><tr><td>資本支出 2027 年見頂，2028 年自由現金流转正</td><td>2026 年 2,200 億元，2027 年「顯著增加」；德意志銀行 3,300 億元、瑞銀 3,000 億元以上</td><td>季度資本支出指引 + TTM 自由現金流</td><td>反面證據（仍在加速）</td></tr><tr><td>AWS 營業利益率守住 35%</td><td>Q3 38.7%；但 AI 服務利潤率低於核心雲、儲存漲價</td><td>AWS 分部營業利益率（季度）</td><td>驗證中偏弱</td></tr><tr><td>廣告增速回到 high-teens</td><td>第三季 +12%（受 Prime Day 檔期挪移影響約 850bp），管理層承諾第四季回到 high-teens</td><td>Q4 廣告收入同比</td><td>待驗證</td></tr><tr><td>伺服器折舊年限不變（5–6 年）</td><td>本季未見變更披露</td><td>年報附註會計政策</td><td>待驗證</td></tr></tbody></table><div class="note">每條假設的證據均來自公司 2026Q3 財報與電話會（2026/10/29–30）；賣方 capex 預測引自德銀（2026/10/20）與瑞銀（2026/10/26）報告。</div><div class="section"><div class="section-title">兩條已驗證：這是論文的根基</div><p class='txt'><b>AWS 加速是真的。</b>從 2025Q2 到 2026Q3 連續六個季度同比增速抬升，最新 39.3%、近五年最快，年化運行率 1,840 億。更硬的證據是訂單：backlog 5,780 億、同比三位數增長，管理層說 2027–2028 年的產能已被客戶鎖單。<b>需求端沒有裂縫，這一條不用再討論。</b></p><p class='txt'><b>零售利潤率抬升是真的。</b>北美收入只增 6%，營業利益從 47.9 億漲到 87.2 億，利潤率 4.3%→7.7%。機制可驗證：運費 +11%、銷量 +12%，剔除燃油與幹線通膨後運費 +8%，比銷量低 400 個基點；單均履約成本連續第四年下降。<b>但這一條只算「驗證一次」，因為本季有 Prime Day 從三季度挪到二季度的助攻，四季度假日季才是乾淨讀數。</b></p></div><div class="section"><div class="section-title">兩條反面證據：論文裡最薄弱的部分</div><p class='txt'><b>資本支出沒有見頂的跡象。</b>2026 年 2,200 億已經是歷史最高，管理層說 2027 年「顯著增加」，德銀給 3,300 億、瑞銀給 3,000 億以上。這意味著自由現金流在 2027 年大概率仍為負或接近零（瑞銀原話：「自由現金流預期接近零或負值」）。<b>「2028 年自由現金流轉正」這個假設，目前沒有任何公司層面的證據支持，純屬外推。</b></p><p class='txt'><b>折舊年限是一個未爆的會計變數。</b>伺服器按 5–6 年折舊，2026 年新增算力資產對應年均新增折舊約 400 億美元（券商測算）。公司本季沒有變更披露，這是好事；但一旦變更，當期利潤會被立刻美化，而現金流不變。<b>把這一條列進清單，不是為了預測，是為了防止被騙。</b></p></div><div class="section"><div class="section-title">證偽條件與觀察日曆</div><p class='txt'><b>證偽條件（觸發即減碼）：</b></p><ul><li>AWS 同比增速連續兩季低於 30%，且同期 Azure 仍高於 40%；</li><li>AWS backlog 連續兩季環比下滑（當前同比三位數，環比任何下滑都是新訊號）；</li><li>北美零售營業利益率跌回 5% 以下；</li><li>TTM 自由現金流連續四季為負且絕對值擴大；</li><li>公司延長伺服器折舊年限、同時下調資本支出指引（組合訊號，單獨一條不算）。</li></ul><p class='txt'><b>觀察日曆：</b>2026 年 12 月初 AWS re:Invent（新產品與 Trainium 路線圖）；2027 年 2 月第四季財報 + 年報（折舊政策、資本支出指引、Q4 廣告增速）；2027 年 4 月第一季財報（2027 年 capex 的第一個季度讀數）；2027 年 7 月第二季（高基期第一考）；2027 年 10 月第三季（AWS 增速能否守住 35%）。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>論文狀態：成立，但有兩條腿是外推的。</b>AWS 加速與零售提效是硬證據，夠支撐「買入」；資本支出見頂與自由現金流轉正是外推，只夠支撐「三分之一倉位」。下一次關鍵驗證在 2027 年 2 月的年報——折舊政策與 2027 年 capex 指引會同時出現，那才是決定加不加滿的時刻。</p></div>
+</div>
+<div class="footer">亞馬遜 (AMZN) · 2026/11/06</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Lead 彙總：分歧點與裁決 — 美團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20261128/5-四角色并行分析/美团-TeamLead-汇总.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meituan-20261128/5-四角色並行分析/美團-四角色-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meituan-20261128/5-Four-Role-Analysis/Meituan-Four Roles-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Team Lead 彙總：分歧點與裁決 — 美團</h1>
+  <div class="subtitle">四個人爭論了三個問題，最後落在一個動作上</div>
+  <div class="meta">研究日期 2026/11/28 &nbsp;·&nbsp; 股價 HK$67.85（+8.21%，2026/11/27 收盤，11/28 休市） &nbsp;·&nbsp; 市值 約 4,190 億港元（61.75 億股） &nbsp;·&nbsp; PE(TTM) —（TTM 仍為虧損，PE 失真；2027E 約 16.8x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meituan-20261128/00-美團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>四個角色的結論驚人地一致：買，分批。但過程裡有三個真分歧——<b>利潤是修復還是遞延、份額會不會回來、出海值多少錢。</b>這一節把分歧攤開，給出裁決和理由。</p></div><table class="dt"><caption>分歧點與裁決</caption><thead><tr><th>分歧</th><th>一方觀點</th><th>另一方觀點</th><th>Team Lead 裁決</th></tr></thead><tbody><tr><td>Q3 利潤是修復還是費用遞延</td><td>財務（巴菲特）：毛利 +87 億元、費用省 108 億元，修復真實</td><td>風險（李錄）：行銷費用率仍高 7 個點，彈性是別人給的</td><td>修復為真、幅度被高估：可確認的是 17.1 億元營業利益，不可確認的是 Q4 能否守住 50 億元</td></tr><tr><td>市佔率會不會回到 55%</td><td>商業（段永平）：用戶沒跑，收入 +21.6% 是最好的證據</td><td>行業（蒙格）：三家停在 50/43/7 是「打不動」，不是「不想打」</td><td>按 50% 中樞建模，不用 55% 做中性假設；55% 只進樂觀情景</td></tr><tr><td>出海值多少錢</td><td>風險（李錄）：期權價值，成功則估值體系切換</td><td>財務（巴菲特）：10 億美元不如回購</td><td>折價計入：中性情景不給海外利潤，樂觀情景才給；巴西虧損超 50 億元則下調</td></tr><tr><td>現在該買多少</td><td>商業：首批 30%</td><td>財務：等 58–62 港元（40% 折價）</td><td>美團商業：現價買 30%，58 港元以下再加 30%，其餘等 Q4 資料</td></tr></tbody></table><div class="note">四個角色的原文見本模組前四頁。裁決原則：可驗證的證據優先於推斷，公司披露優先於估算，價格條件優先於預測。</div><div class="section"><div class="section-title">分歧一：利潤是修復還是遞延</div><p class='txt'>巴菲特角色算得很細：毛利同比多 87 億元、營銷少花 115 億元、研發多花 8.8 億元，營業利益改善 195 億元。<b>他的結論是「修復是真的」，因為毛利改善佔 44%，不是全靠省錢。</b></p><p class='txt'>李錄角色反駁：營銷費用率 22.9%，比 2024 年的 16% 還高 7 個點，<b>這 7 個點是「對手暫時不打了」給的，不是美團自己掙的。</b>只要對手重新加價，這 7 個點就會還回去。</p><p class='txt'>裁決：<b>修復為真，幅度被高估。</b>可以確認的是 Q3 營業利益 17.1 億元、核心本地商業 45.2 億元（推算）；不可確認的是 Q4 能否守住 50 億元。所以模型裡中性情景按核心營業利益率 10%（不是 2024 年的 20.9%）算，把「對手不打」當成一次性紅利，不當成常態。</p></div><div class="section"><div class="section-title">分歧二：市占率會不會回來</div><p class='txt'>段永平角色看用戶：收入 +21.6%、配送收入 +20%、毛利率提升 1.7 個點，<b>三條都說明用戶在，份額沒理由不回來。</b></p><p class='txt'>芒格角色看結構：三家停在 50/43/7 已經三個季度，<b>這是「打不動」的均衡，不是「要和好」的均衡。</b>任何一家想再搶 2 個點，都要再掏 100 億元以上，而這個投入的回報率已經算不過來了。</p><p class='txt'>裁決：<b>按 50% 中樞建模，不用 55% 做中性假設。</b>理由是：份額是競爭的結果，不是經營的函數；在沒有看到連續兩個季度回升之前，不能把它寫進基準情景。55% 只放在樂觀情景裡，對應 2027 年淨利 330 億元。</p></div><div class="section"><div class="section-title">分歧三：出海值多少錢，以及倉位</div><p class='txt'>李錄角色把出海當期權：<b>沙烏地 22 個月盈利證明了模式可複製，如果巴西成功，美團從「中國公司」變成「全球公司」，估值可以從 19 倍給到 25 倍。</b></p><p class='txt'>巴菲特角色只算現金：<b>10 億美元如果用來回購，按現價能買回 2.6% 的股本，這是確定的回報；投巴西是不確定的。</b></p><p class='txt'>裁決：<b>中性情景不給海外利潤，樂觀情景才給；巴西年度虧損超 50 億元則下調一檔。</b>理由：期權有價值，但不能為期權付全價。這也是為什麼中性目標價 98 港元（不含海外），樂觀 149 港元（含海外打平）。</p><p class='txt'>倉位：段永平角色主張現價買 30%，巴菲特角色主張等 58–62 港元。<b>裁決採納前者——因為 Q4 數據要到 2027 年 3 月才出，等一個季度的機會成本，比多 8% 的折價更重要。</b>但第二批必須等價格：58 港元以下再加 30%。</p></div><div class="section"><div class="section-title">最終結論：買 30%，把剩下的留給價格和資料</div><p class='txt'><b>四個角色在「要不要買」上沒有分歧，在「買多少」上有——裁決是首批 30%。</b>理由是三條：生意沒壞（收入加速、毛利穩定、現金流為正）、價格不貴（2027E 16.8 倍、扣淨現金 11.5 倍）、不對稱（下行 23%、上行 44%，賠率 1 : 1.9）。</p><p class='txt'>不重倉的理由也是三條：<b>份額 50% 止跌未回升、營銷費用率仍高 7 個點、2027 年 230 億元淨利是假設。</b>三條裡任何一條被證偽，估值就要往下修一檔。</p><p class='txt'>下一步觀察日曆：<b>2027 年 3 月 Q4 與全年業績（核心本地商業經營利潤 ≥50 億元）、2027 年 5 月 Q1（淨利率連續三季為正）、2027 年 8 月中報（巴西虧損與到店份額）。</b>三個時點，三次驗證，倉位分三批加。<b>不預測、不梭哈、按數據走。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>裁決：買入，首批 30%（現價 67.85 港元），58 港元以下加 30%，2027 年 Q4 數據確認後加 40%。</b>三個分歧全部按「可驗證證據優先」處理：修復按真、份額按 50%、海外按期權折價。<b>證偽條件寫死：Q4 核心本地商業營業利益跌破 35 億元、或份額跌破 48%，無條件減倉。</b></p></div>
+</div>
+<div class="footer">美團 (03690) · 2026/11/28</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀（巴菲特） — Palantir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/palantir/8-财报团队解读/Palantir-大师精读-巴菲特.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/palantir/8-財報團隊解讀/Palantir-財報團隊解讀-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/palantir/8-Earnings-Team-Read/Palantir-Earnings Team-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀（巴菲特） — Palantir</h1>
+  <div class="subtitle">股東盈餘不是自由現金流：2.65 億股權激勵要扣</div>
+  <div class="meta">研究日期 2026/10/05 &nbsp;·&nbsp; 股價 $189.40（+0.34%） &nbsp;·&nbsp; 市值 約 4,560 億美元 &nbsp;·&nbsp; PS(TTM) 約 74 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/palantir/00-Palantir研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>巴菲特讀財報只算一個數：<b>股東盈餘（owner earnings）= 淨利 + 折舊攤銷 − 維持性資本支出 − 股權激勵。</b>最後一項是他和華爾街最大的分歧點——華爾街把股權激勵當「非現金」加回，巴菲特認為它是真成本，因為公司要麼發股票（稀釋股東）要麼發工資（減少利潤）。</p><p class='txt'>用這個口徑算 Palantir Q2：自由現金流 12.20 億 − 股權激勵 2.65 億 = <b>9.55 億美元</b>，占收入 49.3%。這才是股東真正拿得到的錢。</p></div><div class="section"><div class="section-title">第一個調整：股權激勵必須扣</div><p class='txt'>公司口徑的自由現金流 12.20 億，其中 2.65 億的股權激勵被加回了（因為它是非現金支出）。但這家公司每年股本增加 2%——這 2% 就是股東為這筆「非現金支出」付的帳。<b>加回去等於假裝員工不要報酬。</b></p><p class='txt'>扣掉之後，股東盈餘 9.55 億、利潤率 49.3%。仍然極高——軟體業裡能做到 30% 就算優秀。所以這個調整不改變「好生意」的結論，只改變「好到什麼程度」。</p><p class='txt'>用股東盈餘算估值，統一按 Q2 年化：9.55 億 × 4 = 38.2 億美元，對 4,560 億市值是 <b>119 倍</b>；同一口徑下的淨利年化 42.5 億、對應 107 倍。<b>也就是說，把股權激勵當真成本之後，倍數從 107 倍抬到 119 倍——多出來的 12 圈，就是每年 2% 稀釋的價錢。</b>（按 TTM 淨利口徑，底稿給的 140 倍是另一個數，兩者不衝突，只是分母的區間不同。）</p></div><div class="section"><div class="section-title">第二個調整：利息收入不算經營所得</div><p class='txt'>淨利 10.62 億裡有約 0.9 億是利息（92 億現金 × 4% ÷ 4）。巴菲特會把這塊單列，因為它不來自生意，來自資產負債表。<b>真正的營業利益是 9.12 億，稅後約 7.1 億。</b></p><p class='txt'>這不影響現金流，但影響「這家公司賺錢能力有多強」的判斷。利率降到 2%，淨利立刻少 1.8 億/年；利率升到 5%，多 0.9 億。<b>一家公司的利潤被利率左右 5%，說明它的損益表裡有一部分是「債券基金」。</b></p></div><div class="section"><div class="section-title">第三個檢查：資本回報率</div><p class='txt'>沒有有息負債、幾乎不需要營運資本、資本支出只有收入的 1%——這是一門「用很少的錢賺很多錢」的生意。<b>ROIC 粗算在 40% 以上（稅後營業利益 7.1 億 × 4 = 28.4 億年化 ÷ 投入資本約 70 億）。</b>這是巴菲特會給滿分的資本效率。</p><p class='txt'>但高 ROIC 加上高估值，等於「好生意 + 壞價格」。巴菲特 1998 年在可口可樂上吃過這個虧：公司一直很好，他買在 40 倍 PE，之後十年股價沒動。<b>他後來反覆講這個案例，結論是：好公司也會讓你虧十年，如果你付的價太高。</b></p><p class='txt'>他會怎麼看 Palantir？大概會說：這是一家我會想擁有的公司，但不是在 4,560 億美元的價格上。他會等，可能等到它跌 60%，也可能永遠等不到——這沒關係，他的清單上從來不缺標的。</p></div><div class="summary-box"><h3>結論</h3><p>巴菲特式結論：<b>扣掉股權激勵後的股東盈餘 9.55 億美元/季、利潤率 49.3%，依舊是頂級生意；但對應 119 倍（Q2 年化口徑）本益比，是頂級價格。</b>資產負債表乾淨、資本回報率 40%+、無債務——這些都是他會加分的項。他唯一不買的理由是價格，而這個理由足夠了。</p></div>
+</div>
+<div class="footer">Palantir (PLTR) · 2026/10/05</div>
+</body>
+</html>

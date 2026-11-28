@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀 — 輝達</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/nvidia/7-财报精读/英伟达-财报精读.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/nvidia/7-財報精讀/輝達-財報精讀-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/nvidia/7-Earnings-Deep-Read/NVIDIA-Earnings Read-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀 — 輝達</h1>
+  <div class="subtitle">輝達 (NVDA) | 07 · 財報精讀</div>
+  <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股價 $220.78（+1.48%） &nbsp;·&nbsp; 市值 約 5.33 萬億美元（241.5 億股） &nbsp;·&nbsp; PE(TTM) 約 28x（FY2028 前瞻約 15x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/nvidia/00-輝達研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>這份財報有兩層。第一層是需求：營收 962.21 億美元、同比 +106%，資料中心 890.23 億、同比 +117%，Q3 指引 1,080 億，首次給出 FY2028 成長約 70%。<b>需求沒有任何見頂的跡象，而且客戶結構在變寬。</b></p><p class='txt'>第二層是品質：淨利 596.88 億，營業現金流只有 240.77 億，自由現金流 213.41 億，轉化率 35.8%（一年前 50.9%）；毛利率 75.0% 是本輪週期的頂，Q4 指引 71%–72%。<b>一句話：生意在加速，賺錢的方式在變重。</b></p></div><table class="dt"><caption>損益表（百萬美元）</caption><thead><tr><th>項目</th><th>FY2027Q2</th><th>FY2027Q1</th><th>FY2026Q2</th><th>同比</th></tr></thead><tbody><tr><td>營業收入</td><td>96,221</td><td>81,615</td><td>46,743</td><td>+106%</td></tr><tr><td>營業成本</td><td>24,079</td><td>20,458</td><td>12,890</td><td>+87%</td></tr><tr><td>毛利</td><td>72,142</td><td>61,157</td><td>33,853</td><td>+113%</td></tr><tr><td>毛利率</td><td>75.0%</td><td>74.9%</td><td>72.4%</td><td>+2.6pct</td></tr><tr><td>研發費用</td><td>7,054</td><td>6,321</td><td>4,291</td><td>+64%</td></tr><tr><td>銷售管理費用</td><td>1,354</td><td>1,300</td><td>1,122</td><td>+21%</td></tr><tr><td>營業利益</td><td>63,734</td><td>53,536</td><td>28,440</td><td>+124%</td></tr><tr><td>其他收入淨額</td><td>7,773</td><td>16,367</td><td>2,766</td><td>投資收益為主</td></tr><tr><td>稅後淨利</td><td>59,688</td><td>58,321</td><td>26,422</td><td>+126%</td></tr><tr><td>GAAP 稀釋每股盈餘</td><td>2.46</td><td>2.39</td><td>1.08</td><td>+128%</td></tr><tr><td>非 GAAP 每股盈餘</td><td>2.22</td><td>1.87</td><td>1.01</td><td>+120%</td></tr></tbody></table><div class="note">資料來源：輝達 FY2027Q2 財報（2026/08/26）。研發與銷售管理費用為單季值，H1 分別為 13,375 與 2,654 百萬美元。</div><table class="dt"><caption>現金流量表與資產負債（百萬美元）</caption><thead><tr><th>項目</th><th>FY2027Q2</th><th>FY2026Q2</th><th>含義</th></tr></thead><tbody><tr><td>營業現金流</td><td>24,077</td><td>15,365</td><td>稅後淨利的 40.3%，去年 58.1%</td></tr><tr><td>資本支出</td><td>2,677</td><td>1,894</td><td>佔營收 2.8%，輕資產</td></tr><tr><td>自由現金流</td><td>21,341</td><td>13,450</td><td>淨利的 35.8%，去年 50.9%</td></tr><tr><td>應收帳款變動</td><td>-22,346</td><td>-5,675</td><td>餘額 630.59 億元，帳期 60 天</td></tr><tr><td>存貨變動</td><td>-5,784</td><td>-3,622</td><td>餘額 315.75 億，為 Rubin 備貨</td></tr><tr><td>購買股權證券</td><td>-15,822</td><td>-346</td><td>H1 累計 -42,404</td></tr><tr><td>發行債務</td><td>+24,896</td><td>0</td><td>長期借款升至 323.66 億</td></tr><tr><td>回購 + 分紅</td><td>-25,779</td><td>-9,965</td><td>返還 260 億元，占 FCF 122%</td></tr></tbody></table><div class="note">資料來源：輝達 FY2027Q2 現金流量表（2026/08/26）。自由現金流 = 營業現金流 − 資本支出 − 設備本金償還。回購 19,732 + 分紅 6,047 = 25,779。</div><table class="dt"><caption>藏在表外的三行（十億美元）</caption><thead><tr><th>專案</th><th>本季</th><th>上一季</th><th>觸發方式</th></tr></thead><tbody><tr><td>供應與產能承諾</td><td>279</td><td>119</td><td>按合約付款，需求轉弱時轉為存貨減值</td></tr><tr><td>其中 FY2027 剩餘應付</td><td>92</td><td>—</td><td>未來兩個季度付現</td></tr><tr><td>其中 FY2028 / FY2029</td><td>87 / 88</td><td>—</td><td>成本提前寫進未來兩年</td></tr><tr><td>資料中心信用擔保（上限）</td><td>108.5</td><td>—</td><td>專案擔保 105 + AI 雲客戶 3.5</td></tr><tr><td>AI 雲採購承諾</td><td>36</td><td>—</td><td>承諾採購部分未來雲端服務</td></tr><tr><td>Q3 收入指引</td><td>108.0</td><td>—</td><td>不含中國資料中心算力收入</td></tr></tbody></table><div class="note">資料來源：輝達 FY2027Q2 財報與 10-Q 附註（2026/08/26）。擔保為上限口徑，需滿足約定條件或對手方違約才觸發；供應承諾為上季 1,190 億美元（increased 134%）。</div><div class="section"><div class="section-title">第一層：收入結構——需求在變寬，不是在變窄</div><p class='txt'>資料中心 890.23 億美元，環比 +18%，佔總收入 92.5%。拆開看：超大規模雲 487.10 億（同比 +102%、環比 +13%），ACIE 403.13 億（同比 +138%、環比 +25%）。邊緣運算 72.00 億（同比 +27%）。兩項相加正好等於 890.23 億，說明口徑沒有混入邊緣業務。</p><p class='txt'>最重要的不是 890 億這個數，是結構。<b>ACIE 環比 +25%、超大規模雲環比 +13%——成長快的那一半，是過去不在客戶名單上的那一半。</b>公司口徑：主權 AI 收入環比 +35%、同比超 2 倍；NeoCloud 裝機容量從 2025 年底 3GW 到 2026 年底目標 8GW。</p><p class='txt'>但環比在收斂。資料中心最近四個季度是 512 → 623 → 752 → 890 億，環比增速 21.7%、20.7%、18.4%。<b>絕對額在加速，增速在變慢，這是大平台進入成熟放量期的標準曲線。</b>在這條曲線上，2027 年某個季度環比掉到 10% 以下是必然的，不是意外——提前知道這件事，就不會把它當成崩盤的證據。</p><p class='txt'>中國的處理也值得記一筆：Q2 按美國政府許可交付的 H200 不到資料中心收入的 1%，Q3 指引假設中國資料中心算力收入為零。<b>一家公司把第二大市場的相關收入直接歸零還能給出環比 +12% 的指引，說明需求確實來自別處。</b></p></div><div class="section"><div class="section-title">第二層：毛利——75% 是這一輪的頂</div><p class='txt'>毛利率 75.0%（GAAP 與非 GAAP 一致，因為從 FY2027Q1 起非 GAAP 不再剔除股權激勵）。營業成本 240.79 億、同比 +87%，慢於收入的 +106%，規模效應還在。營業利益率 66.2%，比上季 65.6% 還高。</p><p class='txt'>但公司自己給出了下坡路：Q3 74%±50bp，Q4 觸底 71%–72%，FY2028 隨著價格上調落地回升到 72%–73%。原因是記憶體漲價「遠超此前預期」，且明年還會繼續漲。</p><p class='txt'>這句話的含義要說清：<b>輝達用毛利率換確定性。</b>提前鎖定記憶體與製造產能，代價是成本上升；好處是在 HBM 與先進封裝全面緊缺的 2026 年，它拿到了最多的貨。這個交換在短缺週期裡是划算的——多賣一美元的貨，比多留一個點的毛利重要得多。</p><p class='txt'>風險在於交換的時機。如果需求在 2027 年下半年轉弱，而成本已經鎖到 FY2029（供應承諾 FY2028 870 億、FY2029 880 億），那麼 71% 就不是底，是開始。<b>這是整份財報裡最容易被忽略的一句話，因為它決定了 FY2028 的 EPS 起點——毛利率差 2 個點，FY2028 稅後淨利就差約 130 億美元，EPS 差 0.54 美元。</b></p></div><div class="section"><div class="section-title">第三層：費用與利潤——營運槓桿已經用到極致</div><p class='txt'>營業費用 84.08 億，環比 +10%、同比 +55%，費用率 8.7%。研發 70.54 億（同比 +64%），銷售管理 13.54 億（同比 +21%）。<b>費用率 8.7% 意味著收入每漲 100 億，費用只漲 8.7 億，其餘全落到營業利益。</b></p><p class='txt'>但這個槓桿已經用到頭了。Q3 指引營業費用 GAAP 92 億、非 GAAP 90 億；全年營業費用增速「中高雙位數 50% 附近」。費用增速會明顯快於過去兩年，原因有兩個：產品矩陣擴張（GPU、CPU、網路、LPU、機器人五條線），以及 AI 工具大規模使用帶來的算力與人力成本。</p><p class='txt'>其他收入 77.73 億，其中股權證券收益 77.71 億（H1 累計 237.07 億）。這塊錢把淨利從 532 億抬到 597 億，淨利率從 55.3% 抬到 62.0%。<b>它是真的，但不穩定：市場跌，它就反過來咬。做估值時應該用 55% 的淨利率，不是 62%。</b></p><p class='txt'>稅：11.82 億，有效稅率 16.5%，落在 16%–18% 指引內。稅率不會成為變數，這說明利潤的可預測性其實很高——只要收入與毛利率能預測。</p></div><div class="section"><div class="section-title">第四層：現金流與資產負債——這是最該讀的一層</div><p class='txt'>營業現金流 240.77 億元，稅後淨利 596.88 億元，差額 356 億元。三個「+」解釋一切：應收帳款 +223.46 億元（餘額 630.59 億元，帳期 60 天）、存貨 +57.84 億元（餘額 315.75 億元）、預付與其他資產 +54.97 億元；再加投資收益 −77.71 億元（不進現金）。</p><p class='txt'>投資端：資本支出 26.77 億元，購買股權證券 158.22 億元。<b>買別人股權的錢是買自己設備的 6 倍。</b>H1 累計買股權 424.04 億元；可售股權 427.83 億元 + 非上市股權 511.57 億元 = 939.40 億元，佔總資產 29.3%（年初 16.3%）。</p><p class='txt'>籌資端：發債 248.96 億元（長期借款 74.69 → 323.66 億元），回購 197.32 億元，分紅 60.47 億元。<b>返還 257.79 億元，超過當季自由現金流 213.41 億元，差額是借來的。</b>另外本季為 Groq 資產交易支付現金 29.44 億元。</p><p class='txt'>資產負債表本身很穩：總資產 3,202.72 億元、總負債 912.88 億元、資產負債率 28.5%、淨現金 232.20 億元。但資產的性質變了：三成是客戶與潛在客戶的股權，四分之一明年的收入要靠自己的資產負債表支持。<b>用一句話概括這張表：它越來越像一家控股公司，而不是一家晶片公司。</b></p></div><div class="section"><div class="section-title">第五層：表外三行怎麼讀</div><p class='txt'>三行數字，三種讀法。</p><p class='txt'><b>供應與產能承諾 2,790 億：</b>這不是負債，是對供應商的採購承諾。它的風險不是「還不出錢」，是「買了賣不掉」。FY2027 剩餘要付 920 億、FY2028 870 億、FY2029 880 億——<b>成本曲線已經畫出來了，收入曲線還沒有。</b>如果 2027 年需求掉 20%，這 2,790 億裡的後兩年部分就要減值或者重新談。</p><p class='txt'><b>信用擔保 1,085 億：</b>上限口徑，只有對手方違約或滿足約定條件才觸發。公司說這些算力最終流向投資級客戶或有投資級主體背書的客戶——如果成立，真實敞口很小；如果不成立，就是一批靠債務擴張的 NeoCloud。<b>關鍵是公司沒有披露對手方名單，這是「不確定性」，不是「風險」。</b></p><p class='txt'><b>雲端服務採購承諾 360 億：</b>輝達承諾買一部分未來的雲端服務。這條最容易被忽略，但它意味著公司同時在買方和賣方兩邊出現——買雲端服務用來做內部研發，也用來給客戶做保底。金額不大，性質值得記。</p></div><div class="section"><div class="section-title">最該盯的三件事</div><p class='txt'><b>第一，毛利率 71% 是不是底。</b>Q4 見分曉。如果 Q4 落在 71%–72% 的下沿且 FY2028 不能回到 72% 以上，說明成本鎖定開始反噬，FY2028 的 EPS 要下修 5%–8%。</p><p class='txt'><b>第二，應收週轉天數 60 天會不會破 70。</b>這是判斷「帳期問題」還是「需求問題」的唯一分水嶺。守在 65 天以內，說明是客戶結構變化；破 75 天，說明有人在拖延付款。</p><p class='txt'><b>第三，2,790 億供應承諾對應的存貨會不會減值。</b>現在存貨 315.75 億、119 天的營業成本，是健康的備貨水準。如果下個季度收入不及指引而存貨繼續增加，就是拐點。</p><p class='txt'>三件事裡前兩件在 11 月 17 日就能看到答案。這也是我把最近的檢驗點放在 Q3 財報而不是股價的原因——<b>這家公司的問題不在市場情緒裡，在三張表和三条附註裡。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>五層讀完，結論一句：需求沒有見頂，賺錢的方式變重了。</b>收入在加速、結構在變寬，這是真的；毛利在下坡、現金轉化在掉、資產在變成客戶股權、負債在增加，這也是真的。兩邊都成立的時候，正確動作不是選邊，是調整估值方式：<b>按現金流定價（FY2028 自由現金流 19 倍），不按淨利定價（15 倍）；持有，不加倉。</b></p></div>
+</div>
+<div class="footer">輝達 (NVDA) · 2026/08/31</div>
+</body>
+</html>

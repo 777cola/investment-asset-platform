@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀 — 三星電子</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/samsung/7-财报精读/三星电子-财报精读.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/samsung/7-財報精讀/三星電子-財報精讀-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/samsung/7-Earnings-Deep-Read/Samsung Electronics-Earnings Read-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀 — 三星電子</h1>
+  <div class="subtitle">三星電子 (005930.KS) | 07 · 財報精讀</div>
+  <div class="meta">研究日期 2026/09/21 &nbsp;·&nbsp; 股價 ₩275,000（+5.77%） &nbsp;·&nbsp; 市值 約 1,793 萬億韓元（約 1.20 萬億美元，按 65.2 億股、1,500 韓元／美元粗算） &nbsp;·&nbsp; 本益比（2026 上半年年化） 約 7.5x（按上半年稅後淨利 118.7 萬億韓元×2 粗算）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/samsung/00-三星電子研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：增長幾乎全部來自價格，終端業務被自己的漲價反噬</h3><p class='txt'>2026Q2 營收 171.5 萬億韓元、營業利益 89.49 萬億、稅後淨利 71.62 萬億。三個數字都創歷史新高，環比分別 +22.5%、+55.9%、+52.0%。<b>但拆開看，營收成長裡位元出貨的貢獻很小，主要來自價格：DRAM 均價環比 +44%、NAND +53%。</b></p><p class='txt'>更值得注意的是結構：半導體部門貢獻 99.7% 的營業利益，手機部門虧損 0.7 萬億——記憶體漲價對三星自己是雙面刃，<b>它一邊在記憶體上賺走全行業的錢，一邊在手機上為記憶體成本買單。</b>這種「內部對沖」在合併報表上被抹平，但它是判斷週期位置的重要線索。</p></div><table class="dt"><caption>合併損益表（兆韓元）</caption><thead><tr><th>專案</th><th>2026Q2</th><th>2026Q1（推算）</th><th>季增</th><th>2025Q2</th><th>同比</th></tr></thead><tbody><tr><td>營收</td><td>171.5</td><td>140.0</td><td>+22.5%</td><td>74.6</td><td>+130%</td></tr><tr><td>毛利</td><td>119.4</td><td>約 91.3</td><td>+30.8%</td><td>25.5</td><td>+368%</td></tr><tr><td>毛利率</td><td>69.6%</td><td>65.2%</td><td>+4.4pct</td><td>34.2%</td><td>+35.4pct</td></tr><tr><td>營業利益</td><td>89.49</td><td>57.4</td><td>+55.9%</td><td>4.68</td><td>+1814%</td></tr><tr><td>營業利益率</td><td>52.2%</td><td>41.0%</td><td>+11.2pct</td><td>6.3%</td><td>+45.9pct</td></tr><tr><td>稅後淨利</td><td>71.62</td><td>47.1</td><td>+52.0%</td><td>5.12</td><td>約 +1300%</td></tr><tr><td>每股盈餘（韓元）</td><td>10,849</td><td>約 7,137</td><td>+52%</td><td>—</td><td>—</td></tr></tbody></table><div class="note">Q2 與 2025Q2 為公司披露；2026Q1 營收 140.0 萬億元、毛利 91.3 萬億元為本報告按季增率反推（標註「推算」），Q1 營業利益 57.4 萬億元按公司「同比 +756.1%」與 2025Q1 基數反推，Q1 稅後淨利 47.1 萬億元＝上半年 118.7 − Q2 71.62。EPS 季增 +52% 為公司披露口徑。</div><table class="dt"><caption>分部業績（2026Q2，萬億韓元）</caption><thead><tr><th>分部</th><th>營收</th><th>佔比</th><th>營業利益</th><th>營業利益率</th></tr></thead><tbody><tr><td>半導體（DS）</td><td>127.5</td><td>74.3%</td><td>89.2</td><td>70.0%</td></tr><tr><td>其中：記憶體</td><td>120.8</td><td>70.4%</td><td>—（含在 DS 內）</td><td>—</td></tr><tr><td>手機+網路（MX）</td><td>33.2</td><td>19.4%</td><td>-0.7</td><td>-2.1%</td></tr><tr><td>顯示（SDC）</td><td>7.5</td><td>4.4%</td><td>0.7</td><td>9.3%</td></tr><tr><td>電視+家電（CE）</td><td>14.5</td><td>8.5%</td><td>小幅虧損</td><td>負</td></tr></tbody></table><div class="note">來源：三星電子 2026Q2 財報分部數據。占比＝分部營收÷合併營收 171.5。記憶體營業利益未單獨披露，含在 DS 的 89.2 萬億內。DS 營業利益率 70.0% 為 89.2÷127.5 計算值。注意：五個分部營收相加為 182.7 萬億，高於合併營收 171.5 萬億，差額 11.2 萬億為分部間內部交易抵銷（DS 向 MX、CE 供應記憶體），故占比合計超過 100%。</div><div class="section"><div class="section-title">第一層：收入結構——誰在貢獻增長</div><p class='txt'>171.5 萬億韓元的營收裡，DS 部門 127.5 萬億（占 74.3%）、MX 33.2 萬億（19.4%）、CE 14.5 萬億（8.5%）、SDC 7.5 萬億（4.4%）。<b>DS 的占比比 2025 年同期高了近 20 個百分點，這是營收結構的一次劇烈前移。</b></p><p class='txt'>增量更集中：營收同比增加 96.9 萬億韓元，其中記憶體一項貢獻約 99.6 萬億（120.8 對上年同期的 21.2），已經超過總增量——<b>意味著除記憶體外的業務合計是負貢獻。</b>手機營收同比小幅增長，但被記憶體成本吃掉了利潤；家電基本持平。</p><p class='txt'>這說明三星這一輪的增長不是「全面發展」，是「一個部門拉著一家公司跑」。好處是彈性極大，壞處是抗風險能力被削弱：<b>記憶體一旦轉向，沒有任何一塊業務能接住 89 萬億的利潤缺口。</b></p></div><div class="section"><div class="section-title">第二層：毛利與價格——69.6% 是怎麼來的</div><p class='txt'>毛利率從 34.2% 升到 69.6%，一年抬高 35.4 個百分點。這個幅度在半導體歷史上只有 2017—2018 年那一輪可以相比，但那一輪最高也只到 55% 左右。<b>69.6% 是全球大型製造企業裡的極值。</b></p><p class='txt'>拆解來源：價格貢獻約 30 個百分點，產品結構（HBM 佔比提升）貢獻約 5 個百分點，成本下降貢獻接近於零——因為折舊在上升（新產線投產）。<b>換句話說，這 35 個百分點裡，有 85% 是價格給的。</b></p><p class='txt'>價格給的毛利，價格也能拿走。按歷史彈性，DRAM 合約價每跌 10%，三星毛利率大約掉 6—7 個百分點。<b>如果 2027 年價格跌 30%，毛利率會回到 45%—50% 區間——那才是這門生意的常態水平。</b></p></div><div class="section"><div class="section-title">第三層：費用與利潤——研發在加碼，稅負正常</div><p class='txt'>期間費用率 17.4 個百分點（毛利率 69.6 − 營業利益率 52.2），比 2025Q2 的 27.9 個百分點下降 10 個百分點以上。<b>不是費用減少了，是營收漲得太快，費用被攤薄。</b>絕對額上，Q2 研發費用 16.0 萬億韓元，環比 +41%、同比 +78%。</p><p class='txt'>研發費用率 9.3%，在記憶體三家中最高（SK 海力士約 7%、美光約 10% 但基數小）。三星把錢投在三個方向：HBM4E 的 12 層堆疊、1c/1d 奈米 DRAM、2 奈米代工。<b>這是它敢在下一輪繼續領先的基礎，也是利潤不能全部還給股東的原因。</b></p><p class='txt'>稅負正常：營業利益 89.49 減淨利 71.62 得 17.87 萬億，對應 20.0% 的有效稅率，與韓國法定稅率（含地方稅約 24.2%，有研發抵免）大致吻合。<b>沒有一次性稅務收益，利潤品質乾淨。</b>唯一需要扣掉的是 3.1 萬億韓元匯率收益，占營業利益 3.5%。</p></div><div class="section"><div class="section-title">第四層：分部之間的錢怎麼轉移——記憶體向手機收了一筆隱形的稅</div><p class='txt'>合併報表看不見的一件事是：<b>記憶體漲價，等於 DS 部門向 MX 和 CE 部門收了一筆隱形的稅。</b>MX 部門 33.2 萬億營收、虧 0.7 萬億，虧損的主要原因不是手機賣不動，是記憶體成本上漲——手機裡最貴的單一物料就是 DRAM 和 NAND。</p><p class='txt'>算一筆粗賬：一部旗艦機的記憶體成本在 2025 年約占物料成本的 12%，2026 年在 DRAM 漲價 44% 之後升到 20% 以上。三星手機年出貨約 2.4 億部，<b>記憶體漲價對 MX 的成本衝擊大致在 5 萬億—8 萬億韓元/年（粗算）</b>，正好解釋了 MX 從盈利 2 萬億到虧損 0.7 萬億的轉變。</p><p class='txt'>這筆錢在合併層面是內部轉移，不產生額外利潤，但有兩個外部含義。第一，<b>三星不會無限度上調手機售價</b>——它要保份額，只能自己吞成本，所以 MX 的虧損會持續到記憶體降價為止。第二，競爭對手（蘋果、小米）沒有自己的記憶體產能，成本衝擊更直接，三星的相對競爭力反而在上升。</p><p class='txt'>CE 部門同理：電視和家電的面板、記憶體成本都在漲，14.5 萬億營收做出小幅虧損。<b>三星的終端業務在這一輪裡扮演的是「緩衝墊」，不是「增長引擎」。</b>判斷它的拐點很簡單：什麼時候 MX 重新盈利，說明記憶體成本壓力傳到終端了，也就說明記憶體價格見頂了。</p></div><div class="section"><div class="section-title">第五層：現金流與資產負債——利潤沒有變成現金</div><p class='txt'>記憶體行業的現金流有個固定套路：稅後淨利高、營業現金流更高（折舊回加）、自由現金流最差（資本支出）。2026Q2 單季淨利 71.62 萬億，折舊攤銷按重資產規模粗算在 10 萬億以上，營業現金流大概率超過 80 萬億。<b>但同期設備投資也在歷史高位，自由現金流會明顯低於稅後淨利。</b></p><p class='txt'>資產負債表這一端很乾淨：淨現金、無淨有息負債、淨資產約 996 萬億韓元（按 1.8 倍 PB 反推）。<b>這張表的意義不是「有錢」，是「能扛」——2023 年全行業虧損時，三星沒有減產、沒有裁員，靠的就是這張表。</b></p><p class='txt'>股東回報這一端是短板。上半年賺 118.7 萬億，全年分紅按政策下限 9.8 萬億，派息率約 4%。<b>在 7.5 倍 PE 的時候不回購，等於把最便宜的錢留在了賬上。</b>這是這份財報裡唯一讓人舒服不起來的地方。</p><p class='txt'>把四層疊起來看，這份財報的畫像是清楚的：<b>收入高度集中、毛利由價格決定、費用被營收攤薄、現金被設備吃掉、資產負債表乾淨但股東拿不到錢。</b>每一個特徵都指向同一個結論——利潤的質量取決於價格能撐多久，而不是公司做對了什麼。</p></div><div class="summary-box"><h3>結論</h3><p>財報結論：<b>利潤真實、結構極度集中、現金被資本支出截流、資產負債表乾淨。</b>這是一份「週期頂部標準形態」的財報——利潤率、營收增速、單一部門貢獻度全部處於歷史極值。<br>讀它的正確方式不是「算它值多少錢」，是「判斷這個利潤率能維持幾個季度」。答案是：兩個季度以內。</p></div>
+</div>
+<div class="footer">三星電子 (005930.KS) · 2026/09/21</div>
+</body>
+</html>

@@ -7,13 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
-.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
 .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
 .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
 .header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
 .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
 .section { margin-bottom: 2.5rem; }
 .section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -48,22 +53,19 @@ table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; colo
 .badge-blue { background: #e6f0ff; color: #1a4b8c; }
 .footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
 .back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
-.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
-.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
-.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
-
 </style>
 </head>
 <body>
 <div class="header">
+  <div class="lang-switch"><a class="lang zh active" data-lang="zh" href="/research/amd/16-八篇深度长文/AMD-03-护城河解剖.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/amd/16-八篇深度長文/AMD-八篇長文-3.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/amd/16-Eight-Long-Essays/AMD-Eight Essays-3.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
   <h1>03 护城河解剖：五条防线，两条真的 — AMD</h1>
   <div class="subtitle">AMD 深度系列之三</div>
   <div class="meta">研究日期 2026/08/07 &nbsp;·&nbsp; 股价 $483.36（-1.21%） &nbsp;·&nbsp; 市值 约 8,020 亿美元 &nbsp;·&nbsp; PE(TTM，GAAP) 约 125x</div>
 </div>
 <div class="container">
-<a class="back" href="../00-AMD研究报告总目录.html">← 返回总目录</a>
+<a class="back" href="/research/amd/00-AMD研究报告总目录.html">← 返回总目录</a>
 <div class="summary-box"><h3>核心判断</h3><p class='txt'>护城河不是一个词，是五条防线：牌照、成本、技术、生态、客户关系。<b>AMD 在牌照和成本上有真壁垒，在生态和品牌上是弱项，在客户关系上是「项目级」而非「公司级」。</b>逐条解剖。</p></div><table class="dt"><caption>五条防线打分</caption><thead><tr><th>防线</th><th>评分</th><th>证据</th><th>耐久性</th></tr></thead><tbody><tr><td>牌照（x86）</td><td>9/10</td><td>全球仅两家，四十年无新进入者</td><td>极强，看不到失效路径</td></tr><tr><td>成本（chiplet）</td><td>8/10</td><td>N3 计算 + N6 IO，单位成本低 20%–30%</td><td>中，对手在追</td></tr><tr><td>技术（制程获取）</td><td>7/10</td><td>台积电一等客户，但优先权在苹果、英伟达之后</td><td>中，取决于关系</td></tr><tr><td>生态（ROCm）</td><td>5/10</td><td>PyTorch/vLLM 可跑，算子与工具落后两代</td><td>弱，需五年追</td></tr><tr><td>客户关系</td><td>5/10</td><td>微软、OpenAI 联合开发，但绑定项目不绑定公司</td><td>弱，随项目结束</td></tr></tbody></table><div class="note">评分为本报告自定，与 m10 模块打分一致（x86 9、chiplet 8、制程 7、软件 5、品牌 5）。</div><div class="section"><div class="section-title">真的那两条：牌照与成本</div><p class='txt'>x86 牌照是半导体行业最硬的壁垒，没有之一。1982 年 IBM PC 选了 8086，英特尔把 x86 授权给 AMD 作为二供，这个安排延续了四十年。今天任何想进这个市场的公司，要么拿授权（不可能），要么等 RISC-V 成熟（十年后的事）。</p><p class='txt'>chiplet 是 AMD 自己造出来的壁垒。2017 年 Zen 首发时，AMD 没有钱做先进制程的大芯片，只能把 CPU 拆成四个小 die，用 14nm 拼。结果发现这个架构的成本比英特尔的双核大芯片低 30%，良率高得多。<b>被迫的创新变成了长期优势——这是 AMD 历史上最漂亮的一步。</b></p><p class='txt'>这两条加起来，解释了为什么 AMD 在服务器 CPU 上能从 1% 打到三成以上：牌照保证它能进，成本保证它能赢。</p></div><div class="section"><div class="section-title">假的那三条：生态、品牌、客户关系</div><p class='txt'>ROCm 的问题是「能用不好用」。一个模型在 CUDA 上跑，改到 ROCm 上要重写算子、调优、重新验证精度，工作量 2–6 人月。对大集群值得，对小客户不值得。<b>这决定了 AMD 只能吃大客户，吃不到长尾。</b></p><p class='txt'>品牌的问题是「性价比」这三个字。它意味着「便宜」，也意味着「次一档」。采购经理选 AMD 要写说明，选英伟达不用——这层组织摩擦，AMD 花了十年没消掉。</p><p class='txt'>客户关系的问题是「项目级」。AMD 与微软、OpenAI 的联合开发是真的，但项目结束关系就淡了。英伟达与客户的关系是「组织级」——CUDA 团队常驻、开发者大会、认证体系。<b>项目级关系能拿到订单，组织级关系能拿到定价权。</b></p><p class='txt'>x86 授权的历史值得记一笔。1982 年 IBM 选 8086 做 PC 处理器，要求英特尔必须有一个二供，英特尔把授权给了 AMD。这个安排让 AMD 活了四十年，也让 x86 成了全球唯一的「双寡头指令集」。2009 年两家达成新的交叉授权协议，AMD 每年付授权费，换来永久使用权。<b>这条护城河不是 AMD 建的，是 IBM 建的——但它同样是护城河。</b></p><p class='txt'>chiplet 的成本优势可以用良率数学解释。一片晶圆上，die 的面积越大，良率越低（缺陷按面积分布）。把一个 600mm² 的大 die 拆成四个 150mm² 的小 die，单 die 良率从 60% 提到 90%，四个拼起来的有效良率是 0.9⁴ ≈ 66%，仍然高于 60%，而且小的 die 可以用成熟制程、便宜的产能。<b>这就是为什么 AMD 能用 N6 的 IO die 配 N3 的计算 die，成本比英特尔的单片方案低三成。</b></p><p class='txt'>ROCm 的差距可以量化。CUDA 的算子库（cuBLAS、cuDNN、NCCL、TensorRT）覆盖 99% 的主流模型，ROCm 覆盖约 85%，缺的那 15% 是最新的注意力变体与量化算子。更麻烦的是工具链：Nsight 的性能分析、Triton 的编译器后端，ROCm 都有替代品，但成熟度差两代。<b>「能跑」和「跑得好」之间，是 15% 的算子 + 两代工具。</b></p><p class='txt'>「客户切换能力弱」这句话要说具体。一个 1,000 卡的推理集群从 CUDA 迁到 ROCm，需要重写约 5% 的算子、重新调优通信库、重新验证精度，工作量大约 20 人年。对微软、Meta 这种有几百人 AI 基础设施团队的公司，这是可承受的；对一家 50 人的 AI 创业公司，这是不可承受的。<b>所以 ROCm 只能吃大客户，吃不到长尾——而长尾才是 CUDA 的真正护城河。</b></p></div><div class="summary-box"><h3>结论</h3><b>解剖结论：五条防线，两条真、三条假。</b>真的两条（牌照、成本）支撑 AMD 在 CPU 端长期活着；假的三条（生态、品牌、客户关系）决定它在 GPU 端拿不到溢价。<b>投资含义：买 AMD 买的是「CPU 的确定性」，不是「GPU 的想象空间」。</b></div>
 </div>
-<div class="footer">AMD (AMD) 投资研究报告集 · 2026/08/07</div>
+<div class="footer">AMD (AMD) · 2026/08/07</div>
 </body>
 </html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⑧ Decision framework: three numbers, two lines, one thing — Cambricon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/cambricon/16-八篇深度长文/寒武纪-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/cambricon/16-八篇深度長文/寒武紀-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/cambricon/16-Eight-Long-Essays/Cambricon-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>⑧ Decision framework: three numbers, two lines, one thing — Cambricon</h1>
+  <div class="subtitle">Eight in-depth reports · Part eight</div>
+  <div class="meta">Research date 2026/08/17 &nbsp;·&nbsp; Price ¥1,156.00 (+5.76%) &nbsp;·&nbsp; Market cap Approximately RMB 727.1 billion &nbsp;·&nbsp; PE(TTM) Approximately 218x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/cambricon/00-Cambricon-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>The previous seven pieces covered "what it is"; this one covers "what to do". The conclusion is short: stay away and wait for valuations to fall; judge using only three numbers, two lines and one thing.</p></div><div class="section"><div class="section-title">Three numbers: 218, 7.84%, 0.135</div><b>218x</b> — TTM P/E, which determines "expensive or not." Against 368.97x on June 30, it has compressed 40.9%, but is still three times the industry average (74.86x). <b>7.84%</b> — Q2 revenue QoQ, which determines "fast or not." From +159.56% YoY in Q1 to +75.83% in Q2, QoQ growth is down to single digits. <b>0.135</b> — cash content of net profit, which determines "real or not." Net profit of RMB 2.311 billion recovered only RMB 311 million in cash.<p class='txt'>Together the three numbers yield one judgment: <b>expensive, decelerating, and cash not coming back.</b> Any one alone is not fatal; all three together leave no room for debate.</p></div><div class="section"><div class="section-title">Two thresholds: RMB 800 and 15%</div><b>Price line RMB 800</b>: equal to 77x the neutral 2027 net profit of RMB 6.5 billion; the neutral scenario implies 4% upside, the optimistic 81% and the pessimistic −50%, improving the payoff ratio from 1:2.6 to about 1:1. <b>Data line: Q3 up 15% QoQ</b>: the minimum required to meet the full-year assessment line of RMB 13.5 billion; hitting it shows capacity is in place and the shift is a matter of pace.<p class='txt'>If either line triggers, reopen the discussion; if neither does, keep waiting. <b>Waiting needs no reason; buying does.</b></p></div><div class="section"><div class="section-title">One thing: be clear about what you are being paid for</div><p class='txt'>Buying Cambricon at this level does not earn you "money from company growth" (that would require RMB 59.5 billion in 2028 revenue), nor "money from dividends" (30% payout ratio, dividend yield below 0.1%). <b>What you earn is "money from the next buyer willing to pay a higher multiple."</b> This is a game, not an investment.</p><p class='txt'>If you admit you are playing a game, then accept the rules of the game: set stop-losses, follow the trend, do not overstay. If you say you are investing, then accept the rules of investing: wait for the price, calculate cash flow, hold with conviction. <b>The most dangerous thing is doing game-playing in the language of investing—that is self-deception.</b></p></div><div class="section"><div class="section-title">Finally: this company deserves respect</div><p class='txt'>From a single office at the Chinese Academy of Sciences in 2016 to the first STAR Market stock to reach a RMB 1 trillion market cap in 2026; from being sanctioned and losing money for three straight years to earning RMB 2.059 billion in a year and RMB 2.311 billion in half a year; from an IP supplier to others to the second source of domestic computing power. <b>This is a company that has truly delivered.</b></p><p class='txt'>But "a company worth respecting" and "a stock worth buying" are two separate judgments. The first asks what problems it has solved; the second asks what price you paid. <b>Cambricon has solved the "whether China has it" question for domestic computing power; it has not yet solved the shareholder's "is it worth it" question.</b> Wait until it solves the second before buying.</p></div><div class="section"><div class="section-title">If a buy price must be given: the intersection of four methods</div><p class='txt'>Method one, P/E approach: 2027 neutral net profit of RMB 6.5 billion × 70x (lower bound for growth stocks) = RMB 455 billion = RMB 724.<b>Method two, P/S approach:</b> 2027 revenue of RMB 17.5 billion × 25x PS (A-share semiconductor design sector midpoint) = RMB 437.5 billion = RMB 696.</p><b>Method three, two-way PEG validation:</b> 2027 revenue growth of 35%, at 1.5x PEG implies 52x = RMB 338 billion = RMB 538; at 2x PEG implies 70x = RMB 455 billion = RMB 724.<b>Method four, sum-of-the-parts:</b> the peer 218x is too high, and Hygon's 250x dynamic P/E is also unreasonable, so fall back to "PEG ≤ 1.5" (2027 growth of 40% × 1.5 = 60x), giving RMB 400 billion = RMB 636.<p class='txt'>The four methods yield a range of RMB 538–724, with a median of about RMB 650; adding a scarcity premium, RMB 700 is the "genuinely cheap" line.<b>So the RMB 800 line is "on the expensive side but worth starting to look at," while RMB 700 is "genuinely cheap."</b> This also explains why in m14 the position is only raised to 5% below RMB 700 — that is not conservatism, it is calculated.</p></div><div class="section"><div class="section-title">If already holding: three exit rules</div><p class='txt'>Assume you built a position below RMB 1,000. What now? <b>Rule one: do not add.</b> A 218x P/E is no place to add. <b>Rule two: set a fundamental stop.</b> If Q3 QoQ growth is <5% and inventory keeps rising, halve the position; if single-quarter gross margin is <50%, exit entirely.</p><p class='txt'>Rule three: <b>take profits on price, not stop-losses on price.</b> Halve at RMB 1,450 (bull case target); exit entirely above RMB 1,600. <b>The logic: let fundamentals decide whether to leave, let price decide how much you earn.</b></p></div><div class="section"><div class="section-title">One-sentence version</div><p class='txt'>If you remember only one line, remember this: <b>Cambricon is a good company worth waiting for; RMB 1,156 is a price not worth waiting at.</b> Wait until it falls below RMB 800, or until Q3 proves capacity has genuinely come on stream, then come back.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Decision framework:</b> three numbers (218/7.84%/0.135) for qualitative characterization, two lines (RMB 800/15%) for quantification, one question (whose money are you making) for qualitative judgment. Conclusion: avoid; wait for valuation to pull back. Rating consistent with the working paper.</p></div>
+</div>
+<div class="footer">Cambricon (688256) · 2026/08/17</div>
+</body>
+</html>

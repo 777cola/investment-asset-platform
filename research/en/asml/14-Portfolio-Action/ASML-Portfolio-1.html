@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — ASML</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/asml/14-组合管理建议/阿斯麦-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/asml/14-組合管理建議/阿斯麥-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/asml/14-Portfolio-Action/ASML-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Portfolio — ASML</h1>
+  <div class="subtitle">ASML (ASML) | 14 · Portfolio</div>
+  <div class="meta">Research date 2026/10/16 &nbsp;·&nbsp; Price $1,641.52 (-0.96%) &nbsp;·&nbsp; Market cap About USD 624 billion (about EUR 538 billion) &nbsp;·&nbsp; PE(TTM) Approximately 41x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/asml/00-ASML-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view: first be clear about its role in the portfolio</h3><p class='txt'>ASML's role in the portfolio is "high-beta exposure to AI capex"—it moves closely in step with the Philadelphia Semiconductor Index, TSMC and Applied Materials. This means that if your portfolio already holds Nvidia, TSMC and AMD, adding ASML will not diversify risk; it will only amplify the same bet. <b>Position discipline: cap any single holding at 6%, and keep combined semiconductor exposure, including existing holdings, at no more than 20%.</b></p></div><table class="dt"><caption>Positioning recommendation (by price tier)</caption><thead><tr><th>Scenario</th><th>Price range</th><th>Recommended position</th><th>Rationale</th></tr></thead><tbody><tr><td>Current price</td><td>Above USD 1,600</td><td>0%</td><td>2027 PE 31x, 4% upside in base case, asymmetric risk-reward</td></tr><tr><td>Tier 1</td><td>USD 1,300–1,400</td><td>2%</td><td>2027 PE 25x; risk-reward turns to 19% downside, 83% upside</td></tr><tr><td>Tier 2</td><td>USD 1,150–1,250</td><td>4%–5%</td><td>2027 PE of 22x, close to the valuation trough of the 2022 cycle</td></tr><tr><td>Cap</td><td>—</td><td>6%</td><td>Export-control exposure 23%; a single policy risk caps upside</td></tr></tbody></table><table class="dt"><caption>Correlation (rough calculation, weekly returns over the past two years)</caption><thead><tr><th>Underlying</th><th>Correlation with ASML</th><th>Explanation</th></tr></thead><tbody><tr><td>Philadelphia Semiconductor Index SOX</td><td>Approximately 0.85</td><td>Almost the same beta</td></tr><tr><td>TSMC TSM</td><td>Approximately 0.75</td><td>Customer relationships, aligned</td></tr><tr><td>Applied Materials (AMAT)</td><td>Approximately 0.80</td><td>As fellow equipment makers, customer overlap</td></tr><tr><td>NVIDIA NVDA</td><td>Approximately 0.60</td><td>Demand stems from the same source, but Nvidia has greater elasticity</td></tr><tr><td>Nasdaq 100</td><td>Approximately 0.55</td><td>Market beta</td></tr></tbody></table><div class="section"><div class="section-title">What it is in the portfolio: not defense, but offense</div><p class='txt'>Many people buy ASML as a "steady tech leader." That is a misunderstanding. Its revenue tracks customer capex, and capex is the most volatile variable in the semiconductor chain. In 2022 it fell 60%, earlier than Nvidia — because equipment orders are a leading indicator of capex, showing up first in equipment companies' orders and only later in chip companies' revenue.</p><p class='txt'>So its role is "cycle early bird": it rises early and falls early. That trait is useful for timing (orders turning negative is a signal to cut exposure), and a disaster for anyone who "buys and forgets."</p></div><div class="section"><div class="section-title">Specific price levels for adding to, trimming or stopping out of positions</div><p class='txt'>Add: build 2% at USD 1,300 (25x 2027 PE), add to 4%–5% at USD 1,150 (22x). This range corresponds to valuation levels at the 2022 cycle bottom, the only historically validated "cheap" zone.</p><p class='txt'>Trim: start trimming above USD 2,380 (bull case), cutting one-third for every 10% gain. The reason is not "it's expensive, so run" but "the bull case has played out, and the risk-reward has inverted."</p><p class='txt'>Stop-loss: no price stop, an event stop instead — if gross margin falls below 55% for two consecutive quarters, or orders turn negative year on year, halve the position unconditionally. Price stops on a company like this get you washed out by the cycle.</p></div><div class="section"><div class="section-title">Correlation: don't make the same bet three times</div><p class='txt'>Its correlation with the SOX is about 0.85, with TSMC 0.75, and with Applied Materials 0.80 (rough calculation). If your portfolio already holds Nvidia + TSMC + ASML, your actual exposure is not three positions but one "AI capex" bet at triple leverage.</p><p class='txt'>Discipline: cap total semiconductor-related holdings at 20%, of which ASML no more than 6%. If already overweight, trim something else before buying ASML — do not add.</p></div><div class="section"><div class="section-title">If already holding: how to manage</div><p class='txt'>Add no position, trim no position, set event-based stop-loss. Rationale: there is no evidence the business has deteriorated; trimming equals betting on the cycle, and the cycle is unpredictable; adding equals doubling the same bet at 31x PE, and the odds are unattractive.</p><p class='txt'>The specific conditions for the event-based stop-loss are written in Folder 13 (thesis tracking): gross margin below 55% for two consecutive quarters, order growth turning negative year on year, and China's share falling below 10%. These three are signals that "the thesis has been falsified," not signals that "the stock price has fallen." A price-based stop-loss would have washed you out during a normal pullback like the one in 2022.</p><p class='txt'>One more discipline: if ASML rises to USD 2,380 (bull case), trim to 2%–3%. Not because of a bearish view, but because the odds have by then reversed—upside is eaten by valuation, downside is amplified by the cycle.</p></div><div class="section"><div class="section-title">Rebalancing: a semi-annual mechanical move</div><p class='txt'>The rule is fixed: check weights every six months. If ASML rises above 8% of the portfolio, trim it back to 6%; if it falls below 2% and the thesis is unchanged, top it back up to 4%. This action ignores views and looks only at weights—its purpose is to prevent "winners becoming heavy positions and heavy positions becoming risks."</p><p class='txt'>For high-beta cyclical stocks like this, the gains from rebalancing are more reliable than timing. Those who bought at the 2021 peak would have seen drawdowns halved if they had rebalanced mechanically; those who dared not buy at the 2022 low would have been forced to buy at the bottom if they had a "top back up below 2%" rule.</p></div><div class="summary-box"><h3>Conclusion</h3><p>Action: 0 position at the current price, monitor only. Build 2% at USD 1,300, add to 5% at USD 1,150, cap at 6%. No price stop-loss; use event-based stops (gross margin, orders). Aggregate with existing semiconductor holdings; total exposure not to exceed 20%.</p></div>
+</div>
+<div class="footer">ASML (ASML) · 2026/10/16</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行業漏斗 — 亞馬遜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/amazon/11-行业漏斗对比/亚马逊-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/amazon/11-行業漏斗對比/亞馬遜-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/amazon/11-Industry-Funnel/Amazon-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>行業漏斗 — 亞馬遜</h1>
+  <div class="subtitle">亞馬遜 (AMZN) | 11 · 行業漏斗</div>
+  <div class="meta">研究日期 2026/11/06 &nbsp;·&nbsp; 股價 $259.30（-0.35%） &nbsp;·&nbsp; 市值 約 2.80 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 20.8x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/amazon/00-亞馬遜研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>從「AI + 現金流」這條主線篩下來，候選池裡有五家：亞馬遜、微軟、Alphabet、Meta、阿里。粗篩淘汰三家（Meta 無對外雲、阿里地域分割、京東只有零售單段），終選是亞馬遜與微軟二選一。</p><p class='txt'>選亞馬遜的理由不是增速——Azure +48% 比 AWS +39.3% 快。理由是<b>估值差與業務完整性</b>：亞馬遜 20.8 倍 TTM 對應三家雲業務裡最低的倍數，同時擁有零售流量池與廣告變現，是唯一「三條腿都能造血」的公司。微軟是更好的公司，但 25.8 倍買 48% 的增速，賠率更差。</p></div><table class="dt"><caption>行業漏斗：五家候選橫向對比</caption><thead><tr><th>公司</th><th>市值</th><th>雲端／核心增速</th><th>PE</th><th>2026 資本支出</th><th>漏斗結論</th></tr></thead><tbody><tr><td>亞馬遜</td><td>2.80 萬億美元（11/06）</td><td>AWS +39.3%（460 億）</td><td>20.8x TTM（剔除浮盈約 34x）</td><td>約 2,200 億，2027 年再增</td><td>最終選擇：唯一三條腿造血</td></tr><tr><td>微軟</td><td>3.45 萬億美元（07/31）</td><td>Azure +48%</td><td>25.8x TTM</td><td>1,700 億（下調後）</td><td>最終選擇：更好的公司，更貴的價格</td></tr><tr><td>Alphabet</td><td>3.42 萬億美元（10/30）</td><td>Google Cloud +103%（307 億）</td><td>EV/EBIT 約 21x</td><td>1,950–2,050 億</td><td>粗篩保留但非首選：雲端規模太小、廣告依賴搜尋</td></tr><tr><td>Meta</td><td>1.58 萬億美元（11/02）</td><td>無對外雲業務</td><td>21x TTM</td><td>AI 只為廣告服務</td><td>淘汰：AI 投入無法獨立驗證回報</td></tr><tr><td>阿里巴巴</td><td>2.30 萬億港元（08/24）</td><td>中國雲端市占第一</td><td>31x TTM（利潤被 AI 投入扭曲）</td><td>國內算力投入</td><td>淘汰：地域分割 + 雲端利潤未披露</td></tr><tr><td>京東</td><td>2,800 億港元（10/26）</td><td>零售為主，無規模雲</td><td>7.5x 2026E 經調整</td><td>輕資產</td><td>淘汰：僅零售鏈單段</td></tr></tbody></table><div class="note">市值/PE 取自本平台各公司研究報告日讀數（日期已註明），非同一交易日，僅供量級參考；PE 口徑不同（亞馬遜與微軟為 TTM、Alphabet 為 EV/EBIT、京東為 2026E 經調整），不可直接排序。雲增速取自各公司 2026Q3 財報。資本開支為各公司最新指引。</div><div class="section"><div class="section-title">粗篩：先砍掉「只有一個引擎」的公司</div><p class='txt'>漏斗的第一層不是估值，是<b>業務結構</b>。這一輪 AI 投資的回報只能從雲和廣告兩個地方收回來，所以候選公司必須至少有一個能獨立驗證的引擎。</p><p class='txt'>Meta 第一個被砍：它的 AI 資本開支全部服務廣告推薦，沒有對外雲業務，外部投資者無法驗證「這些晶片賺了多少」。這不是說它不好，是說<b>你無法用財報對帳</b>。京東被砍：零售鏈單段，沒有雲、沒有高毛利廣告，7.5 倍市盈率便宜但沒有重估的引擎。阿里被砍：中國雲份額第一是真的，但雲利潤從未單獨披露，且中概折價與地緣風險讓估值錨失效。</p><p class='txt'>留下的三家（亞馬遜、微軟、Alphabet）有一個共同點：<b>都能用「雲收入 + 雲利潤率」這兩個數字對帳</b>。這是進終選的必要條件。</p></div><div class="section"><div class="section-title">最終選擇：為什麼是亞馬遜，不是微軟</div><p class='txt'>這是最難的比較，因為微軟在很多維度更好：Azure +48% 快於 AWS +39.3%，企業客戶關係更深，資產更輕（資本支出還下調了 50 億）。如果只看「誰更優秀」，答案是微軟。</p><p class='txt'>但買股票買的是「價格與預期的差」。三組數字：<b>一，估值</b>——亞馬遜 20.8 倍 vs 微軟 25.8 倍，差 24%；<b>二，業務完整性</b>——亞馬遜有零售流量池和廣告（196.4 億、+12%），微軟沒有消費端流量；<b>三，預期差</b>——微軟的下調資本支出被市場解讀為「理性」，亞馬遜的上調被解讀為「燒錢」，兩者的定價情緒完全不同。</p><p class='txt'>Alphabet 是第三種情況：Google Cloud +103% 是最亮眼的數字，但雲只占集團收入很小一部分（307 億 vs 集團千億級），而且它的估值錨是搜尋廣告，不是雲。<b>買 Alphabet 是在買搜尋的現值 + 雲的期權，買亞馬遜是在買雲的現值 + 零售的效率改善</b>——後者更容易算帳。</p></div><div class="section"><div class="section-title">「為什麼是它」與「什麼情況下不是它」</div><p class='txt'>三條理由：<b>一，規模</b>——AWS 單季 460 億、年化 1,840 億，仍是全球最大，規模本身就是成本優勢；<b>二，結構</b>——唯一同時擁有零售、廣告、雲三條現金流的公司，任何一條出問題另外兩條托底；<b>三，價格</b>——20.8 倍 TTM（剔除浮盈 34 倍）在三家雲廠裡最低，賠率 1.63 比 1。</p><p class='txt'>什麼情況下它不再是答案？兩個：<b>AWS 增速連續兩季低於 30% 而 Azure 仍在 40% 以上</b>（說明份額在流失）；<b>自由現金流連續四個季度為負且資本開支仍在加速</b>（說明這是結構性虧損，不是週期投入）。這兩個條件出現，應該換成微軟或直接退出這個賽道。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>漏斗結論：六家進、三家出、兩家終選、一家落地。</b>亞馬遜贏在「最完整的業務結構 + 最低的估值」，不在「最快的增速」。這是一筆「用合理價格買最好的結構」的投資，不是「用便宜價格買最快的增長」。若 2027 年上半年 AWS 增速掉到 30% 以下，這個選擇需要重做。</p></div>
+</div>
+<div class="footer">亞馬遜 (AMZN) · 2026/11/06</div>
+</body>
+</html>

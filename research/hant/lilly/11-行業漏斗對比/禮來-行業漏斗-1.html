@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行業漏斗 — 禮來</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/lilly/11-行业漏斗对比/礼来-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/lilly/11-行業漏斗對比/禮來-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/lilly/11-Industry-Funnel/Eli Lilly-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>行業漏斗 — 禮來</h1>
+  <div class="subtitle">禮來 (LLY) | 11 · 行業漏斗</div>
+  <div class="meta">研究日期 2026/11/09 &nbsp;·&nbsp; 股價 $1,411.95（+4.28%） &nbsp;·&nbsp; 市值 約 1.33 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 48x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/lilly/00-禮來研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>從全球創新藥中粗篩出六家有代謝賽道曝險的公司，再按「增速、份額、管線、估值」四條比較，禮來在三條上第一、一條上墊底。<b>漏斗的結論是「這條賽道要買就買禮來」，但漏斗不管價格</b>——禮來 48 倍 TTM，諾和 10.6 倍，同一場比賽的兩種定價。買最好的公司，還是買最便宜的籌碼，這是兩個問題。</p></div><table class="dt"><caption>同行業六家對比（2026 年第三季）</caption><thead><tr><th>公司</th><th>市值</th><th>營收增速</th><th>毛利率</th><th>PE(TTM)</th><th>ROE</th><th>代謝賽道位置</th></tr></thead><tbody><tr><td>禮來</td><td>約 1.33 萬億美元</td><td>+38.6%</td><td>84.4%</td><td>48.2x</td><td>74.6%（2024）</td><td>市占率 60%，替爾泊肽單季 160.75 億美元</td></tr><tr><td>諾和諾德</td><td>約 1,820 億美元</td><td>淨銷售承壓（2026Q1 -4%）</td><td>約 84%</td><td>10.6x</td><td>30% 左右</td><td>市占率 40%，口服 Wegovy 領先</td></tr><tr><td>安進</td><td>約 1,700 億美元</td><td>個位數到低雙位數</td><td>約 70%</td><td>15x 左右</td><td>80% 以上（槓桿驅動）</td><td>MariTide 月製劑，III 期</td></tr><tr><td>輝瑞</td><td>約 1,400 億美元</td><td>個位數</td><td>約 70%</td><td>9–10x</td><td>10% 左右</td><td>口服 GLP-1 產品線，臨床階段</td></tr><tr><td>默沙東</td><td>約 2,200 億美元</td><td>個位數</td><td>約 76%</td><td>10x 左右</td><td>35% 左右</td><td>無核心 GLP-1 資產，K 藥專利懸崖在即</td></tr><tr><td>信達生物（港股）</td><td>約 1,500 億港元</td><td>+40% 左右</td><td>約 80%</td><td>虧損轉盈利初期</td><td>低</td><td>瑪仕度肽（雙靶點）國內放量</td></tr></tbody></table><div class="note">禮來數據來自 2026Q3 財報與 2026/11/09 收盤；諾和市值按 11/09 ADR 41.40 美元 × 44.06 億股粗算，PE 約 10.6x 為 TTM 約值；安進、輝瑞、默沙東、信達為公開行情與最近財報的量級估計，未逐項核對，僅用於排序，不作估值依據。</div><div class="section"><div class="section-title">粗篩：二十家中留下六家</div><p class='txt'>第一步是全市場掃描。全球市值 500 億美元以上的創新藥企大約二十家，按三個條件粗篩：<b>① 有 GLP-1 或代謝賽道資產；② 毛利率高於 60%；③ 最近四個季度營收沒有連續下滑。</b>二十家裡過這三條的有六家：禮來、諾和諾德、安進、輝瑞、默沙東、信達生物。</p><p class='txt'>被淘汰的十四家裡，最典型的是三類。第一類是「有藥但沒代謝資產」的——比如專注腫瘤的幾家，毛利率再高也跟這條賽道無關。第二類是「有資產但太 early」的——臨床前或 I 期的生物科技公司，賭的是單點成敗，不屬於「一流公司」範疇。第三類是「營收在下滑」的——包括幾家專利懸崖已經到期的老牌藥企，它們的低 PE 是價值陷阱，不是便宜。</p></div><div class="section"><div class="section-title">二次篩選：三條硬標準淘汰四家</div><p class='txt'>六家裡再篩。標準是：<b>① 代謝收入占比超過 30%（證明這是它的主戰場，不是期權）；② 口服與注射雙線都有商業化產品；③ 市值／管线折現後仍有成長空間。</b></p><p class='txt'>默沙東第一條就不過——它沒有核心 GLP-1 資產，K 藥專利懸崖在即，10 倍 PE 是市場對「收入要掉」的定價，不是便宜。輝瑞和安進第二條不過——口服 GLP-1 還在臨床，2027 年之前落不了地，買它們等於買期權。信達生物第一條和第三條都過，但它的瑪仕度肽主要在中國市場，天花板由集採決定，<b>這是「區域冠軍」不是「全球龍頭」</b>。剩下禮來和諾和，兩家都有注射 + 口服、都以代謝為主戰場。</p></div><div class="section"><div class="section-title">最終選擇：為何是禮來，以及為何現在不買</div><p class='txt'>禮來贏在三個地方。<b>增速</b>：Q3 營收 +38.6%，諾和是負成長。<b>市佔</b>：全球減重 60% vs 40%，而且還在擴大——Zepbound 已經在美國新增肥胖症處方反超 Wegovy。<b>產品線</b>：retatrutide 三靶點 III 期 80 週減重 20.8%–25%，公司計劃 2027 年第一季申報，這是 2030 年代的主力；諾和的重磅後備（CagriSema）進度落後。</p><p class='txt'>諾和贏在一個地方：<b>價格</b>。10.6 倍 PE 對應的是「收入下滑 + 專利懸崖 + 口服領先」的混合定價。如果口服 Wegovy 能撐住，10.6 倍是便宜的；如果撐不住，10.6 倍還會更便宜。<b>這是典型的「便宜有便宜的理由」。</b></p><p class='txt'>所以漏斗的結論要分兩句說：<b>這條賽道要買就買禮來（品質第一），但禮來現在的價格已經把「品質第一」付完了。</b>48.2 倍 vs 10.6 倍，同一個行業裡差 4.5 倍，市場不是不知道禮來更好，是把「更好」定價定得太滿。終選禮來，評級觀察。</p></div><div class="section"><div class="section-title">為什麼不選更便宜的諾和</div><p class='txt'>有人會問：既然諾和只有 10.6 倍，為什麼不選諾和？<b>因為低 PE 有兩種，一種是市場錯了，一種是自己快錯了。</b>諾和屬於後者：司美格魯肽貢獻約 75% 收入，中國專利 2026 年到期，注射劑份額被 Zepbound 搶走，只能靠降價保量——2026 年第一季淨銷售同比 -4%。這種公司的 PE 會一直低，直到收入停止下滑。</p><p class='txt'>禮來相反：它的 PE 會一直高，直到增速停止上升。<b>兩個都是「單分子公司」，區別是一個分子在上升期、一個在防守期。</b>漏斗選質量，選的是禮來；如果哪天要做「困境反轉」，諾和才是標的，那是另一套框架。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>終選：禮來。</b>六家中它是唯一同時具備「正成長、份額領先、雙線產品、下一代管線」的公司。但漏斗只能回答「買什麼」，回答不了「什麼時候買」——<b>1,411.95 美元、48.2 倍，這個價格已經把這個結論用完了。</b>等回檔到 1,200 美元以下，或等 Foundayo 單季 5 億美元。</p></div>
+</div>
+<div class="footer">禮來 (LLY) · 2026/11/09</div>
+</body>
+</html>

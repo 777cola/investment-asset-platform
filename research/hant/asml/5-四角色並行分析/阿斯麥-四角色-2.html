@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務分析（巴菲特視角） — 阿斯麥</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/asml/5-四角色并行分析/阿斯麦-财务分析-巴菲特.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/asml/5-四角色並行分析/阿斯麥-四角色-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/asml/5-Four-Role-Analysis/ASML-Four Roles-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務分析（巴菲特視角） — 阿斯麥</h1>
+  <div class="subtitle">毛利率是真的，淨利率有水分，現金流最誠實</div>
+  <div class="meta">研究日期 2026/10/16 &nbsp;·&nbsp; 股價 $1,641.52（-0.96%） &nbsp;·&nbsp; 市值 約 6,240 億美元（約 5,380 億歐元） &nbsp;·&nbsp; PE(TTM) 約 41 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/asml/00-阿斯麥研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>三個數字定性：毛利率 57.5% 是結構性抬升，可信；淨利率 42.5% 含 5 億歐元一次性收益，不可持續；現金一個季度增加 51.5 億歐元、同期還回購了 41 億，這才是這家公司最硬的地方。看阿斯麥要用毛利率和現金流，不要用淨利率。</p></div><table class="dt"><caption>三張表的關鍵讀數（2026Q3，百萬歐元）</caption><thead><tr><th>專案</th><th>數值</th><th>同比／環比</th><th>讀數</th></tr></thead><tbody><tr><td>淨銷售額</td><td>11,662</td><td>+55.2% / +25.0%</td><td>指引高位</td></tr><tr><td>毛利（計算）</td><td>6,706</td><td>毛利率 57.5%</td><td>高於指引上限</td></tr><tr><td>稅後淨利</td><td>4,960</td><td>+133.4%</td><td>含約 500 一次性</td></tr><tr><td>營業現金流（反推）</td><td>約 8,000 以上</td><td>—</td><td>現金淨增 5,153</td></tr><tr><td>資本支出</td><td>未單獨披露</td><td>—</td><td>擴產期</td></tr><tr><td>回購</td><td>約 4,100</td><td>—</td><td>單季</td></tr><tr><td>現金及短期投資</td><td>12,735</td><td>第二季末 7,582</td><td>+5,153</td></tr></tbody></table><div class="section"><div class="section-title">損益表：毛利率是這份財報裡最有價值的部分</div><p class='txt'>57.5% 的毛利率，比 Q2 的 54.0% 高 3.5 個百分點，比 55%–57% 的指引上限還高。三個原因：裝機服務占比提升、EUV 與浸潤式 DUV 的產品組合改善、出貨量帶來的固定成本攤薄。第一條是結構性的，後兩條是週期性的。</p><p class='txt'>分辨方法很簡單：看下季度。Q4 指引毛利率約 57%，如果能守住，說明 57% 是新的平台而不是峰值。<b>毛利率上台階比收入創新高重要得多</b>——收入是客戶的資本支出給的，毛利率是自己的定價權掙的。</p></div><div class="section"><div class="section-title">淨利率：42.5% 這個數字不要當真</div><p class='txt'>稅後淨利 49.60 億、同比 +133.4%，聽起來嚇人。拆開看：約 5 億歐元來自 Mistral AI 股權重估，是帳面收益；剔除後 44.6 億，同比仍增長約 110%，依然極強，但沒到「翻倍」的程度。</p><p class='txt'>淨利率 42.5% 不可能長期維持。2025Q3 是 28.3%，2026 全年大概在 32%–34%（粗算：全年稅後淨利約 145 億歐元 ÷ 445 億收入）。投資這類公司，用淨利率做預測一定會高估——它受稅率、匯兌、股權重估影響太大。</p></div><div class="section"><div class="section-title">現金流與資產負債表：這才是巴菲特會看的地方</div><p class='txt'>Q3 現金及短期投資從 75.82 億增加到 127.35 億歐元，單季增加 51.5 億，<b>而同期還花了 41 億歐元回購</b>。兩項相加，意味著單季營業現金流在 80 億歐元以上（反推）。這個數字超過了當季稅後淨利，來源是客戶預收款——訂單制的好處在這裡體現得最清楚：客戶先給錢，公司後交貨。</p><p class='txt'>資產負債表是淨現金狀態，有息負債以低息歐元債為主，利息覆蓋 50 倍以上。這種結構在設備行業裡罕見：應用材料、泛林、東京電子都做不到這麼乾淨的負債表。</p></div><div class="section"><div class="section-title">資本配置：回購是這屆管理層最正確的動作</div><p class='txt'>Q3 單季回購 41 億歐元，股本從 2021 年的約 4.17 億股壓到約 3.84 億股，五年減了 8%。同期還在發股權激勵，說明回購規模遠大於稀釋。中期股息 1.88 歐元/股，全年股息預計 7 歐元上下——按現價算股息率不到 0.5%，可以忽略。</p><p class='txt'>這是典型的「把現金還給股東、但不假裝自己是高股息股」的做法。巴菲特會認可：<b>在沒有足夠高回報的併購標的時，回購是唯一誠實的資本配置。</b>唯一的疑問是回購價位——1,600 美元以上的回購，是不是在為自己的股價捧場，2027 年才知道。</p></div><div class="summary-box"><h3>結論</h3><p>財務品質：A。毛利率結構性抬升、現金流超過稅後淨利、淨現金、股本在縮。唯一要打折的是淨利率和稅後淨利增速，兩者都被一次性收益美化過。用 2026 年 32%–34% 的淨利率做估值，比用 42.5% 靠譜得多。</p></div>
+</div>
+<div class="footer">阿斯麥 (ASML) · 2026/10/16</div>
+</body>
+</html>

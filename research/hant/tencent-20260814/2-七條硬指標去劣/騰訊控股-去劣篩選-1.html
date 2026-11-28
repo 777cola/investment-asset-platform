@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣篩選 — 騰訊控股</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/tencent-20260814/2-七条硬指标去劣/腾讯控股-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/tencent-20260814/2-七條硬指標去劣/騰訊控股-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/tencent-20260814/2-Seven-Hard-Metrics/Tencent Holdings-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>去劣篩選 — 騰訊控股</h1>
+  <div class="subtitle">騰訊控股 (00700) | 02 · 去劣篩選</div>
+  <div class="meta">研究日期 2026/08/14 &nbsp;·&nbsp; 股價 HK$440.00（-0.23%） &nbsp;·&nbsp; 市值 約 4.01 萬億港元 &nbsp;·&nbsp; PE(TTM) 約 15.0x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/tencent-20260814/00-騰訊控股研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>七條硬指標過五條。<b>不過的兩條是「利潤增速」和「經營現金流／淨利」</b>，都指向同一個地方：錢賺得不少，但留在手裡的變少了。這不是生意變差，是生意的現金轉化在 2026 年被資本支出截了一道。</p><p class='txt'>過的五條裡，毛利率與 ROE 是真本事，淨現金與股東回報是家底，收入增速是當下。七條裡沒有一條是「結構性不通過」，所以這家公司不該被去劣篩掉——它的問題是估值和節奏，不是質地。</p></div><table class="dt"><caption>七項硬指標（2026Q2 / TTM 口徑）</caption><thead><tr><th>指標</th><th>公司數值</th><th>門檻</th><th>判定</th></tr></thead><tbody><tr><td>毛利率</td><td>57.8%（同比 +1.0pct）</td><td>≥40%</td><td>過</td></tr><tr><td>ROE</td><td>約 23%（2025 年歸母 2,248.42億元／權益粗算）</td><td>≥15%</td><td>過</td></tr><tr><td>淨現金</td><td>581.91億元（3月末1,468.60億元）</td><td>&gt;0</td><td>過</td></tr><tr><td>營業現金流／歸母淨利</td><td>0.94（527.10／560.22）</td><td>≥1.0</td><td>不過</td></tr><tr><td>收入增速</td><td>+11%（2,047.85億元）</td><td>≥10%</td><td>過</td></tr><tr><td>歸母淨利增速</td><td>+0.7%（Non-IFRS +9%）</td><td>≥10%</td><td>不過</td></tr><tr><td>股東回報／市值</td><td>約 2.3%（年化回購 488億港元＋股息 416億元）</td><td>≥2%</td><td>過</td></tr></tbody></table><div class="note">ROE 與股東回報為粗算：權益按 2025 年末歸母權益約 9,700億元估算，回購按上半年 244億港元年化，股息為 2025 年度末期息支付額 416億元。門檻為 AI Berkshire 去劣框架的預設值。</div><div class="section"><div class="section-title">過的五條，含金量不一樣</div><p class='txt'>毛利率 57.8% 和 ROE 約 23% 是這門生意的底色，兩條同時成立的公司中國互聯網裡只有兩三家。<b>毛利率同比還提了 1 個點</b>，說明提價能力還在；ROE 高是因為輕資產 + 大額回購縮股本，兩者都是股東友好的結構。</p><p class='txt'>淨現金 581.91億元只是「過」，不是「很好」：一個季度前是 1,468.60億元，掉了 887億元，主要是資本開支付款 593億元和股息支付 416億元。家底還在，但下降的方向要盯著。收入 +11% 是這一季最紮實的數字——彭博一致預期 2,028億元，實際 2,047.85億元，超了 1%。</p></div><div class="section"><div class="section-title">不過的兩條，其實是同一件事</div><p class='txt'>營業現金流／淨利 0.94，差一點點；歸母淨利增速 +0.7%，差得遠。兩條放在一起看就清楚了：<b>損益表被非經營項目壓平，現金流被資本支出截斷</b>。歸母淨利只增 0.7%，而 Non-IFRS 增 9%，差的 124億元來自投資組合公允價值變動與減值；營業現金流 527.10億元低於淨利，是因為部分收入還沒變成現金。</p><p class='txt'>這兩條如果單獨看，會得出「盈利品質下降」的結論；連著看，結論應該改成「盈利沒壞，現金被主動投出去了」。區別在於：前者是能力問題，後者是選擇問題。選擇可以改，能力不能。</p></div><div class="section"><div class="section-title">不過是否致命：不致命，但要折價</div><p class='txt'>不致命。判據有三個：其一，自由現金流 -138億元如果剔除算力採購預付款，是 +376億元——正數說明經營造血沒壞；其二，Non-IFRS 營業利益 756.4億元、同比 +9%，剔除新 AI 產品的收入與開支後是 861億元、+19%，<b>主業利潤的增速是新業務虧損的兩倍</b>；其三，公司沒借錢投算力，淨現金 581.91億元雖薄但仍是正的。</p><p class='txt'>要折價。折價的方式不是不給 PE，而是不給「現金牛溢價」。同一家公司，FCF 常年千億時市場願意給 20 倍，FCF 轉負時只願意給 13 倍——這就是 677.5 到 440 的全部內容。折價已經發生，所以七條裡這兩條不過，不構成賣出理由。</p></div><div class="section"><div class="section-title">七條之外的一個隱性指標：資本支出／營業現金流</div><p class='txt'>這一季資本開支付款 593億元，營業現金流 527.10億元，比值 1.12——<b>資本開支已經超過營業現金流</b>。這個指標不在七條裡，但它比七條裡任何一條都更能解釋股價為什麼跌。</p><p class='txt'>歷史上騰訊這個比值長期在 0.15–0.25，2025 年全年也就 0.3 上下。跳到 1.12，意味著公司必須動用存量現金（淨現金從 1,468.60億元降到 581.91億元），或者賣投資。管理層選擇的是前者加「不出售核心資產」，這讓資產負債表還算體面，但也把「回購還能持續多久」變成了一個真問題。</p></div><div class="section"><div class="section-title">不過那兩條會不會傳染</div><p class='txt'>會。鏈條是這樣的：自由現金流 -138億元 → 回購能力下降 → 股東回報那條從 2.3% 掉到 1.5% 以下 → 七條裡再多一條不過。<b>所以這兩條不是孤立的，它們是同一個變數的兩種讀數。</b></p><p class='txt'>反向的鏈條也成立：如果 Q3 資本支出回落到 350億元、營業現金流回到 700億元以上，自由現金流立刻轉正，兩條裡的一條自動修復，股東回報那條也跟著穩。這就是為什麼我把它歸類為「選擇問題」而不是「能力問題」——它會自己好起來，只要管理層願意。</p></div><div class="section"><div class="section-title">去劣之後還剩什麼</div><p class='txt'>七條篩完，騰訊剩下的畫像是：一家毛利率 57.8%、ROE 約 23%、收入還能增 11% 的公司，正在把一年近 2,000億元的現金投進一個還不能單獨計量的業務。<b>它不便宜到可以閉眼買，但也沒爛到該被篩掉。</b></p><p class='txt'>這就是去劣篩選的正確用法：它只回答「要不要繼續看」，不回答「買不買」。答案是要繼續看，因為七條裡沒有一條是結構性的壞——結構性壞的樣子是毛利率連著三年降、ROE 靠槓桿撐、收入靠併表湊，騰訊一樣都不佔。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>七條過五條，不過的兩條同源：利潤被非經營項壓平，現金被資本支出截斷。<b>去劣篩選的結論是不淘汰</b>——毛利率、ROE、淨現金、收入增速四條硬的都在，說明這是一流公司遇到週期性問題，不是二流公司遇到估值問題。</p><p class='txt'>但「不淘汰」不等於「立刻買」。七條之外那個 1.12 的比值提醒我：這家公司正在用存量現金買一張 AI 門票。買它的人必須接受一件事——未來四個季度，自由現金流大概率为负。</p></div>
+</div>
+<div class="footer">騰訊控股 (00700) · 2026/08/14</div>
+</body>
+</html>

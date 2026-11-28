@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組合管理 — AMD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/amd/14-组合管理建议/AMD-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/amd/14-組合管理建議/AMD-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/amd/14-Portfolio-Action/AMD-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>組合管理 — AMD</h1>
+  <div class="subtitle">AMD (AMD) | 14 · 組合管理</div>
+  <div class="meta">研究日期 2026/08/07 &nbsp;·&nbsp; 股價 $483.36（-1.21%） &nbsp;·&nbsp; 市值 約 8,020 億美元 &nbsp;·&nbsp; PE(TTM，GAAP) 約 125x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/amd/00-AMD研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>現在不建倉。理由不是不看好，是賠率：上行 +49% 需要「比公司目標還好」，下行 -50% 只需要「行業正常化」。在這種賠率下，任何倉位都是在為「故事」付錢。</p><b>建倉線 350 美元（3% 倉位），加倉線 300 美元（5%）。</b>如果 MI450 單季收入過 30 億且毛利率守 55%，可以在 450 美元以下建 2%——用證據換價格。與現有持倉的相關性要注意：AMD 與輝達的日收益相關係數約 0.85，與費城半導體指數約 0.9，買它不會分散風險。</div><table class="dt"><caption>倉位與價位方案</caption><thead><tr><th>情境</th><th>觸發條件</th><th>建議倉位</th><th>理由</th></tr></thead><tbody><tr><td>目前（483 美元）</td><td>—</td><td>0%</td><td>125 倍 TTM、24 倍 2027 樂觀 EPS，賠率 1:1 但下行更重</td></tr><tr><td>價格回落</td><td>≤350 美元</td><td>3%</td><td>對應 2027 年中性 EPS 18 倍，悲觀情景打進去一半</td></tr><tr><td>深度回落</td><td>≤300 美元</td><td>5%</td><td>對應 16 倍，即使份額只到 15% 也不虧</td></tr><tr><td>證據先行</td><td>MI450 單季 ≥30 億 + 毛利率 ≥55%</td><td>2%（可低於 450）</td><td>用已兌現的業績換估值，風險最低</td></tr><tr><td>否證</td><td>毛利率 &lt;52% 或 DC 環比下滑</td><td>0%，並回避</td><td>論文作廢，不看價格</td></tr></tbody></table><div class="note">倉位為占股票組合的比例，不含現金。價位對應 2027 年 EPS 12/19/24 美元的三情景與 20–30 倍區間。相關性為本報告按 2026 年 5–8 月日報酬率粗算。</div><div class="section"><div class="section-title">為什麼現在不能買：賠率算不過來</div><p class='txt'>現價 483.36。悲觀 240（-50%）、中性 475（-2%）、樂觀 720（+49%）。按 35/45/20 機率加權，期望值 442，比現價低 8.6%。</p><p class='txt'>換個角度：要在現價賺錢，需要 2027 年 EPS 超過 20 美元（公司目標）且市場願意給 25 倍以上。兩個條件同時成立的機率，本報告給 30%。要虧錢，只需要 EPS 停在 15 美元或倍數回落到 18 倍，機率 50%。<b>勝率 30%、賠率 1:1，這是賭場裡最差的桌子。</b></p></div><div class="section"><div class="section-title">相關性：買它不等於分散</div><p class='txt'>AMD 與輝達的日報酬相關係數約 0.85，與費城半導體指數約 0.9，與博通約 0.7。這個數字的含義很直接：如果投資組合裡已經有輝達或半導體 ETF，買 AMD 只是把同一個風險放大 1.3 倍，不會降低波動。</p><p class='txt'>更麻煩的是「敘事重疊」。輝達、博通、AMD、台積電的股價由同一個變數驅動——AI 資本支出。這個變數轉向時，四檔股票會一起下跌，分散是假的。<b>真正的分散要跨行業，不是跨股票。</b></p><p class='txt'>如果一定要在半導體內部做配置，本報告的排序是：台積電（確定性）> 輝達（生態）> 博通（估值）> AMD（彈性）。AMD 排最後，不是因為它最差，是因為它最貴。</p></div><div class="section"><div class="section-title">止損與再平衡紀律</div><p class='txt'>如果按「證據先行」在 450 美元建了 2%，停損線設 340 美元（-24%），觸發即清倉，不問理由。理由：-24% 對應 2027 年 EPS 17 倍，說明市場已經在按「份額停滯」定價，論文的前提變了。</p><p class='txt'>再平衡：單一持倉超過組合 8% 時減到 6%；AMD 漲到 700 美元以上（對應 2027 年 EPS 29 倍）減半，因為那時候價格已經在為 2028 年定價，而 2028 年的可見度為零。</p><b>不做的事：不在財報前一天加倉，不在無理由大跌時抄底，不用槓桿。</b>這三條對高 beta 成長股尤其重要——7 月 28–29 日兩天 -13.2%，槓桿會把這種波動變成永久損失。<p class='txt'>還有一個現實約束：現金與集中度。如果組合裡已經有 5% 的輝達、3% 的台積電，再加 5% 的 AMD，半導體暴露就是 13%。這個數字在 AI 資本支出轉向時會同時縮水。<b>倉位不是看單隻股票，是看同一個風險因子的總暴露。</b>本報告給的 5% 上限，前提是 AMD 是唯一的半導體持倉。</p><p class='txt'>什麼時候賣？三個條件：① 論文證偽（毛利率 <52%）；② 估值到頂（2027 年 EPS 29 倍以上）；③ 出現更好的機會（同一筆錢能買到確定性更高的資產）。<b>不因為「賺了 30%」賣，也不因為「跌了 20%」賣。</b>賣出要有理由，不是有情緒。</p><p class='txt'>補一條實操：如果按 350 美元建了 3%，之後漲到 500，不要急著減。500 對應 2027 年 26 倍，還沒到「貴」；漲到 700（29 倍）才減半。<b>止盈的標準是估值，不是漲幅。</b></p></div><div class="summary-box"><h3>結論</h3><b>組合結論：0% 倉位，觀察池第一檔。</b>建倉兩條路——價格到 350 美元（3%）或證據到「MI450 單季 30 億 + 毛利率 55%」（2%）。<b>相關性 0.85 意味著它不能分散風險，只能放大 AI 資本開支這一個變數。倉位上限 5%，永不例外。</b></div>
+</div>
+<div class="footer">AMD (AMD) · 2026/08/07</div>
+</body>
+</html>

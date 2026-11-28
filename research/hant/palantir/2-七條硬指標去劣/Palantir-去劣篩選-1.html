@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣篩選 — Palantir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/palantir/2-七条硬指标去劣/Palantir-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/palantir/2-七條硬指標去劣/Palantir-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/palantir/2-Seven-Hard-Metrics/Palantir-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>去劣篩選 — Palantir</h1>
+  <div class="subtitle">Palantir (PLTR) | 02 · 去劣篩選</div>
+  <div class="meta">研究日期 2026/10/05 &nbsp;·&nbsp; 股價 $189.40（+0.34%） &nbsp;·&nbsp; 市值 約 4,560 億美元 &nbsp;·&nbsp; PS(TTM) 約 74 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/palantir/00-Palantir研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>去劣篩選：品質不是問題，價格才是</h3><p class='txt'>七條硬指標，過六條。營業利益率 47%、淨利率 55%、營收增速 93%、經營現金流／淨利 117%、淨現金 92 億美元——這五條不是壓線，是碾壓式過線。<b>唯一不過的是股權稀釋：股本每年 +2%，股權激勵占收入 13.7%。</b></p><p class='txt'>這套篩選的目的是排掉「生意本身不行」的公司。Palantir 在這一步篩不掉，恰恰相反，它是這套指標下的優等生。問題在於七條硬指標裡沒有一條管價格——<b>一家七條全過的公司，也可以在 74 倍市銷率上讓投資者虧掉一半。</b>去劣通過，只說明它可以進入估值討論，不說明可以買。</p></div><table class="dt"><caption>七條硬指標（2026Q2 實際值／TTM 口徑）</caption><thead><tr><th>指標</th><th>公司數值</th><th>門檻</th><th>判定</th></tr></thead><tbody><tr><td>毛利率</td><td>約 80%（Q2 口徑）</td><td>≥60%</td><td>透過</td></tr><tr><td>營業利益率</td><td>47.1%（GAAP，9.12 億 ÷ 19.35 億）</td><td>≥15%</td><td>透過</td></tr><tr><td>淨利率</td><td>54.9%（10.62 億 ÷ 19.35 億，含利息收入）</td><td>≥10%</td><td>透過</td></tr><tr><td>營收增速</td><td>+93%（同比，Q2）</td><td>≥10%</td><td>透過</td></tr><tr><td>營業現金流 / 稅後淨利</td><td>117%（約 12.4 億 ÷ 10.62 億，粗算）</td><td>≥80%</td><td>透過</td></tr><tr><td>淨負債 / 營業利益</td><td>淨現金 92 億美元（無實質有息負債）</td><td>≤2 倍</td><td>透過</td></tr><tr><td>股權稀釋</td><td>股本每年約 +2%，股權激勵占收入 13.7%</td><td>≤1%/年</td><td>不過</td></tr></tbody></table><div class="note">門檻為本報告設定的去劣線，非行業標準。經營現金流按自由現金流 12.20 億 + 資本支出約 0.2 億反推（粗算，公司未單列資本支出）；淨利率含 92 億美元現金產生的利息與投資收益，剔除後約 47%；股權稀釋按公司披露「股本一年增加約 2%」。</div><div class="section"><div class="section-title">唯一不過的一條：不是不分紅，是反向稀釋</div><p class='txt'>Palantir 上市以來不派息，也不做實質回購——2023 年授權的 10 億美元回購額度，執行規模遠小於授權。按「股東回報」這條篩它該被剔除，但我把第 7 條設成「股權稀釋 ≤1%/年」，因為它的問題比不派息更嚴重：<b>不是不還錢，是每年向股東再要 2%。</b></p><p class='txt'>Q2 股權激勵 2.65 億美元，占收入 13.7%。年化超過 10 億美元，相當於把全年自由現金流（Q2 年化 48.8 億）的五分之一發給員工。科技公司用股票留人是常規操作，13.7% 在同業裡屬於偏高的一檔（成熟 SaaS 通常在 8%–12%）。</p><p class='txt'>這條不過致命嗎？<b>單獨看不致命，和估值放在一起就致命。</b>74 倍市銷率的定價假設是「每股價值每年複合增長 30%」；每年 2% 的稀釋把 30% 變成 27.4%。六年下來差 15 個百分點——正好是中性情景和現價之間的那一段。</p></div><div class="section"><div class="section-title">另外六條：不是壓線過，是碾壓式過線</div><p class='txt'>營業利益率 47% 是這七條裡最扎眼的一項。軟體行業裡，Salesforce 的營業利益率約 20%、Snowflake 仍在虧損邊緣、Databricks 未上市但公開口徑接近損益平衡。<b>Palantir 用一家公司的利潤率，做出了整個行業的利潤率。</b></p><p class='txt'>淨利率 55% 要打個折看：稅後淨利 10.62 億高於營業利益 9.12 億，差額來自 92 億美元現金的利息與投資收益。這部分跟著利率走，不可持續。<b>真實的賺錢能力看 47% 的營業利益率，那也是行業頂尖。</b></p><p class='txt'>營業現金流／稅後淨利 117%，說明利潤是真錢，不是應收帳款堆出來的。客戶是政府和大型企業，預付和里程碑付款，收現比利潤快。淨現金 92 億、幾乎沒有有息負債，這一條在升息週期裡尤其值錢——它不需要靠融資活著。</p><p class='txt'>營收增速 93% 不用多說。要提醒的是可持續性：客戶總數只增 24%，增長主要來自老客戶加單。這條能跑多久，取決於那 220 份百萬美元合約能不能繼續升級成千萬級。</p></div><div class="section"><div class="section-title">這套結果的含義：篩掉了壞公司，篩不掉壞價格</div><p class='txt'>七條硬指標全是品質指標，沒有一條涉及估值。這是它的設計目的——先用十分鐘排除掉生意不行的公司，把時間留給值得深看的。Palantir 在這一階段的表現是「不用再篩了，直接進深度研究」。</p><p class='txt'>但投資者最容易在這一階段犯錯：<b>看到七條過六條，就以為找到了好標的。</b>2021 年的思科、2000 年的朗訊、2021 年的 Zoom，去劣篩選時都是優等生。它們的品質問題不在報表裡，在價格裡。</p><p class='txt'>所以這個模組的結論要寫清楚：<b>去劣通過 ≠ 可以買。</b>Palantir 的品質配得上任何一份核心持倉名單，但 74 倍市銷率配不上任何一份買入清單。下一步該做的不是建倉，是把它放進觀察名單，等價格。</p></div><div class="summary-box"><h3>結論</h3><p>七條過六條，唯一不過的是股權稀釋（2%/年、SBC 占收入 13.7%），這條單獨看不致命，和 74 倍市銷率疊加後是壓垮每股回報的最後一根稻草。<b>結論：去劣環節通過，公司品質不構成風險，但本模組不給任何買入授權。</b>若 SBC 占比降到 10% 以下且股本增速降到 1% 以內，這條「不過」可以改判。</p></div>
+</div>
+<div class="footer">Palantir (PLTR) · 2026/10/05</div>
+</body>
+</html>

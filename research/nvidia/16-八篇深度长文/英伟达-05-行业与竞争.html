@@ -7,13 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
-.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
 .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
 .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
 .header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
 .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
 .section { margin-bottom: 2.5rem; }
 .section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -48,22 +53,19 @@ table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; colo
 .badge-blue { background: #e6f0ff; color: #1a4b8c; }
 .footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
 .back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
-.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
-.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
-.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
-
 </style>
 </head>
 <body>
 <div class="header">
+  <div class="lang-switch"><a class="lang zh active" data-lang="zh" href="/research/nvidia/16-八篇深度长文/英伟达-05-行业与竞争.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/nvidia/16-八篇深度長文/輝達-八篇長文-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/nvidia/16-Eight-Long-Essays/NVIDIA-Eight Essays-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
   <h1>⑤ 行业与竞争：训练与推理的分工，和一场没打完的推理战 — 英伟达</h1>
   <div class="subtitle">八篇长文之五 | 谁在抢走哪一块</div>
   <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股价 $220.78（+1.48%） &nbsp;·&nbsp; 市值 约 5.33 万亿美元（241.5 亿股） &nbsp;·&nbsp; PE(TTM) 约 28x（FY2028 前瞻约 15x）</div>
 </div>
 <div class="container">
-<a class="back" href="../00-英伟达研究报告总目录.html">← 返回总目录</a>
+<a class="back" href="/research/nvidia/00-英伟达研究报告总目录.html">← 返回总目录</a>
 <div class="summary-box"><h3>核心判断</h3><p class='txt'>竞争不在“谁的芯片更快”，在“哪一块需求先标准化”。<b>训练是定制化需求，客户必须用最好的通用平台；推理是标准化需求，客户会选最便宜的方案。</b>英伟达在训练上无人能替，在推理上正在被 ASIC 和 LPU 两头夹。<b>推理占比一旦过半，护城河的性质就变了。</b></p></div><table class="dt"><caption>三层竞争结构（2026 年 8 月）</caption><thead><tr><th>层次</th><th>玩家</th><th>打法</th><th>对英伟达的威胁</th></tr></thead><tbody><tr><td>同一件事的追赶</td><td>AMD（MI 系列 + ROCm）</td><td>参数贴着走，价格更便宜</td><td>中：抢不走训练，能抢价格</td></tr><tr><td>定制 ASIC</td><td>博通 XPU、谷歌 TPU、亚马逊 Trainium、OpenAI Jalapeño</td><td>为单一模型定制，单位成本几分之一</td><td>高：直接切推理份额</td></tr><tr><td>专用推理芯片</td><td>Groq LPU（已被英伟达收编）、Cerebras 等</td><td>超低延迟、超高交互吞吐</td><td>已被部分内化</td></tr><tr><td>区域替代</td><td>华为昇腾、寒武纪</td><td>国产替代，政策保护</td><td>低：只影响中国（已归零）</td></tr></tbody></table><div class="note">数据来源：各公司公开信息与英伟达 FY2027Q2 电话会议（2026/08/26）。Groq 为约 200 亿美元资产与技术授权交易，Groq 3 LPX 已量产。</div><div class="section"><div class="section-title">训练与推理：不是替代，是分工</div><p class='txt'>行业里最常见的误判是把“训练”和“推理”当成一个市场。它们是两个市场，商业逻辑相反。</p><p class='txt'><b>训练</b>要的是“最强的通用算力”：模型结构还在演进，注意力机制、并行方式、精度格式每半年变一次，客户必须买最灵活的平台。这个市场英伟达几乎独占，因为 CUDA 让任何新结构都能最快跑起来。</p><p class='txt'><b>推理</b>要的是“最便宜的单位 token 成本”：模型固定了，可以为了这一个模型定制芯片。这时候通用 GPU 的灵活性变成浪费，ASIC 的优势就出来了。博通的 XPU、谷歌 TPU、亚马逊 Trainium 都是这个逻辑。</p><p class='txt'>公司自己在电话会上承认了这个分工：Groq 3 LPX 是“交互式 AI 推理加速器”，适合高 ASP、低延迟的业务，但“全球绝大多数数据中心的主力依旧是 Vera Rubin NVL72”。<b>翻译一下：通用平台守主力，专用芯片打边缘。</b></p><p class='txt'>判断这条线什么时候变：看推理收入占数据中心的比例。现在公司没有单独披露，但管理层说“智能体 AI 普及拉动 CPU 与推理需求”。<b>如果 2027 年推理过半而英伟达份额开始掉，分工就变成了替代。</b></p></div><div class="section"><div class="section-title">竞争的第一层：AMD 追了三年，份额没动</div><p class='txt'>AMD 是最容易被高估的对手，也是最容易被低估的对手。</p><p class='txt'>容易被高估：2026Q2 数据中心收入 67.18 亿美元、同比 +107%——增速与英伟达一样，但体量是十三分之一（英伟达 890.23 亿）。追了三年，增速一样，份额没动。<b>这说明在训练市场，参数不是决定因素，生态才是。</b></p><p class='txt'>容易被低估：AMD 的策略不是“打赢英伟达”，是“在客户想压价的时候提供一个选项”。只要它能交付可用的大规模集群，就能在采购谈判里帮客户砍价。<b>这种“第二供应商”的角色，长期会把英伟达的毛利率压低 3–5 个百分点。</b></p><p class='txt'>所以 AMD 的威胁不在份额，在价格。英伟达 Q4 毛利率掉到 71%–72%，公司归因于存储涨价，但客户用 AMD 压价也是背景之一。</p></div><div class="section"><div class="section-title">竞争的第二层：ASIC 是最结构性的一条</div><p class='txt'>定制 ASIC 的逻辑不是比 GPU 强，是比 GPU 便宜。博通的 XPU 给谷歌做了七代 TPU，给 Meta、字节等客户做定制；亚马逊 Trainium 在自家推理上大规模使用；OpenAI 的 Jalapeño 号称性能超过 Blackwell。</p><p class='txt'>为什么便宜？三个原因。第一，去掉通用性：只支持一种模型结构，硅片面积可以省 30%–50%。第二，去掉软件栈：客户自己的编译器，不需要 CUDA 的兼容层。第三，去掉中间商：直接找台积电流片，毛利归自己。</p><p class='txt'>英伟达的应对是两条腿。一条是把 Groq 收进来（约 200 亿美元），用 LPU 打低延迟推理——Groq 3 LPX 已量产，公司称每秒 token 输出接近竞品 4 倍，首个客户 Yandex。另一条是把机柜级系统做得更复杂，让客户没法只买芯片自建。</p><p class='txt'><b>但这两条腿都是防守。真正的进攻是让 CUDA 在推理侧也保持优势——这件事的难度在于，推理的客户不在乎生态，只在乎成本。</b></p></div><div class="section"><div class="section-title">周期位置：短缺第三年，融资条件在收紧</div><p class='txt'>这一轮上行的时间轴：2024 年 Hopper、2025 年 Blackwell、2026 年 Vera Rubin。公司口径是短缺延续到 FY2028 末，晶圆、HBM、电力、机房四样全紧。</p><p class='txt'>需求侧三个数：五大云厂 2026 年资本开支约 8,000 亿、2027 年 1.3 万亿；云行业在手订单超 2 万亿；NeoCloud 装机 3GW → 8GW。</p><p class='txt'>但融资条件在收紧。8 月中旬，冈拉克公开警告 AI 芯片融资模式类似 2007 年次贷前夜；市场开始讨论“折旧年限是否合理”“算力投资回报周期”。<b>这些讨论不会改变 2026 年的订单，但会影响 2027 年的融资成本。</b></p><p class='txt'>我的周期判断是“建设期三年、消化期两年”：2027 年是高峰，2028 年进入消化，增速从 70% 掉到 20% 以下是正常的。<b>真正要防的是“订单下滑 + 信用收缩”同时发生——那才是 2001 年思科的剧本。</b></p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>竞争结论：训练市场短期无人能替（CUDA + 系统 + 产能），推理市场正在被 ASIC 分层切走，AMD 的作用是压价不是替代。</b>周期上这是短缺第三年、融资条件开始收紧的一年。<b>关键观察点：推理收入占比与英伟达在推理侧的份额，这两个数决定 2027 年之后它是 20 倍还是 12 倍。</b></p></div>
 </div>
-<div class="footer">英伟达 (NVDA) 投资研究报告集 · 2026/08/31</div>
+<div class="footer">英伟达 (NVDA) · 2026/08/31</div>
 </body>
 </html>

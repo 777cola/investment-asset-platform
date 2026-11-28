@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理層縱深 — 微軟</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/microsoft/6-管理层纵深/微软-管理层纵深.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/microsoft/6-管理層縱深/微軟-管理層縱深-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/microsoft/6-Management-Deep-Dive/Microsoft-Management-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>管理層縱深 — 微軟</h1>
+  <div class="subtitle">微軟 (MSFT) | 06 · 管理層縱深</div>
+  <div class="meta">研究日期 2026/07/31 &nbsp;·&nbsp; 股價 $464.72（+3.02%） &nbsp;·&nbsp; 市值 約 3.45 萬億美元 &nbsp;·&nbsp; PE(TTM，FY2026) 約 25.8x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/microsoft/00-微軟研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：一個把敘事做成收入的 CEO，一家開始花大錢的公司</h3><p class='txt'>納德拉 2014 年 2 月接手時微軟市值 3,000 億美元，今天 3.45 萬億，十二年十倍。他做對的事可以濃縮成兩句：把 license 改成訂閱，把訂閱搬到雲上。剩下的是執行。</p><p class='txt'>資本配置的記錄也算漂亮：687 億買動視暴雪、262 億買 LinkedIn、75 億買 GitHub，三次大併購都沒有變成減值黑洞；FY2026 還返還股東 430 億。扣分項有兩個：<b>折舊年限從 15 年改到 25 年，和把公司命運綁在 OpenAI 一家模型供應商身上。</b></p></div><table class="dt"><caption>關鍵人與治理結構（2026 年 7 月）</caption><thead><tr><th>人物</th><th>職務</th><th>持股／薪酬</th><th>履歷要點</th></tr></thead><tbody><tr><td>薩提亞·納德拉</td><td>董事長兼 CEO（2014/2 上任）</td><td>持股不到 0.1%；年度總薪酬 8,000 萬美元量級（委託書口徑，2025 年）</td><td>出生於海得拉巴，在威斯康辛-密爾瓦基與芝加哥讀研究所，待過 Sun 微系統後於 1992 年加入微軟，曾任職於 Azure 與伺服器部門</td></tr><tr><td>艾米·胡德</td><td>執行副總裁兼 CFO（2013/5 上任）</td><td>持股約 0.01%</td><td>1992 年加入微軟，曾任 Office 部門財務負責人，主導收購動視暴雪的資金安排</td></tr><tr><td>布拉德·史密斯</td><td>副董事長兼總裁</td><td>持股約 0.01%</td><td>法務與政府事務出身，負責全球監管、AI 倫理與合規談判</td></tr><tr><td>凱文·斯科特</td><td>技術長兼 AI 執行副總裁</td><td>持股約 0.01%</td><td>LinkedIn 前基礎設施負責人，2017 年加入，微軟與 OpenAI 合作的技術接口人</td></tr><tr><td>賈德森·阿爾索夫</td><td>首席商務官</td><td>持股約 0.005%</td><td>銷售體系改革推動者，Copilot 企業落地由他負責</td></tr></tbody></table><div class="note">持股比例為公開委託書口徑的近似值（未逐股核對）；薪酬為年度總量級描述，具體構成以最近一期委託書為準。</div><table class="dt"><caption>資本配置十年帳本</caption><thead><tr><th>用途</th><th>金額</th><th>時間</th><th>結果</th></tr></thead><tbody><tr><td>收購 LinkedIn</td><td>262 億美元</td><td>2016/12</td><td>併入生產力與業務流程分部，年收入翻倍以上</td></tr><tr><td>收購 GitHub</td><td>75 億美元</td><td>2018/10</td><td>開發者 2.25 億，成為 Copilot 的資料與分發入口</td></tr><tr><td>收購 Nuance</td><td>197 億美元</td><td>2022/3</td><td>醫療語音，規模不大但補齊行業方案</td></tr><tr><td>收購動視暴雪</td><td>687 億美元</td><td>2023/10 完成</td><td>監管折騰 21 個月，遊戲內容併入個人運算分部</td></tr><tr><td>OpenAI 投資與重組</td><td>累計約 130 億美元投資，2025/10 重組後持股約 27%</td><td>2019–2025</td><td>換到 2032 年前的模型與 IP 使用權</td></tr><tr><td>股東回報</td><td>FY2026 全年 430 億美元（股息約 258 億、回購約 172 億）</td><td>FY2026</td><td>股息連續成長，回購規模相對市值偏小</td></tr><tr><td>資本支出</td><td>FY2026 現金 1,159 億美元，FY2027 計劃約 1,750 億</td><td>FY2026–FY2027</td><td>待驗證：2028 年後的回報率</td></tr></tbody></table><div class="note">金額來自公開披露與報導口徑；股息與回購的拆分按全年 430 億總額與季度股息水平粗算，公司未單獨披露 FY2026 回購金額。</div><div class="section"><div class="section-title">納德拉做對了什麼：不是技術，是收費方式</div><p class='txt'>2014 年微軟的問題不是沒有技術，是沒有收費方式——Windows 和 Office 一次性賣 license，客戶升級週期五年，收入隨 PC 出貨量波動。納德拉做的第一件事是把 Office 365 推到所有平台（包括 iPad），第二件事是把 Azure 從「虛擬機出租」改成「企業 IT 的延伸」。</p><p class='txt'>結果寫在數字上：FY2026 營收 3,310 億美元，微軟雲 2,140 億、同比 +27%，商業 RPO 6,780 億。這不是運氣，是十二年同一個方向。<b>一家 3 萬億美元的公司最難的不是找到新故事，是讓老業務繼續按複利增長</b>——Office 商業版在企業席位接近飽和的情況下還在漲價、還在加 Copilot 附加費，這是定價權的直接證據。</p></div><div class="section"><div class="section-title">資本配置：三次大型併購未失手，第四次正在押注</div><p class='txt'>微軟的併購史在科技巨頭裡算乾淨的。2016 年 262 億買 LinkedIn，當時被罵貴，現在看是企業社交的唯一樣本；2018 年 75 億買 GitHub，被低估了——它今天的價值不在程式碼託管收入，在於 2.25 億開發者構成的分發管道，Copilot 的第一批用戶就是從那裡來的。動視暴雪 687 億被監管拖了 21 個月，最終完成，代價是時間不是錢。</p><p class='txt'>2026 年的資本配置變了一個性質：<b>從「買公司」變成「建工廠」</b>。FY2026 現金資本支出 1,159 億，FY2027 計畫 1,750 億，兩年合計接近 3,000 億——比歷史上所有併購加起來還多兩倍。這項支出的報酬率沒有任何歷史數據可以參照，只能靠 RPO 和 Azure 增速間接推。</p></div><div class="section"><div class="section-title">兩處扣分：折舊年限與 OpenAI 綁定</div><p class='txt'><b>折舊年限從 15 年延長到 25 年</b>，同時 FY2027 資本支出指引從 1,900 億「變成」1,750 億（部分租賃與第三方容量不再計入）。兩件事都不違規，都是會計估計與口徑選擇，但方向一致：讓報表好看一點。金額不大（粗算每年少提折舊 40–50 億、EPS 約 0.5 美元），傷害的是可信度——投資人不喜歡在資本支出高點看到會計政策變鬆。</p><p class='txt'><b>OpenAI 綁定</b>是更大的結構問題。2025 年 10 月重組後微軟持股約 27%、拿到 2032 年前的模型與 IP 使用權，同時 OpenAI 可以自由選擇其他雲（甲骨文已經拿下大單）。這意味著一件事：<b>微軟的 AI 收入裡，有一部分是「租來的獨家」</b>。好在 Q4 的數據給出了反證——RPO 剔除 OpenAI 後仍 +25%，說明非前沿模型客戶在托底。</p></div><div class="section"><div class="section-title">治理與接班：沒有 Plan B，也不需要</div><p class='txt'>董事會約 12 人，納德拉兼任董事長，設首席獨立董事。股權高度分散，以機構投資者為主，沒有任何股東能挑戰管理層——好處是決策快，壞處是制衡弱。2024 年歐盟與英國對雲端授權條款的反壟斷審查最終以承諾整改收場，CISPE 的和解金額約 2,000 萬歐元，屬於「花錢了事」的級別。</p><p class='txt'>接班問題上，微軟沒有公開的 COO 或「太子」。內部候選人是 CTO 凱文·斯科特和商務官阿爾索夫，但更可能的答案是納德拉再幹五年——他 1967 年生，2026 年 59 歲。<b>對投資人的含義是：未來五年這家公司的策略連續性極高，不需要為「換人會怎樣」付溢價，也不需要為此折價。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：管理層 8/10，能力滿分，透明度扣分。</b>買微軟在某種意義上就是買納德拉的判斷力，而這個判斷力有十二年的紀錄支撐。需要盯的是兩點：折舊政策會不會繼續放寬（下一次財報的會計政策附註）、OpenAI 關係會不會從「獨家」變成「之一」。前者影響利潤品質，後者影響估值邏輯。</p></div>
+</div>
+<div class="footer">微軟 (MSFT) · 2026/07/31</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>六關篩選 — 蘋果</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/apple/1-六关快速筛选/苹果-六关筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/apple/1-六關快速篩選/蘋果-六關篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/apple/1-Six-Gate-Screen/Apple-Six-Gate Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>六關篩選 — 蘋果</h1>
+  <div class="subtitle">蘋果 (AAPL) | 01 · 六關篩選</div>
+  <div class="meta">研究日期 2026/08/03 &nbsp;·&nbsp; 股價 $303.42（-1.78%） &nbsp;·&nbsp; 市值 約 4.41 萬億美元 &nbsp;·&nbsp; PE(TTM，FY2026Q3) 約 34x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/apple/00-蘋果研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>蘋果過了四關：能力圈、好生意、護城河、管理層。<b>卡住的是第五關和第六關</b>——303.42 美元對應 34 倍 TTM、30 倍 FY2027 預期，而管理層給的下一季指引是營收 +9%–11%、毛利率 47%–48%。</p><p class='txt'>這一季的財報本身是好的：營收 1,094.17 億美元、同比 +16.4%，iPhone 542.52 億、同比 +21.7%，六月季歷史最高。但服務增速從 16% 掉到 12.1%、大中華區低於預期 7.6 億美元、毛利率指引從 50.1% 降到 47%–48%。<b>三個邊際變化同時出現，而價格裡沒有任何折扣。</b></p><p class='txt'>綜合 43/60。結論是觀察，不是迴避——公司沒問題，是價格把未來兩年的好消息提前收走了。</p></div><table class="dt"><caption>六關篩選（10 分制，六關累加 60 分）</caption><thead><tr><th>關卡</th><th>判定</th><th>評分</th><th>依據</th></tr></thead><tbody><tr><td>第一關：能力圈</td><td>透過</td><td>10/10</td><td>賣硬體賺差價、收服務費、抽應用程式分成。收入結構二十年沒變，最好算帳的一家大公司</td></tr><tr><td>第二關：好生意</td><td>透過</td><td>9/10</td><td>毛利率 50.1%、服務毛利率 75.6%、15 億付費訂閱；缺點是硬體占七成，繞不開換機週期</td></tr><tr><td>第三關：護城河</td><td>透過</td><td>9/10</td><td>生態切換成本最硬，品牌溢價次之，自研晶片是成本優勢；三者疊加，衰退期更值錢</td></tr><tr><td>第四關：管理層</td><td>透過</td><td>7/10</td><td>庫克 9 月 1 日交棒給特努斯，硬體與供應鏈出身；過渡期給 7 分，不給 9 分</td></tr><tr><td>第五關：安全邊際</td><td>不通過</td><td>3/10</td><td>30 倍 FY2027 預期 EPS，對應 9%–11% 的營收指引和下滑的毛利率。合理價 280 美元</td></tr><tr><td>第六關：紀律</td><td>不通過</td><td>5/10</td><td>買入理由依賴 Siri AI 變現，公司自己說「尚未形成規模化收入」，2027 年才有讀數</td></tr><tr><td>綜合</td><td>觀察</td><td>43/60</td><td>好公司、貴價格、缺催化。等 260 美元以下，或等 AI 收入第一次單獨披露</td></tr></tbody></table><div class="note">評分口徑為本報告自訂，10 分制。資料來源：蘋果 FY2026Q3 財報（2026/07/30 盤後）、業績說明會（2026/07/30）、納斯達克日線（2026/08/03 收盤 303.42 美元，52 週高點 340.08）。</div><div class="section"><div class="section-title">第一關到第三關：這三關今年反而是加分項</div><p class='txt'>第一關沒有爭議。蘋果的收入就三塊：賣硬體（本季 786.78 億美元、占 71.9%）、賣服務（307.39 億、占 28.1%）、抽應用程式分成（含在服務裡）。三塊都能單獨算帳，都能預測，都能交叉驗證。<b>在 AI 時代這反倒稀缺</b>——你很難給一家模型公司的三年後現金流建模，但你可以給 iPhone 的換機週期建模。</p><p class='txt'>第二關的證據在這一季的報表裡。全球智慧型手機大盤 2026 年上半年出貨量同比微增，蘋果卻把份額做到 20%，iPhone 收入 +21.7%、均價被 Pro 機型繼續拉高。服務毛利率 75.6%，一年貢獻 232 億美元毛利，接近產品線的四分之三。<b>一門生意同時具備「份額上升」和「結構升級」，這在成熟行業裡很少見。</b></p><p class='txt'>第三關是生態。23 億台活躍裝置、15 億付費訂閱，使用者不是被某個功能留下，是被照片、iMessage、AirPods、Watch、App Store 的購買記錄留下。<b>遷移一次等於換掉半個數位生活，這個成本在衰退期更值錢。</b>所以第三關給 9 分：真正的護城河不是晶片跑分，是「換機的麻煩」。</p><p class='txt'>扣掉的那 1 分在服務這一側。App Store 的抽成模式在歐美同時被挑戰，歐盟的數位市場法要求開放外部支付、美國法院也在壓縮「反引導」條款。<b>這一項一年貢獻的毛利超過 200 億美元，但它現在的法律基礎比三年前薄。</b>生態還是生態，只是收租的合法性在被重新談判。</p></div><div class="section"><div class="section-title">第四關：庫克交棒，給 7 分而不是 9 分</div><p class='txt'>庫克 2011 年接手時蘋果年營收 1,080 億美元，FY2025 是 4,162 億，十四年翻近四倍；服務從零做到年化 1,230 億；股東回報累計超過 8,000 億美元。<b>這是商業史上最成功的接任之一，沒有爭議。</b></p><p class='txt'>9 月 1 日接棒的是約翰·特努斯，硬體工程出身、管過 Mac 與 iPad 的產品定義，供應鏈理解比純設計背景的人深。好處是產品路線不會斷，壞處是<b>他沒做過資本配置，也沒跟華爾街打過十四年交道</b>。蘋果現在最需要的恰恰是資本配置判斷：1,000 億美元/年的回購要不要繼續、AI 投入要不要從費用變成資本支出。</p><p class='txt'>所以給 7 分。給分給的是「交接確定性」——提前一個月公布、董事會一致、庫克留任顧問，這是教科書式的過渡；扣分扣的是「未經驗證」——新 CEO 的第一個三年計劃還沒出來，任何溢價都不該建立在猜測上。</p><p class='txt'>再看一條歷史規律：蘋果的三次交接（賈伯斯→庫克 2011、庫克→特努斯 2026）都發生在產品週期的轉折點。2011 年是從單品到生態，2026 年是從硬體到 AI 入口。<b>交接本身不是風險，交接期做錯方向才是。</b>特努斯上任後第一個要看的是資本支出結構——AI 算力、自研基頻、折疊機的錢怎麼花，這三項決定 2028 年的毛利率。</p></div><div class="section"><div class="section-title">第五關：34 倍買 10% 的成長，這一關否決</div><p class='txt'>把三組數字放一起看：現價 303.42 美元、市值 4.41 萬億美元、TTM 每股盈餘約 8.9 美元（按現價與 34 倍本益比反推）→ 34 倍；按 FY2027 一致預期 EPS 10.0 美元算 → 30 倍；管理層對下一季的指引是營收 +9%–11%、毛利率 47%–48%。<b>為 10% 的成長付 30 倍，等於替 2027 年的 AI 變現提前付錢。</b></p><p class='txt'>合理的錨在哪？給 FY2027 EPS 10.0 美元、28 倍——這是蘋果過去五年扣掉 2021 與 2024 兩個泡沫段的估值中樞——合理價 280 美元，比現價低 8%。賣方現在把目標價放在 335–360 美元，隱含 33–35 倍，前提是服務增速回到 15% 以上、AI 開始貢獻營收。<b>這兩個前提在 FY2026Q3 的財報裡一條都沒出現。</b></p><p class='txt'>要提醒的是：34 倍不是蘋果自己的問題，是整個美股大市值科技的定價環境。但別人的貴不能證明它便宜。第五關只問一件事——<b>今天買入，跌 30% 我能不能扛住並且加碼</b>。303 美元的位置，我說不能。</p></div><div class="section"><div class="section-title">第六關：買入前提必須能被季報對帳</div><p class='txt'>第六關不是問「公司好不好」，是問「我的買入理由能不能每季度驗證一次」。蘋果現在的多頭理由只有一個：<b>Siri AI 會成為新的收費入口</b>。6 月 WWDC 發布、公測回饋正面，但公司自己的說法是「付費增值服務尚未形成規模化收入」——這句話翻譯過來就是：報表上暫時看不到。</p><p class='txt'>一條不能在季報裡對帳的理由，就不是投資理由，是期待。所以這一關給 5 分：不是否決，是「等證據」。可以驗證的路徑其實很清楚：服務收入裡出現「AI 訂閱」這一條線，或者管理層在電話會上給出付費用戶數與 ARPU。<b>在那之前，任何關於 AI 的估值擴張都是故事驅動。</b></p><p class='txt'>還有一層紀律問題：市場給蘋果的 34 倍裡，有一半是「確定性溢價」。當確定性本身開始動搖（服務失速、大中華區不及預期、毛利率見頂），溢價的收縮會比利潤的下滑更快。<b>這就是財報後三天跌 9% 的原因——跌的不是業績，是溢價。</b></p></div><div class="section"><div class="section-title">與賣方分歧在哪：他們把 2027 年的 AI 收入提前折現了</div><p class='txt'>財報後兩天，兩家大行的動作值得對照：摩根士丹利把目標價從更高位下調到 360 美元、FY2027 EPS 由 10.39 降到 10.00；大和反而上調到 335 美元。兩家方向相反，但都用同一個倍數——33 到 35 倍。<b>分歧不在公司，在「願不願意為還沒進表的收入付錢」。</b></p><p class='txt'>我不用 33 倍的理由很直白：33 倍對應的是「服務回到 15% 以上 + AI 開始收費」的組合，而這兩件事都需要至少兩個季度才能驗證。用驗證前的假設定價，等於把研究換成了信念。<b>如果 2027 年服務真的回到 15%，那時候 33 倍也不貴——但我可以在證據出來之後再加價買。</b></p><p class='txt'>這就是六關的順序為什麼重要：前四關回答「是不是好公司」，後兩關回答「現在該不該動手」。<b>蘋果在前四關拿了 35 分（滿分 40），在後兩關只拿 8 分（滿分 20）。</b>這個分布本身就是結論——好公司，壞時點。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：觀察，等回調。</b>六關過四關，43/60。買入條件寫死兩條，任一條成立再動手：① 價格回到 260 美元以下（對應 26 倍 FY2027 EPS 10.0 美元）；② Siri AI 付費收入在財報裡第一次單獨可見，且服務增速回到 15% 以上。</p><p class='txt'>中間地帶不做動作。280–300 美元之間是「合理但不便宜」，那個區間買入的賠率是 1:1，不值得動用倉位。</p></div>
+</div>
+<div class="footer">蘋果 (AAPL) · 2026/08/03</div>
+</body>
+</html>

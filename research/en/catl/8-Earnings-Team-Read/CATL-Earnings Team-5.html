@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>View synthesis: where the four converge and diverge — CATL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/catl/8-财报团队解读/宁德时代-观点合成.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/catl/8-財報團隊解讀/寧德時代-財報團隊解讀-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/catl/8-Earnings-Team-Read/CATL-Earnings Team-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>View synthesis: where the four converge and diverge — CATL</h1>
+  <div class="subtitle">Put the four close readings together and only three judgments remain</div>
+  <div class="meta">Research date 2026/09/28 &nbsp;·&nbsp; Price ¥291.99 (-0.51%) &nbsp;·&nbsp; Market cap Approximately RMB 1.35 trillion (A+H combined 4.627 billion shares) &nbsp;·&nbsp; PE(2026E) Approximately 14x (2026 net profit consensus of RMB 95.2 billion)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/catl/00-CATL-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>Four close readings point to the same structural problem: <b>volumes are rising, prices are falling, and overseas markets are the lifeline.</b> The disagreement is over "when prices stop falling" — Duan Yongping looks at unit profitability, Buffett at owner earnings, Munger at competitive structure, and Li Lu at overseas structure. The intersection is three actionable judgments.</p></div><table class="dt"><caption>Readings compared across four close reads</caption><thead><tr><th>Perspective</th><th>The key numbers to watch</th><th>Judgment</th><th>Impact on valuation</th></tr></thead><tbody><tr><td>Duan Yongping</td><td>RMB 98/kWh (Q1 104 → Q2 94)</td><td>Manufacturing valuation, 15x cap</td><td>RMB 378 midpoint</td></tr><tr><td>Buffett</td><td>Gross profit to net profit 65.3%, owner earnings about 70%</td><td>The 14x is actually 19–20x</td><td>The valuation ceiling is compressed</td></tr><tr><td>Munger</td><td>Energy storage gross margin -1.56pct</td><td>Price war without boundaries</td><td>No assumption of gross margin recovery</td></tr><tr><td>Li Lu</td><td>Overseas gross margin 29.97%</td><td>Globalization is the only source of incremental growth</td><td>Basis for the optimistic scenario</td></tr></tbody></table><div class="note">The four close readings are internal analysis for this report, with all figures drawn from the 2026 interim reports.</div><div class="section"><div class="section-title">Intersection one: gross margin will not recover—do not build it into the model</div><p class='txt'>All four reach a rare consensus: power batteries at 20.63% and energy storage at 23.96%, both declining, and the decline is structural (second suppliers, price comparison, overcapacity), not cyclical. <b>The model should assume gross margin continues to drift lower rather than mean-revert.</b></p><p class='txt'>The only offset is the overseas mix: overseas at 29.97%, 31.5% of the total, with every 10-point gain adding 0.9 points. So the right model is "gross margin = domestic decline + overseas uplift", a race between two lines.</p></div><div class="section"><div class="section-title">Intersection 2: Growth now comes from "volume" rather than "price", and the ceiling on volume lies in market share</div><p class='txt'>Revenue +54.8%, volume +60%, ASP RMB 629 million/GWh (about RMB 660 million last year) — all growth came from volume. <b>The ceiling on volume is share multiplied by total industry size.</b> Industry size is still growing (global electrification + energy storage), share is falling (46.7% domestic), and the two offset each other.</p><p class='txt'>So the answer to "can revenue still grow +50%" is not in CATL's hands — it is in the hands of industry growth and second-tier capacity.</p></div><div class="section"><div class="section-title">Intersection 3: 14x is "reasonably low for manufacturing," not a "mispricing"</div><p class='txt'>None of the four see this as an unjustified selloff. An unjustified selloff means the market has ignored obvious good news, but here the good news (29.97% overseas) is known to the market; it simply will not pay a premium for it, because overseas accounts for only 31.5% and carries political risk. <b>14x means "reasonably priced with slightly positive odds," not "free money."</b></p><p class='txt'>There is only one point of disagreement: Duan Yongping and Li Lu apply different standards for "when to buy" (bad news fully out vs. industry consolidation complete). This can be resolved by scaling in; there is no need to pick a side.</p></div><div class="section"><div class="section-title">Finally: the one number from this interim report worth remembering</div><p class='txt'>Not the RMB 43.284 billion net profit, nor the +54.8% revenue growth, but <b>29.97%</b> — the overseas gross margin. It shows that while this company is being pounded by price wars at home, it can still command a premium in another market.</p><p class='txt'>Four close reads came full circle and all landed on this number: Duan Yongping sees "there is still room to raise prices," Buffett sees "one segment of the moat is still intact," Munger sees "competition has not yet spread globally," and Li Lu sees "in the endgame it may not be a module maker." <b>One number supports four judgments — that is what a good financial report looks like.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Synthesis: Buy (in tranches). The model assumes no gross margin recovery; growth comes from volume, profit from overseas.</b> All three intersection points can be reconciled in the quarterly report: whether gross margin holds at 19%, whether unit price stops falling, and whether the overseas share rises. These three are far more useful than a grand narrative like "electrification rate."</p></div>
+</div>
+<div class="footer">CATL (300750.SZ) · 2026/09/28</div>
+</body>
+</html>

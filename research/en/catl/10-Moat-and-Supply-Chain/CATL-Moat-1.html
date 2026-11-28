@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moat — CATL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/catl/10-供应链与竞争壁垒/宁德时代-竞争壁垒.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/catl/10-供應鏈與競爭壁壘/寧德時代-競爭壁壘-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/catl/10-Moat-and-Supply-Chain/CATL-Moat-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Moat — CATL</h1>
+  <div class="subtitle">CATL (300750.SZ) | 10 · Moat</div>
+  <div class="meta">Research date 2026/09/28 &nbsp;·&nbsp; Price ¥291.99 (-0.51%) &nbsp;·&nbsp; Market cap Approximately RMB 1.35 trillion (A+H combined 4.627 billion shares) &nbsp;·&nbsp; PE(2026E) Approximately 14x (2026 net profit consensus of RMB 95.2 billion)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/catl/00-CATL-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>Moat scorecard, item by item: cost 9/10, scale and manufacturing 8/10, switching costs 7/10, brand 6/10, network effects 5/10. <b>This is a "cost-driven + engineering-driven" moat company, not a "brand-driven + network-driven" one.</b></p><p class='txt'>Moats of this kind share a trait: they keep new entrants out (a plant costs RMB 50 billion and takes five years), but they cannot stop a customer from adding another supplier. That is exactly what happened in 2026 — Li Auto, Xiaomi and AITO all added second suppliers. <b>The most dangerous rival is not CALB poaching orders, but BYD, which makes the battery part of the vehicle itself.</b></p></div><table class="dt"><caption>Moat scorecard, item by item (10-point scale)</caption><thead><tr><th>Dimension</th><th>Rating</th><th>Based on</th><th>Trend</th></tr></thead><tbody><tr><td>Cost advantage</td><td>9/10</td><td>Largest procurement scale globally + 94.86% utilization + in-house materials, unit cost among the lowest tier</td><td>In line</td></tr><tr><td>Scale and manufacturing</td><td>8/10</td><td>First-half output 498GWh, effective capacity 525GWh, under construction 764GWh</td><td>Enhancement</td></tr><tr><td>Switching costs</td><td>7/10</td><td>Automotive-grade validation takes about two years; switching requires redoing safety certification and retooling production lines</td><td>Decline (automakers diluting)</td></tr><tr><td>Technology and patents</td><td>7/10</td><td>Qilin, Shenxing and 587Ah large cells already in mass production; solid-state not in the lead</td><td>Decline</td></tr><tr><td>Brand</td><td>6/10</td><td>Automakers recognize the product, but consumers do not recognize the brand; this does not constitute a source of premium pricing</td><td>Flat</td></tr><tr><td>Network effects</td><td>5/10</td><td>No platform attributes; battery-swapping network and recycling system still small in scale</td><td>Flat</td></tr></tbody></table><div class="note">The score is proprietary to this report on a 10-point scale, and each basis maps to facts in the body text.</div><div class="section"><div class="section-title">Position in the value chain: a midstream "final assembly plant" that bridges upstream and downstream, but not the chain leader</div><p class='txt'>CATL occupies the "materials into cells" segment of the chain: upstream lie lithium, nickel, cathodes, anodes, separators, electrolytes, structural parts and equipment; downstream lie modules/PACKs, vehicles and energy-storage systems. <b>Its procurement scale is the world's largest, so it gets discounts from suppliers; its product is a core component for automakers, so it has bargaining power over customers.</b> Together, these two ends make it the most profitable midstream company in the chain.</p><p class='txt'>But it is not the chain master. The chain master is the one that defines standards — Tesla defined 4680, BYD defined the blade cell, and CATL defined the "large cell + high energy density" engineering route. <b>Leadership in an engineering route is sustainable, but not irreplaceable.</b> That is why its gross margin is only just above 20%, while TSMC reaches 58% in foundry.</p></div><div class="section"><div class="section-title">Supply chain: its ability to hold supplier payables is its most underappreciated advantage</div><p class='txt'>A debt-to-asset ratio of 60%–65% and interest-bearing debt below 10% — the other side of this structure is that <b>it owes its suppliers a lot of money.</b> A huge accounts-payable balance and long payment terms amount to financing its own working capital with suppliers' money. It can do this because it is the world's largest buyer — suppliers dare not press for payment.</p><p class='txt'>Downstream, it holds contract liabilities (automakers must pay deposits to lock in capacity). <b>Capturing float at both ends is the cash-form expression of its scale advantage, and the reason it can hold out in a price war.</b> Second-tier manufacturers cannot: they get no discounts from upstream and no prepayments from downstream, so any price cut hits cash flow first.</p><p class='txt'>The risk: if share slips, its ability to hold float declines in tandem. This is a mechanism where positive feedback can also run in reverse — <b>a 5-point share loss would lead suppliers to shorten payment terms, and cash flow would deteriorate before the income statement does.</b></p></div><div class="section"><div class="section-title">Competitive comparison: five rivals, five playbooks</div><p class='txt'>BYD is vertically integrated, uses its batteries in-house at the lowest cost, and takes CATL's customers directly in the RMB 10–20 万元 vehicle market; CALB wins first-supplier status on mid-range models with price and fast response; Sunwoda turns automakers into shareholders through "joint ventures + equity" (Li Auto holds 11.17%); Gotion enters Harmony Intelligent Mobility Alliance via Huawei's "Jupiter" battery supply chain; LG Energy Solution takes share of European and US procurement with North American local capacity.<b>Of the five playbooks, only BYD's is structural; the rest are price-based.</b></p></div><div class="section"><div class="section-title">The most dangerous rival: BYD, not CALB</div><p class='txt'>CALB is fighting for orders; BYD is fighting over the premise of whether batteries should be bought externally at all. If every automaker builds its own batteries like BYD, CATL's customer pool shrinks permanently—<b>this is not a share problem, it is a market-definition problem.</b></p><p class='txt'>BYD's blade battery plus vehicle integration pushes battery cost to the industry's lowest, and it amortizes R&D without selling externally. For every car it sells in the RMB 10–20 million price band, it takes one battery's worth of demand away from CATL.<b>In the first half of 2026 BYD held about 16% global share, the only player with a chance of catching CATL by carrying batteries through whole vehicles.</b></p><p class='txt'>CATL's response is to move upmarket and overseas: premium models (Qilin, Shenxing) and overseas customers (BMW, Mercedes-Benz, Volkswagen) are places BYD cannot enter near term.<b>The path is right, but it narrows CATL's market from all EVs to mid-to-high-end plus overseas.</b></p></div><div class="section"><div class="section-title">If only one moat remains, which one is it?</div><p class='txt'>Suppose the technology route changes in five years and the brand never gets built—what can CATL still live on? There is only one answer: <b>cost.</b> Not the cost of being "5% cheaper than others," but the cost of "lowest unit investment at the same yield"—which comes from the engineering capability of the production line, the in-house share of equipment, and the self-supply share of materials.</p><p class='txt'>This moat is invisible: it is not in patents, not in the brand, but in investment per GWh and manufacturing cost per kWh. <b>For a rival to replicate it, it is not a matter of buying one piece of equipment but of rebuilding an entire engineering system—five years and RMB 50 billion.</b></p><p class='txt'>But a cost moat has an inherent flaw: <b>it only guarantees "earning more than rivals," not "earning more than last year."</b> When an industry price war runs its course, even the lowest-cost player must cut prices. That is why CATL's gross margin still fell 1.07 points in 2026—it beat its rivals but lost to the industry.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Moat verdict: a cost-based moat, deep but not wide.</b> Cost scores 9 and scale 8; these two ensure it earns more than peers. Switching cost scores 7, brand 6 and network 5; these three cannot stop customers from adding a second supplier. The most dangerous rival is BYD (redefining the market); the most immediate wound comes from CALB and Sunwoda (taking orders). <b>Investment implication: the moat is enough for it to thrive, not enough to guarantee its margins hold.</b></p></div>
+</div>
+<div class="footer">CATL (300750.SZ) · 2026/09/28</div>
+</body>
+</html>

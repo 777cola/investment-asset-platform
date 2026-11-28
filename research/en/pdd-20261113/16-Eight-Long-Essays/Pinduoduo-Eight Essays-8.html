@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decision framework: what price to buy at, what position size, and under what conditions to admit the thesis is wrong — Pinduoduo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/pdd-20261113/16-八篇深度长文/拼多多-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/pdd-20261113/16-八篇深度長文/拼多多-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/pdd-20261113/16-Eight-Long-Essays/Pinduoduo-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Decision framework: what price to buy at, what position size, and under what conditions to admit the thesis is wrong — Pinduoduo</h1>
+  <div class="subtitle">Eight-Part Deep Dive, Part Eight | Turning judgments into executable rules</div>
+  <div class="meta">Research date 2026/11/13 &nbsp;·&nbsp; Price $78.97 (+1.86%) &nbsp;·&nbsp; Market cap About USD 112.4 billion &nbsp;·&nbsp; PE(TTM) Approximately 8.2x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/pdd-20261113/00-Pinduoduo-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>The previous seven pieces covered "what it is"; this one covers "how to do it". <b>The decision framework has only three things: how much to buy, at what price, and when to admit you are wrong.</b> Everything else is noise.</p><p class='txt'><b>Answer: a 3% position, first tranche at USD 78–80, halve at USD 120, exit when the thesis breaks.</b></p></div><table class="dt"><caption>Decision rules table</caption><thead><tr><th>Action</th><th>Conditions</th><th>Magnitude</th></tr></thead><tbody><tr><td>Initiate position</td><td>Current price USD 78–80 (3.4x ex-cash)</td><td>1%</td></tr><tr><td>Add to position</td><td>Q3 transaction services growth ≥10%, or share price ≤USD 72 with cash unchanged</td><td>+1%</td></tr><tr><td>Fully invested</td><td>Announce a buyback of ≥USD 5 billion, or ad growth returning to 6%</td><td>+1%, capped at 3%</td></tr><tr><td>Reduce position</td><td>Share price &gt;USD 120 (7.6x ex-cash)</td><td>Cut to 1.5%</td></tr><tr><td>Liquidate the position</td><td>Advertising fell for two consecutive quarters / transaction services &lt;5% / cash down 10% YoY / audit issues</td><td>0%</td></tr></tbody></table><div class="note">Prices are as of the November 13, 2026 close; multiples are calculated on 1.423 billion ADS, an exchange rate of 7.1, and 2026 expected net profit of RMB 99.5 billion.</div><div class="section"><div class="section-title">First: how much to buy</div><p class='txt'><b>3%.</b> This number is not derived from valuation; it is derived from the "source of return": without dividends or buybacks, returns can only come from valuation repair; the timing of valuation repair is not yours to decide; and the tail risk of China ADRs cannot be hedged. <b>Add the three together, and 3% is the ceiling.</b></p><p class='txt'>If it starts buybacks one day, that ceiling can rise to 5%; if advertising turns negative, it drops straight to 0. <b>Position sizing follows the thesis, not the share price.</b></p></div><div class="section"><div class="section-title">The second point: at what price</div><p class='txt'><b>Buy: USD 78–80.</b> 3.4x net of cash; the bear case of USD 66 implies only 17% downside, a 3.6:1 payoff.</p><p class='txt'><b>Sell: above USD 120.</b> 7.6x net of cash; payoff falls below 1.5:1. <b>Note this is not a target price but a trim line.</b> The base-case target is USD 99, but at USD 99 you should not sell—by then the thesis may already have played out (buybacks, advertising recovery), warranting continued holding.</p></div><div class="section"><div class="section-title">The third point: when to admit you are wrong</div><p class='txt'><b>No price stop-loss.</b> A stock at 3.4x ex-cash that falls 20% becomes 2.7x — add, don't cut. <b>Set stops on the thesis:</b></p><ul><li>Online marketing revenue posts two consecutive quarters of year-on-year decline — the domestic business is genuinely shrinking.</li><li>Transaction services revenue growth drops below 5% — Temu's unit economics are broken.</li><li>Cash and short-term investments fall more than 10% year on year — the company starts burning its reserves.</li><li>Auditor change or a qualified opinion — governance problems.</li></ul><p class='txt'><b>If any one of these appears, exit regardless of price.</b> That is not a stop-loss; it is admitting the call was wrong.</p></div><div class="section"><div class="section-title">The fourth point: how often to check</div><p class='txt'><b>Review once a quarter, and look at only four lines:</b> revenue mix (advertising vs transaction services), gross margin, cash balance, operating cash flow. Ignore everything else (share price, ratings, news).</p><p class='txt'><b>The frequency is deliberate.</b> Look too often and noise takes over (the 7.3% in September was noise); look too rarely and you miss the inflection (a turn to negative advertising growth takes two quarters to confirm). <b>Quarterly frequency matches this company's information cadence.</b></p></div><div class="section"><div class="section-title">A common mistake: panicking at USD 66</div><p class='txt'>Assume advertising turns negative in Q1 next year and the stock falls to USD 66 (bear case). <b>Most people react by selling: "the thesis is broken."</b> But under this framework, USD 66 implies 2.7x ex-cash, which is a level to add, provided cash has not shrunk.</p><p class='txt'><b>The source of panic is not the price; it is the absence of rules written in advance.</b> If you had spelled out at USD 79 "under what conditions I add, under what conditions I exit," then USD 66 is just an execution point, not an emotional one.</p></div><div class="section"><div class="section-title">When does this framework break down?</div><p class='txt'><b>1. If Pinduoduo becomes a company that "shares the money"</b> — buybacks plus dividends — then the valuation framework must shift from "asset discount" to "discounted cash flow," the target price rises markedly, and the 3% position cap should be lifted.</p><p class='txt'><b>2. If Temu lists separately or is spun off</b> — sum-of-the-parts replaces consolidated valuation, Temu's value gets priced on its own, and the current "zero valuation" treatment no longer applies.</p><p class='txt'><b>3. If regulators shut the cross-border channel entirely</b> — Temu goes to zero, the company reverts to a pure domestic cash cow, and the valuation should be about 6x, corresponding to roughly USD 90. <b>All three scenarios would force a rewrite of this framework, but none of them would lose you money.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Decision points: 3% position, first tranche at 78–80, halve at 120, exit if any of the four logic lines breaks, review only four lines each quarter.</b></p><p class='txt'>The value of these rules is not precision — it is that you don't have to re-decide when the stock falls 30%, because the decision was written down in advance.</p><p class='txt'><b>Final line: buy a high-gross-margin business at a 70% discount, betting management won't burn the cash overseas. Right bet returns 60%; wrong bet loses 20%.</b></p></div>
+</div>
+<div class="footer">Pinduoduo (PDD) · 2026/11/13</div>
+</body>
+</html>

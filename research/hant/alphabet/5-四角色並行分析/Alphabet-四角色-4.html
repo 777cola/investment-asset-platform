@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>風險評估（李錄視角） — Alphabet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/alphabet/5-四角色并行分析/Alphabet-风险评估-李录.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/alphabet/5-四角色並行分析/Alphabet-四角色-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/alphabet/5-Four-Role-Analysis/Alphabet-Four Roles-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>風險評估（李錄視角） — Alphabet</h1>
+  <div class="subtitle">什麼會真正摧毀這家公司的價值</div>
+  <div class="meta">研究日期 2026/10/30 &nbsp;·&nbsp; 股價 $279.84（-1.40%） &nbsp;·&nbsp; 市值 約 3.42 萬億美元 &nbsp;·&nbsp; EV/EBIT(2026E) 約 21x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/alphabet/00-Alphabet研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>真正的風險不是反壟斷，不是歐盟罰款，也不是競爭。反壟斷最壞的結果（拆分 Chrome/Android）已經被 2025 年 12 月的救濟判決排除；歐盟罰款一年幾十億歐元，對 3.42 萬億市值是 0.1% 級別。<b>真正的風險是兩件：搜尋被 AI 分流的速度快於廣告變現的速度，以及 2,000 億資本開支的回報率低於資本成本。</b>前者是存在性風險，後者是估值風險。兩件都不在季報裡，在時間裡。</p></div><table class="dt"><caption>風險清單與量化影響</caption><thead><tr><th>風險</th><th>觸發條件</th><th>對估值的影響</th><th>當前證據</th></tr></thead><tbody><tr><td>搜尋被 AI 分流</td><td>搜尋收入增速連續兩季 &lt;8%</td><td>搜尋業務估值下調 30%，約 -6,600 億</td><td>Q3 +12%，低於預期 +14%，尚未驗證</td></tr><tr><td>折舊吞掉利潤率</td><td>營業利益率跌破 28%</td><td>營業利益下修 12%，目標價下修約 15%</td><td>2027 年折舊翻倍至 500 億以上，確定性高</td></tr><tr><td>雲端增速失速</td><td>雲端增速 &lt;30% 且資本支出不降</td><td>雲端估值從 25x 降至 15x，約 -4,000 億</td><td>第三季 +103%，無證據 3.0</td></tr><tr><td>結構性救濟（拆分廣告技術）</td><td>歐盟或 DOJ 強制剝離 AdX</td><td>廣告技術業務估值歸零，約 -1,000 億</td><td>布魯塞爾仍在主張，未判決</td></tr><tr><td>資本支出融資依賴</td><td>連續兩年 FCF 為負 + 債務 &gt;2,000 億</td><td>信用評級下調，融資成本上升</td><td>Q3 發債 287 億元，淨現金仍達 1,400 億元</td></tr></tbody></table><div class="note">估值影響為本報告粗算，按各業務分部估值敏感性測算，非精確模型。</div><div class="section"><div class="section-title">風險一：搜尋的自我替代，這是存在性問題</div><p class='txt'>搜尋廣告的計費基礎是「點擊」。AI 直接給答案，使用者不點連結，點擊量就下降；點擊量下降，廣告庫存就減少；庫存減少，收入就下降。<b>這條鏈條的可怕之處是：它不需要使用者離開谷歌，只需要使用者不再點。</b>Q3 搜尋 +12%，說明這件事還沒發生，但增速低於預期（+14%）是第一個黃燈。</p><p class='txt'>Alphabet 的應對是把 AI 答案放進搜尋結果頁（AI Overviews），自己吃掉自己的點擊。<b>這是正確的策略，但代價是「每次搜尋的變現效率」可能下降。</b>公司沒有披露 AI 搜尋的每千次展示收入，這是我們最想知道、卻拿不到的數字。</p></div><div class="section"><div class="section-title">風險二：資本回報率，這是估值問題</div><p class='txt'>2,000 億美元的年度資本支出，若按 20% 的稅前報酬率計算，兩年後應新增 400 億 EBIT；若按 10% 計算，則只有 200 億。<b>目前市場按 21 倍 EV/EBIT 定價，隱含的是「這筆錢至少能賺 15% 的回報」。</b>這個假設是否成立，2027–2028 年見分曉。</p><p class='txt'>判斷報酬率的先行指標是雲業務的積壓訂單：Q3 是 561 億美元，略超 55% 在 24 個月內確認，即約 309 億。<b>這個數字相對於 2,000 億的年資本支出太小了</b>——說明目前的雲收入成長主要來自「即時需求」，而不是「長約鎖定」。即時需求的好處是彈性，壞處是隨時可以消失。</p></div><div class="section"><div class="section-title">不是風險的風險：反壟斷與歐盟罰款</div><p class='txt'>市場花了兩年時間為「拆分 Chrome」定價，結果 2025 年 12 月的救濟判決只要求資料共享和選擇屏。2026 年 4 月選擇屏義務生效，蘋果裝置上的預設搜尋可能被使用者改掉——<b>這會削薄護城河，但不會拆掉。</b>歐盟的罰款（2025 年 9 月 29.5 億歐元、2026 年 7 月 8.9 億歐元、2026 年 9 月 4.6 億歐元）加起來不到 50 億歐元，對現金流是噪音。</p><p class='txt'>唯一還懸著的是廣告技術業務的結構性救濟。布魯塞爾主張分拆 AdX，如果真拆，廣告技術業務估值歸零，影響約 1,000 億美元——<b>是 3% 的市值，不是 30%。</b>所以這類風險應該被降級，不該佔據注意力。</p></div><div class="summary-box"><h3>結論</h3><p>兩個真風險，一個存在性（搜尋被分流），一個估值性（資本回報率）。<b>結論：風險可控但不可忽視，倉位要留出「證明自己錯了」的空間。</b>首倉不超過目標倉位的一半，就是為了這個——如果 2027 年 Q1 出現搜尋增速 <8%，還有錢可以不動、有倉位可以減。</p></div>
+</div>
+<div class="footer">Alphabet (GOOGL) · 2026/10/30</div>
+</body>
+</html>

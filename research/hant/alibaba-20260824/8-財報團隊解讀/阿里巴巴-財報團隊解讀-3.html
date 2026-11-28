@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀（蒙格） — 阿里巴巴</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/alibaba-20260824/8-财报团队解读/阿里巴巴-大师精读-芒格.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/alibaba-20260824/8-財報團隊解讀/阿里巴巴-財報團隊解讀-3.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/alibaba-20260824/8-Earnings-Team-Read/Alibaba-Earnings Team-3.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀（蒙格） — 阿里巴巴</h1>
+  <div class="subtitle">找到那個最危險的數字</div>
+  <div class="meta">研究日期 2026/08/24 &nbsp;·&nbsp; 股價 HK$112.50（-8.54%） &nbsp;·&nbsp; 市值 約 2.30 萬億港元（配售後約 204.6 億股） &nbsp;·&nbsp; 本益比（TTM，反推） 約 31x（利潤被 AI 投入扭曲，參考性弱）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/alibaba-20260824/00-阿里巴巴研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>蒙格讀財報的方法是找「最危險的那個數字」。這一季不是 -76%，是 <b>-415%</b>——AI 實驗室與應用的虧損率。每 1 元收入虧 4.15 元，這在網路史上只有最瘋狂的補貼戰出現過。</p></div><div class="section"><div class="section-title">最危險的數字：-415%</div><p class='txt'>AI 實驗室與應用：收入 33.4 億元、同比 +16%，虧損 138.6 億元、虧損率 -415%、虧損同比擴大 330%。<b>把它換算成人話：這個部門每收 1 元，要花 5.15 元。</b>公司給的解釋是「AI 能力建設投入 + Qwen App 推理成本上升」。</p><p class='txt'>芒格會說：<b>虧損率高低不是問題，問題是虧損率有沒有在收斂。</b>如果去年同期虧損率是 -100%、今年是 -415%，說明商業模式在惡化而不是改善；如果去年同期 -500%、今年 -415%，說明在改善。<b>公開資訊只給了「虧損擴大 330%」，沒給去年的虧損率，這本身就是一個訊號——公司在選擇性披露。</b></p><p class='txt'>對照一下同行的做法：騰訊把 AI 能力掛在已有收費場景上（廣告、遊戲、支付），邊際成本低；字節的豆包用流量換用戶，但火山引擎本身是賺錢的。<b>阿里是唯一一個把「模型應用」單獨拆出來、讓它自負盈虧、然後公開虧 415% 的公司——這份坦誠值得肯定，但數字本身很難看。</b></p></div><div class="section"><div class="section-title">第二危險：客戶管理的「零成長」</div><p class='txt'>客戶管理收入 825.5 億元、報表 -7%、同口徑 +1%。<b>這是一個比 -415% 更值得警惕的數字，因為它來自基本盤。</b>客戶管理是阿里最賺錢的收入（毛利率極高、幾乎不佔資本），它停止增長意味著：商家的投放預算在流向別處——抖音的內容場、拼多多的低價場。</p><p class='txt'>芒格會把它和歷史比：2023–2024 年客戶管理還在中個位數增長，2025 年開始放緩，2026 年零增長。<b>三年的時間走完了一個完整的下行週期，這不是「季度波動」，是結構變化。</b></p><p class='txt'>更麻煩的是它與即時零售的關係：即時零售 533 億元、+45%，收入好看，但它是用補貼換來的，且毛利率遠低於客戶管理。<b>「高毛利收入停滯、低毛利收入高增」是利潤率下滑的標準配方。</b>集團經調整 EBITA 同比 -30%，就是這道配方的結果。</p></div><div class="section"><div class="section-title">第三危險：所有其他由盈轉虧</div><p class='txt'>「所有其他」這一欄，從去年同期獲利 6.9 億元變成虧損 33.4 億元，差了 40 億元。這一欄裝的是本地生活、大文娛、高鑫零售等零散業務。<b>芒格對這類「其他」一向不信任：一個裝雜物的抽屜，通常意味著有人不想讓你看清它的樣子。</b></p><p class='txt'>40 億元的惡化不算大，但方向不好：在集團整體利潤下滑的時候，非核心業務沒有收縮，反而在擴大虧損。這說明「聚焦」這件事只做了一半——核心業務聚焦了，邊緣業務沒砍乾淨。</p><p class='txt'>把三個危險數字串起來，得到一幅清晰的圖：<b>基本盤（客戶管理）零成長、新業務（AI 應用）巨額虧損、邊緣業務（所有其他）擴大虧損。</b>唯一在改善的是雲。這就是為什麼市場給 112.5 港元——它給的是「一朵好雲 + 一個平庸的集團」的價格。</p></div><div class="summary-box"><h3>結論</h3><p>芒格式結論：<b>這家公司的問題是「一邊賺錢一邊漏錢」，而漏錢的地方（AI 應用、所有其他）都不在管理層的重點敘事裡。</b>他會要求兩件事才願意買：AI 應用的虧損率開始收斂、非核心業務停止擴大虧損。兩個都沒有，就不買。</p></div>
+</div>
+<div class="footer">阿里巴巴 (09988) · 2026/08/24</div>
+</body>
+</html>

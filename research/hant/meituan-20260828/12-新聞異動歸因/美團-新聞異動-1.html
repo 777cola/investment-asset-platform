@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新聞異動 — 美團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20260828/12-新闻异动归因/美团-新闻异动.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meituan-20260828/12-新聞異動歸因/美團-新聞異動-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meituan-20260828/12-News-Attribution/Meituan-News-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>新聞異動 — 美團</h1>
+  <div class="subtitle">美團 (03690) | 12 · 新聞異動</div>
+  <div class="meta">研究日期 2026/08/28 &nbsp;·&nbsp; 股價 HK$77.50（+0.00%） &nbsp;·&nbsp; 市值 約 4,786 億港元（61.75 億股） &nbsp;·&nbsp; PE —（2026 年上半年稅後淨損 46.7 億元，PE 失真）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meituan-20260828/00-美團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>5 月底到 8 月底，真正影響股價的只有兩件事：<b>6 月 1 日的一季報（虧損 64.7 億元，好於市場預期的虧 90.1 億元，次日港股漲 5%）和 8 月 28 日的二季報（營業利益 26.9 億元轉正，大超預期）。</b>其餘四件——回購授權、2 億港元回購、騎手新職傷全國落地、京東全職騎手繳五險一金——都是「方向性資訊」，對當期股價幾乎沒有影響。噪音則包括王興「一股沒賣」的表態、以及各種「份額第一」的口徑之爭。<b>這三個月股價從 64.25 港元的 52 週低點回到 77.50 港元，漲的是「補貼退潮」的預期，不是業績。</b></p></div><table class="dt"><caption>近三個月關鍵事件（2026/05/28–08/28）</caption><thead><tr><th>日期</th><th>事件</th><th>股價反應</th><th>性質</th></tr></thead><tbody><tr><td>06/01</td><td>2026Q1 財報：收入 910.39 億元 +5.6%，營業虧損 64.70 億元，優於市場預期虧損 90.1 億元；經調整虧損 49.68 億元</td><td>6/2 港股漲約 5%</td><td>訊號：虧損收窄超預期</td></tr><tr><td>06/25–26</td><td>股東溝通會：王興稱「成立至今一股沒賣」，財務長陳少暉稱「價值被嚴重低估」，股東會通過回購授權</td><td>無顯著異動</td><td>噪音：表態不改變現金流</td></tr><tr><td>06/29–30</td><td>連續兩日回購 292.48 萬股 B 類股，價格 66.5–69.0 港元，合計約 2 億港元</td><td>股價在 67–69 區間獲得支撐</td><td>弱訊號：力度太小</td></tr><tr><td>07/01</td><td>外送員「新職傷」保險全國覆蓋，保費由平台全額繳納</td><td>無顯著異動</td><td>訊號（負）：成本台階，量級約年化 25 億元</td></tr><tr><td>07/17</td><td>京東宣布全職騎手 100% 簽訂勞動合約、繳納五險一金</td><td>無顯著異動</td><td>訊號（中性偏正）：迫使對手收縮</td></tr><tr><td>08/20</td><td>阿里 2027Q1：即時零售收入 533 億元 +45%；媒體測算淘寶閃購份額約 45.7%（收入口徑）；新財年投入據 36 氪報道砍半</td><td>—（當日無公開異動記錄）</td><td>混合訊號：份額壓力仍在，投入退潮確認</td></tr><tr><td>08/28</td><td>美團 2026Q2 財報：收入 1,046.43 億元 +14.4%，營業利益 26.91 億元轉正，核心本地商業 56.68 億元 +52.3%</td><td>當日收盤 77.50 港元、持平（財報盤後發布，未反映）</td><td>訊號：拐點確認，待市場定價</td></tr></tbody></table><div class="note">股價反應取自公開行情與媒體報導；08/20 阿里財報當日美團無公開異動記錄，標註為「—」。財報發布時間：一季報 2026/06/01、二季報 2026/08/28 盤後。</div><div class="section"><div class="section-title">訊號一：第一季財報「虧得比預期少」</div><p class='txt'>6 月 1 日那份季報，收入 910.39 億元、+5.6%，營業虧損 64.70 億元、經調整虧損 49.68 億元。市場原本預期虧 90.1 億元——<b>實際虧損只有預期的七成，這是全年第一個「好於預期」。</b></p><p class='txt'>次日港股漲約 5%，說明市場讀懂了：虧損在收窄，而且是在收入只增 5.6% 的情況下收窄的，靠的是費用控制。<b>這是「反內卷」第一次在數字上得到驗證。</b></p><p class='txt'>但要注意一個細節：一季度營業虧損 64.70 億元，環比 2025 年四季度的 160.74 億元收窄 59.8%。收窄的幅度很大，絕對額仍然是負的六十几億。市場當時給的是「不再惡化」的定價，不是「開始變好」的定價。</p></div><div class="section"><div class="section-title">訊號二：二季報的「26.9 億元」</div><p class='txt'>8 月 28 日盤後，二季報出爐：收入 1,046.43 億元、+14.4%，營業利益 26.91 億元，市場預期是虧 8.46 億元。<b>從「預期虧 8.5 億元」到「實際賺 26.9 億元」，擺動 35 億元，這是 2025 年以來最大的一次預期差。</b></p><p class='txt'>但股價當天是平盤（77.50 港元，漲跌幅 0），因為財報在盤後發布，當天交易時段還沒反映。<b>這份財報的定價要等到下一個交易日——這就是為什麼現在的位置（77.5 港元）仍然是一個「資訊未完全定價」的位置。</b></p><p class='txt'>核心本地商業 56.68 億元、+52.3%、利潤率 7.9%，新業務虧損 17.4 億元、虧損率 5.3%——三個數字同時改善，這才是市場會重估的部分，不是 26.9 億元本身。</p></div><div class="section"><div class="section-title">雜訊：三件被過度解讀的事</div><p class='txt'>第一件，王興「一股沒賣」。這是事實，也是表態，但它不改變任何現金流。<b>創辦人持股 9.3%、投票權 45.3%，本來就沒有賣出的動機——賣一股等於給市場一個訊號。</b>把這句話當成買進理由，是把治理結構當成了業績。</p><p class='txt'>第二件，2 億港元回購。292.48 萬股、價格 66.5–69 港元、占市值 0.04%。<b>這個規模更像「表態式回購」——證明公司在買，但不證明公司認為便宜。</b>真正的訊號要看下半年：如果累計回購超過 20 億港元，那才是意願。</p><p class='txt'>第三件，市占口徑之爭。「美團 51%」「美團 60%」「淘寶閃購 45.7%」——三個數字來自三種口徑（單量、GTV、收入），媒體常常混著用。<b>看到市占新聞，第一件事是問「哪個口徑」，第二件事是問「誰測算的」。</b></p></div><div class="section"><div class="section-title">歸因：這三個月上漲的是什麼</div><p class='txt'>52 週區間 64.25–106.30 港元，現在 77.50 港元、距高點 -27.1%。從 6 月下旬的低點算，反彈約 20%。</p><p class='txt'>這 20% 裡，業績貢獻有限（一季報只是虧得少，二季報盤後還沒定價），<b>主要漲的是「補貼退潮」的預期</b>：阿里投入砍半的報導、京東轉去講合規、監管定調「反內卷」。換句話說，市場買的是「戰爭結束」，不是「美團變強」。</p><p class='txt'>這個區別很重要。如果是「戰爭結束」驅動，那麼戰爭一旦重啟，漲幅會全部吐回去；如果是「美團變強」驅動，估值中樞會上移。<b>現在只能確認前者，不能確認後者——這也是為什麼只買 2%。</b></p></div><div class="section"><div class="section-title">一條沒被定價的資訊</div><p class='txt'>8 月 28 日的財報是盤後發的，當天收盤 77.50 港元、漲跌幅 0。<b>這意味著市場還沒有對「營業利益 26.9 億元、超預期 35 億元」這件事定價。</b></p><p class='txt'>對比一下 6 月 1 日的一季報：虧 64.7 億元（預期虧 90.1 億元），次日漲 5%。那次只是「虧得比預期少」，這次是「賺得比預期多」，量級不同。</p><p class='txt'>所以現在的位置有一個資訊差窗口。但要注意：<b>資訊差只值一天，不值一個月。</b>如果下一個交易日開盤漲 8% 以上，這個窗口就關了；如果平開或低開，說明市場在擔心 Q3 的指引（管理層明確說成本會上升），那反而是機會。</p></div><div class="section"><div class="section-title">三個月的股價結構</div><p class='txt'>把 5 月底到 8 月底的股價走勢拆成三段，能看清市場在交易什麼。</p><p class='txt'>第一段（6 月初）：從低位反彈，因為一季報虧損收窄超預期。這一段漲的是「不再惡化」。</p><p class='txt'>第二段（6 月下旬–7 月）：股價在 65–70 港元區間橫盤，公司在 66.5–69 港元回購。這一段是「築底」，成交量萎縮，說明賣壓出盡。</p><p class='txt'>第三段（8 月）：隨阿里財報與行業補貼退潮的報導上行，到 8 月 28 日 77.50 港元。這一段漲的是「戰爭結束」的預期。</p><p class='txt'><b>三段加起來漲了約 20%，但沒有一段是「業績驅動」——業績的真正定價還在 8 月 28 日之後。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'>三個月六件事，兩件是訊號（兩份財報），四件是方向性資訊，三件是噪音。<b>結論：股價反彈 20% 靠的是預期，不是業績；業績的真正定價要等 8 月 28 日之後的交易日。</b></p><p class='txt'>操作含義：不要在財報後第一天追高。如果開盤漲超 10%，等回落；如果平開或低開，是加倉機會。真正的驗證點在 10 月底的三季報。</p></div>
+</div>
+<div class="footer">美團 (03690) · 2026/08/28</div>
+</body>
+</html>

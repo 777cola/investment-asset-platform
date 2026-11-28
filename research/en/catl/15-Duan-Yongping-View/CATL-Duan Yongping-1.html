@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duan Yongping — CATL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/catl/15-段永平视角/宁德时代-段永平视角.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/catl/15-段永平視角/寧德時代-段永平視角-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/catl/15-Duan-Yongping-View/CATL-Duan Yongping-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Duan Yongping — CATL</h1>
+  <div class="subtitle">CATL (300750.SZ) | 15 · Duan Yongping</div>
+  <div class="meta">Research date 2026/09/28 &nbsp;·&nbsp; Price ¥291.99 (-0.51%) &nbsp;·&nbsp; Market cap Approximately RMB 1.35 trillion (A+H combined 4.627 billion shares) &nbsp;·&nbsp; PE(2026E) Approximately 14x (2026 net profit consensus of RMB 95.2 billion)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/catl/00-CATL-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>Re-ask CATL the Duan Yongping way: Is this a good business? Will it still be here in ten years? Do I understand it? At what price do I buy? What do I fear most? <b>The five answers, in order: decent but not Moutai; still here in ten years but possibly no longer number one; understandable; 12x 2027 earnings is a reasonable entry point; the biggest fear is solid-state batteries.</b></p><p class='txt'>His consistent approach is "understand + wait + scale in," and CATL meets half of all three — the understanding is real, the waiting is not (bad news is still coming out), so only buy a portion.</p></div><div class="section"><div class="section-title">Q1: Is this a good business?</div><p class='txt'>Good, but not the best kind. Three tests decide it: can it raise prices, can customers switch away, and must it keep investing.</p><p class='txt'>Raise prices? No. Power battery gross margin was 20.63%, down 1.78 points year on year; energy storage fell 1.56 points. <b>The real gap is here — Moutai's gross margin is 91%, and it raises prices whenever it wants; when CATL raises prices, customers go ask the second-tier suppliers.</b></p><p class='txt'>Can customers switch? Not in the short term. Automakers need two years of validation to change suppliers, redo safety certification and bear recall risk. But in 2026 Li Auto, Xiaomi and AITO are all adding second suppliers, which shows <b>they are willing to pay that cost to "switch away"</b>.</p><p class='txt'>Must it keep investing? Yes. 764GWh under construction, at RMB 300–400 million/GWh that is RMB 230–310 billion. <b>The money it earns turns into next year's capacity, so this is not a business that makes money while sitting still.</b></p><p class='txt'>It passes one and a half of the three. So my verdict: <b>a good business, but not a Moutai-kind of business.</b> Good businesses have entry points too, but the valuation cannot be high.</p></div><div class="section"><div class="section-title">Question 2: Will it still be around in ten years?</div><p class='txt'>Most likely it will still be here, but it may not be number one. The battery industry will not disappear—electrification is irreversible, and energy storage has only just begun. CATL's 40.2% share, the world's lowest cost, and three overseas bases make <b>the probability of it being completely displaced within a decade very low.</b></p><p class='txt'>But "still here" and "still number one" are two different things. What happened in 2026: automakers actively cultivated second suppliers, and Li Auto even became a shareholder in Sunwoda. <b>On this path, ten years out it could be a three-way split: CATL, BYD, plus one overseas player.</b></p><p class='txt'>So I don't ask "will it die," I ask "can it still earn excess profit." <b>The answer goes from "yes" to "a little," and the valuation goes from 30x to 15x.</b> That is what is happening now.</p></div><div class="section"><div class="section-title">Question three: Can I understand it?</div><p class='txt'>I understand it. It makes battery cells and sells them to automakers and grid operators, with revenue split three ways (power, storage, materials), and unit economics that can be calculated: 440GWh in the first half, net profit of RMB 43.284 billion, or RMB 98/kWh. <b>No black box, no complex financial engineering, no related-party transactions I cannot understand.</b></p><p class='txt'>The only part I do not understand: when solid-state batteries will reach mass production, and whose route is right. I will not pretend to understand this — <b>precisely because I do not understand it, I cannot take a heavy position.</b> Duan Yongping's principle is "don't touch what you don't understand"; I have revised it to "for the parts you don't understand, cap the position size," because I do understand the core business (liquid lithium batteries).</p></div><div class="section"><div class="section-title">Question 4: At what price to buy</div><p class='txt'>My method is crude: normalized profit × a sufficiently cheap multiple. The 2027 consensus net profit is RMB 116.5 billion on 4.627 billion shares, or RMB 25.18 per share. <b>A manufacturing multiple of 15x gives RMB 378; at the current RMB 291.99, the stock trades at 11.6x, a 23% discount.</b></p><p class='txt'>Is that discount enough? It depends what you compare it with. If this were a manufacturing company steadily earning RMB 100 billion with no growth, 11.6x would be a fair price, not a cheap one. <b>It is still growing (+22% expected in 2027), so 11.6x is on the low side.</b></p><p class='txt'>But I will not buy all at once. The reason is simple: <b>bad news is still coming out.</b> The September 1 consumption tax, mid-September reports of the Ningde exit, and a 52-week low on September 28. My habit is to wait until the bad news is fully out; only half of it is out now.</p><p class='txt'>So: buy one-third first, then wait for the Q3 report. If Q3 growth holds at 25%, I will buy more.</p></div><div class="section"><div class="section-title">Question five: What do you fear most?</div><p class='txt'>Two things are most feared. First, solid-state batteries reaching mass production early. If someone announces all-solid-state vehicles in 2027, CATL's depreciation on 500GWh of liquid-electrolyte capacity becomes a burden. <b>This is not a profit issue, it is an asset issue—those production lines on the books will need impairment.</b></p><p class='txt'>Second, automakers building their own batteries becomes a trend. BYD has already proven this path works (vehicle + battery integration, lowest cost). If Li Auto, Xiaomi and Geely all follow with in-house production, CATL's customer pool shrinks permanently. <b>This is not a share issue, it is a market-definition issue.</b></p><p class='txt'>As for consumption tax, de-CATLization and share-price declines, these are not in the realm of "fear"—they are part of the price. <b>What is feared are the things that do not show up in the financials first but rewrite valuation in one stroke.</b></p></div><div class="section"><div class="section-title">Question 6: If you could buy only one battery stock</div><p class='txt'>Only CATL. Not because it is the best, but because it is the only pure battery play — BYD's batteries are for captive use, so buying BYD means buying the whole vehicle business; second-tier makers offer no overseas premium and no margin of safety; LG's gross margin is only 10%–15%.</p><p class='txt'><b>But "the only one to buy" does not mean "buy to the full position now."</b> My approach: take a 2% position to hold a seat, turn research into holdings, then test it against data every quarter. Add if right, exit if wrong. <b>Investing is not betting on a single judgment; it is continuously revising judgment with facts.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>One-line summary: understandable, worth waiting for, price has arrived, but only buy a portion.</b> Good business (B+), still around in ten years but not necessarily number one, the numbers add up, and 11.6x 2027 is on the low side. The biggest fear is solid-state batteries arriving early and a wave of automakers building their own batteries. <b>Approach: open with a one-third position, add after Q3 results confirm, exit if gross margin falls below 19%.</b></p></div>
+</div>
+<div class="footer">CATL (300750.SZ) · 2026/09/28</div>
+</body>
+</html>

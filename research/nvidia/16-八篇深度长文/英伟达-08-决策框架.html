@@ -7,13 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
-.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
 .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
 .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
 .header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
 .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
 .section { margin-bottom: 2.5rem; }
 .section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -48,22 +53,19 @@ table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; colo
 .badge-blue { background: #e6f0ff; color: #1a4b8c; }
 .footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
 .back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
-.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
-.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
-.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
-
 </style>
 </head>
 <body>
 <div class="header">
+  <div class="lang-switch"><a class="lang zh active" data-lang="zh" href="/research/nvidia/16-八篇深度长文/英伟达-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/nvidia/16-八篇深度長文/輝達-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/nvidia/16-Eight-Long-Essays/NVIDIA-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
   <h1>⑧ 决策框架：什么价格买、什么信号卖、什么情况不碰 — 英伟达</h1>
   <div class="subtitle">八篇长文之八 | 把判断变成可以执行的规则</div>
   <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股价 $220.78（+1.48%） &nbsp;·&nbsp; 市值 约 5.33 万亿美元（241.5 亿股） &nbsp;·&nbsp; PE(TTM) 约 28x（FY2028 前瞻约 15x）</div>
 </div>
 <div class="container">
-<a class="back" href="../00-英伟达研究报告总目录.html">← 返回总目录</a>
+<a class="back" href="/research/nvidia/00-英伟达研究报告总目录.html">← 返回总目录</a>
 <div class="summary-box"><h3>核心判断</h3><p class='txt'>前面七篇讲的是“这家公司是什么”，这一篇讲“你该怎么做”。<b>决策框架的第一步不是估值，是判断自己是谁</b>——是长期持有者、波段交易者，还是不敢承担波动的人。三种人对应三种完全不同的动作。</p><p class='txt'>对长期持有者：持有 5%，180 美元以下加到 8%。对波段交易者：这只股票三个月位移 −0.9%、振幅 20%，不适合做趋势。对不敢承担波动的人：不要买，因为它的合理波动区间是 ±40%。</p></div><table class="dt"><caption>三情景与动作</caption><thead><tr><th>情景</th><th>目标价</th><th>概率</th><th>动作</th></tr></thead><tbody><tr><td>悲观（FY2028 +30%）</td><td>168 美元（-24%）</td><td>30%</td><td>加仓：这是“不需要相信指引”的价格</td></tr><tr><td>中性（FY2028 +60%）</td><td>248 美元（+12%）</td><td>45%</td><td>持有，不加不减</td></tr><tr><td>乐观（FY2028 +77%）</td><td>386 美元（+75%）</td><td>25%</td><td>减到 5%：涨到 386 就是 23 倍 FY2028，太贵</td></tr><tr><td>尾部（三件事同时发生）</td><td>138 美元（-37%）</td><td>15%（与上重叠）</td><td>减到 3% 或清仓，看信号</td></tr></tbody></table><div class="note">目标价与概率为本报告自定；概率之和不等于 100%，因为尾部情景与三情景部分重叠。估值口径见 m04 三情景表注。</div><div class="section"><div class="section-title">第一步：先判断自己是谁</div><p class='txt'>同一只股票，三种人应该有三种动作。</p><p class='txt'><b>长期持有者（五年以上，能忍受 40% 回撤）：</b>现在可以拿 5%，180 美元以下加到 8%。理由：这门生意的位置二十年一遇，只要 AI 资本开支不崩，它就在赚钱。</p><p class='txt'><b>波段交易者（三个月到一年）：</b>这只股票不适合做趋势。过去三个月从 222.82 到 220.78，位移 −0.9%，中间振幅 190–228（20%）。<b>趋势交易者在这种形态里会被反复止损。</b></p><p class='txt'><b>不敢承担波动的人：</b>不要买。它的合理波动区间是 ±40%，任何 5% 的日内波动都会让你睡不好觉。买这种东西需要的是“看得懂 + 拿得住”，缺一个都不行。</p><p class='txt'><b>这一步比估值重要，因为估值是客观的，风险承受能力是主观的。</b>同样 220 美元，对 A 是机会，对 B 是灾难。</p></div><div class="section"><div class="section-title">第二步：把“便宜”定义清楚</div><p class='txt'>“便宜”有三个定义，对应三个价格。</p><p class='txt'><b>定义一：按净利便宜。</b>FY2028 EPS 14.61 美元，220.78 美元对应 15.1 倍。对一个增速 70% 的公司，这是便宜。<b>但这个分母是公司自己给的。</b></p><p class='txt'><b>定义二：按现金流便宜。</b>FY2027 自由现金流约 1,400 亿美元，市值 5.33 万亿对应 38 倍；FY2028 若翻倍到 2,800 亿，是 19 倍。<b>19 倍买一家增速可能从 70% 掉到 20% 的公司，不算便宜。</b></p><p class='txt'><b>定义三：按最坏情况便宜。</b>悲观情景 EPS 11.22 美元，如果要求 15 倍，价格是 168 美元。<b>168 美元以下，才叫“就算指引打三折也不亏”。</b></p><p class='txt'>我的处理：以定义二为主（现金流），定义三为底线。得到两个价：<b>180 美元（加仓线，对应 FY2028 自由现金流 15.5 倍）、168 美元（重仓线，对应悲观情景 15 倍）。</b></p></div><div class="section"><div class="section-title">第三步：把卖出信号写死</div><p class='txt'>卖出的理由只有三种，其他都是噪音。</p><p class='txt'><b>理由一：论文被证伪。</b>五个信号：单季营收环比转负、应收周转天数破 75 天、Q4 毛利率跌破 71% 且 FY2028 不再提回升、担保出现首次代偿、两家云厂下修 2027 年资本开支超 10%。<b>出现两个减到 3%，出现三个清仓。</b></p><p class='txt'><b>理由二：估值透支。</b>涨到 386 美元（23 倍 FY2028）以上，减到 5% 以下；涨到 450 美元（30 倍）以上，减到 3%。<b>好公司也会贵到不该拿。</b></p><p class='txt'><b>理由三：找到更好的机会。</b>如果同一笔钱在别处有更好的赔率（比如台积电跌到 18 倍），可以换。但不要为了“锁定利润”而卖——这家公司的利润还在增长。</p><p class='txt'><b>不是卖出理由的：</b>股价跌 10%、某位大佬看空、中国出新闻、AI 泡沫论、单季毛利率差 1 个点。<b>这五件事在过去三个月都发生过，每次都卖的人，现在已经在 190 美元以下割肉了。</b></p></div><div class="section"><div class="section-title">第四步：时间表</div><p class='txt'>把未来十二个月的关键节点写下来，比每天看盘有用。</p><ul><li><b>2026/09–10：</b>观察 Q3 供应链数据（台积电 CoWoS 产能、海力士 HBM 出货），这是英伟达 Q3 指引能否兑现的先行指标。</li><li><b>2026/10/21：</b>柏林 GTC，看 Rubin 后续路线图、LPU 客户进展、主权 AI 订单。</li><li><b>2026/11/17：</b>FY2027Q3 财报——最重要的检验点。三个数：营收 vs 1,080 亿、毛利率 74%、账期 65 天以内。</li><li><b>2026/12–2027/01：</b>云厂 2027 年资本开支指引（微软、亚马逊、谷歌、Meta 分别在 10–2 月给出），这是英伟达 FY2028 需求的先行指标。</li><li><b>2027/02：</b>FY2027Q4 财报——毛利率触底季，验证 71%–72%。</li><li><b>2027/05：</b>FY2028Q1 财报——价格上调落地季，验证毛利率是否回到 72%–73%。</li></ul><p class='txt'>最后一句：<b>这套框架的核心不是预测，是准备。</b>我不知道 AI 资本开支会不会在 2028 年见顶，但我知道见顶时该看哪三个数、该减到多少仓位。<b>投资者唯一能控制的，是自己在每种情况下的动作。</b></p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>决策框架：先判断自己是谁（长期/波段/不能承受波动），再把“便宜”定义清楚（净利 15 倍、现金流 19 倍、最坏 168 美元），然后把卖出信号写死（五个论文信号、两个估值线），最后按时间表跟踪。</b><b>当前动作：持有 5%，加仓线 180 美元，上限 8%，11 月 17 日是最近的分水岭。</b></p></div>
 </div>
-<div class="footer">英伟达 (NVDA) 投资研究报告集 · 2026/08/31</div>
+<div class="footer">英伟达 (NVDA) · 2026/08/31</div>
 </body>
 </html>

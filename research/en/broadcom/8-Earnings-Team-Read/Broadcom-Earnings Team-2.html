@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buffett-style Earnings Deep Dive — Broadcom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/broadcom/8-财报团队解读/博通-大师精读-巴菲特.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/broadcom/8-財報團隊解讀/博通-財報團隊解讀-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/broadcom/8-Earnings-Team-Read/Broadcom-Earnings Team-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Buffett-style Earnings Deep Dive — Broadcom</h1>
+  <div class="subtitle">Broadcom FY26Q3 | A handsome income statement, with an invisible piece on the balance sheet</div>
+  <div class="meta">Research date 2026/10/02 &nbsp;·&nbsp; Price $355.14 (+3.35%) &nbsp;·&nbsp; Market cap Approximately USD 1.69 trillion (rough estimate based on 4.77 billion shares) &nbsp;·&nbsp; PE(FY2027E) Approximately 18x (FY27 consensus EPS of USD 19.38)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/broadcom/00-Broadcom-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>Buffett starts with the articulation across the three financial statements: whether profit is cash, whether cash is free, and whether free cash is eaten away by debt and commitments.</p><p class='txt'>Broadcom clears the first two: net margin 55.3%, free cash flow RMB 13.67 billion. It fails the third — <b>beyond RMB 59.6 billion of on-balance-sheet debt, there is also a commitment to finance customers, of undisclosed size.</b></p></div><table class="dt"><caption>Cross-checking the three financial statements (FY26Q3, USD million)</caption><thead><tr><th>Project</th><th>Numerical values</th><th>Cross-checks</th></tr></thead><tbody><tr><td>Non-GAAP net profit</td><td>16,372</td><td>Starting point</td></tr><tr><td>Free cash flow</td><td>13,670</td><td>Conversion rate 0.83, short by 2,702</td></tr><tr><td>Where the difference goes</td><td>Accounts receivable + inventory</td><td>AI revenue up 54% QoQ, receivables rise</td></tr><tr><td>Dividend payout</td><td>Approximately 2,815</td><td>21% of free cash flow</td></tr><tr><td>Remaining cash</td><td>Approximately 10,855</td><td>Debt repayment + buyback</td></tr><tr><td>Debt in the table</td><td>59,600</td><td>Fixed rate, 25x interest coverage</td></tr><tr><td>Off-balance-sheet commitments</td><td>Not disclosed</td><td>BofA estimates RMB 37 billion of priority debt by mid-2029</td></tr></tbody></table><div class="note">Data source: Broadcom FY26Q3 results (2026/09/02); allocation of the difference is a qualitative judgment; off-balance-sheet estimates cited from BofA, not company-disclosed.</div><div class="section"><div class="section-title">Income statement: the three numbers tie together</div><p class='txt'>Revenue RMB 29.59 billion, +86% YoY; AI RMB 16.7 billion, +221%; software RMB 8.75 billion, +30%. Revenue grew by RMB 13.68 billion, with AI contributing RMB 11.5 billion and software RMB 2 billion — RMB 13.5 billion combined, broadly matching. Growth therefore rests on real shipments from two business lines, not accounting treatment.</p><p class='txt'>Margins hold up: Non-GAAP gross margin 75%, net margin 55.3%. Gross margin fell 2.1 points while net margin rose 2.5 points, because opex ratios fell further — the classic effect of M&A integration.</p><p class='txt'><b>The one item to watch is GAAP net profit of RMB 13.1 billion, +216% YoY, far faster than Non-GAAP's +95%.</b> The gap between the two is only RMB 3.27 billion, narrower than historical levels. A narrowing gap implies lower amortization, and possibly one-off gains. Buffett would go through the footnotes; here we can only flag a question mark.</p></div><div class="section"><div class="section-title">Cash flow statement: the money printer is still running, but slowing down</div><p class='txt'>Free cash flow reached USD 13.67 billion, a record high for a single quarter; annualized at USD 52 billion, the free cash flow yield is 3.1%. For a company still expanding at high speed, this figure is rare — most AI companies ran negative free cash flow this quarter.</p><p class='txt'>But the conversion rate fell from around 1.0 in the past to 0.83. The USD 2.7 billion gap sits in receivables and inventory: AI revenue rose 54% quarter on quarter, customer payment terms were unchanged, so receivables rose in step; and to support next quarter's USD 21.7 billion of shipments, materials stocking is also rising.</p><p class='txt'><b>This is normal during expansion, but it means two things: first, the income statement's growth rate looks better than the cash flow growth rate; second, if demand turns, this batch of stocked materials becomes an impairment.</b>Buffett's stance on inventory has always been: inventory in a growth phase is an asset, inventory in a downturn is an expense, and only one quarter separates the two.</p></div><div class="section"><div class="section-title">Balance sheet: RMB 59.6 billion is not the scary part—what you can't see is</div><p class='txt'>The balance sheet is clean: USD 59.6 billion of fixed-rate debt, long maturities, 25x interest coverage. With USD 52 billion of annualized free cash flow, half can be repaid in three years. Buffett would like this structure — low-cost long-term liabilities matched with high-return assets.</p><p class='txt'>Off balance sheet is another matter. The company provides credit support for AI customers' chip purchases, with arrangements tied to Apollo and Blackstone of undisclosed size; BofA estimates new debt issuance could reach USD 150 billion in 2027 and cumulative senior debt of USD 370 billion by mid-2029.</p><p class='txt'>The nature of this arrangement is "credit enhancement," not Broadcom lending money. If all goes well, Broadcom pays nothing and sells more chips; if customer deployments fall short, the guarantees return to the financial statements as purchase commitments or residual-value guarantees. <b>The Buffett-style question is: how much capital must I add in the worst case? Without an answer to that question, this company should not get a "Buy" conclusion.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Buffett-style conclusion: a good company, but I cannot calculate the worst case.</b> All three statements tie out; earnings are real, cash is abundant, debt is manageable; the only problem is that off-balance-sheet commitments have no cap. <b>Action: file it under "too expensive or too ugly" and wait for one of two conditions — the price falls below USD 250 (which would cover the worst case), or the guarantee terms are fully disclosed and are limited-recourse.</b></p></div>
+</div>
+<div class="footer">Broadcom (AVGO) · 2026/10/02</div>
+</body>
+</html>

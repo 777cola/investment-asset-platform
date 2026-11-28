@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decision framework: three numbers, two prices, one calendar — SK hynix</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/skhynix/16-八篇深度长文/SK海力士-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/skhynix/16-八篇深度長文/SK 海力士-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/skhynix/16-Eight-Long-Essays/SK hynix-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Decision framework: three numbers, two prices, one calendar — SK hynix</h1>
+  <div class="subtitle">The eighth of eight long-form articles</div>
+  <div class="meta">Research date 2026/07/27 &nbsp;·&nbsp; Price ₩1,816,000 (+3.24%) &nbsp;·&nbsp; Market cap Approximately KRW 1,291 trillion (approximately USD 920 billion) &nbsp;·&nbsp; PE (TTM, as of 2026Q1) Approximately 17.2x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/skhynix/00-SK hynix-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>Compress the previous seven pieces into one executable framework: three numbers to judge cycle position, two prices to decide buying and selling, one calendar to manage tracking.</p></div><table class="dt"><caption>Decision matrix: price × earnings outcome</caption><thead><tr><th>Price range</th><th>Earnings of ≥RMB 65 trillion with a tight measurement basis</th><th>Earnings ≤ RMB 60 trillion or relaxed criteria</th><th>Action</th></tr></thead><tbody><tr><td>≥ KRW 2 million</td><td>Hold, do not chase</td><td>Reduce position</td><td>Valuation overstretched, staying out</td></tr><tr><td>1.65–2.00 million</td><td>Build one-third of the position</td><td>Watch</td><td>Buy only when the hypothesis is validated</td></tr><tr><td>1.40–1.65 million</td><td>Build 1/2 position</td><td>Build one-third of the position</td><td>Price offers a margin of more than 10%</td></tr><tr><td><1.4 million</td><td>Build two-thirds position</td><td>Build half position and set falsification line</td><td>Pessimistic scenario partly priced in</td></tr></tbody></table><div class="note">The price range corresponds to 5–7x 2027 operating profit of KRW 180 trillion. Earnings results refer to 2026Q2 (reported on July 29) operating profit and management's 2027 guidance. Position sizing is indexed to a target position of 100%.</div><div class="section"><div class="section-title">Three numbers: sizing the cycle in one minute</div><p class='txt'><b>First: operating margin.</b>Now 71.5%. The historical memory peak is around 50%; above 60% is the top zone. It is not a sell signal, it is a "do not add" signal.</p><p class='txt'><b>Second: capex/revenue.</b>Now about 13% (KRW 40 trillion / KRW 300 trillion). Above 15% means capacity expansion is accelerating, and oversupply in two years; below 10% means discipline holds.</p><p class='txt'><b>Third: DRAM contract price QoQ.</b>Now +58%–63% (commodity), +30% (company blended). Two consecutive quarters of negative growth marks a cycle reversal.</p><p class='txt'>Of the three numbers, the first tells you "how good it is now", the second tells you "how bad it gets later", the third tells you "when it turns". None require forecasting, only reading.</p></div><div class="section"><div class="section-title">Two prices: RMB 1.65 million and RMB 1.40 million</div><p class='txt'>1.65 million = 6x 2027 operating profit plus net cash, a 10% margin of safety — the price at which you can start buying. 1.40 million = 5x, a 20% margin of safety — the price at which you can buy heavily.</p><p class='txt'>Why not buy now? Because the current price of 1.816 million is 7x, and the neutral target price is 9% below the current price. Why not wait for 1.00 million? Because good companies rarely trade that low, and the cost of waiting too long can exceed the cost of paying up.</p><p class='txt'>The point of scaling in: <b>buy one-third at 1.65 million, add to half at 1.40 million; if it keeps falling, the thesis is wrong, not the price</b>. The price can be wrong; the thesis cannot.</p></div><div class="section"><div class="section-title">A calendar: five dates</div><p class='txt'>July 29 (Q2 results; watch operating profit and 2027 basis); September (Q3 contract price negotiations); October (Q3 results + 2027 capex guidance); January–February 2027 (Yongin Phase 1 cleanroom activation); April 2027 (full-year 2026 results + HBM4E pricing).</p><p class='txt'>Of these five dates, the most important is October's capex guidance — the only hard evidence of "supply discipline." If 2027 guidance exceeds KRW 50 trillion, expansion is accelerating and the 2028 glut will arrive sooner.</p></div><div class="section"><div class="section-title">The framework's closing line: don't predict, just respond</div><p class='txt'>This framework contains no "forecasts." Operating margin is read off the statements, capex is looked up, contract prices are published, and prices are simply posted. Every judgment rests on "facts that have already happened," not on "things that might happen."</p><p class='txt'>This is the only workable approach to investing in cyclicals: <b>don't predict the inflection point; adjust position size based on where things stand now</b>. Where things stand now is "margin at a historical extreme, share price down 38%, two days before earnings," and the corresponding action is "watch, and wait." That conclusion isn't exciting, but it is actionable.</p></div><div class="section"><div class="section-title">Three reminders outside the framework</div><p class='txt'>Reminder one: do not use leverage. Every assumption in this framework is built on a 12-month horizon; leverage turns time into an enemy.</p><p class='txt'>Reminder two: do not trigger early just because "it has fallen a lot." The 1.65 million level comes from valuation, not from the size of the decline. If it falls from 1.816 million to 1.70 million, that is not "cheaper now" — it is "not there yet."</p><p class='txt'>Reminder three: do not bet repeatedly along the same supply chain. SK hynix, Micron, Samsung, Nvidia and optical modules are essentially the same risk factor. <b>What is diversified is companies, not risk</b>.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'>Decision framework: three numbers to judge position (operating margin 71.5%, capex/revenue 13%, contract price up 30% QoQ), two prices to decide buying and selling (build 1/3 at 1.65 million, add to 1/2 at 1.40 million), one calendar to manage tracking (7/29, September, October, January–February 2027, April). Don't predict the turning point; just respond to the position.</p></div>
+</div>
+<div class="footer">SK hynix (000660.KS) · 2026/07/27</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣篩選 — 老鋪黃金</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/laopu/2-七条硬指标去劣/老铺黄金-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/laopu/2-七條硬指標去劣/老鋪黃金-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/laopu/2-Seven-Hard-Metrics/Laopu Gold-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>去劣篩選 — 老鋪黃金</h1>
+  <div class="subtitle">老鋪黃金 (06181) | 02 · 去劣篩選</div>
+  <div class="meta">研究日期 2026/10/09 &nbsp;·&nbsp; 股價 HK$337.00（+4.85%） &nbsp;·&nbsp; 市值 約 596 億港元 &nbsp;·&nbsp; PE(TTM) 約 6.9 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/laopu/00-老鋪黃金研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：賺錢能力七條全過，現金和槓桿兩條不過</h3><p class='txt'>七條硬指標過五條。<b>不過的是現金：營業現金流 20.08 億元只有淨利的 47%，扣掉資本支出後約 18 億元，連 31.85 億元的派息都蓋不住。</b>另一條是存貨——271 天週轉，比 2025 年末的 216 天又多了 55 天，行業裡健康水準在 150–200 天。這兩條不是致命的（公司帳上還有錢，2026 上半年營業現金流三年來首次轉正），但它們說明這門生意的利潤還沒有變成現金。</p><p class='txt'>過的五條含金量不低：毛利率 41.3%、淨利率 21.5%、ROE 粗算 55%–65%、收入增速 60.3%、資產負債率約 51%。<b>一條不過的現金流，抵得上五條過的利潤率——因為利潤率可以是庫存重估出來的，現金流不會說謊。</b></p></div><table class="dt"><caption>七條硬指標（去劣篩選）</caption><thead><tr><th>指標</th><th>公司數值</th><th>門檻</th><th>判定</th></tr></thead><tbody><tr><td>ROE（2025 年）</td><td>約 55%–65%（粗算）</td><td>&gt;15%</td><td>過</td></tr><tr><td>毛利率（2026H1）</td><td>41.3%</td><td>&gt;35%</td><td>過</td></tr><tr><td>淨利率（2026H1）</td><td>21.5%</td><td>&gt;10%</td><td>過</td></tr><tr><td>營業現金流 / 稅後淨利</td><td>47%（20.08 / 42.67）</td><td>&gt;80%</td><td>不過</td></tr><tr><td>自由現金流覆蓋派息</td><td>約 0.6 倍（粗算 18 / 31.85）</td><td>1.0 倍</td><td>不過</td></tr><tr><td>資產負債率（2026/06）</td><td>約 51%（粗算，含合約負債）</td><td><60%</td><td>過（邊緣）</td></tr><tr><td>收入增速（2026H1）</td><td>+60.3%（Q2 單季已轉負）</td><td>&gt;10%</td><td>過（表面）</td></tr></tbody></table><div class="note">口徑：ROE 用 2025 年稅後淨利 49.0 億元除以估算的平均權益，屬粗算；自由現金流 = 營業現金流 20.08 億元 − 資本支出（公司未單列，按門店裝修與工坊投入粗估 2 億元）；資產負債率為按存貨與有息負債粗算，公司中期報告未在摘要中給出完整資產負債表，故為區間判斷。</div><div class="section"><div class="section-title">過去的那五條，說明這是一門真正賺錢的生意</div><p class='txt'>毛利率 41.3% 摆在中國黃金珠寶行業裡是斷層第一。同一時期：周大福 32.3%、周生生 32.62%、老鳳祥約 9%（按克為主、淨利率 3.3%）、潮宏基約 25%。<b>行業裡做古法金的不少，能把毛利率做到 40% 以上的只有老鋪一家。</b>淨利率 21.5% 更誇張，全球珠寶零售裡能到 20% 的只有蒂芙尼、卡地亞這一檔。</p><p class='txt'>ROE 粗算 55%–65%，高得不正常，原因不是利潤率高，是權益基數小——公司過去三年靠負債和經營佔款支撐存貨擴張，股東權益相對 273 億元的收入規模很薄。這種高 ROE 有槓桿成分，不能當成「護城河」直接加分。</p><p class='txt'>資產負債率約 51%，在零售業裡算正常。這個指標要放在存貨 190 億元的背景下看：負債裡有一大塊是應付帳款和合約負債，真正的有息負債規模沒有披露得那麼細，所以這一條只能算邊緣通過。</p></div><div class="section"><div class="section-title">不過的兩條，是同一件事的兩面</div><p class='txt'>營業現金流 20.08 億元、稅後淨利 42.67 億元，比值 47%。這個數字本身是進步——2025 年營業現金流是 <b>-68.48 億元</b>，2023、2024 連續為負，今年是三年來首次轉正。但 47% 的含義是：每賺 100 元帳面利潤，只有 47 元回到帳上，另外 53 元變成了存貨和其他營運資產。</p><p class='txt'>第二刀更狠：中期派息 31.85 億元，比營業現金流 20.08 億元多出 11.77 億元，差額從帳上現金補。所以自由現金流覆蓋派息約 0.6 倍。<b>一家公司分紅超過自己賺的現金，只能用兩種方式解釋：帳上現金很厚，或者它對未來現金流很有信心。</b>老鋪屬於前者，但這不是可持續的狀態——如果 2027 年利潤腰斬，75% 的派息率會自動縮水。</p><p class='txt'>第三刀在存貨：190.18 億元、周轉 271 天，比 2025 年末的 216 天多了 55 天。金價高位囤貨、二季度動銷轉弱，兩個因素疊在一起。271 天的意思是，今天店裡賣的東西，平均是九個月前採購的金料。金價從 5,419 跌到 4,000 的過程中，這批貨一直在貶值。</p></div><div class="section"><div class="section-title">兩條不過是否致命：不致命，但不能忽視</div><p class='txt'>結論是<b>不致命，但決定倉位</b>。不致命的理由：公司沒有償債危機，45 家店全是租賃物業、沒有重資產，中期還能派 31.85 億元現金，說明流動性充裕；營業現金流已經轉正，方向是對的。</p><p class='txt'>但這兩條不過，恰好指向同一個風險：<b>利潤是存貨重估出來的，現金還沒跟上。</b>2025 年 37.6% 的毛利率被金價快漲擠壓，2026H1 回到 41.3% 靠的是 2025 年末的低成本庫存；這批庫存在 190 億元裡占多大比例，公司沒拆。金價再跌 15%，同一批存貨就會從利潤來源變成減值來源，現金流和利潤會同時惡化。</p><p class='txt'>所以這兩條不是「財務瑕疵」，是「週期敞口」。七條篩選的本意是排除非一流公司，老鋪在一流和不一流之間——生意一流，財務紀律二流。</p></div><div class="summary-box"><h3>結論</h3><p>七條過五條，<b>不構成否決，但足以把倉位壓到觀察級</b>。要翻案只需要一條：2026 年下半年營業現金流繼續為正、且存貨週轉回到 220 天以內。做到這兩點，說明 Q2 的庫存積壓是暫時的；做不到，說明 271 天是結構性的，那時候再便宜也不該買。</p></div>
+</div>
+<div class="footer">老鋪黃金 (06181) · 2026/10/09</div>
+</body>
+</html>

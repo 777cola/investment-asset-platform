@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新聞異動 — 禮來</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/lilly/12-新闻异动归因/礼来-新闻异动.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/lilly/12-新聞異動歸因/禮來-新聞異動-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/lilly/12-News-Attribution/Eli Lilly-News-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>新聞異動 — 禮來</h1>
+  <div class="subtitle">禮來 (LLY) | 12 · 新聞異動</div>
+  <div class="meta">研究日期 2026/11/09 &nbsp;·&nbsp; 股價 $1,411.95（+4.28%） &nbsp;·&nbsp; 市值 約 1.33 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 48x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/lilly/00-禮來研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>8 月 11 日到 11 月 9 日，禮來股價從 1,215.02 漲到 1,411.95，+16.2%；從 9 月 11 日的階段低點 1,115.70 算起是 +26.6%。<b>這三個月只有一件事真正改變了基本面：10 月 29 日的三季報。</b>其餘六件事——retatrutide 數據、口服藥口水仗、FDA 眼病警示、創新高——都只改變了情緒。分清這兩類，是判斷 1,411.95 美元該不該買的前提。</p></div><table class="dt"><caption>近三個月關鍵事件與股價反應</caption><thead><tr><th>日期</th><th>事件</th><th>股價反應</th><th>性質</th></tr></thead><tbody><tr><td>2026/08/19</td><td>無公司公告，隨生物醫藥板塊反彈</td><td>+4.46% 至 1,280.34 美元</td><td>噪音</td></tr><tr><td>2026/09/11</td><td>月內陰跌至階段低點：口服 Wegovy 起量、降價擔憂升溫</td><td>1,115.70 美元（較 8/11 -8.2%）</td><td>情緒，但方向與基本面一致</td></tr><tr><td>2026/09/29</td><td>retatrutide III 期 TRIUMPH-2 數據：12mg 80 週減重 20.8%，計劃 2027Q1 申報</td><td>當日 -0.01%，次日 -2.33%</td><td>訊號（管線），股價反向</td></tr><tr><td>2026/10/14–10/20</td><td>三連漲 +3.62%、+3.55%、+3.49%，無明確公告</td><td>至 1,283.66 美元，五日 +10.0%</td><td>雜訊（資金面）</td></tr><tr><td>2026/10/29</td><td>Q3 財報：營收 243.97 億 +38.6%、調整後 EPS 7.48 美元、指引第三次上調</td><td>+6.63% 至 1,373.70 美元</td><td>訊號（唯一實質利多）</td></tr><tr><td>2026/10/30</td><td>賣方集體上調目標價，口服藥隱憂暫被忽略</td><td>+3.19% 至 1,417.54 美元，兩日累計 +10.0%</td><td>訊號＋情緒疊加</td></tr><tr><td>2026/11/04</td><td>盤中衝上 1,417.99 美元，創 52 週新高</td><td>+0.61%</td><td>情緒</td></tr><tr><td>2026/11/09</td><td>FDA 要求 Mounjaro／Zepbound／Ozempic／Wegovy 加註 NAION 眼病風險警示</td><td>+4.28% 至 1,411.95 美元（諾和 +2.65%）</td><td>噪音（利空被當利好交易）</td></tr></tbody></table><div class="note">股價資料來自 batchdata 日線（2026/08/11–2026/11/09 收盤）。事件日期來自公司公告與媒體報導（retatrutide 資料 9/29、三季報 10/29、FDA 警示 11/9）。性質分類為本報告判斷。</div><div class="section"><div class="section-title">唯一實質利多：10 月 29 日的三季報</div><p class='txt'>財報當天 +6.63%、次日 +3.19%，兩天累計 +10.0%。這不是情緒，是數字：營收 243.97 億美元超共識 7.9%，調整後 EPS 7.48 美元超共識 19.5%，全年營收指引從 850–870 億上調到 910–920 億（中位數 +55 億美元）。<b>三項全超，而且是指引的第三次上調。</b></p><p class='txt'>市場買的不是這一季的利潤，是「上調」這個動作本身——一家公司連續三次上調指引，說明它對需求的可見度很高。<b>但要注意：同一份財報裡 EPS 指引是下調的（35.50–36.50 → 35.00–36.00），因為 42 億美元收購費用。市場選擇了只看營收那條線。</b>這是情緒的證據，不是理性的證據。</p></div><div class="section"><div class="section-title">最值得學的一件事：好資料也能跌</div><p class='txt'>9 月 29 日，禮來公布 retatrutide 的 III 期 TRIUMPH-2 數據：12mg 劑量 80 週平均減重 20.8%（約 22.5 公斤），三分之一患者減重超過 25%，公司計劃 2027 年第一季申報上市。<b>這是過去十年減重藥領域最好的數據之一。</b></p><p class='txt'>股價當天下跌 0.01%，次日跌 2.33%。為什麼？因為市場早就把它算進價格了——「下一代管線」是 48 倍 PE 的一部分理由，數據兌現只是「確認」，不是「驚喜」。<b>這就是預期打滿的具體樣子：好消息不再是買入理由，只是不賣的理由。</b>反過來，壞消息會被當成利空出盡——11 月 9 日 FDA 加眼病警示，理論上該跌，結果漲了 4.28%，說明市場連壞消息都在找做多的解釋。</p></div><div class="section"><div class="section-title">哪些是噪音，為什麼</div><p class='txt'><b>11 月 9 日的 FDA 警示是純噪音。</b>NAION 是一種罕見眼病，發生率極低，加註警示不改變適應症、不改變處方量、不改變支付。股價漲 4.28% 的原因是「靴子落地」——市場此前擔心更嚴厲的監管動作，結果只是標籤加註。<b>但把利空當利好交易，本身就是過熱的讀數。</b></p><p class='txt'><b>10 月 14–20 日的三連漲也是噪音。</b>沒有公告、沒有數據、沒有指引，五日 +10.0%。這種走勢只能歸因於資金面（板塊輪動、空頭回補、期權 gamma）。<b>它唯一的資訊量是：這隻股票短期波動率很高，追高的風險不對稱。</b></p><p class='txt'>真正要區分的是 9 月那一輪陰跌——那不是噪音。口服 Wegovy 起量（Q3 8.11 億美元、週處方 18.3 萬張）、降價預期升溫，這兩件事後來都被財報證實了（Foundayo 1.84 億、海外售價 -29%）。<b>市場在 9 月給出了正確答案，10 月的財報把它推翻了——推翻的是情緒，不是事實。</b></p></div><div class="section"><div class="section-title">波動率告訴我們的事</div><p class='txt'>把這三個月的日線攤開來看，有幾個數字值得記：63 個交易日、日均漲幅 0.26%、單日波動率 1.99%（年化約 31.6%）、最大單日漲幅 +6.63%（財報次日）、最大單日跌幅 -3.76%（11 月 5 日，無明顯公告）。<b>年化 31.6% 的波動率，意味著 1.33 萬億美元市值每天上下 400 億美元是常態。</b></p><p class='txt'>這個數字對買家的意義很直接：在一個波動率 30%＋的標的上追高，等於主動承擔「買在情緒頂」的概率。過去三個月裡，股價有 8 個交易日單日漲跌超過 2.5%，其中 5 天與基本面無關。<b>等一次 -10% 的回調並不難，難的是回調來了敢不敢買。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>三個月八個事件，只有三季報改變了基本面。</b>其餘七個都在情緒層面來回擺盪，股價卻因此多走了 20%。這就是「好公司＋高估值」的組合特徵：波動來自情緒，趨勢來自業績。<b>對買家來說，這種波動是機會——等一次情緒退潮，價格會回到跟業績匹配的位置。</b>9 月 11 日的 1,115.70 美元就是上一次這樣的位置。 而且它離現在只有兩個月——同一家公司、同一份基本面、價格差了 26.6%，這就是情緒的價格。</p></div>
+</div>
+<div class="footer">禮來 (LLY) · 2026/11/09</div>
+</body>
+</html>

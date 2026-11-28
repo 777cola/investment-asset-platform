@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>觀點合成 — 禮來</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/lilly/8-财报团队解读/礼来-观点合成.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/lilly/8-財報團隊解讀/禮來-財報團隊解讀-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/lilly/8-Earnings-Team-Read/Eli Lilly-Earnings Team-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>觀點合成 — 禮來</h1>
+  <div class="subtitle">四條共識、一條分歧、一個被忽略的訊號</div>
+  <div class="meta">研究日期 2026/11/09 &nbsp;·&nbsp; 股價 $1,411.95（+4.28%） &nbsp;·&nbsp; 市值 約 1.33 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 48x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/lilly/00-禮來研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>共識：經營無懈可擊、報表乾淨、成長靠量、價格太貴。分歧：84.4% 毛利率是能力還是時機——我判為時機，建模按 2027 年 82%、2028 年 79%。被忽略的訊號：2027 年指引只給定性描述。</p></div><table class="dt"><caption>四人觀點對照</caption><thead><tr><th>維度</th><th>段永平</th><th>巴菲特</th><th>蒙格</th><th>李錄</th></tr></thead><tbody><tr><td>生意品質</td><td>更好了</td><td>好生意</td><td>好生意但共識太強</td><td>文明級需求</td></tr><tr><td>報表可信度</td><td>高（管理層誠實）</td><td>高（利潤是真錢）</td><td>高（壞消息沒藏）</td><td>高</td></tr><tr><td>核心擔憂</td><td>以價換量</td><td>護城河有租期</td><td>預期打滿</td><td>單位利潤變薄</td></tr><tr><td>毛利率 84.4%</td><td>能力</td><td>能力</td><td>時機</td><td>時機</td></tr><tr><td>結論</td><td>等價格</td><td>等 25–30 倍</td><td>不買</td><td>看好不買</td></tr></tbody></table><div class="note">本表為四篇精讀的觀點提煉，非資料表。</div><div class="section"><div class="section-title">四點共識</div><p class='txt'>四個人讀同一份財報，得到的共識比分歧多。共識有四條：<b>① 經營層面無懈可擊</b>——營收 243.97 億、+38.6%，調整後 EPS 7.48 美元超共識 19.5%，指引第三次上調；<b>② 報表乾淨</b>——42 億美元收購費用、口服藥失手、海外降價，三處壞消息全擺在明面上；<b>③ 成長靠量不靠價</b>——銷量 +53%、價格 -15%，這是所有結論的基礎；<b>④ 價格太貴</b>——48 倍 TTM、39.8 倍 2026 年指引，四個人沒有一個願意在這個位置買。</p></div><div class="section"><div class="section-title">一條分歧與一個訊號</div><p class='txt'>分歧只有一條，但很關鍵：<b>毛利率 84.4% 是「能力」還是「時機」。</b>段永平和巴菲特傾向於能力——產量攤薄、規模效應、成本控制，這些是可持續的；芒格和李錄傾向於時機——攤薄只能發生一次，價格下行是單向的，84.4% 是這一輪的頂。</p><p class='txt'>我的裁決偏向後者。理由是：禮來自己的指引已經把 2026 年營業利益率定在 52%–52.5%，如果毛利率還能維持 84% 以上，利潤率應該更高。管理層的保守，往往比分析師的樂觀更接近真相。<b>所以建模時我給 2027 年毛利率 82%、2028 年 79%。</b></p><p class='txt'>還有一條所有人都同意但沒寫進表格的判斷：這份財報最重要的資訊不是這一季的數字，是管理層對 2027 年「只說強勁、不給數字」。<b>一家習慣給精確指引的公司，突然只給定性描述，通常意味著它自己也沒把握。</b></p><p class='txt'>補一句方法論：讀季報時要區分「經營信號」和「會計信號」。這一季的經營信號是銷量、處方量、滲透率——都在往好的方向走；會計信號是毛利率、費用率、一次性項目——毛利率的好看是攤薄帶來的，不是提價。<b>經營信號決定三年後公司在哪，會計信號決定下個季度股價怎麼動。</b>投資要用前者，交易才用後者。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>綜合後的結論比任何單篇都更硬：<b>這不是「財報好不好的問題」，是「好財報值多少錢的問題」。</b>財報給 9 分，價格給 2 分，綜合不通過。如果 2027 年指引出來、增速給到 18% 以上，中性目標價會上修到 1,500 美元附近——那時候 1,411.95 美元才算「合理」，而不是「便宜」。</p></div>
+</div>
+<div class="footer">禮來 (LLY) · 2026/11/09</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務分析（巴菲特視角） — 京東集團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/jd/5-四角色并行分析/京东集团-财务分析-巴菲特.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/jd/5-四角色並行分析/京東集團-四角色-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/jd/5-Four-Role-Analysis/JD.com-Four Roles-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務分析（巴菲特視角） — 京東集團</h1>
+  <div class="subtitle">三張表讀下來，錢在哪、賺在哪、漏在哪</div>
+  <div class="meta">研究日期 2026/10/26 &nbsp;·&nbsp; 股價 HK$99.40（-0.60%） &nbsp;·&nbsp; 市值 約 2,800 億港元 &nbsp;·&nbsp; 本益比（2026E 經調整） 約 7.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/jd/00-京東集團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>損益表不好看（收入 -2.9%、營業利益率 1.3%），現金流量表很好看（自由現金流 318 億、滾動 12 個月 314 億），資產負債表最特別（現金及短期投資 2,351 億元，相當於市值的 91.5%）。<b>三張表合起來講的故事是：這家公司在收縮中變健康，在健康中喪失增長。</b></p></div><table class="dt"><caption>現金流與資產負債關鍵項（人民幣億元）</caption><thead><tr><th>專案</th><th>2026Q2</th><th>同比</th><th>讀法</th></tr></thead><tbody><tr><td>營業現金流</td><td>378</td><td>+54.5%</td><td>淨利的 5.3 倍，自營帳期紅利</td></tr><tr><td>自由現金流</td><td>318</td><td>+44.6%</td><td>資本支出被壓縮</td></tr><tr><td>滾動 12 個月自由現金流</td><td>314</td><td>去年 101</td><td>三倍改善，防守型改善</td></tr><tr><td>現金及短期投資</td><td>2,351</td><td>年初 2,254</td><td>含受限現金，未扣有息負債</td></tr><tr><td>行銷費用</td><td>203</td><td>-24.8%</td><td>佔收入 5.9%，去年 7.6%</td></tr><tr><td>研發開支</td><td>73</td><td>+37.7%</td><td>佔收入 2.1%，AI 為主要投資方向</td></tr></tbody></table><div class="note">來源：京東 2026Q2 業績公告（2026/08/13）。滾動 12 個月自由現金流對比值為公告披露口徑。</div><div class="section"><div class="section-title">損益表：拐點真實，但含金量要打折</div><p class='txt'>營業利益從去年 -9 億到今年 +45 億，改善 54 億。拆開看來源：行銷開支從 271 億降到 203 億（按占收入 7.6% → 5.9% 倒推），省了 59 億；零售營業利益率 4.6%、同比 +0.1pct；物流利潤率 3.5%；外送虧損從 147.8 億收窄到 98.5 億，少了 49 億。</p><p class='txt'>三處改善加起來遠超 54 億，差額被收入下滑吃掉了一部分——<b>這就是「省出來的利潤」和「掙出來的利潤」的區別：前者會被收入下滑侵蝕，後者不會。</b>巴菲特看損益表只看一件事：這個利潤明年還在不在。行銷費已經砍到 5.9%，再砍就傷收入，所以明年的利潤增量必須來自毛利率或收入，兩者目前都沒有跡象。</p></div><div class="section"><div class="section-title">現金流量表：這是全篇最健康的部分</div><p class='txt'>營業現金流 378 億元、+54.5%；自由現金流 318 億元、+44.6%；滾動 12 個月 314 億元，去年同期只有 101 億元。三個數字指向同一件事：<b>公司在回收資本，而不是投放資本。</b>資本支出被壓縮，應付款帳期在拉長，外送的履約投入在減少。</p><p class='txt'>但要注意性質：自由現金流三倍成長，不是因為賺得更多，是因為花得更少。這種改善有天花板——資本支出不能無限壓縮，倉庫要維護、車輛要換、技術要投（研發反而 +37.7%）。<b>真正可持續的自由現金流，需要收入恢復成長來支撐。</b>如果 2027 年收入還是負的，314 億這個數字會回落到 200 億上下。</p></div><div class="section"><div class="section-title">資產負債表：九成市值是現金，但別當清算價值</div><p class='txt'>現金及短期投資 2,351 億元，比年初的 2,254 億還多了 97 億——在虧損業務仍在失血的情況下，現金還在增加，這只能來自營業現金流。對一家市值 2,569 億人民幣的公司，這筆錢相當於 91.5%，攤到每股約 83.5 元人民幣、約 91 港元。</p><p class='txt'>但巴菲特會立刻加三個限定詞：<b>毛額、含受限現金、未扣有息負債。</b>受限現金是平台商戶保證金之類不能動的錢，有息負債公告未單獨拆分。所以正確的說法是「現金規模相當於市值的九成」，不是「每股有 91 港元可以分給你」。</p><p class='txt'>他還會算一道「如果我是老闆」的題：拿 2,351 億現金，回購 30% 股份只需約 770 億人民幣，剩下的錢足夠維持營運。<b>這道題算得出來卻沒人做，說明的不是算不出來，是不想做。</b>這才是估值折價的真正來源，也是他給安全邊際打 8 分而不是 10 分的原因。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>財務視角的判斷：<b>現金流和資產負債表是 A 級的，損益表是 C 級的。</b>7.5 倍經調整 PE 的定價，等於市場只給損益表定價、不給資產負債表定價。這種錯配通常出現在兩種情形：要麼市場對管理層失去信任，要麼市場認為現金會被繼續燒掉——京東兩種都占。</p></div>
+</div>
+<div class="footer">京東集團 (9618.HK) · 2026/10/26</div>
+</body>
+</html>

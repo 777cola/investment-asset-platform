@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>產業鏈全景 — 美團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20261128/9-本地生活与餐饮/美团-产业链全景.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meituan-20261128/9-本地生活與餐飲/美團-產業鏈全景-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meituan-20261128/9-Local-life-and-food-delivery/Meituan-Industry Chain-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>產業鏈全景 — 美團</h1>
+  <div class="subtitle">美團 (03690) | 09 · 產業鏈全景</div>
+  <div class="meta">研究日期 2026/11/28 &nbsp;·&nbsp; 股價 HK$67.85（+8.21%，2026/11/27 收盤，11/28 休市） &nbsp;·&nbsp; 市值 約 4,190 億港元（61.75 億股） &nbsp;·&nbsp; PE(TTM) —（TTM 仍為虧損，PE 失真；2027E 約 16.8x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meituan-20261128/00-美團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>本地生活這條鏈上，錢集中在兩個位置：<b>一個是「到店」——佣金和廣告，毛利率 80% 以上；一個是「履約」——配送費差價，毛利率 10% 上下但規模巨大。</b>美團同時佔著這兩個位置，這是它比抖音（只有到店）、比京東（只有履約）更完整的地方。</p><p class='txt'>代價是它必須自己承擔全部履約成本：600 萬騎手、每年上千億元的配送開支。<b>週期位置上，這條鏈現在處在「補貼退坡、單價回升」的早段，不是景氣高點。</b></p></div><table class="dt"><caption>本地生活產業鏈價值分布（2026 年）</caption><thead><tr><th>環節</th><th>代表公司</th><th>價值量／毛利率</th><th>議價權</th></tr></thead><tbody><tr><td>食材與商品供應</td><td>農戶、食品品牌、超市、藥房</td><td>毛利率 15%–40%</td><td>弱（分散，被平台集採壓價）</td></tr><tr><td>餐飲商戶</td><td>800 萬中小餐飲＋連鎖品牌</td><td>內用毛利 60%、外送毛利 30%–40%</td><td>中偏弱（流量依賴平台）</td></tr><tr><td>到店平台</td><td>美團到店、抖音生活服務、小紅書</td><td>毛利率 80% 以上，佣金 2%–10%</td><td>強（決定曝光）</td></tr><tr><td>履約網路</td><td>美團專送／眾包、蜂鳥、達達、閃送</td><td>單均毛利 1–2 元，毛利率約 10%</td><td>中（騎手供給決定成本）</td></tr><tr><td>即時零售平台</td><td>美團閃購、淘寶閃購、京東秒送</td><td>毛利率 15%–25%</td><td>中偏強（品類擴張中）</td></tr><tr><td>流量入口</td><td>微信、抖音、支付寶、手機廠商</td><td>導流成本佔 GMV 2%–5%</td><td>強（決定新增用戶）</td></tr><tr><td>消費者</td><td>約 8 億年度交易用戶</td><td>客單價 45–55 元</td><td>強（可隨時切換，價格敏感）</td></tr></tbody></table><div class="note">毛利率與價值量為行業公開區間與本報告估算，非單家公司披露；到店佣金率區間參考餐飲 SaaS 與平台公開費率；履約單均毛利為按美團配送收入與騎手成本粗算（配送收入約 300 億元/季、單量按日均 8,000 萬單估算）。</div><div class="section"><div class="section-title">產業鏈的三個錢袋，美團拿了兩個</div><p class='txt'>本地生活這條鏈上只有三個錢袋。<b>第一個是「曝光」：商戶為了被看見付佣金和廣告，毛利率 80% 以上，這是最肥的一段。</b>第二個是「履約」：把餐從店送到家，收 6–9 元配送費、付騎手 7–8 元，單均毛利 1–2 元，靠規模賺錢。第三個是「商品」：自營的藥品、酒類、生鮮，毛利率 15%–25%。</p><p class='txt'>美團同時握著前兩個，第三個剛剛起步。<b>這就是它的結構性優勢：到店的高毛利補貼履約的低毛利，形成閉環。</b>抖音只有第一個，所以它的到店業務必須自己賺大錢；京東只有第二個，所以它的外賣必須靠補貼拉規模；美團兩個都有，可以在兩頭之間調價。</p><p class='txt'>但「兩頭都有」也意味著「兩頭都要守」。<b>2025 年那場仗，抖音打到店、阿里打履約，美團的利潤被兩頭同時抽。</b>這是它能被拖進 233.55 億元虧損的結構性原因，不是管理失誤。</p></div><div class="section"><div class="section-title">公司在鏈條中的位置：中間最厚，也最容易被夾</div><p class='txt'>上游是 800 萬商戶和幾百萬農戶／品牌，美團對它們有議價權——佣金率、廣告位、活動報名都由平台定。<b>但這份議價權正在變弱：Q3 商家服務收入約 440 億元、同比只增 8%，說明商戶要麼在壓佣金、要麼在減少投放。</b>商戶不是不賺錢，是被 2025 年的補貼戰傷過，恢復慢於用戶。</p><p class='txt'>下游是約 8 億年度交易用戶，美團對他們的議價權幾乎為零——<b>同一份黃燜雞，三家平台價格差 3 元，用戶就走。</b>這就是為什麼補貼一停，市場第一反應是「單量會不會掉」；Q3 的答案是沒掉，收入還加速了，這是這份財報最重要的證據。</p><p class='txt'>中間是 600 萬騎手。<b>這一段的成本是剛性的：2026 年 7 月 1 日「新職傷」保險全國覆蓋、保費平台全額承擔，單均成本抬升 0.1–0.2 元，一年就是 30–60 億元。</b>這筆錢不能轉嫁給商戶（會被監管盯）、也不能轉嫁給用戶（會掉單），只能自己吃。這是鏈條位置帶來的結構性成本。</p></div><div class="section"><div class="section-title">週期位置：早段，不是高點</div><p class='txt'>三個訊號說明現在是週期早段。<b>第一，行銷費用率 22.9%，比 2024 年的 16% 還高 7 個點——補貼還沒退乾淨，彈性還剩一大截。</b>第二，核心本地商業營業利益率 5.6%，2024 年是 20.9%，差 15 個點。第三，新業務還在虧 21.6 億元，沒到打平。</p><p class='txt'>反過來，高點的訊號一個都沒出現：沒有提價、沒有削減騎手補貼、沒有停止出海、沒有把研發砍到 5% 以下。<b>這家公司現在是在「恢復」，不是在「收割」。</b>對投資者來說這是好事——如果它已經在收割，說明彈性用完了；現在彈性還在，只是不知道什麼時候釋放。</p><p class='txt'>要注意的是，這條鏈的週期不由美團決定，由三家的資本支出節奏決定。<b>2026 年阿里的 800 億港元配資投的是 AI，不是外送；京東的份額回落到個位數；抖音的到店增速從 60% 降到 30% 左右。</b>三個對手同時減速，才有了這個「早段」。如果其中任何一個重新加速，週期位置會立刻倒退。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>美團站在鏈條最厚的兩個位置——到店（毛利 80%）與履約（規模最大），這是它比抖音、京東都完整的地方。</b>代價是它必須自己承擔剛性的騎手成本與全部履約風險。<b>週期位置在早段：行銷費用率仍高 7 個點、營業利益率只有 5.6%、新業務還在虧。這三個數字是彈性的來源，也是這份投資的時間成本。</b></p></div>
+</div>
+<div class="footer">美團 (03690) · 2026/11/28</div>
+</body>
+</html>

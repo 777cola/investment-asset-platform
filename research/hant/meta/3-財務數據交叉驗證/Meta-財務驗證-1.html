@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務驗證 — Meta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meta/3-财务数据交叉验证/Meta-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meta/3-財務數據交叉驗證/Meta-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meta/3-Financial-Cross-Check/Meta-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務驗證 — Meta</h1>
+  <div class="subtitle">Meta (META) | 03 · 財務驗證</div>
+  <div class="meta">研究日期 2026/11/02 &nbsp;·&nbsp; 股價 $606.73（-1.34%） &nbsp;·&nbsp; 市值 約 1.58 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 21x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meta/00-Meta研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>交叉驗證：核心數字都站得住，只有一個口徑陷阱</h3><p class='txt'>把 2026Q3 的七個關鍵數字拿兩個獨立來源對了一遍：營收、廣告、營業利益、稅後淨利、營業現金流、自由現金流六項偏差都在 1% 以內，說明底稿的財報數據是準的。<b>唯一需要小心的是資本支出——公司同時給出 349.1 億（含融資租賃本金）和 339.4 億（購置物業設備）兩個數，差 2.9%，混用會讓自由現金流的複算差近 10 億美元。</b></p></div><table class="dt"><caption>關鍵財務數據雙源對照（2026Q3，百萬美元）</caption><thead><tr><th>指標</th><th>來源A（公司／財報口徑）</th><th>來源B（媒體／券商）</th><th>偏差</th><th>處理</th></tr></thead><tbody><tr><td>總營收</td><td>646.01 億（財報）</td><td>646.0 億（21 世紀經濟報導、光大證券）</td><td><0.01%</td><td>採用 646.0 億</td></tr><tr><td>廣告收入</td><td>63,061（財報分部表）</td><td>63,060（底稿及多家媒體）</td><td>0.002%</td><td>採用 630.6 億</td></tr><tr><td>廣告同比增速</td><td>+26.0%（財報）</td><td>+25.9%（光大證券）</td><td>0.1pct</td><td>寫 26%，腳註註明券商口徑 25.9%</td></tr><tr><td>營業利益</td><td>129.88 億（GAAP）</td><td>129.9 億（多家媒體）</td><td>0.02%</td><td>採用 129.9 億</td></tr><tr><td>資本支出</td><td>349.1 億（含融資租賃本金）</td><td>339.4 億（購置物業設備）</td><td>2.9%</td><td>兩種口徑並列，標註含／不含融資租賃</td></tr><tr><td>自由現金流</td><td>-21.2 億（公司口徑）</td><td>-21.2 億（媒體複算）</td><td>0%</td><td>採用；複算見下</td></tr><tr><td>稅後淨利同比</td><td>+264%（98.6 / 27.1）</td><td>+264%（媒體）</td><td>0%</td><td>採用，註明低基數原因</td></tr><tr><td>市值</td><td>1.575 萬億（606.73×25.96 億股）</td><td>1.78 萬億元（10/21 收盤 697.52）</td><td>11.6%</td><td>時點不同，不作為偏差</td></tr></tbody></table><div class="note">來源A：Meta 2026Q3 財報與新聞稿（2026/10/21）；來源B：21 世紀經濟報導（2026/10/22）、介面新聞 AIX 財經（2026/10/23）、光大證券海外科技點評（2026/10/30）、香港經濟日報（2026/10/21）。偏差 = |A−B|/A。</div><div class="section"><div class="section-title">唯一超過 1% 的偏差：資本支出的兩個口徑</div><p class='txt'>349.1 億是「資本開支含融資租賃本金償付」，339.4 億是現金流量表裡的「購置物業設備」。差 9.7 億美元，正好是融資租賃本金那部分。<b>這不是誰算錯了，是兩個概念的邊界不同。</b></p><p class='txt'>為什麼要較真：自由現金流的算法是 327.9 − 339.4 − 9.7 = -21.2。如果你只用 339.4，會算出 -11.5 億，得出「接近打平」的錯誤結論；如果只用 349.1，會算出 -21.2 但說不清扣了什麼。<b>兩個數都對，但只有把三個數放在一起，帳才閉合。</b>這也是為什麼本報告所有涉及資本開支的地方都寫「含融資租賃本金」。</p></div><div class="section"><div class="section-title">市值那 11.6% 的差，是時點不是錯誤</div><p class='txt'>10 月 21 日收盤 697.52 美元，對應 1.78 萬億美元市值；11 月 2 日收盤 606.73 美元，對應 1.575 萬億。差 11.6%，全部來自股價，不是股本變動。股本 25.96 億股這個數字在增發完成前不變——375 億美元的發行在 10 月 26 日定價，交割通常 T+2 到 T+5，新增股份要到四季度末或 2027 年初才計入。</p><p class='txt'>所以本報告統一用 25.96 億股、1.575 萬億美元，並在討論增發時單獨算攤薄。<b>看到別人寫「1.7 萬億市值」不要以為是錯的，那是 10 月 21 日之前的價格。</b></p></div><div class="section"><div class="section-title">還有一個容易讀錯的數：+264% 的稅後淨利</div><p class='txt'>稅後淨利 98.6 億、同比 +264%，媒體標題都寫「暴增」。這個數字沒有任何解讀價值：2025Q3 Meta 因美國稅法變更計提約 189.5 億美元所得稅，有效稅率 87%，稅後淨利被壓到 27.1 億。基數被人為壓低，今年稅率回到 24%，增速自然是三位數。</p><p class='txt'>真正該看的是調整後口徑：剔除 98.9 億訴訟和解，EPS 7.40 美元，有效稅率 17%；GAAP 攤薄 EPS 3.83 美元。<b>兩個數字差了近一倍，用哪個取決於你要回答什麼問題</b>——判斷經營品質用 7.40，判斷股東這一年實際拿到多少用 3.83。本報告利潤表用 GAAP，討論主業時用調整後，每次出現都會註明。</p></div><div class="section"><div class="section-title">三個無法雙源核對的項目，怎麼處理</div><p class='txt'>① <b>2027 年總費用指引</b>：公司只說「顯著增加」，沒有數字來源，全市場都在猜。處理方式是只引用定性表述，不給預測值，在情景假設裡標明「本人假設」。</p><p class='txt'>② <b>Muse 的收入</b>：Q3 財報沒有單列，媒體只有下載量和帳戶數（上線 40 天 1,000 萬，日活約占 25%）。處理方式：不估收入，只作為「期權價值」討論。</p><p class='txt'>③ <b>Reality Labs 的 150 億美元虧損目標</b>：只有祖克柏在電話會上的一句口頭承諾，沒有書面指引。處理方式是引用原話並標註「管理層口徑，非公司正式指引」，2027 年第一季才能對帳。</p></div><div class="section"><div class="section-title">不採用的三個數</div><p class='txt'>① 26.27 倍本益比：那是用 10 月 21 日收盤價算的，已經過期，本報告統一採用 11 月 2 日的 21 倍。②「AI 帶來 X 億元增量廣告收入」：公司只說「可觀的增量」，沒有拆分，任何具體數字都是第三方估算。③ 賣方的 2027 年 EPS 一致預期：各家從 26 到 31 美元不等，分歧太大，本報告採用自身的三情境假設，並在估值章節標明為「本人估算」。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>最終採用口徑：GAAP 利潤表數據 + 含融資租賃本金的資本支出 + 25.96 億股股本。</b>七項核對裡六項偏差小於 1%，底稿的數據可以放心用；需要提醒讀者的是資本支出的雙口徑和市值的時點差，這兩處最容易在轉發時被混用，進而把 -21.2 億的自由現金流誤讀成 -11.5 億。</p></div>
+</div>
+<div class="footer">Meta (META) · 2026/11/02</div>
+</body>
+</html>

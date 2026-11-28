@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行業漏斗 — 美團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20261128/11-行业漏斗对比/美团-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meituan-20261128/11-行業漏斗對比/美團-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meituan-20261128/11-Industry-Funnel/Meituan-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>行業漏斗 — 美團</h1>
+  <div class="subtitle">美團 (03690) | 11 · 行業漏斗</div>
+  <div class="meta">研究日期 2026/11/28 &nbsp;·&nbsp; 股價 HK$67.85（+8.21%，2026/11/27 收盤，11/28 休市） &nbsp;·&nbsp; 市值 約 4,190 億港元（61.75 億股） &nbsp;·&nbsp; PE(TTM) —（TTM 仍為虧損，PE 失真；2027E 約 16.8x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meituan-20261128/00-美團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>把中國本地生活與電商的六家公司放在一張表上，按「生意品質×估值」粗篩：<b>拼多多生意最好但不在本地生活；阿里體量最大但外送是消耗戰；京東履約成本最高；抖音到店最強但不可投；攜程只在酒旅。</b></p><p class='txt'>剩下兩家可投——美團與阿里。<b>終選美團，理由是它是唯一同時握有「到店高毛利」與「履約高密度」的公司，也是唯一在 2026Q3 同時做到收入加速與利潤轉正的公司。</b></p></div><table class="dt"><caption>行業漏斗（2026/11，港元／人民幣按 0.92 折算）</caption><thead><tr><th>公司</th><th>市值（約）</th><th>最新季度收入增速</th><th>營業利益率</th><th>估值</th><th>粗篩結論</th></tr></thead><tbody><tr><td>美團 03690</td><td>4,190 億港元</td><td>+21.6%</td><td>1.5%（Q3）</td><td>2027E 16.8x</td><td>終選</td></tr><tr><td>阿里巴巴 09988</td><td>約 2.6 萬億港元</td><td>電商中個位數</td><td>電商約 20%，即時零售虧損</td><td>約 18x（非 GAAP）</td><td>備選，估值無優勢</td></tr><tr><td>京東 09618</td><td>約 3,000 億港元</td><td>個位數</td><td>零售 3%–4%</td><td>約 9x</td><td>淘汰：履約成本最高</td></tr><tr><td>拼多多 PDD</td><td>約 1.6 萬億港元等值</td><td>+10% 左右</td><td>約 25%</td><td>約 10x</td><td>淘汰：不在本地生活</td></tr><tr><td>抖音（非上市）</td><td>—</td><td>到店 +30% 上下</td><td>到店極高</td><td>—</td><td>淘汰：不可投</td></tr><tr><td>攜程 09961</td><td>約 4,000 億港元</td><td>+15% 左右</td><td>約 25%</td><td>約 20x</td><td>淘汰：只做酒店旅遊</td></tr></tbody></table><div class="note">市值為 2026 年 11 月約數，按各家港股市值或美股折算；增速與利潤率為最近一期公開財報口徑，阿里、京東、攜程的區間為本報告估算；抖音為非上市公司，無市值與估值。</div><div class="section"><div class="section-title">粗篩：三道篩子篩掉四家</div><p class='txt'>第一道篩子，生意得在本地生活或即時零售裡——<b>拼多多生意品質最好（營業利益率約 25%、估值 10 倍），但它做的是遠場電商，不屬於這個漏斗。</b>這道篩子先把它排掉，不是因為它差，是因為不可比。</p><p class='txt'>第二道篩子，得能算清利潤從哪來——<b>京東的零售營業利益率只有 3%–4%，外送份額約 7%，履約成本是四家裡最高的。</b>它的商業模式是「用物流換體驗」，這套邏輯在 3C 家電上成立，在外送上不成立：外送的時效要求是 30 分鐘，不是次日達，自建物流的重資產優勢用不上。</p><p class='txt'>第三道篩子，得能買——<b>抖音到店最強（GTV 超 8,000 億元、增速近 60%），但它是非上市公司，投不了；攜程只在酒旅一段，規模不夠。</b>篩完剩兩家：美團與阿里。</p></div><div class="section"><div class="section-title">決賽：美團 vs 阿里，比的是同一件事</div><p class='txt'>兩家打的是同一場仗，但帳算得不一樣。<b>阿里的優勢是主站 8 億用戶的流量和電商利潤的輸血能力；美團的優勢是履約密度和到店的高毛利。</b>2026 年 Q3：美團收入 +21.6%、淨利轉正；阿里的即時零售仍在虧損，靠電商補。</p><p class='txt'>估值上，阿里約 18 倍非 GAAP，美團 2027E 16.8 倍、扣淨現金 11.5 倍。<b>兩家差不多，但美團的分母更「乾淨」——它的虧損是自己的現金，不是拿電商利潤補的。</b>更關鍵的是彈性：美團的行銷費用率還有 7 個點的下滑空間，阿里的即時零售虧損率已經收窄到個位數，彈性小了。</p><p class='txt'>還有一個不可比的因素：<b>阿里 2026 年配的 800 億港元投的是 AI 基建，不是外送。</b>這句話說明兩件事——阿里認為 AI 的回報高於外送，以及它不打算在外送上無限投入。對美團來說，這是比任何財務數字都重要的訊號。</p></div><div class="section"><div class="section-title">為什麼是美團：三句話</div><p class='txt'><b>第一句：它是唯一同時握有到店（毛利 80%）與履約（密度第一）的公司。</b>抖音有到店沒履約，京東有履約沒到店，阿里兩個都有但都不在第一。這個組合決定了它可以在兩頭之間調價，也決定了它比對手多一條命。</p><p class='txt'><b>第二句：它是唯一在 2026Q3 同時做到收入加速與利潤轉正的公司。</b>收入 +21.6%（三年最高）、稅後淨利 20.71 億元（去年同期虧 186.32 億元），這兩件事在補貼退坡期同時發生，說明單量沒掉、費用收了——這是最難同時做到的兩件事。</p><p class='txt'><b>第三句：它是唯一被市場打到「扣淨現金 11.5 倍」的位置的公司。</b>距 52 週高點 -36%，市值 4,190 億港元，扣掉 1,200 億元淨現金後核心業務 2,655 億元。<b>這個價格不是在為「贏」定價，是在為「不死」定價。而 Q3 證明它不只不死，還在恢復。</b></p></div><div class="section"><div class="section-title">漏斗的反面：什麼情況下選錯</div><p class='txt'>這個漏斗有一個明顯的漏洞：<b>它把「份額第一」當成了「終局贏家」。</b>如果最終是三家分食、行業利潤率永遠停在 10% 以下，那麼美團現在的價格只是「合理」，不是「便宜」——對應的就是悲觀情景 52 港元。</p><p class='txt'>第二個漏洞是抖音。<b>抖音不可投，但它可以決定美團的估值。</b>如果到店 GTV 增速維持在 30% 以上三年，美團到店利潤被削一半，2027 年淨利就掉到 150 億元以下，中性情景的 98 港元就變成 65 港元。<b>這個風險不在美團的報表裡，在它的對手的報表裡。</b></p><p class='txt'>所以終選美團，但倉位不能重——漏斗篩出來的是「最不壞的選擇」，不是「最好的選擇」。<b>在這個行業裡，最好的選擇可能根本不存在。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>六家篩到兩家、終選美團。三句話：唯一同時有到店與履約、唯一同時做到收入加速與利潤轉正、唯一被打到扣淨現金 11.5 倍。</b>反面也要說清楚：漏斗把「份額第一」當成「終局贏家」，而這個行業可能根本沒有終局贏家。<b>所以是「最不壞的選擇」，倉位要控制——首批 30%，跌到 58 港元再加 30%。</b></p></div>
+</div>
+<div class="footer">美團 (03690) · 2026/11/28</div>
+</body>
+</html>

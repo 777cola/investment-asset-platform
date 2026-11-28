@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeamLead 彙總：四路並行的分歧與裁決 — Meta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meta/5-四角色并行分析/Meta-TeamLead-汇总.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meta/5-四角色並行分析/Meta-四角色-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meta/5-Four-Role-Analysis/Meta-Four Roles-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>TeamLead 彙總：四路並行的分歧與裁決 — Meta</h1>
+  <div class="subtitle">三個分歧點，一個結論</div>
+  <div class="meta">研究日期 2026/11/02 &nbsp;·&nbsp; 股價 $606.73（-1.34%） &nbsp;·&nbsp; 市值 約 1.58 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 21x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meta/00-Meta研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>四路分析跑完，商業和行業給「好生意」，財務給「壞時點」，風險給「別在現價買」。<b>彙總後的裁決是：評級維持「觀察，等回調」，目標價 620 美元（中性），觸發價 500 美元。</b>下面把三個真分歧攤開講。</p></div><table class="dt"><caption>四角色結論對照</caption><thead><tr><th>角色</th><th>核心結論</th><th>評分</th><th>最擔心的事</th></tr></thead><tbody><tr><td>商業（段永平）</td><td>生意一流，改造方向存疑</td><td>8/10</td><td>賺的錢不屬於股東</td></tr><tr><td>財務（巴菲特）</td><td>損益表 7 分、現金流 3 分</td><td>5/10</td><td>自由現金流連續為負</td></tr><tr><td>行業（蒙格）</td><td>存量市佔贏家，贏法很貴</td><td>7/10</td><td>資本支出軍備競賽無終點</td></tr><tr><td>風險（李錄）</td><td>風險可控，兩個已兌現</td><td>4/10</td><td>股權稀釋與入口遷移</td></tr></tbody></table><div class="note">評分為各角色在自身框架內的獨立打分，不構成加權總分。加權結論見正文。</div><div class="section"><div class="section-title">分歧一：1,400 億資本開支是「投資」還是「成本」</div><p class='txt'>商業角色認為這是投資——廣告單價 +14% 就是回報的證據，AI 推薦確實在提高轉換率。財務角色認為這是成本——投資要有可計算的回報率，現在算不出來，只能看到折舊。</p><p class='txt'><b>裁決：偏財務角色，但給商業角色留一半。</b>理由：廣告端的回報是真的（量價齊升連續兩季），但回報的規模無法與投入的規模匹配——一年多花 700 億美元，多賺的廣告收入大約是 400 億（按 26% 增速中 AI 貢獻一半粗算），扣掉折舊和營運成本，淨回報接近零。所以這筆錢目前只能算「維持競爭力的必要支出」，不能算「創造價值的投資」。</p></div><div class="section"><div class="section-title">分歧二：Muse 值多少錢</div><p class='txt'>商業角色給期權價值（認為 2027 年成本效率提升十倍可期），風險角色給零（沒有可審計收入）。</p><p class='txt'><b>裁決：放進樂觀情景，不進中性情景。</b>Muse 的數據很好看——40 天 1,000 萬下載、日活 25%、購物場景平均客單 200 美元。但單位經濟是負的：單用戶月成本約 37 美元，訂閱最高 100 美元、主流檔 20 美元。<b>在成本效率沒有數量級改善之前，用戶越多虧得越多。</b>這種業務在估值上只能算期權，不能算現金流。</p></div><div class="section"><div class="section-title">分歧三：增發是「彈藥」還是「警報」</div><p class='txt'>行業角色認為這是正常的資本運作——四大雲廠都在融資，微軟 10 月 29 日發了 250 億美元債，SpaceX 融了 400 億，Anthropic 在遞表 IPO，融資環境還開著。風險角色認為這是警報——一家自由現金流為負、股價距高點 -22% 的公司選擇發股票，說明它判斷債務和現金流都撐不住。</p><p class='txt'><b>裁決：兩者都對，但時點決定性質。</b>如果 2027 年費用指引證明投入見頂，這次增發就是「提前備糧」，是加分；如果 2027 年還要繼續加碼，這次增發就是「填坑的第一鏟」，是減分。所以它是觀察項，不是結論項。</p></div><div class="section"><div class="section-title">最終裁決與執行條件</div><p class='txt'>評級：<b>觀察，等回調</b>。目標價：中性 620 美元（對應 2027 年 EPS 28 美元 × 22 倍），悲觀 410、樂觀 860。計入增發攤薄後中性約 580 美元。</p><p class='txt'>執行條件寫死三條：① 買入觸發——股價 ≤500 美元（攤薄後 19 倍以下），或 2027 年費用增速指引低於收入增速；② 加倉條件——自由現金流轉正且廣告增速 ≥15%；③ 放棄條件——廣告增速連續兩季 <10%，或資本開支指引再上調 20% 以上。</p><p class='txt'>結論一句話：<b>好公司，壞時點，價格沒打折。等。</b></p></div><div class="section"><div class="section-title">四個人一致同意的三個事實</div><p class='txt'>分歧很多，但有三個事實四個人都認同：① 廣告業務處於歷史最佳狀態，量價齊升、份額擴張；② 現金流首次轉負，且不是經營問題；③ 管理層把股東的錢當成實現個人使命的工具，且制度上無法約束。</p><p class='txt'>三個事實放在一起，得出的不是「買」或「賣」，是「等」。<b>等的是價格，不是消息。</b>消息每天都在來——Muse 上線、模型發布、罰款、增發——這些都不會改變那三個事實。能改變的是兩個數字：2027 年費用增速，和股價。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>TeamLead 裁決：觀察，等回調。</b>四個角色的分歧集中在「投入算投資還是成本」，但都同意現價沒有安全邊際。執行上，500 美元是價格觸發線，2027 年費用指引是基本面觸發線，兩條任一滿足再動手。</p></div>
+</div>
+<div class="footer">Meta (META) · 2026/11/02</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組長彙總 — 鴻海精密</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/foxconn/5-四角色并行分析/鸿海精密-TeamLead-汇总.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/foxconn/5-四角色並行分析/鴻海精密-四角色-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/foxconn/5-Four-Role-Analysis/Hon Hai Precision-Four Roles-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>組長彙總 — 鴻海精密</h1>
+  <div class="subtitle">四席分歧點與裁決</div>
+  <div class="meta">研究日期 2026/10/19 &nbsp;·&nbsp; 股價 NT$240（-1.84%） &nbsp;·&nbsp; 市值 約 3.37 萬億元新台幣 &nbsp;·&nbsp; PE(2026E) 約 12.6x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/foxconn/00-鴻海精密研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>四份獨立報告交上來，結論收斂得出奇地一致：三票觀察、一票迴避，沒有買入票。<b>分歧不在「買不買」，在「為什麼暫時不能買」和「什麼證據能改變結論」。</b>這一節只做三件事：列分歧、給裁決、定觀察指標。</p></div><div class="section"><div class="section-title">票數與共同點</div><p class='txt'>商業席（段永平視角）觀察：單位經濟太薄，規模不是定價權。財務席（巴菲特視角）觀察：利潤真、現金假、ROE 低。行業席（芒格視角）觀察：寡頭但被買方鎖死，週期第四年。風險席（李錄視角）迴避：三個尾部未被定價。<b>四席共同承認的兩件事：鴻海是這輪 AI 基建最不可替代的執行者；它的利潤率不由自己決定。</b></p><p class='txt'>共同承認的還有一條時間判斷：2026Q3、Q4 兩份財報是分水嶺。Q3 營收 3.03 兆已經出來了，毛利率要等 11 月的法說會；Q4 是傳統交付高峰，也是驗證「增長是否帶利潤」的最後窗口。</p><p class='txt'>四席的分工也決定了各自看不到什麼：商業席看不到報表細節，財務席看不到技術路線，行業席看不到客戶合約，風險席容易高估尾部機率。<b>所以彙總不是投票，是補齊盲區。</b>這一層補完，四席對「現在不買」的共識反而更硬——因為每個人都是從自己看得見的那一面得出同一個結論。</p></div><div class="section"><div class="section-title">分歧一：毛利率能否隨 VR200 上移</div><p class='txt'>商業席說不能：整櫃的加工費是按櫃計的，ASP 翻倍不改變加工費的絕對水準，反而讓料件占比更高，毛利率可能更低。行業席說有可能：VR200 的整合複雜度提升，代工廠在液冷、電源、機構件上的自製比例提高，毛利率有 0.3–0.4 個百分點的上移空間。<b>兩邊都有道理，區別在「自製件比例」這個變數上。</b></p><p class='txt'>裁決：不預判，用財報驗證。觀察指標是連續兩個季度的毛利率，門檻 6.5%。<b>如果 2027Q1、Q2 都站上 6.5%，採納行業席；如果繼續在 6.1% 附近徘徊，採納商業席，並把估值中樞從 12.5 倍下調到 10 倍。</b></p></div><div class="section"><div class="section-title">分歧二：美國產能空轉的機率</div><p class='txt'>風險席認為這是最被低估的尾部：四地擴產的固定成本先到、訂單後到，利用率掉到 70% 以下，營益率 3.75% 保不住。財務席認為機率不高：客戶的「多地備份」要求本身就是訂單，美國廠的產能是被訂單驅動的，不是賭的。<b>分歧的本質是對客戶承諾可信度的判斷。</b></p><p class='txt'>裁決：按風險席的框架設監控，按財務席的判斷給倉位。監控指標是法說會上的產能利用率表述與美國廠進度；倉位上限 2%，且只在 180 元以下建。</p></div><div class="section"><div class="section-title">分歧三：現價到底貴不貴</div><p class='txt'>財務席算 12.6 倍 2026E PE「不貴」，商業席算 10.6 倍 2027E PE「也不貴」，風險席算機率加權期望收益 +3%「很貴」。<b>三個人的差別不在數學，在分母用什麼：當期 EPS、正常化 EPS，還是機率加權。</b></p><p class='txt'>裁決：以機率加權為準。12.6 倍 PE 用在週期頂部 EPS 上，等價於 16 倍正常化 PE——這個水平對一家 ROE 9%–12%、自由現金流為負的公司，不便宜。<b>結論與底稿一致：觀察，等毛利率拐點；買入觸發 180 元以下或毛利率連續兩季 6.5%。</b></p></div><div class="section"><div class="section-title">明確不做的三件事</div><p class='txt'>第一，不因為 9 月營收破兆而追高。營收是訂單的函數，不是利潤的函數，破兆這件事對估值的邊際貢獻接近於零。<b>它證明的是客戶在下單，不是鴻海在賺錢。</b></p><p class='txt'>第二，不用 2027 年 EPS 的單點估計做倉位。22.5 元是賣方模型，模型裡藏著「毛利率不再惡化」這個已經被連續兩季打破的假設。<b>要用就用 15–25 元的區間，取中位數 18 元，對應 13 倍 PE，結論立刻從便宜變成合理。</b></p><p class='txt'>第三，不在 Q3 法說會前一天建倉賭毛利率。這是典型的資訊劣勢交易：毛利率是法說會第一個被問的問題，也最容易被買方提前知道。<b>等數字出來再動作，代價是錯過 5% 的漲幅，換來的是避開 10% 的跌幅。</b></p></div><div class="summary-box"><h3>結論</h3><p>Team Lead 裁決：<b>維持「觀察，等毛利率拐點」，不建倉。</b>四席沒有一票買入，說明這不是「價格再低一點就可以」的問題，而是「盈利結構沒被證明」的問題。觀察日曆：2026 年 11 月 Q3 法說會（毛利率、產能利用率）、2027 年 1 月全年營收、2027 年 3 月 Q4 財報（自由現金流）、2027 年 5 月 Q1（VR200 切換後的首個完整季度）。四個節點任一給出 6.5% 的毛利率，重新召集四席。</p></div>
+</div>
+<div class="footer">鴻海精密 (2317.TW) · 2026/10/19</div>
+</body>
+</html>

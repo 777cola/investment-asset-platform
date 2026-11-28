@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industry Funnel — Palantir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/palantir/11-行业漏斗对比/Palantir-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/palantir/11-行業漏斗對比/Palantir-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/palantir/11-Industry-Funnel/Palantir-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Industry Funnel — Palantir</h1>
+  <div class="subtitle">Palantir (PLTR) | 11 · Industry Funnel</div>
+  <div class="meta">Research date 2026/10/05 &nbsp;·&nbsp; Price $189.40 (+0.34%) &nbsp;·&nbsp; Market cap About USD 456 billion &nbsp;·&nbsp; PS(TTM) Approximately 74x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/palantir/00-Palantir-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Industry funnel: why this one, and why not buy now</h3><p class='txt'>Lay out the comparable companies in the data software lane and screen them: Microsoft, Databricks, Snowflake, Palantir, Booz Allen, C3.ai. The first round applies three hard lines (growth >25%, gross margin >60%, already profitable), eliminating three and leaving Microsoft, Databricks and Palantir.</p><p class='txt'>The second round asks "who captures the excess profit from AI deployment" — Palantir wins: its growth is six times Microsoft's, and its earnings quality is more verifiable than Databricks (private, cash flow unclear).<b>But screening out a good company is only step one; step three is always price: a 74x price-to-sales ratio turns it from "final pick" into "watchlist".</b></p></div><table class="dt"><caption>Peer comparison (October 2026; market cap and multiples as ranges)</caption><thead><tr><th>The company</th><th>Market cap</th><th>Revenue growth</th><th>Gross margin</th><th>Price-to-sales ratio</th><th>Operating margin</th><th>Conclusion</th></tr></thead><tbody><tr><td>Palantir</td><td>About USD 456 billion</td><td>+93%</td><td>Approximately 80%</td><td>Approximately 74x</td><td>47%（GAAP）</td><td>Final selection, but valuation vetoes</td></tr><tr><td>Microsoft</td><td>About USD 3.5 trillion</td><td>Approximately +15%</td><td>Approximately 69%</td><td>About 12x</td><td>About 45%</td><td>Screened out — insufficient AI elasticity</td></tr><tr><td>Databricks</td><td>Not listed (USD 100 billion scale)</td><td>Approximately +50%</td><td>About 75%</td><td>—</td><td>Approaching break-even</td><td>Screened out, not investable</td></tr><tr><td>Snowflake</td><td>About USD 70 billion</td><td>About +25%</td><td>Approximately 68%</td><td>About 13x</td><td>About 5% (adjusted)</td><td>Eliminated: margins too thin</td></tr><tr><td>Booz Allen</td><td>About USD 18 billion</td><td>Approximately +8%</td><td>Approximately 22%</td><td>— (PE 15x)</td><td>Approximately 10%</td><td>Eliminated: not software</td></tr><tr><td>C3.ai</td><td>About USD 3 billion</td><td>Approximately +20%</td><td>About 60%</td><td>About 3x</td><td>Loss</td><td>Eliminated: losing on both scale and profitability</td></tr></tbody></table><div class="note">Market cap, growth, gross margin and multiples are ranges based on public reports and market data from September–October 2026, not precise values; Booz Allen is valued on PE because it is a services company, so price-to-sales does not apply.</div><div class="section"><div class="section-title">First-round screen: three hard cutoffs eliminate half</div><p class='txt'>Three criteria: revenue growth >25%, gross margin >60%, and achieved GAAP profitability. These are not onerous—they simply separate out companies that are "not the same kind of business."</p><p class='txt'><b>Booz Allen is the first to drop out.</b> Gross margin 22%, growth 8%—it is a consulting firm that charges by the person-day, with no software leverage. It competes with Palantir in government budgets, but it is not the same asset class, and its valuation logic is entirely different (15x PE versus 74x price-to-sales).</p><p class='txt'><b>C3.ai is the second to drop out.</b> Growth 20%, gross margin 60%, persistently loss-making, and only one-hundredth of Palantir's scale. It tells the same story but cannot produce the same numbers—which shows that Palantir's moat is not conferred by the "AI application" category, but by the qualifications and customer relationships it built up over fifteen years.</p><p class='txt'><b>Snowflake is the third to drop out.</b> Growth of 25% just clears the bar, gross margin of 68% clears the bar, but adjusted operating margin is only 5%, and it remains GAAP loss-making. It is a good company, but its position (data cloud) is too far from decision-making to capture the excess profits of AI deployment.</p></div><div class="section"><div class="section-title">Second-round picks: three companies competing for "who captures AI deployment spending"</div><p class='txt'>That leaves Microsoft, Databricks and Palantir. All three clear the quality bar; the difference lies in "who captures the excess share of enterprise AI budgets."</p><p class='txt'><b>Microsoft</b> has the strongest distribution, but AI is "a little added on top of a USD 3.5 trillion market cap" — however fast Azure AI grows, it cannot move the overall valuation. Buying Microsoft is buying a good company, not buying AI leverage.</p><p class='txt'><b>Databricks</b> has the best position (the data entry point) and 50% growth, but it is unlisted and ordinary investors cannot buy it; its private valuation has already reached the USD 100 billion level, and its post-IPO pricing will most likely not be cheap either.</p><p class='txt'><b>Palantir</b> is the only name that is "listed + high growth + high profit + embedded at the decision layer." Its 93% growth is six times Microsoft's, its 47% operating margin is nine times Snowflake's, and its position sits closer to the money than Databricks. <b>Purely from the angle of "why this one," the answer is clear.</b></p></div><div class="section"><div class="section-title">Round three: price turns the final pick into a watch</div><p class='txt'>The funnel has screened down to this point, and the usual call would be "Buy." But this report stops at step three: a 74x price-to-sales ratio.</p><p class='txt'>Compare peer valuations: Microsoft at 12x, Snowflake at 13x, C3.ai at 3x. Palantir trades at 6 to 25 times those levels. <b>The premium the market grants it is equivalent to the assumption that "it must remain the only winner."</b></p><p class='txt'>Is the premium justified? Yes. Its growth rate is three to four times that of peers, its margins are an order of magnitude higher, and it sits closer to the decision layer. But does the premium have a ceiling? Also yes. <b>When a company's price-to-sales ratio is six times that of its peers, its share price is no longer driven by fundamentals but by whether market sentiment can continue to support that multiple.</b></p><p class='txt'>So the funnel's conclusion must be stated in full: <b>It is the best company in this space, and it is the most expensive stock in this space.</b> These two statements are not contradictory; they simply answer different questions—"what to buy" and "at what price."</p></div><div class="summary-box"><h3>Conclusion</h3><p>Six screened down to one: <b>Palantir is the only name in the data-software space that simultaneously meets the criteria of being listed, high growth, high margin, and positioned at the decision-making layer.</b> But a 74x price-to-sales ratio is six times the peer average, and the price turns "final pick" into "watchlist." <b>Conclusion: put it on the first line of the watchlist; the buy condition is price-to-sales back below 30x (about USD 80).</b></p></div>
+</div>
+<div class="footer">Palantir (PLTR) · 2026/10/05</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行業漏斗 — AMD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/amd/11-行业漏斗对比/AMD-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/amd/11-行業漏斗對比/AMD-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/amd/11-Industry-Funnel/AMD-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>行業漏斗 — AMD</h1>
+  <div class="subtitle">AMD (AMD) | 11 · 行業漏斗</div>
+  <div class="meta">研究日期 2026/08/07 &nbsp;·&nbsp; 股價 $483.36（-1.21%） &nbsp;·&nbsp; 市值 約 8,020 億美元 &nbsp;·&nbsp; PE(TTM，GAAP) 約 125x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/amd/00-AMD研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>把 AI 算力鏈上的六家公司放在一張表裡比：輝達、AMD、博通、台積電、邁威爾、英特爾。粗篩用三條硬指標——增速≥30%、毛利率≥45%、ROE≥15%——輝達、台積電、博通過關，AMD 卡在 ROE，邁威爾卡在毛利率，英特爾三條全卡。</p><p class='txt'>終選在輝達與台積電之間。輝達贏在生態與系統，台積電贏在不可替代與估值。<b>AMD 被淘汰的理由只有一個：它的股價已經把「成為輝達」貼現了，而它成不了輝達。</b>這不是公司的問題，是價格的問題。</p></div><table class="dt"><caption>AI 算力鏈六家對比（2026 年 8 月上旬）</caption><thead><tr><th>公司</th><th>市值（約）</th><th>最近一季營收增速</th><th>毛利率</th><th>PE</th><th>ROE</th><th>粗篩</th></tr></thead><tbody><tr><td>輝達</td><td>4.9 萬億美元</td><td>+106%</td><td>74.9%</td><td>28x(TTM)</td><td>80%+</td><td>透過</td></tr><tr><td>台積電</td><td>1.8 萬億美元</td><td>+35%</td><td>58%</td><td>28x(TTM)</td><td>35%</td><td>透過</td></tr><tr><td>博通</td><td>1.5 萬億美元</td><td>約 +70%</td><td>約 75%</td><td>約 40x（TTM）</td><td>25%</td><td>透過</td></tr><tr><td>AMD</td><td>8,020 億美元</td><td>+50%</td><td>56.0%</td><td>125x(TTM)</td><td>10%</td><td>ROE 不過</td></tr><tr><td>邁威爾</td><td>約 1,000 億美元</td><td>約 +40%</td><td>約 60%</td><td>約 35x（TTM）</td><td>10%</td><td>ROE 不過</td></tr><tr><td>英特爾</td><td>約 2,000 億美元</td><td>低個位數</td><td>約 35%</td><td>—（利潤過低）</td><td>負</td><td>三條全不過</td></tr></tbody></table><div class="note">除 AMD（2026/08/07 收盤 483.36 美元、16.6 億股）外，市值與倍數為 2026 年 8 月上旬的粗算／量級值，僅作橫向比較，不作精確引用。博通、邁威爾、英特爾的毛利率與增速為公開季報口徑的近似值。ROE 為 TTM 口徑。</div><div class="section"><div class="section-title">粗篩：三條硬指標砍掉一半</div><p class='txt'>第一條增速≥30%：輝達 +106%、AMD +50%、博通 +70%、台積電 +35%、邁威爾 +40% 過關，英特爾個位數不過關。第二條毛利率≥45%：英特爾 35% 不過關，其餘都過關。第三條 ROE≥15%：AMD 10%、邁威爾 10%、英特爾為負，三家不過關。</p><p class='txt'>三條篩完，剩下輝達、台積電、博通。<b>這個結果不意外——AI 算力鏈的利潤就集中在这三家：一家定義生態、一家定義製造、一家定義定製晶片。</b></p><p class='txt'>AMD 被卡在 ROE，原因是 2022 年收購賽靈思用股票支付，淨資產被撐到 630 億，而利潤剛恢復。這條不是致命的，但它在篩子裡的作用是「提醒你這家公司的資本效率還沒到一流」。</p></div><div class="section"><div class="section-title">終選：輝達 vs 台積電，AMD 為什麼不是第三個選項</div><p class='txt'>輝達的優勢是「不可替代的生態 + 系統級交付」，劣勢是價格（28 倍 TTM 不貴，但 5 兆美元市值要求它每年都超預期）與表外承諾（5,305 億美元）。台積電的優勢是「不可替代的製造 + 定價權」，劣勢是地緣（產能全在台灣）與資本支出強度。</p><p class='txt'>AMD 為什麼進不了終選？三個理由。第一，它的成長依賴對手的產能，不由自己控制。第二，它的毛利率上限被鎖在 60% 附近，因為賣的是零件不是系統。第三，也是最重要的——<b>現價已經把「2027 年翻倍」貼現了七成，買它等於買「超預期」，而超預期的機率不超過三成。</b></p><p class='txt'>如果一定要在 AMD 與博通之間選一個「挑戰者」，本報告會選博通：它的客製化 ASIC 生意毛利率 75%，客戶是谷歌、Meta、字節，訂單能見度三年，估值 18 倍 FY27。AMD 的故事更性感，博通的生意更紮實。</p></div><div class="section"><div class="section-title">為什麼是它：這份報告的實際結論</div><p class='txt'>嚴格說，這份報告不是「推薦 AMD」，是「評估 AMD」。評估的結果是：它是這條鏈上彈性最大的一家，也是最貴的一家。</p><b>如果投資者的目標是「參與 AI 算力」，最優解不是 AMD，是台積電（製造壟斷 + 28 倍）或英偉達（生態壟斷 + 28 倍）。</b>AMD 適合的是「相信二供份額會從 9% 漲到 20%」的投資者，而這個判斷需要每季度用財報驗證。<p class='txt'>所以漏斗的結論是：AMD 留在觀察池，不進買入池。等它的價格跌到「即使份額只到 15% 也不虧」的位置——350 美元以下。</p><p class='txt'>邁威爾值得單獨說一句。它是定製 ASIC 的第二供應商（博通之後），客戶是亞馬遜與微軟，增速 40%、毛利率 60%，生意質量不差。它被淘汰是因為 ROE 只有 10%——同樣是併購撐大了淨資產。<b>這與 AMD 是同一個病：好生意 + 差資本結構。</b>兩家的區別是估值：邁威爾 35 倍，AMD 125 倍。</p><p class='txt'>台積電為什麼不能缺席？因為它是唯一能在 N2 上做到 70% 良率的代工廠，AMD 與英偉達都得排隊。買台積電是買「賣水人的賣水人」，估值 28 倍，比 AMD 便宜四倍多。<b>同一個行業趨勢，兩種完全不同的風險收益結構。</b></p><p class='txt'>英特爾在這張表裡是反面教材。它有三樣 AMD 沒有的東西：自己的晶圓廠、x86 的原始授權、美國政府的持股支持。但它的毛利率只有 35%，因為代工業務在虧、18A 的良率沒起來。<b>擁有製造不一定是優勢——當製程落後時，它是包袱。</b>AMD 十五年前賣掉製造，今天看是對的。</p></div><div class="summary-box"><h3>結論</h3><b>漏斗結論：六家粗篩剩三家，終選台積電與輝達，AMD 因價格出局。</b>這不是對公司的否定——AMD 的執行力在六家裡排第二——是對「用 125 倍買一個二供」的否定。<b>同一筆錢，在台積電能買到 28 倍的壟斷，在 AMD 只能買到 125 倍的挑戰。</b></div>
+</div>
+<div class="footer">AMD (AMD) · 2026/08/07</div>
+</body>
+</html>

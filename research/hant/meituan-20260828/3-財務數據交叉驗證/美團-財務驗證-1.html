@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務驗證 — 美團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20260828/3-财务数据交叉验证/美团-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meituan-20260828/3-財務數據交叉驗證/美團-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meituan-20260828/3-Financial-Cross-Check/Meituan-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務驗證 — 美團</h1>
+  <div class="subtitle">美團 (03690) | 03 · 財務驗證</div>
+  <div class="meta">研究日期 2026/08/28 &nbsp;·&nbsp; 股價 HK$77.50（+0.00%） &nbsp;·&nbsp; 市值 約 4,786 億港元（61.75 億股） &nbsp;·&nbsp; PE —（2026 年上半年稅後淨損 46.7 億元，PE 失真）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meituan-20260828/00-美團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>八項關鍵數據做了雙源核對，六項偏差在 0.05% 以內（屬於公告與媒體四捨五入的差異），兩處偏差超過 1%，但都不是數據錯誤，是口徑不同：<b>一是外送份額——高盛 51% 是單量口徑、公司「60% 以上」是 GTV 口徑；二是淨現金——公告的 1,683 億元是現金及短投毛額，底稿採用的 1,200 億元是扣有息負債與受限資金後的淨額。</b>這兩處如果不解釋清楚，整篇報告的估值和競爭判斷都會跑偏。最終採用口徑：財務數據一律用公司公告的人民幣原始值，估值用淨現金 1,200 億元，份額同時列兩個口徑。</p></div><table class="dt"><caption>關鍵數據雙源對照（2026/08/28）</caption><thead><tr><th>指標</th><th>來源 A</th><th>來源 B</th><th>偏差</th><th>處理</th></tr></thead><tbody><tr><td>2026Q2 收入</td><td>業績公告 1,046.43 億元</td><td>東方財富／廣州日報 1,046 億元</td><td>0.04%</td><td>採用公告 1,046.43</td></tr><tr><td>2026Q2 營業利益</td><td>業績公告 26.91 億元</td><td>華盛／富途 26.9 億元</td><td>0.04%</td><td>採用公告 26.91</td></tr><tr><td>核心本地商業 Q2 營業利益</td><td>業績公告 56.68 億元</td><td>明報 56.68 億元</td><td>0</td><td>採用 56.68</td></tr><tr><td>2025 全年收入</td><td>年報 3,648.5 億元</td><td>上證報 3,649 億元</td><td>0.01%</td><td>採用年報 3,648.5</td></tr><tr><td>2025 淨虧損</td><td>年報 233.55 億元</td><td>上證報 234 億元</td><td>0.19%</td><td>採用年報 233.55</td></tr><tr><td>外送訂單量市占</td><td>高盛 2026/03：約 51%（單量口徑，截至 2026/02）</td><td>公司 2025 年報：GTV 份額 60% 以上</td><td>9 個百分點以上</td><td>口徑不同，兩個都列，不取平均</td></tr><tr><td>淘寶閃購份額</td><td>高盛 2026/03：約 42%（單量口徑）</td><td>媒體 2026/08：45.7%（即時零售收入口徑）</td><td>3.7 個百分點</td><td>時點與口徑均不同，不外推</td></tr><tr><td>淨現金</td><td>公告：現金及等價物 1,047 億元 + 短期理財 636 億元 = 1,683 億元（毛額）</td><td>底稿／媒體：約 1,200 億元（淨額）</td><td>約 29%</td><td>估值用 1,200 億元，資產負債表用 1,683 億元</td></tr></tbody></table><div class="note">來源 A 均為美團公告原文（2026 中期業績公告、2025 年度業績公告），來源 B 為公開媒體轉述或券商研報。偏差 = |A-B|/A。第 6、7、8 行的偏差源於口徑而非錯誤，正文逐條解釋。</div><div class="section"><div class="section-title">偏差一：51% 與 60% 說的是兩件事</div><p class='txt'>這是整份報告最容易出錯的地方。高盛 2026 年 3 月的研報按<b>日均單量</b>估算，美團份額約 51%；美團 2025 年報按<b>GTV（交易總額）</b>口徑說「穩定保持 60% 以上的市場份額」。兩個數字相差 9 個百分點以上，但都對。</p><p class='txt'>原因是結構：美團在 30 元以上的正餐、連鎖品牌、高客單價訂單上佔絕對優勢，在 15 元以下的低價單上丟得最多。補貼戰打的是低價單，所以<b>按單量算它輸得很慘，按金額算它守得住。</b>這解釋了另一個看似矛盾的現象：份額掉 14 個百分點，核心本地商業收入還能同比 +10.1%——因為它丟掉的是不賺錢的單。</p><p class='txt'>處理方式：競爭章節用單量份額（51%），盈利章節用 GTV 份額（60%+），任何地方都不把兩者混用，也不取平均。取平均是最容易犯的錯，會得出一個既不對量也不對價的數字。</p></div><div class="section"><div class="section-title">偏差二：1,683 億現金與 1,200 億淨現金</div><p class='txt'>公告口徑：2026 年 6 月 30 日現金及現金等價物 1,047 億元、短期理財投資 636 億元，合計 1,683 億元。底稿的估值用「淨現金約 1,200 億元」。差額約 483 億元，來自三塊：有息負債（美團歷史上發過美元債與可轉債）、受限資金（商戶保證金、騎手保障金等）、以及部分短期理財實際是經營性資金而非自由資金。</p><p class='txt'>為什麼估值必須用淨額：<b>用毛額算 EV 會把不屬於股東的錢當成安全邊際。</b>1,683 億元的毛額看起來相當於市值的 38%，但如果其中 480 億元是有息負債和受限資金，真實安全邊際只有 27%。按 1,200 億元淨額算，企業價值 3,203 億元，2027 年正常化利潤 250 億元對應 12.8 倍；按毛額算會得出 10.4 倍——差了 2.4 倍，這就是口徑的威力。</p><p class='txt'>處理方式：資產負債表章節寫 1,683 億元並列出構成，估值章節用 1,200 億元並註明是估算。這個 1,200 億元不是公告值，是可以被質疑的假設，所以標在前面。</p></div><div class="section"><div class="section-title">最終採用口徑與推算清單</div><p class='txt'>財務：全部採用公司公告的人民幣原始值，媒體轉述僅用於交叉核對；單季數據以公告為準，Q1 單季數字（收入 910.39 億元、營業虧損 64.70 億元、期內虧損 68.27 億元）來自 2026 年 6 月 1 日的一季報，不以「半年減二季度」反推——兩者能對上，但公告更為可靠。</p><p class='txt'>估值：股價 77.50 港元、總股本 61.75 億股、市值 4,785.6 億港元；匯率 1 港元 = 0.92 元人民幣；淨現金 1,200 億元（估算）。2027 年正常化利潤做了兩版：250 億元（保守）與 290 億元（含到店利潤率回升）。</p><p class='txt'>推算項清單，全部標註：2025Q2 毛利率 32.9%（由同比 +0.6pct 反推）、核心本地商業商品銷售約 51.5 億元（分部收入減配送與商家服務倒算）、騎手新職傷年化成本約 25 億元（按日均 6,500–7,500 萬單、每單 0.1 元粗算）、2026 全年虧損 50–70 億元（H1 實際加下半年判斷）。<b>這四項沒有一項出現在公司披露中，讀者可以把它們全部推翻重算。</b></p></div><div class="section"><div class="section-title">口徑校準：三個數字的來源層級</div><p class='txt'>這份報告裡的數字分三級，強度完全不同。第一級是公司公告（收入、營業利益、現金流、現金餘額），可以直接用。第二級是公司披露的非財務口徑（600 萬騎手、800 萬商戶、2,800 個縣市區、GTV 份額 60% 以上），可以用但要註明「公司口徑」。第三級是第三方估算（高盛 51% 單量份額、淨現金 1,200 億元、淘寶閃購五個季度虧 1,000 億元），只能當參考，不能進模型。</p><p class='txt'><b>這份報告裡所有的推算（毛利率反推、商品銷售倒算、騎手新職傷年化 25 億元、2026 全年虧損 50–70 億元）都標了「粗算／反推」，讀者可以逐條推翻。</b>這不是謙辭，是方法——把可證偽的假設擺出來，比給一個精確的假數字更有用。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>八項核對，六項對上，兩處偏差各有清楚的口徑解釋。<b>結論是資料可信，但要小心三個陷阱：份額的單量／金額之分、淨現金的毛額／淨額之分、單季／半年的口徑之分。</b></p><p class='txt'>使用者只需記住一句：看到 51% 時想「單量」，看到 60% 時想「金額」，看到 1,683 億元時想「毛額」，看到 1,200 億元時想「估值假設」。這四個數字沒有一個是錯的，混用就全錯了。</p></div>
+</div>
+<div class="footer">美團 (03690) · 2026/08/28</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行業漏斗 — 甲骨文</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/oracle/11-行业漏斗对比/甲骨文-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/oracle/11-行業漏斗對比/甲骨文-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/oracle/11-Industry-Funnel/Oracle-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>行業漏斗 — 甲骨文</h1>
+  <div class="subtitle">甲骨文 (ORCL) | 11 · 行業漏斗</div>
+  <div class="meta">研究日期 2026/09/14 &nbsp;·&nbsp; 股價 $144.79（-3.65%） &nbsp;·&nbsp; 市值 約 4,400 億美元 &nbsp;·&nbsp; PE(GAAP TTM) 約 23.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/oracle/00-甲骨文研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>漏斗結論</h3><p class='txt'>把企業軟體與雲端運算裡的 6 家主要玩家放進漏斗：<b>第一輪用「自由現金流為正」砍掉 CoreWeave 和甲骨文，第二輪用「AI 收入占比與增速」留下微軟、亞馬遜、谷歌，第三輪用「估值與護城河」終選微軟。</b>甲骨文在第一輪就被淘汰——不是因為成長不夠快，恰恰是因為它用負現金流換來了最快的成長。這就是漏斗的意義：先篩質地，再談故事。</p></div><table class="dt"><caption>同業對比（2026 年 9 月上旬口徑）</caption><thead><tr><th>公司</th><th>市值（約）</th><th>營收增速</th><th>毛利率</th><th>PE</th><th>ROE</th><th>自由現金流</th></tr></thead><tbody><tr><td>微軟 MSFT</td><td>4.0 萬億美元</td><td>+18%</td><td>約 69%</td><td>約 33x</td><td>約 35%</td><td>強正</td></tr><tr><td>亞馬遜 AMZN</td><td>2.6 萬億美元</td><td>+13%</td><td>約 49%</td><td>約 35x</td><td>約 24%</td><td>正，被資本支出壓縮</td></tr><tr><td>谷歌 GOOGL</td><td>3.0 萬億美元</td><td>+14%</td><td>約 58%</td><td>約 26x</td><td>約 32%</td><td>強正</td></tr><tr><td>甲骨文 ORCL</td><td>4,400 億美元</td><td>+30%</td><td>約 65%</td><td>23.5x（GAAP）</td><td>80%+（失真）</td><td>負 -54 億/季</td></tr><tr><td>Salesforce CRM</td><td>2,500 億美元</td><td>+9%</td><td>約 77%</td><td>約 22x</td><td>約 12%</td><td>正</td></tr><tr><td>SAP</td><td>3,000 億美元</td><td>+10%</td><td>約 73%</td><td>約 35x</td><td>約 15%</td><td>正</td></tr><tr><td>CoreWeave</td><td>約 300 億美元</td><td>+168%</td><td>約 74%（調整後）</td><td>—（淨利為負）</td><td>負</td><td>負 -75 億/季</td></tr></tbody></table><div class="note">市值為 2026 年 9 月上旬的近似值，僅用於相對比較；增速與毛利率為最近財季公開口徑的近似值；甲骨文 ROE 因股東權益被長期回購壓薄而失真，CoreWeave 淨利為負故不給 PE。數據經公開報導交叉核對，未逐一比對原始財年報表。</div><div class="section"><div class="section-title">第一輪：現金流為正——砍掉兩家</div><p class='txt'>這一輪最粗暴也最有效：<b>一家公司如果自由現金流為負，它的估值就沒有錨。</b>甲骨文單季 -53.96 億、CoreWeave 單季 -74.66 億，兩家都被砍。剩下的五家，包括資本支出同樣巨大的亞馬遜，自由現金流都還是正的——差別不在「投得多不多」，在「投的錢是不是自己賺的」。</p><p class='txt'>這一輪會把最性感的標的砍掉，這正是它的價值。<b>AI 基建裡成長最快的兩家，恰好是現金流最差的兩家，這不是巧合，是結構：用融資換增速。</b></p></div><div class="section"><div class="section-title">第二輪：AI 收入占比與增速——留下三家</div><p class='txt'>微軟的 AI 收入已經進入財報主體，Azure 增速約 30%，且 Copilot 帶來了實打實的 seat 增長；亞馬遜的 AWS 增速約 20%，自研 Trainium 已經跑到第三代；谷歌雲增速約 28%，TPU 是自己的，Gemini 有自己的分發渠道。三家都有「算力 + 模型 + 分發」的閉環。</p><p class='txt'>Salesforce 和 SAP 被這一輪淘汰：AI 收入佔比低、增速 10% 上下，屬於「AI 受益者」而不是「AI 供給者」。<b>不是說它們不好，是它們不提供這個主題想要的敞口。</b></p></div><div class="section"><div class="section-title">第三輪：估值與護城河——為什麼是微軟</div><p class='txt'>微軟 33 倍 PE 不便宜，但它的自由現金流能覆蓋資本支出、評級 AAA、客戶轉換成本極高（Office + Entra + Azure 是一套）、AI 收入已經能被單獨追蹤。<b>它是唯一一家「既在賣鏟子、又在用鏟子賺錢」的公司。</b>對想要 AI 算力曝險又不想承擔槓桿風險的資金，它是預設答案。</p><p class='txt'>谷歌 26 倍 PE 更便宜，TPU 自研的成本優勢更明顯，但它的問題在分發——Gemini 有技術沒渠道，雲市場份額第三。<b>如果只能選一個，微軟；如果能選兩個，加谷歌。</b></p></div><div class="section"><div class="section-title">甲骨文為什麼在漏斗裡最先掉出去</div><p class='txt'>它的增速（+30%）在七家裡排第二，OCI 增速（+121%）排第一，RPO（6,640 億）排第一。按「成長性」排序它應該進終選。<b>但漏斗的第一道篩子是質地，不是成長。</b></p><p class='txt'>更根本的問題是：<b>它的增長是用資產負債表買來的，而它的護城河在建的那一側用不上。</b>資料庫的客戶依賴幫不了 OCI 的議價；OCI 的規模幫不了資料庫的萎縮（-3%）。兩頭都不佔優的公司，在漏斗裡活不過第二輪。<b>這就是「為什麼不是它」的完整回答。</b></p></div><div class="section"><div class="section-title">如果非要在這一組裡選一個「反轉標的」</div><p class='txt'>不是甲骨文，是亞馬遜。理由：它的自由現金流雖然被資本支出壓縮，但仍是正的；AWS 增速 20 低於 OCI 的 121%，但基數大十倍、客戶分散、自研晶片已經量產；估值 35 倍 PE 裡包含了零售業務的拖累，AI 敞口反而是「免費期權」。</p><p class='txt'>甲骨文的反轉需要三個條件同時成立（現金流轉正、評級穩定、客戶分散），亞馬遜只需要一個（AWS 增速維持）。<b>同樣是「等反轉」，等一個條件比等三個條件划算得多。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：漏斗終選微軟，甲骨文首輪淘汰。</b>不是因為甲骨文的故事不好——6,640 億訂單、+121% 的 OCI 都是真的——而是因為篩選的目的是找到「質地與價格都合適」的那一個，而不是「增速最快」的那一個。<b>如果未來甲骨文的自由現金流轉正，它會重新進入漏斗；在那之前，它在第一道篩子前面就出局了。</b></p></div>
+</div>
+<div class="footer">甲骨文 (ORCL) · 2026/09/14</div>
+</body>
+</html>

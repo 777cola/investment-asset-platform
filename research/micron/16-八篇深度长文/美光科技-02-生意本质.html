@@ -7,13 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
-.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
 .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
 .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
 .header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
 .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
 .section { margin-bottom: 2.5rem; }
 .section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -48,22 +53,19 @@ table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; colo
 .badge-blue { background: #e6f0ff; color: #1a4b8c; }
 .footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
 .back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
-.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
-.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
-.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
-
 </style>
 </head>
 <body>
 <div class="header">
+  <div class="lang-switch"><a class="lang zh active" data-lang="zh" href="/research/micron/16-八篇深度长文/美光科技-02-生意本质.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/micron/16-八篇深度長文/美光科技-八篇長文-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/micron/16-Eight-Long-Essays/Micron Technology-Eight Essays-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
   <h1>第二篇：生意本质 — 卖的是位元、带宽，还是确定性 — 美光科技</h1>
   <div class="subtitle">八篇深度长文之二 | 从产品到客户的三层需求</div>
   <div class="meta">研究日期 2026/09/25 &nbsp;·&nbsp; 股价 $1,082.28（+0.16%） &nbsp;·&nbsp; 市值 约 1.22 万亿美元（按 11.3 亿股粗算） &nbsp;·&nbsp; PE(2027E) 约 6.5x（一致预期口径，9 月中为 5.77x）</div>
 </div>
 <div class="container">
-<a class="back" href="../00-美光科技研究报告总目录.html">← 返回总目录</a>
+<a class="back" href="/research/micron/00-美光科技研究报告总目录.html">← 返回总目录</a>
 <div class="summary-box"><h3>核心判断</h3><p class='txt'>美光卖的东西，表面是 DRAM 和 NAND 颗粒，本质是三样：位元（容量）、带宽（速度）、确定性（供给承诺）。前两样是标准品，价格由市场定；第三样是 2026 年才真正开始卖的新东西，也是它唯一可能改变估值的东西。</p></div><div class="section"><div class="section-title">第一层：位元，一门成本领先的生意</div><p class='txt'>位元（bit）是存储的计量单位。客户买 DRAM，本质是买「多少 GB」和「多少 GB/秒」。位元这一层的竞争逻辑极简单：同样的位元，谁的成本低谁赢。成本由三件事决定——制程（1γ 比 1β 多切 20%—30%）、规模（一片晶圆摊多少固定成本）、良率（合格品占多少）。</p><p class='txt'>美光在这一层的位置是「三家里的成本最低者」。它的 1γ/1δ 制程位元成本比三星、SK 海力士低，部分原因是它更晚建厂、设备更新，部分原因是它在日本广岛和台湾台中的厂区效率高。<b>成本领先在缺货年份是「多赚」，在过剩年份是「最后一个亏」——后者才是它的真实价值。</b></p><p class='txt'>这层生意的天花板很清楚：位元是标准品，长期价格趋势是往下走的（历史上每 GB 价格每年跌 15%—25%）。所以做位元生意的公司，必须每年把成本降下来，否则就被淘汰。这是「跑道上不断加速」的生意，不是「躺着收租」的生意。</p></div><div class="section"><div class="section-title">第二层：带宽，HBM 为什么值钱</div><p class='txt'>AI 训练卡真正缺的不是容量，是带宽。一张 GPU 的算力再强，如果内存喂不上数据，算力就闲着。HBM 解决的就是这个问题：把 DRAM 芯片堆起来、贴在 GPU 旁边、用极宽的接口传数据，带宽是普通 DDR5 的十几倍。</p><p class='txt'>所以 HBM 卖的不是「容量」，是「带宽密度」。这个产品定义的改变，直接改变了竞争格局：<b>能做普通 DRAM 的公司有三四家，能做 HBM 的只有三家</b>（三星、SK 海力士、美光）。因为 HBM 的难点在堆叠、TSV、封装、散热，不在 DRAM 本身。</p><p class='txt'>价值量也随之改变：同样容量的位元，做成 HBM4 的单价是同容量 DDR5 的 5—8 倍（行业估算），代价是晶圆消耗高 2—3 倍。<b>算下来，单位晶圆的收入是普通 DRAM 的 2—3 倍，单位晶圆的利润更高。</b>这就是为什么三家都在抢 HBM 份额。</p><p class='txt'>美光在这一层的位置：18% 的份额（2026Q2）、第三名，但 12 层 HBM4 的爬坡速度是上代两倍，月产能年底翻倍到 10 万片。它的策略是「份额不追第一，但良率要领先」——因为 HBM 的利润主要来自良率，不是来自份额。</p></div><div class="section"><div class="section-title">第三层：确定性，SCA 长约在卖什么</div><p class='txt'>2026 年 6 月，美光做了件存储行业没人做过的事：跟 16 个客户签五年期战略客户协议，照付不议、约定数量、设价格上下限，14 份按最低价对应约 1,000 亿美元收入，客户已付约 220 亿美元现金存款。</p><p class='txt'>这份合同卖的东西，不是位元、不是带宽，是「确定性」。客户怕的不是价格贵，是拿不到货——AI 数据中心的建设计划是按季度排的，HBM 断供一周，整个机柜交付就延误。所以客户愿意先付钱、锁五年量、接受价格下限，换一个「你一定会给我货」的承诺。</p><p class='txt'>对美光来说，这份合同的价值有三层：<b>第一层是现金流</b>（220 亿美元无息运营资金）；<b>第二层是能见度</b>（五年最低 1,000 亿美元收入，覆盖率约 20%）；<b>第三层是定价权</b>（价格下限意味着下行时不会跌到成本线以下）。</p><p class='txt'>但它也有代价：价格上限意味着上行时拿不到全部好处。所以 SCA 的本质是「用上行弹性换下行保护」——<b>对一家经历过 FY23 净亏 58 亿的公司，这个交易是理性的；对一家在周期顶部的股东，这个交易意味着「你少赚了」。</b></p></div><div class="section"><div class="section-title">三层生意的钱，各占多少</div><p class='txt'>用 FY26Q3 的数字粗算：位元生意（普通 DRAM + NAND）贡献约 300 亿美元营收、毛利约 250 亿；带宽生意（HBM4 超 10 亿美元营收）贡献还很小，但增速最快；确定性生意（SCA）在当期财报上不体现为收入，只体现为合同负债 220 亿美元。</p><p class='txt'>这个结构说明一件事：<b>美光现在赚的钱，90% 还是来自「位元」这层最古老的生意。</b>HBM 是叙事，SCA 是期权，真正撑起 414 亿美元营收和 84.9% 毛利率的，是普通 DRAM 和 NAND 的涨价。</p><p class='txt'>所以判断这家公司，不能只看 HBM 份额和长约数量，要看「普通 DRAM 的价格」——它才是当期利润的主变量。<b>HBM 决定它能不能在 2028 年之后还活着，普通 DRAM 决定它今年赚多少。</b></p></div><div class="summary-box"><h3>结论</h3><b>生意本质：美光是一家「位元公司」，正在尝试变成「带宽公司 + 确定性公司」。</b>位元生意贡献 90% 的收入，成本领先但天花板低；带宽生意（HBM）份额第三但良率领先，是 2028 年之后的入场券；确定性生意（SCA）覆盖率 20%，是估值重估的唯一希望。<b>投资它的核心判断是：这三层生意的迁移速度，能不能快过这一轮周期的下行速度。</b></div>
 </div>
-<div class="footer">美光科技 (MU) 投资研究报告集 · 2026/09/25</div>
+<div class="footer">美光科技 (MU) · 2026/09/25</div>
 </body>
 </html>

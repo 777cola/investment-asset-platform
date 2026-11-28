@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀（李錄） — Palantir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/palantir/8-财报团队解读/Palantir-大师精读-李录.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/palantir/8-財報團隊解讀/Palantir-財報團隊解讀-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/palantir/8-Earnings-Team-Read/Palantir-Earnings Team-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀（李錄） — Palantir</h1>
+  <div class="subtitle">十年後它的收入長什麼樣</div>
+  <div class="meta">研究日期 2026/10/05 &nbsp;·&nbsp; 股價 $189.40（+0.34%） &nbsp;·&nbsp; 市值 約 4,560 億美元 &nbsp;·&nbsp; PS(TTM) 約 74 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/palantir/00-Palantir研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>李錄讀財報不讀季度，讀「十年後的收入結構」。他的問題是：<b>這家公司十年後靠什麼賺錢，那門生意比今天更強還是更弱？</b></p><p class='txt'>用這個視角看 Q2，最重要的不是 +93%，是 81% 的收入來自美國、42% 來自美國政府。十年後這個結構會怎麼變，決定它是「基礎設施」還是「承包商」。</p></div><div class="section"><div class="section-title">今天的收入結構，十年後會怎麼變</div><p class='txt'>三種可能。第一種，商業收入占比從 39.5% 升到 60%，政府降到 30% 以下——那它就是一家企業軟體公司，估值該按 SaaS 給（10–15 倍市銷率）。第二種，政府占比維持 40% 以上，商業緩慢滲透——那它是「政府 IT 平台」，估值該按承包商加溢價給（8–12 倍）。第三種，兩個都做大，收入到 400 億美元——那它今天的價格剛好合理。</p><p class='txt'>現在的證據支持第一種：美國商業 +149%，遠超政府 +90%，商業 TCV +153%。<b>但要注意基數——商業 7.64 億對政府 8.09 億，差距很小，商業只要保持 100% 增速兩年就能反超。</b></p><p class='txt'>李錄會問：商業客戶裡，有多少是「用了一次就不再下單」的？財報沒有這個數據。這就是資訊缺口——<b>它披露客戶數和 RDV，但不披露分層的淨留存率，這是投資者判斷十年結構時最大的盲區。</b></p></div><div class="section"><div class="section-title">第二層：這門生意的「文明級」屬性有多強</div><p class='txt'>李錄投資過比亞迪，他的框架是「文明級的技術變革 + 能在變革中占據結構位置的公司」。AI 從模型走向生產系統，中間需要一層把資料、權限、決策連起來的基礎設施——這層確實存在，也確實值錢。</p><p class='txt'>但「這一層值錢」不等於「這一層的某家公司值錢」。他研究過鐵路：鐵路改變了美國經濟，但 1890 年代一半的鐵路公司破產了。<b>基礎設施的價值歸社會，超額利潤歸少數占據瓶頸位置的公司。</b></p><p class='txt'>Palantir 是不是那個瓶頸位置？政府側是（安全許可 + 歷史），商業側不是（雲廠商可複製）。所以它的「文明級」屬性只有一半——<b>它是美國政府的瓶頸，不是全球商業的瓶頸。</b></p></div><div class="section"><div class="section-title">第三層：十年後的估值會是多少</div><p class='txt'>假設十年後它做到 400 億美元收入（年均 +17%）、淨利率 35%、給 25 倍 PE，市值 3,500 億美元——<b>比今天低 23%。</b>這就是李錄最擔心的事：公司長大了，股價反而跌了，因為今天的價格已經把十年後的成功貼現完了。</p><p class='txt'>反過來，如果它做到 800 億美元收入（年均 +26%）、淨利率 40%、給 30 倍，市值 9,600 億，年化報酬 7.7%。<b>這是「非常成功」的情形下的報酬，還不到標普長期均值加兩個點。</b></p><p class='txt'>他會說：這不是一筆「賠率在我這邊」的投資。他的組合裡，每一筆都要在「公司成功」的情形下賺三倍以上。<b>Palantir 在最好情形下賺不到一倍，這就不是他的標的，不管公司多好。</b></p></div><div class="summary-box"><h3>結論</h3><p>李錄式結論：<b>趨勢對，位置對一半，價格完全不對。</b>十年視角下，它是「美國政府的瓶頸 + 商業市場的挑戰者」，前者穩固後者脆弱。最好的情形下年化回報 7.7%，最可能的情形下是負的。<b>這不是他會買的賠率結構——他會把它放進「觀察十年」的文件夾，等一個危機。</b></p></div>
+</div>
+<div class="footer">Palantir (PLTR) · 2026/10/05</div>
+</body>
+</html>

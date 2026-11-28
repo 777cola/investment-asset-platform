@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>四大師研究 — 美團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20260828/4-四大师深度研究/美团-四大师研究.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meituan-20260828/4-四大師深度研究/美團-四大師研究-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meituan-20260828/4-Four-Masters/Meituan-Four Masters-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>四大師研究 — 美團</h1>
+  <div class="subtitle">美團 (03690) | 04 · 四大師研究</div>
+  <div class="meta">研究日期 2026/08/28 &nbsp;·&nbsp; 股價 HK$77.50（+0.00%） &nbsp;·&nbsp; 市值 約 4,786 億港元（61.75 億股） &nbsp;·&nbsp; PE —（2026 年上半年稅後淨損 46.7 億元，PE 失真）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meituan-20260828/00-美團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>四個人的結論罕見地一致：<b>生意是好生意，公司是最強的那一家，但價格只是「合理」，不是「便宜」。</b>段永平看用戶還打不打開它——答案是打，補貼退潮後訂單結構和頻次都在改善；巴菲特看護城河要不要每年花錢維護——要，而且 2025 年花了 621 億元的利潤差額；芒格反過來問什麼會讓它再腰斬——三條路都還存在，但對手的錢包也不是無限的；李錄看十年——即時零售是中國獨有的效率紅利，問題是終局是一家獨大還是三家分食。<b>四人合議：可以買，但只能小倉位，因為你在賭對手什麼時候停手，那件事你控制不了。</b></p></div><table class="dt"><caption>三情境估值（基準年 2027，股本 61.75 億股，淨現金 1,200 億元）</caption><thead><tr><th>情境</th><th>核心假設</th><th>目標價</th><th>相對當前</th></tr></thead><tbody><tr><td>悲觀</td><td>補貼戰再打兩年，行業利潤率回不到 10%，2027 年淨利僅 100 億元；22 倍 + 淨現金</td><td>HK$60</td><td>-23%</td></tr><tr><td>中性</td><td>補貼正常化，核心本地商業營業利益率回到 12%–13%，集團稅後淨利 250 億元；20 倍 + 淨現金</td><td>HK$110</td><td>+42%</td></tr><tr><td>樂觀</td><td>份額穩定 55% 以上、到店利潤率回升、Keeta 沙烏地與巴西貢獻利潤，稅後淨利 350 億元；21 倍 + 淨現金</td><td>HK$150</td><td>+94%</td></tr></tbody></table><div class="note">方法：分部利潤加淨現金。目標市值 = 2027 年淨利 × 20–22 倍 + 淨現金 1,200 億元，除以 61.75 億股，匯率 1 港元 = 0.92 元人民幣。倍數取美團 2024 年以前歷史中樞的下沿。淨現金為估算值，非公告值。</div><div class="section"><div class="section-title">段永平：用戶還打不打開它</div><p class='txt'>段永平看一家公司，第一眼不看利潤，看「用戶為什麼還用它」。美團的答案是確定的：三公里內三十分鐘送到，全國 2,800 個縣市區，這件事今天只有它做得最穩。<b>更硬的證據在用戶行為裡：2026Q2 閃購老用戶頻次提升、訂單結構和用戶結構改善、配送服務收入同比 +13.1% 恢復正增長——補貼退潮了，用戶沒跑。</b>這說明過去兩年買來的份額裡，有一部分真的留下來了。</p><p class='txt'>他也會認可管理層在補貼最兇時的取捨：不打單量戰、守單位經濟。這符合「做對的事情」——明知道會丟份額還這麼幹，需要一點本分。但他一定會補一句：<b>好生意也得有好價格。</b>77.5 港元對應的不是打骨折，是「公道」。</p><p class='txt'>他大概會問一個問題就結束：如果明天股價跌到 50 港元，你會更想買還是更害怕？如果答案是更想買，那現在就可以先買一點；如果答案是害怕，說明你還沒看懂這門生意，77.5 港元也不該買。</p></div><div class="section"><div class="section-title">巴菲特：護城河要不要每年花錢維護</div><p class='txt'>巴菲特會喜歡三邊網路效應：商戶越多，使用者越多；使用者越多，騎手越多；騎手越多，配送越快。這是典型正循環，一旦建成邊際成本遞減。2026Q2 核心本地商業營業利益 56.7 億元、同比 +52.3%，就是這條曲線在起作用。</p><p class='txt'>但他會立刻發現一個問題：<b>這條護城河需要每年用幾百億元維護。</b>2025 年銷售及行銷開支隨補貼戰大幅上升，集團營業利益從 2024 年的 +451 億元變成 -170 億元，差額 621 億元。喜詩糖果不需要這樣——它每年可以提價，美團的定價權卻在消費者、對手和監管手裡。</p><p class='txt'>所以他會給出一個更低的倍數：15–20 倍，而不是成長股的 30 倍。按 2027 年正常化利潤 250–290 億元、加淨現金，20 倍對應約 110 港元。<b>現在 77.5 港元在這個區間的下沿，是「可以開始買」的位置，不是「應該重倉」的位置。</b></p><p class='txt'>他還會看一件事：管理層願不願意在便宜的時候買自己的股票。2026 年 6 月批准回購、6 月 29–30 日花 2 億港元買了 292 萬股，方向對，但 4,786 億市值面前這個數字太小。這一項，他會打問號。</p></div><div class="section"><div class="section-title">芒格：什麼會讓它再腰斬</div><p class='txt'>芒格的習慣是把問題倒過來：77.5 港元跌到 45 港元，需要發生什麼？三條路，每條都不小概率。</p><p class='txt'>第一，<b>阿里把即時零售當成戰略級投入再打兩年</b>，行業月度補貼回到 2025 年峰值。證據是現成的：淘寶閃購 2025 年入場，一年就把單量做到 40% 以上，靠的是主站流量加補貼，帳算得過來——外賣虧的錢可以從電商廣告裡補。</p><p class='txt'>第二，<b>監管對騎手成本與演算法定價出重手</b>，單均成本永久抬升 1 元以上。這條路已經在走：2026 年 7 月 1 日騎手「新職傷」保險全國覆蓋、保費平台全額承擔；2025 年 12 月市場監管總局發布《外賣平台服務管理基本要求》推薦性國標，把配送員權益保障列為核心。按日均 7,000 萬單、每單多 1 元粗算，一年就是 250 億元——超過 2027 年正常化利潤。</p><p class='txt'>第三，<b>Keeta 在巴西重演滴滴式燒錢</b>，5 年 10 億美元只是門票。</p><p class='txt'>但芒格也會看反面：<b>阿里剛配了 800 億港元，全部投向 AI 基建，而不是繼續加碼外賣補貼；據報導新財年淘寶閃購投入砍半。</b>對手的錢包也不是無限的。這就是拐點可能成立的理由——不是美團變強了，是對手算清楚了不划算。</p></div><div class="section"><div class="section-title">李錄：中國獨有的效率紅利，與它的終局問題</div><p class='txt'>李錄會把它放進更長的時間尺度。三公里內三十分鐘送達，依賴三樣東西：高密度城市、低成本且有彈性的勞動力、成熟的移動支付與地圖基礎設施。<b>這三樣加在一起，全世界只有中國同時具備。</b>所以即時零售不是補貼堆出來的偽需求，是一個結構性的效率紅利——這也是為什麼它在中國的滲透率遠高於歐美。</p><p class='txt'>同一套模式能不能搬出去？Keeta 給了初步答案：香港 2025 年第四季度實現 UE 轉正，沙特 2026 年 7 月盈利、只用了 22 個月，沙特已佔 Keeta 日單量約 25%。<b>22 個月盈利這件事的意義，大於它賺的那點錢——它證明這套調度系統和地推打法可以跨文化複製。</b></p><p class='txt'>他的疑問在終局：三家都停止補貼、回到理性競爭之後，行業是「一家獨大拿超額利潤」，還是「三家分食拿平均利潤」？前者的美團值 200 港元，後者只值 80 港元。<b>現在買，本質上是押前一類。</b>而他的經驗是：中國多數行業的終局是第二種，除非贏家有網路效應以外的護城河——美團有，就是履約密度。</p></div><div class="section"><div class="section-title">賠率判斷：1:1.8，夠買不夠重</div><p class='txt'>把三個情景的機率擺出來：悲觀 30%（60 港元，-23%）、中性 50%（110 港元，+42%）、樂觀 20%（150 港元，+94%）。期望報酬 = 0.3×(-23%) + 0.5×(+42%) + 0.2×(+94%) = <b>+32.9%</b>；下行 23%、上行 42%（中性），賠率約 1:1.8。</p><p class='txt'>這個賠率意味著什麼？意味著值得下注，但不值得下重注。<b>1:1.8 的賠率配 2%–3% 的倉位是合理的；要配到 8% 以上，賠率得做到 1:3，也就是股價 65 港元附近。</b></p><p class='txt'>分歧點在這裡：市場上一部分人用 2026 年的虧損給它估值，覺得它貴得沒有道理；另一部分人用 2027 年的正常化利潤，覺得它便宜得沒有道理。<b>兩派都沒錯，差別只在「正常化」這三個字會不會實現。</b>而這件事，Q3 財報就能給出第一個答案。</p></div><div class="section"><div class="section-title">四人的共同盲點</div><p class='txt'>四個人都漏了一件事：<b>美團的「未分配項目」虧損在擴大。</b>2026Q2 約 -12.4 億元、上半年 -35.6 億元，同比擴大 57.2%，主因 AI 投入。這塊不在任何分部裡，也不在任何人的分析框架裡。</p><p class='txt'>它的含義是：美團的利潤表上有一個「黑箱」，每年吃掉 70 億元左右，而且短期看不到回報。如果 AI 投入繼續加碼（研發 2026Q2 已經 +22.5%），這個黑箱會變大。<b>四個人都在算「核心業務能賺多少」，沒人算「總部和 AI 會花多少」——這是這份合議最容易被忽略的漏洞。</b></p><p class='txt'>補上這一塊之後，中性情景的 250 億元利潤假設其實偏樂觀：如果未分配項目 2027 年仍虧 50 億元以上，核心本地商業要多賺 50 億元才能補上，對應的營業利益率不是 12.5%，而是 14%。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>四人合議：<b>段永平認生意、巴菲特認護城河但壓倍數、芒格認風險、李錄認長期空間——四個人沒有一個說「別買」，也沒有一個說「重倉」。</b>這與底稿的「買入，小倉位分批」完全一致，不需要修改評級。</p><p class='txt'>操作上只剩兩個變數：價格和證據。價格 77.5 港元給 1:1.8 的賠率，配 2%–3%；跌到 65 港元賠率變 1:3，加到 5%–6%。證據看 Q3 核心本地商業營業利益能否守住 20 億元。兩者出現一個就加，都不出現就等。</p></div>
+</div>
+<div class="footer">美團 (03690) · 2026/08/28</div>
+</body>
+</html>

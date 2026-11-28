@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⑤ Industry and competition: the division of labor between ASIC and GPU, and an unfinished interconnect standards war — Broadcom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/broadcom/16-八篇深度长文/博通-05-行业与竞争.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/broadcom/16-八篇深度長文/博通-八篇長文-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/broadcom/16-Eight-Long-Essays/Broadcom-Eight Essays-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>⑤ Industry and competition: the division of labor between ASIC and GPU, and an unfinished interconnect standards war — Broadcom</h1>
+  <div class="subtitle">Fifth of eight long-form articles</div>
+  <div class="meta">Research date 2026/10/02 &nbsp;·&nbsp; Price $355.14 (+3.35%) &nbsp;·&nbsp; Market cap Approximately USD 1.69 trillion (rough estimate based on 4.77 billion shares) &nbsp;·&nbsp; PE(FY2027E) Approximately 18x (FY27 consensus EPS of USD 19.38)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/broadcom/00-Broadcom-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>AI compute is splitting into two markets: GPUs for training and ASICs for inference. The moat in the former is ecosystem (CUDA); the moat in the latter is cost and customization.</p><p class='txt'><b>Broadcom holds the top share in the latter, but its ceiling is set by two variables: how far the inference share can rise, and whether Ethernet can win cluster interconnect.</b></p></div><table class="dt"><caption>Tiering of the AI compute market</caption><thead><tr><th>Market</th><th>Lead proposal</th><th>Barriers</th><th>2026 status</th><th>Broadcom's position</th></tr></thead><tbody><tr><td>Training</td><td>General-purpose GPU (NVIDIA)</td><td>CUDA ecosystem, interconnect</td><td>Still mainstream, growth slowing</td><td>Weak (network only)</td></tr><tr><td>Reasoning</td><td>Custom ASIC (Broadcom, Marvell)</td><td>Cost, customization, delivery</td><td>Rising rapidly</td><td>First</td></tr><tr><td>Cluster interconnect</td><td>NVLink vs Ethernet</td><td>Standards and ecosystem</td><td>Standards war underway</td><td>Main supplier to the Ethernet camp</td></tr><tr><td>Edge inference</td><td>Mobile/PC SoC</td><td>Process node and power consumption</td><td>Just getting started</td><td>No content was provided to translate. Please send the Simplified Chinese investment research text.</td></tr></tbody></table><div class="note">The tiers are a summary by this report; share levels are qualitative judgments, with no authoritative third-party statistics.</div><div class="section"><div class="section-title">Training and inference: division of labor, not substitution</div><p class='txt'>The shift in 2026 is that inference volume exceeds training volume. Training is still growing, but inference is growing faster—because every user request is an inference run.</p><p class='txt'>This shift places completely different demands on chips. Training demands "flexibility": model architectures change daily, and the programmability of GPUs is irreplaceable. Inference demands "cheapness": once the model is fixed, dedicated chips can halve the cost per token.</p><p class='txt'><b>So ASIC's rising share is not "beating GPUs"—it is "capturing the demand that GPUs cannot."</b> Nvidia still takes most of the profit in the training market, while Broadcom takes most of the incremental inference orders. This division of labor benefits both sides—as long as the inference pie keeps growing.</p></div><div class="section"><div class="section-title">Competitive landscape: a three-tier structure</div><p class='txt'>The first tier is Nvidia, sitting on top: the broadest ecosystem, the most mature software, the strongest customer recognition. Its threat is not taking Broadcom's orders, but driving the price of inference-specific GPUs down to only 20% more expensive than ASICs — at that point the incentive to customize weakens.</p><p class='txt'>The second tier is Marvell and MediaTek, sitting alongside: Marvell is the closest competitor to Broadcom, custom ASIC + optical interconnect, at roughly one-third of Broadcom's scale; MediaTek is the price challenger, entering as Google's second supplier.</p><p class='txt'>The third tier is design services companies like Alchip, sitting below: project-based, 30% gross margin, no customer lock-in. Orders surge in boom times and drop to zero in downturns.</p><p class='txt'><b>Broadcom sits between the first and second tiers: technology close to Nvidia, scale far smaller; price above Marvell, customer relationships deeper.</b></p></div><div class="section"><div class="section-title">Standards war: can Ethernet win</div><p class='txt'>As cluster scale grows from a thousand cards to a hundred thousand cards, interconnect costs rise from 5% to over 10% of the total. That is where "open standards" become attractive to customers—no cloud provider wants to be locked into a single supplier's proprietary interconnect.</p><p class='txt'>Broadcom's bet is UALink plus Ethernet. It already has the foundation: Tomahawk 6 covers nearly all XPU customers, and Tomahawk 7 runs at 200Tbps. If it wins the standards war, the networking leg will grow faster than XPU.</p><p class='txt'><b>The risk is standards fragmentation.</b> If Nvidia opens NVLink to third parties, or UALink splits internally, Broadcom's networking business suffers. This battle is won not on technology but on alliances—whoever pulls in more cloud providers wins.</p></div><div class="section"><div class="section-title">Cycle position: mid-upcycle; H2 2027 is the critical juncture</div><p class='txt'>Three indicators gauge the cycle: customer capex guidance, upstream capacity utilization, and financing costs. The first two are still rising; the third is tightening.</p><p class='txt'>North America's four largest cloud providers will raise capex again in 2026. TSMC's 3nm and CoWoS are running at full capacity, and HBM is in short supply. But AI data center construction increasingly relies on debt and structured financing; once rates rise, the pace will slow.</p><p class='txt'><b>The rule of semiconductors: order cuts come two quarters before capex cuts.</b> So the second half of 2027 is the threshold. Before then, Broadcom's numbers will look good; after that, it depends on whether this round of infrastructure buildout generates real revenue.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Sector view: the division of labour favours Broadcom; the standards war is the biggest variable.</b> Training goes to GPUs, inference to ASICs, and this split will hold until 2027; if Ethernet wins cluster interconnect, Broadcom's networking leg becomes its second growth curve.<b>The cycle sits in the middle of an upswing; watch for order cuts starting in the second half of 2027.</p><p class='txt'>One more easily overlooked competitor: the cloud providers' in-house chip teams. Google TPU, Amazon Trainium and Microsoft Maia are all captive, so they are not Broadcom's competitors but its customers or substitutes. If Google decides to sell TPU to third parties, however, Broadcom's business logic would be fundamentally shaken.</b></p><p class='txt'>Finally, one more easily overlooked competitor: the cloud providers' in-house chip teams. Google TPU, Amazon Trainium and Microsoft Maia are all captive, so they are not Broadcom's competitors but its customers or substitutes. But if one day Google decides to sell TPU to third parties, Broadcom's business logic would be fundamentally shaken—that would mean its strongest customer becomes its strongest rival.</p></div>
+</div>
+<div class="footer">Broadcom (AVGO) · 2026/10/02</div>
+</body>
+</html>

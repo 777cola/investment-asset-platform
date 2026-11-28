@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>六關篩選 — 微軟</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/microsoft/1-六关快速筛选/微软-六关筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/microsoft/1-六關快速篩選/微軟-六關篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/microsoft/1-Six-Gate-Screen/Microsoft-Six-Gate Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>六關篩選 — 微軟</h1>
+  <div class="subtitle">微軟 (MSFT) | 01 · 六關篩選</div>
+  <div class="meta">研究日期 2026/07/31 &nbsp;·&nbsp; 股價 $464.72（+3.02%） &nbsp;·&nbsp; 市值 約 3.45 萬億美元 &nbsp;·&nbsp; PE(TTM，FY2026) 約 25.8x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/microsoft/00-微軟研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：好公司，價格公道但沒有折扣</h3><p class='txt'>六關裡前四關幾乎沒有爭議：賣訂閱、賣算力、賣席位，收入結構一眼看穿；毛利率 67.2%、營業利益率 45.1%；客戶換不掉它。卡住的是第五關。<b>25.8 倍 TTM、23 倍 FY2027 預期，對一家 EPS 還能漲兩成的公司不算貴，但自由現金流收益率只有 1.9%</b>——價格裡沒有折扣，只有確定性。所以結論是買入，但只能分批，因為 7 月 30 日那個 16% 的跳空已經把好消息兌現在價格裡了。</p></div><table class="dt"><caption>六關評分（滿分 10 分，綜合 60 分）</caption><thead><tr><th>關卡</th><th>判定</th><th>評分</th><th>依據</th></tr></thead><tbody><tr><td>第一關：能力圈</td><td>透過</td><td>9/10</td><td>賣訂閱（M365）、賣算力（Azure）、賣席位（Copilot），收入結構可拆、可預測</td></tr><tr><td>第二關：好生意</td><td>透過</td><td>9/10</td><td>毛利率 67.2%、營業利益率 45.1%、預收款模式；瑕疵是越來越像重資產公司</td></tr><tr><td>第三關：護城河</td><td>透過</td><td>9/10</td><td>身分、合規、審計、文件格式四層綁定，遷移成本以年計；Azure 靠容量與合規資質</td></tr><tr><td>第四關：管理層</td><td>透過</td><td>8/10</td><td>納德拉把 AI 從敘事做成了收入；扣分項是折舊年限從 15 年改到 25 年</td></tr><tr><td>第五關：安全邊際</td><td>勉強通過</td><td>6/10</td><td>23 倍 FY2027、自由現金流收益率 1.9%，中性 564 美元對現價只有 21% 空間</td></tr><tr><td>第六關：紀律</td><td>透過</td><td>7/10</td><td>買入理由可寫成三條可驗證前提：Azure 增速、RPO 轉化、Copilot 席位</td></tr><tr><td>綜合</td><td>買入</td><td>48/60</td><td>前四關高分、後兩關及格；三筆建倉，跌回 430 以下加倍</td></tr></tbody></table><div class="note">評分沿用底稿口徑。市值 3.45 萬億美元 = 464.72 美元 × 約 74.2 億股（粗算，按市值÷股價反推股本）；25.8 倍為 FY2026 GAAP 稅後淨利口徑，FY2026 稅後淨利約 1,337 億美元（按 3.45 萬億 ÷ 25.8 反推）。</div><div class="section"><div class="section-title">前三關：看得懂、算得清、搶不走</div><p class='txt'>微軟的生意一句話能說完：企業每個月按人頭付訂閱費，用 Office、Teams、Entra 辦公；需要算力的時候，再按用量付 Azure 的錢；現在多了一層，每個席位再加 30 美元買 Copilot。FY2026Q4 營收 900.1 億美元、同比 +17.8%，其中智慧雲 393 億、同比 +32%，微軟雲合計 593 億、同比 +27%，全年 2,140 億。<b>收入的三分之二來自按年簽、按人頭收的商業合約，這種收入天生比廣告和硬體可預測。</b></p><p class='txt'>好生意的證據在利潤率上。毛利率 67.2%、營業利益率 45.1%、稅後淨利 357.7 億，淨利率 39.7%。這三條同時成立的公司，全球不超過十家。但要注意毛利率同比掉了 1.4 個百分點——<b>賣軟體是 80% 毛利，賣算力是 60% 毛利，Azure 占比每提高一格，blended 毛利率就往下掉一格</b>，這是結構，不是失誤。</p><p class='txt'>護城河打 9 分。不是因為客戶喜歡微軟，是因為換不掉：一家五萬人的公司要換掉 Office + Entra + Azure，等於把 IT 架構重做一遍，身分、權限、稽核、合規文件全部重簽。這種嵌入深度帶來的是惰性，而惰性比偏好更可靠——偏好會變，惰性不會。</p></div><div class="section"><div class="section-title">第四關：能力沒問題，會計有問題</div><p class='txt'>納德拉 2014 年 2 月接手時微軟市值 3,000 億美元，現在 3.45 萬億。他做對的事只有一件：把一次性賣 license 改成按年訂閱，然後把這套分發能力搬到雲上。這一步在 2014 年看是戰略，在 2026 年看是基礎設施。</p><p class='txt'>扣分扣在一處：<b>折舊年限從 15 年延長到 25 年</b>。按受影響資產占折舊基數一半、年限拉到 25 年粗算，每年少提折舊約 40–50 億美元，對應 EPS 約 0.5 美元，不到 4%。金額不大，但方向值得記住——這是把成本往後挪，不是把成本消滅。同一份財報裡，FY2027 資本開支指引從 1,900 億「變成」1,750 億，也是口徑調整（部分租賃與第三方容量不再計入資本開支），現金支出並沒有少。<b>兩件事疊在一起，報表比現金好看。</b></p><p class='txt'>給 8 分。能力夠，透明度打折，但沒到需要否決的程度。</p></div><div class="section"><div class="section-title">第五關：安全邊際的帳，卡在現金流不在本益比</div><p class='txt'>25.8 倍 TTM 對應 18% 的營收增速、20% 以上的 EPS 增速，PEG 約 1.2。放在 2020 年算貴，放在微軟自己過去五年 22–32 倍的區間裡算中位。這一關真正的減分項不在 PE，在現金：<b>FY2026 自由現金流 670 億美元、市值 3.45 萬億，收益率 1.94%</b>；單季資本開支 410 億、同比 +70%，自由現金流 196 億、同比 -23%。</p><p class='txt'>換句話說，你買的是一家利潤在漲、現金在縮的公司。這在資本開支上行期是正常的，但它決定了估值上限：<b>在資本開支見頂之前，微軟的現金流撐不起 30 倍以上的倍數。</b>中性情景 564 美元（FY2028 EPS 23.5 × 24 倍）對現價 464.72 美元只有 21% 空間，悲觀 400 美元是 -14%，賠率 1.5:1。這個賠率對一家確定性這麼高的公司夠了，但不夠到可以一次買滿。給 6 分，勉強通過。</p></div><div class="section"><div class="section-title">第六關：買入理由能不能寫成三句可證偽的話</div><p class='txt'>能。第一句：<b>Azure 增速在 FY2027 四個季度都維持在 35% 以上</b>（Q4 是 43%，下季指引 45%）。第二句：<b>商業 RPO 6,780 億裡，12 個月內確認的那 30% 如期轉成收入</b>，也就是未來四季度的商業訂單轉化率不低於 30%。第三句：<b>Copilot 付費席位從 3,000 萬走到 6,000 萬，且公司開始披露 ARPU</b>。</p><p class='txt'>三句話都能按季度對帳，這是微軟最大的好處——它不需要你相信任何故事，只需要你看數字。紀律給 7 分，扣的是執行難度：財報後兩天股價漲了 19%，一次性買入等於替別人的浮盈買單。分批不是擇時，是不讓單點判斷決定全部成本。</p></div><div class="section"><div class="section-title">六關之外：兩件容易被忽略的事</div><p class='txt'><b>一是 RPO 的品質比總量重要。</b>6,780 億元、同比 +84%，但剔除 OpenAI 之後只有 +25%。這既說明非前沿模型客戶在托底，也說明 OpenAI 一家占了增量的一大塊。加權期限 2.3 年、只有 30% 在 12 個月內確認——<b>訂單簿不是收入，是承諾。</b></p><p class='txt'><b>二是資本支出的對手盤在變。</b>微軟 FY2027 計畫投 1,750 億美元，相當於 FY2026 全年營收的 53%。亞馬遜、谷歌在做同樣的事，甲骨文拿 OpenAI 的單子搶產能。三家比的不再是誰的技術好，是誰的錢更便宜、誰的電更早到位。這一層競爭，財報上看不出來。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：買入，分批。</b>觸發條件是價格，不是消息：現價 464.72 美元建第一筆（三分之一），跌回 430 以下加第二筆並加倍，FY2027Q1 財報確認 Azure ≥40% 後補第三筆；漲過 560 美元停止加倉。否決項：無。待驗證項四個——FY2027 資本支出 1,750 億對應的折舊曲線、Azure 增速裡價與量的拆分、RPO 12 個月內 30% 的轉化、Copilot 的實際 ARPU。</p></div>
+</div>
+<div class="footer">微軟 (MSFT) · 2026/07/31</div>
+</body>
+</html>

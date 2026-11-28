@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務驗證 — 快手</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/kuaishou/3-财务数据交叉验证/快手-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/kuaishou/3-財務數據交叉驗證/快手-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/kuaishou/3-Financial-Cross-Check/Kuaishou-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務驗證 — 快手</h1>
+  <div class="subtitle">快手 (01024) | 03 · 財務驗證</div>
+  <div class="meta">研究日期 2026/10/12 &nbsp;·&nbsp; 股價 HK$29.26（-2.79%） &nbsp;·&nbsp; 市值 約 1,267 億港元 &nbsp;·&nbsp; PE(TTM) 約 10.5 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/kuaishou/00-快手研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>把 2026Q2 的九個關鍵數字過了一遍雙源：業績公告 vs 券商點評與媒體轉述。七項偏差在 0.2% 以內，屬於四捨五入；兩項要單獨解釋口徑——現金類資產（242.7 億 vs 235 億，差 3.2%）差在是否含定期存款與理財，研發（46 億 vs 45.8 億，差 0.4%）差在資本化處理。</p><p class='txt'><b>沒有發現需要推翻底稿的數字衝突。</b>真正要盯的不是偏差，是「公司不再披露 GMV」這類口徑收縮——它讓第三方無法驗證電商那條線。</p></div><table class="dt"><caption>2026Q2 關鍵數據雙源對照（億元人民幣）</caption><thead><tr><th>指標</th><th>來源A：業績公告</th><th>來源B：券商／媒體</th><th>偏差</th><th>處理</th></tr></thead><tbody><tr><td>總收入</td><td>355.35</td><td>355.3（招商證券點評）</td><td>0.01%</td><td>採用 355.35</td></tr><tr><td>線上營銷服務</td><td>206</td><td>205.8</td><td>0.10%</td><td>採用 206（公告取整）</td></tr><tr><td>直播</td><td>87</td><td>86.9</td><td>0.11%</td><td>採用 87</td></tr><tr><td>其他服務（含可靈）</td><td>62</td><td>62.0</td><td>0.00%</td><td>採用 62</td></tr><tr><td>可靈 AI 收入</td><td>8.5</td><td>8.5（每經轉述）</td><td>0.00%</td><td>採用 8.5</td></tr><tr><td>毛利率</td><td>51.6%</td><td>51.5%（按毛利／收入反算）</td><td>0.1pct</td><td>採用 51.6%</td></tr><tr><td>經調整淨利</td><td>39.13</td><td>39.1</td><td>0.08%</td><td>採用 39.13</td></tr><tr><td>研發開支</td><td>46</td><td>45.8</td><td>0.43%</td><td>採用 46</td></tr><tr><td>現金類資產</td><td>242.7</td><td>235（僅現金及等價物）</td><td>3.2%</td><td>採用 242.7</td></tr></tbody></table><div class="note">來源A：快手科技 2026 年第二季度及中期業績公告（2026/08/18）。來源B：招商證券《快手-W 2026Q2 點評》（2026/08/23）、每日經濟新聞可靈報導（2026/08/23）、stockanalysis.com/quote/hkg/1024 資產負債表口徑。偏差 = |A-B|/A。</div><div class="section"><div class="section-title">兩處需要解釋的口徑差，不是錯誤</div><p class='txt'><b>現金類資產：242.7 億 vs 235 億，差 7.7 億。</b>公告口徑是現金及等價物 + 定期存款 + 理財合計；stockanalysis 只抓資產負債表上的「現金及現金等價物」科目，定期存款和理財在別的行裡。差 3.2% 全部來自這裡。處理：估值時用 242.7 億，因為它確實是可動用的、能覆蓋有息負債的資產；但要說明這裡面含受限部分，不做「淨現金可全額分紅」的假設。</p><p class='txt'><b>研發：46 億 vs 45.8 億，差 0.43%。</b>媒體轉述通常直接抄「研發開支」行，公告裡的研發開支含股權激勵分攤，部分口徑會做資本化調整。差額不到 2,000 萬元，不影響任何結論。處理：採用 46 億。</p></div><div class="section"><div class="section-title">必須自己算的三處：毛利、淨利率、利潤差額</div><p class='txt'>公告只給毛利率 51.6%，不給毛利額。355.35 × 51.6% = <b>183.4 億元</b>，這是計算值不是披露值，表裡必須標出來。去年 350.4 × 55.7% = 195.2 億元，同比 -6.0%——注意：收入 +1.4%、毛利 -6.0%，這個剪刀差就是利潤下滑的源頭。</p><p class='txt'>報表淨利 31.52 億與經調整淨利 39.13 億差 <b>7.61 億元</b>，這個差額是股權激勵費用與無形資產攤銷（含可靈相關投入的攤銷）。做同比時不能混用兩個口徑：31.52 對去年 49.22 是 -36.0%，39.13 對去年 56.14 是 -30.3%。<b>兩個數都對，混用就錯。</b></p><p class='txt'>底線是「經調整口徑」，因為它剔除了可靈分拆前後股權激勵計價的波動，跨期可比；但如果要算股東能拿到多少，必須回到 31.52 億的報表淨利。</p></div><div class="section"><div class="section-title">對不上的那一條：市值與股本</div><p class='txt'>29.26 港元 × 43.3 億股 = 1,267 億港元，與底稿市值一致。但 PE 10.5 倍反推出的 TTM 淨利約 120.7 億港元（約 110.5 億元），比 2026 年上半年的 82 億元左右（62 + 20 粗算口徑）年化更高——<b>說明 2025 年下半年利潤明顯好於 2026 年上半年</b>，TTM 裡含著已經消失的高基數。</p><p class='txt'>這就是為什麼 TTM PE 10.5 倍、前瞻 PE 12.9 倍。市場不傻，它用的是前瞻。凡是拿 10.5 倍說「便宜」的分析，都要先檢查分母是哪一段。</p></div><div class="section"><div class="section-title">口徑風險：公司不再披露的東西</div><p class='txt'>2026 年起快手不再按季披露電商 GMV，只披露商家數和佣金收入。這意味著：① 電商這條線的真實增速無法被第三方交叉驗證；② 佣金收入被併入「其他服務」，與可靈 8.5 億元混在一張表裡；③ 賣方模型裡的 GMV 假設全部是估算。</p><p class='txt'><b>對研究者來說，口徑收縮本身就是一條資訊：公司選擇不披露的，通常是正在變差的。</b></p></div><div class="section"><div class="section-title">我額外做的一處敏感性測試</div><p class='txt'>毛利率 51.6% 是這份財報裡最值得做敏感性的一項。收入 355 億元，毛利率每變動 1pct 就是 3.55 億元毛利，相當於經調整淨利的 9%。2026Q2 同比 -4.1pct，等於讓掉了 14.6 億元毛利，覆蓋了淨利下滑 17 億元的九成。</p><p class='txt'><b>換句話說：利潤下滑不需要用「AI 投入」來解釋，光分成成本上升就夠了。</b>研發多花的約 12 億元是第二層原因，兩者疊加才讓 -30.3% 成立。這個拆法對判斷很關鍵——如果下滑主要來自分成，那是結構性的（要搶創作者就得一直讓利）；如果主要來自研發，那是階段性的（投入期過了會回來）。目前證據指向前者。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>九個數字裡七個對得上，兩個超 1% 的偏差都能用口徑解釋，底稿的數字可以放心用。真正需要記住的三件事：毛利是算出來的（183.4 億）、淨利有兩個口徑（31.52 與 39.13）、TTM 裡含著 2025 年下半年的高基數。</p></div>
+</div>
+<div class="footer">快手 (01024) · 2026/10/12</div>
+</body>
+</html>

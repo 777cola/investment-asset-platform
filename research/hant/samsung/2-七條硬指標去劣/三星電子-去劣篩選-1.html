@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣篩選 — 三星電子</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/samsung/2-七条硬指标去劣/三星电子-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/samsung/2-七條硬指標去劣/三星電子-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/samsung/2-Seven-Hard-Metrics/Samsung Electronics-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>去劣篩選 — 三星電子</h1>
+  <div class="subtitle">三星電子 (005930.KS) | 02 · 去劣篩選</div>
+  <div class="meta">研究日期 2026/09/21 &nbsp;·&nbsp; 股價 ₩275,000（+5.77%） &nbsp;·&nbsp; 市值 約 1,793 萬億韓元（約 1.20 萬億美元，按 65.2 億股、1,500 韓元／美元粗算） &nbsp;·&nbsp; 本益比（2026 上半年年化） 約 7.5x（按上半年稅後淨利 118.7 萬億韓元×2 粗算）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/samsung/00-三星電子研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：去劣這一關它不是被淘汰，是被標記</h3><p class='txt'>七條硬指標過六條，唯一不過的是<b>利潤穩定性</b>：2023Q2 半導體虧 4.36 萬億韓元，2026Q2 賺 89.2 萬億，三年擺動二十倍。這條不過不致命——它是週期股的定義，不是經營失誤——但它決定了後面所有的倉位規則。</p><p class='txt'>其餘六條過得很輕鬆：毛利率 69.6%、淨利率 41.8%、ROE 年化約 24%、淨現金、經營現金流覆蓋淨利、利息覆蓋倍數用不上（沒有淨利息支出）。<b>去劣篩選的目的是排除「生意本身不行」的公司，三星不屬於這一類；它屬於「生意行、時點難」的那一類。</b></p></div><table class="dt"><caption>七條硬指標（2026Q2 資料，ROE 為上半年年化）</caption><thead><tr><th>指標</th><th>公司數值</th><th>門檻</th><th>判定</th></tr></thead><tbody><tr><td>ROE</td><td>約 24%（年化淨利 237.4 萬億元 ÷ 淨資產約 996 萬億元）</td><td>≥15%</td><td>透過</td></tr><tr><td>毛利率</td><td>69.6%（2025Q2 為 34.2%）</td><td>≥40%</td><td>透過</td></tr><tr><td>淨利率</td><td>41.8%（稅後淨利 71.62 萬億元）</td><td>≥10%</td><td>透過</td></tr><tr><td>淨負債／權益</td><td>淨現金（無淨有息負債）</td><td>≤0</td><td>透過</td></tr><tr><td>營業現金流／稅後淨利</td><td>約 1.0 以上（折舊攤銷回加，粗算）</td><td>≥0.8</td><td>透過</td></tr><tr><td>利息覆蓋</td><td>不適用：淨利息收入為正</td><td>≥8 倍</td><td>透過</td></tr><tr><td>利潤穩定性</td><td>2023Q2 半導體 -4.36 萬億元 → 2026Q2 +89.2 萬億元</td><td>峰谷比 ≤5 倍</td><td>不通過</td></tr></tbody></table><div class="note">口徑：ROE 用上半年淨利年化（118.7×2＝237.4 萬億元）除以按 1.8 倍 PB 反推的淨資產；營業現金流未在季報快報中單列，按淨利＋折舊攤銷粗算，標註「粗算」；利息覆蓋因公司為淨現金狀態，指標不適用。</div><div class="section"><div class="section-title">六條通過說明了什麼</div><p class='txt'>三條盈利指標全部大幅超標：毛利率 69.6%（門檻 40%）、淨利率 41.8%（門檻 10%）、ROE 約 24%（門檻 15%）。<b>這不是「勉強及格」，是三倍以上的富餘。</b>原因是價格：DRAM 均價環比 +44%、NAND +53%，成本幾乎沒變，漲價直接落到毛利裡。</p><p class='txt'>三條資產負債表指標更乾淨。三星長期是淨現金公司，2026 年上半年淨利 118.7 萬億韓元，這些錢沒有拿去還債——因為沒有債要還。經營現金流覆蓋淨利沒有問題：記憶體是重資產，折舊攤銷每年在 30 萬億韓元以上，淨利加上折舊回加，現金流只會比利潤更高。</p><p class='txt'>所以去劣篩選的結論很明確：<b>這不是一家需要被排除的公司。</b>七條硬指標原本是用來篩掉「看起來便宜、實際上是價值陷阱」的標的——高負債、低毛利、靠應收帳款撐收入的那些。三星和這些特徵一條都不沾。</p></div><div class="section"><div class="section-title">唯一未過關的那一項：利潤穩定性</div><p class='txt'>2023Q2，三星半導體部門營業虧損 4.36 萬億韓元，是公司歷史上最難看的單季數字之一；三年後的 2026Q2，同一個部門賺 89.2 萬億。<b>峰谷比超過 20 倍，任何「穩定」的標準都過不了。</b></p><p class='txt'>要理解這條為什麼不算致命：虧損那年不是經營出了問題，是全市場價格跌破成本。三星當年的 DRAM 份額沒掉、技術節點沒落後、客戶沒流失，只是價格週期走到了底部。用「利潤穩定性」去否定它，等於用「不能有週期」去否定整個記憶體行業。</p><p class='txt'>但這條必須標記，因為它改變了估值方法。穩定的公司可以用 PE、用 DCF；週期公司只能用 PB、用正常化利潤、用重置成本。<b>我後面所有的目標價都按「週期股倍數」給，不給成長股倍數，就是因為這一條不過。</b></p></div><div class="section"><div class="section-title">如果只過了四條，結論會不一樣</div><p class='txt'>做個反向檢驗：假設毛利率只有 45%、淨利率 12%、有 30 萬億元淨負債，那麼即便 PE 只有 7.5 倍，也不該買——因為下行週期裡它會先死。三星不是這種情況，它的淨現金和 39.4% 的份額就是「死不了」的證明。</p><p class='txt'>真正需要警惕的是另一種組合：<b>七條全過、但估值給到 20 倍 PE</b>。那時候它是「好公司貴價格」，風險比現在大。現在是「好公司在週期頂、價格打了折」，風險來源不同，處理方式也不同——前者等回調，後者分批買、控制倉位。</p></div><div class="section"><div class="section-title">去劣之後的動作</div><p class='txt'>七條過六條，進入下一層：值不值得買、什麼價格買。這兩件事不由去劣篩選回答，由估值和週期位置回答。<b>去劣篩選唯一給出的結論是：可以把時間花在它身上。</b></p><p class='txt'>從操作上看，這條結論的實際含義是：允許它在組合裡占 3%—5%，允許在下跌時加倉（因為不是價值陷阱），但不允許因為「PE 只有 7.5 倍」就重倉（因為分母不可持續）。這就是「標記」和「淘汰」的區別。</p></div><div class="summary-box"><h3>結論</h3><p>七條過六條，<b>不淘汰，標記為週期型標的</b>。不過的那條（利潤穩定性）不是經營問題，是行業屬性，但它把估值方法鎖死在「PB + 正常化利潤」這一套上。<br>操作含義：可以買，可以用週期股的方式加倉，但不能用成長股的倉位去配它。</p></div>
+</div>
+<div class="footer">三星電子 (005930.KS) · 2026/09/21</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industry Funnel — TSMC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/tsmc/11-行业漏斗对比/台积电-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/tsmc/11-行業漏斗對比/台積電-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/tsmc/11-Industry-Funnel/TSMC-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Industry Funnel — TSMC</h1>
+  <div class="subtitle">TSMC (2330.TW) | 11 · Industry Funnel</div>
+  <div class="meta">Research date 2026/09/11 &nbsp;·&nbsp; Price NT$2,410 (-1.63%) &nbsp;·&nbsp; Market cap Approximately TWD 62.5 trillion (about USD 1.95 trillion) &nbsp;·&nbsp; PE(TTM) Approximately 27.9x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/tsmc/00-TSMC-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core call: no need to pick a winner in this industry, because only one company is running.</h3><p class='txt'>Put the world's six major foundries in one table and screen them on five dimensions: market cap, growth, gross margin, PE and ROE. Samsung Foundry is loss-making and customers do not trust it; Intel Foundry is burning cash during its ramp; SMIC is locked down by equipment controls; UMC and GlobalFoundries have exited advanced nodes. <b>After this rough screen only TSMC remains — not because it was "selected", but because there is no alternative.</b></p></div><table class="dt"><caption>Global leading foundry comparison (mid-2026, estimated)</caption><thead><tr><th>The company</th><th>Market-cap scale</th><th>Revenue growth</th><th>Gross margin</th><th>PE</th><th>ROE</th></tr></thead><tbody><tr><td>TSMC</td><td>About USD 1.95 trillion</td><td>+36%（2026Q2）</td><td>67.7%</td><td>27.9x（TTM）</td><td>Approximately 33%</td></tr><tr><td>Samsung Electronics (including foundry)</td><td>On the order of USD 500 billion</td><td>Foundry business valued at +20%</td><td>Foundry estimated at 30%–40%</td><td>Approximately 10–12x</td><td>Approximately 12%</td></tr><tr><td>Intel (including foundry)</td><td>Around USD 200 billion</td><td>Foundry business still loss-making</td><td>Overall approximately 35%</td><td>— (profit too low)</td><td>Approximately 3%</td></tr><tr><td>SMIC</td><td>Around USD 100 billion</td><td>+36%（2026Q2）</td><td>Approximately 22%</td><td>Approximately 80x</td><td>Approximately 3%</td></tr><tr><td>United Microelectronics Corporation</td><td>Around USD 20 billion</td><td>Single-digit growth</td><td>Approximately 30%</td><td>Around 14x</td><td>Approximately 12%</td></tr><tr><td>GlobalFoundries</td><td>On the order of USD 25 billion</td><td>Single-digit growth</td><td>About 25%</td><td>Approximately 25x</td><td>About 8%</td></tr></tbody></table><div class="note">Market cap and PE are order-of-magnitude estimates as of September 2026 (cross-market conversion; exchange rates are volatile) and are used for ranking only, not as a precise basis. Samsung and Intel are on a group-wide basis; foundry results are not disclosed separately.</div><div class="section"><div class="section-title">I. Initial screening: three hard criteria eliminate four companies</div><p class='txt'>First, whether advanced process nodes are in mass production with commercially viable yields. TSMC (2nm), Samsung (2nm ramp) and Intel (18A ramp) pass; SMIC (7nm-class), UMC (14nm) and GlobalFoundries (14nm) are out outright.</p><p class='txt'>Second, whether the foundry business is profitable. Samsung Foundry is estimated to be loss-making (yield problems drive up costs) and Intel Foundry is clearly loss-making (still in its investment phase in 2026), so both are out. Third, whether customers are willing to entrust it with flagship products. Samsung is excluded because it competes with its customers, and Intel lacks trust. After these three tests, only TSMC remains.</p></div><div class="section"><div class="section-title">II. Comparing the remaining two: TSMC vs Samsung</div><p class='txt'>Samsung is the only rival keeping pace at the process node: its 2nm volume production lags TSMC by only a little, and it has enough EUV tools. The gap is yield — on SRAM test structures TSMC is near 90%, while Samsung is estimated at around 70% (market estimate). A 20 percentage point yield gap means unit costs more than 30% higher, which is why Samsung's foundry business loses money.</p><p class='txt'>The bigger problem is trust: Samsung makes its own phones, memory and chip designs, so a customer handing it a flagship chip is handing its product roadmap to a competitor. That structural barrier has gone unresolved for a decade and will be hard to fix.</p><p class='txt'>A note on capacity: Samsung's 12-inch monthly capacity is close to TSMC's, but it is split between memory and logic and is hard to switch; TSMC's capacity serves logic foundry exclusively, giving it higher scheduling efficiency. This is the advantage of focus over diversification.</p></div><div class="section"><div class="section-title">III. Why It: In One Word, Yield&lt;/p&gt;</div><p class='txt'>Not "most advanced technology," because Samsung's node numbers are the same; not "cheapest," because its quotes are double UMC's; not "largest capacity," because Samsung's 12-inch capacity is not much smaller. <b>It is yield — from the same wafer, it can cut more qualified chips.</b></p><p class='txt'>Yield is a composite function of data, process and experience; it cannot be bought with equipment, nor poached with people. TSMC's thirty years of accumulated process-parameter libraries, the historical data of every production line, and the post-mortem of every failure form an asset that cannot be replicated. This is its true moat, and the starting point for every judgment in this report.</p></div><div class="section"><div class="section-title">IV. The conclusion from this funnel is a bit dull</div><p class='txt'>The normal outcome of an industry funnel is "screen ten down to three, then pick one." In foundry, the outcome is "screen six down to one," because economies of scale and the learning curve push the industry toward extreme concentration. That is good for investors—no need to pick stocks, only to pick the price.</p><p class='txt'>The downside: there is no substitute to hedge with. To invest in the manufacturing leg of AI compute, you can only buy TSMC, or buy its upstream (ASML, Applied Materials) and downstream (NVIDIA). That also explains why its valuation has always carried a premium—scarcity itself is part of the valuation.</p></div><div class="section"><div class="section-title">V. The valuation gap: why it trades at 28x and Samsung at 10x</div><p class='txt'>In foundry, TSMC trades at 27.9x TTM PE, Samsung Electronics at about 10–12x, UMC at about 14x, and SMIC at about 80x (A-share premium). The gap is not market bias; it prices three things: certainty (order visibility through 2027), capital returns (ROE 33% vs 12%), and scarcity (no substitute).</p><p class='txt'>SMIC's 80x follows a different logic—an A-share liquidity premium plus the domestic substitution narrative, with little connection to fundamentals. Excluding it, the reasonable PE range for foundry is 12–28x, with TSMC at the top.</p><p class='txt'><b>This means: buying TSMC is buying "the most expensive certainty"; buying Samsung is buying "cheap cyclicality."</b> Neither is wrong, but you need to know what you are buying.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Conclusion: TSMC wins on one ground alone—yield.</b> Of the five peers, some have exited advanced nodes, some are climbing the ramp at a loss, and some are locked down by export controls. Scarcity earns a valuation premium, and brings one risk: when TSMC itself stumbles, there is no substitute. So cap the position size.</p></div>
+</div>
+<div class="footer">TSMC (2330.TW) · 2026/09/11</div>
+</body>
+</html>

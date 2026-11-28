@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News — Meta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meta/12-新闻异动归因/Meta-新闻异动.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/meta/12-新聞異動歸因/Meta-新聞異動-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/meta/12-News-Attribution/Meta-News-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>News — Meta</h1>
+  <div class="subtitle">Meta (META) | 12 · News</div>
+  <div class="meta">Research date 2026/11/02 &nbsp;·&nbsp; Price $606.73 (-1.34%) &nbsp;·&nbsp; Market cap About USD 1.58 trillion &nbsp;·&nbsp; PE(TTM) Approximately 21x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/meta/00-Meta-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Attribution of the move: buy the narrative in September, sell the cash flow in October</h3><p class='txt'>From August to November, Meta ran through a full sentiment cycle: settlement reached → Muse went viral → shares hit an all-time high of USD 777.59 → negative cash flow in the earnings report → USD 95 billion equity issuance → pullback to USD 606.73. <b>Of the seven events, only the earnings report and the equity issuance changed the valuation; the other five were sentiment.</b></p></div><table class="dt"><caption>Key events and share price reactions over the past three months</caption><thead><tr><th>Date</th><th>Event</th><th>Same-day/next-day change</th><th>Nature</th><th>Interpretation</th></tr></thead><tbody><tr><td>8/26</td><td>Settles with the 52 state attorneys general for up to USD 18.59 billion, paid over ten years</td><td>+1.1%</td><td>Signal</td><td>Largest regulatory overhang cleared, but at the cost of product rules being changed</td></tr><tr><td>9/8</td><td>Launches personal agent Muse at USD 20/100 per month</td><td>Next day +6.6%</td><td>Signal</td><td>For the first time, an AI product charges consumers directly</td></tr><tr><td>9/21</td><td>Muse tops US App Store, Wells Fargo raises target price</td><td>+11.3%</td><td>Noise</td><td>Market cap up USD 192 billion in a single day, with no change in fundamentals</td></tr><tr><td>9/24</td><td>Intraday 52-week high of USD 777.59</td><td>—</td><td>Noise</td><td>Sentiment peak</td></tr><tr><td>10/13</td><td>Launches Muse Wonder and Wonder Full frontier models</td><td>+3.4%</td><td>Signal</td><td>Model capabilities rounded out, but no benchmark data disclosed</td></tr><tr><td>10/22</td><td>Q3 results: revenue above consensus, free cash flow -RMB 2.12 billion</td><td>-7.0%</td><td>Signal</td><td>Valuation logic shifts from "growth" to "cash flow"</td></tr><tr><td>10/26</td><td>EU antitrust fine of EUR 798 million; USD 95 billion equity financing launched the same day</td><td>-1.9%</td><td>Signal (financing) / noise (fines)</td><td>Fine equals 0.05% of market cap; financing is the real focus</td></tr></tbody></table><div class="note">Share price is the batchdata daily close: 8/25 570.05→8/26 576.14; 9/8 613.48→9/9 653.69; 9/18 665.75→9/21 741.245; 10/12 742.96→10/13 762.5; 10/21 697.52→10/22 648.85; 10/23 642.62→10/26 630.56. The 9/24 high of 777.59 is the 52-week highest close.</div><div class="section"><div class="section-title">Phase 1 (late August to mid-September): bad news lands, stock price holds</div><p class='txt'>On August 26, Meta reached a settlement with the attorneys general of 52 states, totaling up to USD 18.59 billion, payable over ten years, and making safety settings for teen accounts default-on. It is one of the largest state-level consumer protection settlements in US history. The stock rose just 1.1% that day—<b>showing the market had already priced in the fine expectation; the real new information is that "product rules have been permanently changed."</b></p><p class='txt'>This stretch also saw a 4.4% pullback (8/17 to 8/18, from 568.97 to 543.67), with no company-level news, part of broad tech-sector volatility.<b>Such declines need no explanation and no action.</b></p></div><div class="section"><div class="section-title">Phase 2 (September): a valuation re-rating driven by one product</div><p class='txt'>Muse launched on September 8, drawing 730,000 downloads in 5 days and surpassing 10 million in 40 days. It topped the US App Store on September 21; the stock rose 11.3% that day, adding USD 192 billion in market cap, while Zuckerberg's net worth rose about 25 billion in a single day. On September 24 it set a 52-week high of USD 777.59.</p><p class='txt'><b>Market cap rose about USD 300 billion over the month, reflecting the narrative that "Meta is back at the AI table," not any revenue.</b> Muse revenue in the financials is zero — the Q3 report contains no contribution from it at all. The market is buying an option, not cash flow.</p></div><div class="section"><div class="section-title">Phase 3 (late October): cash flow takes center stage</div><p class='txt'>Earnings after the close on October 21: revenue of RMB 64.6 billion came in above the consensus, and the stock rose as much as 6% after hours; but the call was all about capex and 2027 expenses. The next day the stock fell 7.0%, then declined for four straight sessions, from 697.52 to 612.49, a cumulative -12.2%.</p><p class='txt'>On October 26, the EU's EUR 798 million fine and a USD 95 billion equity financing were announced on the same day. The stock fell 1.9%. <b>The market barely reacted to the fine (0.05% of market cap); its reaction to the financing was slow-burning — the stock fell another 4% over the next five days.</b></p><p class='txt'>On October 29, Google's earnings sent its stock down 13%, while Meta rose 2.0%. The day showed money rotating within the sector: out of Google, where investment is dragging on profit, and into Meta, where ad growth is faster. <b>But this is relative strength, not an absolute endorsement.</b></p></div><div class="section"><div class="section-title">One overlooked detail: 13 upgrades, stock still falls</div><p class='txt'>At least 13 investment banks raised their target prices after the earnings report, including Bernstein and Morgan Stanley, citing advertising resilience and Muse's potential. Yet the stock fell from 697.52 to 606.73, a 13% decline. <b>Sell-side looks at cash flow 12 months out; buy-side sells the uncertainty within 12 months.</b></p><p class='txt'>This divergence is common during capital-intensive transitions: analysts use DCF, and the DCF denominator is long-term growth, so the more the stock falls, the cheaper it looks; traders use positioning, and positioning looks at next quarter's free cash flow, so the more the stock falls, the less they dare to buy. <b>Two languages coexist, and price is set by the latter.</b></p></div><div class="section"><div class="section-title">Which are noise: three criteria</div><p class='txt'>First, look at each amount as a share of market cap. The EU's EUR 798 million fine equals 0.05% of the EUR 1.58 trillion market cap — noise. The EUR 18.59 billion settlement equals 1.2% — a signal, but not fatal. The EUR 95 billion financing equals 6% — the signal of signals.</p><p class='txt'>Second, ask whether it changes future cash flow. Muse topping the App Store does not change current cash flow (revenue is zero) — noise. Raising the capex guidance by EUR 5 billion changes depreciation over the next three years — a signal.</p><p class='txt'>Third, ask whether there is a verifiable follow-through. The settlement has a ten-year payment schedule and is verifiable; Muse download volumes have no retention data and are not verifiable.</p></div><div class="section"><div class="section-title">Without Muse, what would it be worth now</div><p class='txt'>A counterfactual exercise: assume Muse had never launched, and the market would price Meta as "an advertising company growing 26% + USD 140 billion of capex." At 2027 EPS of USD 28 and 18x, that is USD 504; at 20x, USD 560.</p><p class='txt'><b>In other words, of the current price of USD 606.73, roughly USD 50 to 100 is Muse's option value, or 8%–16%.</b> That pricing is not unreasonable—if Muse reaches USD 20 billion of revenue in 2028, at 10x PS that is a USD 200 billion market cap, which discounts back to exactly this magnitude.</p><p class='txt'>But remember: option value fluctuates, cash flow does not.<b>Most of September's USD 300 billion of market-cap gain falls into the former.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Attribution conclusion: September's rally was narrative; October's selloff was cash flow.</b> The former can be given back; the latter will not. The current USD 606.73 is roughly back to the pre-Muse launch level (September 4 close of 616.77), showing the market has fully erased the "Muse premium," and what remains is concern over cash flow. <b>This level is reasonable, not cheap.</b></p></div>
+</div>
+<div class="footer">Meta (META) · 2026/11/02</div>
+</body>
+</html>

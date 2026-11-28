@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⑧ 決策框架：三情景、1.5:1 賠率、三筆建倉 — 微軟</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/microsoft/16-八篇深度长文/微软-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/microsoft/16-八篇深度長文/微軟-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/microsoft/16-Eight-Long-Essays/Microsoft-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>⑧ 決策框架：三情景、1.5:1 賠率、三筆建倉 — 微軟</h1>
+  <div class="subtitle">八篇深度長文之八 · 把判斷變成可以執行的清單</div>
+  <div class="meta">研究日期 2026/07/31 &nbsp;·&nbsp; 股價 $464.72（+3.02%） &nbsp;·&nbsp; 市值 約 3.45 萬億美元 &nbsp;·&nbsp; PE(TTM，FY2026) 約 25.8x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/microsoft/00-微軟研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>前面七篇講的是「是什麼」，這一篇講「怎麼辦」。結論很簡單：<b>買入，分批，中性目標 564 美元，賠率 1.5:1，倉位上限 5%。</b>下面把每一個數字的依據寫清楚，方便三個月後回來打臉。</p></div><div class="section"><div class="section-title">三情境：為何錨定在 FY2028 而非 FY2027</div><p class='txt'>FY2027（2026 年 7 月–2027 年 6 月）是資本支出最高的一年，1,750 億投下去，折舊還沒完全上來，利潤被兩頭擠壓。用這一年的 EPS 估值，會低估長期盈利能力，也會高估短期風險。</p><p class='txt'>FY2028 更乾淨：折舊基本到位、Azure 增速回歸常態、Copilot 的收入能看清。三個情景都按 FY2028 EPS 算：</p><ul><li><b>悲觀 400 美元</b>：Azure 回落到 30%，折舊壓制利潤率，EPS 21 美元 × 19 倍。</li><li><b>中性 564 美元</b>：Azure 維持 40% 以上，EPS 23.5 美元 × 24 倍。</li><li><b>樂觀 700 美元</b>：Copilot 轉按量計費放量、雲毛利率企穩，EPS 26 美元 × 27 倍。</li></ul></div><div class="section"><div class="section-title">賠率：1.5:1 意味著什麼</div><p class='txt'>現價 464.72 美元，向上到 564 是 +21%，向下到 400 是 -14%，賠率 1.53:1。<b>這個賠率要求勝率超過 40% 才划算。</b>以微軟的確定性（客戶跑不掉、AI 收入已進表），我給勝率 55%–60%，期望收益約 +8% 到 +10%。</p><p class='txt'>這個期望值不算高，但對一家確定性這麼高的公司可以接受。它的問題不是「值不值得買」，是「值不值得重倉」——答案是不值得。所以倉位上限 5%，而不是 10%。</p><p class='txt'>如果跌到 430，賠率變成 4.5:1，期望收益升到 +19%，那時候才值得加到 4%。<b>倉位跟賠率走，不跟信心走。</b></p></div><div class="section"><div class="section-title">三筆建倉：把單點判斷拆成三個時點</div><ul><li><b>第一筆（現在，2%）</b>：464.72 美元。建立底倉的意義不是賺錢，是防止「一直等回調結果沒上車」。</li><li><b>第二筆（430 以下，加到 4%）</b>：對應 21 倍 FY2027，賠率 4.5:1。這一筆是「價格給的機會」。</li><li><b>第三筆（FY2027Q1 數據確認後，到 5%）</b>：用數據換倉位，不用價格換。如果 Azure 保持 40% 以上，說明加速是真的。</li></ul><p class='txt'>三筆的設計邏輯是：<b>第一筆買確定性，第二筆買價格，第三筆買數據。</b>三個理由分別獨立，任何一個不成立都不影響另外兩個。</p></div><div class="section"><div class="section-title">證偽條件：什麼時候認錯</div><p class='txt'>三條硬條件，任何一條成立就減碼，兩條同時成立就清倉：</p><ul><li>Azure 增速連續兩個季度低於 30%，且管理層解釋是「需求放緩」。</li><li>RPO 同比增速掉到 20% 以下，同時 12 個月轉化率低於 25%。</li><li>雲端毛利率跌破 55%。</li></ul><p class='txt'>注意：<b>股價下跌不是證偽條件。</b>跌 30% 而基本面沒壞，那是加碼機會；基本面壞了而股價沒跌，那才是危險。這條區分，是這套框架裡最值錢的一句話。</p></div><div class="section"><div class="section-title">三個月後回來對帳：三個問題</div><ul><li><b>Azure 增速有沒有守住 40%？</b>指引是 45%，如果實際低於 40%，說明加速是暫時的。</li><li><b>Copilot 有沒有披露 ARPU？</b>披露了，說明管理層有信心；繼續不披露，說明數字不好看。</li><li><b>資本開支有沒有超 450 億/季？</b>超了，說明「見頂」的判斷要往後推。</li></ul><p class='txt'>三個問題的答案決定我要不要改結論。如果三個都是壞消息，那就不是「買不買」的問題，是「賣不賣」的問題。<b>寫清楚對賬清單，是為了防止三個月後給自己找理由。</b></p></div><div class="section"><div class="section-title">敏感性：EPS 與倍數各差 10%，目標價差多少</div><p class='txt'>中性假設：FY2028 EPS 23.5 美元 × 24 倍 = 564 美元。做個敏感性測試：</p><ul><li>EPS −10%（21.2）× 24 倍 = 508 美元（+9%）</li><li>EPS +10%（25.9）× 24 倍 = 621 美元（+34%）</li><li>EPS 23.5 × 22 倍 = 517 美元（+11%）</li><li>EPS 23.5 × 27 倍 = 634 美元（+36%）</li></ul><p class='txt'>結論：<b>倍數的彈性比 EPS 大。</b>EPS 差 10% 只讓目標價差 57 美元，倍數差 3 倍讓目標價差 70 美元。這解釋了為什麼微軟的股價對「市場情緒」這麼敏感——大家交易的不是利潤，是給多少倍。</p><p class='txt'>對投資人的含義：判斷「AI 資本開支的回報」比精確預測 EPS 更重要，因為倍數由這件事決定。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：買入，分批，2%→4%→5%，中性 564 美元，賠率 1.5:1。</b>這套框架的核心不是預測，是紀律：價格決定倉位、數據決定加倉、證偽條件決定退出。微軟是這份名單裡最不需要預測的公司——它只需要你算清楚價格，然後等。</p></div>
+</div>
+<div class="footer">微軟 (MSFT) · 2026/07/31</div>
+</body>
+</html>

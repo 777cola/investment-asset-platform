@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組長彙總 — 波克夏</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/berkshire/5-四角色并行分析/伯克希尔-TeamLead-汇总.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/berkshire/5-四角色並行分析/波克夏-四角色-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/berkshire/5-Four-Role-Analysis/Berkshire-Four Roles-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>組長彙總 — 波克夏</h1>
+  <div class="subtitle">四份報告的共識、三處分歧與最終裁決</div>
+  <div class="meta">研究日期 2026/11/16 &nbsp;·&nbsp; 股價 $592.85（-0.02%） &nbsp;·&nbsp; 市值 約 1.26 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 16.6x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/berkshire/00-波克夏研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>四份報告獨立完成，交叉比對後有三處真分歧。分歧不在「買不買」，在「貴多少」和「什麼條件下變便宜」。</p></div><div class="section"><div class="section-title">共識：四條，沒有爭議</div><p class='txt'><b>① 資產質量一流。</b>四份報告一致給 8–9 分：浮存金負成本、鐵路雙寡頭、電力受監管、現金 3,774 億。沒有一份報告質疑生意本身。</p><p class='txt'><b>② 當期業績在下行。</b>營業利益 -5.8%、承保 -43%，四份報告都承認這是週期而非結構性。</p><p class='txt'><b>③ 價格貴。</b>1.66 倍帳面、24.8 倍營業利益，四份報告都認為不是買點。</p><p class='txt'><b>④ 現金去向是核心變數。</b>四份報告都把「3,774 億投什麼」列為第一位觀察項，重要性高於承保利潤的季度波動。</p></div><div class="section"><div class="section-title">分歧一：帳面價值是否低估了內在價值</div><p class='txt'>財務視角（巴菲特）認為<b>低估</b>：蘋果、運通的浮盈不在帳面，BNSF 與 BHE 的帳面低於重置成本，真實溢價可能只有 1.3–1.4 倍，所以管理層在高位回購是理性的。</p><p class='txt'>風險視角（李錄）認為<b>不能這麼算</b>：浮盈是市場給的，市場也能收回去；用「重估後的內在價值」給自己降價，是典型的自我安慰。</p><p class='txt'><b>裁決：</b>兩種算法都對，但不能混用。買入決策要用保守口徑（帳面），判斷管理層行為可以用重估口徑。<b>我們按帳面給估值，同時承認管理層的回購有邏輯。</b></p></div><div class="section"><div class="section-title">分歧二：保險下滑是週期還是趨勢</div><p class='txt'>行業視角（蒙格）判定<b>週期</b>：車險賠付正常化，綜合成本率 91.4% 仍健康，2027 年會見底。</p><p class='txt'>商業視角（段永平）更謹慎：GEICO 的直銷成本優勢正被 Progressive 的數據定價追平，-45% 的利潤下滑裡有一部分是<b>結構性的份額流失</b>，不只是週期。</p><p class='txt'><b>裁決：</b>七三開。七成週期、三成結構。證據是承保利潤下滑 43% 而綜合成本率只升了幾個點——說明保費基數還在，是利潤率的問題；但 GEICO 單獨 -45% 跌幅更大，說明它在讓份額。<b>觀察指標：GEICO 有效保單數，不是利潤。</b></p></div><div class="section"><div class="section-title">分歧三：3,774 億現金是資產還是負債</div><p class='txt'>財務視角看作<b>期權</b>：年化 4.5%、隨時可變現，是危機中的武器。</p><p class='txt'>風險視角看作<b>拖累</b>：把 ROE 從 13.2% 拖到 10.4%，三年沒出手，期權的時間價值在衰減。</p><p class='txt'><b>裁決：</b>取決於時間尺度。三年內是期權，五年以上是拖累。<b>給一個可檢驗的時限：如果 2028 年底前沒有單筆 300 億美元以上的部署，這筆現金就該按「永續 4.5% 債券」估值，屆時合理 PB 要下調到 1.4 倍以下。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>最終裁決：觀察，等回調。</b>四份報告沒有一份給出「買入」，也沒有一份給出「迴避」。共識區間是 500–520 美元（1.4 倍帳面），對應中性情景 +18%、悲觀情景 -6%。</p><p class='txt'>執行方案：不建倉，掛條件單。條件一，股價 ≤500 美元；條件二，單筆併購 ≥300 億美元；條件三，承保利潤回到 20 億美元/季。三條觸發任意兩條，把倉位打到 5%。</p></div>
+</div>
+<div class="footer">波克夏 (BRK.B) · 2026/11/16</div>
+</body>
+</html>

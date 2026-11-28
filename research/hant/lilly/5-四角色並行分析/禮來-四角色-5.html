@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組長彙總 — 禮來</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/lilly/5-四角色并行分析/礼来-TeamLead-汇总.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/lilly/5-四角色並行分析/禮來-四角色-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/lilly/5-Four-Role-Analysis/Eli Lilly-Four Roles-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>組長彙總 — 禮來</h1>
+  <div class="subtitle">四個視角的分歧點與裁決</div>
+  <div class="meta">研究日期 2026/11/09 &nbsp;·&nbsp; 股價 $1,411.95（+4.28%） &nbsp;·&nbsp; 市值 約 1.33 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 48x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/lilly/00-禮來研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>四票「不買」，但理由不同。最大分歧在口服藥——是暫時落後還是結構性輸了，這一條決定 2028 年以後的成長。我的裁決是「未定」，用 Foundayo 單季 5 億美元做驗證線。最終評級：觀察，等回調，觸發價 1,200 美元以下。</p></div><table class="dt"><caption>分歧點與裁決</caption><thead><tr><th>分歧</th><th>商業／財務</th><th>行業／風險</th><th>裁決</th></tr></thead><tbody><tr><td>口服藥前景</td><td>便利性會在留存率上翻盤</td><td>處方差三倍，諾和投入更大</td><td>未定，驗證線單季 5 億美元</td></tr><tr><td>毛利率是否見頂</td><td>規模效應抵得住降價</td><td>海外 -29%、Medicare 245 美元/月，單向下行</td><td>按緩慢下行建模：2027 年 82%、2028 年 79%</td></tr><tr><td>270 億產能</td><td>換份額，正確</td><td>2028 年可能過剩 30%</td><td>中性偏正，模型保留 70% 利用率悲觀檔</td></tr><tr><td>諾和降價的影響</td><td>禮來份額繼續擴大</td><td>行業價格中樞下移</td><td>短期有利、長期不利，分開講</td></tr><tr><td>估值</td><td>—</td><td>—</td><td>一致：48 倍 TTM，不買</td></tr></tbody></table><div class="note">本表為四角色分歧的裁決記錄，非資料表。</div><div class="section"><div class="section-title">四個分歧點</div><p class='txt'>四個人在結論上沒有分歧，全票「不買」。但<b>理由</b>不一樣，而且理由之間的差異決定了未來該盯什麼。我把分歧按重要性排了四個：</p><ul><li><b>分歧一：口服藥是「暫時落後」還是「結構性輸了」。</b>商業視角認為 Foundayo 的便利性（任意時間服、不用空腹）在 12–24 個月的留存率上會翻盤，禮來 2023 年就用 Zepbound 在注射劑上逆轉過一次；風險視角認為週處方 6.3 萬 vs 18.3 萬、差距三倍，且諾和把口服當成「不能輸的戰役」在投資源，這不是一個季度的差距。財務視角補了一刀：分析師已經把 Foundayo 2026 年營收預期從 30 億下修到 13 億。</li><li><b>分歧二：毛利率 84.4% 是不是頂。</b>商業與財務認為規模效應還在，產量攤薄能抵住降價；行業視角指出海外售價已經 -29%、美國 Medicare 淨價 245 美元/月，價格下行是單向的。</li><li><b>分歧三：270 億美元產能是護城河還是包袱。</b>財務認為這是「用今天的 FCF 換明天的份額」，正確；風險認為 2028 年若產能過剩 30%，減值會直接打到毛利率。</li><li><b>分歧四：諾和降價對禮來是好是壞。</b>行業視角認為諾和是被專利懸崖逼著降價，份額會繼續往禮來走；風險視角認為價格戰是行業性的，禮來跟不跟都得跟。</li></ul></div><div class="section"><div class="section-title">逐條裁決</div><p class='txt'><b>裁決一：口服藥按「未定」處理，不當成買入理由，也不當成賣出理由。</b>它的驗證指標很硬——Foundayo 單季 5 億美元、週處方 15 萬張。在到達之前，任何關於「便利性會贏」的論述都是故事。這一條直接決定 2028 年以後的成長曲線，是整份報告最重要的未解項。</p><p class='txt'><b>裁決二：毛利率按「緩慢下行」建模。</b>2027 年給 82%、2028 年給 79%，理由是美國淨價向海外靠攏 + 折舊上升。這已經足夠支撐中性情境 EPS 42 美元，不需要假設毛利率維持 84%。</p><p class='txt'><b>裁決三：產能按「中性偏正」處理。</b>禮來的擴產是在需求可見度高的前提下做的（替爾泊肽 9M 賣了 437.68 億、還在 +50% 以上），不是盲目擴張。但要在模型裡留一個「2028 年產能利用率 70%」的悲觀檔。</p><p class='txt'><b>裁決四：諾和降價對禮來短期有利、長期不利。</b>份額會繼續往禮來走（60/40 還在擴大），但行業價格中樞被拉低，五年後的單位利潤一定比今天薄。這兩個效應不能相互抵消著說，要分開說。</p></div><div class="section"><div class="section-title">最終裁決與觸發條件</div><p class='txt'><b>四個視角合起來，只有一件事是確定的：這家公司的經營沒有問題，問題全部在價格。</b>營收 243.97 億美元、+38.6%，指引第三次上調到 910–920 億，營業利益率指引 52%–52.5%，調整後 EPS 超共識 19.5%——這些數字沒有一處需要解釋或辯護。</p><p class='txt'>價格這邊：48 倍 TTM、39.8 倍 2026 年指引、33.6 倍 2027 年中性。中性目標價 1,344 美元低於現價 5%，悲觀 825 美元、樂觀 1,786 美元，賠率 0.6 比 1。<b>「好公司 + 壞價格」的組合，處理方式只有一個：等。</b></p><p class='txt'>最終裁決：<b>觀察，等回調。</b>觸發買入的條件二選一——股價跌到 1,200 美元以下（2027 年 28.6 倍，賠率翻到 1.4 比 1），或 Foundayo 單季賣過 5 億美元並連續兩季環比增長（那時可以接受 35 倍）。在此之前，任何「它是龍頭所以該配一點」的想法都是紀律失守。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>觀察，等回調。</b>這不是「不看好」，是「看好但不值這個價」。盯三件事：Foundayo 單季銷售、美國實際售價降幅、2027 年指引。三件事裡兩件變好，1,344 美元的中性目標就會上修，那時候 1,411.95 美元可能就合理了——但現在還不是。</p></div>
+</div>
+<div class="footer">禮來 (LLY) · 2026/11/09</div>
+</body>
+</html>

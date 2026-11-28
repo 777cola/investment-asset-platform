@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀（巴菲特） — CoreWeave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/coreweave/8-财报团队解读/CoreWeave-大师精读-巴菲特.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/coreweave/8-財報團隊解讀/CoreWeave-財報團隊解讀-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/coreweave/8-Earnings-Team-Read/CoreWeave-Earnings Team-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀（巴菲特） — CoreWeave</h1>
+  <div class="subtitle">資產負債表先說話，損益表靠後站</div>
+  <div class="meta">研究日期 2026/11/20 &nbsp;·&nbsp; 股價 $39.51（-12.02%） &nbsp;·&nbsp; 市值 約 220 億美元 &nbsp;·&nbsp; PE(TTM) —（GAAP 虧損，本益比無意義）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/coreweave/00-CoreWeave研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>巴菲特讀這份財報只會花十分鐘在利潤表上，剩下時間看負債表。<b>總債務 468.73 億、平均成本 7.9%、416 億有追索權、兩年內到期 134 億、現金 55 億。</b>然後他會看利息：8.46 億，是調整後營業利益的 2.2 倍。這一步之後，1,325 億訂單已經不重要了。</p></div><div class="section"><div class="section-title">利息覆蓋率：0.24 倍意味著什麼</div><p class='txt'>GAAP 營業利益 2.07 億 ÷ 淨利息 8.46 億 = <b>0.24 倍</b>。波克夏對子公司的要求通常是 5 倍以上。0.24 倍的含義不是「有點緊」，而是<b>當期營業利益連利息的四分之一都付不起</b>——缺口 6.39 億靠什麼補？靠新借的錢和客戶預付款。</p><p class='txt'>Q4 指引把利息推到 10.5–11.5 億，而調整後營業利益指引沒有同步翻倍。<b>這意味著 Q4 的營業利益即使做到 5 億，利息仍然是它的 2 倍以上。</b>巴菲特會把這種結構稱為「用借來的錢買一台會過時的機器，然後指望它跑得比利息快」。</p></div><div class="section"><div class="section-title">有追索權 vs 無追索：416 億的含義</div><p class='txt'>468.73 億元債務裡 416 億元是 recourse——債權人可以直接追到母公司，不是只追項目公司。<b>對股東的含義是：這些債不是「某個機房的債」，是「整個公司的債」</b>。任何一個項目出問題，都會傳導到合併層面。</p><p class='txt'>巴菲特在能源與鐵路業務裡用的都是「項目層面無追索 + 長期固定價格合約」，債務匹配資產的壽命。這裡反過來：資產是 6 年折舊的 GPU，債務是 2 年內到期的短期債。<b>期限錯配是所有財務危機的共同前奏。</b></p></div><div class="section"><div class="section-title">現金 55 億對 134 億到期：缺口 79 億</div><p class='txt'>兩個數字放一起：帳上現金約 55 億，未來兩年到期約 134 億。就算把全部自由現金流停下來不投資（不可能），也補不上。<b>唯一的出路是再融資，而再融資的定價權在債券市場手裡</b>——11 月中旬它的無擔保債收益率約 15%。</p><p class='txt'>15% 是什麼概念？如果再融資 134 億、成本 15%，年利息 20 億，比它 2026 年全年調整後 EBITDA 的三分之一還多。<b>這是「借新還舊」在高利率下的死亡螺旋</b>：越借越貴，越貴越借。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>巴菲特式結論：不投，且不需要估值。</b>利息覆蓋 0.24 倍、現金對到期債務 0.41 倍、有追索債務 416 億——任何一項單獨出現都足以否決，三項同時出現說明這不是「暫時困難」。<b>他對這類公司的原話邏輯是：「如果你必須靠別人繼續借錢給你才能活下去，你不是在做生意，是在做融資。」</b></p></div>
+</div>
+<div class="footer">CoreWeave (CRWV) · 2026/11/20</div>
+</body>
+</html>

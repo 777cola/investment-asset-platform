@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>風險評估（李錄視角） — 阿里巴巴</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/alibaba-20260824/5-四角色并行分析/阿里巴巴-风险评估-李录.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/alibaba-20260824/5-四角色並行分析/阿里巴巴-四角色-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/alibaba-20260824/5-Four-Role-Analysis/Alibaba-Four Roles-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>風險評估（李錄視角） — 阿里巴巴</h1>
+  <div class="subtitle">把「可能虧多少」放在「可能賺多少」前面</div>
+  <div class="meta">研究日期 2026/08/24 &nbsp;·&nbsp; 股價 HK$112.50（-8.54%） &nbsp;·&nbsp; 市值 約 2.30 萬億港元（配售後約 204.6 億股） &nbsp;·&nbsp; 本益比（TTM，反推） 約 31x（利潤被 AI 投入扭曲，參考性弱）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/alibaba-20260824/00-阿里巴巴研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>風險不在「阿里會不會倒」，在「這筆錢會不會被無效燒掉」。<b>最大的風險是資本支出的回報率，其次是 AI 應用層的減虧路徑，第三才是競爭。</b>三個風險疊加的機率不高，但每一個單獨發生都足夠讓股價再跌 20%。</p></div><table class="dt"><caption>風險清單與量化（2026/08/24）</caption><thead><tr><th>風險</th><th>觸發條件</th><th>對每股影響</th><th>機率</th></tr></thead><tbody><tr><td>雲端增速回落</td><td>季度增速掉到 25% 以下，PS 從 6x 到 4x</td><td>-19 港元（-17%）</td><td>中</td></tr><tr><td>電商變現率繼續下滑</td><td>客戶管理連續兩季負成長，EBITA 滑向 1,400 億元</td><td>-15 港元（-13%）</td><td>較高</td></tr><tr><td>資本支出失速</td><td>自由現金流連續四季為負，市場按公用事業定價（雲端 3x PS）</td><td>-30 港元（-27%）</td><td>中低</td></tr><tr><td>AI 應用虧損擴大</td><td>單季虧損超過 160 億元，市場給予負估值 5x</td><td>-12 港元（-11%）</td><td>中</td></tr><tr><td>監管與地緣</td><td>歐盟罰款、出口管制升級、ADR 政策</td><td>-10~-25 港元</td><td>低</td></tr></tbody></table><div class="note">影響測算以中性估值 129 港元為基準，逐項單獨變動、其他條件不變。概率為主觀判斷，用於排序而非精算。</div><div class="section"><div class="section-title">第一風險：3,800 億元的回報率</div><p class='txt'>已投 1,900 億元，雲的年化 EBITA 是 225 億元——靜態回報 11.8%。這個數字在基礎設施裡算合格，但它建立在一個條件上：<b>算力價格不跌。</b>現在全行業都在擴產（騰訊 Q2 資本開支 +176%、北美四大雲廠上調），兩三年後供給集中釋放，算力單價大概率下行。價格跌 20%，雲 EBITA 利潤率從 11.6% 掉到 9% 以下，整個分部估值邏輯要重算。</p><p class='txt'>更麻煩的是折舊的時滯。本季折舊還沒壓滿——這是利潤率改善的一部分原因。等 FY2026–FY2027 採購的設備開始按 5 年攤，年化新增折舊 540 億元級別。<b>屆時會出現「收入還在漲、利潤被折舊吃掉」的組合，這是重資產生意的階段最難受。</b></p></div><div class="section"><div class="section-title">第二風險：AI 應用的減虧路徑</div><p class='txt'>AI 實驗室與應用：收入 33.4 億元、虧損 138.6 億元、虧損率 -415%。這不是「投入期」，這是「模式未驗證」。公司給的解釋是「AI 能力建設投入 + Qwen App 推理成本上升」，翻譯過來就是「用戶免費用，我們付電費」。</p><p class='txt'>李錄會問一個更根本的問題：<b>這門生意的付費方是誰。</b>企業端有千問辦公，個人端有千問 App 的付費增值服務（8 月上線），兩條路都剛起步。對比一下騰訊：微信的 AI 能力是掛在已有收費場景上（廣告、遊戲、支付），邊際成本低、變現路徑現成。阿里的千問要新建一個入口，還要跟豆包、DeepSeek 搶用戶，這是最貴的一種打法。</p><p class='txt'>如果兩年內看不到減虧，市場會把這個部門從「投資」重新歸類為「費用」——<b>估值上就是從 -3 倍虧損變成 -5 倍甚至更多，每股差 12 港元以上。</b></p></div><div class="section"><div class="section-title">第三風險：治理與稀釋的連鎖反應</div><p class='txt'>800 億港元配售本身不是風險——3.47% 稀釋、超額認購 3 倍、主權基金占四成，市場接受了。風險在它的先例效應：<b>如果 FY2027 資本支出繼續超預期，會不會有第二次、第三次配售？</b>一次是意外，兩次是模式。市場對「習慣性增發」的公司會給估值折價，這是港股過去十年反覆驗證過的規律。</p><p class='txt'>治理層面還有兩點要記：一是配售在業績會後兩天落地，說明資訊披露與市場溝通的節奏由公司單方面掌握，中小股東沒有預期管理；二是管理層增持 1.2 億港元對 800 億配售，比例 0.15%，象徵意義大於實質。</p><p class='txt'>地緣與監管是尾部風險：歐盟罰款準備金約 43 億元已經計提，出口管制影響晶片供給（對阿里反而是「買得到」護城河的來源，雙刃），ADR 政策風險長期存在但短期不是主線。</p></div><div class="section"><div class="section-title">風險的另一面：為什麼不是「回避」</div><p class='txt'>五個風險都真實，但都不是「資產負債表崩掉」那一類。帳上 4,745.05 億元現金及流動投資、營業現金流正向、債務結構不緊張——<b>這是一家「可能少賺」的公司，不是「可能歸零」的公司。</b>這決定了評級的上限是「觀察」而不是「迴避」。</p><p class='txt'>李錄的框架裡，最壞情況要能算清：如果雲按 3 倍 PS（0.58 萬億元）、電商按 7 倍 EBITA（0.98 萬億元）、AI 應用按 2 倍虧損（-0.11 萬億元），合計 1.45 萬億元人民幣，每股 71 港元。<b>這是「同時發生」的極端值，機率低於 10%，但它告訴你下沿在哪。</b></p><p class='txt'>所以真正的紀律是：現價買，最壞虧 37%；95 港元買，最壞虧 25%；80 港元買，最壞虧 11%。<b>價格越低，風險敞口越小——這才是「等回調」的量化含義。</b></p></div><div class="summary-box"><h3>結論</h3><p>三個風險按重要性排序：資本支出回報率（-27%）、電商變現率（-13%）、AI 應用減虧（-11%）。<b>沒有一個風險指向「公司會垮」，但三個都指向「利潤會被壓三到五年」。</b>所以評級是觀察，不是迴避；觸發條件是價格或證據，不是觀點。</p></div>
+</div>
+<div class="footer">阿里巴巴 (09988) · 2026/08/24</div>
+</body>
+</html>

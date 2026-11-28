@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thesis — AMD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/amd/13-持仓论文追踪/AMD-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/amd/13-持倉論文追蹤/AMD-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/amd/13-Thesis-Tracking/AMD-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Thesis — AMD</h1>
+  <div class="subtitle">AMD (AMD) | 13 · Thesis</div>
+  <div class="meta">Research date 2026/08/07 &nbsp;·&nbsp; Price $483.36 (-1.21%) &nbsp;·&nbsp; Market cap About USD 802 billion &nbsp;·&nbsp; PE(TTM，GAAP) Approximately 125x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/amd/00-AMD-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>Break the case for buying AMD into five verifiable assumptions: data center revenue doubles, gross margin holds at 55%, MI450 ramps, share reaches 15%, ROCm closes the gap. One currently holds (gross margin 56%), two await verification (the doubling, MI450), two remain unmet (share, ecosystem).</p><b>The problem with this thesis is that verification is too slow: three of the five cannot be confirmed until 2027.</b>Buying before confirmation is a bet on management's execution, not on data. So this report's approach is: build the thesis first, not the position, and wait for the data.</div><table class="dt"><caption>Core assumptions and validation status</caption><thead><tr><th>Assumptions</th><th>Current evidence</th><th>Validation metrics</th><th>Status</th></tr></thead><tbody><tr><td>Data center revenue to double in 2027 (about USD 135 billion)</td><td>2026Q2 data center RMB 6.718 billion, +107%, annualized RMB 26.9 billion</td><td>Quarterly data center revenue: Q3 ≥ RMB 7.5 billion, Q4 ≥ RMB 8.5 billion</td><td>To be verified</td></tr><tr><td>Gross margin holds above 55%</td><td>2026Q2 56.0%, up 12.8pct YoY</td><td>Q3 and Q4 gross margin ≥55%</td><td>Preliminary conclusion</td></tr><tr><td>MI450 revenue ≥ USD 3 billion in Q4 2026 alone</td><td>Q3 begins to contribute; company says volume will ramp significantly in the second half</td><td>Quarterly "Instinct revenue" or data center QoQ incremental</td><td>To be verified</td></tr><tr><td>AI accelerator share rises from 9% to above 15%</td><td>Oracle 5.0万 units, OpenAI 6GW, Anthropic 2GW orders</td><td>Third-party share data (Mercury/IDC) or Nvidia data-center growth comparison</td><td>Unrealized</td></tr><tr><td>ROCm ecosystem gap narrows to "portable"</td><td>ROCm 7 supports the PyTorch/vLLM mainline</td><td>First-day adaptation rate of mainstream models, customer migration cases</td><td>Partly realized</td></tr></tbody></table><div class="note">"Doubling in 2027" on the company's definition means data center revenue doubles versus 2026; 2026 data center annualized is about RMB 26.9 billion (67.18×4), so doubling implies about RMB 54 billion — whereas the "RMB 135 billion in 2027" figure is on a base of about RMB 67.5 billion for 2026. The two are inconsistent, the company has not specified the base, and this report adopts the conservative interpretation of "annualized doubling." The share data have no official basis and are estimates.</div><div class="section"><div class="section-title">The most important point: what is the baseline for doubling?</div><p class='txt'>The company says "data center revenue will double in 2027." Is the base for that doubling 2026 actual revenue, or 2026 annualized revenue? The two calculations differ widely: 2026 actual (annualized at Q2's 26.9 billion, plus second-half growth) is roughly 30 billion, so doubling gives 60 billion; doubling the annualized figure gives 54 billion.</p><p class='txt'>This report adopts the conservative interpretation: 2027 data center revenue of USD 55–60 billion, corresponding to EPS of USD 19. If the company means more than 120 billion (the most bullish sell-side reading), EPS would reach USD 26, and the current price would be just 18x—that is a different story.</p><b>This ambiguity is itself the risk.</b> Management gave no absolute figure on the call, only the word "double." The first thing investors should do is look for the absolute "data center revenue guidance" number in the Q3 results.</div><div class="section"><div class="section-title">Falsification conditions: when this thesis is invalidated</div><p class='txt'>Four items, ranked by importance:</p><ul><li>Gross margin falls below 52% — signals the start of a price war, or that HBM price increases have eaten the premium. This is the hardest one.</li><li>Data center revenue declines quarter on quarter — a single occurrence signals the second supplier's share is unstable and Nvidia has closed the capacity gap.</li><li>MI450 single-quarter revenue below USD 2 billion in Q4 2026 — signals ramp failure, making a 2027 doubling out of the question.</li><li>Cloud capex guidance cut by more than 10% — industry-level falsification; AMD's execution no longer matters.</li></ul><p class='txt'>If any one of the four appears, the rating drops from "Watch" to "Avoid." <b>Note: a falling share price is not a falsification condition.</b> A drop to USD 300 with fundamentals intact is an opportunity; a rise to USD 600 with gross margin below 52% is a trap.</p></div><div class="section"><div class="section-title">Watch calendar</div><p class='txt'>October 2026 (Q3 results): whether data center revenue is ≥ USD 7.5 billion, whether gross margin is ≥55%, and the first revenue contribution from MI450.</p><p class='txt'>November 2026 (NVIDIA FY2027Q3): the pace of Rubin's volume ramp and its pricing directly determine the ceiling on AMD's share in 2027.</p><p class='txt'>January 2027 (Q4 results): whether MI450 quarterly revenue is ≥ USD 3 billion, and the absolute level of full-year 2027 guidance.</p><p class='txt'>April 2027 (Q1 results): whether data center revenue grows ≥80% year over year, the first quarter validating the "doubling" thesis.</p><b>Four checkpoints, each capable of disproving or confirming one hypothesis. Before then, any position adjustment is guesswork.</b><p class='txt'>The five hypotheses are not parallel but sequential. The share hypothesis depends on MI450 ramping, MI450's ramp depends on HBM and CoWoS allocations, allocations depend on how TSMC and the memory makers distribute supply, and that distribution in turn depends on NVIDIA's demand.<b>Across this entire chain, AMD controls only the first link.</b>That is why the credibility of the "doubling" target cannot rest on the company's own words alone.</p><p class='txt'>Why not use the share price as the validation metric? Because the share price embeds sentiment. In June 2026 AMD rose to 580 with no change in fundamentals; in July it fell to 430 with no change in fundamentals either.<b>Validating a thesis with the share price is like judging the season with a thermometer.</b>A thesis can only be validated with reported financials: revenue, gross margin, share, orders.</p><p class='txt'>One more "time hypothesis" belongs in the thesis: MI450's window of advantage lasts only four to six quarters. NVIDIA's Rubin Ultra launches in the second half of 2027, at which point MI450 becomes a "previous-generation product," with both price and gross margin under pressure.<b>So the 2027 EPS peak may be the high point for the next three years.</b></p></div><div class="summary-box"><h3>Conclusion</h3><b>Thesis status: three to be verified, one preliminarily confirmed, one partially delivered.</b> The strength of this thesis is that it is verifiable — every point maps to a number in the quarterly reports; the weakness is that it is slow — the earliest confirmation comes in October. <b>Discipline: no position until the thesis is verified; downgrade the moment a falsification condition triggers, regardless of the share price.</b></div>
+</div>
+<div class="footer">AMD (AMD) · 2026/08/07</div>
+</body>
+</html>

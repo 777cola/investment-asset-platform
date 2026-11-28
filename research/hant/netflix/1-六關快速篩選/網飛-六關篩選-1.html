@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>六關篩選 — 網飛</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/netflix/1-六关快速筛选/奈飞-六关筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/netflix/1-六關快速篩選/網飛-六關篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/netflix/1-Six-Gate-Screen/Netflix-Six-Gate Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>六關篩選 — 網飛</h1>
+  <div class="subtitle">網飛 (NFLX) | 01 · 六關篩選</div>
+  <div class="meta">研究日期 2026/10/23 &nbsp;·&nbsp; 股價 $65.85（-1.79%） &nbsp;·&nbsp; 市值 約 2,700 億美元 &nbsp;·&nbsp; PE(2026E) 約 18x（含一次性收益，剔除後約 21x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/netflix/00-網飛研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：好生意，價格回到了合理區間，扣分全在人和時長</h3><p class='txt'>Netflix 現在 65.85 美元，市值 2,700 億美元，18 倍 2026 年預期 PE。六關過五關，42 分（滿分 60），結論<b>買入，分批</b>。</p><p class='txt'>前兩關幾乎沒有討論空間：收訂閱費、賣廣告、買內容，三句話講得完；Q3 營業利益率 34.6%、全年指引 31.5%，一門 500 億美元營收的生意能做出三成營業利益率，這在媒體行業裡是獨一份。第三關扣分不是因為對手強，是因為戰場變了——搶時長的不是迪士尼，是邊際成本為零的 YouTube。第四關 6 分，一年內兩次組織調整、一次 827 億美元的收購半途放棄，管理層在執行上確實有毛刺。第五、六關都過，靠的是價格：這個估值對應的是成熟媒體公司，而它還有 12% 的增速和每年 6%–7% 的股份註銷。</p></div><table class="dt"><caption>六關評分表（每關 10 分，滿分 60）</caption><thead><tr><th>關卡</th><th>判定</th><th>評分</th><th>依據</th></tr></thead><tbody><tr><td>第一關 能力圈</td><td>透過</td><td>9/10</td><td>訂閱費 + 廣告 + 內容採購，三個變數，能算清十年後的帳</td></tr><tr><td>第二關 好生意</td><td>透過</td><td>8/10</td><td>營業利益率 31.5%，內容成本前置、收入後置，規模越大單位內容成本越低</td></tr><tr><td>第三關 護城河</td><td>透過</td><td>7/10</td><td>分發、內容庫、演算法、品牌四項優勢仍在；時長戰場讓給 YouTube</td></tr><tr><td>第四關 管理層</td><td>存疑</td><td>6/10</td><td>裁員 6%、撤換內容長、電影負責人離職、放棄 827 億美元收購</td></tr><tr><td>第五關 安全邊際</td><td>透過</td><td>6/10</td><td>18 倍 2026E PE、4.4% FCF 收益率，十年估值區間下沿</td></tr><tr><td>第六關 紀律</td><td>透過</td><td>6/10</td><td>買入理由不依賴單一樂觀假設，廣告失速也能靠訂閱漲價兜住</td></tr><tr><td>綜合</td><td>透過</td><td>42/60</td><td>好生意回到合理價格，首倉三分之一</td></tr></tbody></table><div class="note">評分口徑：每關 10 分，8 分以上為「很清楚」，6–7 分為「能過但有條件」，5 分以下為「不過」。評分是本報告的主觀判斷，不是公司數據。</div><div class="section"><div class="section-title">第一、二關：這門生意為什麼好懂，又好在哪裡</div><p class='txt'>能力圈這一關給 9 分，是因為它的收入結構簡單到可以用一句話說完：<b>向 190 多個國家的用戶收月費，向廣告主賣貼片，然後拿這筆錢去買內容。</b>沒有存貨、沒有應收帳款週期、沒有大宗商品價格，也不靠政府補貼。要判斷它十年後怎麼樣，只需要判斷兩件事——人還看不看電視、願不願意為它每月付錢。</p><p class='txt'>第二關的分數來自 Q3 的數字。營收 128.74 億美元、同比 +11.8%，營業利益 44.59 億、營業利益率 34.6%，比去年同期高 6.4 個百分點，比公司自己的指引還高。全年指引 31.5%，比 2025 年的 29.5% 再上一個台階。<b>媒體行業裡能連續三年把營業利益率往上抬的公司，只有它一家。</b></p><p class='txt'>這個槓桿的機制值得說清楚：一部劇的製作費是固定的，1,000 萬人看和 1 億人看，成本一樣。所以訂戶越多，單位內容成本越低，利潤率就越高。Netflix 現在覆蓋接近 10 億觀眾，這個槓桿已經跑完了最陡的一段——往後每一年的利潤率擴張會越來越慢，2026 年 +2pct、2027 年大概只有 +1pct。這不是壞消息，是成熟的意思。</p></div><div class="section"><div class="section-title">第三關：四條護城河裡，最短的那條正在被挖</div><p class='txt'>給 7 分，是因為護城河要拆開看。<b>全球分發、內容庫、推薦演算法、品牌</b>，這四條都是真的，而且互相加固：分發攤薄內容成本，內容撐住品牌，演算法把內容推給對的人，降低流失。</p><p class='txt'>但護城河的寬度要用兩件事檢驗。第一，能不能持續提價——2026 年這一關過了，公司自己說用戶反應和歷次漲價基本一致，流失率同比還降了。第二，能不能守住時長——這一關正在失守。美國觀看份額 7.8%，YouTube 是 14%，接近兩倍。</p><p class='txt'>這個差距不是靠多買幾部劇能補的。YouTube 的內容是用戶自己上傳的，邊際成本為零，供給無限；Netflix 每多一小時內容都要付錢。所以 Netflix 只能選擇「不打時長戰，打單位時長變現效率」——每一小時內容賺的錢是 YouTube 的兩倍以上。<b>這個戰略是對的，但它決定了天花板：Netflix 是精品付費台，不是全民娛樂平台。</b>7 分扣的就是這個天花板。</p></div><div class="section"><div class="section-title">第四關：管理層為什麼只給 6 分</div><p class='txt'>這是整份報告裡唯一讓人不安的地方。10 月 13 日，兩位聯席 CEO 發內部信，宣布裁員約 6%、接近 1,000 人，是 2022 年以來最大規模；同一輪調整裡，內容長 Bela Bajaria 被撤換，電影部門負責人 Dan Lin 離職。<b>內容採購和製作是 Netflix 的核心資產，一年之內換掉兩條業務線的負責人，不像是主動升級，更像是業績壓力下的動作。</b></p><p class='txt'>再往前看。2026 年 2 月，公司放棄對華納兄弟探索 827 億美元的收購，派拉蒙以每股 31 美元、總價約 1,100 億美元勝出。當時 Netflix 股價反而上漲——市場讀得很清楚：它不需要靠併購解決問題。這句話反過來也成立：<b>如果組織效率足夠好，就不會去談一筆 827 億美元的併購。</b></p><p class='txt'>給 6 分不是否定能力。Ted Sarandos 和 Greg Peters 這套雙 CEO 結構跑了六年，把公司從 2 億會員帶到近 10 億觀眾，業績是硬的。扣分扣在「反覆」：戰略方向（自製 + 廣告 + 體育）沒錯，但執行層面一年動三次組織，說明它對「增速降到 12% 之後該怎麼打」還沒有穩定答案。</p></div><div class="section"><div class="section-title">第五、六關：安全邊際是價格給的，紀律是自己守的</div><p class='txt'>18 倍 2026 年預期 PE 是什麼概念？Netflix 2023 年以來 PE 在 18–45 倍之間波動，2024 年最貴的時候接近 45 倍。現在處在區間最下沿。剔除 Q1 一次性收益後約 21 倍，也不算貴。<b>換句話說，市場已經把它當成一家增速 10%、利潤率 31% 的成熟公司來定價了。</b></p><p class='txt'>自由現金流 120 億美元，對 2,700 億市值是 4.4%；Q3 單季回購 48 億美元、6,390 萬股，均價約 75 美元（粗算），授權餘額還有 223 億。這個組合給了一個不錯的底：即使估值倍數不動，每年 6%–7% 的股份註銷也能讓每股價值往前走。</p><p class='txt'>第六關給 6 分，是因為紀律要靠自己守，不是靠公司給。買入理由有三條腿——訂閱提價、廣告增長、回購註銷。廣告這條腿已經瘸了（30 億下修到 27 億），但另外兩條還能撐住雙位數增長。<b>這就是可以分批買、不能一把梭的區別：不是因為便宜，是因為三條腿斷一條也還站著。</b></p></div><div class="summary-box"><h3>結論</h3><p>六關 42 分，買入，首倉三分之一。否決項沒有，但有兩個必須季度驗證的前提：<b>Q4 營收不能低於 133 億美元</b>（指引 134.42 億、+11.5%），<b>2027 年指引不能把增速降到個位數</b>。這兩條任何一條破了，42 分要重算。管理層 6 分是這份報告裡最軟的一環，觀察點是裁員之後 2027 年營業利益率能否守住 32%——守住了，說明裁的是冗餘；守不住，說明裁的是肌肉。</p></div>
+</div>
+<div class="footer">網飛 (NFLX) · 2026/10/23</div>
+</body>
+</html>

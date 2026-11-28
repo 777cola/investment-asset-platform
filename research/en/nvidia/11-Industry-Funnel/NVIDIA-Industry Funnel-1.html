@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industry Funnel — NVIDIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/nvidia/11-行业漏斗对比/英伟达-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/nvidia/11-行業漏斗對比/輝達-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/nvidia/11-Industry-Funnel/NVIDIA-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Industry Funnel — NVIDIA</h1>
+  <div class="subtitle">NVIDIA (NVDA) | 11 · Industry Funnel</div>
+  <div class="meta">Research date 2026/08/31 &nbsp;·&nbsp; Price $220.78 (+1.48%) &nbsp;·&nbsp; Market cap Approximately USD 5.33 trillion (24.15 billion shares) &nbsp;·&nbsp; PE(TTM) About 28x (roughly 15x forward FY2028)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/nvidia/00-NVIDIA-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>Six AI compute companies in one table: Nvidia, AMD, Broadcom, TSMC, Micron, Cambricon. Market caps range from USD 5.33 trillion to USD 100 billion, PE from 6.5x to 218x, gross margins from 55% to 85%.</p><p class='txt'>The screen is simple: <b>can they still hold this position in three years.</b> AMD has chased share for three years without moving; Cambricon at 218x is buying scarcity, not cash flow; Broadcom is the biggest beneficiary of custom ASIC but is held back by off-balance-sheet financing; Micron is a cyclical; TSMC is the most stable "pick-and-shovel" play. The final pick is Nvidia and TSMC, <b>but Nvidia is the most expensive and TSMC the most stable.</b></p></div><table class="dt"><caption>AI compute: six-company side-by-side comparison (August 2026 basis)</caption><thead><tr><th>The company</th><th>Market cap</th><th>Latest quarterly growth rate</th><th>Gross margin</th><th>PE</th><th>ROE</th><th>One-line positioning</th></tr></thead><tbody><tr><td>NVIDIA NVDA</td><td>USD 5.33 trillion</td><td>Revenue +106%</td><td>75.0%</td><td>28x TTM / 15x FY28</td><td>Approximately 124% (annualized)</td><td>Compute toll booth, the most expensive</td></tr><tr><td>TSMC TSM</td><td>About USD 1.9 trillion</td><td>Revenue +36% (2026Q2)</td><td>67.7%</td><td>Approximately 26x</td><td>Approximately 35%</td><td>The water seller is the steadiest</td></tr><tr><td>Broadcom AVGO</td><td>About USD 2.0 trillion</td><td>Triple-digit growth in AI semiconductors</td><td>77.1%（FY26Q2）</td><td>Approximately 22x FY27</td><td>About 30%</td><td>Biggest beneficiary of custom ASIC</td></tr><tr><td>Micron MU</td><td>About USD 1.1 trillion</td><td>Revenue +346% (FY26Q3)</td><td>84.9%</td><td>Approximately 6.5x</td><td>Very high (cycle peak)</td><td>Cyclical stocks: cheapest and most dangerous</td></tr><tr><td>AMD</td><td>About USD 800 billion</td><td>Revenue +50% (2026Q2)</td><td>56.0%</td><td>Approximately 125x</td><td>Approximately 15%</td><td>The challenger, with ecosystem as its weak point</td></tr><tr><td>Cambricon</td><td>Approximately RMB 727.1 billion</td><td>Revenue +108% (2026H1)</td><td>55.3%（H1）</td><td>Approximately 218x</td><td>Low</td><td>Domestic substitution: the most expensive small company</td></tr></tbody></table><div class="note">Market caps are rough estimates based on closing prices around the report date multiplied by share count, for magnitude comparison only (NVIDIA at 220.78 × 2.419 billion shares; TSMC, Broadcom and Micron at late-August ranges; AMD at USD 483.36 in early August; Cambricon at the 8/17 close). Gross margins, growth rates and PE use the latest financials disclosed by each company before the report date: TSMC 2026Q2, Broadcom FY26Q2, Micron FY26Q3, AMD 2026Q2, Cambricon 2026H1. ROE is a rough estimate or range, marked "approx."</div><div class="section"><div class="section-title">Coarse screen: three elimination lines</div><p class='txt'><b>First filter: will it still be at the table in three years.</b> Cambricon fails this filter — not because the company is bad, but because its 218x PE has already priced in "domestic substitution will inevitably succeed." H1 2026 revenue of RMB 5.996 billion and net profit of RMB 2.311 billion are real, but Q2 grew only 7.8% QoQ, and inventory of RMB 8.248 billion equals 60.8% of net assets. <b>A company with growth shifting down a gear, bloated inventory and a 218x valuation does not deserve portfolio allocation.</b></p><p class='txt'><b>Second filter: is it earning its own money.</b> Broadcom is held back by this filter — AI semiconductor revenue growing triple digits YoY and Non-GAAP gross margin of 77% mean extremely high business quality, but the scale of the financing it arranges for customers cannot be calculated from the outside. The same disease as Nvidia, except Nvidia's cause is documented more clearly (USD 108.5 billion in guarantees and USD 279 billion in commitments all have figures).</p><p class='txt'><b>Third filter: cycle position.</b> Micron is marked by this filter as "not a long-term hold" — FY26Q3 gross margin 84.9%, net margin 68%, PE 6.5x, unreasonably cheap, but memory prices are set by the cycle, not by a moat. Buying it requires judging "how much cycle is left," not "whether the company is good."</p></div><div class="section"><div class="section-title">Final pick: Nvidia and TSMC — one the most expensive, one the most stable</div><p class='txt'>The remaining two companies run on entirely different logic.</p><p class='txt'><b>TSMC is the "pick-and-shovel" play.</b> 2026Q2 revenue was TWD 1.27 trillion, up 36% year on year; gross margin 67.7%; net profit after tax TWD 706.56 billion, up 77.4% year on year; HPC accounted for 66% of revenue. It does not need to judge which AI company will win — as long as AI capex flows, it earns. <b>26x PE, 35% ROE, USD 60–64 billion capex: a fair price for a "certainty premium."</b></p><p class='txt'><b>Nvidia is the "toll booth."</b> Gross margin 75%, net margin 62%, growth 106% — a better position than TSMC (stronger pricing power), but a more complex valuation (36% cash conversion, USD 108.5 billion in guarantees, USD 93.9 billion in customer equity). <b>15x FY2028 sounds cheaper than TSMC, but on free cash flow it is 19x — more expensive than TSMC.</b></p><p class='txt'>So the "final pick" is not either-or; it is a division of roles: <b>if I could only buy one, I would buy TSMC</b> — higher certainty, more reasonable valuation, no off-balance-sheet risk. <b>Nvidia is not unworthy of buying; its price has already fully priced in "better," plus an extra premium for "believing the guidance."</b></p></div><div class="section"><div class="section-title">Why it: three reasons to hold Nvidia</div><p class='txt'>If TSMC is steadier, why still hold Nvidia in the portfolio? Three reasons.</p><p class='txt'><b>First, it is the only company that captures the "doubling of value per GW."</b> Hopper USD 18 billion → Grace Blackwell USD 25 billion → Vera Rubin USD 40 billion per GW. That curve shows it is not selling hardware; it is selling "compute output per kilowatt-hour." TSMC cannot capture this position — it charges by wafer.</p><p class='txt'><b>Second, its customer base is broadening.</b> ACIE up 138% year on year, sovereign AI more than 2x year on year, NeoCloud installed capacity 3GW→8GW. Demand is spreading from four cloud providers to dozens of countries and enterprises, which lowers single-customer risk — though it raises credit risk.</p><p class='txt'><b>Third, its software ecosystem compounds.</b> Two decades of CUDA accumulation, reinforced with every new hardware generation. This is the only moat that deepens with use, and the only moat competitors cannot buy with money.</p><p class='txt'>So the answer is: <b>hold Nvidia, but do not add; make TSMC the core AI position and Nvidia the flex position.</b> On sizing, TSMC 5%, Nvidia 5%, the two combined no more than 10%.<p class='txt'>One more portfolio constraint: Nvidia's correlation with TSMC, Micron and Broadcom is 0.8–0.9, so a combined 10% position is effectively 13% exposure to the AI compute chain. <b>This is a ceiling, not a starting point.</b></p></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Two of the six merit long-term holding: TSMC (steadiest) and Nvidia (best but most expensive).</b> Cambricon's valuation is untenable, Micron is cyclical, AMD is a chaser, and Broadcom is held back by off-balance-sheet items.<b>Allocation: TSMC 5% + Nvidia 5%, no more than 10% combined; Nvidia's add level remains USD 180.</b></p></div>
+</div>
+<div class="footer">NVIDIA (NVDA) · 2026/08/31</div>
+</body>
+</html>

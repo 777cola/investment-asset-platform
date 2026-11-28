@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀 — 網飛</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/netflix/7-财报精读/奈飞-财报精读.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/netflix/7-財報精讀/網飛-財報精讀-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/netflix/7-Earnings-Deep-Read/Netflix-Earnings Read-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀 — 網飛</h1>
+  <div class="subtitle">網飛 (NFLX) | 07 · 財報精讀</div>
+  <div class="meta">研究日期 2026/10/23 &nbsp;·&nbsp; 股價 $65.85（-1.79%） &nbsp;·&nbsp; 市值 約 2,700 億美元 &nbsp;·&nbsp; PE(2026E) 約 18x（含一次性收益，剔除後約 21x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/netflix/00-網飛研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>財報精讀：一份「利潤滿分、指引扣分」的季報</h3><p class='txt'>2026Q3 是一份分裂的財報。<b>利潤端幾乎完美</b>：營業利益 44.59 億美元、同比 +37.3%，營業利益率 34.6%、比指引高 6.4 個百分點，稅後淨利 36.64 億、同比 +44%。<b>指引端三項下修</b>：全年營收落在原區間下沿、廣告從 30 億砍到 27 億、自由現金流從 125 億降到 120 億。</p><p class='txt'>股價跌的是指引，不是財報。這個區分很重要——<b>如果跌的是財報，說明生意壞了；跌的是指引，說明預期高了。</b>前者要賣，後者可以買。</p></div><table class="dt"><caption>損益表關鍵項（百萬美元，拆股後每股口徑）</caption><thead><tr><th>項目</th><th>2026Q3</th><th>2025Q3</th><th>同比</th></tr></thead><tbody><tr><td>營收</td><td>12,874</td><td>11,510</td><td>+11.8%</td></tr><tr><td>營業利益</td><td>4,459</td><td>3,248</td><td>+37.3%</td></tr><tr><td>營業利益率</td><td>34.6%</td><td>28.2%</td><td>+6.4pct</td></tr><tr><td>稅後淨利</td><td>3,664</td><td>2,547</td><td>+43.9%</td></tr><tr><td>攤薄 EPS（美元）</td><td>0.87</td><td>0.59</td><td>+47.5%</td></tr><tr><td>營業現金流</td><td>3,162</td><td>2,825</td><td>+11.9%</td></tr><tr><td>自由現金流</td><td>2,884</td><td>2,660</td><td>+8.4%</td></tr></tbody></table><div class="note">來源：Netflix 2026Q3 財報（2026/10/20 盤後）。每股數據為 2025/11/17 生效的 10 拆 1 拆股後口徑，2025Q3 每股數據已按同口徑重述；絕對額為財報披露值。</div><table class="dt"><caption>分部營收與全年指引（百萬美元）</caption><thead><tr><th>項目</th><th>2026Q3／指引</th><th>同比</th><th>備註</th></tr></thead><tbody><tr><td>美國與加拿大</td><td>5,628</td><td>+11%</td><td>佔營收 43.7%</td></tr><tr><td>歐洲、中東與非洲</td><td>4,107</td><td>+11%（匯率中性 +9%）</td><td>佔 31.9%</td></tr><tr><td>拉丁美洲</td><td>1,603</td><td>+17%（匯率中性 +12%）</td><td>增速最快，佔 12.5%</td></tr><tr><td>亞太</td><td>1,537</td><td>+12%（匯率中性 +15%）</td><td>印度觀看時長 +24%</td></tr><tr><td>Q4 營收指引</td><td>13,442</td><td>+11.5%</td><td>營業利益率指引 26.0%</td></tr><tr><td>2026 全年營收指引</td><td>51,100</td><td>+13%</td><td>原區間 51,000–51,400 下沿</td></tr><tr><td>2026 廣告收入</td><td>2,700</td><td>—</td><td>原指引 3,000，下修 10%</td></tr><tr><td>2026 自由現金流</td><td>12,000</td><td>—</td><td>原指引 12,500</td></tr></tbody></table><div class="note">來源：Netflix 2026Q3 財報與股東信。分部營收為財報披露值，占比為本報告計算；同比增速含匯率影響，括號內為匯率中性口徑。</div><table class="dt"><caption>資產負債與股東回報（2026Q3）</caption><thead><tr><th>專案</th><th>金額</th><th>解讀</th></tr></thead><tbody><tr><td>債務</td><td>153 億美元</td><td>以長期固定利率為主，利息成本鎖定</td></tr><tr><td>現金</td><td>82 億美元</td><td>較淨現金時期下降，回購消耗</td></tr><tr><td>淨負債</td><td>71 億美元</td><td>占 2026E 營業利益 0.44 倍</td></tr><tr><td>Q3 回購</td><td>48 億美元 / 6,390 萬股</td><td>均價約 75.12 美元（粗算），單季紀錄</td></tr><tr><td>回購授權餘額</td><td>223 億美元</td><td>相當於市值 8.2%</td></tr><tr><td>股利</td><td>無</td><td>上市以來未派息</td></tr></tbody></table><div class="note">債務、現金為財報揭露值；淨負債 = 153 − 82 = 71 億美元（計算值）；回購均價 = 48 億 ÷ 6,390 萬股 = 75.12 美元（粗算）；授權餘額占市值比 = 223 ÷ 2,706 = 8.2%（粗算）。</div><div class="section"><div class="section-title">第一層：收入結構——廣告只貢獻了兩成增量</div><p class='txt'>營收 128.74 億美元、同比 +11.8%、環比 +2.5%。三年最低的增速，但符合公司此前指引。拆開看增量：<b>訂閱收入同比增加約 10.6 億，廣告收入增加約 2.6 億。</b>也就是說，廣告只貢獻了增量的兩成，八成還是老本行（會員數 + 提價）。</p><p class='txt'>分地區看，四個地區全部雙位數增長：美國與加拿大 56.28 億（+11%）、EMEA 41.07 億（+11%，匯率中性 +9%）、拉美 16.03 億（+17%）、亞太 15.37 億（+12%，匯率中性 +15%）。<b>拉美增速最快但匯率拖累最重（+17% 對匯率中性 +12%）；亞太反過來，匯率是順風（+12% 對 +15%）。</b></p><p class='txt'>一個值得注意的結構變化：<b>UCAN 占比從三年前的 48% 降到 43.7%。</b>這意味著奈飛對單一市場的依賴在下降，匯率和監管的分散度在上升。這是好事，但它同時也說明——美國這個最賺錢的市場，增長已經接近飽和。</p></div><div class="section"><div class="section-title">第二層：利潤率——34.6% 裡有水分，31.5% 才是真的</div><p class='txt'>營業利益率 34.6%，比去年同期的 28.2% 高 6.4 個百分點，也高於公司指引。<b>但這個數字不能年化。</b>財報裡明確提到，本季有一部分利潤來自「費用確認時間變化」——也就是某些費用推遲到 Q4 確認，屬於會計時點，不是效率提升。</p><p class='txt'>看全年指引更準：<b>31.5%</b>，比 2025 年的 29.5% 高 2 個百分點。這個擴張是真的，因為它對應的是提價 + 廣告高毛利收入占比上升 + 內容成本增速放緩三件事。</p><p class='txt'>但速度在放緩。2026 年 +2pct、2027 年我預計只有 +1pct 左右。<b>原因是 Q4 指引 26.0%，裡面有兩個拖累：裁員費用約 1.2 個百分點、體育版權投入增加。</b>Q4 歷來是奈飛利潤率最低的季度（內容集中上線、營銷費用高），26.0% 不意外，但它把全年的想像空間壓住了。</p></div><div class="section"><div class="section-title">第三層：費用與利潤——淨利 44% 成長裡有多少是經營的</div><p class='txt'>稅後淨利 36.64 億元、同比 +44%，EPS 0.87、同比 +47.5%（EPS 增速高於稅後淨利，是因為回購減少了股數）。<b>但稅後淨利增速 44% 遠高於營業利益增速 37.3%，這個差額來自非經營項。</b></p><p class='txt'>拆一下：營業利益 44.59 億元，稅後淨利 36.64 億元，稅後淨利相當於營業利益的 82.2%（粗算）。正常情況下這個比值應該在 75%–80%（扣 20% 左右的稅、加少量利息收入）。82.2% 說明本季稅負偏輕或有非經營收益。<b>再疊加 Q1 那次 52.8 億元稅後淨利（同比 +83%），2026 年的利潤裡有一塊不能算進「經營能力」。</b></p><p class='txt'>這就是為什麼市場給 18 倍而不是 21 倍。<b>18 倍是「含一次性收益的便宜」，21 倍是「真實營業利益的合理價」。</b>兩個都寫清楚，才不會自己騙自己。</p></div><div class="section"><div class="section-title">第四層：現金流與資產負債——回購比賺錢快</div><p class='txt'>營業現金流 31.62 億（+11.9%）、自由現金流 28.84 億（+8.4%）。<b>FCF 增速低於營收增速，說明內容現金支出在加快</b>——這與體育版權投入的方向一致。全年指引 120 億，對 2,700 億市值是 4.4%。</p><p class='txt'>資產負債表：153 億債務、82 億現金、淨負債 71 億。對一個年營業利益 161 億的生意，這是 0.44 倍的槓桿，非常乾淨。<b>但要看到趨勢：Netflix 曾經是淨現金公司，2026 年回購規模上來後，現金在往下走。</b></p><p class='txt'>最扎眼的一組對比：<b>Q3 回購 48 億，FCF 只有 28.84 億，回購是 FCF 的 1.66 倍。</b>而且回購均價 75.12 美元，比現價 65.85 高 14%。這兩件事放在一起說明管理層對內在價值的判斷在 75 美元以上——這是個正面信號，但也說明回購的節奏不會因為股價下跌而加快，因為授權是既定計劃，不是機會主義。</p></div><div class="summary-box"><h3>結論</h3><p>這份財報的性質是：<b>利潤端證明生意品質，指引端暴露成長瓶頸。</b>營業利益率 34.6%、淨利 +44%、自由現金流 28.84 億，都是硬的；三項指引下修、Q4 利潤率 26.0%，也都是硬的。判斷的關鍵是把兩者分開：<b>生意沒壞，預期壞了。</b>對應動作是買，不是等——但要分批，因為指引下修之後還會有第二次下修的可能。</p></div>
+</div>
+<div class="footer">網飛 (NFLX) · 2026/10/23</div>
+</body>
+</html>

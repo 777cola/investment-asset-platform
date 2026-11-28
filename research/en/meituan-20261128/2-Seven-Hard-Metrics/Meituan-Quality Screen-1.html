@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quality Screen — Meituan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20261128/2-七条硬指标去劣/美团-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/meituan-20261128/2-七條硬指標去劣/美團-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/meituan-20261128/2-Seven-Hard-Metrics/Meituan-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Quality Screen — Meituan</h1>
+  <div class="subtitle">Meituan (03690) | 02 · Quality Screen</div>
+  <div class="meta">Research date 2026/11/28 &nbsp;·&nbsp; Price HK$67.85 (+8.21%, Market close on 2026/11/27; market closed on 11/28) &nbsp;·&nbsp; Market cap Approximately HKD 419 billion (6.175 billion shares) &nbsp;·&nbsp; PE(TTM) — (TTM still loss-making, PE distorted; about 16.8x on 2027E)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/meituan-20261128/00-Meituan-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>Only two and a half criteria passed in the August table; five pass this time. All the change comes from the profit side: gross margin 33.5%→34.7% (estimated), operating cash flow turning from negative for the year to strongly positive for the quarter, and free cash flow positive for the first time (estimated). <b>The two still failing are ROE and net margin—the first three quarters of 2026 combined still show a net loss of RMB 2.60 billion, and ROE on an annual basis remains negative.</b></p><p class='txt'>The purpose of this table is not to score Meituan but to judge "whether it is a good company temporarily damaged." The answer leans positive: revenue growth of +21.6% is the highest in three years, net cash of RMB 120 billion shows no financial risk, and a gross margin stable at 34%–35% shows unit economics are intact. <b>What is broken is expenses, not the business.</b></p></div><table class="dt"><caption>Seven hard metrics (2026/11/28, based on the 2026Q3 financial report)</caption><thead><tr><th>Indicator</th><th>Company data</th><th>Threshold</th><th>Determination</th></tr></thead><tbody><tr><td>ROE</td><td>Net loss of RMB 2.60 billion in the first three quarters of 2026; full-year figure remains negative (RMB -23.355 billion in 2025)</td><td>≥15%</td><td>However</td></tr><tr><td>Gross margin</td><td>34.7% (Q3 estimate); 33.5% in Q2 2026; about 33% for full-year 2025</td><td>≥30% and stable</td><td>Through</td></tr><tr><td>Net margin</td><td>Q3 alone 1.8%; first three quarters combined -0.8%</td><td>≥8%</td><td>However</td></tr><tr><td>Revenue growth</td><td>Q3 +21.6%（Q2 +14.4%、Q1 +9.2%）</td><td>≥10%</td><td>Through</td></tr><tr><td>Operating cash flow/net profit</td><td>Q2 was 4.5x; Q3 on the same basis is estimated at over 4x</td><td>≥1.0</td><td>Through</td></tr><tr><td>Interest-bearing debt/equity</td><td>Net cash of about RMB 120 billion (cash RMB 104.7 billion + short-term wealth management products RMB 63.6 billion, gross RMB 168.3 billion)</td><td>≤50%</td><td>Passed</td></tr><tr><td>Free cash flow</td><td>Negative in 2025 (operating cash flow -RMB 13.82 billion); turned positive in the first three quarters of 2026 (estimated)</td><td>Positive for 3 consecutive years</td><td>Narrowly passed</td></tr></tbody></table><div class="note">ROE and net margin are calculated on the combined net profit attributable to shareholders of RMB -2.60 billion for the first three quarters of 2026 (Q1 -6.83, Q2 +2.16, Q3 +2.071); the 2025 net loss of RMB 23.355 billion comes from the 2025 annual report. Gross margin of 34.7%, the operating cash flow multiple and free cash flow are derived estimates (cost of sales RMB 75.5 billion, capex estimated at about RMB 2.5 billion per quarter); the company did not disclose these separately in its Q3 announcement.</div><div class="section"><div class="section-title">Which lines never turned into passes, and why?</div><p class='txt'>The most important one is revenue growth. <b>Q1 +9.2%, Q2 +14.4%, Q3 +21.6% — three consecutive quarters of acceleration, which is counterintuitive against the backdrop of subsidy rollback.</b> Subsidy rollback usually means order volume declines and revenue growth drops a notch; what actually happened was revenue acceleration, and there is only one explanation: order volume did not fall, and average order value and advertising monetization came back. This metric went from "pass" to "a hard pass," and it is the foundation of this entire report.</p><p class='txt'>The second is cash flow. Operating cash flow in 2025 was -RMB 13.82 billion, the ugliest year in this business's history; by 2026Q2, net profit of RMB 2.16 billion already corresponded to operating cash flow of RMB 9.7 billion (4.5x), and on the same basis, the Q3 peak season is still estimated above 4x.<b>Food delivery is a prepaid business — users pay first, riders are settled later, merchants settle monthly — so as long as it does not burn cash, cash flow is naturally better than profit.</b> This is not the result of management effort; it is built into the business model.</p><p class='txt'>The third is gross margin. The 33%–35% range spans both the 2024 peak and the 2025 melee, showing that unit economics have not been structurally damaged — only the expense ratio has changed.<b>This metric's stability is the dividing line between "temporarily damaged" and "permanently worse."</b></p></div><div class="section"><div class="section-title">The two points that still hold up, and whether they are fatal</div><p class='txt'>ROE and net margin fail, but it is essentially the same issue: <b>the first three quarters still posted a net loss of RMB 2.60 billion.</b> Q3's single-quarter profit of RMB 2.071 billion cannot offset the RMB -6.83 billion hole in Q1. On 2027 net profit of RMB 23 billion and equity of about RMB 230 billion, ROE is roughly 10%, still below the 15% threshold; to return to 15%, net profit must reach RMB 34.5 billion, the 2024 level of RMB 35.8 billion.</p><p class='txt'>This is not fatal, for three reasons. First, the company has no financial risk—net cash of RMB 120 billion, interest-bearing debt near zero; the losses burn its own cash, not borrowed money. Second, the losses are a deliberate choice: of the RMB 23.355 billion loss in 2025, the vast majority is user incentives and rider subsidies, a tap that can be turned off, and Q3 already turned off part of it. Third, competitors' losses are equally brutal; this war has no winner, only whoever stops first.</p><p class='txt'>There is only one fatal condition: <b>if 2027 net profit still cannot reach RMB 15 billion, it means the era of 20% operating margin is completely over, and the company should be valued as a utility at 12x, corresponding to HKD 45.</b> That is the price of the pessimistic scenario.</p></div><div class="section"><div class="section-title">How to use this table</div><p class='txt'>The seven hard metrics are not a scorecard; they are a mine-detection chart. Its current state: <b>balance sheet at full marks, cash flow passing, income statement just climbing out of the hole.</b> Historically, this combination corresponds to "a company that has just passed the cyclical bottom" — not a growth stock, and not a value trap.</p><p class='txt'>The method is fixed: measure once a quarter, and look at only two things — whether the net margin has been positive for three consecutive quarters, and whether ROE has returned above 8%. The former can be confirmed in Q1 2027 (Q4 will most likely still be positive); the latter must wait for the 2027 annual report.<b>If both pass, seven out of seven, and that is when to build a heavy position; if both fail, this round of profit is merely deferred expenses, not a recovery.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Five of seven criteria pass; two fail (ROE, net margin). Neither is a structural defect — the repair is incomplete.</b> Stable gross margin, net cash of RMB 120 billion and revenue accelerating for three consecutive quarters guarantee "the company will not die"; failing ROE and net margin mean "we cannot go overweight yet." <b>Trigger: net margin positive for three consecutive quarters in Q1 2027 and ROE on the 2027 net profit guidance basis back above 8% — seven of seven met, rating upgraded.</b></p></div>
+</div>
+<div class="footer">Meituan (03690) · 2026/11/28</div>
+</body>
+</html>

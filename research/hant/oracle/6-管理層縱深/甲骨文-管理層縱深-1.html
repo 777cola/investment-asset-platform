@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理層縱深 — 甲骨文</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/oracle/6-管理层纵深/甲骨文-管理层纵深.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/oracle/6-管理層縱深/甲骨文-管理層縱深-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/oracle/6-Management-Deep-Dive/Oracle-Management-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>管理層縱深 — 甲骨文</h1>
+  <div class="subtitle">甲骨文 (ORCL) | 06 · 管理層縱深</div>
+  <div class="meta">研究日期 2026/09/14 &nbsp;·&nbsp; 股價 $144.79（-3.65%） &nbsp;·&nbsp; 市值 約 4,400 億美元 &nbsp;·&nbsp; PE(GAAP TTM) 約 23.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/oracle/00-甲骨文研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>管理層判斷</h3><p class='txt'>甲骨文的管理層是這輪 AI 基建裡執行力最強的一支隊伍——阿比林園區單季交付 13.1 萬張 GPU、24 小時驗收，這個速度三大雲廠都沒做到。<b>但執行力強不等於資本配置對。</b>2026 財年它做了三件幾十年來沒做過的事：大規模發債（債務 1,295 億）、大額增發（本季 200 億）、把訂單押在單一客戶身上。這三件事都不違法，也不愚蠢，但它們把股東放在了債主和客戶之後。</p></div><table class="dt"><caption>關鍵人物（2026/09）</caption><thead><tr><th>姓名</th><th>職務</th><th>持股</th><th>薪酬</th><th>履歷要點</th></tr></thead><tbody><tr><td>Larry Ellison</td><td>聯合創辦人、執行董事長兼技術長</td><td>約 40%（含家族信託）</td><td>長期 1 美元年薪 + 期權</td><td>1977 年創立，主導資料庫與 OCI 策略，是 OpenAI 合作的直接推動者</td></tr><tr><td>Clay Magouyrk</td><td>聯席 CEO（2025/09 起）</td><td><1%</td><td>未單獨揭露</td><td>2014 年從 AWS 加入，歷任 OCI 工程負責人，資料中心交付體系的設計者</td></tr><tr><td>Mike Sicilia</td><td>聯席 CEO（2025/09 起）</td><td><1%</td><td>未單獨披露</td><td>2008 年隨 Primavera 併購加入，主導行業雲（醫療、金融、政府）</td></tr><tr><td>Safra Catz</td><td>副董事長（原 CEO，2014–2025）</td><td><1%</td><td>現金 + 限制性股票</td><td>長期負責資本運作與費用紀律，任內完成 NetSuite、Cerner 兩筆大併購</td></tr><tr><td>Jeff Henley</td><td>董事會副主席</td><td><1%</td><td>董事薪酬</td><td>1991–2014 年任財務長，現任董事會副主席，負責與債權人溝通</td></tr></tbody></table><div class="note">持股比例為公開披露的近似值（Ellison 約 40% 為含家族信託口徑）。薪酬結構來自公司委託書歷年披露；聯席 CEO 上任未滿一年，薪酬未單獨列示。</div><div class="section"><div class="section-title">Ellison 還在，而且比任何時候都更關鍵</div><p class='txt'>2026 年 Ellison 82 歲，仍是執行董事長兼 CTO。他不是掛名——OCI 的路線、與 OpenAI 的合作、阿比林園區的選址，都是他親自推動的。<b>這既是最大的資產，也是最大的單點風險。</b>他持有約 40% 股份，等於對重大決策有一票否決權，任何「董事會約束管理層」的機制在他面前都不成立。</p><p class='txt'>2025 年 9 月的交接安排很聰明：把公司拆成「雲端基礎設施」（Magouyrk）和「行業應用」（Sicilia）兩條線，兩人聯席 CEO，Catz 轉副董事長管資本運作，Ellison 退到董事長兼 CTO 管策略。<b>問題是這個結構裡沒有一個人對「整體資本配置」負全責</b>——Magouyrk 要為 OCI 搶單，Sicilia 要為行業雲守利潤，Catz 要為融資找錢，三者的激勵方向不完全一致。</p></div><div class="section"><div class="section-title">資本配置紀錄：從「買收入」到「買時間」</div><p class='txt'>過去二十年，甲骨文的資本配置有一條清晰的主線：<b>用自由現金流買已經賺錢的軟體資產，然後把客戶遷到自己的技術棧上，漲維護費。</b>2005 年 103 億美元敵意收購 PeopleSoft、2010 年 74 億買 Sun（拿到 Java 和硬體）、2016 年 93 億買 NetSuite、2022 年 283 億買 Cerner。這套打法在 2022 年之前是成功的，營業收入從 2005 年的 118 億漲到 2025 年的 574 億。</p><p class='txt'>Cerner 是一個轉折點。283 億美元買來的醫療 IT 業務，整合進度慢於預期，收入增長乏力，2026 財年這塊業務被併入行業雲，不再單獨披露——<b>不再單獨披露，通常意味著數字不好看。</b>而 2026 年的新打法完全反過來了：不再買收入，而是借錢買時間，用 900 億美元的資本支出搶 AI 算力的窗口期。<b>這條路的回報率還沒有被驗證過一次。</b></p></div><div class="section"><div class="section-title">誠信與治理：合法但不體面的部分</div><p class='txt'>三件事要放在桌面上。第一，<b>許可證審計</b>。甲骨文長期透過審計客戶對 Oracle 軟體的使用情況來追收授權費，這是合約賦予的權利，但也是它提高收入的常規手段，客戶體驗極差，多年來是 CIO 圈子裡最被詬病的一家公司。這類收入合法，但它說明這家公司在「客戶成功」和「自己收錢」之間，永遠選後者。</p><p class='txt'>第二，<b>2020 年的 FCPA 和解</b>。美國 SEC 認定其土耳其、印度、阿聯酋子公司透過中間人向政府官員輸送利益，甲骨文以 2,320 萬美元和解，未承認也未否認指控。這是內控問題，不是策略問題，但說明在高速增長的市場裡，它的合規讓位於簽單。</p><p class='txt'>第三，<b>2025 年底參與 TikTok 美國業務合資（持股約 15%）</b>，同時成為其雲端與資料託管方。這筆交易的政治價值遠大於財務價值，它讓甲骨文在華盛頓獲得了別人沒有的位置。<b>對股東來說，這是加分項還是風險項，取決於你怎麼看「和政府做生意的科技公司」。</b></p></div><div class="section"><div class="section-title">接班人：結構上解決了，實質上沒有</div><p class='txt'>聯席 CEO 制解決的是「誰來管日常」，沒有解決「誰來定戰略」。Magouyrk 是工程師出身，擅長交付；Sicilia 是銷售出身，擅長行業客戶；兩個人都具備不了 Ellison 那種「用一筆 3,000 億美元的合同改變公司命運」的決斷力和人脈。</p><p class='txt'><b>真正的接班問題在 2029 年之後</b>：如果 AI 算力週期在 2028 年見頂，新一代管理層要面對的是 1,000 億美元級別的債務和一堆折舊未完的機房，那時候需要的是「收縮」的能力，而這套班子的履歷裡全是「擴張」。<b>用擴張型團隊去處理過剩週期，是這類公司最常見的死法。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：管理層可信，但不能無條件託付。</b>執行力這一項給 A，過去三年它把不可能交付的機房交付了；資本配置給 C+，2026 年的三件大事（發債、增發、押注單一大客戶）都把股東利益排在了後面。<b>對投資者的含義很直接：不要用「管理層很強」來對沖「資產負債表很緊」，這兩件事在這家公司身上是同時成立的。</b></p></div>
+</div>
+<div class="footer">甲骨文 (ORCL) · 2026/09/14</div>
+</body>
+</html>

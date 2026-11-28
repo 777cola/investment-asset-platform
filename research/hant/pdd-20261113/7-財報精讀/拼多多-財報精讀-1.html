@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀 — 拼多多</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/pdd-20261113/7-财报精读/拼多多-财报精读.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/pdd-20261113/7-財報精讀/拼多多-財報精讀-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/pdd-20261113/7-Earnings-Deep-Read/Pinduoduo-Earnings Read-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀 — 拼多多</h1>
+  <div class="subtitle">拼多多 (PDD) | 07 · 財報精讀</div>
+  <div class="meta">研究日期 2026/11/13 &nbsp;·&nbsp; 股價 $78.97（+1.86%） &nbsp;·&nbsp; 市值 約 1,124 億美元 &nbsp;·&nbsp; PE(TTM) 約 8.2x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/pdd-20261113/00-拼多多研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：成熟期的高毛利收租公司</h3><p class='txt'>2026Q2 營收 1,123.6 億元、同比 +8%，拆開是廣告 +3.5%、交易服務 +13%。毛利 643.4 億元、毛利率 57.3%（+1.4pct），營業現金流 257 億元（+19%），零有息負債。歸母淨利 271.8 億元、−12%，連續三季下滑，其中 75 億元來自其他收入轉負（含歐盟 2 億歐元罰款）。</p><p class='txt'><b>一句話：成長停了，賺錢能力沒停。按成熟收租公司估值，它便宜；按成長股估值，它永遠不該買。</b></p></div><table class="dt"><caption>損益表（億元人民幣，除佔比外）</caption><thead><tr><th>專案</th><th>2026Q2</th><th>佔營收</th><th>2025Q2</th><th>同比</th></tr></thead><tbody><tr><td>總營收</td><td>1,123.6</td><td>100.0%</td><td>1,040.4</td><td>+8.0%</td></tr><tr><td>線上營銷服務收入</td><td>576.0</td><td>51.3%</td><td>556.5</td><td>+3.5%</td></tr><tr><td>交易服務收入</td><td>547.0</td><td>48.7%</td><td>484.1</td><td>+13.0%</td></tr><tr><td>毛利</td><td>643.4</td><td>57.3%</td><td>581.2</td><td>+10.7%</td></tr><tr><td>營業利益</td><td>278.0</td><td>24.7%</td><td>257.4</td><td>+8.0%</td></tr><tr><td>歸母淨利</td><td>271.8</td><td>24.2%</td><td>308.9</td><td>−12.0%</td></tr><tr><td>非 GAAP 稅後淨利</td><td>284.9</td><td>25.4%</td><td>327.5</td><td>−13.0%</td></tr></tbody></table><div class="note">來源：拼多多 2026Q2 財報（2026/8/24 美股盤前）。2025Q2 各分項按公司披露的同比增速反推，存在四捨五入誤差（分項合計 1,040.6 與總數 1,040.4 的差為取整）。</div><table class="dt"><caption>2026 上半年拼圖（億元人民幣）</caption><thead><tr><th>項目</th><th>2026Q1</th><th>2026Q2</th><th>2026H1</th><th>2025 全年</th></tr></thead><tbody><tr><td>營收</td><td>1,062.0</td><td>1,123.6</td><td>2,185.9</td><td>4,318</td></tr><tr><td>歸母淨利（GAAP）</td><td>125.0</td><td>271.8</td><td>396.8</td><td>994</td></tr><tr><td>非 GAAP 稅後淨利</td><td>141.0</td><td>284.9</td><td>425.9</td><td>1,073</td></tr><tr><td>淨利率（GAAP）</td><td>11.8%</td><td>24.2%</td><td>18.2%</td><td>23.0%</td></tr></tbody></table><div class="note">來源：2026Q1 財報（2026/5/27）、2026Q2 財報（2026/8/24）、2025 年報（2026/3/25）。H1 營收 2,185.9 與公司口徑 2,185.87 一致。Q1 淨利率異常低，是「千億扶持」與供應鏈投入集中在當季確認。</div><table class="dt"><caption>費用與現金流（億元人民幣）</caption><thead><tr><th>專案</th><th>2026Q2</th><th>2025Q2</th><th>同比</th><th>備註</th></tr></thead><tbody><tr><td>經營活動現金流</td><td>257</td><td>216</td><td>+19.0%</td><td>一個季度造血 257 億元</td></tr><tr><td>研發費用</td><td>46</td><td>36</td><td>+27.8%</td><td>費用率 4.1%，主投演算法與合規系統</td></tr><tr><td>一般及行政費用</td><td>23</td><td>15</td><td>+53.3%</td><td>費用率 2.1%，合規與治理成本上升</td></tr><tr><td>銷售費用</td><td>297</td><td>273</td><td>+8.8%</td><td>費用率 26.4%，補貼強度未降</td></tr><tr><td>其他收入</td><td>−74</td><td>+1.2</td><td>轉負</td><td>含歐盟 2 億歐元罰款與匯兌損失</td></tr><tr><td>現金及短期投資（期末）</td><td>4,564</td><td>4,223（2025/12/31）</td><td>+8.1%</td><td>半年淨增 341 億元</td></tr><tr><td>有息負債</td><td>0</td><td>0</td><td>—</td><td>無銀行貸款、無債券</td></tr></tbody></table><div class="note">來源：拼多多 2026Q2 財報。銷售費用由銷售費用率 26.4% 反推（297≈1,123.6×26.4%），與公司披露金額可能有億元級差異。</div><div class="section"><div class="section-title">第一層 收入結構：兩個世界寫在同一張表上</div><p class='txt'>總營收1,123.6億元、同比+8%，看著還行。拆開是廣告576億元、+3.5%，交易服務547億元、+13%。<b>廣告是主站國內變現的全部，3.5%等於見頂；交易服務主要是Temu佣金，是唯一還在兩位數增長的部分。</b></p><p class='txt'>兩塊業務的占比已經接近一半對一半（51.3% 對 48.7%）。三年前廣告占七成以上。這個結構變化說明兩件事：國內生意的增量沒了；公司未來的alpha全押在一個正在被關稅追著跑的海外業務上。</p></div><div class="section"><div class="section-title">第二層 毛利：57.3%，還升了 1.4 個百分點</div><p class='txt'>毛利643.4億元、毛利率57.3%，同比提升1.4個百分點。<b>這是這份財報裡最重要的正面訊號</b>——它說明變現質量沒有惡化，平台對商家的議價權還在。</p><p class='txt'>毛利率提升的來源不是漲價，是收入結構：Temu的交易服務收入毛利率高於主站廣告（佣金幾乎無邊際成本），佔比上升自然拉高整體毛利率。所以這個1.4個百分點不該被讀成「主站更強了」，而該讀成「海外佔比更高了」。</p></div><div class="section"><div class="section-title">把四個季度排成一排：下滑是從 2025Q4 開始的</div><p class='txt'>2025Q4 Non-GAAP 淨利 262.95 億元、同比 −12%；2026Q1 141 億元、−15%；2026Q2 284.9 億元、−13%。三個季度接連下滑，幅度穩定在一成到一成五之間——<b>這種穩定本身就說明不是意外，是模式。</b></p><p class='txt'>原因也穩定：一頭是「千億扶持」的商家減免，一頭是 Temu 的本地化與合規開支。兩條都是主動選擇，不是被動挨打。這跟很多公司「因為競爭被迫降價」不同——<b>拼多多是主動把錢花掉，用來換生態穩定和海外准入。</b></p></div><div class="section"><div class="section-title">第三層 費用：錢花在合規和治理上，不是花在補貼上</div><p class='txt'>研發46億元、+27.8%，管理費用23億元、+53.3%，銷售費用率26.4%、幾乎沒動。這三條讀數指向同一件事：<b>公司在為「合規」付帳，不是在為「成長」付帳。</b></p><p class='txt'>管理費用漲五成，是Temu本地化帶來的法務、稅務、關務、人力成本；研發漲近三成，是演算法與風控系統。銷售費用率沒降，說明國內補貼強度一點沒鬆——<b>一邊補貼守份額，一邊合規加成本，兩頭擠壓利潤。</b></p></div><div class="section"><div class="section-title">錢存在哪裡：4,564 億元的結構</div><p class='txt'>這筆錢的形態主要是定期存款、國債與貨幣基金，少量股權投資。公司沒有銀行借款，也沒有發債，所以利息收入是淨貢獻——2025 年利息與投資收益對利潤的貢獻在百億元量級。</p><p class='txt'>這帶來一個反直覺的結果：<b>拼多多有一部分利潤是「存款利息」賺來的，不是賣貨賺來的。</b>利率往下走，這塊利潤就薄。這也是為什麼它的淨利率比毛利率看起來更脆弱——57% 的毛利率裡，有一小截是資產負債表給的。</p></div><div class="section"><div class="section-title">第四層 利潤：−13% 裡有一半是一次性項目</div><p class='txt'>歸母淨利271.8億元、同比−12%；Non-GAAP 284.9億元、−13%，連續第三個季度同比下滑。表面看是「越賺越少」，拆開看：其他收入從去年同期的+1.2億元變成−74億元，差額75億元，其中包含歐盟2億歐元（約16億元）罰款和匯兌損失。</p><p class='txt'>剔除這一項，利潤下滑幅度會收窄到個位數。<b>但即便剔除，趨勢還是向下的</b>——Q1淨利125億元、−15%，Q2 −12%，這不是一次性的問題，是投入週期的問題。</p></div><div class="section"><div class="section-title">第五層 現金流與資產負債：造血很強，但現金裡有別人的錢</div><p class='txt'>營業現金流257億元、+19%，比稅後淨利還高，說明利潤是真金白銀。現金及短期投資4,564億元，半年增341億元，沒有一分錢有息負債。<b>從資產負債表看，這是一家幾乎不可能倒閉的公司。</b></p><p class='txt'>但有個細節要盯住：拼多多的現金裡有一部分是商家待結算貨款和保證金——平台先收錢、後結算，形成浮存。這部分錢在法律上是負債，不能算成股東的。公司不披露明細，所以「扣現金3.4倍市盈率」這個算法偏樂觀。<b>保守起見，我在估值裡給現金打了九折的隱含假設。</b></p></div><div class="section"><div class="section-title">三個數字最該盯</div><p class='txt'><b>一、廣告收入增速。</b>3.5%是生死線，Q3如果掉到零或負增長，主站從「成熟」變「衰退」，估值方法要換。</p><p class='txt'><b>二、交易服務增速。</b>13%是Temu的體溫計。掉到5%以下，說明本地化沒跑通、或者歐洲客戶在流失。</p><p class='txt'><b>三、現金環比變化。</b>這一項比利潤更重要。現金環比減少超過5%，說明Temu開始燒老本；現金繼續增加，說明管理層還是選擇攢錢而不是投出去或還給股東。</p></div><div class="section"><div class="section-title">放在同業財報旁邊：同樣增長，品質差一個量級</div><p class='txt'>京東 2026Q2 收入 3,464 億元、同比 −2.9%，歸母淨利 71 億元，淨利率 2.0%；阿里 2026 年 6 月季度收入 2,689.53 億元、+9%，營業利益 151.61 億元、同比 −57%，營業利益率 5.6%。拼多多同樣的營收體量下，營業利益率 24.7%。</p><p class='txt'><b>四倍於阿里的營業利益率，十二倍於京東的淨利率。</b>這個差距不是管理效率，是模式：一家收租，兩家幹活。財報讀到這裡，就該明白為什麼它便宜也值得看一眼。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：成長停了，賺錢能力沒停，錢也沒還給股東。</b></p><p class='txt'>毛利率57.3%、營業現金流257億元、零有息負債，這三項說明生意的品質沒壞；廣告+3.5%、淨利−13%、現金再增341億元，這三項說明成長性沒了、分配意願也沒有。</p><p class='txt'>讀這份財報的正確方式：把它當成一家成熟的高毛利收租公司，而不是一家成長公司。按這個框架，8.2倍PE、扣現金3.4倍，就是便宜。按成長公司的框架看，它就是「成長失速」，永遠不該買。<b>框架選錯，結論就反了。</b></p></div>
+</div>
+<div class="footer">拼多多 (PDD) · 2026/11/13</div>
+</body>
+</html>

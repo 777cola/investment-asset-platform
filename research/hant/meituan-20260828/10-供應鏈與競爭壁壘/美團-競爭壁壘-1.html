@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>競爭壁壘 — 美團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20260828/10-供应链与竞争壁垒/美团-竞争壁垒.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meituan-20260828/10-供應鏈與競爭壁壘/美團-競爭壁壘-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meituan-20260828/10-Moat-and-Supply-Chain/Meituan-Moat-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>競爭壁壘 — 美團</h1>
+  <div class="subtitle">美團 (03690) | 10 · 競爭壁壘</div>
+  <div class="meta">研究日期 2026/08/28 &nbsp;·&nbsp; 股價 HK$77.50（+0.00%） &nbsp;·&nbsp; 市值 約 4,786 億港元（61.75 億股） &nbsp;·&nbsp; PE —（2026 年上半年稅後淨損 46.7 億元，PE 失真）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meituan-20260828/00-美團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>美團的護城河是「物理的」，不是「心理的」。<b>網路密度 9 分、成本優勢 8 分、商戶生態 7 分、品牌 6 分、轉換成本 5 分、牌照 4 分（幾乎不需要牌照，也因此沒有牌照保護）。</b>這套組合的意思是：它擋得住新進入者，擋不住已經在場的巨頭——因為巨頭可以花錢買密度以外的一切，唯獨買不到時間。<b>最危險的對手不是京東（份額掉到 7%），是淘寶閃購：它有 8 億主站用戶、有餓了麼的運力底子、還有把外送虧損記在電商帳上的能力。</b></p></div><table class="dt"><caption>護城河逐項評分</caption><thead><tr><th>維度</th><th>評分</th><th>依據</th><th>永續性</th></tr></thead><tbody><tr><td>網路密度（履約）</td><td>9/10</td><td>約 600 萬名騎手、2,800 個縣市區、分鐘級調度；單均成本行業最低</td><td>強：實體資產，需十年累積</td></tr><tr><td>成本優勢</td><td>8/10</td><td>配送服務收入 267.8 億元、+13.1%，靠密度而非提價；新業務虧損率降到 5.3%</td><td>中強：可被補貼侵蝕</td></tr><tr><td>商戶生態</td><td>7/10</td><td>約 800 萬活躍商戶，但有堂食的中小餐飲正被抖音分流</td><td>商家服務收入僅增 4.0%</td></tr><tr><td>品牌</td><td>6/10</td><td>「點外送上美團」仍成立，但 30 元以下價格帶已被教育成「誰便宜用誰」</td><td>中弱：價格戰會稀釋</td></tr><tr><td>轉換成本</td><td>5/10</td><td>使用者換平台只需下載一個 App；商戶多平台上線是常態</td><td>弱：幾乎沒有</td></tr><tr><td>牌照與合規</td><td>4/10</td><td>外送不需要牌照，這是優點也是缺點——沒有准入壁壘保護它</td><td>弱：監管只加成本不加壁壘</td></tr></tbody></table><div class="note">評分為本報告主觀打分（10 分制），依據為 2026Q2 財報數據、公司披露的騎手與商戶規模、以及高盛 2026/03 份額估算。</div><table class="dt"><caption>競品對比（2026 年 8 月）</caption><thead><tr><th>玩家</th><th>訂單量份額</th><th>核心優勢</th><th>核心短板</th><th>最新季度</th></tr></thead><tbody><tr><td>美團</td><td>約 51%</td><td>履約密度、商戶供給、高客單價正餐</td><td>利潤率被補貼壓低，出海燒錢</td><td>核心本地商業營業利益 56.7 億元</td></tr><tr><td>淘寶閃購</td><td>約 42%</td><td>8 億主站流量、餓了麼運力、電商利潤可補貼</td><td>單均成本高於美團，虧損巨大</td><td>即時零售收入 533 億元、+45%</td></tr><tr><td>京東</td><td>約 7%</td><td>品質心智、達達運力、全職騎手合規領先</td><td>商戶少、單量小、虧損重</td><td>新業務單季虧約 98.5 億元</td></tr><tr><td>抖音（到店）</td><td>到店 GTV 超 8,000 億元</td><td>內容種草、低佣金、流量成本低</td><td>沒有履約能力，做不了外送</td><td>—</td></tr></tbody></table><div class="note">市占率為高盛 2026/03 單量口徑估算與媒體 2026/08 收入口徑測算，不可直接比較；抖音到店 GTV 為 2026/05 媒體報導。京東新業務虧損為其 2026Q2 財報口徑。</div><div class="section"><div class="section-title">產業鏈位置：它必須自己做履約</div><p class='txt'>美團的產業鏈位置很特殊：它既是平台（分發需求、收佣金），又是履約方（自己養騎手、自己擔成本）。<b>大部分平台公司會選擇輕資產——只做匹配，把履約外包。美團沒有，因為它試過：外包的時效控不住，用戶體驗一崩，入口就沒了。</b></p><p class='txt'>這個選擇的好處是護城河變硬：履約網路是物理資產，需要時間、地推、演算法、騎手關係四樣東西同時積累。京東和阿里砸了兩年、上千億元，單量加總仍不到一半，就是這個原因。</p><p class='txt'>壞處是它永遠比純平台重：騎手成本剛性、社保合規成本逐年上升、任何一個縣城的密度不足都會拖累整體單位經濟。<b>所以美團的護城河是「用重資產換來的時間壁壘」，不是「用品牌換來的定價權」。</b></p></div><div class="section"><div class="section-title">供應鏈：供給端的控制力在下降</div><p class='txt'>美團的「供應鏈」不是貨物供應鏈，是<b>商戶供給 + 騎手運力</b>這兩條。</p><p class='txt'>商戶側：約 800 萬活躍商戶是資產，但 2026Q2 商家服務收入只增 4.0%，是所有指標裡最弱的一個。原因有兩個：一是抖音用低佣金搶走了連鎖品牌和網紅店；二是商戶自己在降本，廣告預算砍得比佣金狠。<b>這條供應鏈的控制力在下降，而且是結構性的。</b></p><p class='txt'>騎手側：約 600 萬有單騎手，是全球最大的靈活用工池之一。美團做了三件事把它穩住——養老保險補貼全國覆蓋（業內首個覆蓋全類型騎手）、職業傷害保障 2026 年 7 月 1 日全國落地、演算法上加了「累計跑單 4 小時彈窗提醒休息」。<b>這三件事都在加成本，但換來的是運力穩定，而運力穩定是履約時效的前提。</b></p><p class='txt'>供應鏈判斷：<b>騎手這條鏈比商戶那條鏈更穩。</b>商戶會跑，騎手不會——因為美團給的是全國最密的訂單密度，騎手在別處賺不到同樣的錢。</p></div><div class="section"><div class="section-title">最危險的對手：淘寶閃購，不是京東</div><p class='txt'>京東入局時聲勢最大，結果最慘：份額一度到 31%，現在 7%，新業務單季虧近百億元。<b>它輸在起手就錯了——沒有騎手網路、沒有商戶基礎，卻選擇在別人的主場開戰。</b>7 月 17 日宣布全職騎手 100% 簽勞動合同繳五險一金，合規上領先，成本上也更重。</p><p class='txt'>真正危險的是淘寶閃購。它做的不是外送，是把外送當流量入口：<b>用主站 8 億用戶的流量 + 補貼，把單量從 0 做到 40% 以上，只用了不到兩年。</b>更麻煩的是它的帳算得過來——外送虧的錢，可以從電商廣告裡補。</p><p class='txt'>但 2026 年出現了兩個轉折信號：阿里 8 月配售 800 億港元全部投向 AI 基建而非即時零售；據 36 氪報導，阿里新財年淘寶閃購投入砍半。<b>如果這兩條同時成立，說明阿里已經算清楚了：外送不值得無限投入。這是美團利潤率修復最重要的外部條件。</b></p><p class='txt'>第三個對手抖音不在外送戰場上，它在到店。到店是美團利潤最肥的一塊（毛利率遠高於外送），抖音 2025 年到店 GTV 增長近 60%、超過 8,000 億元。<b>外送守得住，到店守不住，這是美團未來三年最真實的戰場。</b></p></div><div class="section"><div class="section-title">三公里法則：護城河的空间邊界</div><p class='txt'>美團的所有優勢都受一條物理規則約束：<b>三公里。</b>騎手的配送半徑、用戶的等待耐心、商戶的覆蓋範圍，都在這個尺度上。</p><p class='txt'>這條規則的含義是：美團的護城河不是「全國一張網」，是「2,800 張獨立的網」。每一張網的經濟性取決於那個商圈的訂單密度——北京國貿的單均成本可能是縣城的一半。</p><p class='txt'>所以「規模效應」這個詞在美團身上要打個折：<b>它有規模效應，但規模效應是分段的、局部的、不可跨區調配的。</b>這解釋了為什麼它在低線城市打不過本地小平台，也解釋了為什麼它必須在每個縣單獨投入地推。</p><p class='txt'>投資者容易犯的錯是把「全國最大」當成「每個地方都最強」。真相是：它在一二線城市最強，在縣域只是「有」，不是「強」。</p></div><div class="section"><div class="section-title">如果對手換打法</div><p class='txt'>現在的競爭是「補貼戰」，如果換成另外兩種打法，美團的處境會完全不同。</p><p class='txt'>第一種是「品質戰」：對手不比價格，比食品安全、比配送準時率、比售後。這對美團不利——因為品質戰需要投入，而美團現在的利潤率撐不起額外投入；但它也不致命，因為美團的履約時效本來就是最強的。</p><p class='txt'>第二種是「生態戰」：對手把外送和電商、支付、影音會員打包，用交叉補貼打。這是淘寶閃購正在做的，也是最危險的——<b>因為美團的生態只有「吃」，對手的生態有「吃穿用度」。</b></p><p class='txt'>第三種是「監管戰」：如果監管要求平台不得以補貼排擠競爭對手，補貼戰會被強制終止。這對美團是好事，但它同樣限制了美團的還手能力。<b>三種打法裡，第二種最可能發生，也最難防。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'>護城河結論：<b>物理壁壘（網路、成本）8–9 分，非物理壁壘（品牌、轉換成本、牌照）4–6 分。</b>這種組合的公司，打不死，但也提不了價。</p><p class='txt'>投資含義：護城河支持「不會輸」，不支持「高倍數」。所以估值給 15–20 倍是合理的——它買的是「穩態第一」的確定性，不是「壟斷提價」的想像力。</p></div>
+</div>
+<div class="footer">美團 (03690) · 2026/08/28</div>
+</body>
+</html>

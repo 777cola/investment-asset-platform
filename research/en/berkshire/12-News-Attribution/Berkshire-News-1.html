@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News — Berkshire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/berkshire/12-新闻异动归因/伯克希尔-新闻异动.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/berkshire/12-新聞異動歸因/波克夏-新聞異動-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/berkshire/12-News-Attribution/Berkshire-News-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>News — Berkshire</h1>
+  <div class="subtitle">Berkshire (BRK.B) | 12 · News</div>
+  <div class="meta">Research date 2026/11/16 &nbsp;·&nbsp; Price $592.85 (-0.02%) &nbsp;·&nbsp; Market cap About USD 1.26 trillion &nbsp;·&nbsp; PE(TTM) Approximately 16.6x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/berkshire/00-Berkshire-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Attribution of unusual moves</h3><p class='txt'>Berkshire gained 13.2% over the past three months, outperforming the S&P 500 by 19.2 percentage points — the largest rolling monthly relative advantage since 2010 and second only to 2008 in 30 years. This is not earnings-driven; it is flow-driven.</p><p class='txt'>Laying out the events, only three things are real: safe-haven buying triggered by the collapse of the AI trade, USD 9.6 billion of buybacks, and an earnings report that "didn't collapse." The rest is noise: the 13F position ratios, the single-day -0.02%, the "record cash pile" in media headlines.</p></div><table class="dt"><caption>Key events in the past three months (September 2026–November 16)</caption><thead><tr><th>Date</th><th>Event</th><th>Share price reaction</th><th>Nature</th></tr></thead><tbody><tr><td>2026/09/18</td><td>Buffett steps down as chairman; Howard Buffett succeeds him; Buffett becomes chairman emeritus</td><td>Flat on the day; the handover was flagged a year in advance</td><td>Signal, but already priced in</td></tr><tr><td>Mid-October 2026</td><td>AI trade starts to wobble, tech stocks choppy at highs, capital seeks low-volatility assets</td><td>Berkshire starts to outperform, trading volume expands</td><td>Real signal: a turning point in liquidity</td></tr><tr><td>2026/11/07</td><td>Q3 results: operating profit -5.8%, underwriting -43%, Q3 buyback RMB 9.647 billion</td><td>Did not fall; continued to climb after earnings</td><td>Fundamental event overlooked by the market</td></tr><tr><td>2026/11/08</td><td>Media outlets have focused on "mountains of cash plus large buybacks: Berkshire is facing an asset shortage too"</td><td>Sentiment-driven, single-week gain</td><td>Noise (narrative interpretation)</td></tr><tr><td>2026/11/12</td><td>It works out to "outperforming the S&amp;P by 19.2 percentage points in a month," the largest since 2010</td><td>Safe-haven buying accelerates, hitting a record high</td><td>True signal: crowding indicators</td></tr><tr><td>2026/11/16</td><td>Q3 13F disclosure: top five holdings account for 68.5% of the portfolio, Alphabet 12%</td><td>Down 0.02% on the day, closing at USD 592.85, 0.02% below the high</td><td>Structural signal (rising concentration)</td></tr></tbody></table><div class="note">Event dates are taken from company announcements and media reports; the "same-day" stock price reaction data comes from batchdata (November 16, 2026 close of USD 592.85, 52-week high of USD 592.94), with the remainder being qualitative range descriptions.</div><div class="section"><div class="section-title">Real signal one: safe-haven money has turned "certainty" into a crowded trade</div><p class='txt'>The AI trade collapse in mid-November was not caused by Berkshire, but it was the biggest beneficiary. The logic chain is clear: tech valuations rest on "discounting future cash flows," and once the discount rate or growth assumptions waver, capital flees to assets whose "cash flows are already certain." <b>Two-thirds of Berkshire's profit comes from railroads, utilities and manufacturing — none of which has anything to do with AI.</b></p><p class='txt'>On the numbers, up 13.2% in a month and outperforming the S&P by 19.2 percentage points, the largest since 2010. <b>That move is not "fundamentals improved 13%" — it is "the valuation multiple re-rated from 1.45x book to 1.66x."</b></p><p class='txt'>That is also the most fragile link: safe-haven money arrives fast and leaves faster. It does not need the company to deteriorate — only for the panic to end.</p></div><div class="section"><div class="section-title">Real signal two: management raised the buyback from RMB 4.5 billion to RMB 9.6 billion — a statement of intent</div><p class='txt'>Q3 buybacks were USD 9.647 billion, Q2 was USD 4.527 billion, and Q1 only about USD 230 million (derived by subtracting from the RMB 14.4 billion nine-month total). <b>Over three quarters, buybacks grew 40-fold.</b> This acceleration came as the stock rose from 540 to 590 — the opposite direction. The normal logic is to buy less as the price rises.</p><p class='txt'>Two explanations: ① management believes intrinsic value is far above book value (replacement cost of the railroads and utilities, unrealized gains on Apple and Amex); ② the new leadership wants to use buybacks to prop up relative performance. <b>Either way, it points to one thing: the USD 377.4 billion will not sit in short-term Treasuries forever.</b></p></div><div class="section"><div class="section-title">Real signal three: earnings "did not collapse" matters more than "good"</div><p class='txt'>Operating profit -5.8%, and the market did not react at all. That is anomalous in 2026 — over the same period CATL's Q3 net profit rose 14.5% yet its A-shares fell 12%, and Cambricon dropped 6% on a growth slowdown. <b>Berkshire's profit fell 5.8% while its stock hit a new high, which shows the people buying it are not buying profit.</b></p><p class='txt'>They are buying two things: a combined ratio of 91.4% (still profitable, no collapse) and book value +10.5% (net assets still growing). Those two keep the "defensive" label intact.</p></div><div class="section"><div class="section-title">Noise: four things that look eventful but carry no real information</div><p class='txt'><b>① 13F position weight changes.</b> Top five at 68.5%, Alphabet at 12% — a quarterly snapshot reflecting passive drift from stock-price moves, not active decisions.<b>② Down 0.02% in a single day.</b> 592.85 versus 592.94, a 9-cent gap; any interpretation is overfitting.</p><p class='txt'><b>③ The "asset shortage" narrative.</b> The media frames "lots of cash" as "no skill" and "lots of buybacks" as "confidence"; both pieces can hold at once, which shows it is not analysis.<b>④ The "symbolism" of the chairman handover.</b> Announced a year ahead of the September 18 event; the market had already priced it.</p><p class='txt'>The test is simple: if a development cannot be explained by one of cash flow, discount rate or competitive landscape, it is noise.</p></div><div class="section"><div class="section-title">The tradable part: only one</div><p class='txt'>Of the three genuine signals, only the first (safe-haven flows) is tradeable, and the direction is <b>"wait for the tide to recede"</b>, not "chase it". This kind of extreme relative performance has occurred four times in history, and each time it gave back more than half within 1–3 months.</p><p class='txt'>The second (buybacks) and third (earnings didn't collapse) are "reasons to hold", not "reasons to buy". They tell you the company is fine; they don't tell you the price is right.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'>The three-month rally has a clear attribution: <b>60% from safe-haven flows, 30% from buyback comments, 10% from earnings not collapsing.</b> Not one bit came from "improving fundamentals."</p><p class='txt'>So the strategy is equally clear: this rally is not a buy signal, it is a wait signal. The real opportunity comes when safe-haven flows recede and the stock falls back to 1.4x book—that is when the media will write "Berkshire loses its halo," and that is when to act.</p></div>
+</div>
+<div class="footer">Berkshire (BRK.B) · 2026/11/16</div>
+</body>
+</html>

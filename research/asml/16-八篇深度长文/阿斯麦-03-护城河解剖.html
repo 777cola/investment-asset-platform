@@ -7,13 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
-.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
 .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
 .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
 .header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
 .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
 .section { margin-bottom: 2.5rem; }
 .section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -48,22 +53,19 @@ table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; colo
 .badge-blue { background: #e6f0ff; color: #1a4b8c; }
 .footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
 .back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
-.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
-.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
-.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
-
 </style>
 </head>
 <body>
 <div class="header">
+  <div class="lang-switch"><a class="lang zh active" data-lang="zh" href="/research/asml/16-八篇深度长文/阿斯麦-03-护城河解剖.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/asml/16-八篇深度長文/阿斯麥-八篇長文-3.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/asml/16-Eight-Long-Essays/ASML-Eight Essays-3.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
   <h1>护城河解剖：四层壁垒，一层裂缝 — 阿斯麦</h1>
-  <div class="subtitle">阿斯麦 (ASML) | 16-八篇深度长文</div>
+  <div class="subtitle">阿斯麦 (ASML) | 16 · 八篇长文</div>
   <div class="meta">研究日期 2026/10/16 &nbsp;·&nbsp; 股价 $1,641.52（-0.96%） &nbsp;·&nbsp; 市值 约 6,240 亿美元（约 5,380 亿欧元） &nbsp;·&nbsp; PE(TTM) 约 41 倍</div>
 </div>
 <div class="container">
-<a class="back" href="../00-阿斯麦研究报告总目录.html">← 返回总目录</a>
+<a class="back" href="/research/asml/00-阿斯麦研究报告总目录.html">← 返回总目录</a>
 <div class="summary-box"><h3>核心判断</h3><p class='txt'>阿斯麦的护城河不是一条，是四层：物理层（光源与光学）、工程层（上万个零件的集成）、生态层（客户与供应商的共同研发）、时间层（十二年从原型到量产）。四层叠起来，二十年没人攻破。裂缝只有一条：政治。</p></div><div class="section"><div class="section-title">物理层：13.5 纳米的光</div><p class='txt'>EUV 用 13.5nm 波长的极紫外光，这个波长的光会被几乎所有材料吸收，包括空气和透镜。所以整套系统必须在真空里、用多层膜反射镜（钼/硅交替，每层几纳米厚）来引导光路。镜面的粗糙度要控制在皮米级——如果把镜子放大到一个国家那么大，最高的凸起不超过一厘米。</p><p class='txt'>光源更极端：用锡液滴以每秒五万次的频率喷射，被二氧化碳激光击中两次，变成等离子体发出 13.5nm 的光。这套系统的工程难度，是“把一个实验室装置做成每天 24 小时运转的量产设备”。</p></div><div class="section"><div class="section-title">工程层：上万个零件的良率</div><p class='txt'>一台 EUV 有上万个零件、十万级别的零部件编号，来自几千家供应商。真正的能力不是“设计出来”，是“每一台都稳定运行十年”。这需要把公差、振动、热漂移、污染控制全部做到极致。</p><p class='txt'>这一层的壁垒最难复制，因为它不是专利，是“试错积累的工艺参数”。尼康在 2000 年代技术不差，输就输在工程化和量产良率上——实验室能做出来，工厂做不出来。</p></div><div class="section"><div class="section-title">生态层：客户和供应商都被绑进来了</div><p class='txt'>2012 年，英特尔、台积电、三星三家客户联合向阿斯麦投入约 38.5 亿欧元，认购股份并资助 EUV 研发。这在商业史上极罕见——客户出钱帮供应商建护城河，因为他们知道没有阿斯麦就没有下一代制程。</p><p class='txt'>上游也一样：蔡司 SMT 的 High-NA 光学产线是阿斯麦出钱扩建的，双方互相持股（阿斯麦持蔡司 24.9%）。这种关系不是采购合同，是“共同投资、独家供应”的绑定。</p></div><div class="section"><div class="section-title">时间层：十二年</div><p class='txt'>从 2006 年做出 EUV 原型，到 2018 年第一台量产机 NXE:3400B 出货，用了十二年；投入以百亿欧元计。任何一个新进入者要复制，需要同样的时间和钱，而且要在阿斯麦不停步的情况下追——这在商业上不成立。</p><p class='txt'>四层壁垒叠起来，就是 47/60 的护城河评分（10 技术 + 9 切换成本 + 9 供应链 + 8 服务 + 7 成本 + 4 政治）。<b>唯一的裂缝是政治：设备卖给谁，由荷兰政府和美国政府决定。</b>这道裂缝不影响护城河的宽度，影响它的可用性。</p></div><div class="section"><div class="section-title">为什么别人不复制：一笔算不过来的账</div><p class='txt'>假设今天有一家公司决定挑战 EUV：需要 10–15 年、200 亿欧元以上的研发、一条全新的供应链（光学、光源、真空、控制软件），还要说服台积电、三星在量产线上验证。而就算做成了，面对的是一个已经把成本摊薄、装机基数几千台、服务网络铺满全球的对手。</p><p class='txt'>这笔账在任何董事会都过不了。这就是护城河的经济学本质：<b>不是“我做得好”，是“别人做了不划算”。</b>技术壁垒只是表象，成本壁垒和先发规模才是实质。</p></div><div class="section"><div class="section-title">护城河的货币化：从防守到收租</div><p class='txt'>护城河的价值要能被“收”出来，否则只是好看。阿斯麦的货币化路径有三条：整机提价（High-NA 单价三亿五千万以上）、服务收费（装机管理 32.89 亿/季、同比 +50%）、价值定价（2027 年起按客户收益分成）。</p><p class='txt'>三条路径的确定性不同：服务最确定（存量基数），整机提价较确定（稀缺），价值定价最不确定（客户博弈）。市场现在给的 31 倍，大概是“服务 + 整机提价”已经定价、“价值定价”还没定价。如果 2027 年价值定价落地，倍数有上修空间——这是乐观情景 2,380 美元的来源。</p></div><div class="summary-box"><h3>结论</h3><p>四层壁垒：物理、工程、生态、时间。前三层十年内无解，第四层（政治）是唯一的裂缝。结论：竞争风险可以忽略，政策风险必须定价。</p></div>
 </div>
-<div class="footer">阿斯麦 (ASML) 投资研究报告集 · 2026/10/16</div>
+<div class="footer">阿斯麦 (ASML) · 2026/10/16</div>
 </body>
 </html>

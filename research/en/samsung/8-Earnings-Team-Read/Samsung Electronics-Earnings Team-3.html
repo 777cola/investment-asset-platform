@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Munger reads financial reports: first find the most abnormal line in the report — Samsung Electronics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/samsung/8-财报团队解读/三星电子-大师精读-芒格.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/samsung/8-財報團隊解讀/三星電子-財報團隊解讀-3.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/samsung/8-Earnings-Team-Read/Samsung Electronics-Earnings Team-3.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Munger reads financial reports: first find the most abnormal line in the report — Samsung Electronics</h1>
+  <div class="subtitle">Reverse thinking: which number, once it rolls over, would collapse the entire earnings report?</div>
+  <div class="meta">Research date 2026/09/21 &nbsp;·&nbsp; Price ₩275,000 (+5.77%) &nbsp;·&nbsp; Market cap Approximately KRW 1,793 trillion (about USD 1.20 trillion, roughly calculated at 6.52 billion shares and KRW 1,500/USD) &nbsp;·&nbsp; PE (annualized 1H 2026) Approximately 7.5x (rough calculation based on H1 net profit of KRW 118.7 trillion × 2)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/samsung/00-Samsung Electronics-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>One line: the entire earnings report rests on a single number — DRAM contract prices</h3><p class='txt'>Munger's approach to reading financial statements is unusual: he ignores growth and first looks for "the most abnormal line." In Samsung's report, the most abnormal item is <b>the 69.6% gross margin</b>—a company making standardized products has a gross margin higher than TSMC's (67.7%), which in this industry can only occur at one point: the peak of supply shortage.</p><p class='txt'>The second abnormality is <b>the semiconductor division contributing 99.7% of profit</b>. For a conglomerate electronics company with annual revenue of KRW 171 trillion, almost all profit comes from one division, meaning the stability of the entire financial report equals the stability of that division.</p></div><table class="dt"><caption>Four "abnormal" figures and what they mean</caption><thead><tr><th>Digital</th><th>Numerical value</th><th>Normal level</th><th>Meaning</th></tr></thead><tbody><tr><td>Gross margin</td><td>69.6%</td><td>35%—45%</td><td>Price extreme, unsustainable</td></tr><tr><td>DS profit share</td><td>99.7%</td><td>50%—70%</td><td>Single profit source, no buffer</td></tr><tr><td>Capital expenditure</td><td>All-time high</td><td>Cycle midpoint</td><td>Two years later, it becomes excess capacity</td></tr><tr><td>Payout ratio</td><td>Approximately 4%</td><td>20%—30%</td><td>Profits are not returning to shareholders</td></tr></tbody></table><div class="note">The normal level refers to Samsung's own historical range for 2015–2024, not an industry standard. Capex is not disclosed as a specific amount, only a qualitative judgment is given.</div><div class="section"><div class="section-title">The first anomaly: a 69.6% gross margin</div><p class='txt'>A manufacturer's gross margin is set by three things: price, cost and product mix. This quarter all three moved in the right direction at Samsung, but <b>their weights were wildly uneven</b> — price contributed 30 percentage points, mix 5, and cost close to zero.</p><p class='txt'>Munger would ask: <b>if prices returned to 2025 levels, what would the gross margin be?</b> The answer is 34% — the figure from a year ago. That is not a forecast but arithmetic: strip out the price increases and what remains is the original business.</p><p class='txt'>He would also note a detail: <b>the gross margin is higher than TSMC's.</b> TSMC is the world's strongest foundry, with pricing power, technical barriers and customers queuing up; Samsung sells standard memory chips. There is only one explanation for a higher gross margin than TSMC's — this is not the normal state.</p></div><div class="section"><div class="section-title">The second anomaly: 99.7% of profit comes from one segment</div><p class='txt'>This is a company with three businesses, four divisions and 200,000 employees, yet 99.7% of its profit comes from semiconductors. The handset, display and consumer-electronics divisions combined post negative operating profit.</p><p class='txt'>Munger's reading would be: <b>this is not diversification, it is one bet plus three hedges.</b> The hedges exist to keep the company alive when the bet fails (as proven in 2023), not to contribute profit at any time.</p><p class='txt'>The implication for investors is direct: <b>buying Samsung means buying DRAM prices; the other businesses only lower the probability of bankruptcy.</b> If you do not want to bet on DRAM prices, you should not buy it; if you do want to bet on DRAM prices, you should know what you are betting on. Many people buy Samsung because "it is a big company with diversified businesses" — that reasoning is wrong.</p></div><div class="section"><div class="section-title">The third anomaly: the money earned is not returned to shareholders</div><p class='txt'>First-half net profit KRW 118.7 trillion; full-year dividend at the policy floor of KRW 9.8 trillion, a payout ratio of 4%. <b>That ratio is anomalous for a mature manufacturer</b>—typically it should be 20%–30%.</p><p class='txt'>Where did the money go? Three routes: capacity expansion, R&D, and cash on the balance sheet. The first two are investment; the third is inefficiency. Samsung's cash pile keeps growing, and its failure to buy back stock at 7.5x PE <b>amounts to telling shareholders: "I can deploy this money more efficiently than you can if you take it back."</b></p><p class='txt'>Munger's view of such claims: <b>"If management's capital-allocation record over the past decade doesn't prove it, don't believe it."</b> Over the past decade Samsung expanded capacity at cycle peaks and endured the troughs; the record is "survived," not "generated excess returns."</p></div><div class="section"><div class="section-title">Reverse inference: when will this earnings report turn?</div><p class='txt'>Put the three anomalies together and the path to the reversal is clear: <b>DRAM contract prices flatten sequentially → gross margin drops 6–7 percentage points → DS profit halves → consolidated operating profit falls back below KRW 40 trillion → the market reprices for a "downcycle."</b></p><p class='txt'>This chain needs no "black swan," only prices to stop rising. And prices stopping rising is inevitable — the capex of the three players in 2026 becomes capacity in 2027–2028. <b>In other words, this earnings reversal is not a risk; it is on the calendar.</b></p><p class='txt'>Munger's question is always: <b>if this is inevitable, does the price you are paying today discount it?</b> KRW 275,000, a -24% drawdown, 7.5x PE — it is discounted, but not enough. Truly "enough" is PB below 1.2x, or PE within 10x on normalized profit.</p></div><div class="summary-box"><h3>Conclusion</h3><p>Munger-style conclusion: <b>Only one number matters in this earnings report — the DRAM contract price; only one question matters — did you pay the right price for its turn.</b> The answer is no.<br>Action: do not buy, or wait for the price to factor in the "inevitable reversal" (P/B 1.2x, about KRW 190,000).</p></div>
+</div>
+<div class="footer">Samsung Electronics (005930.KS) · 2026/09/21</div>
+</body>
+</html>

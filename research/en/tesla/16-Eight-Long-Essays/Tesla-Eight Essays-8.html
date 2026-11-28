@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decision framework: what price, what evidence, how to execute — Tesla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/tesla/16-八篇深度长文/特斯拉-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/tesla/16-八篇深度長文/特斯拉-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/tesla/16-Eight-Long-Essays/Tesla-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Decision framework: what price, what evidence, how to execute — Tesla</h1>
+  <div class="subtitle">Turn judgment into executable rules</div>
+  <div class="meta">Research date 2026/07/22 &nbsp;·&nbsp; Price $374.01 (-1.30%) &nbsp;·&nbsp; Market cap Approximately USD 1.48 trillion &nbsp;·&nbsp; PE(TTM) — (Margins too thin; PE no longer meaningful)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/tesla/00-Tesla-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3>Research is done; in the end it comes down to three things: at what price to buy, what evidence justifies making an exception, and how to manage the position after buying. Write these three rules down, and you are less likely to be swept away by emotion.</div><table class="dt"><caption>Four-tier decision checklist</caption><thead><tr><th>Tier</th><th>Question</th><th>The current answer</th><th>Pass or not</th></tr></thead><tbody><tr><td>Tier one: quality</td><td>Is this a company worth owning?</td><td>Yes, the only one of the six that spans all four segments</td><td>Passed</td></tr><tr><td>Tier 2 Valuation</td><td>Does the current price offer a margin of safety?</td><td>No — 61% is options</td><td>Does not pass</td></tr><tr><td>Tier 3 Evidence</td><td>Are there verifiable signals of delivery?</td><td>Not disclosed; FSD revenue is not reported separately</td><td>Does not pass</td></tr><tr><td>Tier four: discipline</td><td>Can it be controlled after purchase?</td><td>Understood — the rules are locked in.</td><td>Through</td></tr></tbody></table><div class="note">This table distills the conclusions of the full report.</div><div class="section"><div class="section-title">Part One, Level One: Can It Be Bought (Company Quality)</div><p class='txt'>The conclusion is yes — it is the only company among six peers that spans manufacturing, data, energy and robotics, with a moat score of 33/50 and management capability of 9.<b>If you could bet on only one company for the endgame of "EVs + autonomous driving + robotics," the answer is Tesla.</b></p><p class='txt'>But "can buy" is only a necessary condition. A score of 33/60 across six gates and passing two of seven hard metrics show it does not meet the financial standards of a "first-class company."<b>The conclusion at this level: worth researching, worth tracking, worth buying at the right price.</b></p></div><div class="section"><div class="section-title">II. Second layer: at what price to buy (valuation)</div><p class='txt'>Sum-of-the-parts: auto RMB 450 billion + energy storage RMB 80 billion + net cash RMB 40 billion = RMB 570 billion, or USD 144 per share. Options RMB 910 billion, or USD 230 per share. <b>Current USD 374 = 144 + 230.</b></p><p class='txt'>How to set the entry point? <b>Discount the options component.</b> If you are willing to pay only half price for the options (USD 115), the entry point is USD 259; at 60% (USD 138), USD 282; at 70% (USD 161), USD 305.</p><b>Rule for this report: start building the position below USD 300, add below USD 250.</b> That corresponds to options at 55% and 45% of value. This is not precise science; it is a discipline anchor.</div><div class="section"><div class="section-title">III. The third layer: what evidence could justify an exception</div><p class='txt'>Price is not the only path. If fundamentals show evidence that "possibility becomes fact," buying at a higher price is acceptable. <b>Two of three pieces of evidence suffice:</b></p><ul><li>FSD and Robotaxi revenue disclosed separately in financials, annualized above USD 5 billion;</li><li>Robotaxi operating without safety drivers in more than 10 cities, with the company disclosing weekly order volume;</li><li>Energy storage segment gross margin back above 25%, with capex declining quarter-on-quarter and free cash flow turning positive.</li></ul><p class='txt'>What the three share is that they "can be seen in the financials," not "management says so." <b>This is the dividing line between discipline and faith.</b></p></div><div class="section"><div class="section-title">IV. The fourth layer: how to manage the position after purchase</div><b>Position cap 5%</b> (of the equity portfolio), because it is highly correlated with the Nasdaq and the AI compute chain and is not a diversification tool. <b>Stop-loss at USD 280</b>: a break below means the market has begun pricing it on the physical business, and the thesis has changed. <b>Reconcile once a quarter</b>: automotive gross margin, energy storage gross margin, FCF, and whether FSD is reported as a separate line. If two of the four deteriorate, halve the position; if three deteriorate, exit entirely. <b>Conditions for removal from the watchlist</b>: FSD restricted in major markets, Musk stepping down, energy storage gross margin below 15% for two consecutive quarters. <b>If any one occurs, stop coverage, because the investment thesis no longer exists.</b></div><div class="section"><div class="section-title">Five common mistakes, each of which can lose you money</div><b>Mistake one: treating deliveries as profit.</b> 480,000 vehicles is a record, but net profit per vehicle fell from USD 3,051 to USD 2,320. <b>Deliveries cap revenue, not profit.</b> <b>Mistake two: treating the story as cash flow.</b> Robotaxi coverage of 7 major metro areas is real, but there are no trip volumes, no revenue per vehicle, no margin. <b>A progress bar is not an income statement.</b> <b>Mistake three: substituting "long-term bullish" for price discipline.</b> "It will surely be bigger in ten years" may be true, but it cannot answer "is buying at USD 374 worth it." <b>Long-term bullishness is a judgment; price discipline is an action. The two cannot substitute for each other.</b> <b>Mistake four: expressing interest through position size.</b> Buying 1% to "keep an eye on it" ends with all analysis finding reasons for the position. <b>Express interest through tracking; express conviction through position size.</b></div><div class="section"><div class="section-title">Six: where this report could be wrong</div><p class='txt'>Three possibilities: <b>1. Optimus succeeds early.</b> If it ships 100,000 units in 2027 at USD 20,000 gross profit per unit, the robotics business would contribute USD 2 billion of profit a year, and the option would immediately become fact. <b>2. FSD scales in China.</b> China's market sells about 20 million vehicles a year; if FSD subscription penetration reaches 20%, China alone would generate several billion dollars of high-margin revenue annually.</p><b>3. Energy storage gets valued separately.</b> If Tesla spins off and lists its energy storage business, the market would apply a utility multiple of 25–30x, and that business alone would be worth over RMB 150 billion.<p class='txt'>If all three hold, RMB 1.48 trillion is not expensive; if none holds, USD 144 is its price. <b>We are betting that none of the three holds. If we are wrong, we will change our tune when the evidence appears—that is the point of the third layer, the "exception conditions."</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>The decision framework in one sentence:</b> quality decides "whether to research," valuation decides "at what price to buy," evidence decides "whether to make an exception," and discipline decides "how to manage the position once bought." <b>Act only when all four layers are cleared; the first layer is now cleared, and we are stuck at the second.</b></p></div>
+</div>
+<div class="footer">Tesla (TSLA) · 2026/07/22</div>
+</body>
+</html>

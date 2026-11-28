@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thesis — Hon Hai Precision</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/foxconn/13-持仓论文追踪/鸿海精密-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/foxconn/13-持倉論文追蹤/鴻海精密-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/foxconn/13-Thesis-Tracking/Hon Hai Precision-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Thesis — Hon Hai Precision</h1>
+  <div class="subtitle">Hon Hai Precision (2317.TW) | 13 · Thesis</div>
+  <div class="meta">Research date 2026/10/19 &nbsp;·&nbsp; Price NT$240 (-1.84%) &nbsp;·&nbsp; Market cap About TWD 3.37 trillion &nbsp;·&nbsp; PE(2026E) Approximately 12.6x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/foxconn/00-Hon Hai Precision-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core call: the growth assumption holds; the profit assumption does not</h3><p class='txt'>Break the case for buying Hon Hai into five verifiable assumptions and check each one: shipment multiple growth (holds), scale driving operating margin expansion (holds but near the ceiling), gross margin rising with product mix (does not hold, down two consecutive quarters), free cash flow turning positive (does not hold, negative in the first half), customer base diversified with no deterioration in collections (to be verified). <b>Of the five, two hold, two do not and one is pending verification — that is the quantitative basis for the "Watch" rating.</b> Next, watch only gross margin and working capital tied up at the November Q3 earnings call.</p></div><table class="dt"><caption>Core assumptions and validation status</caption><thead><tr><th>Assumptions</th><th>Current evidence</th><th>Validation metrics</th><th>Status</th></tr></thead><tbody><tr><td>AI rack shipments to multiply through 2026, with VR200 taking over in 2027</td><td>Q3 revenue TWD 3.03 trillion, +47.1%; September alone TWD 1.16 trillion, topping TWD 1 trillion</td><td>Monthly revenue YoY, shipment commentary from earnings call</td><td>Established</td></tr><tr><td>Scale drives operating margin expansion (expense leverage)</td><td>Operating margin 3.75%, up 0.6pct YoY; expense ratio down to 2.36%</td><td>Quarterly operating margin, operating expense ratio</td><td>Established, but close to the upper limit</td></tr><tr><td>Gross margin improves with product mix / VR200 moves up</td><td>6.12%, down 0.21pct YoY, declining for two consecutive quarters</td><td>Quarterly gross margin (threshold 6.5%)</td><td>Not established</td></tr><tr><td>Free cash flow turns positive</td><td>H1 2026 negative, with both working capital and capex expanding</td><td>FCF, operating cash flow/net profit</td><td>Not established</td></tr><tr><td>Customer base diversified toward CSPs at 60%, with no deterioration in collections</td><td>Share of decline underway, Neocloud and sovereign cloud fill the gap</td><td>Days sales outstanding, customer concentration</td><td>To be verified</td></tr></tbody></table><div class="note">Evidence sources: 2026Q2 financial results and earnings call (2026/08/12), September 2026 revenue announcement (2026/10/05). The 6.5% gross margin threshold is the buy condition set in the working papers. Free cash flow was not separately quantified on the earnings call; the status assessment relies on directional commentary and the gap between revenue and net income growth.</div><div class="section"><div class="section-title">Two conditions for establishment: shipments and expense leverage</div><p class='txt'>The first point is largely uncontested. Q3 revenue was 3 trillion 269 billion, up 47.1% YoY, with September alone at 1 trillion 1,586 billion, breaking the trillion mark for the first time; the monthly figures reconcile exactly with the quarterly total. <b>The AI rack ramp is fact, not expectation.</b> The 2027 handover to VR200 rests only on industry research inference (TrendForce expects NVL72 output value to rise 214%), with no order evidence, so the "2026 portion" of this assumption holds while the "2027 portion" remains unverified.</p><p class='txt'>The second point also holds: operating margin was 3.75%, up 0.6pct YoY, with operating expenses up only 6% while revenue rose 41%. But the expense ratio has already fallen to 2.36% against a theoretical floor of 2.1%–2.2%; squeezing out another 0.2pct would add 5 billion in pre-tax profit, or 8% of net income. <b>This assumption can still deliver one small surprise, but it cannot support a re-rating—it has been downgraded from growth engine to defensive item.</b></p></div><div class="section"><div class="section-title">Two claims that do not hold: gross margin and cash flow</div><p class='txt'>The gross margin line is the core issue. 2026Q1 6.18%, Q2 6.12%, declining for two consecutive quarters; down -0.21pct YoY. Management said twice that "the product mix will improve in the second half," and delivered neither time. <b>By discipline, this assumption has been downgraded from "pending verification" to "partially falsified" — not overturned by data, but drained of credibility by repeated statements.</b></p><p class='txt'>The cash flow line likewise does not hold: free cash flow was negative in the first half, driven by receivables and inventory swelling as revenue doubled, plus capex from capacity expansion in four locations. <b>Only two paths turn it positive — revenue growth slows (working capital stops expanding), or customer payment terms shorten (pricing power improves). The first would hit the share price; the second requires gross margin to improve in tandem.</b></p></div><div class="section"><div class="section-title">One point yet to be verified: the "quality" of the customer mix</div><p class='txt'>The share of full-rack purchases by North America's five largest CSPs falls from about 70% in 2025 to about 60% in 2026 — the numbers are improving. But the gap is filled by Neoclouds and sovereign clouds: the former buy GPUs on debt financing, the latter on fiscal budgets. <b>More customers and lower bargaining power per customer is good; worse credit quality among new customers and collection that depends more on financing progress is bad.</b></p><p class='txt'>The way to verify this is days sales outstanding: if revenue grows 40% while receivables grow more than 50%, customers are using their own payment terms to tie up Hon Hai's capital. This metric can be calculated from the interim report and is more reliable than what is said at the earnings call.</p></div><div class="section"><div class="section-title">Falsification conditions: when to walk away outright</div><p class='txt'>Three hard conditions; triggering any one removes the stock from the watchlist: ① gross margin below 5.8% for two consecutive quarters (indicating structural dilution from the full-cabinet model exceeds expectations); ② quarterly revenue turning negative quarter-on-quarter with no guidance cut and no explanation at the earnings call (indicating a break in order visibility); ③ receivables turnover days up more than 15 days year-on-year (indicating deteriorating customer credit).</p><p class='txt'>Conversely, improvement in any one of the three warrants an upgrade: gross margin above 6.5% for two consecutive quarters, free cash flow turning positive, or the share price falling below RMB 180 (a valuation trigger, not a fundamental one). <b>The point of fixing these conditions in writing: no need to agonize anew each quarter—just watch the metrics.</b></p></div><div class="section"><div class="section-title">Watch calendar</div><ul><li><b>2026/11/12 (estimated)</b>: Q3 earnings call. Watch gross margin (thresholds 6.0%/6.5%), capacity utilization commentary, capex guidance.</li><li><b>2026/12/05</b>: November revenue. Watch whether year-on-year growth holds above 30%.</li><li><b>2027/01/05</b>: December and full-year revenue. Watch whether Q4 grows quarter on quarter.</li><li><b>2027/03</b>: Q4 results and annual report. Watch full-year free cash flow, receivables days, depreciation breakdown.</li><li><b>2027/05</b>: Q1 results. First full quarter after the VR200 transition; gross margin direction is most critical.</li></ul></div><div class="summary-box"><h3>Conclusion</h3><p>The five assumptions reconcile to one result: growth holds, profit does not. <b>This is not a vague "wait and see" stance; it is a clear "the denominator is unproven."</b> The rating stays at "watch, await the gross margin inflection," with falsification conditions and a watch calendar locked in. Only one thing really needs doing: on the November earnings call, look at gross margin first, everything else second.</p></div>
+</div>
+<div class="footer">Hon Hai Precision (2317.TW) · 2026/10/19</div>
+</body>
+</html>

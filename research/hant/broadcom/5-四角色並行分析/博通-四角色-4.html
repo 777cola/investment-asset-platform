@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>風險評估（李錄視角） — 博通</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/broadcom/5-四角色并行分析/博通-风险评估-李录.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/broadcom/5-四角色並行分析/博通-四角色-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/broadcom/5-Four-Role-Analysis/Broadcom-Four Roles-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>風險評估（李錄視角） — 博通</h1>
+  <div class="subtitle">博通 (AVGO) | 五個風險，一個不可測</div>
+  <div class="meta">研究日期 2026/10/02 &nbsp;·&nbsp; 股價 $355.14（+3.35%） &nbsp;·&nbsp; 市值 約 1.69 萬億美元（按 47.7 億股粗算） &nbsp;·&nbsp; PE(FY2027E) 約 18x（FY27 一致預期 EPS 19.38 美元）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/broadcom/00-博通研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>把風險列全：客戶集中、融資擔保、技術路線、政策管制、估值。前四個能定量或至少能描述，第五個是估值結果不是原因。</p><p class='txt'><b>真正讓這份投資不可承保的只有一個：融資擔保的敞口無法量化。</b>其餘四個都可以用價格補償。</p></div><table class="dt"><caption>風險清單與可測性</caption><thead><tr><th>風險</th><th>觸發條件</th><th>影響量級</th><th>可測性</th></tr></thead><tbody><tr><td>客戶集中</td><td>單一大客戶砍單 30%</td><td>AI 收入 −20% 以上</td><td>可追蹤（季度指引）</td></tr><tr><td>融資擔保</td><td>客戶部署不及預期、平台違約</td><td>表外負債回表，量級不明</td><td>不可測（未披露）</td></tr><tr><td>技術路線</td><td>輝達推理方案成本追平 ASIC</td><td>毛利率與市占率雙降</td><td>可追蹤（產品發布）</td></tr><tr><td>政策管制</td><td>對華出口限制擴大到定製晶片</td><td>中國收入受影響（佔比不高）</td><td>可追蹤（BIS 清單）</td></tr><tr><td>估值</td><td>FY27 EPS 未達 19.38</td><td>倍數與盈利雙殺</td><td>可追蹤（季度財報）</td></tr></tbody></table><div class="note">影響量級為本報告估算，非公司披露。政策風險參考 2022 年以來美國對華半導體出口管制的一貫做法，未引用報告日之後的具體清單變化。</div><div class="section"><div class="section-title">客戶集中：這不是風險，是這門生意的定義</div><p class='txt'>六家客戶撐起 167 億美元的單季 AI 收入，占半導體收入 80%。任何一家砍單 30%，博通的 AI 收入就少 20% 以上，而市場給的 18 倍估值立刻會變成 25 倍。</p><p class='txt'>這個風險沒法分散，因為它就是生意模式本身。能做的是跟蹤：每季電話會披露的客戶 deployment 進度（GW 數）、以及客戶的資本開支指引。<b>Anthropic 從 1GW 到 5GW、OpenAI 到 1.3GW、Meta 累計 3GW——這些數字如果連續兩季不上修，就是警報。</b></p></div><div class="section"><div class="section-title">融資擔保：唯一不可測項</div><p class='txt'>這是整份報告裡唯一一個「算不出來」的風險。公司為 AI 客戶採購提供信用支持，與 Apollo、Blackstone 相關的安排規模未披露；美銀估算到 2029 年中可能累積 3,700 億美元優先債務。</p><p class='txt'>為什麼它比客戶集中更危險？因為客戶集中是「收入少一點」，擔保是「本金可能虧掉」。前者影響分子的增速，後者影響分母的存續。<b>一筆 500 億美元的擔保損失，等於抹掉博通一年的自由現金流。</b></p><p class='txt'>處理方式只有兩種：等披露，或者用價格補償。李錄的做法是「不知道就不下注」，不是「不知道就少下注」——因為少下注的倉位在尾部事件裡同樣會歸零。</p></div><div class="section"><div class="section-title">技術路線與政策：能跟蹤，不必過度擔心</div><p class='txt'>技術路線的風險是輝達在推論市場追上來的可能性。目前 ASIC 的成本優勢是「一半」，如果輝達把推論專用 GPU 的價格壓到只貴 20%，客戶的定製動機就會減弱。跟蹤指標很具體：GB 系列推論卡的每 token 成本和功耗，以及輝達是否開放 NVLink 給第三方 ASIC。</p><p class='txt'>政策風險方面，博通的中國收入佔比不高，主要暴露在 WiFi／RF 與部分網路晶片；XPU 客戶都是美國公司。如果出口管制擴大到「含美國 IP 的定製晶片」，影響會透過台積電的產能分配傳導。<b>這個風險的量級小於客戶集中，但它是不可控的。</b></p><p class='txt'>估值風險是結果：18.3 倍 FY27 建立在 19.38 美元 EPS 上，如果 AI 收入只到 850 億，EPS 就是 15 美元，同樣 18 倍對應 270 美元，跌 24%。<b>四個風險裡，只有這一個能靠價格補償，其餘三個都要靠時間或披露。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>五個風險裡，四個可以用價格補償，一個不能。</b>客戶集中、技術路線、政策、估值——給定 300 美元以下的價格，這些都可以承受。融資擔保不行，因為它沒有上限。<b>結論：把博通放進「等結構清晰」的名單，而不是「等便宜」的名單。</b></p></div>
+</div>
+<div class="footer">博通 (AVGO) · 2026/10/02</div>
+</body>
+</html>

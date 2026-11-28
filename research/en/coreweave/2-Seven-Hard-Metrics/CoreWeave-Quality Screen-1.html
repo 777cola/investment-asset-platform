@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quality Screen — CoreWeave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/coreweave/2-七条硬指标去劣/CoreWeave-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/coreweave/2-七條硬指標去劣/CoreWeave-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/coreweave/2-Seven-Hard-Metrics/CoreWeave-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Quality Screen — CoreWeave</h1>
+  <div class="subtitle">CoreWeave (CRWV) | 02 · Quality Screen</div>
+  <div class="meta">Research date 2026/11/20 &nbsp;·&nbsp; Price $39.51 (-12.02%) &nbsp;·&nbsp; Market cap Approximately USD 22 billion &nbsp;·&nbsp; PE(TTM) — (GAAP loss, PE not meaningful)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/coreweave/00-CoreWeave-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>The seven hard metrics are meant to weed out the bad, not to pick the beautiful. CoreWeave passes one: gross margin (roughly 70% on a crude calculation) is genuinely high, because it sells compute hours and the marginal cost is electricity. <b>The other six fail across the board: negative ROE, operating cash flow propped up by customer prepayments, interest coverage of 0.24x, net debt/EBITDA of about 10x, free cash flow never positive, and share count diluted more than 6% in a year.</b> This is not "close but no cigar"; it is a directional conflict between the business model and the screening criteria—it buys growth by expanding its balance sheet, and the seven metrics measure precisely the quality of that balance sheet.</p></div><table class="dt"><caption>Seven hard metrics to weed out the weak (Q3 2026 data, 2026/11/20)</caption><thead><tr><th>Indicator</th><th>Company data</th><th>Threshold</th><th>Determination</th></tr></thead><tbody><tr><td>ROE (5 consecutive years)</td><td>Negative: Q3 net loss of USD 709 million, with a larger cumulative loss over the first three quarters</td><td>≥15%, for 5 consecutive years</td><td>❌ However</td></tr><tr><td>Gross margin</td><td>About 70% (rough calculation: revenue of RMB 3.661 billion less direct costs; the company does not disclose gross profit separately)</td><td>≥40% and stable</td><td>✅ Passed</td></tr><tr><td>Operating cash flow / net profit</td><td>OCF USD 1.975 billion, of which USD 2.127 billion came from customer prepayments; negative after excluding these</td><td>≥80%</td><td>❌ However (net profit negative, ratio distorted)</td></tr><tr><td>Interest coverage (EBIT/interest)</td><td>2.07 billion / 8.46 billion = 0.24x; Q4 interest guidance 1.05–1.15 billion</td><td>≥5x</td><td>❌ However</td></tr><tr><td>Net debt / adjusted EBITDA</td><td>Net debt of approximately RMB 61 billion / LTM EBITDA of approximately RMB 5.5–6.0 billion ≈ 10–11x (rough calculation)</td><td>≤2x</td><td>❌ However</td></tr><tr><td>Free cash flow (past 3 years)</td><td>2026 first three quarters: USD -4.71 / -5.74 / -7.47 billion, never turned positive</td><td>At least 2 of 3 years positive</td><td>❌ However</td></tr><tr><td>Share dilution</td><td>Q3 disclosed a plan to issue 35 million shares, about 6.3% of existing share capital; continuous issuance since IPO</td><td>Annual average ≤2%, with buybacks/dividends</td><td>❌ However</td></tr></tbody></table><div class="note">Thresholds follow the seven quality screens. LTM EBITDA is a rough calculation from quarterly revenue and adjusted EBITDA margin (Q1 revenue about RMB 1.82 billion, Q2 about RMB 2.58 billion, Q3 RMB 3.661 billion; Q1/Q2 revenue back-solved from Q3's +42% QoQ), not the company-disclosed LTM basis. Sources: 2026Q3 earnings release and 10-Q, stockanalysis.com share count data.</div><div class="section"><div class="section-title">The one that got through is precisely the one least deserving of trust</div><p class='txt'>Gross margin is about 70%, absurdly high for a hardware-intensive business. The reason is that it sells "compute hours": the cost side is only electricity, data center rent and O&M, while GPU purchase costs do not run through cost of goods but through depreciation. <b>Moving capex out of cost and into depreciation makes the gross margin flattering by construction</b> — a generic accounting effect in asset-heavy industries, not a competitive advantage.</p><p class='txt'>To judge whether the business actually makes money, look at what is left after depreciation: GAAP operating margin of 5.7%, and net margin of -19.4% after interest. So a "pass" on this item only means it is not losing money on direct costs; it does not mean it is profitable.</p></div><div class="section"><div class="section-title">But the six points all point to the same problem: surviving on financing</div><p class='txt'>The picture becomes clear when you line up the three cash-flow metrics. Operating cash flow was RMB 1.975 billion, which looks healthy, but RMB 2.127 billion of it was customer prepayments—<b>prepayments exceed total operating cash flow, meaning that excluding prepayments, day-to-day operations were net cash outflows</b>. Capital expenditure was RMB 9.441 billion, leaving free cash flow at negative RMB 7.466 billion. What fills the gap? RMB 4.2 billion in convertible bonds, RMB 2.6 billion in delayed-draw loans, 35 million shares in a follow-on offering, and roughly RMB 9 billion of prepayments over the next three months.</p><p class='txt'>Interest coverage of 0.24x and net debt/EBITDA of 10x are two gauges of the same thing: <b>the absolute scale of debt has outstripped this business's ability to generate cash</b>. Q4 interest guidance is USD 1.05–1.15 billion, against adjusted operating profit of USD 379 million this quarter—even doubling margins would not cover the interest.</p></div><div class="section"><div class="section-title">But is it fatal: not fatal, but "uninvestable"</div><p class='txt'>Taken individually, each item has a defense: negative ROE because the company is still in its expansion phase; negative FCF because capex is front-loaded; share dilution because it had to seize the window. These defenses held up within the 2024–2025 growth-stock narrative.</p><p class='txt'>But failing all seven at once does not signal "temporarily ugly" — it signals that <b>this business's cash-flow structure is inherently misaligned with shareholder interests</b>: every dollar it earns must be plowed straight back into equipment, and it borrows two more on top; what shareholders receive is accounting growth and an ever-thickening debt instrument. For a framework whose first principle is "don't lose money," this is not a question of valuation being high or low — the target is disqualified.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Conclusion: fails the negative screen, eliminated outright, does not enter valuation.</b> One of seven criteria passed, and the sole passing metric — gross margin — is an artifact of depreciation accounting. The truly fatal issue is interest coverage of 0.24x — meaning current operating profit cannot even cover a fraction of interest expense, and the company runs entirely on refinancing rollover. Such companies outperform during periods of easy credit and die first when credit tightens.<b>Exception conditions</b>: if free cash flow turns positive for two consecutive quarters and net debt/EBITDA falls below 5x, the stock may re-enter the screening pool.</p></div>
+</div>
+<div class="footer">CoreWeave (CRWV) · 2026/11/20</div>
+</body>
+</html>

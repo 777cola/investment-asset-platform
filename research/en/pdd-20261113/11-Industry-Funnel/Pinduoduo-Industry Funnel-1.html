@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industry Funnel — Pinduoduo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/pdd-20261113/11-行业漏斗对比/拼多多-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/pdd-20261113/11-行業漏斗對比/拼多多-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/pdd-20261113/11-Industry-Funnel/Pinduoduo-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Industry Funnel — Pinduoduo</h1>
+  <div class="subtitle">Pinduoduo (PDD) | 11 · Industry Funnel</div>
+  <div class="meta">Research date 2026/11/13 &nbsp;·&nbsp; Price $78.97 (+1.86%) &nbsp;·&nbsp; Market cap About USD 112.4 billion &nbsp;·&nbsp; PE(TTM) Approximately 8.2x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/pdd-20261113/00-Pinduoduo-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core call: not the cheapest, but the cheapest per dollar of profit</h3><p class='txt'>Six candidates through the funnel: Douyin E-commerce and SHEIN are unlisted and drop out outright; Amazon at 21.5x P/E is out of scope; JD (2% net margin, revenue −2.9%) and Alibaba (operating profit −57%, half its valuation is cloud) each fail one criterion.</p><p class='txt'><b>Final pick Pinduoduo: 8.2x TTM, 3.4x ex-cash, 57.3% gross margin — the only one of the three to pass all three.</b></p></div><table class="dt"><caption>Industry funnel: from six to one (market cap and valuation based on the November 13, 2026 close)</caption><thead><tr><th>The company</th><th>Market cap</th><th>Latest quarterly revenue growth</th><th>Gross margin</th><th>TTM PE</th><th>ROE (rough estimate)</th><th>Funnel conclusion</th></tr></thead><tbody><tr><td>Pinduoduo</td><td>USD 112.4 billion</td><td>+8.0%</td><td>57.3%</td><td>8.2x</td><td>Approximately 18%</td><td>Final selection</td></tr><tr><td>Alibaba</td><td>About USD 235 billion</td><td>+9.0%</td><td>About 38%</td><td>13.4x</td><td>Approximately 11%</td><td>Screening out: half of the valuation is AI cloud</td></tr><tr><td>JD.com</td><td>Approximately USD 37.5 billion</td><td>−2.9%</td><td>Approximately 9%</td><td>17.0x</td><td>About 9%</td><td>Screening out: thin proprietary margins, negative revenue growth</td></tr><tr><td>Amazon</td><td>About USD 2.88 trillion</td><td>Double-digit</td><td>About 48%</td><td>Approximately 21.5x</td><td>Approximately 20%</td><td>Initial screen: valuation and circle of competence</td></tr><tr><td>Douyin e-commerce</td><td>Not listed</td><td>Not disclosed</td><td>Not disclosed</td><td>—</td><td>—</td><td>Not investable</td></tr><tr><td>SHEIN</td><td>Not listed</td><td>Not disclosed</td><td>Not disclosed</td><td>—</td><td>—</td><td>Not investable</td></tr></tbody></table><div class="note">Market cap and PE: Pinduoduo 78.97 × 1.423 billion ADS; Alibaba 249 million shares × USD 94.38; JD.com 134.5 million shares × USD 27.91; Amazon 1.081 billion shares × about USD 266. Gross margin and ROE are approximate or rough calculations for the most recent fiscal year; Alibaba and JD.com gross margins are approximations on the basis of publicly reported financials; Amazon growth rates were not verified item by item, so only "double-digit" is stated.</div><div class="section"><div class="section-title">Step 1 Initial screen: three hard criteria cut the list by half</div><p class='txt'>The funnel's three coarse screens are: understandable, positive free cash flow, and a valuation that does not pay for things we do not understand. <b>Three of the six are cut on the spot: Douyin E-commerce and SHEIN are unlisted and uninvestable; Amazon, at a USD 2.88 trillion market cap and 21.5x P/E, is outside the range we would discuss at this price.</b></p><p class='txt'>Three Chinese e-commerce names remain: all cheap, all profitable, all understandable.</p></div><div class="section"><div class="section-title">Step 2 Eliminate JD.com: good company, bad business</div><p class='txt'>JD.com 2026Q2 revenue RMB 346.4 billion, down 2.9% YoY; net profit attributable to shareholders RMB 7.1 billion, net margin 2.0%, TTM P/E 17x. <b>The problem isn't the valuation, it's the model</b> — the 1P business has to support hundreds of thousands of staff and thousands of warehouses, earns a 2% spread, and no amount of scale can conjure high gross margins.</p><p class='txt'>Its moat is real (fulfillment speed, authentic-goods mindshare), but the moat has not turned into excess profit. <b>A company at 17x P/E with negative growth and a 2% net margin does not sit at the end of this funnel.</b></p></div><div class="section"><div class="section-title">Step 3 Eliminate Alibaba: half of its valuation is not e-commerce</div><p class='txt'>Alibaba's June 2026 quarter revenue was RMB 268.95 billion, +9%, but operating profit was RMB 15.16 billion, −57% YoY, and net profit −75% YoY. It is paying for AI cloud and instant retail; cloud revenue growth of 45% looks good, but profit is bleeding.</p><p class='txt'>The bigger problem is the valuation structure: within the 13.4x P/E, how much is e-commerce, how much is cloud, how much is Ant and investments? <b>To buy Alibaba, you have to understand cloud, instant retail, overseas and a pile of associates all at once.</b> That is not something this funnel can screen for.</p></div><div class="section"><div class="section-title">Step 4 Final pick Pinduoduo: three conditions met simultaneously</div><p class='txt'><b>Condition one: cheap.</b> 8.2x TTM, 3.4x ex-cash. Of the three Chinese e-commerce companies, it is the only one where "low valuation + net cash" both hold. Alibaba trades at 13.4x, JD at 17x, and neither has net cash at 60% of market cap.</p><p class='txt'><b>Condition two: high gross margin.</b> 57.3% versus Alibaba's 38% and JD's 9%. On the same dollar of revenue, it keeps 57 cents; the others keep a dime. That gap is not efficiency, it is the model.</p><p class='txt'><b>Condition three: downside is floored.</b> RMB 456.4 billion in cash and short-term investments, 57% of market cap. In a bear case (RMB 70 billion net profit, 3x), the stock is at USD 66, down only 17%. <b>In a market full of 50% drawdowns, 17% downside is scarce.</b></p></div><div class="section"><div class="section-title">Why this one, not "the cheaper one"</div><p class='txt'>Some will argue JD is cheaper (P/S 0.19). <b>But cheapness depends on the denominator.</b> JD's 0.19x P/S corresponds to a 2% net margin, while Pinduoduo's 1.87x P/S corresponds to a 24% net margin. Converted to "how much you pay per dollar of profit," Pinduoduo is more than three times cheaper.</p><p class='txt'><b>That is the point of the funnel: not to find the stock that has fallen the most, but to find the lowest "price/earning power."</b> By this yardstick, Pinduoduo has no rival among the three Chinese e-commerce companies.</p></div><div class="section"><div class="section-title">The boundaries of the funnel: what this screening method misses</div><p class='txt'>It misses three categories: loss-making but fast-growing companies (JD.com back then, Pinduoduo itself in 2018), unlisted ones (Douyin, SHEIN), and "expensive but excellent" ones (Amazon). <b>This screen is defensive: it looks for "opportunities that won't lose you big money," not "opportunities that can make you ten times your money."</b></p><p class='txt'>What this means for Pinduoduo: it is not the kind of company that makes you ten times your money; it is the kind that does not fall much and, once re-rated, can give you 60%. <b>A name screened with a defensive tool should be held in a defensive position size — 3%, not 30%.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Conclusion: Of the six, Pinduoduo is the final pick, because it is the only one that simultaneously satisfies all three conditions of "high gross margin + low valuation + net cash"; the other two each fall short on one.</b></p><p class='txt'>JD lacks gross margin (9%), Alibaba lacks valuation clarity (half of its 13.4x is cloud). Pinduoduo trades at 8.2x, 3.4x ex-cash, with a 57.3% gross margin — the only one of the three that passes all three.</p><p class='txt'><b>But "why it" only answers "which to buy", not "whether to buy".</b> Whether to buy is answered by the six gates and valuation: buy, 3% position. This is not a perfect target, it is a target with favorable odds.</p></div>
+</div>
+<div class="footer">Pinduoduo (PDD) · 2026/11/13</div>
+</body>
+</html>

@@ -7,13 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
-.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
 .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
 .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
 .header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
 .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
 .section { margin-bottom: 2.5rem; }
 .section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -48,22 +53,19 @@ table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; colo
 .badge-blue { background: #e6f0ff; color: #1a4b8c; }
 .footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
 .back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
-.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
-.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
-.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
-
 </style>
 </head>
 <body>
 <div class="header">
+  <div class="lang-switch"><a class="lang zh active" data-lang="zh" href="/research/meituan-20260828/16-八篇深度长文/美团-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/meituan-20260828/16-八篇深度長文/美團-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meituan-20260828/16-Eight-Long-Essays/Meituan-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
   <h1>八、决策框架：什么价格买，什么情况卖 — 美团</h1>
   <div class="subtitle">把判断变成可执行的规则</div>
   <div class="meta">研究日期 2026/08/28 &nbsp;·&nbsp; 股价 HK$77.50（+0.00%） &nbsp;·&nbsp; 市值 约 4,786 亿港元（61.75 亿股） &nbsp;·&nbsp; PE —（2026 年上半年净亏 46.7 亿元，PE 失真）</div>
 </div>
 <div class="container">
-<a class="back" href="../00-美团研究报告总目录.html">← 返回总目录</a>
+<a class="back" href="/research/meituan-20260828/00-美团研究报告总目录.html">← 返回总目录</a>
 <div class="summary-box"><h3>核心判断</h3><p class='txt'>这份报告的所有分析，最后要落成四个数字：<b>77.5 港元建 2%、65 港元加到 5%、110 港元减半、150 港元清仓。</b>以及三条证伪线：Q3 核心本地商业经营利润 20 亿元、阿里补贴是否重启、商家服务增速是否转负。规则写在这里，执行的时候不需要再想。</p></div><table class="dt"><caption>决策规则表</caption><thead><tr><th>情形</th><th>动作</th><th>依据</th></tr></thead><tbody><tr><td>当前 77.5 港元</td><td>建仓 2%</td><td>2027 年正常化利润 15–18 倍，赔率 1:1.8</td></tr><tr><td>跌到 65 港元</td><td>加到 4%–5%</td><td>对应 12.8 倍、扣现金 9 倍，赔率 1:3；公司 6 月回购区间</td></tr><tr><td>Q3 核心本地商业经营利润 ≥40 亿元</td><td>加到 4%</td><td>拐点从一季变成两季</td></tr><tr><td>Q3 核心本地商业经营利润 &lt;20 亿元</td><td>减到 1%</td><td>旺季幻觉被证实</td></tr><tr><td>涨到 110 港元</td><td>减一半</td><td>中性目标价，20 倍</td></tr><tr><td>涨到 150 港元</td><td>清仓</td><td>乐观目标价，21 倍</td></tr><tr><td>阿里重新加码补贴</td><td>减到 1%</td><td>外部条件恶化</td></tr></tbody></table><div class="note">规则与 m13、m14 一致。目标价口径见 m17 第十章。</div><div class="section"><div class="section-title">第一条规则：仓位由确定性决定</div><p class='txt'>我的仓位公式很简单：<b>仓位 = 赔率 × 确定性 ÷ 波动率。</b>美团的赔率 1:1.8（不错）、确定性 50%（一般）、波动率 65%（很高），三个数乘起来，答案是 2%–3%。</p><p class='txt'>对比一下腾讯：赔率 1:2、确定性 75%、波动率 30%，同样的公式给 8%–10%。<b>这就是为什么同样是“买入”，腾讯可以重仓，美团只能小仓位。</b></p><p class='txt'>这个公式不精确，但它强迫你把“我有多确定”量化。说不清确定性的人，不配谈仓位。</p></div><div class="section"><div class="section-title">第二条规则：只买“可验证”的拐点</div><p class='txt'>“困境反转”是最容易亏钱的策略，因为大多数困境不会反转。判断标准只有一个：<b>反转的证明能不能在 12 个月内出现？</b></p><p class='txt'>美团能。Q3 财报在 10 月底，核心本地商业经营利润这个数字只有两个方向：≥20 亿元（拐点成立）或 <20 亿元（不成立）。<b>一个数字、一个日期、两个结果，这是最好的验证结构。</b></p><p class='txt'>对比一下“新能源车渗透率”“AI 应用落地”这类主题——它们永远无法被证伪，所以永远可以讲故事。<b>能证伪的才是投资，不能证伪的是信仰。</b></p></div><div class="section"><div class="section-title">第三条规则：估值用正常化，不用当期</div><p class='txt'>用 2026 年的亏损算，美团没有 PE，任何倍数都失效；用 2027 年的正常化利润算，它 15–18 倍。这两个答案差了一倍。</p><p class='txt'>我的处理是：<b>用正常化利润算中枢，用当期亏损算下限。</b>正常化 250 亿元 → 110 港元；如果修复失败、2027 年只赚 100 亿元 → 60 港元。两个数都算出来，赔率就出来了。</p><p class='txt'>这个方法的危险在于“正常化”三个字可以被滥用——任何一家亏损公司都可以说“正常化之后很便宜”。<b>防止滥用的办法是：正常化利润必须用历史数据校准。</b>美团 2024 年赚 358 亿元，所以 250 亿元不是幻想，是打折。</p></div><div class="section"><div class="section-title">第四条规则：写下你错的样子</div><p class='txt'>买入之前，先写下“这笔投资错了是什么样子”。我写的是三条：Q3 核心本地商业经营利润低于 20 亿元、阿里重新加码补贴、商家服务收入增速转负。</p><p class='txt'>写下这三条的好处不是“止损”，是<b>防止自己在坏消息面前改口</b>。人在持仓之后会自动寻找支持自己的证据——这叫确认偏误，是所有投资者最大的敌人。</p><p class='txt'>规则写在这里：三条触发一条，减到 1%；两条触发，清仓。<b>不讨论、不犹豫、不等下个季度。</b>因为“再等等看”是这笔投资最贵的成本——你有 2% 的仓位在等，机会成本一直在付。</p></div><div class="section"><div class="section-title">最后：这笔投资赚的是什么钱</div><p class='txt'>把这笔投资拆到底，赚的是三种钱。</p><p class='txt'>第一种是<b>修复的钱</b>：利润率从 7.9% 回到 12%–13%，利润从 250 亿元走到 290 亿元。这部分最确定，但也最慢，需要两到三年。</p><p class='txt'>第二种是<b>倍数修复的钱</b>：市场从“给亏损公司折价”变成“给稳定现金流公司正常倍数”，从 12 倍到 20 倍。这部分最快，可能一个季度就完成（比如 Q3 财报后）。</p><p class='txt'>第三种是<b>期权的钱</b>：Keeta 在巴西成功、AI 真的降低履约成本、或者行业出现并购整合。这部分最不确定，但弹性最大。</p><p class='txt'><b>三种钱里，第一种是基本盘，第二种是催化剂，第三种是惊喜。</b>买入的理由应该是第一种，等待的是第二种，第三种不预期。如果搞反了——为了第三种买、指望第二种、忽略第一种——那就是投机，不是投资。</p></div><div class="section"><div class="section-title">写给三个月后的自己</div><p class='txt'>三个月后你会看到这份报告，那时候 Q3 财报已经出来了。我要提前说三句话。</p><p class='txt'>第一句：<b>如果 Q3 好，不要后悔买少了。</b>2% 是当时确定性对应的仓位，事后知道结果再回头算仓位，是自欺。</p><p class='txt'>第二句：<b>如果 Q3 差，不要找理由。</b>管理层已经预告成本上升，你当时把 20 亿元写成底线，就该执行。改口的成本比亏钱更高——因为它会让你下一次也不守纪律。</p><p class='txt'>第三句：<b>如果股价涨到 110 港元但 Q3 没验证，还是要减半。</b>估值到位就该卖，不要因为“故事还在”而多等一个季度。<b>卖出的理由只能是价格或逻辑，不能是情绪。</b></p></div><div class="summary-box"><h3>结论</h3><p class='txt'>决策框架的终点是一张纸：<b>买什么价、买多少、什么情况加、什么情况卖、什么情况认错。</b>这张纸写完之后，投资就变成执行，不再是判断。</p><p class='txt'>美团的这张纸上写着：77.5 买 2%、65 加 5%、110 减半、150 清仓；三条证伪线守住。就这么简单。</p></div>
 </div>
-<div class="footer">美团 (03690) 投资研究报告集 · 2026/08/28</div>
+<div class="footer">美团 (03690) · 2026/08/28</div>
 </body>
 </html>

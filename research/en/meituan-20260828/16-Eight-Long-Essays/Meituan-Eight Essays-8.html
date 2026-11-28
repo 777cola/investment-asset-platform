@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eight, decision framework: what price to buy, under what conditions to sell — Meituan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20260828/16-八篇深度长文/美团-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/meituan-20260828/16-八篇深度長文/美團-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/meituan-20260828/16-Eight-Long-Essays/Meituan-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Eight, decision framework: what price to buy, under what conditions to sell — Meituan</h1>
+  <div class="subtitle">Turn judgment into executable rules</div>
+  <div class="meta">Research date 2026/08/28 &nbsp;·&nbsp; Price HK$77.50 (+0.00%) &nbsp;·&nbsp; Market cap Approximately HKD 478.6 billion (6.175 billion shares) &nbsp;·&nbsp; PE — (net loss of RMB 4.67 billion in H1 2026; PE distorted)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/meituan-20260828/00-Meituan-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>Every analysis in this report ultimately reduces to four numbers: <b>build 2% at HKD 77.5, add to 5% at HKD 65, halve at HKD 110, exit at HKD 150.</b> And three falsification lines: Q3 core local commerce operating profit of RMB 2 billion, whether Alibaba restarts subsidies, and whether merchant services growth turns negative. The rules are written here; no further thinking is needed at execution.</p></div><table class="dt"><caption>Decision rules table</caption><thead><tr><th>Scenario</th><th>Action</th><th>Based on</th></tr></thead><tbody><tr><td>Current HKD 77.5</td><td>Initiate a 2% position</td><td>2027 normalized profit 15–18x, odds 1:1.8</td></tr><tr><td>Fell to HKD 65</td><td>Raise to 4%–5%</td><td>Corresponding to 12.8x, 9x ex-cash, odds 1:3; the company's June buyback range</td></tr><tr><td>Q3 core local commerce operating profit ≥ RMB 4.0 billion</td><td>Raise to 4%</td><td>The inflection point has shifted from one quarter to two.</td></tr><tr><td>Q3 core local commerce operating profit &lt;RMB 2 billion</td><td>Cut to 1%</td><td>Peak-season illusion confirmed</td></tr><tr><td>Rises to HKD 110</td><td>Cut it in half</td><td>Neutral target price, 20x</td></tr><tr><td>Rises to HKD 150</td><td>Liquidate the position</td><td>Optimistic target price, 21x</td></tr><tr><td>Alibaba ramps up subsidies again</td><td>Cut to 1%</td><td>External conditions deteriorate</td></tr></tbody></table><div class="note">The rules are consistent with m13 and m14. For the target price basis, see Chapter 10 of m17.</div><div class="section"><div class="section-title">Rule one: position size is set by certainty</div><p class='txt'>My position-sizing formula is simple: <b>position = odds × certainty ÷ volatility.</b> Meituan offers odds of 1:1.8 (decent), certainty of 50% (average) and volatility of 65% (very high). Multiply the three and the answer is 2%–3%.</p><p class='txt'>Compare Tencent: odds of 1:2, certainty of 75%, volatility of 30%. The same formula gives 8%–10%. <b>That is why, despite both being "buys", Tencent warrants a heavy position while Meituan warrants only a small one.</b></p><p class='txt'>The formula is not precise, but it forces you to quantify "how certain am I". Anyone who cannot articulate their certainty has no business talking about position size.</p></div><div class="section"><div class="section-title">Rule two: buy only "verifiable" inflection points</div><p class='txt'>"Distressed reversal" is the strategy most likely to lose money, because most distressed situations do not reverse. There is only one test: <b>can proof of the reversal emerge within 12 months?</b></p><p class='txt'>Meituan can. Q3 results come at the end of October, and core local commerce operating profit has only two directions: ≥ RMB 2 billion (inflection holds) or < RMB 2 billion (it does not). <b>One number, one date, two outcomes — the best verification structure there is.</b></p><p class='txt'>Compare themes like "EV penetration" and "AI application rollout" — they can never be falsified, so they can always tell a story. <b>What can be falsified is an investment; what cannot be falsified is a belief.</b></p></div><div class="section"><div class="section-title">Rule three: use normalized valuation, not current-period</div><p class='txt'>On 2026 losses, Meituan has no PE and any multiple breaks down; on normalized 2027 profit, it trades at 15–18x. The two answers differ by a factor of two.</p><p class='txt'>My approach: <b>use normalized profit for the central estimate, use current losses for the floor.</b> Normalized RMB 25 billion → HKD 110; if the recovery fails and 2027 profit is only RMB 10 billion → HKD 60. Work out both numbers and the risk-reward falls out.</p><p class='txt'>The danger in this method is that "normalized" can be abused — any loss-making company can claim it is cheap once normalized. <b>The safeguard against abuse: normalized profit must be calibrated against historical data.</b> Meituan earned RMB 35.8 billion in 2024, so RMB 25 billion is not fantasy but a discount.</p></div><div class="section"><div class="section-title">Rule four: write down what being wrong looks like</div><p class='txt'>Before buying, write down "what would make this investment wrong." I wrote three: Q3 core local commerce operating profit below RMB 2 billion, Alibaba re-upping subsidies, and merchant services revenue growth turning negative.</p><p class='txt'>The benefit of writing these three down is not "stop-loss" — it is <b>preventing myself from changing my story when bad news hits</b>. Once holding a position, people automatically seek out evidence that supports them — this is confirmation bias, the biggest enemy of every investor.</p><p class='txt'>The rules are written here: one of the three triggers, cut to 1%; two trigger, exit entirely. <b>No discussion, no hesitation, no waiting for next quarter.</b> Because "let's wait and see" is the most expensive cost of this investment — you have 2% of the position waiting, and the opportunity cost keeps being paid.</p></div><div class="section"><div class="section-title">Finally: what is this investment actually earning on?</div><p class='txt'>Break this investment down to its core, and there are three kinds of money to be made.</p><p class='txt'>The first is <b>the repair money</b>: margins recover from 7.9% to 12%–13%, and profit climbs from RMB 25 billion to RMB 29 billion. This part is the most certain, but also the slowest, taking two to three years.</p><p class='txt'>The second is <b>the multiple-repair money</b>: the market shifts from "applying a loss-maker discount" to "applying a normal multiple to a stable cash-flow company," from 12x to 20x. This part is the fastest, possibly done in a single quarter (say, after the Q3 results).</p><p class='txt'>The third is <b>the option money</b>: Keeta succeeding in Brazil, AI genuinely cutting fulfillment costs, or industry M&A and consolidation. This part is the least certain, but has the most upside.</p><p class='txt'><b>Of the three, the first is the base case, the second is the catalyst, the third is the surprise.</b> The reason to buy should be the first, what you wait for is the second, and the third you do not underwrite. Get it backwards—buy for the third, count on the second, ignore the first—and that is speculation, not investment.</p></div><div class="section"><div class="section-title">A letter to myself three months from now</div><p class='txt'>You will read this report three months from now, when Q3 results are already out. I want to say three things in advance.</p><p class='txt'>First: <b>if Q3 is good, do not regret buying too little.</b> 2% was the position size that matched the certainty at the time; going back to recalculate sizing with the benefit of hindsight is self-deception.</p><p class='txt'>Second: <b>if Q3 is bad, do not look for excuses.</b> Management had already flagged rising costs, and you set RMB 2 billion as the floor then, so you should execute. The cost of changing your tune is higher than losing money—because it will make you break discipline next time too.</p><p class='txt'>Third: <b>if the stock rises to HKD 110 but Q3 has not validated the thesis, you still cut the position in half.</b> When valuation is full, you sell; do not wait one more quarter because "the story is still there." <b>The only reasons to sell can be price or logic, never emotion.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'>The end point of a decision framework is a single sheet of paper: <b>at what price to buy, how much to buy, under what conditions to add, under what conditions to sell, under what conditions to admit you are wrong.</b> Once this sheet is written, investing becomes execution, no longer judgment.</p><p class='txt'>Meituan's sheet reads: buy 2% at 77.5, add 5% at 65, halve at 110, exit fully at 150; hold three falsification lines. That simple.</p></div>
+</div>
+<div class="footer">Meituan (03690) · 2026/08/28</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial reality: how the 67.7% gross margin is calculated — TSMC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/tsmc/16-八篇深度长文/台积电-04-财务真相.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/tsmc/16-八篇深度長文/台積電-八篇長文-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/tsmc/16-Eight-Long-Essays/TSMC-Eight Essays-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Financial reality: how the 67.7% gross margin is calculated — TSMC</h1>
+  <div class="subtitle">Three numbers, two layers of leverage, one unsustainable premise</div>
+  <div class="meta">Research date 2026/09/11 &nbsp;·&nbsp; Price NT$2,410 (-1.63%) &nbsp;·&nbsp; Market cap Approximately TWD 62.5 trillion (about USD 1.95 trillion) &nbsp;·&nbsp; PE(TTM) Approximately 27.9x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/tsmc/00-TSMC-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>The 67.7% gross margin is not an accounting trick but the product of three real variables: price increases, full utilization and product mix. All three peak simultaneously in 2026, so this number has peaked too. <b>Understand this, and you understand everything this earnings report means.</b></p></div><div class="section"><div class="section-title">I. Three sources of gross margin</div><p class='txt'>The first is price increases. A 2nm wafer is reportedly quoted at about USD 30,000, 30%–50% higher than 3nm; 3nm pricing is flat in 2026. The price increase contributes roughly 5–6 percentage points to gross margin (estimate).</p><p class='txt'>The second is full utilization. Capacity utilization rises from about 85% in 2025 to above 95% in 2026, diluting fixed costs (depreciation, labor, facilities) and contributing 2–3 percentage points.</p><p class='txt'>The third is product mix. 3nm accounts for 30% of revenue and 5nm for 33%; the higher share of high-margin products contributes 1–2 percentage points. <b>The three together add 8–11 percentage points, consistent with the +9.1pct year-on-year.</b></p></div><div class="section"><div class="section-title">II. Why is net profit growth twice revenue growth?</div><p class='txt'>Revenue +36%, net profit +77.4%. The gap comes from operating leverage: the fixed portion of costs (depreciation, labor) does not rise with revenue, so each extra RMB 1 of revenue falls almost entirely to gross profit.</p><p class='txt'>More specifically: gross margin rose from 58.6% to 67.7% (+9.1pct), and the operating expense ratio fell from about 12% to about 10.7% (diluted by revenue); together the two lifted the operating margin by about 10 percentage points. Add interest income growing with the cash base, and the net margin rose from 42.6% to 55.6%.</p><p class='txt'><b>These are the financial hallmarks of a cycle top: every lever points up at once.</b> Conversely, on the way down they all point down together—which is why cyclical stocks swing far more than their revenue.</p></div><div class="section"><div class="section-title">III. Cash flow: real money earned, but spent just as fast</div><p class='txt'>Q2 operating cash flow was about RMB 950 billion (rough calculation), 1.3x net profit. The gap comes from depreciation—about RMB 200 billion of depreciation with no cash outflow. This is a standard feature of asset-heavy companies and shows that book profit is conservative.</p><p class='txt'>Capex was USD 15.7 billion (about TWD 495 billion), half of operating cash flow. Free cash flow was about RMB 455 billion, still positive. This combination shows that <b>even in the heaviest investment cycle in history, it earns enough to cover its own spending and needs no financing.</b></p><p class='txt'>The 2026 dividend is NTD 24 per share, totaling about RMB 620 billion, or 136% of free cash flow (rough annualized Q2 calculation). The payout ratio of 23% looks low, but for a company expanding capacity on a large scale, this ratio is reasonable.</p></div><div class="section"><div class="section-title">IV. Three details of the balance sheet</div><p class='txt'>First detail: contract liabilities (customer prepayments of capacity deposits) are growing. This is a leading indicator of demand intensity and also interest-free capital — customers are willing to pay upfront to lock in capacity.</p><p class='txt'>Second detail: interest-bearing debt is about TWD 1 trillion, cash about TWD 3.5 trillion, net cash TWD 2.5 trillion. Interest income is a small contributor to net profit (estimated 1–2 percentage points) and will decline as rates fall.</p><p class='txt'>Third detail: depreciation lives. TSMC depreciates advanced-node equipment over shorter lives than some peers, which makes current profit more conservative and creates a "depreciation roll-off" tailwind for the future. <b>This is accounting conservatism, not financial engineering.</b></p></div><div class="section"><div class="section-title">V. An Unsustainable Premise</div><p class='txt'>A 67.7% gross margin implies two premises: capacity stays fully loaded and customers accept price increases. Both hold simultaneously in 2026, but neither is permanent.</p><p class='txt'>The company's own Q3 guidance already says 65%–67%. Two reasons: the 2nm ramp dilutes margin by 3–4pct, and overseas fabs dilute it by another 2–3pct. Both drags persist through 2027–2028.</p><p class='txt'>So do not use 67.7% in valuation; use 58%–60% (mid-cycle). At a 58% gross margin and flat revenue, EPS falls from RMB 106 to about RMB 85 — that is the "normalized earnings" basis, and the source of the RMB 1,800 fair value.</p><p class='txt'>One more observation: gross margin peaks tend to coincide with falling receivables turnover days and rising contract liabilities — customers paying up front. Both metrics improved in 2026Q2, confirming demand is real. But historically these two metrics turn one quarter ahead of gross margin declines. <b>So watch contract liabilities, not gross margin, for the earlier signal.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'>The conclusion on the financial reality: this is a genuinely strong report, but strong at the top of the cycle. All three sources of gross margin have peaked, and two dilutive factors have only just begun. Using it for valuation requires normalization, otherwise the cycle peak gets mistaken for the norm.</p></div>
+</div>
+<div class="footer">TSMC (2330.TW) · 2026/09/11</div>
+</body>
+</html>

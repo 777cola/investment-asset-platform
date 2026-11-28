@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeamLead 彙總 — 比亞迪</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/byd/5-四角色并行分析/比亚迪-TeamLead-汇总.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/byd/5-四角色並行分析/比亞迪-四角色-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/byd/5-Four-Role-Analysis/BYD-Four Roles-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>TeamLead 彙總 — 比亞迪</h1>
+  <div class="subtitle">四席分歧點、裁決與執行方案</div>
+  <div class="meta">研究日期 2026/09/04 &nbsp;·&nbsp; 股價 ¥87.40（+0.10%） &nbsp;·&nbsp; 市值 約 7,968 億元（總股本 91.17 億股，A+H） &nbsp;·&nbsp; PE(TTM) 約 27x（2025 年報 326 億元淨利對應約 24x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/byd/00-比亞迪研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>四席獨立跑完，結論收斂：<b>公司一流，第二季確有改善，但份額在流失、價格沒打折。</b>沒有任一席主張現在買入。真正的分歧只有一個——第二季那 29.6% 的增長，成色如何。</p></div><table class="dt"><caption>分歧與裁決</caption><thead><tr><th>分歧點</th><th>一方觀點</th><th>另一方觀點</th><th>裁決</th></tr></thead><tbody><tr><td>Q2 稅後淨利 +29.6% 是拐點嗎</td><td>商業席：單車淨利 0.72 萬元、毛利率 23%，是真的</td><td>財務席：研發少花 63 億元，省出來的</td><td>一半一半：結構改善為真、省出來的也為真</td></tr><tr><td>海外高成長能持續幾年</td><td>行業席：窗口還開著，建廠是最優解</td><td>風險席：歐洲政策與本地競爭會收窄窗口</td><td>按 2–3 年高成長處理，不給 5 年</td></tr><tr><td>27 倍 TTM 貴不貴</td><td>商業席：製造業該給 20–25 倍</td><td>財務席：無自由現金流，只能看本益比，27 倍偏高</td><td>一致認為偏高，非「合理」</td></tr><tr><td>研發砍 21.2% 是理性還是透支</td><td>財務席：保利潤是對的</td><td>風險席：2027 產品週期會付代價</td><td>理性但扣分，列為觀察項</td></tr></tbody></table><div class="note">四席結論為本報告內部推演，分歧點為分析框架差異所致，非事實爭議。</div><div class="section"><div class="section-title">共識：三條沒有爭議</div><p class='txt'>第一，<b>生意質地一流</b>。垂直整合、成本控制、海外建廠的速度，全球範圍內沒有第二家中國車企做到這個程度。四席沒有一席質疑它的能力。</p><p class='txt'>第二，<b>第二季確實改善了</b>。稅後淨利 82.4 億元、同比 +29.6%、環比 +102%，汽車毛利率 23.0%、同比 +4.3 個點，單車淨利 0.72 萬元。這些數字不是做出來的，是銷量從 70 萬輛回到 111 萬輛加海外結構帶來的。</p><p class='txt'>第三，<b>現在的價格不構成買點</b>。27 倍 TTM、中性情景 90 元（+3%）、悲觀 55 元（-37%），四席一致。</p></div><div class="section"><div class="section-title">分歧：那 29.6% 有多少是省出來的</div><p class='txt'>商業席看的是經營：銷量回升、海外占比過半、汽車毛利率 23%，這是實打實的改善。財務席看的是結構：研發費用少了 63 億元，淨利只少 32 億元——<b>如果不砍研發，利潤是負增長 40%，不是正增長。</b></p><p class='txt'>裁決是「一半一半」。調研一下就能分清：第二季毛利率提升 4.3 個點，來自海外結構和規模效應，這部分是真的；研發費用率從 7.97% 掉到 6.76%，這部分是「省」的。<b>問題是「省」的這一半不可持續——研發不能年年砍 20%。</b></p><p class='txt'>所以對 2027 年的盈利預測要打折。中性情景 340 億元已考慮研發恢復（費用率回到 7% 左右），如果再砍，利潤能到 380 億元，但 2028 年的產品週期會更難看。<b>這個交換不值。</b></p></div><div class="section"><div class="section-title">觀察日曆：三個時間點，三種動作</div><p class='txt'><b>每月 1 日：銷量。</b>只看一個數——國內同比。連續兩個月轉正，啟動首倉。<b>10 月下旬：三季報。</b>看兩個數——汽車毛利率能否守住 20%、研發費用率有沒有回到 7%。<b>2027 年第一季：匈牙利工廠投產。</b>看歐洲上牌量，這是海外故事能不能續三年的關鍵。</p><p class='txt'>三個時間點都不需要預測，只需要記錄。如果三季報的汽車毛利率掉到 18% 以下，同時研發費用率跌破 5.5%，那就不用等銷量了——邏輯已經作廢，從觀察名單裡刪掉。</p></div><div class="section"><div class="section-title">裁決：維持「觀察」，把條件寫死</div><p class='txt'><b>評級不變：觀察，等國內銷量拐點。</b>不因為第二季一個季度的改善就改評級，因為改善的一半來自一次性動作。<b>真正能改變結論的只有一個數據：國內月度銷量同比轉正。</b>它每月 1 號公布，比任何季報都及時。</p><p class='txt'>執行方案：<b>現在 0 倉位。</b>滿足以下任一條件建首倉三分之一（約 1.5% 組合權重）：①國內月度銷量同比連續兩個月轉正；②股價回到 70–75 元區間（對應 23 倍中性淨利）。兩個條件都滿足可加到 3%。</p><p class='txt'>止損與退出：<b>汽車業務毛利率連續兩個季度低於 18%，或研發費用率跌破 5.5%，邏輯作廢。</b>不是因為數字難看，是因為那意味著「保利潤」變成了「放棄未來」，故事就變了。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>四席結論：不買，盯緊。</b>公司質地一流、第二季確有改善，但改善的一半是省出來的，份額還在丟，27 倍估值沒有容錯空間。執行上：0 倉位，兩個觸發條件（國內月度銷量轉正 / 股價 70–75 元），一條硬止損（汽車毛利率連續兩季 <18%）。<b>觀察名單第一位，但不給它一分錢。</b></p></div>
+</div>
+<div class="footer">比亞迪 (002594) · 2026/09/04</div>
+</body>
+</html>

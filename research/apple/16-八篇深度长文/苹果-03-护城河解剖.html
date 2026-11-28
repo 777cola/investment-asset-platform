@@ -7,13 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
-.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
 .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
 .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
 .header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
 .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
 .section { margin-bottom: 2.5rem; }
 .section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -48,22 +53,19 @@ table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; colo
 .badge-blue { background: #e6f0ff; color: #1a4b8c; }
 .footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
 .back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
-.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
-.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
-.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
-
 </style>
 </head>
 <body>
 <div class="header">
+  <div class="lang-switch"><a class="lang zh active" data-lang="zh" href="/research/apple/16-八篇深度长文/苹果-03-护城河解剖.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/apple/16-八篇深度長文/蘋果-八篇長文-3.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/apple/16-Eight-Long-Essays/Apple-Eight Essays-3.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
   <h1>③ 护城河解剖：三层，只有一层是硬的 — 苹果</h1>
   <div class="subtitle">八篇长文 · 第三篇</div>
   <div class="meta">研究日期 2026/08/03 &nbsp;·&nbsp; 股价 $303.42（-1.78%） &nbsp;·&nbsp; 市值 约 4.41 万亿美元 &nbsp;·&nbsp; PE(TTM，FY2026Q3) 约 34x</div>
 </div>
 <div class="container">
-<a class="back" href="../00-苹果研究报告总目录.html">← 返回总目录</a>
+<a class="back" href="/research/apple/00-苹果研究报告总目录.html">← 返回总目录</a>
 <div class="summary-box"><h3>核心判断</h3><p class='txt'>护城河这个词被用滥了。这篇只做一件事：<b>把苹果的护城河拆成三层，逐层测试它是「真的」还是「说说的」。</b>测试方法很简单——问一句「如果对手花 1,000 亿美元，能不能复制」。</p></div><div class="section"><div class="section-title">第一层：生态切换成本（真护城河，9/10）</div><p class='txt'>测试：给对手 1,000 亿美元，能不能让一亿 iPhone 用户换机？<b>答案是不能。</b>因为问题不在钱，在「迁移」——照片、聊天记录、订阅、配件、家人共享，这些东西没法用钱买通用户去搬。</p><p class='txt'>这层护城河的证据不在财报里，在行为里：2026 年上半年全球手机大盘微增，苹果份额升到 20%；iPhone 均价 1,050 美元，还在涨。<b>一个「产品力不够」的品牌，不可能同时做到提价和涨份额。</b></p><p class='txt'>它的耐久度最高，因为它不依赖任何单一技术。就算 AI 落后一年、就算折叠机晚出，用户还是不会因为「麻烦」而换机。<b>这是苹果唯一一条真正的护城河。</b></p><p class='txt'>它也有边界：只对「已经在生态里的人」有效。新用户没有沉没成本，所以苹果在印度、非洲、东南亚的份额一直不到 5%。<b>这条护城河守得住存量，打不开增量。</b></p></div><div class="section"><div class="section-title">第二层：品牌溢价（半真，9/10 但会磨损）</div><p class='txt'>测试：给对手 1,000 亿美元，能不能造出一个「高端品牌」？<b>理论上能，实际上很难，但不是不能</b>——华为在中国就做到了，用了五年。</p><p class='txt'>品牌溢价的证据是毛利率：50.1%，比三星高 15 个点、比小米高 30 个点。<b>但品牌会在两种情况下磨损：一是形态变化（折叠屏、AI 硬件），二是价格战。</b>中国市场正在发生第一种——华为用折叠屏把「高端」的定义从「系统体验」改成「形态创新」。</p><p class='txt'>所以这一层给 9 分，但耐久度标「中高」。<b>它现在还在，但它是三层里最先被攻破的一层。</b></p><p class='txt'>观察指标很具体：大中华区季度收入与 6,000 元以上机型的份额。本季 188.16 亿美元、同比 +22.4%，但低于预期 3.9%——这个数字里已经能看到一点磨损。</p></div><div class="section"><div class="section-title">第三层：自研芯片与供应链（不是护城河，是成本优势，7/10）</div><p class='txt'>测试：给对手 1,000 亿美元，能不能做出 M6 同级的芯片？<b>能，但要五年，而且做出来也未必更便宜。</b>所以这是优势，不是壁垒。</p><p class='txt'>A 系列与 M 系列的真实价值是「性能功耗比领先一代」，这让苹果能在同样的电池下做更薄的机身、更强的端侧 AI。<b>但它是成本与体验优势，不构成定价权</b>——用户不会因为芯片快 20% 就多付 200 美元，他们为「不卡、不烫、不掉电」付钱，而这个体验安卓阵营也能做到 80%。</p><p class='txt'>最关键的证据在这一季：库克说「正在为供应链苦苦挣扎，内存只有三家核心供应商」。<b>一家有护城河的公司，不该在关键零部件上没有第二供应商。</b>供应链是苹果的强项，但它在存储面前没有议价权——这就是「成本优势」和「护城河」的区别。</p><p class='txt'>打分合起来 34/50。<b>这个分数在消费电子里是第一，但它不是「不可战胜」，是「很难被追上」。</b>两者的差别，就是合理倍数 30 倍和 40 倍的差别。</p></div><div class="section"><div class="section-title">护城河的折旧：十年后它还剩多少</div><p class='txt'>护城河不是永久的，它会折旧。给三层各算一个「十年后的残余价值」：<b>生态切换成本（9 分）折旧慢，十年后仍有 7 分</b>，因为迁移的麻烦不会因为技术变化而消失；<b>品牌（9 分）折旧快，十年后可能剩 6 分</b>，因为形态变化会重定义「高端」；<b>芯片（7 分）折旧最快，十年后剩 5 分</b>，因为制程差距在收敛。</p><p class='txt'>加总：现在的 34/50，十年后大概剩 26/50。<b>这个折旧速度决定了「长期持有」的合理倍数应该是 20–25 倍，而不是当下的 34 倍。</b></p><p class='txt'>要提醒的是：折旧不等于衰败。26/50 仍是一个很好的分数——大部分消费电子公司十年后只剩 10 分。苹果的问题是「从优秀变成良好」，不是「从优秀变成平庸」。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>第三篇的结论：三层里只有一层是真护城河。</b>生态切换成本 9 分（真）、品牌 9 分（会磨损）、芯片与供应链 7 分（是优势不是壁垒）。合计 34/50。</p><p class='txt'>这个结构决定了苹果「守得住用户、守不住倍数」——护城河保护的是公司，不是估值。</p></div>
 </div>
-<div class="footer">苹果 (AAPL) 投资研究报告集 · 2026/08/03</div>
+<div class="footer">苹果 (AAPL) · 2026/08/03</div>
 </body>
 </html>

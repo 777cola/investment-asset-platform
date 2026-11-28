@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣篩選 — 鴻海精密</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/foxconn/2-七条硬指标去劣/鸿海精密-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/foxconn/2-七條硬指標去劣/鴻海精密-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/foxconn/2-Seven-Hard-Metrics/Hon Hai Precision-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>去劣篩選 — 鴻海精密</h1>
+  <div class="subtitle">鴻海精密 (2317.TW) | 02 · 去劣篩選</div>
+  <div class="meta">研究日期 2026/10/19 &nbsp;·&nbsp; 股價 NT$240（-1.84%） &nbsp;·&nbsp; 市值 約 3.37 萬億元新台幣 &nbsp;·&nbsp; PE(2026E) 約 12.6x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/foxconn/00-鴻海精密研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：它不屬於「一流公司」這一類，但不代表不能買</h3><p class='txt'>七條硬指標是給高毛利生意設計的篩子，用它篩代工廠，結論必然是「不合格」。鴻海只過兩條：利息保障與負債結構、分紅紀律。<b>不過的五條裡，毛利率 6.12%、營益率 3.75% 是生意結構問題，不是經營問題；淨利增速跑輸營收增速、自由現金流為負，是這輪擴張期的特徵。</b>這三條疊在一起說明一件事：鴻海的利潤沒有緩衝。篩子篩掉它，是因為它本來就不該出現在「一流公司」名單裡，而應該出現在「週期+規模」這一類。對後一類資產，唯一能保護你的是買入價格，不是公司質量。</p></div><table class="dt"><caption>七條硬指標去劣篩選</caption><thead><tr><th>指標</th><th>鴻海數值</th><th>門檻</th><th>判定</th></tr></thead><tbody><tr><td>ROE（近三年）</td><td>約 9%（2025）、約 12%（2026E，粗算）</td><td>≥15%</td><td>不過</td></tr><tr><td>毛利率及其趨勢</td><td>6.12%，同比 -0.21pct，連續兩季下滑</td><td>≥20% 且不降</td><td>不過</td></tr><tr><td>營業利益率</td><td>3.75%</td><td>≥8%</td><td>不過</td></tr><tr><td>淨利增速 vs 營收增速</td><td>淨利 +35%，營收 +41%</td><td>淨利增速 ≥ 營收增速</td><td>不過</td></tr><tr><td>自由現金流</td><td>2026 上半年為負（營運資金占用）</td><td>連續三年為正</td><td>不過</td></tr><tr><td>利息保障與淨負債比</td><td>利息保障約 10 倍，淨負債比約 15%（粗算）</td><td>≥8 倍、&lt;50%</td><td>透過</td></tr><tr><td>股東回報紀律</td><td>配息率約 55%，近五年無現金增資</td><td>≥40%，無頻繁增資</td><td>透過</td></tr></tbody></table><div class="note">資料來源：2026Q2 財報、2025 年報、外資財務模型（2026/10）。ROE、利息保障倍數、淨負債比為按披露數字四則運算的粗算值，公司未逐項公布；FCF 為淨利減資本支出與營運資金增加的方向性判斷，法說會未單列金額。</div><div class="section"><div class="section-title">只過兩條，先別急著否定公司</div><p class='txt'>七條硬指標的原意是「去劣」——把賺假錢、靠槓桿、靠融資撐增長的公司挑出去。鴻海踩了其中五條，但它踩的方式很一致：<b>它的每一分利潤都是真金白銀賺來的加工費，只是太薄。</b>這不是造假型的不合格，是生意類型的不合格。</p><p class='txt'>區分這兩者很重要。造假型的公司，報表越好看越危險；結構型的公司，報表難看是常態，反而可以定價。鴻海 2026Q2 營收 2 兆 5,259 億、稅後淨利 599.7 億，兩個數字都經得起雙源核對（見第 3 篇）。它的問題不在真假，在厚度。</p></div><div class="section"><div class="section-title">不過的五條裡，三條是結構，兩條是週期</div><p class='txt'>毛利率 6.12%、營益率 3.75%、淨利增速落後營收，這三條是結構性的。買料組裝這門生意，毛利率的上限由客戶願意付多少加工費決定，不由鴻海努力程度決定。2026 年營收 +41%、毛利率 -0.21pct，等於公司自己承認轉嫁不了成本。<b>指望它明年把毛利率做到 20%，等於指望輝達把 GPU 按成本價賣給它。</b></p><p class='txt'>自由現金流為負、ROE 只有 9%–12%，這兩條是週期與擴張疊加的結果。AI 機櫃單價高、備料週期長，營收翻倍必然帶來應收與存貨的同步膨脹；同時四地擴產，資本支出前置。這兩條在 2027 年資本開支降速後有修復空間，但修復的前提是訂單不斷——又回到那個不可控的假設。</p></div><div class="section"><div class="section-title">ROE 這一條最容易被誤讀</div><p class='txt'>鴻海 ROE 約 9%–12%，看起來平庸，但拆開杜邦三項就明白了：淨利率 2.37% × 資產周轉率約 1.4 次 × 權益乘數約 2.4 倍 ≈ 8%（粗算）。<b>它不是槓桿低，是每一塊錢資產轉得太辛苦。</b>要提高 ROE 只有兩條路：提淨利率（做不到）或提周轉（已經接近極限）。</p><p class='txt'>對照一下：台積電 ROE 30% 靠的是 50% 的毛利率，鴻海 ROE 9% 靠的是 1.4 次的周轉。兩家公司都在賺錢，但只有一家能在漲價週期裡保住利潤。這就是「七條硬指標」想篩出來的差別。</p></div><div class="section"><div class="section-title">不過是否致命：對「持有」致命，對「交易」不致命</div><p class='txt'>如果目標是買一家可以抱著不看十年的公司，這五條不過就是致命的——淨利率 2.37% 的生意經不起任何一次上游漲價，2026 年 DRAM 合約價漲 60%–70%、NAND 漲超 100%，這些漲價全部穿過它的損益表。<b>股東沒有緩衝，只有規模和效率。</b></p><p class='txt'>但如果目標是賺一輪週期的錢，不過就不致命，因為它便宜的時候真的便宜。2019 年、2022 年兩次低點，鴻海都在 8 倍 PE 附近，隨後兩年修復到 12–14 倍。這類資產的正確定位是「週期股」，買點由 PB 和 PE 分位數決定，不由七條硬指標決定。<b>底稿給「觀察」，就是承認它現在既不在買入區，也不在被淘汰區。</b></p></div><div class="summary-box"><h3>結論</h3><p>七條過兩條。結論不是「鴻海是爛公司」，而是「鴻海不是一流公司這類資產」。<b>它的合格線由價格決定：PB 1.2 倍以下、或 PE 8 倍以下才進入可買區間；現價 239.5 元對應 1.5 倍 PB、12.6 倍 2026E PE，在中間。</b>七條篩子的正確用法是先分類，再用不同的尺子量——對這類公司，盯毛利率和現金流，比盯 ROE 有用。</p></div>
+</div>
+<div class="footer">鴻海精密 (2317.TW) · 2026/10/19</div>
+</body>
+</html>

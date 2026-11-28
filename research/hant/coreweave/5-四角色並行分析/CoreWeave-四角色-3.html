@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行業研究（蒙格視角） — CoreWeave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/coreweave/5-四角色并行分析/CoreWeave-行业研究-芒格.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/coreweave/5-四角色並行分析/CoreWeave-四角色-3.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/coreweave/5-Four-Role-Analysis/CoreWeave-Four Roles-3.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>行業研究（蒙格視角） — CoreWeave</h1>
+  <div class="subtitle">AI 算力雲：誰在賺錢，誰在墊錢</div>
+  <div class="meta">研究日期 2026/11/20 &nbsp;·&nbsp; 股價 $39.51（-12.02%） &nbsp;·&nbsp; 市值 約 220 億美元 &nbsp;·&nbsp; PE(TTM) —（GAAP 虧損，本益比無意義）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/coreweave/00-CoreWeave研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'><b>這個行業的需求是真的，利潤是假的。</b>2026 年北美四大雲廠資本開支合計數千億美元，輝達 FY2027Q3 單季營收 1,158 億、同比 +103%，但 neocloud 這一層——CoreWeave、Nebius、IREN、Crusoe——全部是負自由現金流、靠債務和預付款擴張。蒙格會問：一個所有人都在燒錢搶地盤的行業，錢最後落在誰口袋？</p></div><table class="dt"><caption>AI 算力供給的四類玩家</caption><thead><tr><th>類型</th><th>代表</th><th>優勢</th><th>劣勢</th></tr></thead><tbody><tr><td>GPU 供應商</td><td>輝達</td><td>定價權、生態鎖定</td><td>被質疑循環融資、客戶自研晶片</td></tr><tr><td>超大規模雲端業者自建</td><td>微軟、亞馬遜、谷歌、甲骨文</td><td>資本成本 4%–5%、自有電網與客戶</td><td>通電速度慢、內部優先級衝突</td></tr><tr><td>neocloud</td><td>CoreWeave、Nebius、Crusoe、IREN</td><td>交付快、專注、敢簽長約</td><td>資本成本 7.9%、客戶集中、無護城河</td></tr><tr><td>主權／區域雲</td><td>各國政府與營運商項目</td><td>補貼、電價優惠</td><td>規模小、決策慢</td></tr></tbody></table><div class="note">定性歸納，基於 2026 年 11 月前公開資訊；資本成本為各主體債券／貸款利率的量級對比。</div><div class="section"><div class="section-title">產業鏈的利潤分布</div><p class='txt'>這場軍備競賽的利潤分配非常不均。<b>上游拿走了絕大部分</b>：輝達 FY2027Q3 營收 1,158 億美元、同比 +103%，毛利率仍在 70% 以上；HBM 三家（SK 海力士、三星、美光）2026 年合約價大漲，產能排到 2027 年。中游的 neocloud 拿到的是「過路費」，下游的 AI 實驗室拿到的是「能力」但付的是現金。</p><p class='txt'>孟格的判斷會很直接：<b>在一個資本密集、產品同質、需求爆發但供給也能爆發的行業裡，超額利潤歸標準制定者，不歸中間商</b>。鐵路時代如此（鋼軌和機車廠賺錢），航空業如此（波音空巴賺錢），雲端運算也如此（輝達賺錢）。</p></div><div class="section"><div class="section-title">週期位置：從「缺卡」轉向「缺電、缺機房」</div><p class='txt'>2026 年的瓶頸已經從 GPU 轉移到電力和併網。CoreWeave 4.6GW 合約電力裡只有 1.7GW 在運行，剩下 2.9GW 卡在變壓器、燃氣輪機、併網審批上。<b>瓶頸轉移意味著議價權轉移</b>：誰有電、有地、有併網許可，誰就有定價權；而單純的「能拿到卡」不再是稀缺能力。</p><p class='txt'>這對 neocloud 是壞消息，因為電力資源是可以被 hyperscaler 用更高價格買走的。微軟單季資本支出 452 億、全年約 1,700 億，它願意為 1GW 的併網指標付的溢價，遠高於一家市值 220 億的公司。</p></div><div class="section"><div class="section-title">循環融資：這個行業最像 2000 年的地方</div><p class='txt'>輝達投資客戶、客戶買卡、輝達再為閒置產能兜底——這條鏈條在 2026 年被反覆質疑。<b>它的問題不是造假，而是讓需求的「真實性」打了折扣</b>：如果買方的一部分錢來自賣方，那營收認列的成長裡，有多少是終端需求，有多少是資金循環？</p><p class='txt'>11 月 17 日 SEC 對輝達會計處理的調查、黃仁勳辭任 CEO，把這個問題推到檯面。對 CoreWeave 的直接影響是：<b>它最大的供應商兼股東（輝達）一旦收縮支持，供貨優先級和潛在兜底都會消失</b>。蒙格會說，這類結構在壓力下最先斷的就是最弱的一環——而 neocloud 就是最弱的一環。</p></div><div class="section"><div class="section-title">芒格會怎麼描述這個階段</div><p class='txt'>「當一個行業裡所有人都在借錢買同一種會過時的設備，賣給少數幾個客戶，而這個設備每年出新一代——這不是成長行業，這是一場賽跑，跑到一半才開始算帳的人買單。」這句話可以用來描述 2026 年 11 月的 neocloud。</p><p class='txt'>他沒說要避開整個行業，他說要避開「槓桿最重、護城河最薄」的那一家。<b>同一趨勢裡，上游拿到定價權，下游拿到能力，中間商拿到合約和債務</b>——這是過去一百年反覆出現的結構。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>行業判斷：需求真、週期頂、中間商最危險。</b>AI 算力總需求還會成長，但 2026 年 11 月的位置是「供給正在追上、瓶頸轉移到電力、循環融資被審視」的三重拐點。這個階段利潤會向有電力資源、有資本成本優勢的 hyperscaler 集中，neocloud 的稀缺定價會被抹平。<b>芒格式結論：這個行業值得研究，但絕不透過槓桿最重的那家公司參與。</b></p></div>
+</div>
+<div class="footer">CoreWeave (CRWV) · 2026/11/20</div>
+</body>
+</html>

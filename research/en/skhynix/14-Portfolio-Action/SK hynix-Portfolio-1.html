@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — SK hynix</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/skhynix/14-组合管理建议/SK海力士-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/skhynix/14-組合管理建議/SK 海力士-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/skhynix/14-Portfolio-Action/SK hynix-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Portfolio — SK hynix</h1>
+  <div class="subtitle">SK hynix (000660.KS) | 14 · Portfolio</div>
+  <div class="meta">Research date 2026/07/27 &nbsp;·&nbsp; Price ₩1,816,000 (+3.24%) &nbsp;·&nbsp; Market cap Approximately KRW 1,291 trillion (approximately USD 920 billion) &nbsp;·&nbsp; PE (TTM, as of 2026Q1) Approximately 17.2x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/skhynix/00-SK hynix-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>This is a "high-quality, high-volatility, high-beta" stock. Its role in the portfolio is an offensive position, not a ballast. Its correlation with the AI compute chain is close to 1, and its diversification benefit against any defensive asset is poor.</p><p class='txt'>Current recommended position 0%; at a trigger price of KRW 1.65 million, build 1/3; below KRW 1.40 million, add to 1/2; the cap for a single memory stock is 100% of the original target position for that name and 10% of portfolio equity.</p></div><table class="dt"><caption>Positioning recommendations (by scenario and cost)</caption><thead><tr><th>Scenario</th><th>Recommended position</th><th>Rationale</th></tr></thead><tbody><tr><td>Zero position</td><td>0%</td><td>Current price implies 7x 2027 earnings; neutral target of RMB 1.65 million, 9% below the current price; earnings in two days, so waiting costs nothing</td></tr><tr><td>Already holding, cost below RMB 1.2 million</td><td>Maintain 100%, no addition</td><td>Large unrealized gains mean selling triggers taxes and forfeits optionality; but no adding, because the risk-reward has reversed</td></tr><tr><td>Already holding, cost above RMB 2 million</td><td>Cut to 50%</td><td>Asymmetric risk-reward: neutral -9%, bear case -52%. Cut exposure first, keep half the position until earnings</td></tr><tr><td>Share price below RMB 1.65 million and financials not yet disproven</td><td>Build 1/3 position</td><td>6x in 2027, margin of safety at 10%; odds turn positive at 1.4 million</td></tr><tr><td>Share price below RMB 1.4 million</td><td>Raise to 1/2 position</td><td>5x in 2027; downside case now only -37%, expected value turns positive</td></tr><tr><td>Contract prices fall month-on-month for two consecutive months</td><td>Cut to 0</td><td>First hard signal of a cycle reversal; historically, declines accelerated once confirmed</td></tr><tr><td>Samsung HBM share disclosed at &gt;35%</td><td>Cut to 0–1/3</td><td>Valuation multiple de-rates from 6x to 4x</td></tr></tbody></table><div class="note">Position sizing uses "the target position for this name" as 100%, not total portfolio exposure. For a single memory stock, cap it at 10%–15% of equity exposure; if holding Micron and Samsung at the same time, calculate the exposure on a combined basis.</div><div class="section"><div class="section-title">Three price-level disciplines</div><p class='txt'>First, 1.65 million is the price at which you can start buying, not the price at which you should be fully invested. It corresponds to 6x 2027 operating profit and offers only a 10% margin of safety—insufficient for a cyclical stock, because EPS halves in a downturn.</p><p class='txt'>Second, 1.40 million is the price at which you can build a heavy position. It corresponds to 5x 2027, and the bear case (110 trillion operating profit × 4.6x + net cash) works out to 880,000, at which point the bear case is only -37%, the base case +18%, and expected value turns positive.</p><p class='txt'>Third, set falsification-based stops, not mechanical stops. <b>Price stops on cyclical stocks are the easiest way to get shaken out</b>—in the 2022 cycle, the stock fell 60% from its high and staged three rebounds of more than 20% along the way. Stops should be tied to the thesis: contract prices turning down and share loss are more reliable signals than price.</p></div><div class="section"><div class="section-title">Correlation: it is the beta of the AI trade, not a diversification tool</div><p class='txt'>SK hynix's daily correlation with Nvidia, AMD, TSMC and Micron exceeds 0.7, and its correlation with A-share memory names (GigaDevice, Longsys) is 0.5–0.6. It cannot diversify AI position risk; it is part of the AI position.</p><p class='txt'>What genuinely diversifies: utilities with stable cash flow, consumer staples, and assets unrelated to AI capex (e.g. pharma, some financials). If the portfolio already holds more than 20% in the AI compute chain (GPUs, optical modules, memory, servers), adding SK hynix is putting all eggs in one basket.</p><p class='txt'>July 13 was a good example: SK hynix -15.4%, Samsung -11%, A-share memory names limit-down, US memory stocks down 6%–9% premarket. <b>Same supply chain, no diversification</b>.</p></div><div class="section"><div class="section-title">Rebalancing discipline: quarterly reviews, not monthly</div><p class='txt'>Memory stocks move on a weekly basis, so monthly rebalancing gets dragged around by noise. Do three things each quarter: first, check the status of H1 and H2 assumptions (contract prices, share); second, recalculate 2027 operating profit and target price; third, if a position has risen above 1.5x its target weight, trim it back to target.</p><p class='txt'>One more practical suggestion: if the only way to gain exposure is through an ETF (such as the CSOP 2x Long SK hynix), don't use it. Leveraged ETFs suffer heavy decay in choppy markets; the 30% single-day drop on 13 July is one example. <b>If you buy, buy the common stock or the ADR</b>.</p></div><div class="section"><div class="section-title">If the portfolio already holds AI-chain exposure</div><p class='txt'>If the portfolio already holds Nvidia, TSMC and optical modules, SK hynix adds almost zero marginal diversification. The right move is not to "add another memory name" but to calculate total exposure: GPU + foundry + optical modules + memory + servers. Together these five are a single risk factor: AI capex.</p><p class='txt'>The rule of thumb: no single risk factor should exceed 30% of equity holdings. If exposure is already close to that, SK hynix should not be bought no matter how cheap it is — not because it is a bad company, but because buying it means doubling down on the same bet.</p><p class='txt'>Conversely, if the portfolio holds no AI-chain names at all, SK hynix is the entry point with "the best quality and the highest volatility." In that case, a one-third position below 1.65 million is meaningful.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'>Portfolio recommendation: target position 0%; build one-third at RMB 1.65 million, add to one-half at RMB 1.40 million; clear to zero unconditionally if the thesis is falsified. Cap single-name memory exposure at 10%–15% of equity, aggregated with Micron and Samsung. This is not a ballast holding but an offensive position—size it on the assumption of a possible 50% loss, not on the view that a 38% drawdown makes it cheap.</p></div>
+</div>
+<div class="footer">SK hynix (000660.KS) · 2026/07/27</div>
+</body>
+</html>

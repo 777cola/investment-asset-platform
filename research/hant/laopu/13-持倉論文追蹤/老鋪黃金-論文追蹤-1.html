@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>論文追蹤 — 老鋪黃金</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/laopu/13-持仓论文追踪/老铺黄金-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/laopu/13-持倉論文追蹤/老鋪黃金-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/laopu/13-Thesis-Tracking/Laopu Gold-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>論文追蹤 — 老鋪黃金</h1>
+  <div class="subtitle">老鋪黃金 (06181) | 13 · 論文追蹤</div>
+  <div class="meta">研究日期 2026/10/09 &nbsp;·&nbsp; 股價 HK$337.00（+4.85%） &nbsp;·&nbsp; 市值 約 596 億港元 &nbsp;·&nbsp; PE(TTM) 約 6.9 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/laopu/00-老鋪黃金研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：論文沒破，但成立的前提變窄了</h3><p class='txt'>把「觀察，等金價企穩」這句話拆成六條可驗證的假設，逐條打分：<b>兩條成立（品牌提價、資本配置）、兩條未達（庫存周轉、現金流自給）、一條部分證偽（同店正增長）、一條存疑（品類未過時）。</b></p><p class='txt'>論文沒有被徹底推翻——公司還在賺錢、門店還在、品牌還在。但成立的前提從「高增長可持續」收窄成了「金價企穩後能恢復到中速增長」。<b>這個收窄本身就是降級：從「值得關注的成長股」變成「需要等週期的消費股」。</b></p></div><table class="dt"><caption>核心假設與驗證狀態</caption><thead><tr><th>假設</th><th>當前證據</th><th>驗證指標</th><th>狀態</th></tr></thead><tbody><tr><td>品牌提價能力可持續</td><td>2026/02 提價 20%–30% 落地，毛利率回到 41.3%</td><td>下次提價落地率、毛利率 ≥39%</td><td>成立</td></tr><tr><td>同店銷售能保持正成長</td><td>Q2 稅後淨利同比 -34%~-56%；國慶降價不走量</td><td>季度同店增速 ≥0</td><td>部分證偽</td></tr><tr><td>庫存周轉健康</td><td>190.18 億元、271 天，較年初 +55 天</td><td>≤250 天</td><td>未達</td></tr><tr><td>現金流能覆蓋分紅</td><td>營業現金流 +20.08 億元 &lt; 派息 31.85 億元</td><td>營業現金流 ≥ 派息額</td><td>未達</td></tr><tr><td>海外模式可複製</td><td>新加坡單店年化約 10 億元，境外收入 +107.8%</td><td>海外 ≥3 家、單店 ≥5 億元</td><td>進行中</td></tr><tr><td>古法金品類未過時</td><td>已火三年，周大福傳承、老鳳祥古法全面跟進</td><td>新產品收入占比、客群年齡結構</td><td>存疑</td></tr></tbody></table><div class="note">證據截至 2026/10/09。狀態判定標準：成立=已有資料支持；部分證偽=關鍵資料不支持但未完全否定；未達=指標低於閾值；進行中=樣本不足；存疑=無可用資料。</div><div class="section"><div class="section-title">成立的兩條：提價與資本配置</div><p class='txt'><b>提價能力</b>是這份論文裡最硬的一條。2025 年 8 月 +10%–15%、10 月 +20%–30%、2026 年 2 月 +20%–30%，三次提價全部落地，且 2026 年上半年毛利率還升了 3.2pct。這說明客群對價格的接受度還在，品牌的議價權沒有被削弱。</p><p class='txt'><b>資本配置</b>同樣成立：不併購、不稀釋、派息 75%、主動優化門店。在消費股裡，這種克制比增長更稀缺。</p><p class='txt'>但這兩條成立的意義有限——它們證明「公司不錯」，不證明「股票該買」。<b>好公司的股票也會跌 60%，因為價格裡包含了預期。</b></p></div><div class="section"><div class="section-title">部分證偽的一條：同店</div><p class='txt'>「同店能保持正成長」是這檔股票 140 倍 PE 的核心支撐。2026 年第二季，這條假設第一次被打臉：稅後淨利同比 -34%~-56%，收入環比 -76%~-87%。雖然公司沒有單獨披露同店數據，但稅後淨利和收入的跌幅已經說明問題。</p><p class='txt'>更關鍵的證據是國慶：<b>降價都拉不動量。</b>如果只是「提價前置」，降價應該能把需求拉回來；實際沒有。這說明需求端發生了預期變化——消費者不再認為「現在不買以後更貴」。</p><p class='txt'>判斷為「部分證偽」而不是「完全證偽」，是因為只有一個季度的數據，且第三季有七夕、中秋旺季回補。<b>再給它一個季度，如果 Q3 同店還是負的，這條假設就作廢。</b></p></div><div class="section"><div class="section-title">未達的兩條：庫存與現金流</div><p class='txt'><b>庫存：</b>目標是 250 天以內，實際 271 天，比 2025 年末的 216 天多了 55 天。這條假設的惡化速度比預期快——一個季度就吃掉了兩年的改善空間。</p><p class='txt'><b>現金流：</b>目標是覆蓋分紅，實際 20.08 億元對 31.85 億元，覆蓋率 63%。雖然從 -68.48 億元轉正已經不易，但「靠少買貨換來的轉正」不算真達標。</p><p class='txt'>這兩條不達標，直接影響估值——<b>因為「高分红」是這隻股票在下跌途中唯一的支撐邏輯。</b>如果分紅要靠帳上現金補、明年可能縮水，那這個支撐就沒了。2027 年 3 月年報如果宣布下調派息率，會是一次利空。</p></div><div class="section"><div class="section-title">證偽條件與觀察日曆</div><p class='txt'><b>整體論文的證偽條件（任一觸發即降級為「迴避」）：</b>① 連續兩個季度同店負成長且降幅擴大；② 存貨週轉超過 320 天；③ 毛利率跌破 37%；④ 營業現金流重新轉負且派息率下調；⑤ 徐高明離任且無明確接班安排。</p><p class='txt'><b>升級條件（任一觸發即上調為「買入」）：</b>① 金價在 4,000–4,300 美元橫盤滿一個季度且同店轉正；② 海外門店增至 3 家且單店年化 ≥5 億元；③ 股價跌破 250 港元而上述證偽條件均未觸發。</p><p class='txt'><b>觀察日曆：</b>2027 年 1 月（全年盈喜預告）看收入與淨利區間、第四季動銷；2026 年 12 月—2027 年 1 月（春節備貨與提價動作）看提價能否落地；2027 年 3 月（年報）看派息率與全年毛利率。四個數據點，每個都只回答一個問題，不要混著看。</p></div><div class="summary-box"><h3>結論</h3><p>論文狀態：<b>未破，但前提收窄。</b>六條假設裡兩條硬成立、兩條未達、一條部分證偽、一條存疑。結論是繼續觀察，倉位為零。下一個決策點在 2027 年 1 月的盈喜預告——如果四季度同店還在負增長、全年收入低於 340 億元，論文就要重寫；如果轉正，中性情景 352 港元可以維持。</p></div>
+</div>
+<div class="footer">老鋪黃金 (06181) · 2026/10/09</div>
+</body>
+</html>

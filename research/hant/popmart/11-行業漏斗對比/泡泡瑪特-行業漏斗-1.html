@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行業漏斗 — 泡泡瑪特</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/popmart/11-行业漏斗对比/泡泡玛特-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/popmart/11-行業漏斗對比/泡泡瑪特-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/popmart/11-Industry-Funnel/Pop Mart-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>行業漏斗 — 泡泡瑪特</h1>
+  <div class="subtitle">泡泡瑪特 (09992) | 11 · 行業漏斗</div>
+  <div class="meta">研究日期 2026/09/07 &nbsp;·&nbsp; 股價 HK$156.20（+1.43%） &nbsp;·&nbsp; 市值 約 2,090 億港元 &nbsp;·&nbsp; PE(TTM) 約 14.2x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/popmart/00-泡泡瑪特研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：它是這個行業裡唯一值得看的公司，但不是現在值得買的股票</h3><p class='txt'>把潮玩賽道能買的標的列出來，只有六家：泡泡瑪特、名創優品（TOP TOY 母公司）、布魯可、52TOYS（未上市）、卡遊（未上市）、Jellycat（未上市）。<b>粗篩淘汰四家，終選泡泡瑪特——但「最值得看」不等於「現在該買」。</b></p><p class='txt'>它贏在通路和 IP 矩陣，輸在估值和增速。14.2 倍 TTM 看著比布魯可的 21 倍便宜，但布魯可的利潤在成長、它的利潤在下滑，PEG 上它更貴。</p></div><table class="dt"><caption>潮玩賽道標的對比（2026 年 9 月上旬）</caption><thead><tr><th>公司</th><th>市值</th><th>2026H1 收入增速</th><th>毛利率</th><th>PE(TTM)</th><th>ROE</th><th>結論</th></tr></thead><tbody><tr><td>泡泡瑪特（09992）</td><td>約 2,090 億港元</td><td>+23.8%</td><td>69.7%</td><td>14.2x</td><td>約 35%（粗算）</td><td>終選</td></tr><tr><td>名創優品（09896）</td><td>約 225 億港元</td><td>約 +20%（H1 營收破百億）</td><td>約 40%</td><td>約 9x（粗算）</td><td>約 15%</td><td>淘汰：主業零售，潮玩只占一小塊</td></tr><tr><td>布魯可（00325）</td><td>約 170 億港元</td><td>2026Q1 +2.7%</td><td>約 55%</td><td>約 21x</td><td>—</td><td>淘汰：增速失速，PE 更貴</td></tr><tr><td>52TOYS</td><td>未上市</td><td>年營收約 6 億元</td><td>—</td><td>—</td><td>淨利率 4.7%</td><td>淘汰：規模小一個量級，自有 IP 弱</td></tr><tr><td>卡遊</td><td>未上市（份額 71.1%）</td><td>—</td><td>—</td><td>—</td><td>—</td><td>淘汰：品類不同，監管敏感</td></tr><tr><td>Jellycat</td><td>未上市</td><td>—</td><td>—</td><td>—</td><td>—</td><td>無法買入，但是最強的心智對手</td></tr></tbody></table><div class="note">市值與 PE 來源：泡泡瑪特按 2026/09/07 收盤 156.2 港元 × 13.42 億股；名創優品按 2026/08/31 收盤 18.57 港元、市值 225 億港元（公司公告口徑）；布魯可市值約 170 億港元、PE 約 21 倍，為按公開行情與總股本粗算，僅作量級參考。名創與布魯可的增速、毛利率來自各自 2026 年中報/一季報。ROE 除泡泡瑪特外未逐家核算，標「—」。</div><div class="section"><div class="section-title">粗篩：四家為什麼被淘汰</div><p class='txt'><b>名創優品</b>：市值 225 億港元、PE 約 9 倍，看起來最便宜。但它是零售公司，2026 上半年營收破百億、淨利 -15.7%，潮玩只透過 TOP TOY 貢獻 9.85 億元、還在經營虧損 0.72 億元。<b>買名創不等於買潮玩，等於買一家正被海外擴張拖累的雜貨連鎖。</b></p><p class='txt'><b>布魯可</b>：2026 第一季營收 5.95 億元、同比只有 +2.7%，歸母淨利 2,890 萬元。增速幾乎停了，PE 還有 21 倍。<b>這是典型的「上市即巔峰」——2025 年靠拼搭玩具的概念上市，2026 年成長就沒了。</b></p><p class='txt'><b>52TOYS</b>：年營收約 6 億元，自有 IP 只占 24.5%、授權占 64.5%，淨利率 4.7%。規模小一個量級，且沒有 IP 定價權，剔除。</p><p class='txt'><b>卡遊</b>：集換式卡牌份額 71.1%，是門好生意，但品類是卡牌不是潮玩，且未成年人監管風險高。它和泡泡瑪特不在同一個貨架上，剔除。</p></div><div class="section"><div class="section-title">最終選擇：為什麼是泡泡瑪特</div><p class='txt'>三條理由，缺一不可。</p><p class='txt'><b>第一，它是唯一有「全球自營門市網路」的中國潮玩公司。</b>676 家店、海外 221 家，美洲 86 家、歐洲 45 家、亞太 90 家。這個網路不是錢能快速買到的——選址、租約、本地團隊、供應鏈，每一項都要時間。布魯可主要靠經銷，TOP TOY 靠名創的渠道，都沒有自己的海外門市體系。</p><p class='txt'><b>第二，它有「體系化造 IP」的能力，不是靠一個爆款。</b>上半年 11 個 IP 過億、6 個破 10 億；星星人從 3.89 億元做到 26.50 億元；MOLLY 20 歲了還有 9 億元。這個組合說明它的孵化流程是可複製的，不是運氣。<b>這是它和 Funko 最大的區別——Funko 靠授權，泡泡瑪特靠自有。</b></p><p class='txt'><b>第三，它的資產表能扛。</b>124.4 億元現金、零銀行借款、24.9% 負債率。就算海外再差兩年，它也不會被迫融資或賣資產。在一個「爆款會消失」的行業裡，能扛是最大的優勢。</p></div><div class="section"><div class="section-title">但「最值得看」不等於「現在該買」</div><p class='txt'>選股的目的是「找到值得研究的公司」，不是「找到明天會漲的股票」。泡泡瑪特過了第一關，沒過第二關。</p><p class='txt'>貴不貴，用 PEG 看最清楚：PE 14.2 倍（TTM）或 17.4 倍（2026E），淨利增速 10.1%。<b>PEG 是 1.4–1.7，高於 1。</b>對比布魯可：PE 21 倍、增速 2.7%，PEG 接近 8——更貴。所以泡泡瑪特是「這個賽道裡最不貴的一家」，但絕對值上仍然不便宜。</p><p class='txt'>再看一個反向指標：大行目標價。8 月 20–21 日，摩根大通 120 港元（減持）、招商證券國際 121 港元（沽售）、匯豐 136.5 港元、美銀 153 港元（中性）。<b>四家全部低於或接近現價 156.2 港元，沒有一家給「買入」。</b>這不是巧合，是專業機構對「利潤下修」的共識。</p></div><div class="section"><div class="section-title">漏斗的結論：一個「觀察名單第一名」</div><p class='txt'>六家裡，泡泡瑪特是唯一同時滿足「規模夠大、通路是真的、資產表能扛、還能研究明白」的公司。其他五家：名創不是純潮玩、布魯可增速停了、52TOYS 太小、卡遊品類不同、Jellycat 買不到。</p><p class='txt'>所以它在觀察名單上排第一，但不在買入名單上。<b>觀察名單和買入名單的區別只有一個：價格。</b>120 港元以下，它進買入名單；180 港元以上，它連觀察名單都可以剔除——那時候賠率已经完全反過來。</p><p class='txt'>補一句：為什麼不是名創優品？因為它 2026 上半年淨利 -15.7%、年內跌 48%，正在被海外擴張和永輝拖累。買它等於買「一個正在修復的雜貨連鎖」，潮玩只是其中的期權。<b>如果哪天 TOP TOY 分拆上市，那才是純粹的潮玩標的，可以重新評估。</b></p></div><div class="summary-box"><h3>結論</h3><p>六家篩完，終選泡泡瑪特，<b>但結論是「觀察名單第一，不是買入名單」</b>。它贏在通路、IP 矩陣、資產表；輸在增速、現金流、估值。PEG 1.4–1.7、四家大行目標價全在現價之下，這兩個數字足以讓人等一等。等 120 港元，或等三季報。</p></div>
+</div>
+<div class="footer">泡泡瑪特 (09992) · 2026/09/07</div>
+</body>
+</html>

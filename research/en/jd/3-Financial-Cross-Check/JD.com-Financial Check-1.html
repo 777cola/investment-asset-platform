@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Check — JD.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/jd/3-财务数据交叉验证/京东集团-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/jd/3-財務數據交叉驗證/京東集團-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/jd/3-Financial-Cross-Check/JD.com-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Financial Check — JD.com</h1>
+  <div class="subtitle">JD.com (9618.HK) | 03 · Financial Check</div>
+  <div class="meta">Research date 2026/10/26 &nbsp;·&nbsp; Price HK$99.40 (-0.60%) &nbsp;·&nbsp; Market cap Approximately HKD 280 billion &nbsp;·&nbsp; PE (2026E adjusted) Approximately 7.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/jd/00-JD.com-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>Eight key figures checked one by one against two independent sources: revenue, net profit, adjusted net profit, segment profit, expense ratio and market cap show zero deviation; two items need handling — <b>food-delivery share differs twofold between two measures (UBS order volume 7% vs iResearch blended 15%), and cash and short-term investments of RMB 235.1 billion include restricted cash and are not equal to available net cash</b>. Approach: state share as a 7%–15% range with the measure noted; use cash on a gross basis while separately disclosing in the valuation that interest-bearing debt is not deducted. All financial figures ultimately follow the company's results announcement basis (RMB, consolidated statements, adjusted to exclude share-based compensation and amortization of intangible assets).</p></div><table class="dt"><caption>Dual-source cross-check (2026Q2, RMB billion)</caption><thead><tr><th>Indicator</th><th>Source A</th><th>Source B</th><th>Deviation</th><th>Process</th></tr></thead><tbody><tr><td>Total revenue RMB 346.4 billion</td><td>Earnings announcement 3,464</td><td>Wallstreetcn August 12 news flash 3,464</td><td>0%</td><td>Adopt</td></tr><tr><td>Commodity revenue RMB 267.1 billion</td><td>Earnings announcement 2,671 (-5.4%)</td><td>Financial media breakdown 2,671</td><td>0%</td><td>Adopt</td></tr><tr><td>Net profit attributable to shareholders RMB 7.1 billion</td><td>Earnings announcement 71 (+14.5%)</td><td>Media 71</td><td>0%</td><td>Adopt</td></tr><tr><td>Non-GAAP net profit RMB 8.9 billion</td><td>Results announcement 89 (+20.3%)</td><td>Broker quick take 89</td><td>0%</td><td>Adopt</td></tr><tr><td>New business operating loss of RMB 9.85 billion</td><td>Earnings announcement 98.5</td><td>Media reports: 98–99 (rounded)</td><td>≤0.5%</td><td>Using reported figures</td></tr><tr><td>Cash and short-term investments: RMB 235.1 billion</td><td>Results announcement 2,351 (including restricted cash)</td><td>Media cited "cash of about RMB 230 billion"</td><td>Approximately 2%</td><td>Use reported figures and note that restricted shares are included</td></tr><tr><td>Total market cap HKD 280.1 billion</td><td>HKEX 99.40 × 2.818 billion shares</td><td>Media cited about RMB 280 billion</td><td>0.04%</td><td>Using calculated values</td></tr><tr><td>Food-delivery share</td><td>UBS March 2026 order-volume basis 7%</td><td>iResearch 2026Q2 blended basis 15%</td><td>&gt;100%</td><td>Change the range statement to 7%–15%</td></tr></tbody></table><div class="note">Source A: JD.com 2026Q2 results announcement (2026/08/13); Source B: Wallstreetcn earnings flash (2026/08/12), broker quick-take summary. Market cap calculated at the 2026/10/26 close. Deviation = |A−B| / A.</div><div class="section"><div class="section-title">Why retail companies' numbers are the easiest to get wrong</div><p class='txt'>Retail earnings reports carry three layers of definitional traps. The first is <b>sum of segments ≠ consolidated revenue</b>: retail 295.4 + logistics 64.1 + new businesses 7.26 = RMB 366.8 billion, yet the consolidated figure is RMB 346.4 billion. The RMB 20.4 billion gap is internal revenue from logistics fulfilling orders for retail, eliminated on consolidation. Screenshot media often simply adds the segments and concludes, incorrectly, that "JD revenue is RMB 366.8 billion."</p><p class='txt'>The second is <b>four versions of net profit</b>: operating profit of RMB 4.5 billion, net profit attributable to shareholders of RMB 7.1 billion, non-GAAP net profit attributable to shareholders of RMB 8.9 billion, and net profit including minority interests. All four numbers are "correct," but they answer different questions. This report uses two consistently: net profit attributable to shareholders and adjusted net profit attributable to shareholders. The others are not mixed in.</p><p class='txt'>The third is <b>the definition of adjusted</b>: JD's non-GAAP measure excludes share-based compensation expense and amortization of intangible assets, but does not exclude gains or losses on disposal of assets. So the RMB 1.8 billion difference between RMB 8.9 billion and RMB 7.1 billion is mainly share-based compensation and amortization, not "one-off gains." This must be stated clearly; otherwise "adjusted profit looks better" will be misread as "managing earnings."</p></div><div class="section"><div class="section-title">Two deviations above 1%: share and cash</div><p class='txt'><b>Point one: delivery share differs by a factor of two.</b> UBS's March 2026 instant retail tracker, using an order-volume basis, gives Meituan 51%, Taobao Shangou 42% and JD 7%; iResearch 2026Q2, using a composite basis (in-store, flash purchase and food delivery combined), gives Meituan 43%, Taobao Shangou 42% and JD 15%.<b>Neither number is wrong; they simply answer different questions: the order-volume basis answers "who delivers more meals", the composite basis answers "who holds the larger share of the instant retail pie".</b> This report writes 7%–15% throughout and treats the trend of "sliding from the 2025 peak of 31%" as the real conclusion — the trend points the same way under both bases, which matters more than the precise value.</p><p class='txt'><b>Point two: the cash basis.</b> The announced RMB 235.1 billion of "cash and short-term investments" includes cash equivalents, restricted cash and short-term investments. Restricted cash is mainly deposits and platform merchant funds, and cannot be used for buybacks or dividends. Media writing "cash of about RMB 230 billion" are counting the restricted portion as well. This report cites the announced gross amount, but explicitly flags in the valuation section "not net of interest-bearing debt, includes restricted cash" — <b>these two qualifiers determine the strength of the claim that nine-tenths of market cap is cash: it is an order-of-magnitude judgment, not liquidation value.</b></p></div><div class="section"><div class="section-title">Final adopted basis and three in-house estimates</div><p class='txt'>Final basis: RMB, consolidated statements, FY2026 second quarter (2026/04–06). Segment margins are calculated by dividing segment revenue directly by segment operating profit, with no elimination adjustments. For year-on-year data, disclosed percentage figures in the announcements take priority; base-period back-calculated values are used only where the announcements do not give absolute figures, and are flagged as such.</p><p class='txt'>Three self-built estimates, all with sources and methodology flagged: <b>①</b> 2025Q2 base of RMB 356.7 billion = 346.4 ÷ (1−2.9%), back-calculated on the same basis as general merchandise 282.3, electronics and appliances 179.0, daily necessities 103.4 and services 74.2; these are estimated values; <b>②</b> 2026 adjusted net profit of approximately RMB 34 billion, from our own model (derived by back-calculating from BofA's 2026/10/13 report, where 11x PE corresponds to a HKD 145 target price); this is not company guidance; <b>③</b> net cash per share of RMB 83.5, approximately HKD 91 = 235.1 ÷ 2.818 billion shares, then converted at 1.09.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'>Eight metrics, two independent sources, six with zero deviation, two needing work: share as a range, cash with two qualifiers. <b>On checking, the numbers in the working papers are reliable; the real uncertainty lies not in the data but in the definitions — the same company can yield two "revenue" figures of RMB 280 billion and RMB 366.8 billion, and two "share" figures of 7% and 15%.</b></p><p class='txt'>So the rules for using this report are: financial figures always follow the disclosed definition, industry figures always carry a range, and derived figures always carry the word "rough". Readers citing this report should cite the definition along with the number.</p></div>
+</div>
+<div class="footer">JD.com (9618.HK) · 2026/10/26</div>
+</body>
+</html>

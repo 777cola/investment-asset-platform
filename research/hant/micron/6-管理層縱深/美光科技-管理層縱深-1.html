@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理層縱深 — 美光科技</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/micron/6-管理层纵深/美光科技-管理层纵深.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/micron/6-管理層縱深/美光科技-管理層縱深-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/micron/6-Management-Deep-Dive/Micron Technology-Management-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>管理層縱深 — 美光科技</h1>
+  <div class="subtitle">美光科技 (MU) | 06 · 管理層縱深</div>
+  <div class="meta">研究日期 2026/09/25 &nbsp;·&nbsp; 股價 $1,082.28（+0.16%） &nbsp;·&nbsp; 市值 約 1.22 萬億美元（按 11.3 億股粗算） &nbsp;·&nbsp; PE(2027E) 約 6.5x（一致預期口徑，9 月中為 5.77x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/micron/00-美光科技研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>Mehrotra 是這輪記憶體週期裡做得最好的 CEO 之一：2023 年全行業砍開支時他沒有停 HBM，2026 年用 16 份照付不議長約把價格風險轉移給客戶。資本配置也克制——淨現金、股本五年沒稀釋、股息只上調 30% 而不是大派特派。</p><p class='txt'>扣分項有兩個。一是治理：CEO 兼任董事長，制衡少了一道；8 月 21 日他按 10b5-1 計畫減持 4 萬股套現 3,876 萬美元，持股降至 0.08%，不是問題但也不是加分。二是接班人：他 1959 年生，2026 年 67 歲，公司沒有公布任何接班安排，而這輪週期的核心判斷（HBM 押注、SCA 長約）高度依賴他個人。</p></div><table class="dt"><caption>關鍵人與治理結構</caption><thead><tr><th>職務</th><th>姓名</th><th>持股／薪酬</th><th>履歷要點</th></tr></thead><tbody><tr><td>董事長、總裁兼 CEO</td><td>Sanjay Mehrotra</td><td>87.16 萬股（約 0.08%）；FY25 總薪酬 3,094 萬美元（基本薪 145 萬）</td><td>1959 年生，2017 年 5 月上任；SanDisk 共同創辦人，2011—2016 年任 SanDisk 執行長；主導 HBM 轉型與 SCA 長約</td></tr><tr><td>執行副總裁兼財務長</td><td>Mark J. Murphy</td><td>未單獨披露（—）</td><td>1968 年生，2022 年加入；此前任 Qorvo 財務長；負責 220 億美元客戶存款與資本結構</td></tr><tr><td>執行副總裁（全球營運）</td><td>Manish Bhatia</td><td>未單獨揭露（—）</td><td>負責全球晶圓製造與封測體系；FY26 資本支出 270 億美元的執行人</td></tr><tr><td>執行副總裁、CTO</td><td>Scott DeBoer</td><td>未單獨披露（—）</td><td>1γ/1δ 製程與 HBM4 12 層堆疊的技術負責人</td></tr><tr><td>執行副總裁、首席商務官</td><td>Sumit Sadana</td><td>未單獨披露（—）</td><td>負責 SCA 長約談判與資料中心客戶關係</td></tr><tr><td>董事會結構</td><td>—</td><td>執行長兼任董事長；單一股權結構，一股一票</td><td>無雙重股權；無控股家族；以機構投資者為主</td></tr></tbody></table><div class="note">持股資料來自 2026/08/21 減持後的公開披露（直接持股 264,503 股 + GRAT 信託 607,075 股，合計 871,578 股）。薪酬為 FY2025 代理聲明口徑（基本薪 1,446,185 美元，總薪酬 3,094 萬美元），FY2026 薪酬尚未披露。</div><table class="dt"><caption>資本配置記錄（2013—2026）</caption><thead><tr><th>時間</th><th>動作</th><th>金額</th><th>結果評價</th></tr></thead><tbody><tr><td>2013</td><td>收購爾必達（Elpida）</td><td>約 25 億美元</td><td>取得廣島廠與 DRAM 規模，是日美產能布局的起點；買在破產程序裡，價格便宜</td></tr><tr><td>2016</td><td>收購華亞科（Inotera）剩餘股權</td><td>約 32 億美元</td><td>取得台中／桃園產能，DRAM 成本曲線左移</td></tr><tr><td>2021</td><td>退出 3D XPoint，出售猶他州 Lehi 廠</td><td>約 9 億美元售予德州儀器</td><td>及時止損，沒有在非主流技術上繼續燒錢</td></tr><tr><td>2024/12</td><td>《晶片法案》最終協議</td><td>61.65 億美元補貼</td><td>愛達荷與紐約專案落地，政策資產變現</td></tr><tr><td>2026/03</td><td>季度股息上調 30%</td><td>每股 0.15 美元</td><td>幅度克制，優先保資本開支</td></tr><tr><td>2026/06</td><td>FY26 資本支出上調至 270 億美元，FY27 指引超 400 億</td><td>270 億 / &gt;400 億</td><td>押注需求延續至 2028；這是本輪最大的一筆風險敞口</td></tr><tr><td>2026/07</td><td>美國長期投資從 2,000 億上調至 2,500 億美元</td><td>2,500 億美元（至 2035）</td><td>目標 40% 的 DRAM 在美生產；戰略正確，成本負擔也真實</td></tr></tbody></table><div class="note">歷史併購金額為公開披露口徑；2026 年資本支出為 FY26Q3 電話會指引（Q3 單季淨資本支出 70.84 億美元）。美國投資計劃於 2026/07/09 在紐約州錫拉丘茲新廠現場宣布。</div><div class="section"><div class="section-title">兩次賭注，一次賭對，一次還沒驗證</div><p class='txt'>第一次是 2023 年。全行業資本支出下砍、美光自己裁員約 10%、FY23 淨虧 58 億美元的時候，HBM 的研發和產線改造沒有停。當時市場的主流看法是「HBM 是 SK 海力士的生意」，美光只是跟隨者。結果 2025 年 HBM3E 拿下輝達認證，2026 年 HBM4 12 層跟 Vera Rubin 同步量產，2026Q2 拿到全球 18% 的 HBM 份額。<b>這一注賭的是「AI 訓練對頻寬的需求會指數增長」，賭對了。</b></p><p class='txt'>第二次是 2026 年 6 月的 SCA 長約。16 份協議、五年期、照付不議、設價格上下限，14 份按最低價格對應約 1,000 億美元收入，客戶已付約 220 億美元現金存款。這是記憶體行業第一次有人試圖把商品合約化。<b>但它還沒經過下行週期的檢驗</b>——照付不議在缺貨時是護身符，在過剩時是談判起點。</p><p class='txt'>兩次賭注的共同點是：都在別人不看好的時候下注，都用「長期合約／長期產能」對抗短期價格。這符合好管理層的特徵，也符合週期股管理層的宿命——<b>他們的判斷只能被下一輪週期驗證，而下一輪週期總會來。</b></p></div><div class="section"><div class="section-title">資本配置：克制，但有一個巨大的賭注</div><p class='txt'>克制體現在三處。第一，淨現金進週期頂部：現金及投資 302 億美元、流動性 322 億，沒有在下行週期發高息債的後遺症。第二，股本五年基本持平在 11.3 億股，不靠增發續命。第三，股息只上調 30% 到 0.15 美元/季，沒有在利潤暴增時大幅提高分紅承諾——這是對的，因為明年的利潤可能是今年的三分之一。</p><p class='txt'>巨大的賭注是資本支出。FY26 270 億美元、FY27 超 400 億、2035 年前美國投 2,500 億。<b>這三組數字加起來的意思是：管理層相信短缺會持續到 2028 年，並且願意把這一輪賺到的錢全部押在這個判斷上。</b>如果判斷對，2028 年美光是全球成本最低、產能最分散的記憶體廠；如果判斷錯，2028 年的折舊會把利潤表壓穿。</p><p class='txt'>這不是「亂花錢」，是行業屬性決定的——不投就丟份額，投了就可能過剩。評價這條的標準不是「投不投」，而是「投的節奏對不對」：Q3 單季 71 億、Q4 約 100 億的爬坡速度，說明它是漸進加碼而不是一次性梭哈，這一點值得肯定。</p></div><div class="section"><div class="section-title">誠信與治理：沒有硬傷，但有兩處該盯</div><p class='txt'>沒有硬傷。SCA 的披露品質在業界算高的——價格上下限、照付不議、客戶存款金額、覆蓋期限全部公開，沒有用「意向訂單」「框架協議」這類模糊說法充數。GAAP 與 Non-GAAP 淨利只差 2.2%（282.4 對 288.6 億），說明沒有靠調整項美化利潤。單一股權結構、一股一票，沒有雙重股權的治理折價。</p><p class='txt'>第一處該盯的是 CEO 兼任董事長。2026 年的美光處在「一個人決定 2,500 億美元投向」的階段，董事長和 CEO 是同一人，意味著董事會對資本支出節奏的制衡主要靠獨立董事的自覺。<b>這不是醜聞，是結構問題</b>，尤其在週期頂部，管理層天然傾向於把指引給得更高。</p><p class='txt'>第二處是內部人交易。8 月 21 日 Mehrotra 按 2026 年 1 月 30 日採納的 10b5-1 計劃減持 4 萬股，均價約 968.90 美元，套現約 3,876 萬美元，減持後持股 87.16 萬股（0.08%）。<b>計劃是預先設定的，時點合規，但方向明確：內部人在 950—990 美元區間選擇賣出，而不是買入。</b></p></div><div class="section"><div class="section-title">接班人：這輪週期最大的單點風險</div><p class='txt'>Mehrotra 1959 年生，2026 年 67 歲，任 CEO 已九年。公司沒有公布任何接班安排。這件事在別的公司只是治理清單上的一行，在美光是一個實質風險——因為這輪週期的兩個關鍵判斷（2023 年押 HBM、2026 年推 SCA）都高度依賴他個人對行業節奏的理解。</p><p class='txt'>內部的可能人選有三個：CFO Mark Murphy（資本結構與客戶存款的談判者）、全球營運負責人 Manish Bhatia（270 億美元資本支出的執行人）、首席商務官 Sumit Sadana（SCA 長約的談判者）。<b>三個人的共同點是都參與了這套打法，缺點是都沒有獨立掌舵過一輪完整週期。</b></p><p class='txt'>對投資者的含義是：如果 2027—2028 年出現 CEO 交接，且交接發生在週期下行期，市場會給一個「不確定性折價」。這不是現在賣出的理由，但是持有期間必須記錄的一個變數。</p></div><div class="summary-box"><h3>結論</h3><b>結論：管理層 8/10，通過，但不是滿分。</b>Mehrotra 在 2023 年的 HBM 押注和 2026 年的 SCA 長約，是這家公司從「純週期股」向「合約現金流」演化的兩次關鍵動作，方向正確、執行到位；資本配置克制，淨現金、不稀釋、股息溫和。<b>扣分在兩處：CEO 兼任董事長削弱制衡；67 歲的 CEO 沒有接班人計劃，而這輪週期的判斷高度依賴他個人。</b>持有期間每季度盯兩件事：資本開支節奏是否失控、有沒有接班人公告。</div>
+</div>
+<div class="footer">美光科技 (MU) · 2026/09/25</div>
+</body>
+</html>

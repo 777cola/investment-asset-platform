@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master Class Close Read (Duan Yongping) — Hon Hai Precision</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/foxconn/8-财报团队解读/鸿海精密-大师精读-段永平.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/foxconn/8-財報團隊解讀/鴻海精密-財報團隊解讀-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/foxconn/8-Earnings-Team-Read/Hon Hai Precision-Earnings Team-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Master Class Close Read (Duan Yongping) — Hon Hai Precision</h1>
+  <div class="subtitle">First, look at how much cash this business can generate in a year.</div>
+  <div class="meta">Research date 2026/10/19 &nbsp;·&nbsp; Price NT$240 (-1.84%) &nbsp;·&nbsp; Market cap About TWD 3.37 trillion &nbsp;·&nbsp; PE(2026E) Approximately 12.6x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/foxconn/00-Hon Hai Precision-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'><b>The most important line in this earnings report is not revenue, but the 2.37% net margin.</b> Revenue was RMB 2 trillion 525.9 billion, of which RMB 59.97 billion landed in shareholders' pockets. Duan Yongping's order for reading financial statements: whether the business earns real money, whether the money earned must be plowed straight back in, and whether reinvesting it still earns the same return.</p></div><div class="section"><div class="section-title">Real money? It earns processing fees, not profit</div><p class='txt'>Gross margin 6.12%, operating margin 3.75%, net margin 2.37% — each of the three profit layers is thinner than the one above it, meaning something is eating into profit at every layer: materials take 94%, expenses take 2.4%, and taxes plus minority interests take another 1.4%. <b>Duan Yongping would say this is not "earning little" but "there was never much to earn."</b></p><p class='txt'>The essence of the processing-fee business is: how much customers are willing to pay for "peace of mind." AI racks carry high integration complexity, and the premium customers are willing to pay looks higher than for phone assembly — a 6.12% gross margin is indeed a notch above the 4%–5% of peers. <b>But a 6% gross margin corresponds to a 2.4% net margin: any 1.0-percentage-point decline in yield and profit goes to zero.</b></p></div><div class="section"><div class="section-title">Reinvest immediately: yes, and double down</div><p class='txt'>Revenue rose 39%, working capital rose with it, and capex must expand into four countries. Free cash flow was negative in the first half, meaning the money earned cannot be distributed and more must be borrowed. <b>What Duan Yongping dislikes most is exactly this kind of "the more it grows, the more cash it lacks" business—it stakes shareholder returns on "after growth stops."</b></p><p class='txt'>His test is simple: if this company stopped growing tomorrow, how much cash could it pull out? The answer is positive, and not small—but by then revenue would fall and the stock price would fall first. That is why such companies can only be bought at extremely low prices.</p></div><div class="section"><div class="section-title">Return: ROE 9%–12%, driven by turnover rather than margin</div><p class='txt'>DuPont in three parts: net margin 2.37% × asset turnover 1.4x × equity multiplier 2.4x ≈ 8%. <b>Its ROE is propped up by assets turning fast, not by earning a lot on each sale.</b> That structure looks great when demand rises; when demand falls and turnover slows, ROE drops faster than anyone else's.</p><p class='txt'>The Duan Yongping-style conclusion: this is a business you can understand and calculate clearly, but one not worth waiting for. He would consider it below 8x PE, and only as a cyclical. At 12.6x and RMB 239.5, it is outside his range.</p></div><div class="summary-box"><h3>Conclusion</h3><p>Conclusion from Duan Yongping's perspective: <b>The financials prove this is a real business, and also prove it is not a good business.</b> The profit is real, the cash is not, and returns depend on turnover. Do not buy at RMB 239.5; around RMB 160 is negotiable.</p></div>
+</div>
+<div class="footer">Hon Hai Precision (2317.TW) · 2026/10/19</div>
+</body>
+</html>

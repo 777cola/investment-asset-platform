@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Check — Broadcom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/broadcom/3-财务数据交叉验证/博通-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/broadcom/3-財務數據交叉驗證/博通-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/broadcom/3-Financial-Cross-Check/Broadcom-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Financial Check — Broadcom</h1>
+  <div class="subtitle">Broadcom (AVGO) | 03 · Financial Check</div>
+  <div class="meta">Research date 2026/10/02 &nbsp;·&nbsp; Price $355.14 (+3.35%) &nbsp;·&nbsp; Market cap Approximately USD 1.69 trillion (rough estimate based on 4.77 billion shares) &nbsp;·&nbsp; PE(FY2027E) Approximately 18x (FY27 consensus EPS of USD 19.38)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/broadcom/00-Broadcom-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>Eight key figures were cross-checked against two sources; seven deviations are within 0.1%, all from rounding. The only 0.66% difference is not an error but two different things: the company's Q4 guidance of USD 34.8 billion versus the consensus of USD 35.03 billion—<b>guidance came in 1% below expectations, and that is the real reason the stock fell 2.7% on September 3.</b></p><p class='txt'>One figure needs a flag: software revenue of 8,751. The company did not disclose it separately; it is derived by subtracting the semiconductor segment from total revenue. It differs in nature from the other seven disclosed figures, and every citation should label it "derived."</p></div><table class="dt"><caption>Dual-source cross-check (FY26Q3, unit: USD million)</caption><thead><tr><th>Metric</th><th>Source A (company disclosure)</th><th>Source B (media/broker)</th><th>Deviation</th><th>Processing</th></tr></thead><tbody><tr><td>Total revenue</td><td>29,591 (company financial report)</td><td>29,591 (Yicai citing financial report, RMB 29.59 billion)</td><td>0%</td><td>Adopt</td></tr><tr><td>Semiconductor solutions</td><td>20,840 (reportable segment)</td><td>20,840 (Stockstar, RMB 20.84 billion)</td><td>0%</td><td>Adopt</td></tr><tr><td>AI semiconductors among them</td><td>16,700 (call basis)</td><td>16,700 (written as 16.7 billion in the media)</td><td><0.1%</td><td>Adopt</td></tr><tr><td>Infrastructure software</td><td>8,751 (total revenue − semiconductor, estimated)</td><td>8,750 (media, 8.75 billion)</td><td>0.01%</td><td>Use estimated values and label them</td></tr><tr><td>Non-GAAP gross margin</td><td>75.0% (financial report)</td><td>74.9% (rounded by some media)</td><td>0.1pct</td><td>Adopt financial reports</td></tr><tr><td>Non-GAAP net profit</td><td>16,372 (financial report)</td><td>16,370 (media, RMB 16.37 billion)</td><td>0.01%</td><td>Adopt financial reporting</td></tr><tr><td>Fixed-rate debt</td><td>59,600 (financial statement notes)</td><td>RMB 59.6 billion (as reported)</td><td>0%</td><td>Adopt</td></tr><tr><td>FY26Q4 revenue</td><td>34,800 (company guidance)</td><td>35,030 (LSEG consensus)</td><td>0.66%</td><td>Do not consolidate; report the two bases separately</td></tr></tbody></table><div class="note">Source A: Broadcom FY26Q3 results and earnings call (2026/09/02). Source B: Yicai (2026/09/03), Stockstar (2026/09/02), Sinolink Securities (2026/09/04). Deviation = |A − B| / A.</div><div class="section"><div class="section-title">Only one item deviates by more than 1%, and it is not a deviation</div><p class='txt'>Q4 revenue guidance was USD 34.8 billion against a consensus of USD 35.03 billion, a 0.66% gap. Strictly speaking this falls short of the 1% threshold, but it is the only "difference" in this report that carries information, so it is addressed separately.</p><p class='txt'>Guidance and consensus are two different things: guidance is what the company says, consensus is what analysts guess. Guidance below consensus by 1% means the sell-side models were more optimistic than the company itself.<b>The market's reaction to this report was not "weak results" but "the company did not deliver an above-consensus next quarter."</b> The stock fell after the close on September 2 and closed at USD 357.16 on September 3, down 2.7%, on exactly this logic.</p><p class='txt'>One clarification: AI revenue of USD 16.7 billion appears in several media versions (16.68 billion, 16.7 billion, 16.72 billion), with the differences coming from rounding to USD 0.1 billion. This report uses USD 16,700 million throughout.</p></div><div class="section"><div class="section-title">Three figures that must be flagged as estimates</div><p class='txt'>First, infrastructure software 8,751. The company discloses only total revenue and the semiconductor segment; software is derived by subtraction. Verification: 8,751 versus 6,728 in the year-ago period, growth of 30.1%, consistent with market expectations for VMware's subscription transition, and the order of magnitude checks out.</p><p class='txt'>Second, the FY25Q3 segment data. Semiconductor 9,181 is back-solved from +127%, and AI 5,202 from +221%; the two sum to 14,383, and the derived non-AI semiconductor figure of 3,979 also squares with the common-sense view of "low single-digit growth in the legacy business" (4,140 this year, +4.05% YoY).</p><p class='txt'>Third, the FY26Q4 AI guidance of 21,700, up +236% YoY, implies AI revenue of 6,458 in the year-ago period, self-consistent with a full-year FY25 AI scale of around USD 20 billion. <b>The three back-solved values interlock, indicating no internal contradiction in this set of numbers.</b></p></div><div class="section"><div class="section-title">The finally adopted methodology</div><p class='txt'>All margins and EPS in this report use the company's Non-GAAP basis; net assets and tax burden use the GAAP basis. Segment revenue uses company-disclosed figures; software revenue is an estimate and flagged as such. Market cap is USD 355.14 × 4.77 billion shares; the P/E denominator is the FY27 consensus EPS of USD 19.38.</p><p class='txt'>The reason for not using the media convention is practical: media often label Non-GAAP net income as "net income" and mix RMB 16.372 billion with the GAAP figure of RMB 13.1 billion, which turns a 44% net margin into 55%. <b>The same filing yields two net margins; the only difference is whether amortization and stock-based compensation are excluded.</b> This report gives both and labels the basis.</p><p class='txt'>One final discipline: no information after the report date is used. All figures are as of the September 2, 2026 filing; the share price is as of the October 2 close.</p></div><div class="section"><div class="section-title">Beyond the reconciliation: three figures with only a single source</div><p class='txt'>Cross-validation only works for figures confirmed by two or more independent sources. Three key figures in this report fail that test:</p><p class='txt'><b>First, the USD 37 billion financing platform</b> rests on a Bank of America estimate alone; the company has neither confirmed nor denied it. Second, <b>XPU at 73% of AI revenue</b> comes from a single source, the earnings call, with no segment disclosure to check it against. Third, <b>customer deployment scale</b> (Anthropic 5GW in 2027, OpenAI 1.3GW, Meta 3GW cumulative by 2028) is entirely the company relaying customer plans; the customers have not publicly confirmed them.</p><p class='txt'>These three figures happen to carry the greatest weight in the valuation. There is only one way to handle them: treat them as "management claims", not "verified data", and give them wider error bands in the scenario assumptions — which is why the bear case assigns AI revenue of just USD 85 billion, 26% below company guidance.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Reconciliation conclusion: the data is reliable and needs no correction.</b> Seven items show zero deviation, one shows a definitional difference, and the three back-solved values tie out to each other. Two things are worth remembering: software revenue is an estimated figure and must be flagged as such when cited; net margin has two versions, 55.3% (Non-GAAP) and 44.3% (GAAP) — use the former for valuation discussion and the latter for asset quality. <b>Nothing at the data level warrants any discount; the risk is not in the numbers, but beyond them.</b></p></div>
+</div>
+<div class="footer">Broadcom (AVGO) · 2026/10/02</div>
+</body>
+</html>

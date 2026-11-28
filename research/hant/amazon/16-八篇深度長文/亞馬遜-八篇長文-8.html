@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⑧ 決策框架：什麼價格、買多少、什麼時候賣 — 亞馬遜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/amazon/16-八篇深度长文/亚马逊-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/amazon/16-八篇深度長文/亞馬遜-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/amazon/16-Eight-Long-Essays/Amazon-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>⑧ 決策框架：什麼價格、買多少、什麼時候賣 — 亞馬遜</h1>
+  <div class="subtitle">把判斷變成可以執行的規則</div>
+  <div class="meta">研究日期 2026/11/06 &nbsp;·&nbsp; 股價 $259.30（-0.35%） &nbsp;·&nbsp; 市值 約 2.80 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 20.8x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/amazon/00-亞馬遜研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>分析的價值在於變成規則。這一頁把前面七篇的結論壓成一張決策表：<b>三個買點、兩個賣點、一個退出條件、一條不做的理由。</b></p></div><table class="dt"><caption>決策表</caption><thead><tr><th>動作</th><th>觸發條件</th><th>力度</th><th>依據</th></tr></thead><tbody><tr><td>買入（首筆）</td><td>現價 259 美元附近</td><td>1/3（3%–5%）</td><td>利潤增速 61% 遠超股價漲幅；20.8 倍帳面 PE</td></tr><tr><td>買入（第二筆）</td><td>2027Q1：AWS ≥35%、零售利潤率 ≥7%、折舊增速 ≤ 營業利益增速</td><td>+1/3</td><td>三條同時成立說明論文在軌</td></tr><tr><td>買入（第三筆）</td><td>股價 ≤216 美元，或 TTM 自由現金流转正</td><td>+1/3</td><td>賠率從 1.6 提高到 3 以上</td></tr><tr><td>賣出（減碼）</td><td>股價 ≥330 美元</td><td>減至 1/3</td><td>賠率倒掛</td></tr><tr><td>退出</td><td>AWS 未完成訂單連續兩季環比下滑</td><td>清零</td><td>需求裂縫，論文證偽</td></tr><tr><td>不做</td><td>不因「AI 長期看好」加倉</td><td>—</td><td>看不清的東西用倉位補，不用信仰補</td></tr></tbody></table><div class="note">價格檔位對應三情境估值（216/330/438 美元）；倉位為占股票組合比例的建議值。</div><div class="section"><div class="section-title">框架一：為何是分批，而非「等更便宜」</div><p class='txt'>最常被問的問題是「為什麼不等到 216 再買」。答案是：<b>你不知道會不會到。</b>8 月 10 日股價 278，10 月 30 日 240，11 月 4 日 266——三個月內振幅 15.7%，基本面只發生了一次變化。在這種波動裡等一個具體價格，等到的機率和錯過的機率差不多。</p><p class='txt'>分批的作用不是提高收益率，是<b>降低「一次買錯」的代價</b>。三分之一倉位買在 259，即使跌到 187（-28%），對組合的傷害是 -1.4%（按 5% 倉位算）。這個量級不會讓你做出情緒化的決定。</p></div><div class="section"><div class="section-title">框架二：為什麼賣點用價格，止損用事實</div><p class='txt'>賣出用價格，因為估值是理性的：330 美元對應 2027 年 EPS 15 美元的 22 倍，賠率已經不支持繼續持有。<b>停損用事實，因為價格是情緒的</b>——15.7% 的振幅裡，價格停損會被噪音打掉三次。</p><p class='txt'>「事實」選什麼？選最難造假、最領先的那個：AWS backlog。它比收入領先一到兩個季度，比利潤難修飾，比股價誠實。5,780 億這個數字如果連續兩季環比下滑，說明客戶在推遲或取消訂單，那時你還有時間走。</p><p class='txt'>最後一條：<b>不因為「AI 長期看好」加倉。</b>這句話不是判斷，是情緒。看得懂的部分（AWS 加速、零售提效）值三分之一倉位；看不懂的部分（2027 年折舊、資本開支何時見頂）不該用信仰去補。</p></div><div class="section"><div class="section-title">什麼時候該推翻這套框架</div><p class='txt'>任何框架都有失效的條件，寫下來才不會臨時找理由。三個條件會讓這套決策作廢：</p><p class='txt'><b>一，AWS 增速掉到 30% 以下且連續兩季。</b>那時「用折舊換增長」的算式不成立，估值應該切到 15 倍以下，330 美元的目標價作廢。</p><p class='txt'><b>二，公司延長伺服器折舊年限。</b>這不是壞消息本身，壞消息是它意味著管理層在為一個不達預期的季度找台階。那時所有歷史利潤率數據都要重算，PE 會失真。</p><p class='txt'><b>三，AI 資本開支的融資方式從債務轉向股權。</b>增發會稀釋，而且是管理層承認「現金流撐不住」的信號。目前沒有這個跡象——它選擇的是發債，說明它相信回報率高於債務成本。</p><p class='txt'>三個條件都不出現，就按原規則執行：三分之一、216 加、330 減、backlog 走。</p></div><div class="section"><div class="section-title">半年後回看這一頁</div><p class='txt'>如果 2027 年 2 月的年報顯示：AWS 增速仍 >35%、折舊增速低於營業利益增速、自由現金流收窄，那麼今天的三分之一倉位就是買對了地方，可以加第二筆。<b>如果三個條件裡有兩個不成立，不要改框架，要改倉位。</b>框架是用來看清事實的，不是用來給自己找理由的。</p></div><div class="section"><div class="section-title">一個具體的例子：如果今天買入 100 股</div><p class='txt'>按 259.30 美元買 100 股，投入 25,930 美元。<b>情境一（中性）</b>：12 個月後 330 美元，市值 33,000 美元，帳面獲利 7,070 美元、+27%。<b>情境二（悲觀）</b>：216 美元，市值 21,600 美元，帳面虧損 4,330 美元、-17%，這時按規則加第二筆，成本攤到約 237 美元。<b>情境三（投資論點破裂）</b>：135 美元，帳面虧損 12,430 美元、-48%。</p><p class='txt'>三種情境的機率加權（本報告估 50%/35%/15%）後，期望報酬約 +14%。<b>這個數字不高，但它的來源不是「猜對方向」，是「在最壞情境裡還能加碼」。</b></p><p class='txt'>所以真正決定報酬的不是買點，是「有沒有錢在 216 美元時加碼」。這就是分批的意義——它讓你在下跌時是買家，不是賣家。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>最終決策：買入，分批，首筆三分之一，目標價 330 美元。</b>加倉看三個季度數據，減倉看價格，退出看訂單簿。這套規則不保證賺錢，但保證你在對的時候拿得住、錯的時候走得掉。</p></div>
+</div>
+<div class="footer">亞馬遜 (AMZN) · 2026/11/06</div>
+</body>
+</html>

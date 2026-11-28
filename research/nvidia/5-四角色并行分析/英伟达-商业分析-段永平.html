@@ -7,13 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
-.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
 .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
 .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
 .header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
 .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
 .section { margin-bottom: 2.5rem; }
 .section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -48,22 +53,19 @@ table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; colo
 .badge-blue { background: #e6f0ff; color: #1a4b8c; }
 .footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
 .back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
-.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
-.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
-.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
-
 </style>
 </head>
 <body>
 <div class="header">
+  <div class="lang-switch"><a class="lang zh active" data-lang="zh" href="/research/nvidia/5-四角色并行分析/英伟达-商业分析-段永平.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/nvidia/5-四角色並行分析/輝達-四角色-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/nvidia/5-Four-Role-Analysis/NVIDIA-Four Roles-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
   <h1>商业分析（段永平视角） — 英伟达</h1>
   <div class="subtitle">英伟达 (NVDA) | 谁付钱、为什么付、还能付多久</div>
   <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股价 $220.78（+1.48%） &nbsp;·&nbsp; 市值 约 5.33 万亿美元（241.5 亿股） &nbsp;·&nbsp; PE(TTM) 约 28x（FY2028 前瞻约 15x）</div>
 </div>
 <div class="container">
-<a class="back" href="../00-英伟达研究报告总目录.html">← 返回总目录</a>
+<a class="back" href="/research/nvidia/00-英伟达研究报告总目录.html">← 返回总目录</a>
 <div class="summary-box"><h3>核心判断</h3><p class='txt'>这门生意的本质是卖“算力的使用权”，不是卖芯片。客户付钱买的是时间——晚一个季度上线，模型就落后一个版本。所以价格不敏感，交期才敏感。<b>但 2026 年发生了一个变化：付钱的人从四家现金充沛的云厂，扩散到一批还没有利润的 AI 实验室和算力租赁商。</b>生意还是好生意，付钱的人变了。</p></div><table class="dt"><caption>钱从哪来（FY2027Q2）</caption><thead><tr><th>客户类型</th><th>收入</th><th>同比</th><th>付款能力</th></tr></thead><tbody><tr><td>超大规模云（4 家为主）</td><td>487.10 亿美元</td><td>+102%</td><td>强：经营现金流扩张，2026 年资本开支约 8,000 亿</td></tr><tr><td>AI 云 / 工业与企业（ACIE）</td><td>403.13 亿美元</td><td>+138%</td><td>分化：云厂与主权客户强，NeoCloud 靠债务</td></tr><tr><td>边缘计算</td><td>72.00 亿美元</td><td>+27%</td><td>中：PC、汽车、机器人，周期属性</td></tr><tr><td>合计</td><td>962.21 亿美元</td><td>+106%</td><td>—</td></tr></tbody></table><div class="note">数据来源：英伟达 FY2027Q2 财报（2026/08/26）。ACIE 口径为 AI Clouds, Industrial &amp; Enterprise，含 NeoCloud、主权 AI、企业与 AI 原生公司。</div><div class="section"><div class="section-title">谁付钱：五个人付了 44%</div><p class='txt'>先看客户结构。10-Q 披露，FY2027 上半年三家直接客户分别贡献 16%、15%、13% 的收入，合计 44%；前五大客户的应收账款占 70%。这不是“卖给全世界”的生意，<b>是“卖给五个人”的生意</b>。</p><p class='txt'>这五个人是谁，市场大致清楚：微软、亚马逊、谷歌、Meta、甲骨文。他们的共同点是现金充沛、资本开支由经营现金流支撑。亚马逊在本季宣布，从本季度到 2029 财年第二季度额外部署 200 万颗 GPU，配套 Vera CPU——这种订单只有一种客户下得出来：不靠融资也能付钱的人。</p><p class='txt'>但增长最快的不是他们。超大规模云同比 +102%，ACIE 同比 +138%。ACIE 里装着 NeoCloud（CoreWeave、Nebius、Nscale、Firmus、YTL）、主权 AI、企业和 AI 原生公司。<b>这一块占了数据中心收入的 45%，是增速最快、付款能力最弱的一块。</b></p></div><div class="section"><div class="section-title">为什么付：每一度电卖出的钱在翻倍</div><p class='txt'>客户为什么非买不可？公司给了一个非常好用的口径：每吉瓦算力对应的商业价值，Hopper 时代 180 亿美元、Grace Blackwell 250 亿美元、Vera Rubin 400 亿美元。<b>同一个机柜、同样的电，能卖出的钱翻了一倍多。</b></p><p class='txt'>这个数字解释了三件事。第一，为什么客户愿意排队：不是买芯片，是买“每兆瓦吞吐量提升 30 倍、单 token 成本下降 35 倍”（公司对比 Grace Blackwell Ultra 的口径）。第二，为什么涨价能落地：FY2028Q1 起执行价格上调，把内存涨价传导出去，客户接受，因为算力带来的收入增速高于成本增速。第三，为什么自研芯片不容易替代：客户自研的 XPU 只针对单一云、单一业务的推理，而英伟达卖的是覆盖数据处理、预训练、后训练、智能体推理全链路的通用资产，<b>通用性的价值在于资产可以复用，复用就意味着折旧年限内一直在赚钱。</b></p><p class='txt'>生意的简单之处也在这里：不用管客户拿算力去干什么，只要他还要买下一代。</p></div><div class="section"><div class="section-title">能付多久：这是唯一需要判断的问题</div><p class='txt'>段永平式的问题只有一个：十年后还有人付钱吗？我的答案分三层。</p><p class='txt'>第一层，需求侧没有见顶。2026 年上半年全球 AI 风投超过 4,000 亿美元，其中约 70% 用于算力采购；五大云厂在手订单超过 2 万亿美元。这些是公司口径，但方向能被第三方验证——云厂自己的资本开支指引在往上调，不是在往下调。</p><p class='txt'>第二层，供给侧是瓶颈。公司说得很直白：真实需求约 100%，指引只给 70%，差距全在产能——晶圆、HBM、电力、机房，四样全紧。短缺至少延续到 FY2028 末。<b>供给不足的时候，卖方的生意最好做，这是常识。</b></p><p class='txt'>第三层，也是最不确定的一层：付钱的人有没有钱。2026 年上半年 AI 风投 4,000 亿里，有多少最终会变成英伟达的收入、又有多少会变成英伟达的应收款和担保？公司自己的说法是：明年需要借助英伟达资产负债表支持的 AI 实验室业务，约占总业务四分之一。<b>四分之一，这个比例决定了这门生意从“卖铲子”变成了“卖铲子 + 垫资”。</b></p><p class='txt'>所以我的判断是：生意好，好到不需要论证；付钱的人正在换，换成了一个需要英伟达帮忙的群体。这不改变生意，改变的是这门生意的估值方式。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>好生意，付款结构在变差。</b>超大规模云那一半依旧是铁一样的现金流，ACIE 那一半靠融资撑着。前者支撑 20 倍估值，后者支撑不了 30 倍。<b>如果要给一个观察指标：ACIE 占数据中心收入的比例。现在 45%，如果 2027 年冲到 55% 以上而账期还在拉长，说明这门生意的质量在往下走。</b></p></div>
 </div>
-<div class="footer">英伟达 (NVDA) 投资研究报告集 · 2026/08/31</div>
+<div class="footer">英伟达 (NVDA) · 2026/08/31</div>
 </body>
 </html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Check — Tesla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/tesla/3-财务数据交叉验证/特斯拉-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/tesla/3-財務數據交叉驗證/特斯拉-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/tesla/3-Financial-Cross-Check/Tesla-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Financial Check — Tesla</h1>
+  <div class="subtitle">Tesla (TSLA) | 03 · Financial Check</div>
+  <div class="meta">Research date 2026/07/22 &nbsp;·&nbsp; Price $374.01 (-1.30%) &nbsp;·&nbsp; Market cap Approximately USD 1.48 trillion &nbsp;·&nbsp; PE(TTM) — (Margins too thin; PE no longer meaningful)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/tesla/00-Tesla-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core call: the numbers are credible; the only thing to watch is that "gross margin" has three definitions</h3><p class='txt'>Eight key data points were cross-checked against two sources; seven deviations were within 1%. The largest was 2025Q2 revenue (company: USD 22,496 million vs. 22,396 back-calculated from the working papers, a 0.45% deviation), caused by the working papers back-calculating from year-on-year growth and rounding. <b>All figures use the company's disclosed original values.</b></p><p class='txt'>What genuinely needs clarifying is gross margin. The working papers state 16.9%, while the company discloses "total gross margin 16.8%, automotive gross margin 16.9%"—both figures are correct, just on different bases. <b>This report standardizes: total gross margin uses 16.8%, automotive gross margin uses 16.9%, and any appearance of 16.9% must be noted as the automotive basis.</b> In a year of thin profits, such details directly affect conclusions and cannot be left ambiguous.</p></div><table class="dt"><caption>Dual-source cross-check (2026Q2, USD million)</caption><thead><tr><th>Indicator</th><th>Source A</th><th>Source B</th><th>Deviation</th><th>Processing</th></tr></thead><tbody><tr><td>Total revenue</td><td>Company financial reports 28,236</td><td>stockanalysis 28.24B</td><td>+0.01%</td><td>Adopt 28,236</td></tr><tr><td>Automotive business revenue</td><td>Company filings 20,516</td><td>The Paper/East Money RMB 20.516 billion</td><td>0.00%</td><td>Adopt 20,516</td></tr><tr><td>Deliveries (vehicles)</td><td>Company delivery announcement 480,126</td><td>Financial Street / Guandian 48.01 million</td><td>-0.03%</td><td>Adopt 480,126</td></tr><tr><td>Total gross margin</td><td>Company earnings 16.8%</td><td>Working paper 16.9%</td><td>0.6% (relative)</td><td>16.9% is on an automotive basis; use 16.8% for the total basis</td></tr><tr><td>Net profit attributable to shareholders (GAAP)</td><td>Company earnings 1,114</td><td>The Paper RMB 1.114 billion</td><td>0.00%</td><td>Adopt 1,114</td></tr><tr><td>Non-GAAP net profit</td><td>Company earnings 1,153</td><td>Working paper 1,153</td><td>0.00%</td><td>Use 1,153; the -17% YoY requires the 2025Q2 base of 1,393</td></tr><tr><td>Operating cash flow</td><td>Company financial reports 4,697</td><td>Working paper RMB 4.69 billion</td><td>0.06%</td><td>Using 4,697 (RMB 4.697 billion)</td></tr><tr><td>2025Q2 revenue</td><td>Company financial reports 22,496</td><td>Working paper reverse derivation 22,396</td><td>0.45%</td><td>Use 22,496; the workpaper figure is a back-solved value</td></tr></tbody></table><div class="note">Source A is Tesla's 2026Q2 earnings report (2026/07/22 after market close); Source B is stockanalysis.com and Chinese financial media (The Paper, Eastmoney, JRJ, 2026/07/22–23). Deviation = (A−B)/A.</div><div class="section"><div class="section-title">Two deviations need explanation; the other six can be considered fully in line</div><p class='txt'>Item 1: 2025Q2 revenue. The 22,396 in the working paper was back-solved by dividing 2026Q2 revenue by (1+26.1%); the company's original figure is 22,496. <b>The 0.45% difference comes from rounding in the growth rate itself</b>—the company reported +25.5%, while the working paper used the media figure of +26.1%. This item does not affect any conclusion, but it shows that "back-solved values" and "disclosed values" must be labeled separately.</p><p class='txt'>Item 2: gross margin. This is the only item that looks contradictory but is not. Total company gross margin was 16.8% (gross profit RMB 4.751 billion ÷ revenue RMB 28.236 billion = 16.83%), and automotive gross margin was 16.9%. <b>Automotive gross margin exceeds total gross margin because the energy storage segment was dragged down to 20.4% this quarter by a USD 240 million warranty provision, while services gross margin, though improving, remains below automotive.</b></p><p class='txt'>How to handle it: for any discussion of "overall profitability," use 16.8%; for any discussion of "whether selling cars makes money," use 16.9%. The 16.9% in the working paper falls into the latter category—not wrong, just labeled too broadly.</p></div><div class="section"><div class="section-title">Why gross margin is easy to get wrong this quarter: three one-off factors overlap</div><p class='txt'>The first is regulatory credits. The USD 146 million in credit revenue carries almost zero cost and flows straight into gross profit, equivalent to a 0.5 percentage point contribution to total gross margin. The year-earlier figure was USD 439 million, contributing about 2 percentage points. <b>For the same metric, the 1.5 percentage point gap between the two years stems from policy, not operations.</b></p><p class='txt'>The second is energy storage warranties. A USD 240 million provision hit the energy segment's cost, compressing segment gross margin from 39.5% to 20.4%. The charge is a legacy liability from supplier cell issues and is one-off in nature, but it genuinely occurred and cannot be excluded.</p><p class='txt'>The third is tariffs. The 21.1% gross margin in 2026Q1 included a favorable reversal of tariff costs from the prior quarter; Q2 had no such benefit, which amplified the sequential decline. <b>Together, the three factors explain most of the 4.3 percentage point drop from 21.1% to 16.8%.</b> To read this company's gross margin, at minimum split it into two lines—excluding credits and excluding one-offs—or every quarter will come as a shock.</p></div><div class="section"><div class="section-title">Final adopted basis and calculation rules</div><b>For quarterly data, always use the company's reported figures (USD million); for year-on-year changes, use the percentages disclosed by the company; TTM is calculated independently.</b> TTM revenue of USD 103.619 billion = 2025Q3 28.095 + 2025Q4 24.901 + 2026Q1 22.387 + 2026Q2 28.236; TTM net profit attributable to shareholders of USD 3.804 billion = 13.73 + 8.40 + 4.77 + 11.14. Based on a market cap of USD 1.48 trillion, PE(TTM) is about 389x — <b>this figure serves only as an order-of-magnitude reference, because the denominator is too thin and any one-off item can move it by 20%.</b><p class='txt'>A note on the market cap basis: the USD 1.48 trillion is the total market cap back-solved from the USD 374.01 closing price and about 3.96 billion shares, including unexercised equity incentives. The share count back-solved from diluted EPS of USD 0.32 is about 3.48 billion shares, a 12% difference between the two — <b>this is the difference between the "market cap basis" and the "EPS basis"; all valuations in this report use the market cap basis to avoid per-share figures conflicting with one another.</b></p><p class='txt'>All derived figures are labeled with their source method: revenue per vehicle of USD 42,700 = 20.516 billion ÷ 480,100 vehicles; company-wide net profit per vehicle of USD 2,320 = 1.114 billion ÷ 480,100 vehicles; automotive business net profit per vehicle of USD 950 is a rough calculation after excluding contributions from energy storage and services, used for valuation assumptions and not a disclosed figure.</p></div><div class="summary-box"><h3>Conclusion</h3><b>Conclusion: the data is usable, but the basis of presentation must be stated clearly.</b> Seven of the eight checks show deviations below 1%; the only one exceeding that is the back-solved value in the working papers (0.45%), which has been replaced throughout the main text with the company's original figures. The three gross margin bases (total, automotive, and excluding one-offs) are used separately, and this is the only presentational difference between this report and the working papers; it does not affect the 33/60 score or the "Watch, do not chase the rally" rating.</div>
+</div>
+<div class="footer">Tesla (TSLA) · 2026/07/22</div>
+</body>
+</html>

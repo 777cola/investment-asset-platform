@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣篩選 — 網飛</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/netflix/2-七条硬指标去劣/奈飞-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/netflix/2-七條硬指標去劣/網飛-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/netflix/2-Seven-Hard-Metrics/Netflix-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>去劣篩選 — 網飛</h1>
+  <div class="subtitle">網飛 (NFLX) | 02 · 去劣篩選</div>
+  <div class="meta">研究日期 2026/10/23 &nbsp;·&nbsp; 股價 $65.85（-1.79%） &nbsp;·&nbsp; 市值 約 2,700 億美元 &nbsp;·&nbsp; PE(2026E) 約 18x（含一次性收益，剔除後約 21x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/netflix/00-網飛研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>去劣篩選：這不是一家需要被篩掉的公司</h3><p class='txt'>七條硬指標，Netflix 過六條。唯一不過的是「連續分紅」——它從來不分紅。但這家公司把自由現金流拿去做回購，Q3 單季 48 億美元、6,390 萬股，等於把分紅換了個形式發出去。<b>對股東來說，回購註銷和分紅在數學上等價，在稅務上更優。</b></p><p class='txt'>其餘六條都不是勉強過線，是明顯過線：營業利益率 31.5%、稅後淨利率 25.2%、營收增速 13%、經營現金流／淨利 86%、淨負債只有營業利益的 0.44 倍、FCF 收益率 4.4%。<b>這套指標組合在標普 500 裡屬於前 10% 的質量。</b>七條硬指標的作用是快速排除，Netflix 在這一步沒有被排除的理由。</p></div><table class="dt"><caption>七條硬指標（2026 年預期口徑）</caption><thead><tr><th>指標</th><th>公司數值</th><th>門檻</th><th>判定</th></tr></thead><tbody><tr><td>營業利益率</td><td>31.5%（2026 指引）</td><td>≥15%</td><td>透過</td></tr><tr><td>淨利率</td><td>25.2%（129 億 ÷ 511 億，粗算）</td><td>≥10%</td><td>透過</td></tr><tr><td>營收增速</td><td>+13%（2026 指引）</td><td>≥10%</td><td>透過</td></tr><tr><td>營業現金流 / 稅後淨利</td><td>86%（Q3 口徑 31.62 億 ÷ 36.64 億）</td><td>≥80%</td><td>透過</td></tr><tr><td>淨負債 / 營業利益</td><td>0.44 倍（71 億 ÷ 161 億，粗算）</td><td>≤2 倍</td><td>透過</td></tr><tr><td>自由現金流收益率</td><td>4.4%（120 億 ÷ 2,700 億）</td><td>≥3.5%</td><td>透過</td></tr><tr><td>連續分紅</td><td>無分紅（上市以來從未派息）</td><td>近三年連續派息</td><td>不過</td></tr></tbody></table><div class="note">門檻為本報告設定的去劣線，非行業標準。淨利率與淨負債／營業利益為計算值：2026 年營收指引 511 億 × 31.5% = 161 億營業利益（粗算）；正常化淨利 129 億 = 反推 EPS 3.14 美元 × 41.1 億股（粗算）。經營現金流與淨利為 2026Q3 單季資料。</div><div class="section"><div class="section-title">唯一不過的一條：不分紅，但這不是缺陷</div><p class='txt'>Netflix 上市二十多年來從未派發過一分錢股息。按「連續分紅」這條篩選標準，它應該被剔除。但這條指標的本意是篩掉「賺了錢不分給股東」的公司，而 Netflix 把錢用在了回購上：Q3 單季 48 億美元、6,390 萬股，創歷史紀錄，剩餘授權 223 億美元，相當於市值的 8.2%。</p><p class='txt'>從數學上看，回購註銷和現金分紅對每股價值的影響是一樣的。<b>差別在稅：美國投資者拿分紅要立刻繳稅，回購帶來的股價上漲可以遞延。</b>對一家還在成長期、現金流又在快速放大的公司，回購是更優的分配方式。所以這條「不過」在含義上要改寫：不是不回報股東，是換了工具。</p><p class='txt'>但有一個前提要盯住。<b>Q3 自由現金流 28.84 億美元，回購花了 48 億——回購規模是當季 FCF 的 1.66 倍。</b>按這個節奏年化，2026 年回購約 190 億美元，而全年 FCF 指引只有 120 億。差額從哪來？帳面現金 82 億、外加債務市場。這不構成危機（淨負債只有 71 億），但它說明回購的可持續性依賴兩件事：FCF 不再下修、利率不失控。這是我把它標成「不致命但有條件」的原因。</p></div><div class="section"><div class="section-title">另外六條：不是壓線過，是明顯過線</div><p class='txt'>營業利益率 31.5% 是這七條裡最扎眼的一項。媒體行業裡，迪士尼的營業利益率常年在 10%–15% 區間，派拉蒙和 WBD 的串流業務剛剛轉正。<b>Netflix 用一家公司的利潤，做出了整個行業的利潤。</b>這不是因為它內容更便宜，是因為它的用戶基數是別人的三倍，固定成本攤得最薄。</p><p class='txt'>淨利率 25.2% 和營業現金流／淨利 86% 一起看，說明利潤是真的。有些公司淨利率高但現金流差，靠應收帳款堆出來；Netflix 的用戶是預付月費，收現比利潤還快。Q3 淨利 36.64 億、營業現金流 31.62 億，差額主要是內容支出的現金流出——<b>這是它唯一「先花錢後賺錢」的地方，也是這個生意唯一的弱點。</b></p><p class='txt'>淨負債／營業利潤 0.44 倍，幾乎是淨現金公司。153 億債務、82 億現金，對一個每年產生 120 億自由現金流的生意來說，槓桿率可以忽略。營收增速 13% 是七條裡最勉強的一項——它靠的是提價和廣告，而不是會員數增長，2027 年很可能掉到 10% 附近，屆時就貼著門檻走了。</p></div><div class="section"><div class="section-title">這套結果的含義：問題不在品質，在時長</div><p class='txt'>去劣篩選的目的是排掉「生意本身不行」的公司。奈飛七條過六條，且六條都是明顯過線，說明它的生意品質不構成風險。<b>它現在的股價問題，是估值問題，不是品質問題——這兩件事必須分開。</b></p><p class='txt'>估值問題來自哪裡？來自市場對「增速天花板」的重新定價。Q3 營收增速 11.8% 是三年最低，廣告收入從 30 億下修到 27 億，Q4 營業利潤率指引 26.0%（受裁員費用拖累 1.2 個百分點）。這三條消息放在一起，市場得出的結論是「成長結束」。</p><p class='txt'>但從七條硬指標看，這個結論過頭了。一家營業利潤率 31.5%、FCF 120 億、淨負債 0.44 倍、還在大額回購的公司，哪怕增速降到 8%，它也是高品質資產，只是不再是成長股。<b>用成長股的估值買它是錯的，用成熟媒體的估值買它是划算的——現在的 18 倍，就是後者。</b></p></div><div class="summary-box"><h3>結論</h3><p>七條過六條，唯一不過的分紅由回購替代，且回購規模超過當期自由現金流——這一點要寫進跟蹤清單，不構成否決。結論：<b>去劣環節通過，可以進入估值與倉位討論。</b>如果後續出現「FCF 指引再下修 + 回購放緩」同時發生，這條「不致命」就要重估。</p></div>
+</div>
+<div class="footer">網飛 (NFLX) · 2026/10/23</div>
+</body>
+</html>

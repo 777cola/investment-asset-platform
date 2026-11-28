@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣篩選 — 美團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20260828/2-七条硬指标去劣/美团-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meituan-20260828/2-七條硬指標去劣/美團-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meituan-20260828/2-Seven-Hard-Metrics/Meituan-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>去劣篩選 — 美團</h1>
+  <div class="subtitle">美團 (03690) | 02 · 去劣篩選</div>
+  <div class="meta">研究日期 2026/08/28 &nbsp;·&nbsp; 股價 HK$77.50（+0.00%） &nbsp;·&nbsp; 市值 約 4,786 億港元（61.75 億股） &nbsp;·&nbsp; PE —（2026 年上半年稅後淨損 46.7 億元，PE 失真）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meituan-20260828/00-美團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>七條硬指標只過兩條半：毛利率 33.5%、有息負債為淨現金、營收增速 +10.1%，其餘 ROE、淨利率、營業現金流、自由現金流全部不過。<b>但這不是一家「劣質公司」的畫像，而是一家「剛打完仗的公司」的畫像。</b>2024 年它的營業利益是 451 億元、稅後淨利 358 億元，一年之後就變成 -170 億元和 -233.55 億元，收入只掉了 8 個點。去劣篩選的目的不是找完美公司，是排除結構性差生意——美團不過的原因是可逆的戰爭損耗，不是生意本身不賺錢。所以結論是：留在池子裡，等利潤表自己修復，不要用「七條不過」當迴避的藉口。</p></div><table class="dt"><caption>七條硬指標（2026 年 8 月，以 2025 年報 + 2026 中報為準）</caption><thead><tr><th>指標</th><th>公司數值</th><th>門檻</th><th>判定</th></tr></thead><tbody><tr><td>ROE</td><td>為負（2025 年淨虧 233.55 億元；2024 年為 +358 億元）</td><td>≥15%</td><td>不過</td></tr><tr><td>毛利率</td><td>33.5%（2026Q2，銷售成本率 66.5%）；2025Q2 反推 32.9%</td><td>≥30% 且穩定</td><td>勉強通過</td></tr><tr><td>淨利率</td><td>-2.4%（2026H1）；2026Q2 單季 +2.1%</td><td>≥8%</td><td>不過</td></tr><tr><td>營收增速</td><td>+10.1%（2026H1）；Q2 +14.4%</td><td>≥10%</td><td>透過</td></tr><tr><td>營業現金流／稅後淨利</td><td>2025 年營業現金流 -138.15 億元；2026Q2 +97 億元對稅後淨利 21.55 億元 = 4.5 倍</td><td>≥1.0</td><td>不過（年度口徑）</td></tr><tr><td>有息負債／權益</td><td>淨現金：現金及等價物 1,047 億元 + 短期理財 636 億元 = 1,683 億元</td><td>≤50%</td><td>透過</td></tr><tr><td>自由現金流</td><td>2025 年為負（營業現金流 -138.15 億元，資本支出未覆蓋）</td><td>連續 3 年為正</td><td>不過</td></tr></tbody></table><div class="note">資料來源：美團 2025 年度業績公告（2026/03/26）、2026 年中期業績公告（2026/08/28）。2025Q2 毛利率 32.9% 由 Q2 2026 的 33.5% 與「同比提升 0.6 個百分點」反推，非公司直接披露值。</div><div class="section"><div class="section-title">哪幾條不過：四條全在利潤端，一條在現金端</div><p class='txt'>ROE、淨利率、營業現金流、自由現金流——四項全都不過關，而且原因是同一個：2025 年那場補貼戰把損益表打穿了。2025 年收入 3,648.5 億元、同比 +8.1%，營業虧損 170 億元、稅後淨虧 233.55 億元，營業現金流 -138.15 億元（2024 年是 +571.47 億元）。<b>一家一年前還賺 358 億元的公司，一年後 ROE 為負、現金流為負，這種變化不可能是生意品質變了，只能是打仗打的。</b></p><p class='txt'>值得注意的是現金流的方向已經回來了：2026Q2 營業現金流入淨額 97 億元，對單季淨利 21.55 億元是 4.5 倍。美團的錢是先收後付（用戶先付、商戶後結、騎手週結），只要訂單量在，營業現金流天然領先利潤。所以「營業現金流不過」這條，在 2026 年第二季實際上已經不成立了——只是年度口徑還沒翻過來。</p></div><div class="section"><div class="section-title">毛利率為何只給「勉強通過」</div><p class='txt'>33.5% 的毛利率放在網路平台裡不算高：拼多多 57.3%、阿里電商 40% 上下，美團只有 33.5%，因為它把騎手成本記在銷售成本裡——<b>它賣的不是流量，是「把飯送到你手上」這件事，這件事本身有 60% 以上的成本是硬的。</b></p><p class='txt'>「勉強」有兩個理由。一是趨勢：銷售成本率從 2025Q2 的 67.1% 降到 66.5%，只降 0.6 個百分點，靠的是食雜零售改善和經營槓桿，不是結構性提價。二是下限：如果補貼重啟、低毛利自營品類（小象、快樂猴）占比繼續上升，毛利率會再往下走。2025 年全年就是例子——收入成長 8.1%，毛利率被拉低到讓核心本地商業直接轉虧。</p></div><div class="section"><div class="section-title">不過是否致命：可逆，但要給時間</div><p class='txt'>判斷「致命與否」只有一個標準：<b>這些不過的指標，是結構造成的，還是週期造成的？</b>結構性的例子是京東的自營零售（毛利率天然 8%–15%，永遠過不了 30% 的線）；週期性的例子是美團現在。區別在於，美團 2024 年的核心本地商業營業利益率是 20.9%，稅後淨利率 10.6%（358 ÷ 3,375），這兩條指標它曾經輕鬆過線。</p><p class='txt'>代價是時間。2026 年上半年仍淨虧 46.7 億元，全年大概率虧 50–70 億元（粗算：H1 -46.7 億元，Q3 因騎手補貼與到店加投環比走弱，Q4 是投入高峰）。也就是說，年度口徑的 ROE、稅後淨利率、自由現金流，最早要 2027 年才能翻正。<b>「不過」不會要命，但會讓估值在 2027 年之前一直缺一個錨——這正是為什麼只能小倉位。</b></p></div><div class="section"><div class="section-title">去劣之後剩下什麼：一個可驗證的修復標的</div><p class='txt'>七條硬指標的作用是把 90% 的公司篩掉。美團留在這裡，靠的不是七條，而是三條：<b>收入還在增長（+10.1%）、資產負債表還是淨現金（1,683 億元現金及短投）、毛利率沒有崩（33.5%）。</b>這三條保證了它不會在戰爭結束前先死掉——這一點比很多人想的更重要，2025 年那場仗裡，先撐不住的其實是份額更小的玩家。</p><p class='txt'>所以它進「觀察池」的方式跟別人不一樣：不是等它變便宜，是等它變成一家「七條過五條」的公司。觸發點很具體——2027 年上半年如果出現「核心本地商業營業利益率回到 12% 以上 + 年度營業現金流轉正 + 淨利轉正」，這七條裡至少四條會自動翻過來。<b>去劣篩選在美團身上的真正用法，是把它當一張體檢表，每季度量一次。</b></p></div><div class="section"><div class="section-title">補一條：為什麼不用 PB 或 PS 兜底</div><p class='txt'>賠錢的公司常用 PB 或 PS 估值，美團這兩個都不合適。PB 不行，因為它的核心資產（騎手網路、商戶關係、調度演算法）大部分不在表內，帳面淨資產反映不了生意。PS 也不行，因為它的收入裡混了自營商品銷售這種低毛利、高流水的業務，PS 會被虛高的收入拉低，看起來「便宜」其實不是。</p><p class='txt'>唯一能用的是「正常化 PE + 淨現金」，這也是底稿採用的方法。<b>代價是它依賴一個假設，而不是一個事實——所以只能給 6 分的安全邊際，不能給 8 分。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'>七條過兩條半（毛利率、有息負債、營收增速），四條不過且集中在利潤與現金流。<b>不致命，因為 2024 年的同一套資產能賺 358 億元，問題出在價格戰而不是生意結構。</b>但也沒法當好消息：全年仍將虧損，年度口徑的四條指標最早 2027 年翻正。</p><p class='txt'>用法：把它放進「待修復」名單，每季度用這張表量一次；七條翻到五條以上、且價格仍在 15 倍正常化利潤以下，才是重倉的時候。現在是小倉位試錯，不是去劣通過。</p></div>
+</div>
+<div class="footer">美團 (03690) · 2026/08/28</div>
+</body>
+</html>

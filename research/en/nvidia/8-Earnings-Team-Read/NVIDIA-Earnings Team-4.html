@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earnings Deep Dive (Li Lu) — NVIDIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/nvidia/8-财报团队解读/英伟达-大师精读-李录.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/nvidia/8-財報團隊解讀/輝達-財報團隊解讀-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/nvidia/8-Earnings-Team-Read/NVIDIA-Earnings Team-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Earnings Deep Dive (Li Lu) — NVIDIA</h1>
+  <div class="subtitle">NVIDIA (NVDA) | Compute Is Infrastructure, and the Toll Road Is Building a Second Lane</div>
+  <div class="meta">Research date 2026/08/31 &nbsp;·&nbsp; Price $220.78 (+1.48%) &nbsp;·&nbsp; Market cap Approximately USD 5.33 trillion (24.15 billion shares) &nbsp;·&nbsp; PE(TTM) About 28x (roughly 15x forward FY2028)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/nvidia/00-NVIDIA-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>Li Lu would read this earnings report against a civilization-level trend: AI turns intelligence into tradable compute, and producing compute requires a very small set of scarce resources. The report proves one thing—<b>demand has spread from "one lab" to "multiple frontier labs + sovereign states + enterprises," which is evidence the trend holds.</b> But the report also exposes how the trend is financed: by discounting future revenue in advance through debt, equity and guarantees.</p></div><table class="dt"><caption>Three pieces of evidence for the trend and one counterpoint</caption><thead><tr><th>Watch</th><th>The numbers in the financial report</th><th>What does it indicate?</th></tr></thead><tbody><tr><td>Demand diffusion</td><td>ACIE RMB 40.31 billion, up 138% YoY, accounting for 45% of data center</td><td>No longer a four-cloud game</td></tr><tr><td>Sovereign AI</td><td>QoQ +35%, more than 2x YoY</td><td>A state-level buyer enters, with a longer cycle</td></tr><tr><td>Value per GW</td><td>Hopper USD 1.8 billion → Rubin USD 40 billion</td><td>Revenue per kWh doubles, TAM expands</td></tr><tr><td>Counter-evidence</td><td>1/4 Next year's revenue depends on support from its own balance sheet</td><td>Demand is real; the ability to pay is borrowed</td></tr></tbody></table><div class="note">Data source: FY2027Q2 earnings call (2026/08/26) and financial statements; ACIE share = 403.13 / 890.23.</div><div class="section"><div class="section-title">Trend: this is not a concept, it is a number on the books</div><p class='txt'>Li Lu's test for a trend is "whether it has become a business." AI was a concept in 2023–2024; in 2026 it is a business—and the evidence is in the financials:</p><p class='txt'>Data center revenue was USD 89 billion in a single quarter, more than Intel's full-year 2024 revenue. ACIE grew 138% year over year, showing buyers spreading from four cloud players to sovereign states, regional clouds and enterprises. Sovereign AI rose 35% quarter over quarter and more than 2.0x year over year—national-level capex has entered, and its cycle is far longer than enterprise procurement.</p><p class='txt'>Most telling is value per GW: Hopper USD 18 billion → Grace Blackwell USD 25 billion → Vera Rubin USD 40 billion. <b>Same land, same power, same data center shell, yet twice the money can be sold—compute production efficiency is rising, and efficiency gains are the hardest proof of a technological revolution.</b></p><p class='txt'>He also flags one number: global AI venture funding exceeded USD 400 billion in the first half of 2026, about 70% of it for compute procurement. Capital is moving into infrastructure—every technological revolution in history has followed this order: build the roads first, then run the cars.</p></div><div class="section"><div class="section-title">Counterpoint: the money for this infrastructure round was borrowed</div><p class='txt'>But Li Lu also focuses on "where the money comes from." The answer this earnings report gives: some of it is borrowed.</p><ul><li>Nvidia itself issued USD 24.9 billion in debt, with long-term borrowings jumping from USD 7.5 billion to USD 32.4 billion.</li><li>On the customer side: NeoCloud installed capacity grew from 3GW to 8GW, funded by private credit and project finance; the five major cloud providers' USD 1.3 trillion of capex for 2027 is growing far faster than their operating cash flow.</li><li>In the middle: Nvidia provides USD 108.5 billion of guarantees, USD 36 billion of cloud service purchase commitments, and a USD 500 billion financing platform.</li></ul><p class='txt'><b>Three parties adding leverage pulls five years of future compute demand forward into 2026–2027.</b>This is normal in the early stage of a technology revolution—railways, electricity and telecom all did the same. The difference: railways last fifty years once built; GPUs are obsolete in three.</p><p class='txt'>That is why he cares about the detail of whether compute can be resold. The company says compute is general-purpose and can be reallocated to other customers, which holds up technically; but if the entire industry is oversupplied at the same time, who is there to reallocate to?</p></div><div class="section"><div class="section-title">Endgame: How long can the toll booth keep collecting?</div><p class='txt'>Li Lu's framework is "the evolution of civilization plus the essence of a business." Nvidia's business essence is a toll booth: anyone who needs compute has to pass through it. That position is extremely scarce in the AI era, because it simultaneously controls architecture, capacity and software standards.</p><p class='txt'>But toll booths follow one rule: <b>the higher the rent, the greater the incentive to build a second road.</b> That second road is now being built — Broadcom's custom ASICs, Google TPU, OpenAI's Jalapeño, Amazon Trainium. Nvidia's response is to bring Groq in-house (about USD 20 billion), deepen rack-level systems, and extend CUDA into the edge and robotics.</p><p class='txt'>His judgment would be restrained: this AI cycle is real, and Nvidia occupies the best position in it, but "best" does not mean "worth buying at any price." He bought BYD in 2008, and bought Apple-related names when valuations were reasonable. <b>He would say: right direction, good position, wait on price — wait for the day the market's fear of "circular financing" becomes reality.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Li Lu-style conclusion: the trend holds (demand diffusion, doubling value per GW, sovereign capital entering), but the financing structure is this cycle's biggest concern (a quarter of revenue comes from the company's own balance sheet).</b> He would start building a position below USD 180, on the grounds that at that price "even if the trend is discounted by 30%, you don't lose." <b>"The most important thing in investing is not losing money; making money comes second."</b></p></div>
+</div>
+<div class="footer">NVIDIA (NVDA) · 2026/08/31</div>
+</body>
+</html>

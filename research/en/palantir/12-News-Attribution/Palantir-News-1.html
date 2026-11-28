@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News — Palantir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/palantir/12-新闻异动归因/Palantir-新闻异动.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/palantir/12-新聞異動歸因/Palantir-新聞異動-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/palantir/12-News-Attribution/Palantir-News-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>News — Palantir</h1>
+  <div class="subtitle">Palantir (PLTR) | 12 · News</div>
+  <div class="meta">Research date 2026/10/05 &nbsp;·&nbsp; Price $189.40 (+0.34%) &nbsp;·&nbsp; Market cap About USD 456 billion &nbsp;·&nbsp; PS(TTM) Approximately 74x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/palantir/00-Palantir-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>News move: after the +29.5% day, the share price decoupled from fundamentals</h3><p class='txt'>Over the past three months (2026/07/07–10/05), Palantir had seven trading days worth recording. <b>Only one carried real news: Q2 earnings released after the close on August 3, followed by +29.5% the next day.</b> The other six were large swings with no announcement.</p><p class='txt'>That ratio is itself the conclusion: <b>when a stock's daily moves are driven mainly by sentiment, pricing power sits with the money, not the company.</b> Earnings pushed the stock from USD 125 to USD 163, and over the following two months it ran from 163 to 191—a stretch with no incremental fundamental information.</p></div><table class="dt"><caption>Key trading days over the past three months (2026/07/07–10/05)</caption><thead><tr><th>Date</th><th>Event</th><th>Share price reaction</th><th>Closing price</th><th>Nature</th></tr></thead><tbody><tr><td>07/22</td><td>No company announcements; AI software sector pulls back</td><td>−6.1%</td><td>USD 124.57</td><td>Noise</td></tr><tr><td>07/28</td><td>No company announcement; sharp decline for a second consecutive week</td><td>−6.1%</td><td>USD 123.53</td><td>Noise</td></tr><tr><td>08/03</td><td>Q2 2026 results released after market close: revenue RMB 1.935 billion, +93%; full-year guidance raised to RMB 8.15 billion</td><td>Next day +29.5%</td><td>USD 162.66 (8/4)</td><td>Signal</td></tr><tr><td>08/07</td><td>Sell-side analysts concentrated on raising target prices after earnings (inferred)</td><td>+10.3%</td><td>USD 172.01</td><td>Half-signal</td></tr><tr><td>08/27</td><td>No announcement; volume expanded</td><td>+4.7%</td><td>USD 185.93</td><td>Noise</td></tr><tr><td>09/02</td><td>No announcement; rangebound at highs</td><td>−5.8%</td><td>USD 169.46</td><td>Noise</td></tr><tr><td>09/03</td><td>No announcement; previous day's decline recovered</td><td>+7.7%</td><td>USD 182.53</td><td>Noise</td></tr><tr><td>09/23</td><td>No announcement; hit a new stage high, 1.2% below the 52-week high</td><td>+3.7%</td><td>USD 191.79</td><td>Noise (sentiment)</td></tr></tbody></table><div class="note">Share prices and changes are from batchdata daily bars (as of 2026/10/05). Apart from the August 3 earnings release, the company made no major announcements on the other dates; the event attributions are this report's inferences based on sector and sell-side activity in the same period, not company disclosures.</div><div class="section"><div class="section-title">The only day: August 4, +29.5%</div><p class='txt'>After the close on August 3, the company reported Q2: revenue USD 1.935 billion, +93% YoY, GAAP operating margin 47.1%, free cash flow margin 63.1%, and full-year guidance raised to USD 8.15 billion. The next day the stock rose from 125.65 to 162.66, <b>up 29.5% in a single day, adding about USD 89 billion in market cap.</b></p><p class='txt'>Is that move reasonable? Test it with the simplest math: how much "permanent earnings upgrade" did the report deliver? Full-year revenue guidance was raised by about 2% (from the USD 8 billion to USD 8.15 billion range); even assuming 2027 estimates are also raised 10%, at 74x P/S the leverage implies a reasonable gain of 10%–15%. <b>It actually rose 29.5%; the extra 15 percentage points are "multiple expansion," not "earnings upgrade."</b></p><p class='txt'>This is the most important attribution: <b>the report proved a good business, but the market used it to bid up the multiple.</b> The good business is worth a 15% gain; the other 15% is the market saying "since it's this good, it deserves to be more expensive."</p></div><div class="section"><div class="section-title">The other six days: 6% swings without news</div><p class='txt'>In three months, trading days with no company announcement saw three single-day drops exceeding 5% (July 22 −6.1%, July 28 −6.1%, September 2 −5.8%) and three single-day gains exceeding 4% (August 7 +10.3%, August 27 +4.7%, September 3 +7.7%). <b>This level of volatility does not match a mature company with a USD 456 billion market cap; it matches a high-multiple growth stock.</b></p><p class='txt'>The two −6.1% days in July deserve separate mention. The stock was then in the USD 122–134 range, precisely the wait-and-see period before earnings. No bad news, just a decline—such drops typically come from two sources: <b>profit-taking, and forced deleveraging by leveraged funds.</b> Both relate to market structure, not to company operations.</p><p class='txt'>September 2 −5.8%, September 3 +7.7%—a 14% round trip in two days, again with no announcement. Quants call this "thin liquidity + high sentiment"; in plain language, "shares are changing hands, not being priced."</p></div><div class="section"><div class="section-title">What is noise and what is signal: a test</div><p class='txt'>To separate noise from signal, I use one criterion: <b>does this news change "cash flow over the next five years"?</b> By that standard, only one of the seven moves was signal.</p><ul><li><b>Signal:</b> the August 3 earnings report. It changed the market's revenue expectations for 2027 and validated AIP's business model.</li><li><b>Semi-signal:</b> the +10.3% move on August 7. Sell-side target-price upgrades bring short-term inflows, but what they change is "how much others are willing to pay," not "what the company is worth."</li><li><b>Noise:</b> the other five. Including the September 23 new high "1.2% below the 52-week high" — a new high is not information in itself; it is just a price.</li></ul><p class='txt'>This criterion has a by-product: <b>it explains why this stock is unsuited to swing trading.</b> Five of the seven moves were noise, meaning any trade based on "news" has a win rate close to a coin flip.</p></div><div class="section"><div class="section-title">The +17% stretch after the earnings report is the most dangerous part</div><p class='txt'>Closed at 162.66 on 8/4 and 189.40 on 10/5, up another 16.4% in two months. <b>No new fundamental information emerged during this period</b> — no new earnings report, no major contract announcement, no guidance raise.</p><p class='txt'>So what drove the gain? The math makes it clear. At the 8/4 close of USD 162.66, market cap was about USD 392 billion, or 33x 2027 revenue of USD 11.8 billion; at 10/5, market cap was USD 456.5 billion, or 39x the same denominator. <b>The entire 16.4% gain over two months came from the multiple expanding from 33x to 39x; revenue expectations were not raised by a single cent.</b></p><p class='txt'>That is far more fragile than a revenue upgrade. Revenue expectations can be validated by results; multiples can only be sustained by sentiment — <b>and sentiment needs no reason, only the next buyer willing to take the other side.</b></p></div><div class="summary-box"><h3>Conclusion</h3><p>Seven abnormal-move days in three months: one real signal (August 3 earnings), one half-signal (August 7 sell-side upgrades), five noise. <b>The most important finding is not how much the stock rose, but how it rose: earnings justified 15% of value, the market gave 29.5%; the following two months added another 16% on multiple expansion, with no new information.</b> Under this rally structure, any disappointment gets amplified—because what supports the price is not cash flow, but consensus.</p></div>
+</div>
+<div class="footer">Palantir (PLTR) · 2026/10/05</div>
+</body>
+</html>

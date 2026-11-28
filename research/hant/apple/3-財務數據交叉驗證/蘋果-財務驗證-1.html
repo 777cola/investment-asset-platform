@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務驗證 — 蘋果</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/apple/3-财务数据交叉验证/苹果-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/apple/3-財務數據交叉驗證/蘋果-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/apple/3-Financial-Cross-Check/Apple-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務驗證 — 蘋果</h1>
+  <div class="subtitle">蘋果 (AAPL) | 03 · 財務驗證</div>
+  <div class="meta">研究日期 2026/08/03 &nbsp;·&nbsp; 股價 $303.42（-1.78%） &nbsp;·&nbsp; 市值 約 4.41 萬億美元 &nbsp;·&nbsp; PE(TTM，FY2026Q3) 約 34x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/apple/00-蘋果研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>八項指標做雙源對帳，七項偏差在 0.5% 以內，唯一超過 1% 的是市值：<b>4.41 萬億（按 145.3 億基本股本）對 4.35 萬億（按 147.1 億攤薄股本）</b>，差 1.4%。這是口徑差，不是數據錯。</p><p class='txt'>另外兩處需要處理的不是「對不上」，而是「預期差」：服務收入 307.39 億對一致預期 313.6 億（低 2.0%）、大中華區 188.16 億對預期 195.8 億（低 3.9%）。<b>這兩條是這份財報的實質利空，不是統計噪音。</b></p><p class='txt'>最終採用的口徑寫在最後：財務數字全部取公司財報原文，EPS 用 2.02 但註明含 0.11 美元退稅，市值用 4.41 萬億並註明股本口徑，TTM EPS 用反推值 8.9 並標「反推」。</p></div><table class="dt"><caption>雙源交叉對帳（FY2026Q3，百萬美元）</caption><thead><tr><th>指標</th><th>來源 A（公司財報）</th><th>來源 B（媒體／賣方）</th><th>偏差</th><th>處理</th></tr></thead><tbody><tr><td>總營收</td><td>109,417</td><td>1,094.2 億元（華爾街見聞）</td><td>0.0%</td><td>採用 109,417</td></tr><tr><td>稅後淨利</td><td>29,789</td><td>297.9 億（每日經濟新聞）</td><td>0.0%</td><td>採用 29,789</td></tr><tr><td>攤薄 EPS</td><td>2.02 美元</td><td>2.02 美元（路透彙總）</td><td>0.0%</td><td>採用 2.02，註明含退稅 0.11</td></tr><tr><td>iPhone 收入</td><td>54,252</td><td>542.5 億元</td><td>0.0%</td><td>採用 54,252</td></tr><tr><td>服務收入</td><td>30,739</td><td>307.4 億元（實際）／313.6 億元（預期）</td><td>−2.0%（對預期）</td><td>實際值採用 30,739；預期值僅用於評價</td></tr><tr><td>大中華區收入</td><td>18,816</td><td>188.2 億（實際）/195.8 億（預期）</td><td>−3.9%（對預期）</td><td>實際值採用 18,816</td></tr><tr><td>毛利率</td><td>50.1%（公司口徑）</td><td>50.06%（54,770/109,417 計算）</td><td>0.04pct</td><td>採用 50.1%，計算值備查</td></tr><tr><td>市值</td><td>4.41 萬億（303.42×145.3 億股）</td><td>4.35 萬億元（按 147.1 億攤薄股計算）</td><td>1.4%</td><td>採用 4.41，註明基本股本口徑</td></tr></tbody></table><div class="note">來源 A 為蘋果 FY2026Q3 合併損益表與分部表（2026/07/30）；來源 B 為路透、華爾街見聞、每日經濟新聞當日彙總與賣方一致預期。偏差＝(B−A)/A。</div><div class="section"><div class="section-title">口徑差 1.4%：股本的三种算法</div><p class='txt'>市值這一項是唯一超過 1% 的，原因很普通：蘋果的股本有三個口徑——<b>基本流通股 145.3 億、稀釋股 147.1 億、以及季末實際在外流通（含未歸屬 RSU）147.9 億</b>。用不同的分母乘同一個股價，市值就能差出 600 億美元。</p><p class='txt'>本報告統一用 145.3 億股，因為這是計算每股指標時的分母，也是市場上最常用的口徑；代價是市值會略低於部分終端顯示的數字。<b>這個差異不影響任何結論</b>——34 倍還是 33.6 倍，對「貴不貴」的判斷沒有區別。</p><p class='txt'>要提醒的是 PE 的分子分母必須同口徑：用稀釋股本算市值，就要用稀釋 EPS；混著用會憑空造出 1% 的估值差。<b>本報告統一用同一套口徑：基本股本市值 4.41 萬億 ÷ TTM 淨利 1,296 億 = 34.0 倍。</b></p></div><div class="section"><div class="section-title">兩處實質性的預期差，比數據偏差更重要</div><p class='txt'>服務收入 307.39 億對一致預期 313.6 億，低了 2.0%，差額 6.2 億美元——注意這個量級：市場上流傳的「低於預期 62 億」是把「6.2 億」寫成了「62 億」的量級錯誤，本報告按 6.2 億美元理解。<b>但即使只有 2%，性質也很重：這是服務收入三年多來第一次單季低於預期。</b></p><p class='txt'>大中華區 188.16 億對預期 195.8 億，低 3.9%，約 7.6 億美元。這個差額本身不大，但它出現在「同比 +22.4%」的漂亮數字旁邊，容易被忽略。<b>市場原本預期 +25% 以上，實際 22.4% 說明份額擴張沒有想像中快。</b></p><p class='txt'>處理辦法：正文引用實際值，把預期值單列在「評價」裡，不混進財務表。這兩條是 m12 裡「財報後三天跌 9%」的主要解釋之一，不能只寫成「略超預期」。</p></div><div class="section"><div class="section-title">EPS 的 0.11 美元：一次性還是經常性</div><p class='txt'>公司披露的 2.02 美元裡有 0.11 美元來自關稅退稅（約 16 億美元，粗算：0.11×147 億股）。<b>這筆錢既不是主營收入，也不會重複發生</b>，剔除後 EPS 1.91 美元，同比 +21.7%，只比一致預期高 0.02 美元。</p><p class='txt'>這就是為什麼財報「超預期 0.5%」卻跌 7.35%：市場看的不是 GAAP 數字，是「剔除一次性後還剩多少」。<b>營收超預期 0.5%、EPS 靠退稅、指引低於預期——三件事加起來，估值就該往下修。</b></p><p class='txt'>最終口徑：正文與表格保留 2.02 美元（公司披露值），同時在每一處註明「含 0.11 美元退稅，剔除後 1.91 美元」；估值全部用 1.91 的連續性口徑推 FY2026E，避免把一次性收益資本化。</p></div><div class="section"><div class="section-title">用加總法反向驗證：兩個獨立等式都對得上</div><p class='txt'>單項對帳只能證明「抄得對」，加總對帳才能證明「拆得對」。做兩個等式。第一個：產品毛利率 40.1%×786.78＝315.5 億，服務 75.6%×307.39＝232.4 億，合計 547.9 億；報表毛利 54,770 百萬美元＝547.7 億。<b>差 2,000 萬美元，是毛利率四捨五入造成的，結構沒問題。</b></p><p class='txt'>第二個：分區收入只披露了美洲 457.81 億、歐洲 293.95 億、大中華區 188.16 億，合計 939.92 億；總營收 1,094.17 億，差額 154.25 億就是日本加亞太其餘。<b>這個倒算值可以用去年同期校驗</b>——FY2025Q3 同口徑差額為 134.3 億，一年增長 14.8%，慢於整體的 16.4%，說明日本與東南亞是這一季的短板。</p><p class='txt'>兩處倒算都指向同一個結論：這份財報的分部數據是自洽的，問題不在統計，在結構——增長過度集中在 iPhone 和美洲、歐洲，而日本、亞太、大中華區三條線都低於整體增速。<b>一家全球公司只有兩個區域跑贏平均，這在匯率逆風年份是正常，在匯率順風年份就不是。</b></p><p class='txt'>最後一項沒法交叉驗證：經營現金流。蘋果不披露單季現金流明細，媒體也少有人算，本報告用的是「按去年現金流率推算」的約數。<b>這是這份對帳裡唯一的軟數據</b>，所以正文凡是涉及現金流與自由現金流的地方都用定性表述（「覆蓋利潤」「淨現金狀態」），不給到小數點。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：數據可信，問題在預期。</b>八項對帳中有七項零偏差，唯一超過 1% 的市值差來自股本口徑，已註明。真正值得注意的是兩處預期差：服務低 2.0%、大中華區低 3.9%，以及 EPS 裡 0.11 美元的一次性退稅。</p><p class='txt'>最終採用：營收 109,417、淨利 29,789、EPS 2.02（註明扣除退稅為 1.91）、毛利率 50.1%、市值 4.41 萬億（145.3 億股）。<b>下一季若公司不再披露退稅，同比口徑會自動變難看，這是讀 FY2026Q4 時要先想到的事。</b></p></div>
+</div>
+<div class="footer">蘋果 (AAPL) · 2026/08/03</div>
+</body>
+</html>

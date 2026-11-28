@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>產業鏈全景 — 快手</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/kuaishou/9-短视频与直播/快手-产业链全景.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/kuaishou/9-短影音與直播/快手-產業鏈全景-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/kuaishou/9-Short-video-and-livestreaming/Kuaishou-Industry Chain-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>產業鏈全景 — 快手</h1>
+  <div class="subtitle">快手 (01024) | 09 · 產業鏈全景</div>
+  <div class="meta">研究日期 2026/10/12 &nbsp;·&nbsp; 股價 HK$29.26（-2.79%） &nbsp;·&nbsp; 市值 約 1,267 億港元 &nbsp;·&nbsp; PE(TTM) 約 10.5 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/kuaishou/00-快手研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>短影音產業鏈的利潤分布很不均勻：<b>上游算力（輝達毛利 70%+）、中游平台（快手毛利 51.6%）、上游內容（短劇製作毛利 20%–30%）三層最賺錢，中間的廣告代理和電商履約只有 10% 上下。</b>快手站在中游平台層——這是鏈條上最賺錢的位置之一，但它的議價權正在被兩頭削。</p><p class='txt'>對上游創作者，它有議價權（分成比例自己定），但今年讓了 4.1pct 毛利；對下游廣告主，它幾乎沒有（預算可遷移）；對算力供應商，它是被動方。唯一能改變位置的是可靈——從「賣流量」變成「賣生產力」。</p></div><table class="dt"><caption>短影音與直播產業鏈的價值分布（2026 年）</caption><thead><tr><th>環節</th><th>代表公司</th><th>價值量／毛利率</th><th>議價權</th></tr></thead><tbody><tr><td>上游：算力與雲</td><td>輝達、阿里雲、華為雲、火山引擎</td><td>晶片毛利 70%+；雲端服務毛利 30%–40%</td><td>最強（供給稀缺）</td></tr><tr><td>上游：內容供給</td><td>MCN、短劇製作方、頭部主播、版權方</td><td>製作毛利 20%–30%；平台分成 30%–50% 流水</td><td>中（頭部強、長尾弱）</td></tr><tr><td>中游：平台分發</td><td>抖音、快手、微信視頻號、B 站、小紅書</td><td>快手毛利 51.6%；抖音更高但未披露</td><td>強（決定誰能被看見）</td></tr><tr><td>中游：廣告代理與投放服務</td><td>藍色光標、代營運、投流服務商</td><td>毛利率 10%–15%</td><td>弱（可替換）</td></tr><tr><td>中游：直播電商履約</td><td>快遞、倉配、支付機構</td><td>毛利 5%–10%</td><td>弱（價格戰）</td></tr><tr><td>下游：廣告主與商家</td><td>品牌、白牌工廠、本地生活商家、遊戲公司</td><td>預算方，ROI 敏感</td><td>分散但用手投票</td></tr><tr><td>下游：AI 影片客戶</td><td>內容工作室、廣告公司、企業行銷部</td><td>按量付費，價格敏感</td><td>中（工具可替換）</td></tr></tbody></table><div class="note">毛利率區間為 2025–2026 年公開財報與行業報導的常見水準，用於量級對比；快手 51.6% 取自 2026Q2 業績公告，其餘為區間估計，非同期精確對比。</div><div class="section"><div class="section-title">產業鏈上誰賺錢：三層分食</div><p class='txt'><b>第一層是算力。</b>影片生成和推薦演算法都要吃 GPU，輝達的毛利率 70% 以上，雲端廠商 30%–40%。這一層的好日子來自稀缺，而稀缺在 2026 年沒有緩解——記憶體和 HBM 的緊缺把整條 AI 基礎設施的價格頂住了。</p><p class='txt'><b>第二層是平台。</b>快手毛利 51.6%，抖音更高。平台賺的是「分配注意力」的錢，不需要生產內容，也不需要履約，理論上是最好的位置。<b>但這一層正在為內容付越來越貴的錢</b>——分成從 2025 年的水準漲到今天，直接吃掉 4.1pct 毛利。</p><p class='txt'><b>第三層是內容與履約。</b>短劇製作方毛利 20%–30%，靠平台分帳活著；快遞和倉配毛利 5%–10%，靠規模活著。這兩層都不掌握定價權，但短劇這一層在 2026 年因為供給稀缺短暫地拿到了議價權。</p></div><div class="section"><div class="section-title">快手在鏈條中的位置：中間，但兩端都在移動</div><p class='txt'>用一句話定位：<b>快手是中國第三大注意力批發商，客戶是廣告主，供應商是創作者。</b>它的位置比京東好（不用背庫存），比愛奇藝好（不用買版權），但比抖音差（人群消費力低、廣告產品弱）。</p><p class='txt'>上游的變化對它不利：創作者的分成要求越來越高（因為抖音和紅果在挖），算力成本因為 AI 訓練而上升。下游的變化也不利：廣告主的預算在向 ROI 更高的平台集中，而快手的 ROI 數據不如抖音。</p><p class='txt'>唯一對它有利的變化是內容形態的迭代：短劇、直播電商、AI 生成內容，每一輪都重新洗牌一次創作者供給。<b>快手在短劇上跟得不錯（半年供給增長 5 倍），但紅果用更高的分帳把它的人挖走了。</b></p></div><div class="section"><div class="section-title">鏈條上的另一個變化：電商在從直播走向貨架</div><p class='txt'>直播電商的價值分配正在往「貨架」一端挪。直播時商家要付主播坑位費和佣金，成本高；貨架電商只付廣告和佣金，成本低。抖音和快手都在把流量從直播間往商城導，這是全行業的動作。</p><p class='txt'>對快手來說，這個變化是雙刃：一方面降低了商家的履約成本，能留住商家；另一方面直播的坑位費和打賞抽成是它的高毛利來源，貨架化會把收入結構往低毛利的佣金端推。<b>這就是「其他服務 +18.5%、毛利率 -4.1pct」背後的結構性原因之一。</b></p></div><div class="section"><div class="section-title">向上走的唯一路徑：從分發到工具</div><p class='txt'>平台要擺脫被夾擊，只有一條路：往上游走，變成生產工具。可靈就是這個動作——它把快手從「幫你被看見」變成「幫你生產」。</p><p class='txt'>兩者的經濟結構完全不同：分發的邊際成本趨零，工具的邊際成本是推理算力；分發的客戶是廣告主（預算可遷移），工具的客戶是企業（工作流嵌進去就難換）。<b>如果可靈成功，快手的毛利結構會從 51.6% 走向 60% 以上，因為訂閱收入的成本主要是算力，可以被規模攤薄。</b></p><p class='txt'>但如果失敗，快手就是一個毛利繼續下滑的廣告平台，估值向公用事業靠攏。這是這家公司當下唯一重要的分岔口。</p></div><div class="section"><div class="section-title">週期位置：三個週期，兩個向下</div><p class='txt'><b>廣告週期：底部區域。</b>2026 年宏觀消費疲弱、廣告主縮減預算，但這也是週期底部的特徵——2027 年隨著消費修復，廣告增速有回升空間。</p><p class='txt'><b>內容週期：短劇紅利正在被分食。</b>2026 年上半年短劇是快手最有效的時長抓手，下半年紅果以免費模式加上更高分帳把供給吸走。這個週期的高點已經過去了。</p><p class='txt'><b>技術週期：早期，且不確定。</b>影片生成的需求是真的，但商業模式還沒定型，價格戰已經開始（API 單價一年內大幅下滑）。</p><p class='txt'>三個週期疊加，快手的位置是：<b>主業在週期底部等修復，新業務在週期早期等定型。</b>兩個「等」都需要時間，而股價不給時間。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>產業鏈視角的結論：<b>快手的位置不差，但它的護城河來自規模而非位置。</b>平台層本該是最賺錢的一層，它卻被上游分成和下游預算兩頭擠壓，毛利一年掉 4.1pct。可靈是唯一能改變位置的動作，但它現在只占收入 2.4%。</p><p class='txt'>操作含義：把這家公司當「週期修復 + 期權」的組合來看，而不是當「平台壟斷」來看。前者需要低價格，後者需要高確定性——現在兩個都沒有。</p></div>
+</div>
+<div class="footer">快手 (01024) · 2026/10/12</div>
+</body>
+</html>

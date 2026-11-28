@@ -7,13 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
-.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
 .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
 .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
 .header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
 .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
 .section { margin-bottom: 2.5rem; }
 .section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -48,22 +53,19 @@ table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; colo
 .badge-blue { background: #e6f0ff; color: #1a4b8c; }
 .footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
 .back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
-.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
-.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
-.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
-
 </style>
 </head>
 <body>
 <div class="header">
+  <div class="lang-switch"><a class="lang zh active" data-lang="zh" href="/research/palantir/5-四角色并行分析/Palantir-财务分析-巴菲特.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/palantir/5-四角色並行分析/Palantir-四角色-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/palantir/5-Four-Role-Analysis/Palantir-Four Roles-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
   <h1>财务分析（巴菲特视角） — Palantir</h1>
   <div class="subtitle">47% 的营业利润率是真的吗，钱去哪了</div>
   <div class="meta">研究日期 2026/10/05 &nbsp;·&nbsp; 股价 $189.40（+0.34%） &nbsp;·&nbsp; 市值 约 4,560 亿美元 &nbsp;·&nbsp; PS(TTM) 约 74 倍</div>
 </div>
 <div class="container">
-<a class="back" href="../00-Palantir研究报告总目录.html">← 返回总目录</a>
+<a class="back" href="/research/palantir/00-Palantir研究报告总目录.html">← 返回总目录</a>
 <div class="summary-box"><h3>核心判断</h3><p class='txt'>先给结论：<b>47% 的 GAAP 营业利润率是真的，63% 的自由现金流率大体是真的，55% 的净利率是虚的。</b>三句话的差别在口径，不在造假。</p><p class='txt'>这家公司的报表干净得不像一家市值 4,560 亿美元的成长股：没有有息负债、没有商誉减值历史、没有复杂的表外结构、应收账款周转天数短。巴菲特会喜欢这张资产负债表，然后对利润表里的股权激励皱眉头。</p></div><div class="section"><div class="section-title">利润表拆解：从 80% 毛利到 47% 营业利润率</div><p class='txt'>Q2 收入 19.35 亿，毛利率约 80%，毛利约 15.5 亿。剩下 6.4 亿是三项费用：销售、研发、管理。费用率约 33%。这个结构很健康——一家增速 93% 的公司，通常会把毛利的 60% 以上砸进销售和研发换增长；Palantir 只花了 33%，还做出了 93%。</p><p class='txt'>为什么能这样？因为它的销售是「产品驱动 + bootcamp」：客户自己找上门，五天试出一个能跑的东西，然后签合同。销售费用的效率被产品力替代了。<b>这是软件业最值钱的一种结构，比任何护城河叙事都硬。</b></p><p class='txt'>股权激励 2.65 亿计在费用里，占收入 13.7%。也就是说 47% 的营业利润率<b>已经扣掉了股权激励</b>——这一点比大多数科技公司诚实。调整后 62% 是把这 13.7% 加回去，读者要知道自己看的是哪一版。</p></div><div class="section"><div class="section-title">净利 55% 的水分：利息收入与税率</div><p class='txt'>GAAP 净利 10.62 亿、净利率 55%，比营业利润率还高 8 个百分点。这在会计上只有一种解释：营业外收入大于利息支出加税。它的来源是 92 亿美元现金——按 4% 短端利率粗算，年化利息收入约 3.7 亿美元，单季约 0.9 亿。</p><p class='txt'>换句话说，<b>净利里有大约 8% 是「存款利息」，不是「卖软件赚的」。</b>利率下行 100 个基点，这块利润少 0.9 亿美元/年，对净利影响 2.8%。不致命，但足以让 140 倍 PE 这个分母变得更不可靠。</p><p class='txt'>税率也偏低。这家公司历史上因为累计亏损和研发抵免，实际税率长期低于 21% 的名义税率。随着利润规模扩大，抵免用完，税率会回到 20% 以上，净利率自然下修 3–5 个百分点。这不是风险，是数学。</p></div><div class="section"><div class="section-title">现金流与资产负债：一张几乎无懈可击的表</div><p class='txt'>自由现金流 12.20 亿、利润率 63.1%，比营业利润率还高 16 个百分点。差额来自两处：股权激励是非现金支出（加回），递延收入在增加（客户预付）。<b>这两个来源里，第一个是「账面好看」，第二个是「真金白银」。</b></p><p class='txt'>资产负债表：现金 92 亿，有息负债基本为零，净资产按 80–90 亿估。这意味着公司可以连续亏损十年而不需要融资——虽然它现在不亏。巴菲特会把这一条划上重点：<b>在加息周期里，净现金公司拥有「不用求人」的自由。</b></p><p class='txt'>但资本配置要打问号。92 亿美元现金既不回购（2023 年授权的 10 亿额度执行得很少），也不分红，也不做大并购。管理层的解释是「留着做战略机会」。对一家 74 倍市销率的公司，回购的每一美元都是在高价买自己的股票，不回购是对的；但这也说明<b>管理层自己也不认为现在的价格便宜。</b></p><p class='txt'>ROE 粗算 35%–40%（TTM 净利 32.6 亿 ÷ 净资产 80–90 亿），ROIC 更高，因为没有债务、几乎不需要营运资本。<b>这是巴菲特会打高分的资本回报率，可惜价格已经把它贴现完了。</b></p></div><div class="summary-box"><h3>结论</h3><p>财务质量结论：<b>利润是真的，现金流是真的，资产负债表是干净的。</b>三处要打折：净利含约 3.7 亿美元年化利息收入、实际税率会正常化、股权激励每年吃掉 2% 股本。巴菲特会认可这张报表，然后说一句他常说的话——「好公司，但价格已经替我把未来十年的收益拿走了」。</p></div>
 </div>
-<div class="footer">Palantir (PLTR) 投资研究报告集 · 2026/10/05</div>
+<div class="footer">Palantir (PLTR) · 2026/10/05</div>
 </body>
 </html>

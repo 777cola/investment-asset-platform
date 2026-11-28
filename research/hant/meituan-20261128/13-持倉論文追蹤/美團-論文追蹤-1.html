@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>論文追蹤 — 美團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20261128/13-持仓论文追踪/美团-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meituan-20261128/13-持倉論文追蹤/美團-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meituan-20261128/13-Thesis-Tracking/Meituan-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>論文追蹤 — 美團</h1>
+  <div class="subtitle">美團 (03690) | 13 · 論文追蹤</div>
+  <div class="meta">研究日期 2026/11/28 &nbsp;·&nbsp; 股價 HK$67.85（+8.21%，2026/11/27 收盤，11/28 休市） &nbsp;·&nbsp; 市值 約 4,190 億港元（61.75 億股） &nbsp;·&nbsp; PE(TTM) —（TTM 仍為虧損，PE 失真；2027E 約 16.8x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meituan-20261128/00-美團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>這筆投資的論點可以壓縮成五句話，每句對應一個可驗證指標。<b>現在兩條已驗證（收入加速、虧損收窄）、兩條待驗（利潤率回到 10%、到店守份額）、一條走弱（商戶生態）。</b></p><p class='txt'>最關鍵的一條是「Q4 核心本地商業營業利益 ≥50 億元」——它決定這筆投資是對是錯，2027 年 3 月給答案。</p></div><table class="dt"><caption>核心假設與驗證狀態（2026/11/28）</caption><thead><tr><th>假設</th><th>當前證據</th><th>驗證指標</th><th>狀態</th></tr></thead><tbody><tr><td>補貼戰進入低烈度，行業行銷費用率下行</td><td>美團行銷費用率 40%→22.9%（推算）；阿里配資轉向 AI；京東份額回落至 7%</td><td>行業月度補貼額、三家營銷費用率</td><td>已驗證（部分）</td></tr><tr><td>收入能維持 15% 以上增速</td><td>Q1 +9.2%、Q2 +14.4%、Q3 +21.6%，連續三季加速</td><td>季度收入增速</td><td>已驗證</td></tr><tr><td>核心本地商業營業利益率回到 10%</td><td>第3季 5.6%（推算），第2季 7.9%，2024 年 20.9%</td><td>季度營業利益率、行銷費用率</td><td>待驗證</td></tr><tr><td>到店份額守住 60%</td><td>抖音到店 GTV 2025 年超 8,000 億元、增速近 60%</td><td>到店 GTV 份額、營業利益率</td><td>走弱</td></tr><tr><td>新業務 2027 年打平</td><td>Q3 虧損 21.6 億元、虧損率 6.1%，環比擴大（巴西開城）</td><td>新業務季度虧損額</td><td>待驗證</td></tr></tbody></table><div class="note">狀態判定標準：連續兩個季度達到即「已驗證」；一個季度達到或方向正確為「待驗證」；連續兩個季度惡化即「走弱」。份額數據為高盛 2026/03 研報與行業估算。</div><div class="section"><div class="section-title">已驗證的兩條：收入與費用</div><p class='txt'><b>收入這條最硬。</b>連續三個季度加速（+9.2% → +14.4% → +21.6%），在補貼退坡的背景下發生。<b>這條假設驗證了，意味著「用戶是被補貼留住的」這個空頭論點被推翻。</b></p><p class='txt'><b>費用這條驗證了一半。</b>營銷費用率從去年的 40% 降到 22.9%，方向對、幅度大；但 2024 年是 16%，還差 7 個點。<b>這 7 個點不是管理層的意願問題，是對手的意願問題。</b>所以我把它標為「部分驗證」。</p><p class='txt'>這兩條加起來，說明生意的基本盤沒壞。<b>基本盤沒壞，是這筆投資「不會大虧」的保證；能不能賺錢，看下面三條。</b></p></div><div class="section"><div class="section-title">待驗證的兩條：利潤率與新業務</div><p class='txt'><b>核心本地商業營業利益率回到 10%，是這筆投資的核心假設。</b>現在 5.6%（Q3 推算）、7.9%（Q2）、20.9%（2024）。<b>回到 10% 意味著單季營業利益從 45 億元漲到 80 億元，一年多賺 140 億元，對應 2027 年稅後淨利 230 億元。</b></p><p class='txt'>路徑很清楚：行銷費用率從 22.9% 降到 18%（省 4.9 個點＝約 220 億元年化）、配送成本透過密度優化降 1–2 個點。<b>兩條都不需要提價，只需要對手不加價。</b></p><p class='txt'><b>新業務 2027 年打平</b>這條更難。Q3 虧損 21.6 億元、虧損率 6.1%，環比擴大，因為巴西開城。<b>如果 2027 年巴西虧損 50 億元、沙烏地與香港貢獻 20 億元利潤，新業務整體仍是虧 30 億元。</b>打平要等 2028 年。</p></div><div class="section"><div class="section-title">走弱的一條：到店</div><p class='txt'>到店是美團利潤最豐厚的一塊（營業利益率 30% 上下），也是唯一一條「連續兩個季度走弱」的假設。<b>抖音到店 GTV 2025 年超 8,000 億元、增速近 60%，美團到店的份額從 80% 以上被壓到 60% 左右。</b></p><p class='txt'>這條走弱不會立刻體現在集團利潤裡——到店仍然賺錢，只是賺得少了。<b>但它是長期估值的天花板：如果到店份額掉到 50%，美團的利潤結構就從「高毛利到店補貼低毛利履約」變成「兩塊都低毛利」，估值體系要重構。</b></p><p class='txt'>觀察指標：<b>到店 GTV 份額（半年一次）、到店營業利益率（每季）、抖音本地生活 GMV 增速（每季）。</b>三個裡兩個惡化，這條假設就作廢，中性目標價從 98 港元下調到 80 港元。</p></div><div class="section"><div class="section-title">證偽條件與觀察日曆</div><p class='txt'><b>證偽條件三條，任一成立即減倉：</b></p><ul><li>2026Q4 核心本地商業營業利益 &lt; 35 億元（說明 Q3 是旺季幻覺）</li><li>單量份額跌破 48%（說明對手重新加價且有效）</li><li>行銷費用率回升到 26% 以上（說明停火結束）</li></ul><p class='txt'><b>觀察日曆：</b>2027 年 3 月 Q4 與全年業績（核心本地商業營業利益、巴西虧損）；2027 年 5 月 Q1（淨利率連續三季為正）；2027 年 8 月中報（到店份額、新業務虧損率）。</p><p class='txt'><b>升級條件：</b>Q4 核心本地商業營業利益 ≥50 億元、份額回到 51%、行銷費用率 ≤22%，三條滿足兩條，評級上調、加第三批倉。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>五條假設：兩條已驗證（收入、費用方向）、兩條待驗（利潤率、新業務）、一條走弱（到店份額）。</b>核心假設「利潤率回到 10%」的路徑清楚但需要對手配合。<b>證偽條件寫死：Q4 核心本地商業營業利益 &lt;35 億元、份額 &lt;48%、行銷費用率 &gt;26%，任一成立即減倉。</b></p></div>
+</div>
+<div class="footer">美團 (03690) · 2026/11/28</div>
+</body>
+</html>

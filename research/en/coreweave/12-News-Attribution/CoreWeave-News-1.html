@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News — CoreWeave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/coreweave/12-新闻异动归因/CoreWeave-新闻异动.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/coreweave/12-新聞異動歸因/CoreWeave-新聞異動-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/coreweave/12-News-Attribution/CoreWeave-News-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>News — CoreWeave</h1>
+  <div class="subtitle">CoreWeave (CRWV) | 12 · News</div>
+  <div class="meta">Research date 2026/11/20 &nbsp;·&nbsp; Price $39.51 (-12.02%) &nbsp;·&nbsp; Market cap Approximately USD 22 billion &nbsp;·&nbsp; PE(TTM) — (GAAP loss, PE not meaningful)</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/coreweave/00-CoreWeave-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core thesis</h3><p class='txt'>From the Q2 report in mid-August to the crash on November 20, CoreWeave's share price traced a path of "sideways at highs → slow decline → accelerating selloff," ending at USD 39.51, down 12.02% on the day and 71.4% below its 52-week high. <b>Of the seven events, only three were genuine signals: the cash flow gap in the Q3 report, the bonds entering distressed territory on November 17, and Microsoft's order cancellation and Nadella's remarks on November 18.</b> The other four—including the company's guidance raise—were noise.</p></div><table class="dt"><caption>Key events and share price reactions over the past three months</caption><thead><tr><th>Date</th><th>Event</th><th>Share price reaction</th><th>Nature</th></tr></thead><tbody><tr><td>Mid-August 2026</td><td>Q2 report: revenue about USD 2.58 billion (back-solved from Q3 quarter-on-quarter), adjusted operating margin 5.0%, free cash flow -RMB 5.743 billion, backlog RMB 104 billion</td><td>Failed to break the prior high and shifted into sideways trading</td><td>Signal: widening cash-flow gap</td></tr><tr><td>Late September 2026</td><td>"Circular financing" concerns at Nvidia gain traction (invest in customers → customers buy chips → backstop idle capacity); neocloud names retreat across the board</td><td>Fell in line with the sector, with the drawdown widening to around 40%</td><td>Systematic + narrative cracks</td></tr><tr><td>2026/11/09</td><td>The company raised its full-year revenue guidance to USD 13.0–13.3 billion</td><td>Has not yet bottomed</td><td>Noise: demand was never the market's worry</td></tr><tr><td>2026/11/10</td><td>Q3 results released after the close: revenue RMB 3.661 billion, +168%; net loss RMB 709 million; net interest RMB 846 million; free cash flow -RMB 7.466 billion</td><td>After-hours volatility, with further declines the next day</td><td>Signal: operating improvement, deteriorating cash</td></tr><tr><td>2026/11/17</td><td>Jensen Huang resigns as Nvidia CEO; SEC investigates Nvidia's accounting; CRWV unsecured bond yield rises to about 15%, entering distressed territory</td><td>Bond prices plunge, stocks fall in tandem</td><td>Signal: Credit markets reprice</td></tr><tr><td>2026/11/18</td><td>Nadella says "selling to only one or two customers is not a business"; Microsoft reviews over USD 80 billion in external AI compute, cancels USD 3.22 billion Nscale order; item-by-item 10-Q breakdown reveals "prepayments exceed operating cash flow"</td><td>The decline accelerates</td><td>Signal: Buy side rejects the moat</td></tr><tr><td>2026/11/20</td><td>Global AI trade collapses: Nasdaq -5.28%, SOX -10.73%, Nvidia -14%</td><td>-12.02% to USD 39.51, falling below the USD 40 IPO price, down 71.4% from the peak</td><td>Systemic</td></tr></tbody></table><div class="note">Share-price reactions are directional descriptions; the 11/20 change and closing price come from batchdata. The Q2 report date and some event reactions were not verified day by day and are marked in the table as directional judgments.</div><div class="section"><div class="section-title">The nature of this selloff: a de-rating, not an earnings hit</div><p class='txt'>Put three months of operating news and the share price side by side and a contradiction emerges: <b>the company raised guidance twice in the period (August and November), revenue exceeded the upper end of guidance for three consecutive quarters, and orders rose from RMB 104 billion to RMB 132.5 billion — results kept beating expectations, yet the stock fell 71%.</b></p><p class='txt'>This shows the market was not killing the results but the valuation method. In 2025 the market priced it on "orders × multiple"; by November 2026 it had switched to "cash flow − debt". <b>The same company, measured with a different ruler, commands a 3x difference in price.</b> This is not sentiment fluctuation but a switch in pricing framework, which is usually irreversible.</p></div><div class="section"><div class="section-title">The three most important things, in order</div><p class='txt'><b>The first is the cash flow in the Q3 report.</b> Free cash flow of -RMB 7.466 billion, with the shortfall widening each quarter (Q1 -4.71 billion, Q2 -5.74 billion, Q3 -7.47 billion), while RMB 2.127 billion of operating cash flow is customer prepayments—once the market sees this clearly, "growth" will need redefining. The line-by-line breakdown in the November 18 10-Q put this detail in front of everyone.</p><p class='txt'><b>The second is the November 17 bond.</b> An unsecured bond yield of 15% means the credit market is already pricing default. Equities can hold up on narrative; bonds cannot—<b>bond investors earn fixed income and cannot afford to lose, so their reading of the same financial report is usually closer to the truth</b>.</p><p class='txt'><b>The third is Microsoft's statement on November 18.</b> Nadella's line that "selling to only one or two customers isn't a business," plus the USD 80 billion external compute review and the cancellation of the USD 3.22 billion Nscale order, tells the market: <b>the biggest buyer is pulling outsourcing back in-house, and the middleman's spread is about to be erased.</b></p></div><div class="section"><div class="section-title">Which are noise</div><p class='txt'><b>Noise 1: Raised guidance.</b> The market never worried about demand; the 132.5 billion order book already settled that. The guidance raise offers no support for the stock, because the problem is cash, not revenue.</p><p class='txt'><b>Noise 2: The "AI bubble" narrative behind the 12% one-day plunge.</b> November 20 was a systemic selloff (Nasdaq -5.28%, Nvidia -14%); attributing it to company fundamentals is wrong. But nor should one conclude that "the drop is over and done with" — <b>the systemic selloff only accelerated the de-rating; the direction was set long ago</b>.</p><p class='txt'><b>Noise 3: Share-price correlation with Neocloud peers.</b> Nebius and IREN rise and fall with it, misleading investors into seeing a "sector-wide opportunity." In reality their leverage and customers differ; <b>moving in lockstep is a liquidity phenomenon, not synchronized fundamentals</b>.</p></div><div class="section"><div class="section-title">Attribution conclusion: three independent lines of evidence point to the same thing</div><p class='txt'>Connect the three signals: widening cash-flow gap (operations) → 15% bond yield (financing) → Microsoft cancels orders (demand). <b>The three pieces of evidence are independent of one another but point to the same conclusion: in November 2026, this company's business model simultaneously lost "cheap money" and its "irreplaceable position."</b></p><p class='txt'>This is also why it fell harder than Nvidia on November 20 (-12% vs -14%, but Nvidia was pulling back from a high while this stock kept falling from a -70% level): <b>the same bad news, landing on the most leveraged equity, produces the greatest elasticity</b>. In three months, not one piece of good news has changed this logic, and neither can a raised guidance.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Conclusion: this selloff is a framework switch in how the stock is priced, not indiscriminate selling on sentiment.</b> Results kept beating the consensus of guidance (revenue above guidance for three straight quarters, orders +RMB 28.5 billion), yet the stock fell 71%, because the market shifted from "orders × multiple" to "cash flow − debt". Three genuine signals (cash-flow gap, 15% bond yield, Microsoft cancellation) are independent but point to the same conclusion. <b>Actionable takeaway: do not use "it has fallen too much" as a reason to buy</b>; instead use "bond yield back below 10% + FCF gap narrowing for two consecutive quarters" as the conditions to reassess.</p></div>
+</div>
+<div class="footer">CoreWeave (CRWV) · 2026/11/20</div>
+</body>
+</html>

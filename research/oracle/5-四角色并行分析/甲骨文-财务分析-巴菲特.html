@@ -7,13 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
-.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
 .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
 .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
 .header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
 .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
 .section { margin-bottom: 2.5rem; }
 .section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -48,22 +53,19 @@ table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; colo
 .badge-blue { background: #e6f0ff; color: #1a4b8c; }
 .footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
 .back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
-.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
-.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
-.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
-
 </style>
 </head>
 <body>
 <div class="header">
+  <div class="lang-switch"><a class="lang zh active" data-lang="zh" href="/research/oracle/5-四角色并行分析/甲骨文-财务分析-巴菲特.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/oracle/5-四角色並行分析/甲骨文-四角色-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/oracle/5-Four-Role-Analysis/Oracle-Four Roles-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
   <h1>财务分析（巴菲特视角） — 甲骨文</h1>
   <div class="subtitle">三张表放在一起读，钱从哪儿来到哪儿去</div>
   <div class="meta">研究日期 2026/09/14 &nbsp;·&nbsp; 股价 $144.79（-3.65%） &nbsp;·&nbsp; 市值 约 4,400 亿美元 &nbsp;·&nbsp; PE(GAAP TTM) 约 23.5x</div>
 </div>
 <div class="container">
-<a class="back" href="../00-甲骨文研究报告总目录.html">← 返回总目录</a>
+<a class="back" href="/research/oracle/00-甲骨文研究报告总目录.html">← 返回总目录</a>
 <div class="summary-box"><h3>核心判断</h3><p class='txt'>这家公司的利润表很好看，现金流量表很难看，资产负债表在变差。<b>三张表各说各话的时候，要以现金流量表为准。</b>本季 GAAP 净利 47.60 亿、经营现金流 231 亿、资本开支 285 亿、自由现金流 -53.96 亿——四个数字连起来，是一台把现金变成资产的机器。</p></div><table class="dt"><caption>三张表的关键一行（FY27Q1，亿美元）</caption><thead><tr><th>报表</th><th>关键项</th><th>数值</th><th>读数</th></tr></thead><tbody><tr><td>利润表</td><td>营业收入</td><td>193.45（+30%）</td><td>增长真实，来自 OCI</td></tr><tr><td>利润表</td><td>GAAP 净利 / EPS</td><td>47.60 / 1.56 美元</td><td>含一次性项目，质量待验证</td></tr><tr><td>现金流量表</td><td>经营现金流</td><td>约 231（推算）</td><td>相当于净利的 4.9 倍，被预收款抬高</td></tr><tr><td>现金流量表</td><td>资本开支</td><td>284.99（+235%）</td><td>营收的 1.47 倍</td></tr><tr><td>现金流量表</td><td>自由现金流</td><td>-53.96</td><td>连续多季为负</td></tr><tr><td>资产负债表</td><td>总债务</td><td>约 1,295</td><td>债务/EBITDA 4.3 倍</td></tr><tr><td>资产负债表</td><td>本季股本动作</td><td>增发 200</td><td>相当于市值 4.5%</td></tr></tbody></table><div class="note">经营现金流由自由现金流 + 资本开支反推（推算）。总债务含经营租赁口径。数据来源：公司 FY27Q1 财报与法说会（2026/09/10）。</div><div class="section"><div class="section-title">利润表：数字是真的，质量要打折</div><p class='txt'>营收 193.45 亿、同比 +30%，这个增速对一家 40 年历史的软件公司是罕见的，而且来源清晰——OCI 73.88 亿、同比 +121%，贡献了几乎全部增量。净利 47.60 亿、同比 +62.6%，EPS 1.56 美元，增速快于收入，说明经营杠杆在起作用。</p><p class='txt'>但要打两个折。第一，净利里有一次性项目（资产处置与税务事项，公司未单列明细），可持续的净利低于 47.60 亿。第二，<b>这个利润没有扣够折旧</b>：本季资本开支 285 亿，按六年折旧，未来每季要新增约 12 亿折旧，而现在的折旧只有 19 亿/季左右。利润表被资本开支“借”走了一部分成本，迟早要还。</p></div><div class="section"><div class="section-title">现金流量表：这才是这家公司的真相</div><p class='txt'>经营现金流 231 亿，看着很强，是净利的 4.9 倍。但拆开看，<b>这个数字被客户预付款和 RPO 的递延收入抬高了</b>——AI 客户签约先付钱，会计上记为合同负债，计进经营现金流。这不是坏事，但它意味着经营现金流的质量取决于“新签合同能不能持续”，而不是“老业务收租收得好”。</p><p class='txt'>减去 285 亿资本开支，自由现金流 -53.96 亿。这是连续多个季度为负，FY26 全年 -237 亿。<b>巴菲特看一家公司，第一眼看的不是增长而是“它自己能不能养活自己”。</b>这家公司现在不能，它靠发债、增发、客户预付三根管子输血。三根管子里，只有第三根是“客户愿意提前给钱”，那是好信号；前两根都是把未来的负担挪到今天。</p></div><div class="section"><div class="section-title">资产负债表：杠杆是这门生意的定价基准</div><p class='txt'>总债务 1,295 亿、债务/EBITDA 4.3 倍、标普 BBB-。这三个数字要连起来读：<b>4.3 倍杠杆在投资级里属于上限区间，BBB- 距垃圾级只有一级。</b>如果评级再降一级，发债利率大概上行 150–250 个基点；按 1,295 亿的规模，一年多付 20–30 亿美元利息——正好等于本季净利的 40%–60%。</p><p class='txt'>同时，公司还在用 200 亿美元增发补缺口。这是最刺眼的一行：一家单季净利 47.6 亿的公司，在卖股票建机房。<b>回购和增发的方向反了，说明管理层认为“现在的资产回报高于资金成本”，这个判断可能是对的，但它把股东放在了最后一位。</b></p></div><div class="section"><div class="section-title">ROIC 才是唯一重要的指标</div><p class='txt'>粗算一下：投入资本约 2,000 亿美元（净债务 1,000 亿 + 权益 200 亿 + 其他），NOPAT 按 EBIT 300 亿 × 0.79 ≈ 237 亿，ROIC 约 <b>11.8%</b>。资金成本呢？BBB- 发债利率约 5.5%–6%，股权成本按 9% 算，加权资本成本约 7%。<b>11.8% 对 7%，还有 4.8 个点的价差——这门生意现在是创造价值的，但安全垫只有 4.8 个点。</b></p><p class='txt'>问题在于这个 11.8% 是“现在的资产”算出来的，而今天在建的 900 亿资产，回报率取决于 2028 年的租金。如果租金跌 20%，ROIC 会掉到 8% 以下，价差归零。<b>这就是为什么说它“用资产负债表换增长”——换来的增长，回报率还没有经过一轮周期检验。</b></p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>结论：好资产，坏时点，错价格。</b>数据库业务是他会想买的资产，OCI 是他会要求更高折价的资产。合起来，144.79 美元对应 13.5 倍 EV/EBITDA，对一个 ROIC 只有 11.8%、自由现金流为负、评级 BBB- 的公司，这个价格没有安全边际。<b>他的动作是放进“太难”那一堆，等价格或现金流证明自己。</b></p></div>
 </div>
-<div class="footer">甲骨文 (ORCL) 投资研究报告集 · 2026/09/14</div>
+<div class="footer">甲骨文 (ORCL) · 2026/09/14</div>
 </body>
 </html>

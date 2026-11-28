@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>風險評估（李錄視角） — CoreWeave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/coreweave/5-四角色并行分析/CoreWeave-风险评估-李录.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/coreweave/5-四角色並行分析/CoreWeave-四角色-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/coreweave/5-Four-Role-Analysis/CoreWeave-Four Roles-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>風險評估（李錄視角） — CoreWeave</h1>
+  <div class="subtitle">五種死法，以及哪一種最可能</div>
+  <div class="meta">研究日期 2026/11/20 &nbsp;·&nbsp; 股價 $39.51（-12.02%） &nbsp;·&nbsp; 市值 約 220 億美元 &nbsp;·&nbsp; PE(TTM) —（GAAP 虧損，本益比無意義）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/coreweave/00-CoreWeave研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>CoreWeave 的風險不是「AI 需求不及預期」——那個機率很低。真正會殺死股權的是四種：<b>再融資窗口關閉、客戶把訂單挪回自建、折舊年限被迫下調、股權被大幅攤薄</b>。四種裡有三種與 AI 需求無關，全部與資本結構有關。</p></div><table class="dt"><caption>風險清單與觸發條件</caption><thead><tr><th>風險</th><th>觸發條件</th><th>對股權的影響</th><th>機率判斷</th></tr></thead><tbody><tr><td>再融資失敗</td><td>高收益債市場對 neocloud 關門，2027 年 134 億到期無法展期</td><td>股權被攤薄 30%–60%，或強制重組</td><td>中（35%）</td></tr><tr><td>客戶流失</td><td>微軟／Meta 把合約挪回自建，OpenAI 縮減承諾</td><td>在手訂單縮水、租金下滑，EBITDA 不及預期</td><td>中高（40%）</td></tr><tr><td>折舊下調</td><td>技術迭代加速，GPU 經濟壽命認定為 3–4 年</td><td>帳面利潤轉負，觸發債務契約壓力</td><td>中（30%）</td></tr><tr><td>股權稀釋</td><td>3,500 萬股增發落地，或後續繼續增發</td><td>每股價值被攤薄，股價承壓</td><td>高（60%）</td></tr><tr><td>循環融資破裂</td><td>輝達收縮投資與兜底，SEC 調查擴大</td><td>供貨優先級下降、訂單可信度受損</td><td>中（25%）</td></tr></tbody></table><div class="note">機率為主觀判斷，用於排序而非精算。資料來源：2026Q3 10-Q 債務到期表、11 月中旬債券殖利率與公開報導。</div><div class="section"><div class="section-title">最可能的死法：不是需求崩，是滾不動</div><p class='txt'>把債務到期表和現金流放在一起看，結論很清楚：<b>2027 年到期的 134 億美元，靠自身現金流還不上</b>。2026 年前三季自由現金流累計約 -179 億美元，即使 2027 年資本支出不再增長，缺口也在百億量級。這意味著它必須在 2027 年繼續進入債券市場，而它的無擔保債收益率已經是 15%。</p><p class='txt'>15% 的融資成本意味著什麼？粗算：如果再借 200 億、成本 15%，年利息 30 億——比 2026 年全年的調整後 EBITDA 的一半還多。<b>這是一個自我強化的死亡螺旋：越缺錢越貴，越貴越缺錢。</b></p></div><div class="section"><div class="section-title">被低估的風險：合約是「最高承諾」不是「保底付款」</div><p class='txt'>Meta 的 210 億美元、OpenAI 的 65 億美元，都是 commitment 而非 take-or-pay。差別在會計和現金上都是實質性的：<b>如果客戶實際用量低於承諾，CoreWeave 拿不到全額，但機櫃、電力、債務已經按滿載配置了</b>。</p><p class='txt'>1,325 億美元的 backlog 聽起來是 36 倍的年營收覆蓋，但它的品質取決於兩件事：客戶能不能履約、合約有沒有最低付款條款。10-Q 裡對這兩點的披露有限，這本身就是風險——<b>當你無法驗證一個數字的品質時，應該按最差情況給它打折</b>。</p></div><div class="section"><div class="section-title">李錄會怎麼給這個風險定價</div><p class='txt'>李錄的框架強調「下行保護」：一筆投資如果最壞情況是虧 70%，那它的期望值必須顯著為正才值得做。這裡期望值只有 +9%（43 美元 vs 39.51 美元），下行 -70%，<b>賠率完全不成立</b>。</p><p class='txt'>他也會提醒一個更根本的問題：<b>AI 是文明級機會，但參與方式決定收益</b>。買輝達是買標準制定者，買微軟是買現金流 + 期權，買 CoreWeave 是買「最薄的那層股權 + 最高的槓桿」。同一個趨勢，三種風險收益結構，選最差的那種沒有道理。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>風險判斷：不可接受。</b>五種風險裡有四種與資本結構相關，且相互強化——客戶流失會讓現金流更差，現金流更差會讓再融資更貴，再融資更貴會逼出股權稀釋。這不是「波動大」，是「結構脆弱」。<b>李錄式結論：不參與。</b>如果一定要跟蹤，只看兩個先行指標：無擔保債收益率（現約 15%）與季度客戶預付款金額（本季 21.27 億、Q4 指引約 90 億）——前者決定能不能活，後者決定活得像不像一家正常公司。</p></div>
+</div>
+<div class="footer">CoreWeave (CRWV) · 2026/11/20</div>
+</body>
+</html>

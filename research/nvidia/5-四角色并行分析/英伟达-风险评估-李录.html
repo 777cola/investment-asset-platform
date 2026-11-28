@@ -7,13 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
-.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
 .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
 .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
 .header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
 .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
 .section { margin-bottom: 2.5rem; }
 .section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -48,22 +53,19 @@ table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; colo
 .badge-blue { background: #e6f0ff; color: #1a4b8c; }
 .footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
 .back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
-.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
-.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
-.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
-
 </style>
 </head>
 <body>
 <div class="header">
+  <div class="lang-switch"><a class="lang zh active" data-lang="zh" href="/research/nvidia/5-四角色并行分析/英伟达-风险评估-李录.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/nvidia/5-四角色並行分析/輝達-四角色-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/nvidia/5-Four-Role-Analysis/NVIDIA-Four Roles-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
   <h1>风险评估（李录视角） — 英伟达</h1>
   <div class="subtitle">英伟达 (NVDA) | 三个能算的风险，一个算不清的风险</div>
   <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股价 $220.78（+1.48%） &nbsp;·&nbsp; 市值 约 5.33 万亿美元（241.5 亿股） &nbsp;·&nbsp; PE(TTM) 约 28x（FY2028 前瞻约 15x）</div>
 </div>
 <div class="container">
-<a class="back" href="../00-英伟达研究报告总目录.html">← 返回总目录</a>
+<a class="back" href="/research/nvidia/00-英伟达研究报告总目录.html">← 返回总目录</a>
 <div class="summary-box"><h3>核心判断</h3><p class='txt'>英伟达的风险清单不长，但有一条算不清。能算的：客户集中（三家占 44%）、中国归零（已发生）、估值（15 倍 FY2028 的分母是自家指引）。算不清的：1,085 亿美元担保上限里，多少落在同一批靠债务扩张的 NeoCloud 身上。<b>投资里最贵的不是风险大，是风险不可测。</b></p></div><table class="dt"><caption>风险清单与可测性</caption><thead><tr><th>风险</th><th>规模 / 事实</th><th>可测性</th><th>对估值的影响</th></tr></thead><tbody><tr><td>客户集中</td><td>H1 三家直接客户占 44%，前五占应收 70%</td><td>高：每季 10-Q 披露</td><td>压制倍数，不改变方向</td></tr><tr><td>中国归零</td><td>Q2 合规交付 H200 不足数据中心 1%，指引不含中国</td><td>高：已发生</td><td>已在指引里，不再是变量</td></tr><tr><td>信用担保</td><td>上限 1,085 亿美元，触发条件未披露</td><td>低：只有上限，没有结构</td><td>这是折价的主要原因</td></tr><tr><td>供应承诺</td><td>2,790 亿美元，FY2027 剩余 920 亿</td><td>中：金额明确，减值条件不明</td><td>需求转弱时变成存货减值</td></tr><tr><td>技术路线</td><td>推理侧 ASIC 单位成本优势</td><td>中：能跟踪客户自研进度</td><td>结构性，决定长期倍数</td></tr><tr><td>估值</td><td>28x TTM / 15x FY2028</td><td>高</td><td>短期最大的下跌来源</td></tr></tbody></table><div class="note">数据来源：英伟达 FY2027Q2 财报与 10-Q（2026/08/26）、电话会议（2026/08/26）。担保与供应承诺为表外项目，金额为公司披露，触发条件与对手方集中度未披露。</div><div class="section"><div class="section-title">客户集中：这不是缺陷，是这门生意的定义</div><p class='txt'>三家客户占 44%，前五大占应收 70%。听起来吓人，但要看清楚：这五个人是全球现金流最好的五家公司。微软、亚马逊、谷歌、Meta、甲骨文的经营现金流加起来，够买下整个英伟达的年度产能还有余。</p><p class='txt'>真正的风险不在“集中”，在“集中的人开始自己造”。谷歌 TPU 已经做到第七代，亚马逊 Trainium 在推理侧大规模自用，OpenAI 的 Jalapeño 号称性能超过 Blackwell。<b>客户集中的风险不是他们不买，是他们买得越来越少、只买训练不买推理。</b></p><p class='txt'>这条风险的能量级：如果推理侧三成转向自研，英伟达的收入增速从 70% 掉到 40%，估值从 15 倍掉到 12 倍，股价跌 35%。可算，可跟踪，不足以致命。</p></div><div class="section"><div class="section-title">信用担保：唯一算不清的那一条</div><p class='txt'>公司披露：为数据中心项目提供信用担保，最大总敞口 1,085 亿美元（含项目担保 1,050 亿、AI 云客户 35 亿）；供应与产能承诺 2,790 亿美元；云服务采购承诺 360 亿美元。AFR 按 10-Q 附注汇总的六项表外承诺合计约 5,305 亿美元。</p><p class='txt'>必须说清两件事。第一，<b>1,085 亿是上限，不是负债</b>，只有满足约定条件或对手方违约才触发。第二，公司反复强调“英伟达不直接发放贷款”，而是与阿波罗、贝莱德、黑石、布鲁克菲尔德、高盛、KKR 六家搭平台，撬动 5,000 亿美元第三方资本，自己提供的是保底付款承诺与信用增信。</p><p class='txt'>但这两句话解决不了核心疑问：<b>对手方是谁、集中度多少、触发条件是什么。</b>公司披露了一个惊人的比例——明年需要借助英伟达资产负债表支持的 AI 实验室业务，约占总业务四分之一。四分之一，按 FY2028 营收 6,413 亿算是 1,600 亿美元的收入，背后是同一批还没有利润的公司。</p><p class='txt'>我的处理方式：不预测违约概率，只在估值上打折。中性情景从 17 倍降到 15 倍，就是给这条风险的折价。</p></div><div class="section"><div class="section-title">技术路线与政策：能跟踪，不必过度担心</div><p class='txt'>技术路线是慢变量。ASIC 在推理上的成本优势是真的，但英伟达有三道缓冲：训练市场短期无人能替、通用算力可以复用、Groq LPU 补上了交互式推理的短板。真正的分水岭是 2027 年——如果那时推理收入占数据中心超过一半而英伟达份额开始掉，说明替代成立了。</p><p class='txt'>政策是快变量，但已经出清。中国数据中心算力收入归零（Q2 合规交付的 H200 不到 1%，指引不含中国）；出口管制的边际影响在减弱，因为收入结构已经转向非中国客户。<b>剩下的政策风险是反垄断：5,000 亿美元融资平台、939 亿美元股权投资、1,085 亿美元担保，这三件事凑在一起，任何一个监管机构都会问一句“这是不是垂直整合式的市场锁定”。</b></p><p class='txt'>李录式的收尾：这一轮 AI 的本质是把智能变成可交易的算力，英伟达是收费站。收费站的风险从来不是车太多，是收费太贵——贵到有人修了第二条路。<b>现在第二条路（ASIC + 自研）正在修，还没通车。</b></p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>三个风险能算，一个不能算。</b>能算的三个（集中、中国、估值）加起来，最坏情况是股价跌 35%；不能算的那个（担保结构），最坏情况是某个季度一次性计提，股价跌 50% 以上。<b>所以仓位管理的原则很简单：单一持仓不超过 8%，不因为“AI 是国运”加杠杆，也不因为“泡沫要破”清仓。</b></p></div>
 </div>
-<div class="footer">英伟达 (NVDA) 投资研究报告集 · 2026/08/31</div>
+<div class="footer">英伟达 (NVDA) · 2026/08/31</div>
 </body>
 </html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣篩選 — 比亞迪</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/byd/2-七条硬指标去劣/比亚迪-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/byd/2-七條硬指標去劣/比亞迪-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/byd/2-Seven-Hard-Metrics/BYD-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>去劣篩選 — 比亞迪</h1>
+  <div class="subtitle">比亞迪 (002594) | 02 · 去劣篩選</div>
+  <div class="meta">研究日期 2026/09/04 &nbsp;·&nbsp; 股價 ¥87.40（+0.10%） &nbsp;·&nbsp; 市值 約 7,968 億元（總股本 91.17 億股，A+H） &nbsp;·&nbsp; PE(TTM) 約 27x（2025 年報 326 億元淨利對應約 24x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/byd/00-比亞迪研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：能過的是能力，過不了的是行業屬性</h3><p class='txt'>七條硬指標過四條。ROE、利息覆蓋、毛利率、營業現金流都過關，說明這是一家在製造業裡賺錢效率很高的公司；<b>淨利率 3.58%、五年累計自由現金流為負、股本名義膨脹三倍，三條不過。</b></p><p class='txt'>關鍵在於：這三條不過不是公司有問題，是行業有問題。整車是重資產、低淨利、擴產吞現金的生意，用給消費股設的門檻去篩，豐田、大眾一樣過不了。<b>所以這七條的意義不是「淘汰」，是「別把它當成長股定價」。</b></p></div><table class="dt"><caption>七條硬指標（去劣篩選，2026H1 口徑）</caption><thead><tr><th>指標</th><th>公司數值</th><th>門檻</th><th>判定</th></tr></thead><tbody><tr><td>① 10 年平均 ROE</td><td>約 13%–15%（2016—2025，2020 年低點約 7%）</td><td>&gt;8%</td><td>透過</td></tr><tr><td>② 5 年累計自由現金流</td><td>為負（擴產高峰年份大額為負，2024—2025 轉正但未補回）</td><td>&gt;0</td><td>不過</td></tr><tr><td>③ 利息覆蓋（EBIT/利息）</td><td>約 6–8 倍（有息負債規模可控，帳上現金充裕）</td><td>&gt;2 倍</td><td>透過</td></tr><tr><td>④ 長期毛利率</td><td>18.85%（2026H1），近五年 13%–20%</td><td>&gt;15%</td><td>透過</td></tr><tr><td>⑤ 營業現金流／稅後淨利</td><td>3.0 倍（373 億 / 123.3 億）</td><td>&gt;0.7</td><td>透過</td></tr><tr><td>⑥ 長期淨利率</td><td>3.58%（2026H1），2025 年約 8%</td><td>&gt;5%</td><td>不過</td></tr><tr><td>⑦ 5 年股本膨脹</td><td>29 億股級 → 91.17 億股，名義 +200% 以上</td><td><20%</td><td>不過（轉增所致，非稀釋）</td></tr></tbody></table><div class="note">門檻沿用本系列去劣篩選標準。ROE 區間為 2016—2025 的估計值，未逐年核對；自由現金流為定性判斷（擴產年份為負），未列逐年數值；利息覆蓋為 EBIT/利息費用的量級估計；股本膨脹含 2025 年度資本公積轉增，屬名義膨脹。</div><div class="section"><div class="section-title">過得舒服的兩條：ROE 與毛利率</div><p class='txt'>ROE 十年均值 13%–15%，在重資產製造業裡算優等生。它不是靠槓桿堆出來的——比亞迪的有息負債率不高，擴產主要靠營業現金流和股權融資——而是靠周轉：產能利用率高、庫存周轉快、對上游佔款。2026H1 營業現金流 373 億元，比淨利高兩倍，就是周轉能力的證據。</p><p class='txt'>毛利率 18.85%、同比還升了 0.8 個點，這一條最能說明問題。2026 年上半年行業在打價格戰，比亞迪收入跌 7.1%，毛利率卻往上走，靠的是海外高價市場（境外收入佔比過半）和自供零件的成本差。<b>同行同期毛利率普遍在往下走，它往上走，這是垂直整合的直接變現。</b></p></div><div class="section"><div class="section-title">剛過線的兩項：利息覆蓋與營業現金流</div><p class='txt'>利息覆蓋 6–8 倍，安全。但要注意方向：H1 財務費用從去年同期淨收益 32 億元變成淨支出 51 億元，一來一回 83 億元。<b>這不是利息支出變多，是匯兌損失。</b>海外收入占比越高，這塊波動越大，未來利息覆蓋這個指標會變得不可預測——不是償債能力的問題，是利潤表的問題。</p><p class='txt'>營業現金流 373 億元、同比多 55 億元，表面很好。但公司自己的解釋是「購買商品支付的現金減少」，翻譯過來是<b>對供應鏈的帳期在拉長</b>。現金流改善來自占用上游資金，不是來自賺更多錢。這條要連著應付帳款一起看：如果應付天數已經拉到極限，下一年的現金流就會很難看。</p></div><div class="section"><div class="section-title">不過的三條：淨利率、自由現金流、股本</div><p class='txt'><b>淨利率 3.58%，離 5% 的門檻差 1.4 個點。</b>這條最刺眼，但要放在行業裡看：2026H1 中國整車行業平均淨利率不到 3%，比亞迪已經是頭部。它 2025 年做到 8% 以上，是規模效應加海外結構的峰值，不是常態。<b>用 5% 的門檻卡它，等於要求它在價格戰裡保持峰值利潤率，這不現實。</b></p><p class='txt'><b>五年累計自由現金流為負，這條不能原諒。</b>2021—2023 年是產能擴張高峰，電池廠、整車廠、海外工廠同時開工，資本支出遠超經營現金流；2024—2025 年轉正，但沒補回前幾年的窟窿。<b>這意味著過去五年它賺的錢全部投回了產線，股東一分沒拿到。</b>這是重資產公司的宿命，也是它必須靠增長來維持估值的原因——一旦增長停了，這套資產就只剩折舊。</p><p class='txt'><b>股本從 29 億股級漲到 91.17 億股，名義膨脹三倍，但這是轉增，不是稀釋。</b>每股盈餘按復權口徑不受影響，和增發圈錢是兩件事。這一條判定「不過」只是形式上的，實質不扣分。</p></div><div class="section"><div class="section-title">不過是否致命：不致命，但決定了估值方式</div><p class='txt'>三條不過，沒有一條是致命的。<b>淨利率低是行業屬性，自由現金流為負是擴張階段的特徵，股本膨脹是會計形式。</b>真正致命的是這三條疊加起來的含義：它必須持續增長，才能證明現在的資產和估值是對的。</p><p class='txt'>這就是為什麼 27 倍 TTM 是個問題。給一家 3.58% 淨利率、自由現金流為負、靠擴產驅動的公司 27 倍，你實際上是在給「它未來三年還能保持 20% 增長」付錢。<b>而 2026H1 的收入是 -7.1%。</b>這兩件事不能同時成立。</p><p class='txt'>反過來，如果國內銷量在 2026Q4 轉正、2027 年淨利回到 400 億元，24 倍就是 105 元。<b>所以七條硬指標給出的不是「別買」，是「別在增長被證偽的時候按成長的倍數買」。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：四條通過，三條不過，可以留在池子裡，但不能按成長股定價。</b>ROE、毛利率、利息覆蓋、現金流品質證明它是製造業裡的優等生；淨利率 3.58%、自由現金流為負、股本名義膨脹說明它的利潤薄、吃現金、依賴規模。這三條決定了它的合理估值區間是 20–25 倍，不是 30 倍以上。<b>87.4 元對應 27 倍 TTM，超出這個區間。</b></p></div>
+</div>
+<div class="footer">比亞迪 (002594) · 2026/09/04</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industry Funnel — Laopu Gold</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/laopu/11-行业漏斗对比/老铺黄金-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/laopu/11-行業漏斗對比/老鋪黃金-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/laopu/11-Industry-Funnel/Laopu Gold-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Industry Funnel — Laopu Gold</h1>
+  <div class="subtitle">Laopu Gold (06181) | 11 · Industry Funnel</div>
+  <div class="meta">Research date 2026/10/09 &nbsp;·&nbsp; Price HK$337.00 (+4.85%) &nbsp;·&nbsp; Market cap About HKD 59.6 billion &nbsp;·&nbsp; PE(TTM) Approximately 6.9x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/laopu/00-Laopu Gold-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core call: the most efficient player is also the most fragile</h3><p class='txt'>The industry funnel leaves only one name at the end: Laopu. <b>Of the six, it is the only one with gross margin above 40%, the only one with net margin above 20%, and the only one with annualized sales per store above RMB 500 million.</b> The coarse-screen elimination logic is simple: companies selling by gram (Lao Feng Xiang, China Gold) run net margins around 3% and are essentially processing plants, undeserving of brand valuation; scale players (Chow Tai Fook) in a store-closure cycle grow through price hikes and store closures, not demand.</p><p class='txt'>But the other half of "why it" is this: <b>it is also the only one of the six whose quarterly revenue can fall 80%.</b> Its efficiency rests on high ticket size, scarce locations and purchase-scramble expectations, and all three failed simultaneously in Q2 2026. The final conclusion is therefore "it is the best, but now is not the entry point."</p></div><table class="dt"><caption>Industry funnel comparison (2025 / Chow Tai Fook FY2026)</caption><thead><tr><th>Company</th><th>Revenue</th><th>Year-on-year</th><th>Gross margin</th><th>Net margin</th><th>Market cap (approx.)</th><th>Determination</th></tr></thead><tbody><tr><td>Laopu Gold</td><td>RMB 27.30 billion</td><td>+221.0%</td><td>41.3%*</td><td>21.5%*</td><td>HKD 59.6 billion</td><td>Final selection</td></tr><tr><td>Chow Tai Fook</td><td>HKD 94.40 billion</td><td>+5.3%</td><td>32.3%</td><td>9.5%</td><td>About HKD 130 billion (rough estimate)</td><td>Eliminated: growth driven by store closures and price hikes</td></tr><tr><td>Lao Feng Xiang</td><td>RMB 52.82 billion</td><td>-7.0%</td><td>About 9%</td><td>3.3%</td><td>Approximately RMB 16 billion</td><td>Eliminated: per-gram model, no brand premium</td></tr><tr><td>Chow Sang Sang</td><td>HKD 22.45 billion</td><td>+6.0%</td><td>32.62%</td><td>7.6%</td><td>About HKD 12 billion (rough estimate)</td><td>Eliminated: design overlaps with Laopu; weak store efficiency</td></tr><tr><td>Chao Hong Ji</td><td>RMB 9.32 billion</td><td>+43.0%</td><td>About 25%</td><td>5.3%</td><td>Approximately RMB 15 billion (rough estimate)</td><td>Eliminated: lower price band, non-overlapping customer base</td></tr></tbody></table><div class="note">*Laopu figures are on a 2026H1 basis (gross margin 41.3%, net margin 21.5%); all others are full-year 2025. Market caps are rough estimates as of early October 2026; Chow Tai Fook, Chow Sang Sang and Chao Hong Ji are approximated using 2025 net profit and the industry PE range, for ranking reference only and not as a valuation basis.</div><div class="section"><div class="section-title">Rough screening: first split by gram or by piece, cutting half outright</div><p class='txt'>The first step is not comparing financials but comparing business models. Companies that sell by gram (Lao Feng Xiang, China Gold, most regional brands) earn processing fees, with gross margins around 9% and net margins around 3% — essentially "gold OEMs plus channel distributors." Such companies will never command a brand premium and should not be valued as consumer brands.</p><p class='txt'>Only companies that sell by piece (Laopu, Chow Tai Fook's high-end line, Chow Sang Sang, CHJ Jewellery) have pricing power. This step leaves four companies.</p><p class='txt'>The second step compares store efficiency. Laopu's annualized sales per store are about RMB 600 million (based on 2025 revenue of RMB 27.3 billion ÷ 45 stores), Chow Tai Fook's mainland stores about RMB 16 million, Lao Feng Xiang about RMB 10 million, Chow Sang Sang about RMB 20 million, and CHJ Jewellery about RMB 9 million. <b>Laopu is three times the runner-up.</b> This step leaves only one company.</p></div><div class="section"><div class="section-title">The four eliminated players and how each one died</div><p class='txt'><b>Lao Feng Xiang:</b> 2025 revenue RMB 52.823 billion, -7.0% YoY; net profit RMB 1.755 billion, -10.0%. With over 5,000 outlets and gram-based pricing, the higher gold prices go, the more consumers hold back — it is squeezed on both volume and price. This is the death of a model, not the death of a business.</p><p class='txt'><b>Chow Tai Fook:</b> FY2026 revenue HKD 94.398 billion, +5.3%; net profit HKD 9.004 billion, +52.2% — headline profit growth looks impressive, but on closer inspection it came from closing nearly a thousand stores, lifting per-store efficiency and raising prices. <b>Store closures deliver a one-off margin repair, not sustained growth.</b></p><p class='txt'><b>Chow Sang Sang:</b> 2025 revenue HKD 22.446 billion, +6%; net profit HKD 1.717 billion, +113%; gross margin 32.62%. It is the healthiest name on this list apart from Laopu, but it is design-driven and positioned in the mid-to-high price band; its customer base overlaps partly with Laopu's yet it lacks Laopu's "cultural symbol" label, and store efficiency is an order of magnitude lower.</p><p class='txt'><b>Chao Hong Ji:</b> 2025 revenue RMB 9.318 billion, +43%; net profit RMB 497 million. Fast growth off a small base, with a 5.3% net margin; it follows a "fashion jewellery + franchising" route and does not compete in the same price band as Laopu.</p></div><div class="section"><div class="section-title">Why it: three conditions that cannot be replicated</div><p class='txt'>The first condition is <b>the power to define the category</b>. Laopu is the brand certified by the China Gold Association as the first to promote the ancient-method gold concept, and only one brand can hold that position. Later entrants can execute better, but they cannot claim to be "the starting point of ancient-method gold."</p><p class='txt'>The second condition is <b>location</b>. All 45 stores sit in top-tier commercial centers, across 16 cities and 35 commercial centers. Ground-floor space in top-tier malls is in limited supply; whoever takes it first forces later brands to wait for it to exit. This is a time barrier, not a capital barrier — money cannot buy it.</p><p class='txt'>The third condition is <b>the pricing method</b>. Pricing by piece rather than by gram means it can price independently of the gold price. In 2019 this looked like a risk; in 2026 it looks prescient — it lifted gross margin from the industry average of 9%–30% to 41%.</p><p class='txt'>Stack the three conditions together and you have the answer to "why this one." But that answer comes with a footnote: <b>when all three hold, it is a money printer; when the first condition (category) fails, the other two can only make it die more slowly.</b></p></div><div class="section"><div class="section-title">After the Final Selection: Why We Still Won't Buy</div><p class='txt'>The funnel screens for "the best company," not "the best stock." A price sits between the two.</p><p class='txt'>At the current HKD 337 and a market cap of HKD 59.6 billion, a neutral 2027 profit of RMB 5.7 billion at 10x PE gives a fair value of HKD 352, or 4% upside. On a pessimistic RMB 4.5 billion at 8x, that is HKD 222, or 34% downside. <b>The funnel says "worth watching"; the valuation says "not yet a buy."</b></p><p class='txt'>So this module's conclusion matches the rating: the best company in the industry, first on the watchlist, waiting for price or waiting for data.</p></div><div class="summary-box"><h3>Conclusion</h3><p>Funnel conclusion: <b>Of the six, only Laopu qualifies; but selecting it does not mean buying it now.</b> Its three non-replicable conditions (category definition power, location, per-piece pricing) are all real, but the cost is that all three are bound to a single assumption: "ancient-method gold is still in fashion." If the assumption holds, it is worth 15x; if not, 8x. The current price implies 10x — the price of an "assumption pending."</p></div>
+</div>
+<div class="footer">Laopu Gold (06181) · 2026/10/09</div>
+</body>
+</html>

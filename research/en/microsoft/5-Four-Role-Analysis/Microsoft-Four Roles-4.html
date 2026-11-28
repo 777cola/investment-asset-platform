@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Risk assessment (Li Lu's perspective) — Microsoft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/microsoft/5-四角色并行分析/微软-风险评估-李录.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/microsoft/5-四角色並行分析/微軟-四角色-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/microsoft/5-Four-Role-Analysis/Microsoft-Four Roles-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Risk assessment (Li Lu's perspective) — Microsoft</h1>
+  <div class="subtitle">Microsoft FY2026Q4 · How this investment loses money</div>
+  <div class="meta">Research date 2026/07/31 &nbsp;·&nbsp; Price $464.72 (+3.02%) &nbsp;·&nbsp; Market cap About USD 3.45 trillion &nbsp;·&nbsp; PE(TTM，FY2026) Approximately 25.8x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/microsoft/00-Microsoft-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>Li Lu's risk framework is not "how far the share price will fall" but "under what circumstances this company's intrinsic value would be permanently impaired." By that standard, Microsoft faces only three kinds of risk: <b>capital expenditure misallocation, customer and partner concentration, and regulatory break-up.</b> Everything else is volatility, not risk.</p></div><table class="dt"><caption>Risk list and probability assessment</caption><thead><tr><th>Risk</th><th>Trigger conditions</th><th>Impact</th><th>Probability (my own judgment)</th></tr></thead><tbody><tr><td>Capex mismatch</td><td>AI demand growth falls below 15% in 2028, leaving racks idle</td><td>Depreciation still charged, operating margin squeezed by 5pct, valuation derated to 15x</td><td>Medium (30%–40%)</td></tr><tr><td>OpenAI dependence</td><td>OpenAI shifting primary compute to Oracle/self-built, or losing model advantage</td><td>Azure growth drops 10pct, RPO increment hits a gap</td><td>Medium-low (20%–30%)</td></tr><tr><td>Commoditization at the model layer</td><td>Open-source models push inference pricing down to the cost line</td><td>Cloud gross margin fell from 65% to 50%</td><td>Medium-high (40%), but the impact will be gradual</td></tr><tr><td>Regulatory breakdown</td><td>EU/US require separation of cloud and model businesses</td><td>Structural discount, not fatal</td><td>Low (10%)</td></tr><tr><td>Accounting policies</td><td>Auditors question further extension of depreciation lives</td><td>Profit quality discount, one-off restatement</td><td>Low (10%)</td></tr></tbody></table><div class="note">Probabilities are my subjective judgment, not the output of a quantitative model. Impact magnitude is derived from FY2028 financial assumptions.</div><div class="section"><div class="section-title">Category 1: Money problems (already happening)</div><p class='txt'>FY2026 capex of RMB 115.9 billion and an FY2027 plan of RMB 175 billion mean RMB 290 billion spent over two years—more than twice all of Microsoft's acquisitions in history combined. These outlays have a payback period of 5–8 years, while AI demand is only visible 2–3 years out (RPO weighted term of 2.3 years). <b>Backing 8-year assets with 2 years of orders is a maturity mismatch.</b></p><p class='txt'>This is not a financial risk (Microsoft can afford it); it is a return-on-capital risk. If demand growth falls off in 2028, these assets will not disappear—they will simply become depreciation on underutilized capacity. Li Lu would liken this to telecom fiber in 1999: the demand was real, but the investment came too early and was too large.</p></div><div class="section"><div class="section-title">Category 2: partner problems (structural)</div><p class='txt'>OpenAI is Microsoft's largest customer, its largest model supplier, and an investee—three roles stacked together. After the October 2025 restructuring, Microsoft holds about 27% and secured IP rights through 2032, but OpenAI is free to choose other clouds, and Oracle has already won a large contract.</p><p class='txt'>The good news is that Q4 offered a counter-proof: <b>RPO still grew 25% excluding OpenAI</b>, showing non-frontier-model customers are providing support. The bad news is that OpenAI accounts for a very high share of the increment; once it migrates away, Azure's growth will drop markedly. This is "concentration risk," not "fraud risk."</p></div><div class="section"><div class="section-title">Category 3: rule-related problems (recurring)</div><p class='txt'>EU scrutiny of cloud licensing terms, the UK CMA's review of the Microsoft-OpenAI relationship, and the US FTC's inquiries into AI partnerships have not let up since 2024. The approach so far has been "commit to remedies + small settlements" (CISPE, about EUR 20 million).</p><p class='txt'>The real risk is not fines but structural demands such as "cloud and models must be separated." The probability is low, but if it happens, Microsoft's AI stack would be split in two and its valuation logic would have to be rewritten. <b>Li Lu would classify this as "unpredictable but bearable"—because even after a split, Azure and Office remain good assets.</b></p></div><div class="section"><div class="section-title">Where could this risk assessment be wrong?</div><p class='txt'>The most likely place I am wrong is underestimating how persistent demand is. If AI inference demand grows above 40% for a decade the way mobile traffic did, then the RMB 290 billion invested today is not misallocation but front-running, and returns will be astonishingly high. <b>Every infrastructure cycle in history, in hindsight, was "not enough investment" rather than "too much" — railways, power grids, fiber, 4G all followed this pattern, and only fiber saw a glut.</b></p><p class='txt'>So I put the probability of "capex misallocation" at 30%–40%, not 70%. That makes it a risk to be discounted, not a veto risk — which in position terms means scaling in batches rather than not buying.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'><b>Conclusion: risks are manageable but should not be ignored; demand a 10%–15% discount.</b> Of the three risk categories, capex misallocation is the most tangible, OpenAI dependence the most structural, and regulatory break-up the least likely. Only a 10% haircut (9折) to the neutral target price (564 → around 510) meets the required risk compensation—this is also the mathematical basis for "phasing in."</p></div>
+</div>
+<div class="footer">Microsoft (MSFT) · 2026/07/31</div>
+</body>
+</html>

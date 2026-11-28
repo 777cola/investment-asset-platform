@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>六關篩選 — 寒武紀</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/cambricon/1-六关快速筛选/寒武纪-六关筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/cambricon/1-六關快速篩選/寒武紀-六關篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/cambricon/1-Six-Gate-Screen/Cambricon-Six-Gate Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>六關篩選 — 寒武紀</h1>
+  <div class="subtitle">寒武紀 (688256) | 01 · 六關篩選</div>
+  <div class="meta">研究日期 2026/08/17 &nbsp;·&nbsp; 股價 ¥1,156.00（+5.76%） &nbsp;·&nbsp; 市值 約 7,271 億元 &nbsp;·&nbsp; PE(TTM) 約 218x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/cambricon/00-寒武紀研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>寒武紀六關過三關，28 分。能力圈與好生意各 6 分——生意看得懂（賣加速卡給雲廠商和智算中心），但訂單看不清；護城河 7 分，是六關裡唯一接近「優秀」的一項：在美國管制不放鬆的前提下，國產訓練晶片只剩華為昇騰和它兩條規模化供給，<b>客戶為了供應鏈安全必須養第二供應商</b>。</p><p class='txt'>分數是被第五關拖死的。1,156 元、7,263 億元市值，對應 TTM 淨利 33.32 億元、218 倍本益比、75.6 倍市銷率、53.6 倍股價淨值比。倒過來算：現價給 80 倍，需要 90.8 億元淨利，也就是 236 億元營收——比 2026 年 135 億元的激勵目標還高七成。<b>這不是看錯的問題，是價格已經把 2028 年當成了今天。</b>結論：迴避，等營收追上估值。</p></div><table class="dt"><caption>六關篩選（滿分 10 分／關，綜合 60 分）</caption><thead><tr><th>關卡</th><th>判定</th><th>評分</th><th>依據</th></tr></thead><tbody><tr><td>第一關：能力圈</td><td>勉強通過</td><td>6/10</td><td>向雲端廠商與智算中心銷售晶片，收入模式簡單；但訂單能見度低、客戶高度集中（2025 年前五 88.66%），季度不可外推</td></tr><tr><td>第二關：好生意</td><td>勉強通過</td><td>6/10</td><td>毛利率 55.25% 是好生意；但存貨 82.48億元、營業現金流僅 3.11億元，利潤沒有變成現金</td></tr><tr><td>第三關：護城河</td><td>透過</td><td>7/10</td><td>國產訓練晶片第二供給，思元 590/690 已進入 CSP 規模化場景；軟體堆疊 BANG 與模型適配構成轉換成本，但生態遠弱於 CUDA</td></tr><tr><td>第四關：管理層</td><td>透過</td><td>6/10</td><td>陳天石技術判斷準，2025 年轉虧為盈、2026 年激勵定下 135億元營收目標；上半年完成 44%，下半年要交 75億元</td></tr><tr><td>第五關：安全邊際</td><td>不通過</td><td>1/10</td><td>218x TTM PE、75.6x PS、53.6x PB；悲觀情景目標 400 元，下行 65%，沒有任何緩衝</td></tr><tr><td>第六關：紀律</td><td>不通過</td><td>2/10</td><td>買入理由依賴「算力缺口持續 + 客戶不轉單 + 產能拿得到」，三條都不由公司控制，且無法用季報逐條對帳</td></tr><tr><td>綜合</td><td>不通過</td><td>28/60</td><td>好賽道、真稀缺、貴到離譜。列入觀察，等業績追上估值或價格回到 800 元以下</td></tr></tbody></table><div class="note">資料來源：寒武紀 2026 年半年度報告（2026/08/07）、2025 年年報（2026/03/12）、2026 年限制性股票激勵計畫（草案）（2026/07/28）；股價與市值取 batchdata 2026/08/17 收盤（1,156.00 元，總股本 6.2829 億股）。評分口徑為本報告自訂，與底稿六關判定一致（28/60）。</div><div class="section"><div class="section-title">第一、二關：生意看得懂，季度看不清</div><p class='txt'>第一關給 6 分，扣分不在「看不懂」，在「看不清」。它的收入結構只有一句話：把思元系列加速卡賣給互聯網雲廠商、運營商和地方智算中心。看懂這一層只要五分鐘，判斷下一季度能收多少錢要難得多——2026 年 Q1 營收 28.85 億元（同比 +159.56%），Q2 31.11 億元（同比 +75.83%、環比 +7.84%），<b>從翻倍到七成再到環比個位數，三個季度三種速度</b>，這種曲線沒法外推。</p><p class='txt'>原因在客戶結構。2025 年年報前五名客戶銷售額 57.60 億元、佔全年 88.66%；2025 年一季度單一大客戶一度佔到 96.48%（媒體據定增文件測算）。<b>一家客戶的驗收節奏，就是一個季度的報表</b>，這不是分析能力能解決的問題，是生意本身的透明度問題。</p></div><div class="section"><div class="section-title">第二關的另一半：毛利率 55%，但錢在倉庫裡</div><p class='txt'>好生意的標準是「漲價不掉量、賺到的是現金」。寒武紀前半句做到了：2026 年上半年毛利率 55.25%，同比只降 0.68 個點，Q2 單季 56.10%、環比還升 1.77 個點——<b>沒有降價換量，議價權還在</b>，這在國產晶片裡是罕見的。</p><p class='txt'>後半句沒做到。上半年歸母淨利 23.11 億元，經營活動現金流只有 3.11 億元，同比 -65.83%，淨利現金含量 0.135。差的錢壓在兩個地方：存貨 82.48 億元（較年初 +33.04 億元，佔總資產 45.32%），預付款項 29.14 億元（同比 +291.37%）。<b>這是 Fabless 公司的典型動作：先付錢鎖產能，再等晶圓回來。</b>它說明訂單是真的，也說明利潤暫時只是一張提貨單。</p></div><div class="section"><div class="section-title">第三、四關：稀缺供給，是本輪行情唯一紮實的邏輯</div><p class='txt'>第三關 7 分，是六關裡最高的。2022 年 12 月 15 日美國 BIS 把寒武紀列入實體清單，此後台積電 7nm 及以下對大陸 AI 晶片客戶停供，思元 590/690 轉中芯國際 N+2（等效 7nm）。<b>制裁沒有殺死它，反而把它釘在了「唯一可買的第二供應商」這個位置上</b>：華為昇騰產能優先自用，客戶要保供就必須留一條非華為的路。</p><p class='txt'>軟體是護城河的深度所在，也是它最薄的一環。BANG 指令集加 Neuware 軟體棧，已完成 DeepSeek、Qwen、混元、GLM、Kimi、MiniMax 等主流開源模型的適配，客戶遷移過來要重寫算子、重調效能——這個成本是真的。但 CUDA 用了十五年堆出來的開發者習慣不是三五年能追的，所以給 7 分不給 9 分。</p><p class='txt'>第四關 6 分。陳天石的判斷在過去兩年被驗證了兩次：2025 年營收 64.97 億元、同比 +453%，首次全年轉虧為盈（稅後淨利 20.59 億元）；2026 年 7 月推出 500 萬股激勵（佔總股本 0.80%，授予價 750 元），考核線是 2026 年 135 億元、2026—2027 累計 405 億元、三年累計 1,000 億元。<b>敢把「三年千億」寫進考核，是信心，也是壓力</b>——按這條線倒推，2027 年要做到 270 億元、2028 年 595 億元。</p></div><div class="section"><div class="section-title">第五關：218 倍本益比的算術，以及倒過來算的那道題</div><p class='txt'>先把計算基準說清楚。TTM 淨利 = 2025 全年 20.59 + 2026H1 23.11 − 2025H1 10.38 = 33.32 億元；市值 1,156 × 6.2829 億股 = 7,263 億元；<b>PE(TTM) 217.9 倍</b>。同一時點：TTM 營收 96.12 億元，市銷率 75.6 倍；歸母淨資產 135.55 億元，市淨率 53.6 倍。</p><p class='txt'>換個算法更直觀。現價 7,263 億元，如果市場願意給 80 倍（成長股裡已屬慷慨），需要淨利 90.8 億元；按 38.5% 的淨利率倒推，需要營收 236 億元。<b>而公司自己給 2026 年定的考核線是 135 億元，2027 年是 270 億元</b>——也就是說，現價大致等於「2027 年考核目標全額達成 + 80 倍市盈率」。給 60 倍，則需要 314 億元營收，那是 2028 年的事。</p><p class='txt'>還有一組可以對照的數：6 月 30 日股價 1,595.55 元時，公司自己發風險提示公告，寫明滾動市盈率 368.97 倍、市淨率 77.88 倍，而計算機通信電子製造業平均 74.86 倍、軟體業 74.13 倍。<b>公司主動告訴市場「我比行業貴五倍」，這在 A 股不多見。</b>半年報把 TTM 淨利從 27.17 億元抬到 33.32 億元，PE 才從 369 倍降到 218 倍。</p></div><div class="section"><div class="section-title">第六關：把買入理由寫成三個可以被季報打臉的數字</div><p class='txt'>我不接受「國產算力長期空間大」這種前提。紀律這一關要求把假設寫成能在下一次財報裡讀到真假的东西，現在寫下來的是三條：<b>Q3 單季營收環比 ≥15%</b>（H1 只完成 135 億元的 44%，下半年要交 75 億元，環比不到 15% 就意味著目標落空）；<b>經營現金流／淨利 ≥0.5</b>（現在是 0.135，說明利潤還在倉庫裡）；<b>前五大客戶佔比降到 80% 以下</b>（現在是 88.66%，降不下來就意味著議價權永遠在對面）。</p><p class='txt'>三條都能在 10 月下旬的三季報裡讀到。為什麼現在不買？因為這三條裡任何一條不成立，218 倍市盈率都沒有對應的分母。<b>買它需要的不是勇氣，是把估值先降下來。</b></p></div><div class="section"><div class="section-title">否決項與待驗證項</div><b>否決項：安全邊際。</b>218 倍 TTM 本益比、75.6 倍市銷率，意味著市場已經假設 2028 年營收 300 億元以上且淨利率維持 35%——這是樂觀情景，不是基準情景。8 月 10 日半年報後首個交易日跌 6.33%、市值蒸發約 480 億元，就是市場對「增速換擋」的第一反應；6 月 30 日到 8 月 17 日，股價從 1,595.55 元回到 1,156 元，回撤 27.6%。<b>待驗證項三條：</b>① Q3 單季營收能否回到環比 15% 以上（對應全年 135 億元）；② 82.48 億元存貨的週轉天數與跌價準備——原材料 57.49 億元、委託加工物資 25.37 億元，產品迭代一次就要計提；③ 前五大客戶集中度是否下降，尤其是單一互聯網客戶佔比。三條都改善，再談估值；只改善一條，那是反彈不是反轉。</div><div class="summary-box"><h3>結論</h3><b>28/60，六關過三關，否決在價格。</b>這是一家基本面真的在變好、價格真的在透支的公司：上半年營收 59.96 億元（+108.13%）、淨利 23.11 億元（+122.61%）、毛利率 55.25%，都是硬數據；但 Q2 環比只有 7.84%，營業現金流 3.11 億元只有淨利的 13.5%，218 倍市盈率把 2027 年的考核目標提前貼現完了。<b>評級迴避，觀察線 800 元</b>（對應 2027 年中性淨利 65 億元的 77 倍）；Q3 環比回到 15% 以上可上調至「觀察」。</div>
+</div>
+<div class="footer">寒武紀 (688256) · 2026/08/17</div>
+</body>
+</html>

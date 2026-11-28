@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⑧ 決策框架：兩個條件，一條停損線，一張檢查表 — 比亞迪</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/byd/16-八篇深度长文/比亚迪-08-决策框架.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/byd/16-八篇深度長文/比亞迪-八篇長文-8.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/byd/16-Eight-Long-Essays/BYD-Eight Essays-8.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>⑧ 決策框架：兩個條件，一條停損線，一張檢查表 — 比亞迪</h1>
+  <div class="subtitle">把判斷變成可以執行的動作</div>
+  <div class="meta">研究日期 2026/09/04 &nbsp;·&nbsp; 股價 ¥87.40（+0.10%） &nbsp;·&nbsp; 市值 約 7,968 億元（總股本 91.17 億股，A+H） &nbsp;·&nbsp; PE(TTM) 約 27x（2025 年報 326 億元淨利對應約 24x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/byd/00-比亞迪研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>前面七篇講的是「它是什麼」，這一篇講「怎麼辦」。<b>結論：現在不買，觀察；兩個條件滿足一個建倉；一條止損線出現就清倉。</b>所有條件都寫死，不臨場判斷。</p></div><table class="dt"><caption>決策表</caption><thead><tr><th>狀態</th><th>動作</th><th>條件</th></tr></thead><tbody><tr><td>現在（87.4 元，27x）</td><td>0 倉位，觀察</td><td>賠率 3% 上行 / 37% 下行</td></tr><tr><td>條件 A：價格到位</td><td>首倉 1.5%</td><td>股價 ≤75 元（23 倍中性淨利）</td></tr><tr><td>條件 B：基本面轉正</td><td>首倉 1.5%</td><td>國內銷量同比 ≥0 連續兩月</td></tr><tr><td>A + B 同時</td><td>加到 3%–4%</td><td>價格與基本面雙擊</td></tr><tr><td>減倉</td><td>減半</td><td>汽車毛利率 &lt;20% 或出口增速 &lt;30%</td></tr><tr><td>清倉</td><td>0%</td><td>汽車毛利率連續兩季 &lt;18% 或研發費用率 &lt;5.5%</td></tr></tbody></table><div class="note">倉位為組合淨值佔比；條件均為可在報告日後按月／按季跟蹤的公開資料，不依賴主觀判斷。</div><div class="section"><div class="section-title">為什麼是「觀察」而不是「迴避」</div><p class='txt'>迴避的意思是「這公司不行」。比亞迪顯然不是——毛利率逆勢提升、第二季單車淨利回到 0.72 萬元、海外收入接近一半、四座工廠在建。<b>它是這個行業裡唯一四條腿都站得住的公司。</b></p><p class='txt'>觀察的意思是「公司行，價格不行」。27 倍 TTM、中性 +3%、悲觀 -37%，賠率不成立。<b>這兩件事可以同時成立：好公司 + 壞價格 = 觀察。</b></p><p class='txt'>觀察也不是被動。它意味著每個月 1 號看一次銷量、每季度看一次毛利率與研發費用率。<b>等一個能讓自己算得清的理由，而不是等一個讓自己心動的價格。</b></p></div><div class="section"><div class="section-title">兩個條件，為什麼是這兩個</div><p class='txt'><b>條件 A（價格 ≤75 元）</b>解決的是賠率。75 元對應 23 倍 2027 年中性淨利 340 億元，上行到 90 元有 20%，下行到 55 元是 27%，賠率接近 1:1.3——夠建倉，不夠重倉。</p><p class='txt'><b>條件 B（國內銷量同比轉正連續兩月）</b>解決的是邏輯。銷量轉正意味著中性淨利可以從 340 億元上修到 400 億元，90 元變成 105 元，那時候 87 元就有 20% 上行。<b>這一條比價格更重要——它改變的是分子，不是分母。</b></p><p class='txt'>兩條都滿足，就是「價格與基本面雙擊」，可以加到 3%–4%。<b>這是唯一值得重倉的時刻，一年可能只出現一次。</b></p></div><div class="section"><div class="section-title">止損：用邏輯，不用價格</div><p class='txt'>價格停損是最容易犯的錯。一隻股票從 87 元跌到 60 元，如果邏輯沒壞，那是加碼機會；如果邏輯壞了，60 元也是貴的。<b>所以停損要盯邏輯，不盯價格。</b></p><p class='txt'>三條邏輯線：<b>汽車毛利率連續兩季低於 18%</b>（成本優勢被吃掉了）、<b>研發費用率跌破 5.5%</b>（管理層徹底短期化）、<b>出口增速掉到 20% 以下</b>（海外窗口關閉）。任何一條出現，清倉，不看價格。</p><p class='txt'>反過來，如果三條都沒壞、股價跌到 65 元，那是 20 倍中性淨利，應該加碼而不是停損。<b>這就是「用邏輯停損」和「用價格停損」的區別——前者讓你在下跌中賺錢，後者讓你在下跌中割肉。</b></p></div><div class="section"><div class="section-title">一張檢查表：每次想買之前問自己五句</div><ul><li>國內銷量同比轉正了嗎？沒有——那就只買試探倉。</li><li>汽車毛利率還在 20% 以上嗎？在——論點有效。</li><li>研發費用率回到 7% 了嗎？沒有——2027 年預期要打折。</li><li>我買的價格對應多少倍 2027 年中性稅後淨利？超過 25 倍就不買。</li><li>如果明天跌 20%，我會加倉還是恐慌？恐慌——說明倉位太重。</li></ul><p class='txt'>五句話答完，動作自然就出來了。<b>投資最難的不是判斷公司，是管住自己在錯的價格上動手。</b></p></div><div class="section"><div class="section-title">反例：什麼情況下應該追高</div><p class='txt'>任何框架都要有反例。什麼情況下我會在 87 元以上買？<b>一種是國內銷量同比轉正且連續三個月加速</b>——那意味著份額戰打贏了，中性淨利要上修到 400 億元以上，105 元才是合理價。<b>另一種是海外出現「第二個中國市場」級別的突破</b>——比如歐洲月銷穩定在 3 萬輛以上，那海外就不再是「窗口」，而是「第二主場」，估值體系要重寫。</p><p class='txt'>兩種情況的共同點是：<b>它們都會在數據上提前體現，不需要預判。</b>所以「追高」不是不可以，前提是追在有數據支撐的地方，而不是追在情緒上。</p><p class='txt'>最後一個提醒：<b>框架的價值不在於預測對，而在於錯了能及時知道。</b>所以每條條件都配了可觀測指標——這不是謹慎，是讓自己別在噪音裡迷路。</p><p class='txt'>如果只記一句話：<b>好公司、壞價格、等信號——三個詞，缺一個都不能動手。</b></p><p class='txt'>八篇讀完，如果你只記住一個動作：<b>每月 1 號看一眼國內銷量同比，其餘時間不用看。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>決策結論：</b>0 倉位、觀察、兩個觸發條件（≤75 元或國內銷量轉正連續兩月）、一條停損（毛利率／研發／出口三條線任一破）。<b>這家公司值得放進名單第一位，但不值得在 87.4 元買。等，是這件事裡最難也最正確的動作。</b></p></div>
+</div>
+<div class="footer">比亞迪 (002594) · 2026/09/04</div>
+</body>
+</html>

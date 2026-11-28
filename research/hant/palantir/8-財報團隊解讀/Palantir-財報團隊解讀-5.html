@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>觀點合成 — Palantir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/palantir/8-财报团队解读/Palantir-观点合成.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/palantir/8-財報團隊解讀/Palantir-財報團隊解讀-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/palantir/8-Earnings-Team-Read/Palantir-Earnings Team-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>觀點合成 — Palantir</h1>
+  <div class="subtitle">四個人讀同一份財報，讀出了什麼</div>
+  <div class="meta">研究日期 2026/10/05 &nbsp;·&nbsp; 股價 $189.40（+0.34%） &nbsp;·&nbsp; 市值 約 4,560 億美元 &nbsp;·&nbsp; PS(TTM) 約 74 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/palantir/00-Palantir研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>四份精讀交上來，指向同一件事：<b>這份財報的品質沒有任何爭議，爭議全在「這些利潤值多少錢」。</b>四個人用了四種方法，得出的價值區間是 70–195 美元，中位數 120 美元，比現價低 37%。</p><p class='txt'>合成之後有一個數字最值得記住：<b>扣掉股權激勵的股東盈餘 9.55 億美元/季，Q2 年化對應 119 倍本益比。</b>這個數字四個人都認，只是表述不同。</p></div><div class="section"><div class="section-title">四個人同意什麼</div><p class='txt'>第一，收入的真實性沒有疑問。經營現金流／淨利 117%，RDV +124%，客戶加單，三條互相驗證。<b>這不是一家靠會計手段做增長的公司。</b></p><p class='txt'>第二，利潤率是真實的，但要扣兩處水分：股權激勵 13.7%、利息收入約 8% 的淨利。扣完之後，GAAP 營業利益率 47%、股東盈餘利潤率 49%。依舊是頂級。</p><p class='txt'>第三，護城河分兩半：政府側極寬，商業側中等。四個人對「加權後多寬」的分歧在 7–9 分之間，但對「都不到 10 分」沒有分歧。</p><p class='txt'>第四，價格太貴。四個人給的折價幅度不同（37%/50%/60%），方向一致。</p></div><div class="section"><div class="section-title">四個人的分歧在哪裡</div><p class='txt'>段永平關注「客戶明年還買不買」，他給的答案是「買」，所以他把問題歸結為價格。巴菲特關注「股東盈餘」，他算出 119 倍本益比（Q2 年化），所以結論是不買。蒙格關注「哪個數字會騙人」，他挑出三個誤讀點，結論是不參與。李錄關注「十年後的結構」，他算出最好情形年化 7.7%，結論是賠率不夠。</p><p class='txt'><b>四個人的分歧其實不是對公司的判斷，是對「多少回報才值得承擔風險」的標準。</b>段永平要求「至少翻倍」，巴菲特要求「15% 年化」，蒙格要求「不要虧損」，李錄要求「三倍空間」。四個標準，一個結論。</p></div><div class="section"><div class="section-title">合成後最該記住的三個數</div><p class='txt'><b>119 倍。</b>扣掉股權激勵後的市盈率（Q2 年化）。這是四個人唯一都算過的數，也是最不容易被會計口徑操縱的數。</p><p class='txt'><b>49%。</b>股東盈餘利潤率。說明生意本身沒有問題——這個數字在軟體業裡能排進前 5%。它和 119 倍同時成立，就是「好生意、壞價格」的完整定義。</p><p class='txt'><b>1.74 倍。</b>TCV / 收入。這是唯一還在健康區間的領先指標。它掉到 1.2 以下，就是基本面出問題的第一個信號——比收入增速下滑更早，比股價下跌更可信。</p></div><div class="summary-box"><h3>結論</h3><p>綜合結論：<b>好生意、真利潤、寬護城河（政府端）、貴到沒有安全邊際。</b>四個人的估值中位數 120 美元，比現價低 37%。三個必須記住的數字：119 倍本益比、49% 股東盈餘利潤率、1.74 倍 TCV/收入。<b>結論迴避；觀察指標是 TCV/收入和 SBC 佔比。</b></p></div>
+</div>
+<div class="footer">Palantir (PLTR) · 2026/10/05</div>
+</body>
+</html>

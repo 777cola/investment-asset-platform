@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>論文追蹤 — 特斯拉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/tesla/13-持仓论文追踪/特斯拉-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/tesla/13-持倉論文追蹤/特斯拉-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/tesla/13-Thesis-Tracking/Tesla-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>論文追蹤 — 特斯拉</h1>
+  <div class="subtitle">特斯拉 (TSLA) | 13 · 論文追蹤</div>
+  <div class="meta">研究日期 2026/07/22 &nbsp;·&nbsp; 股價 $374.01（-1.30%） &nbsp;·&nbsp; 市值 約 1.48 萬億美元 &nbsp;·&nbsp; PE(TTM) —（利潤太薄，PE 已失真）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/tesla/00-特斯拉研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：論文沒有崩，但也沒有進展到可以買入</h3><p class='txt'>把買入特斯拉需要成立的五條假設列出來，逐條對帳：<b>汽車毛利率築底（觀察中）、儲能成第二曲線（未達標）、FSD 可變現（未驗證）、Robotaxi 多城無安全員（初步成立）、資本開支可自我融資（已證偽）。</b></p><p class='txt'>五條裡最有分量的是第五條——它從「假設」變成了「反證」。<b>自由現金流 -10.92 億美元、全年資本開支超 250 億、準備 300 億借款額度，這三件事放在一起，說明公司已經進入「外部融資驅動增長」的階段。</b>對一家 PE 389 倍的公司來說，這是最不該出現的變化。</p></div><table class="dt"><caption>核心假設與驗證狀態（2026Q2 對帳）</caption><thead><tr><th>核心假設</th><th>當前證據</th><th>驗證指標</th><th>狀態</th></tr></thead><tbody><tr><td>汽車毛利率在 17% 附近築底</td><td>汽車毛利率 16.9%，剔除積分約 16.2%，同比仍改善</td><td>季度汽車毛利率 ≥16.5%</td><td>觀察中</td></tr><tr><td>儲能成為第二成長曲線</td><td>13.5GWh（+41%），但收入僅 +12.6%、分部毛利率 20.4%（去年 39.5%）</td><td>分部毛利率 ≥25%、收入增速 ≥25%</td><td>未達標</td></tr><tr><td>FSD 具備可變現的規模</td><td>服務收入 +50% 創紀錄，但 FSD 金額未單獨披露</td><td>FSD 收入單列或訂閱用戶數披露</td><td>未驗證</td></tr><tr><td>Robotaxi 可多城無安全員營運</td><td>覆蓋美國 7 大都會區；達拉斯、休士頓自 4 月起無安全員</td><td>無安全員城市數、週付費單量</td><td>初步成立</td></tr><tr><td>資本支出可自我融資</td><td>自由現金流 -10.92 億元、資本支出 57.89 億元、全年 &gt;250 億元、備 300 億元額度</td><td>連續兩季 FCF 為正</td><td>已證偽</td></tr></tbody></table><div class="note">假設為本報告設定，證據取自特斯拉 2026Q2 財報與公開披露。狀態定義：成立=指標已達成；初步成立=方向對但規模未驗證；觀察中=未惡化也未確認；未達標=指標明確未達；已證偽=與假設方向相反。</div><div class="section"><div class="section-title">假設一：汽車毛利率築底——觀察中，別急著下結論</div><p class='txt'>16.9% 的汽車毛利率裡含著 1.46 億美元積分（約 0.7 個百分點），剔除後是 16.2%。去年同期剔除積分後約 15.2%。<b>同比是改善的，說明降本有效；但環比從 Q1 的 21.1%（含關稅回沖）掉下來，趨勢不好看。</b></p><p class='txt'>真正要看的不是絕對值，是「降本速度能否跑贏降價速度」。<b>2026Q2 單車製造成本在降，均價也在降，兩者幾乎抵消——這就是毛利率橫在 16% 附近的原因。</b>如果 Q3 跌破 16%，說明降價跑贏了降本，假設失敗。</p></div><div class="section"><div class="section-title">假設二與三：儲能與 FSD——一個未達標，一個看不見</div><p class='txt'>儲能的問題是「量增價減」：13.5GWh、同比 +41%，收入只增 12.6%，單價降了約兩成；分部毛利率 20.4%，比去年同期的 39.5% 掉了一半，其中 2.4 億是供應商電池保固計提。<b>把一次性因素加回來，毛利率大約 28%——假設其實沒破，只是被一次性項目遮住了。</b></p><p class='txt'>FSD 的問題是「看不見」：服務收入 45.81 億、同比 +50%，公司說裡面有 FSD 訂閱增長，但不給金額。<b>一個貢獻 16% 營收、50% 增速的板塊，沒有任何分部數據，這在美股大型公司裡很少見。</b></p><p class='txt'>兩條合起來看：<b>儲能是「看得見的好、被一次性遮住」，FSD 是「看不見的好、只能信」。</b>前者可以等財報驗證，後者只能等公司願意披露。</p></div><div class="section"><div class="section-title">假設四：Robotaxi——初步成立，但規模是黑箱</div><p class='txt'>進展是真的：2026 年 4 月進達拉斯、休士頓，且兩地從第一天起就是無安全員；6 月擴到奧斯汀都會區全境；7 月新增邁阿密、奧蘭多、坦帕，合計覆蓋美國七大都會區；Cybercab 已在德州工廠投產，7 月開始員工試營運。</p><p class='txt'>但對比 Waymo：10 個城市、每週 50 萬付費單、車隊約 3,000 輛、年底目標每週 100 萬單。<b>特斯拉不公布單量、不公布車隊規模、不公布單車日均收入——三個關鍵指標全缺。</b></p><p class='txt'>所以狀態是「初步成立」：<b>技術路線跑通了，商業模式還沒驗證。</b>這一條能不能變成「成立」，要看公司願不願意在 Q3 財報裡給數字。</p></div><div class="section"><div class="section-title">假設五：資本支出自我融資——已證偽，這是最重要的變化</div><p class='txt'>2026Q2 營業現金流 46.97 億元，資本支出 57.89 億元，自由現金流 -10.92 億元。全年指引超過 250 億美元（2025 年 85 億元），同時準備最高 300 億美元借款額度。<b>三個數字放在一起，結論只有一個：從今年起，特斯拉要靠外部資金支持擴張。</b></p><p class='txt'>這不是財務危機——帳上還有 435 億元現金，負債率約 40%。<b>這是估值邏輯的變化：從「自我造血的成長股」變成「需要持續融資的重資產公司」。</b>前者可以給高倍數，後者只能給製造業倍數。</p><p class='txt'>所以這條假設的證偽，比其他四條加起來都重要。<b>它不改變公司會不會成功，它改變市場願意為成功付多少錢。</b></p></div><div class="section"><div class="section-title">證偽條件與觀察日曆</div><b>整體論文的證偽條件（出現任一，移出觀察名單）：</b><ul><li>汽車毛利率連續兩個季度低於 15%；</li><li>FSD 在主要市場被限制營運，或發生重大監管處罰；</li><li>馬斯克卸任 CEO 或實質性退出日常管理；</li><li>儲能分部毛利率連續兩季低於 15%（剔除一次性後仍低）。</li></ul><b>觀察日曆：</b>每月初中國批發／上險數據（比亞迪、小米、特斯拉中國銷量）；10 月初 Q3 交付公告；10 月下旬 Q3 財報（重點看汽車毛利率、FSD 是否單列、FCF）；每季度 Robotaxi 新增城市與是否取消安全員；儲能訂單與 Megapack 交付節奏。<b>下一個決策點：Q3 財報。</b>如果汽車毛利率守住 16.5%、FCF 環比轉正、FSD 仍未單列——維持觀察；如果毛利率跌破 16%、FCF 連續第二季為負——下調到「迴避」。</div><div class="summary-box"><h3>結論</h3><b>結論：論文還在，但含金量在下降。</b>五條假設兩條成立（毛利率觀察中算半條）、一條證偽、兩條未驗證。<b>最關鍵的變化是「資本支出自我融資」被證偽——它把公司從「成長股」推向了「重資產製造商」的估值框架。</b>動作：維持觀察，不建倉；Q3 財報是下一個決策點，重點看毛利率與自由現金流，不看交付量。</div>
+</div>
+<div class="footer">特斯拉 (TSLA) · 2026/07/22</div>
+</body>
+</html>

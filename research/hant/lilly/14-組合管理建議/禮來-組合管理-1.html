@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組合管理 — 禮來</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/lilly/14-组合管理建议/礼来-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/lilly/14-組合管理建議/禮來-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/lilly/14-Portfolio-Action/Eli Lilly-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>組合管理 — 禮來</h1>
+  <div class="subtitle">禮來 (LLY) | 14 · 組合管理</div>
+  <div class="meta">研究日期 2026/11/09 &nbsp;·&nbsp; 股價 $1,411.95（+4.28%） &nbsp;·&nbsp; 市值 約 1.33 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 48x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/lilly/00-禮來研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>結論很乾淨：<b>現在不配，等價格。</b>1,411.95 美元對應中性目標價 1,344 美元，期望收益 -5%、賠率 0.6 比 1，任何倉位都是負期望。分四檔建倉：1,200 美元以下 3%（試探）、1,050 以下 6%（2027 年 25 倍）、825 以下 8%（悲觀情景，需確認論文未破）。<b>單票上限 8%，因為這是一個單一分子公司，集中度風險不能用「龍頭」兩個字糊過去。</b></p></div><table class="dt"><caption>倉位建議（按價格分檔）</caption><thead><tr><th>情境</th><th>價位</th><th>對應 2027 年 PE</th><th>建議倉位</th><th>理由</th></tr></thead><tbody><tr><td>現價</td><td>1,411.95 美元</td><td>33.6x</td><td>0%</td><td>中性目標價 1,344 美元低於現價 5%，負期望</td></tr><tr><td>合理上緣</td><td>1,344 美元</td><td>32x</td><td>0%–1%</td><td>剛好等於中性目標價，沒有安全邊際，只適合「必須持有」的資金</td></tr><tr><td>第一檔</td><td>1,200 美元</td><td>28.6x</td><td>3%</td><td>賠率翻到約 1.4 比 1，可以開始試探</td></tr><tr><td>第二檔</td><td>1,050 美元</td><td>25x</td><td>6%</td><td>對應巴菲特口徑的「合理價」，安全邊際出現</td></tr><tr><td>第三檔</td><td>825 美元</td><td>19.6x</td><td>8%（上限）</td><td>等於悲觀情景目標價，需先確認論文未破再動手</td></tr></tbody></table><div class="note">倉位為占股票組合的比例，非總資產。2027 年 PE 按中性 EPS 42 美元計算。第三檔 825 美元對應悲觀 EPS 33 美元 × 25 倍，若屆時 EPS 假設已下修，需重算。</div><table class="dt"><caption>與其他持倉的相關性</caption><thead><tr><th>對標</th><th>相關性</th><th>原因</th></tr></thead><tbody><tr><td>諾和諾德</td><td>高（同向）</td><td>同賽道、同支付方、同政策風險；諾和跌通常帶禮來跌</td></tr><tr><td>醫藥／生物科技 ETF</td><td>高（0.7 左右）</td><td>板塊資金流驅動，個股 alpha 在短期被淹沒</td></tr><tr><td>AI 算力鏈（輝達等）</td><td>低</td><td>需求驅動完全不同：一個是患者數，一個是資本支出</td></tr><tr><td>長端美債</td><td>負（存續期長）</td><td>48 倍 PE 是長久期資產，利率上行直接壓估值</td></tr><tr><td>消費必需品</td><td>低</td><td>同屬防禦，但禮來的成長彈性遠高於必需消費</td></tr></tbody></table><div class="note">相關性為定性判斷，未做量化回歸。禮來的久期屬性（現金流遠期化）決定了它對利率敏感。</div><div class="section"><div class="section-title">為什麼現在必須是 0，而不是「先配一點」</div><p class='txt'>「先配一點」是最常見的紀律失守方式。它的邏輯是「萬一漲了呢」，而不是「這個價格值不值」。<b>算一下：現價買入，中性情景 -5%、悲觀 -42%、樂觀 +26%，三個情景等權期望 -7%。</b>配 3% 的倉位，對組合的期望貢獻是 -0.2%——不多，但它佔掉了一個倉位名額，還製造了「我已經有禮來了」的心理錨，讓人在真正該買的價格上反而猶豫。</p><p class='txt'>另一種說法是「長期看好，短期的波動不重要」。這句話在 20 倍 PE 時成立，在 48 倍時不成立——<b>48 倍意味著未來三年的回報已经被提前支取，長期持有並不能把這個價格變便宜。</b></p></div><div class="section"><div class="section-title">加倉、減倉、停損的具體價位</div><p class='txt'><b>加倉</b>按四檔走，每一檔都要重新看一眼論文：1,200 美元（3%）、1,050 美元（6%）、825 美元（8% 上限）。分檔的目的不是攤薄成本，是「讓價格替你做判斷」——如果跌到 825，說明市場已經在定價悲觀情景，那時候要確認的是「悲觀情景會不會更悲觀」，而不是「跌了這麼多該補了」。</p><p class='txt'><b>減倉不看價格，看論文。</b>三條觸發：Foundayo 連續兩季單季低於 3 億美元；美國實際售價單季降幅超 12%；2027 年營收指引低於 1,050 億美元（增速 &lt;15%）。觸發任一條，減半；觸發兩條，清到觀察倉。<b>長線投資不用價格止損，因為價格止損會在最買點上把你洗出去。</b></p><p class='txt'>再補一條實際操作：<b>分檔建倉的間隔不要設成 5%–10%，要設成 15% 以上。</b>禮來年化波動率 31.6%，三個月裡就有過 -8.2% 和 +26.6% 兩段行情，設太密的檔位等於在噪音裡交易。1,411.95 到 1,200 是 -15%，1,200 到 1,050 是 -12.5%，1,050 到 825 是 -21%——這個間距才配得上它的波動率。</p></div><div class="section"><div class="section-title">相關性與組合角色</div><p class='txt'>禮來在組合裡的角色是「防禦性成長」：需求剛性（慢性病）、現金流穩、但估值高。這和 AI 算力鏈（輝達、台積電）幾乎零相關——一個看患者滲透率，一個看雲廠資本支出，兩個驅動因子不重疊。<b>如果組合裡已經有一堆 AI 硬體，禮來是很好的分散標的；如果組合裡已經有諾和或者醫藥 ETF，禮來只是加倍下注同一個因子。</b></p><p class='txt'>利率敏感這條要單獨說：48 倍 PE 的資產，久期很長，長端利率每上 50 個基點，估值中樞下移 5%–8%。<b>所以買禮來的時機，往往和「利率見頂」重合——這不是巧合，是折現率在起作用。</b></p><p class='txt'>最後一件事：<b>如果組合裡已經有醫藥 ETF，禮來的正確加法是「用個股替換 ETF 裡的禮來權重」，而不是在 ETF 之外再加一層。</b>否則你只是在同一個因子上加槓桿。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>倉位：0。加倉線 1,200／1,050／825，上限 8%。減倉看論文不看價格。</b>如果已經持有，這個價位不必賣——基本面沒壞，賣出只是稅和手續費的損耗；但也不要加。等 2027 年 2 月的指引，那才是重新定價的時點。</p></div>
+</div>
+<div class="footer">禮來 (LLY) · 2026/11/09</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>觀點合成 — 騰訊控股</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/tencent-20260814/8-财报团队解读/腾讯控股-观点合成.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/tencent-20260814/8-財報團隊解讀/騰訊控股-財報團隊解讀-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/tencent-20260814/8-Earnings-Team-Read/Tencent Holdings-Earnings Team-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>觀點合成 — 騰訊控股</h1>
+  <div class="subtitle">四篇精讀並置，共識三條、分歧兩條</div>
+  <div class="meta">研究日期 2026/08/14 &nbsp;·&nbsp; 股價 HK$440.00（-0.23%） &nbsp;·&nbsp; 市值 約 4.01 萬億港元 &nbsp;·&nbsp; PE(TTM) 約 15.0x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/tencent-20260814/00-騰訊控股研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>四篇精讀指向同一個結論：<b>主業沒壞，現金變薄，價格已經反映了壞消息。</b>四個人給的估值區間是 12–15 倍，現價 13.2 倍正好在中間。</p><p class='txt'>真正的分歧只有兩條：資本支出是一次性還是常態化；AI 該不該單列估值。</p></div><table class="dt"><caption>四篇精讀的共識與分歧</caption><thead><tr><th>議題</th><th>段永平</th><th>巴菲特</th><th>蒙格</th><th>李錄</th></tr></thead><tbody><tr><td>主業質地</td><td>好，增量來自廣告</td><td>一流，毛利 57.8%</td><td>好，但變重</td><td>成熟基礎設施</td></tr><tr><td>資本支出</td><td>需要解釋</td><td>看五年回報</td><td>可能變成無底洞</td><td>必須付的門票</td></tr><tr><td>估值</td><td>13 倍可以開始買</td><td>便宜，低於回購價</td><td>只值一半倉位</td><td>合理，中樞 15 倍</td></tr><tr><td>結論</td><td>買</td><td>買</td><td>買入，但小倉位</td><td>買進，當指數持有</td></tr></tbody></table><div class="note">四篇精讀各自獨立完成，不互相參考；表格為對四篇觀點的歸納，非新增判斷。</div><div class="section"><div class="section-title">共識一：主業沒有惡化</div><p class='txt'>四個人都提到同一組數字：收入 +11%、毛利率 57.8%（+1pct）、行銷服務 +22%、微信月活 14.39億、視頻號時長 +20%。<b>沒有一個人認為騰訊的生意在變壞。</b></p><p class='txt'>這在四篇獨立分析裡同時出現，說明它不是敘事，是事實。市場跌 35% 的理由不在這裡。</p></div><div class="section"><div class="section-title">共識二：現金是這季唯一的壞消息</div><p class='txt'>自由現金流 -138億元、營業現金流 527.10億元（-29%）、淨現金一季少 887億元。四個人都把這當作「新資訊」，也都把它當作「可修復的資訊」。</p><p class='txt'><b>區別在於修復的時間：</b>段永平認為一兩季就過去了，巴菲特認為要看五年，芒格認為可能永遠回不到從前，李錄認為不重要（基礎設施看十年）。<b>這個差異直接決定了倉位。</b></p></div><div class="section"><div class="section-title">共識三：價格提供了安全邊際，但不多</div><p class='txt'>13.2 倍 2026E Non-IFRS、15 倍 TTM，都在歷史下沿。四個人給的合理區間是 12–15 倍，意味著<b>現在的價格是「合理偏低」，不是「深度低估」。</b></p><p class='txt'>這就是為什麼四個人的結論都是「買」而不是「重倉」。深度低估的樣子是 8 倍 PE + 淨現金占市值三成，騰訊現在只有 581.91億元淨現金（占市值 1.4%）。</p></div><div class="section"><div class="section-title">分歧一：527 億是一次性還是常態</div><p class='txt'>段永平與李錄傾向相信管理層的「一次性啟動投資」說法；巴菲特與芒格不信，理由是「沒有哪家公司建完算力就停止採購」。</p><p class='txt'><b>我傾向後者。</b>理由是歷史：騰訊的資本支出從 2023 年的每季 60億元 一路走到 527.84億元，中間沒有一次是「建完就停」。管理層的說法可能是真的（訓練叢集建完，推理需求靠現有機群），但它需要證據，而證據要等到 2027 年。</p></div><div class="section"><div class="section-title">分歧二：AI 該不該單列估值</div><p class='txt'>段永平把它當期權（給 0），蒙格把它當潛在負債（要扣），李錄把它當門票（不單列但影響中樞），巴菲特最簡單——看不懂就不給倍數。</p><p class='txt'><b>合成：不給 AI 單獨估值，但在 PE 上折價 4 倍。</b>騰訊歷史中樞 18–20 倍，現在給 14 倍，折掉的 4–6 倍就是「AI 不確定性」的價格。這是唯一不需要預測 AI 收入的做法，也是四個人都能接受的做法。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>合成的結論一句話：<b>13 倍買一家 57.8% 毛利率、14.39億用戶、正在為 AI 付門票的公司，賠率夠、勝率高，但不該重倉。</b></p><p class='txt'>操作：440 港元買一半，400 港元以下加滿，480 港元以上停止加倉。目標價 535 港元（14 倍 × 2027E 3,200億元）。</p></div>
+</div>
+<div class="footer">騰訊控股 (00700) · 2026/08/14</div>
+</body>
+</html>

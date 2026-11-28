@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industry Funnel — JD.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/jd/11-行业漏斗对比/京东集团-行业漏斗.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" data-lang="hant" href="/research/hant/jd/11-行業漏斗對比/京東集團-行業漏斗-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" data-lang="en" href="/research/en/jd/11-Industry-Funnel/JD.com-Industry Funnel-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>Industry Funnel — JD.com</h1>
+  <div class="subtitle">JD.com (9618.HK) | 11 · Industry Funnel</div>
+  <div class="meta">Research date 2026/10/26 &nbsp;·&nbsp; Price HK$99.40 (-0.60%) &nbsp;·&nbsp; Market cap Approximately HKD 280 billion &nbsp;·&nbsp; PE (2026E adjusted) Approximately 7.5x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/en/jd/00-JD.com-Research-Hub.html">← Back to the hub</a>
+<div class="summary-box"><h3>Core view</h3><p class='txt'>Run China's six e-commerce and local-life names through a funnel, starting with three coarse screens (is revenue growing, are margins stable, does the valuation leave enough room for error): <b>PDD, Meituan and Alibaba stay; JD, Vipshop and Douyin E-commerce (not investable) drop out.</b> The final stage weighs business quality against price: PDD has the best business (high gross margin, asset-light, steady profit) and is also the cheapest; JD has the cheapest assets but the worst business. <b>The funnel's conclusion is not "buy JD" but "JD has unique value in its own slot" — it is the only one that offers certainty in heavy-goods fulfilment.</b></p></div><table class="dt"><caption>Peer funnel (October 2026, order-of-magnitude estimate)</caption><thead><tr><th>Company</th><th>Market-cap magnitude</th><th>Latest quarter revenue growth</th><th>Gross profit / margin profile</th><th>PE magnitude</th><th>Funnel determination</th></tr></thead><tbody><tr><td>Pinduoduo</td><td>About HKD 1.3 trillion equivalent</td><td>Positive growth (around double digits)</td><td>Gross margin 55%–60%, asset-light</td><td>8–10x</td><td>Final selection: superior in both quality and price</td></tr><tr><td>Meituan</td><td>About HKD 500 billion</td><td>Single-digit growth</td><td>Gross margin around 30%, with the food-delivery battle weighing on profit</td><td>Above 20x (depressed earnings)</td><td>Retain: No. 1 in instant retail, but valuation is expensive</td></tr><tr><td>Alibaba</td><td>About HKD 2.4 trillion</td><td>Low single-digit growth</td><td>Gross margin 35%–40%, flash-sale investment period</td><td>15–18x</td><td>Most complete ecosystem, transformation incomplete</td></tr><tr><td>JD.com</td><td>HKD 280 billion</td><td>-2.9%</td><td>Retail operating margin 4.6%, net margin 2.1%</td><td>7.5x (adjusted)</td><td>Observation: cheap assets, worst business</td></tr><tr><td>Vipshop</td><td>About HKD 50 billion</td><td>Negative growth</td><td>Gross margin above 20%, but the market is shrinking</td><td>6–8x</td><td>Eliminated: vertical ceiling already in sight</td></tr><tr><td>Douyin e-commerce (unlisted)</td><td>—</td><td>GMV growth slows</td><td>Low traffic costs, weak fulfillment</td><td>—</td><td>Not investable: no public vehicle</td></tr></tbody></table><div class="note">Market cap is a magnitude estimate (rough calculation based on the overall valuation levels of China concept stocks and Hong Kong stocks in October 2026), used only for horizontal ranking and not as a valuation basis. JD.com data is taken from its 2026Q2 earnings announcement and the October 26, 2026 close; the rest are common ranges from public financial reports.</div><div class="section"><div class="section-title">Rough screening: three criteria, half eliminated</div><p class='txt'><b>First criterion: is revenue growing.</b> JD.com -2.9% and Vipshop negative growth are out; Pinduoduo growing, Meituan single-digit, Alibaba low single-digit stay in. This is the harshest line, because a retailer's valuation re-rating headroom depends on revenue elasticity; companies with negative revenue growth can only rely on "cost cuts" and "buybacks", not on "growth".</p><p class='txt'><b>Second criterion: are margins stable.</b> Meituan's profit has been crushed to extremely low levels by the food-delivery war (which is also why its PE looks expensive), Alibaba is dragged down by flash-sale investment, and JD.com only turned positive by slashing expenses. All three are in a state of "profit distorted by war"; only Pinduoduo's margin is stable. <b>The point of this line is to exclude companies with "one-off profit repair".</b></p><p class='txt'><b>Third criterion: does valuation offer enough margin for error.</b> JD.com at 7.5x offers enough, Pinduoduo at 8–10x offers enough, Meituan above 20x offers no margin for error, Alibaba at 15–18x is barely adequate.</p><p class='txt'>Crossing the three lines: <b>Pinduoduo passes all, JD.com passes one (valuation), Meituan passes one and a half, Alibaba passes one and a half, Vipshop passes zero.</b></p></div><div class="section"><div class="section-title">Final pick: why not JD, but why JD deserves a separate look</div><p class='txt'>If you could only buy one Chinese e-commerce company, the answer is Pinduoduo: 55%–60% gross margin, asset-light, stable profitability, valuation below 10x. Its business quality is an order of magnitude better than JD.com's—what JD.com needs 1,500 warehouses and 900,000 employees to do, Pinduoduo accomplishes with algorithms and supply.</p><p class='txt'>But JD.com holds one unique value in this funnel: <b>it is the only national player that can deliver certainty in categories involving heavy goods, bulky items, and installation and after-sales service.</b> Home appliances, 3C, furniture, building materials—the fulfillment complexity in these categories is high enough that the platform model cannot do it well. Pinduoduo cannot do it, and Meituan certainly cannot. This position is not large, but it is very stable.</p><p class='txt'>So the correct way to use the funnel is not "pick the single best one to buy" but "assign a price to each cell." <b>A fair price for Pinduoduo is 10–12x PE; a fair price for JD.com is 8–11x adjusted PE. JD.com now trades at 7.5x, already below the lower bound of its fair range; Pinduoduo at 8–10x is also at the lower bound.</b> Both are cheap, for different reasons: Pinduoduo's growth is slowing, while JD.com is not growing.</p></div><div class="section"><div class="section-title">Why "cheap" does not equal "opportunity" for JD</div><p class='txt'>The funnel screens out two kinds of cheap companies: the "misunderstood" and the "seen through." Pinduoduo is the former—the market worries growth has peaked, but its margins are still there. JD.com is the latter—the market has already tallied the RMB 235.1 billion in cash and knows food delivery is burning money; the 7.5x PE is the price of that perception.</p><p class='txt'>For a company that has been seen through to rise, it needs a "perception-changing event," not a "cheaper price." <b>For JD.com, there are only two such events: food delivery stops losing money, or management starts returning cash to shareholders.</b> The former takes two years; the latter takes one decision.</p><p class='txt'>So in the funnel, JD.com sits at "watch," not "final pick." This is not a rejection of the company but a judgment on timing.</p></div><div class="summary-box"><h3>Conclusion</h3><p class='txt'>Funnel conclusion: <b>Six screened down to three, final pick Pinduoduo, JD.com on watch.</b> JD.com's value lies not in "the best business" but in "the cheapest heavy-cargo fulfillment assets" plus "cash equal to 90% of market cap." The reason to buy it must be assets and price, not a growth story.</p><p class='txt'>Actionable next step: track JD.com and Pinduoduo on the same table — if JD.com's Q3 revenue turns positive and Pinduoduo's growth drops to single digits, the valuation gap between the two will narrow, and that is the window to switch positions.</p></div>
+</div>
+<div class="footer">JD.com (9618.HK) · 2026/10/26</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>產業鏈全景 — 寒武紀</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/cambricon/9-AI芯片/寒武纪-产业链全景.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/cambricon/9-AI晶片/寒武紀-產業鏈全景-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/cambricon/9-AI-chips/Cambricon-Industry Chain-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>產業鏈全景 — 寒武紀</h1>
+  <div class="subtitle">寒武紀 (688256) | 09 · 產業鏈全景</div>
+  <div class="meta">研究日期 2026/08/17 &nbsp;·&nbsp; 股價 ¥1,156.00（+5.76%） &nbsp;·&nbsp; 市值 約 7,271 億元 &nbsp;·&nbsp; PE(TTM) 約 218x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/cambricon/00-寒武紀研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>AI 晶片產業鏈的價值分布，一句話：<b>毛利率最高的是 EDA 和設計，現金流最好的是代工和記憶體，最難受的是中間的設計公司。</b>寒武紀站在設計這一環，毛利率 55.25%，比輝達的 70% 低一檔，卻要替整條鏈承擔備貨與產能風險。</p><p class='txt'>它的位置可以概括為「設計端的稀缺節點、製造端的弱勢客戶」：對下游有議價權（客戶買不到昇騰也買不到輝達頂配），對上游幾乎沒有（中芯 N+2 排隊、HBM 配額、先進封裝緊張）。<b>2026 上半年預付 29.14 億元、存貨 82.48 億元，就是這條鏈上弱勢地位的財務證據。</b>週期位置上，AI 資本支出仍處高位、國產替代在中段，但供給正在從「配額稀缺」走向「充分競爭」。</p></div><table class="dt"><caption>AI 晶片產業鏈價值分布（2026 年）</caption><thead><tr><th>環節</th><th>代表公司</th><th>毛利率／價值量</th><th>議價權</th><th>對寒武紀的影響</th></tr></thead><tbody><tr><td>EDA / IP</td><td>新思、楷登、華大九天</td><td>80%—90%</td><td>強（工具壟斷）</td><td>受管制，國產 EDA 覆蓋不全，先進節點驗證難</td></tr><tr><td>晶圓代工（先進製程）</td><td>台積電、中芯國際</td><td>台積電約 58%、中芯 20%—25%</td><td>極強（產能稀缺）</td><td>第一道閘門：中芯 N+2 配額決定收入上限</td></tr><tr><td>HBM／記憶體</td><td>海力士、三星、美光、長鑫</td><td>40%—60%（上行期更高）</td><td>強（供不應求）</td><td>第二道閘門：690 放量取決於 HBM 配額，漲價直接壓毛利</td></tr><tr><td>先進封裝（2.5D/CoWoS）</td><td>台積電、長電、通富</td><td>20%—40%</td><td>中偏強</td><td>雙 die 封裝依賴 2.5D 產能，國產替代在爬坡</td></tr><tr><td>AI 晶片設計</td><td>輝達、寒武紀、海光、昇騰</td><td>輝達 70%+、寒武紀 55.25%、海光 55.21%</td><td>中（對下游有、對上游無）</td><td>寒武紀所在環節，賺稀缺租金</td></tr><tr><td>板卡／整機／伺服器</td><td>浪潮、工業富聯、中科曙光</td><td>5%—12%</td><td>弱</td><td>通路與合作方，議價權低</td></tr><tr><td>雲 / 智算中心</td><td>阿里雲、字節、三大營運商</td><td>雲 30%—40%、智慧算力租賃 15%—25%</td><td>強（買方）</td><td>最終買單方，也是壓價方</td></tr></tbody></table><div class="note">毛利率為各環節代表公司最近披露財年的區間粗值，用於橫向對照，不作精確引用；AI 晶片設計環節的寒武紀／海光為 2026H1 實際數（55.25%／55.21%），輝達為公開財報區間。</div><div class="section"><div class="section-title">上游：兩道閘門，一道比一道緊</div><p class='txt'>第一道是晶圓代工。2022 年 12 月實體清單之後，台積電 7nm 及以下對大陸 AI 晶片客戶停供，先進製程基本收歸中芯國際 N+2（等效 7nm）。<b>這不是錢能解決的問題</b>——中芯的先進產能就那麼多，華為昇騰優先，寒武紀排在後面。上半年預付 29.14 億元（+291.37%），本質是「排隊押金」。</p><p class='txt'>第二道是 HBM。全球由海力士、三星、美光主導，國產長鑫 HBM3 剛起量；2026 年 HBM 供不應求、價格上行，機構預計緊缺延續到 2027 年。<b>思元 690 走雙 die + HBM3，沒有 HBM 就沒有 690，沒有 690 就沒有 2027 年的增長。</b></p><p class='txt'>兩道閘門之外還有先進封裝。雙 die Chiplet 需要 2.5D 封裝產能，台積電 CoWoS 對大陸客戶基本關閉，國產長電、通富在爬坡。<b>三道關卡疊在一起，就是「設計公司做不了主」的根源。</b></p></div><div class="section"><div class="section-title">中游：設計的價值分配，輝達拿走七成，寒武紀拿五成五</div><p class='txt'>同樣一顆 AI 晶片，輝達的毛利率 70% 以上，寒武紀 55.25%，海光 55.21%。差在哪？<b>不是製造成本，是軟體生態的定價權。</b>輝達賣的是「CUDA + 晶片 + 網路」的整體，客戶為遷移成本付錢；寒武紀賣的是「能拿到貨的晶片」，客戶為供應安全付錢。</p><p class='txt'>這兩種錢的性質不同。生態錢可以年年漲，供應安全的錢隨供給寬鬆而消失。<b>所以 55% 的毛利率是「稀缺租金」，不是「技術溢價」</b>——它對供給格局高度敏感，對技術迭代反而不太敏感。</p><p class='txt'>中游內部還有一層：海光走 CPU + DCU 雙線，2026H1 營收 90.99 億元、淨利 17.98 億元、研發 26.52 億元（占營收 29.15%）；寒武紀單線作戰，營收 59.96 億元、淨利 23.11 億元、研發 7.02 億元（占 11.72%）。<b>海光用更高的研發換更穩的基本盤，寒武紀用更低的研發換更高的利潤率</b>——兩種活法，都有道理。</p></div><div class="section"><div class="section-title">下游：三個買家，一套壓價邏輯</div><p class='txt'>買卡的只有三類人：網際網路雲廠商（字節、阿里、騰訊、百度）、電信業者與地方智算、行業客戶。前兩類占絕大部分。<b>雲廠商的採購邏輯是「效能／價格 + 供應安全」，智算中心的邏輯是「政策 + 交付」</b>，兩者都不看品牌忠誠度。</p><p class='txt'>這就是 88.66% 客戶集中度的由來——不是它不想分散，是買家本來就只有那麼幾家。客戶越集中，議價權越強；寒武紀能維持 55% 毛利，靠的是「暫時沒有第三家能供貨」，而不是談判地位。<b>一旦昇騰產能放開、或者雲廠商自研晶片成熟，壓價立刻開始。</b></p></div><div class="section"><div class="section-title">週期位置：資本支出高位，供給從稀缺走向競爭</div><p class='txt'>需求側仍處高位：北美四大雲廠 2026 年資本支出大幅上調，國內營運商與地方智算持續招標；記憶體進入超級週期（DRAM 合約價年初漲 60%—70%、NAND 漲超 100%），說明算力基礎設施仍在擴張。<b>這是寒武紀 2026 年營收翻倍的行業底座。</b></p><p class='txt'>供給側在快速擴張：中芯先進產能擴產、長鑫 HBM 起量、摩爾線程等新玩家上市融資擴產。<b>行業正從「配額稀缺」走向「充分競爭」</b>——這個過程通常伴隨毛利率下移與估值下移，兩者同時發生。</p><p class='txt'>所以週期位置可以這樣描述：<b>需求在週期的中後段，供給在擴張的早中期。</b>對設計公司來說，這是最難受的組合——量還在漲，價開始鬆。</p></div><div class="section"><div class="section-title">它在鏈條裡的位置：一句話說清</div><b>設計端的稀缺節點，製造端的弱勢客戶。</b>往下看，它是客戶唯一的「第二選擇」，有定價權；往上看，它是中芯與記憶體廠排隊名單上的一個名字，沒有議價權。這個不對稱，決定了它的毛利率高、現金流差。<p class='txt'>也決定了它的估值邏輯：<b>市場為「稀缺節點」付錢（218 倍市盈率），但現金流暴露了「弱勢客戶」的一面（現金含量 0.135）。</b>兩者不可能長期並存——要麼現金流改善證明它真的強，要麼估值回落到現金流能支撐的水準。</p></div><div class="summary-box"><h3>結論</h3><b>產業鏈結論：位置稀缺，但不在價值最厚的一環。</b>EDA 與代工拿走了產業鏈最穩的利潤，記憶體拿走了週期上行期的超額收益，寒武紀拿的是「配額租金」——55% 毛利率、38% 淨利率都不錯，但要靠 82 億元存貨和 29 億元預付款換。<b>行業正從稀缺走向競爭，租金會縮水。</b>這是「迴避」的產業層依據。</div>
+</div>
+<div class="footer">寒武紀 (688256) · 2026/08/17</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀 — 老鋪黃金</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/laopu/7-财报精读/老铺黄金-财报精读.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/laopu/7-財報精讀/老鋪黃金-財報精讀-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/laopu/7-Earnings-Deep-Read/Laopu Gold-Earnings Read-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀 — 老鋪黃金</h1>
+  <div class="subtitle">老鋪黃金 (06181) | 07 · 財報精讀</div>
+  <div class="meta">研究日期 2026/10/09 &nbsp;·&nbsp; 股價 HK$337.00（+4.85%） &nbsp;·&nbsp; 市值 約 596 億港元 &nbsp;·&nbsp; PE(TTM) 約 6.9 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/laopu/00-老鋪黃金研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷：上半年增長全部來自 Q1，Q2 已經變了臉</h3><p class='txt'>這份中報要分兩層讀。<b>半年看，幾乎無可挑剔：</b>收入 198.08 億元 +60.3%、淨利 42.67 億元 +88.2%、毛利率 41.3% +3.2pct、淨利率 21.5% +3.1pct，營業現金流三年來首次轉正。任何一項單獨拿出來都是優秀。</p><p class='txt'><b>季度拆開，是另一份報表：</b>Q1 收入 158.6–175.1 億元（含稅銷售約 190 億元），Q2 只有 23–39.5 億元，環比跌 76%–87%；Q1 淨利 35 億元以上，Q2 只有 5.1–7.6 億元，同比跌 34%–56%。<b>這不是增長放緩，是需求的脈衝。</b>2 月末提價 20%–30% 把全年需求提前按在了 Q1。</p><p class='txt'>所以我對這份財報的判斷是：利潤率高點是真的（41% 是歷史常態），收入高點是真的透支。往後四個季度看的不是毛利率，是同店。</p></div><table class="dt"><caption>損益表五年序列（億元人民幣）</caption><thead><tr><th>項目</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026H1</th></tr></thead><tbody><tr><td>收入</td><td>12.94</td><td>31.80</td><td>85.06</td><td>273.03</td><td>198.08</td></tr><tr><td>收入同比</td><td>—</td><td>+145.7%</td><td>+167.5%</td><td>+221.0%</td><td>+60.3%</td></tr><tr><td>毛利</td><td>5.42</td><td>13.32</td><td>35.01</td><td>103</td><td>81.74</td></tr><tr><td>毛利率</td><td>41.9%</td><td>41.9%</td><td>41.2%</td><td>37.6%</td><td>41.3%</td></tr><tr><td>稅後淨利</td><td>0.95</td><td>4.16</td><td>14.73</td><td>48.68</td><td>42.67</td></tr><tr><td>淨利率</td><td>7.3%</td><td>13.1%</td><td>17.3%</td><td>17.8%</td><td>21.5%</td></tr><tr><td>每股盈餘（元）</td><td>—</td><td>—</td><td>—</td><td>—</td><td>24.16</td></tr></tbody></table><div class="note">2022–2024 取自各年年報（2025 年毛利 103 億元為年報披露值，同比 +193.4%）；2026H1 取自中期業績公告，毛利 81.74 億元為收入 × 毛利率計算值。</div><table class="dt"><caption>現金流、存貨與股東回報（億元）</caption><thead><tr><th>項目</th><th>2024</th><th>2025</th><th>2026H1</th><th>說明</th></tr></thead><tbody><tr><td>營業現金流</td><td>負</td><td>-68.48</td><td>+20.08</td><td>三年首次轉正</td></tr><tr><td>存貨</td><td>40.88</td><td>160.44</td><td>190.18</td><td>較年初 +18.5%</td></tr><tr><td>存貨週轉天數</td><td>—</td><td>約 216</td><td>271</td><td>較年初 +55 天</td></tr><tr><td>中期派息</td><td>—</td><td>—</td><td>31.85</td><td>每股 18.02 元，派息率 74.6%</td></tr><tr><td>門店數</td><td>36（約）</td><td>45</td><td>45</td><td>2026 計畫優化 10–12 家</td></tr></tbody></table><div class="note">存貨與營業現金流取自 2025 年報、2026 年中期報告；2024 年營業現金流年報表述為負值，未單列金額；2024 年末門市數為按 2025 年「新增 10 家」反推的約數。</div><table class="dt"><caption>2026 年季度拆分（億元，券商倒推）</caption><thead><tr><th>項目</th><th>2026Q1</th><th>2026Q2</th><th>環比</th></tr></thead><tbody><tr><td>收入</td><td>158.6–175.1</td><td>23–39.5</td><td>-76%~-87%</td></tr><tr><td>稅後淨利</td><td>35.0–37.6</td><td>5.1–7.6</td><td>-80% 以上</td></tr><tr><td>稅後淨利年增率</td><td>—</td><td>-34%~-56%</td><td>—</td></tr><tr><td>含稅銷售業績</td><td>約 190</td><td>約 26–45</td><td>—</td></tr></tbody></table><div class="note">由 2026/07/27 正面盈利預告的增速區間與上半年合計數倒推，非公司披露點值。Q2 含稅銷售按收入 × 1.13 粗算。</div><div class="section"><div class="section-title">第一層：收入結構——增長不是鋪店來的，是提價和前置來的</div><p class='txt'>收入 198.08 億元，按地區拆分：內地 164.9 億元、同比 +53.3%、占比 83%；境外 33.2 億元、同比 +107.8%、占比 17%。境外增速快，但基數小，對總盤貢獻約 8 個百分點。</p><p class='txt'>拆解增長來源，三塊：同店、提價、新店。2026 上半年門店數維持 45 家不變（年初 45 家，全年計劃優化 10–12 家），所以新店貢獻接近於零；提價 2 月末一次性 20%–30%，是收入增長的主要推手；剩下的是同店量的增長。</p><p class='txt'>粗略拆一下：如果提價貢獻 25%、門店數不變、收入增長 60.3%，那麼同店銷量增長約 28%。這個拆法有誤差——提價對不同品類的影響不均，鑲嵌類漲幅高於素金——但方向和量級不會錯。<b>28% 的銷量增長放在任何消費行業都是優秀，但它是在金價上漲、搶購情緒最濃的上半年實現的。</b>下半年金價一跌，這部分量就沒了——Q2 收入 23–39.5 億元就是證據。</p></div><div class="section"><div class="section-title">第二層：毛利——41.3% 是回歸常態，不是創新高</div><p class='txt'>市場把 41.3% 當成「創新高」，其實不是。2021 年 41.2%、2022 年 41.9%、2023 年 41.9%、2024 年 41.2%，2025 年掉到 37.6%，2026H1 回到 41.3%。<b>這家公司常年毛利率就在 41%–42%，2025 年才是異常。</b></p><p class='txt'>為什麼 2025 年異常？金價快速上漲，公司三次提價（8 月 +10%–15%、10 月 +20%–30%）都追不上成本漲幅，加上按克採購、按件銷售之間的時間差被壓縮，毛利率被擠掉 3.6 個百分點。</p><p class='txt'>2026 上半年回到 41.3% 有兩個原因：2 月末提價 20%–30%，以及 2025 年末的 160 億元低成本庫存在高價期釋放。第二個原因是一次性的，第一個原因可持續。還有一個細節值得注意：這批低成本庫存並不是均勻消耗的，Q1 賣得最猛、消耗得最多，Q2 賣不動、剩下的都是高價貨。<b>這意味著 2026 下半年的毛利率會比上半年低，哪怕金價不跌。</b>所以往後看，毛利率的合理預期是 39%–41%，而不是 41.3% 繼續往上。</p></div><div class="section"><div class="section-title">第三層：費用與利潤——經營槓桿是一把雙面刃</div><p class='txt'>淨利率從 18.4% 提到 21.5%，提了 3.1 個百分點。收入漲 60.3%，毛利率只提 3.2pct，所以淨利率的提升主要不是毛利貢獻，是費用攤薄。</p><p class='txt'>粗算一下：2024 年期間費用率 18.2%，2026 上半年假設收入漲 60%、費用漲 35%，費用率降到約 15.4%，省下 2.8 個百分點——幾乎等於淨利率的全部提升。<b>租金、人工、裝修攤銷這些費用是剛性的，收入越大，攤得越薄。</b></p><p class='txt'>這就是為什麼 Q2 那麼難看。Q2 收入 23–39.5 億元，只有 Q1 的兩成左右，但 45 家店的租金、幾千名員工的工資一分不能少。費用率會從 15% 反彈到 30% 以上，淨利率掉到 15% 以下——Q2 淨利 5.1–7.6 億元、對應淨利率約 19%–22%（按收入中值 31 億元算 16%–24%），說明費用壓縮了一部分，但經營槓桿已經反向作用。</p></div><div class="section"><div class="section-title">第四層：現金流與資產負債表——剛轉正，但還不夠付股息</div><p class='txt'>營業現金流 +20.08 億元，稅後淨利 42.67 億元，比值 47%。相較 2025 年的 -68.48 億元，這是實質改善，但絕對水準仍然偏低。</p><p class='txt'>改善的來源是存貨增速放緩：2025 年存貨從 40.88 億元加到 160.44 億元（+290%），2026 上半年只加 18.5%（+29.74 億元）。買貨少了，現金流自然好轉。</p><p class='txt'>但資產負債表在惡化：存貨 190.18 億元、周轉 271 天（+55 天），意味著第二季賣不動貨。同時中期派息 31.85 億元，超過營業現金流 11.77 億元，差額從帳上現金支取。<b>如果下半年收入繼續弱、存貨繼續壓，營業現金流可能重新轉負，那時 75% 的派息率就保不住。</b></p><p class='txt'>這就是這份財報最脆弱的一環：收入、利潤、現金流三條線，只有前兩條好看，第三條是借時間換來的。</p></div><div class="section"><div class="section-title">第五層：三張表能不能對上</div><p class='txt'>把三個數字放在一起看：收入 198.08 億元、淨利 42.67 億元、營業現金流 20.08 億元。如果這是一家輕資產公司，現金應該接近淨利；如果是重資產公司，現金可能遠低於淨利，差額去了固定資產。<b>老鋪的差額去了存貨——29.74 億元的存貨增加，加上應收和預付款的變化，正好解釋了 22.6 億元的利潤與現金缺口。</b></p><p class='txt'>再看資產端：190.18 億元存貨對應 198.08 億元的半年收入，等於把九個月的銷售鎖在倉庫裡。這個比例在珠寶行業不算離譜——周大福的存貨周轉也在 200 天以上——但它和老鋪「按件定價、高周轉」的品牌敘事有矛盾。品牌溢價應該表現為更快的周轉，而不是更慢。</p><p class='txt'>第三處勾稽：派息 31.85 億元、淨利 42.67 億元、營業現金流 20.08 億元。分紅來自利潤的比例是 74.6%，來自現金的比例是 159%。<b>超過 100% 意味著動用了存量現金，這是一次性的，不可能年年如此。</b>2027 年如果利潤掉到 45 億元、派息率維持 75%，需要 33.75 億元現金，而那時的營業現金流大概率撐不住——除非公司減少囤貨。</p><p class='txt'>三張表對得上，沒有發現異常科目。問題不在會計，在商業：<b>這家公司的利潤質量取決於金價方向，而金價不在報表裡。</b></p></div><div class="summary-box"><h3>結論</h3><p>財報判斷：<b>品質中等偏上，但結構上不可持續。</b>往後看三個數：① Q3 單季收入能不能回到 60 億元以上（對應環比翻倍）；② 毛利率能不能守住 39%；③ 存貨週轉能不能降到 250 天以內。三個數裡兩個不達標，2027 年 45 億元的悲觀利潤情景就要提前兌現。</p></div>
+</div>
+<div class="footer">老鋪黃金 (06181) · 2026/10/09</div>
+</body>
+</html>

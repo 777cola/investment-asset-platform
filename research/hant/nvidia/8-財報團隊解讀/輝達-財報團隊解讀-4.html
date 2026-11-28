@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀（李錄） — 輝達</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/nvidia/8-财报团队解读/英伟达-大师精读-李录.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/nvidia/8-財報團隊解讀/輝達-財報團隊解讀-4.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/nvidia/8-Earnings-Team-Read/NVIDIA-Earnings Team-4.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀（李錄） — 輝達</h1>
+  <div class="subtitle">輝達 (NVDA) | 算力是基礎設施，收費站在修第二條路</div>
+  <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股價 $220.78（+1.48%） &nbsp;·&nbsp; 市值 約 5.33 萬億美元（241.5 億股） &nbsp;·&nbsp; PE(TTM) 約 28x（FY2028 前瞻約 15x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/nvidia/00-輝達研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>李錄會把這份財報放在文明級趨勢裡讀：AI 把智慧變成可交易的算力，算力的生產需要極少數稀缺資源。財報證明了一件事——<b>需求側已經從「一家實驗室」擴散到「多個前沿實驗室 + 主權國家 + 企業」，這是趨勢成立的證據。</b>但財報也暴露了趨勢的融資方式：靠債務、股權和擔保提前折現未來收入。</p></div><table class="dt"><caption>趨勢的三個證據與一個反證</caption><thead><tr><th>觀察</th><th>財報裡的數</th><th>說明什麼</th></tr></thead><tbody><tr><td>需求擴散</td><td>ACIE 403.13 億元、同比 +138%，占資料中心 45%</td><td>不再是四家雲廠的遊戲</td></tr><tr><td>主權 AI</td><td>較上季 +35%、較去年同期超過 2 倍</td><td>國家級買家進場，週期更長</td></tr><tr><td>單 GW 價值</td><td>Hopper 180 億美元 → Rubin 400 億美元</td><td>同一度電賣出的錢翻倍，TAM 在擴</td></tr><tr><td>反證</td><td>1/4 明年收入靠自家資產負債表支持</td><td>需求是真的，付錢能力是借來的</td></tr></tbody></table><div class="note">資料來源：FY2027Q2 電話會議（2026/08/26）與財報；ACIE 占比 = 403.13 / 890.23。</div><div class="section"><div class="section-title">趨勢：這不是概念，是帳本上的數</div><p class='txt'>李錄判斷趨勢的標準是「有沒有變成生意」。AI 在 2023–2024 年是概念，2026 年是生意——證據在財報裡：</p><p class='txt'>資料中心單季 890 億美元，超過 2024 年全年的英特爾營收。ACIE 同比 +138%，說明買家從四家雲廠擴散到主權國家、區域雲、企業。主權 AI 環比 +35%、同比超 2 倍，這是國家級資本支出進場，週期比企業採購長得多。</p><p class='txt'>最有說服力的是單 GW 價值：Hopper 180 億美元 → Grace Blackwell 250 億 → Vera Rubin 400 億。<b>同樣的土地、同樣的電、同樣的機房，能賣出的錢翻倍，說明算力的生產效率在提升，而效率提升是技術革命最硬的標誌。</b></p><p class='txt'>他還注意一個數：2026 年上半年全球 AI 風投超 4,000 億美元，約 70% 用於算力採購。這說明資本在往基礎設施走——歷史上每一輪技術革命都是這個順序：先修路，再跑車。</p></div><div class="section"><div class="section-title">反證：這一輪基建的錢，是借來的</div><p class='txt'>但李錄同樣重視「錢從哪來」。這份財報給出的答案是：一部分是借的。</p><ul><li>輝達自己發債 249 億美元，長期借款從 75 億跳到 324 億。</li><li>客戶那一端：NeoCloud 裝機從 3GW 到 8GW，靠的是私募信貸與專案融資；五大雲廠 2027 年 1.3 萬億美元資本支出，增速遠超其營業現金流增速。</li><li>中間那一端：輝達提供 1,085 億美元擔保、360 億美元雲服務採購承諾、5,000 億美元融資平台。</li></ul><p class='txt'><b>三方加槓桿，把未來五年的算力需求提前到 2026–2027 年兌現。</b>這在技術革命的早期是正常的——鐵路、電力、電信都這麼幹過。區別在於：鐵路修完能用五十年，GPU 三年就過時。</p><p class='txt'>這就是他會在意「算力能不能轉賣」這個細節的原因。公司說算力通用、可以調配給其他客戶，這在技術上成立；但如果整個行業同時過剩，能調配給誰？</p></div><div class="section"><div class="section-title">終局：收費站能收多久</div><p class='txt'>李錄的框架是「文明的演進 + 生意的本質」。輝達的生意本質是收費站：誰要用算力，就得從它這裡過。這個位置在 AI 時代極其稀缺，因為它同時卡住了架構、產能和軟體標準。</p><p class='txt'>但收費站有一個規律：<b>租金越高，修第二條路的動力越大。</b>現在第二條路正在修——博通的定製 ASIC、谷歌 TPU、OpenAI 的 Jalapeño、亞馬遜 Trainium。輝達的應對是把 Groq 收進來（約 200 億美元）、把機櫃級系統做深、把 CUDA 鋪到邊緣與機器人。</p><p class='txt'>他的判斷會很克制：這一輪 AI 是真的，輝達是這一輪最好的位置，但「最好」不等於「任何價格都值得買」。他買比亞迪是在 2008 年，買蘋果相關標的也在估值合理的時候。<b>他會說：方向對、位置好、價格要等，等的是市場對「循環融資」的恐懼變成現實的那一天。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>李錄式結論：趨勢成立（需求擴散、單 GW 價值翻倍、主權資本進場），但融資結構是這一輪最大的隱憂（1/4 收入靠自家資產負債表）。</b>他會在 180 美元以下開始建倉，理由是那個價格對應「就算趨勢打個七折也不虧」。<b>「投資最重要的是不虧錢，其次才是賺錢。」</b></p></div>
+</div>
+<div class="footer">輝達 (NVDA) · 2026/08/31</div>
+</body>
+</html>

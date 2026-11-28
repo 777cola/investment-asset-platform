@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務驗證 — 寒武紀</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/cambricon/3-财务数据交叉验证/寒武纪-财务验证.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/cambricon/3-財務數據交叉驗證/寒武紀-財務驗證-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/cambricon/3-Financial-Cross-Check/Cambricon-Financial Check-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務驗證 — 寒武紀</h1>
+  <div class="subtitle">寒武紀 (688256) | 03 · 財務驗證</div>
+  <div class="meta">研究日期 2026/08/17 &nbsp;·&nbsp; 股價 ¥1,156.00（+5.76%） &nbsp;·&nbsp; 市值 約 7,271 億元 &nbsp;·&nbsp; PE(TTM) 約 218x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/cambricon/00-寒武紀研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>八項關鍵數據雙源核對，六項完全對上（營收 59.96 億元、淨利 23.11 億元、研發 7.02 億元、經營現金流 3.11 億元、總資產 181.99 億元、淨資產 135.55 億元），偏差 0.0%。<b>兩項對不上，但都能解釋</b>：存貨 82.48 億元與券商引用的「存貨餘額 90.15 億元」差 9.3%，是帳面價值與餘額（含跌價準備）的口徑差；市值 7,263 億元與行情快照 7,271 億元差 0.11%，是股本口徑差。</p><p class='txt'>真正容易出錯的是本益比：同一個 6 月 30 日，公司公告寫 368.97 倍，半年報後重算是 218 倍，用 2026 年激勵目標算是 140 倍。<b>三個數都「對」，差的是分母用哪一期利潤。</b>本報告統一用 TTM 淨利 33.32 億元對應 218 倍，並在所有模組裡只寫這一個口徑。</p></div><table class="dt"><caption>關鍵數據雙源對照（2026 年中報口徑，單位：億元）</caption><thead><tr><th>指標</th><th>來源 A</th><th>來源 B</th><th>偏差</th><th>處理</th></tr></thead><tbody><tr><td>營業收入</td><td>半年報摘要（上交所）59.96</td><td>中國證券網/新浪財經 59.96</td><td>0.00%</td><td>採用 59.96</td></tr><tr><td>歸母淨利潤</td><td>半年報 23.11</td><td>上證報/搜狐財經 23.11</td><td>0.00%</td><td>採用 23.11</td></tr><tr><td>扣非歸母淨利</td><td>半年報 21.66（同比 +137.30%）</td><td>業績說明會通稿 21.66</td><td>0.00%</td><td>採用 21.66</td></tr><tr><td>研發投入</td><td>半年報 占營收 11.72%</td><td>騰訊新聞／中報摘要 7.02</td><td>0.10%（反推 7.027）</td><td>採用 7.02，佔比 11.72%</td></tr><tr><td>存貨</td><td>半年報帳面價值 82.48</td><td>券商點評「存貨餘額 90.15」</td><td>9.30%</td><td>口徑差：餘額含約 7.67 億元跌價準備，採用 82.48</td></tr><tr><td>經營活動現金流淨額</td><td>半年報 3.11（同比 -65.83%）</td><td>國際金融報/券商 3.11（上年 9.11）</td><td>0.00%</td><td>採用 3.11；淨利現金含量 0.135</td></tr><tr><td>總資產 / 歸母淨資產</td><td>半年報 181.99 / 135.55</td><td>九方智投摘要 181.99 / 135.55</td><td>0.00%</td><td>採用；存貨佔總資產 45.32%、佔淨資產 60.84%</td></tr><tr><td>總市值</td><td>batchdata 快照 7,271</td><td>1,156 × 6.2829 億股 = 7,263</td><td>0.11%</td><td>採用 7,263，註明差異來自股本與行情源</td></tr></tbody></table><div class="note">來源 A 為寒武紀 2026 年半年度報告及摘要（2026/08/07，上交所）；來源 B 為公開媒體與券商評論（2026/08/07—08/13）。偏差 = |A−B| / A。</div><div class="section"><div class="section-title">對得上的六項：中報數據本身沒有爭議</div><p class='txt'>營收、淨利、扣非、研發、經營現金流、總資產與淨資產，六項在兩套來源裡逐位相同。這在 A 股中報裡是常態——因為所有媒體都抄同一份報表。<b>所以「雙源驗證」在這裡驗證的不是數字，是抄寫有沒有錯</b>：確認 59.96 億元不是 59.69、23.11 億元不是 21.31，這一步做了就夠。</p><p class='txt'>順帶把幾個派生指標釘死：毛利率 = 33.13/59.96 = 55.25%；淨利率 = 23.11/59.96 = 38.54%；扣非占淨利 93.7%，說明利潤品質高、非經常性損益只有 1.45 億元（政府補助與理財收益為主）。<b>利潤不是賣資產賣出來的</b>，這一條比數字本身重要。</p></div><div class="section"><div class="section-title">對不上的第一項：存貨 82.48 還是 90.15</div><p class='txt'>券商評論裡寫「存貨帳面餘額 90.15 億元」，公司披露的「存貨帳面價值 82.48 億元」，差 7.67 億元。這不是誰抄錯——<b>帳面餘額是計提跌價準備之前的原值，帳面價值是計提之後的淨額</b>。兩者相差的 7.67 億元，就是公司已經為存貨計提的跌價準備，約占餘額的 8.5%。</p><p class='txt'>這個細節比數字本身有意思：它說明公司自己知道 82 億元存貨有迭代風險，已經按 8.5% 計提了。<b>8.5% 夠不夠？</b>參考它的產品節奏——思元 590 是 2024—2025 年的主力，690 在 2026 年初量產，一旦 690 放量，590 的庫存就要打折。如果迭代快於預期，8.5% 的計提偏薄；如果 590 還能賣兩年（政企與運營商市場確實如此），那就夠了。本報告統一採用 82.48 億元。</p></div><div class="section"><div class="section-title">對不上的第二項：市值 7,271 與 7,263</div><p class='txt'>行情快照給 7,271 億元，自己算是 7,263 億元，差 8 億元、0.11%。原因只有兩種：股本用的不是 6.2829 億股（可能含未登記的限制性股票或口徑差異），或者快照價格與收盤價有細微差。0.11% 的差異不影響任何判斷，但必須在 03 裡寫清楚，<b>因為後面所有 PE、PS 都從這個數出發</b>。</p><p class='txt'>本報告統一的口徑：市值 = 1,156.00 元 × 6.2829 億股 = 7,263 億元。由此 PE(TTM) = 7,263/33.32 = 217.9 倍；PS(TTM) = 7,263/96.12 = 75.6 倍；PB = 7,263/135.55 = 53.6 倍。</p></div><div class="section"><div class="section-title">最容易錯的一個數：本益比有四個版本</div><p class='txt'>① <b>368.97 倍</b>——公司 6 月 30 日風險提示公告裡的數，分母是「2025 年報 + 2026Q1 − 2025Q1」= 27.17 億元，股價 1,595.55 元；② <b>217.9 倍</b>——本報告口徑，分母換成 TTM 33.32 億元（含 2026Q2），股價 1,156 元；③ <b>約 140 倍</b>——用 2026 年 135 億元激勵目標 × 38.5% 淨利率粗算淨利 52 億元；④ <b>約 112 倍</b>——用 2027 年中性淨利 65 億元。</p><p class='txt'>四個數都對，差的是分母與時間。<b>寫報告的人如果混用，讀者會以為股價一個月跌了 40% 而利潤沒變</b>——實際上股價跌了 27.6%，利潤漲了 22.7%，兩個方向一起把倍數從 369 壓到 218。這就是為什麼 03 這一層必須做：不是為了抓錯，是為了讓後面的估值有一個不會互打的基準。</p></div><div class="section"><div class="section-title">最終採用口徑</div><p class='txt'>財務數據一律取半年報原文，派生指標標明算法；TTM 淨利 33.32 億元（2025 全年 20.59 + 2026H1 23.11 − 2025H1 10.38）；TTM 營收 96.12 億元（同法）；市值 7,263 億元；股本 6.2829 億股。<b>凡是推算出來的數，正文裡都帶「粗算」「反推」字樣</b>；凡是媒體口徑與報表口徑不一致的（存貨、市盈率），只採用報表口徑，媒體數只用於交叉驗證。</p></div><div class="summary-box"><h3>結論</h3><b>六項精確一致，兩項口徑差異已解釋，數據可用。</b>存貨 82.48 億元與 90.15 億元的差是 7.67 億元跌價準備；市值 7,271 與 7,263 的差是股本口徑。市盈率必須鎖定 218 倍（TTM）這一個數，140 倍是 2026 年預期、112 倍是 2027 年預期，正文裡分開寫。<b>數據層面沒有發現需要推翻結論的問題</b>。</div>
+</div>
+<div class="footer">寒武紀 (688256) · 2026/08/17</div>
+</body>
+</html>

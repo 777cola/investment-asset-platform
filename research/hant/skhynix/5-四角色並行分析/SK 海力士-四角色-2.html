@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財務分析（巴菲特視角） — SK 海力士</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/skhynix/5-四角色并行分析/SK海力士-财务分析-巴菲特.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/skhynix/5-四角色並行分析/SK 海力士-四角色-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/skhynix/5-Four-Role-Analysis/SK hynix-Four Roles-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財務分析（巴菲特視角） — SK 海力士</h1>
+  <div class="subtitle">利潤是真的，但 owner earnings 要打折</div>
+  <div class="meta">研究日期 2026/07/27 &nbsp;·&nbsp; 股價 ₩1,816,000（+3.24%） &nbsp;·&nbsp; 市值 約 1,291 萬億韓元（約 9,200 億美元） &nbsp;·&nbsp; 本益比（TTM，截至 2026Q1） 約 17.2 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/skhynix/00-SK 海力士研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>2026Q1 稅後淨利 40.35 萬億元、自由現金流 18.67 萬億元，數字漂亮。但 peak earnings 要減掉兩樣東西：擴張性資本支出的分期折舊，和非經營性的股權重估收益。</p></div><table class="dt"><caption>利潤到 owner earnings 的四步折算（2026Q1，萬億韓元）</caption><thead><tr><th>步驟</th><th>金額</th><th>說明</th></tr></thead><tbody><tr><td>營業收入</td><td>52.58</td><td>DRAM 約八成、NAND 約兩成</td></tr><tr><td>營業利益</td><td>37.61</td><td>營業利益率 71.5%，毛利率 79%</td></tr><tr><td>稅後淨利</td><td>40.35</td><td>高於營業利益，差額來自股權投資重估等非經營項</td></tr><tr><td>營業現金流（粗算）</td><td>約 28</td><td>稅後淨利 + 折舊攤銷約 10 − 營運資金占用約 18（粗算）</td></tr><tr><td>資本支出（粗算）</td><td>約 10</td><td>全年 38—40 萬億元分攤到四季</td></tr><tr><td>自由現金流</td><td>18.67</td><td>stockanalysis 口徑：營業現金流 − 資本支出</td></tr><tr><td>業主盈餘（粗算）</td><td>約 25</td><td>稅後淨利 40.35 − 維持性資本支出約 15（粗算）</td></tr></tbody></table><div class="note">經營現金流與資本開支的季度拆分為粗算：公司披露 2026Q1 自由現金流 18.67 萬億（stockanalysis 口徑），全年資本開支券商估算 38—40 萬億。維持性資本開支按總資本開支的四成估算，其餘視為擴張性。owner earnings 只用於判斷量級，不作為披露數字引用。</div><div class="section"><div class="section-title">損益表：成長全在價格，成本幾乎沒動</div><p class='txt'>營收季增 +60%，DRAM 出貨量季增持平、NAND 出貨量還降了 10%。這意味著多出來的 20 萬億元營收幾乎全部來自 ASP。成本端呢？折舊、電、材料、人工，一個季度裡不會因為漲價而變。所以營業利益率從 58.4% 直接跳到 71.5%，多了 13 個百分點——<b>這就是經營槓桿，往上和往下都是這個倍數</b>。</p><p class='txt'>巴菲特會注意一個細節：毛利率 79%、營業利益率 71.5%，中間只有 7.5 個百分點的费用。研發、銷售、管理全加起來只佔 7.5%，說明這是一門「投產即賣」的生意，沒有通路費用、沒有品牌投放。好處是彈性極大，壞處是一旦價格跌 30%，營業利益會掉七成以上。</p></div><div class="section"><div class="section-title">稅後淨利高於營業利益：這個口徑要拆開</div><p class='txt'>2026Q1 稅後淨利 40.35 萬億，比營業利益還高 2.7 萬億。原因不是稅收優惠，是股權投資重估——海力士透過財團持有鎧俠（Kioxia）的間接股權，鎧俠上市後市值上升，按會計規則要計入公允價值變動。</p><p class='txt'>這筆錢是真的資產增值，但它不是晶片業務賺的，也不產生現金流。<b>判斷這門生意要用營業利益，判斷每股價值才用稅後淨利</b>。同一份財報裡兩個口徑差 7%，如果混用，就會高估盈利能力。</p></div><div class="section"><div class="section-title">資產負債表與現金流：這輪是真金白銀</div><p class='txt'>2025 年從淨負債轉為淨現金，2026Q1 單季自由現金流 18.67 萬億，7 月 ADR 又募了 265 億美元（約 37 萬億韓元）。粗算淨現金 95 萬億上下，相當於市值的 7%。這是它跟 2018 年那輪最大的區別——上一輪頂部是淨負債，這一輪頂部是淨現金，抗跌能力強得多。</p><p class='txt'>但現金流的結構要看清：18.67 萬億是在資本支出只花了約 10 萬億的情況下實現的，全年 40 萬億的開支節奏意味著後面三個季度的自由現金流會明顯收窄。管理層選擇在這個時點增發，恰好說明他們自己也知道明年的現金流沒這麼好看。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>財務判斷：利潤真實、現金真實、資產負債表健康，這是三星之外最乾淨的記憶體財報。但 owner earnings 約 25 萬億/季（粗算）對應年化 100 萬億，現價 1,291 萬億是 13 倍 owner earnings——不貴，也絕不是「5 倍 PE」那麼便宜。這就是巴菲特不會在這個價位買的原因。</p></div>
+</div>
+<div class="footer">SK 海力士 (000660.KS) · 2026/07/27</div>
+</body>
+</html>

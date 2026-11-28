@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理層縱深 — 禮來</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/lilly/6-管理层纵深/礼来-管理层纵深.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/lilly/6-管理層縱深/禮來-管理層縱深-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/lilly/6-Management-Deep-Dive/Eli Lilly-Management-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>管理層縱深 — 禮來</h1>
+  <div class="subtitle">禮來 (LLY) | 06 · 管理層縱深</div>
+  <div class="meta">研究日期 2026/11/09 &nbsp;·&nbsp; 股價 $1,411.95（+4.28%） &nbsp;·&nbsp; 市值 約 1.33 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 48x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/lilly/00-禮來研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>禮來的管理層是「工程師型」而不是「交易型」：執行長大衛·里克斯 1996 年進公司，從銷售和區域市場一路做上來，2017 年接任。這一季最能說明性格的是——營收指引上調 55 億美元，同時因為 42 億美元收購在研費用把 EPS 指引下調，<b>沒有為了股價去硬撐一個數字。</b>扣分在資本配置越來越依賴併購，以及接班計畫完全空白。</p></div><table class="dt"><caption>關鍵人物與治理結構</caption><thead><tr><th>姓名</th><th>職務</th><th>持股／薪酬</th><th>履歷要點</th></tr></thead><tbody><tr><td>大衛·里克斯（David Ricks）</td><td>董事長兼 CEO（2017 年起）</td><td>持股比例很低（不到 0.1%），2024 年總薪酬約 2,500 萬美元級，以業績股為主</td><td>1996 年加入禮來，歷任美國區總裁、禮來生物醫藥總裁；藥學背景，非財務出身</td></tr><tr><td>盧卡斯·蒙塔塞（Lucas Montarce）</td><td>財務長（2024 年起）</td><td>未披露持股</td><td>禮來內部晉升，此前負責全球財務與業務服務；接任後主推資本支出紀律</td></tr><tr><td>丹尼爾·斯科夫龍斯基（Daniel Skovronsky）</td><td>首席科學官、禮來研究實驗室總裁</td><td>未披露持股</td><td>神經科學背景，主導 Kisunla（阿茲海默）與替爾泊肽適應症擴展</td></tr><tr><td>董事會</td><td>11 人左右，獨立董事占多數</td><td>—</td><td>單一股權結構，無雙重投票權；CEO 與董事長未分設</td></tr></tbody></table><div class="note">薪酬與持股為公開委託書口徑的量級估計（2024 年度），未逐項核對最新委託書；禮來不設雙重股權，這一點在大型藥企裡少見。</div><div class="section"><div class="section-title">資本配置：錢花在哪，比說得好聽更重要</div><p class='txt'>過去三年禮來的資金主要流向三處：<b>產能、併購、股東回報。</b>產能最大——2025 年 2 月宣布至少 270 億美元在美國建四個基地（三個做 API、一個做注射劑，2030 年前建成），追加在康科德的 17 億美元單廠 2027 年完工，這讓禮來自 2020 年以來的在美投資總額超過 500 億美元。這是美國製藥史上最大的單筆製造承諾，賭的是「未來十年 GLP-1 的需求能填滿這些產能」。</p><p class='txt'>併購是第二筆大錢。2025 年收購 Verve Therapeutics（鹼基編輯，約 13 億美元）和 Adverum Biotechnologies（眼科基因治療，約 2.25 億美元）；2026 年第三季度一次性確認約 42 億美元收購在研研發費用，直接壓掉每股 4.57 美元的 EPS。<b>這類交易的特點是：當期費用化、回報在三五年後。</b>好處是不做商譽堆積，壞處是每季利潤都被「買管線」擾動。</p></div><div class="section"><div class="section-title">股東回報：象徵性的，不是主要回報方式</div><p class='txt'>禮來年派息約每股 4.5 美元，按 1,411.95 美元算股息率 0.3%——這是「維持連續增派記錄」的象徵性分紅，不是給股東的現金回報。回購規模也不大，主要作用是抵消股權激勵的稀釋（五年股本從 9.50 億降到 9.41 億，-1%）。</p><p class='txt'>這套政策在成長期是對的：錢投產能和管線的邊際回報，遠高於回購自家 48 倍 PE 的股票。<b>反過來說，如果哪天管理層開始大額回購，那是一個信號——他們認為增長機會變少了。</b>目前沒有這個信號。</p></div><div class="section"><div class="section-title">激勵結構：考核什麼，就會得到什麼</div><p class='txt'><b>激勵結構決定行為。</b>里克斯的薪酬方案中，股票與業績股占八成以上，考核指標通常是「營收成長 + EPS + 產品線里程碑」，很少有「相對股東回報」條款。這解釋了他為什麼願意在產能上投入 270 億美元——營收和市占率是考核項目，資本回報率不是。<b>對成長股來說這種激勵是合適的，但如果哪天公司進入成熟期，同一套激勵會鼓勵盲目擴張。</b></p><p class='txt'>另一個細節：禮來沒有把「併購金額」寫進高管的長期激勵，但併購帶來的營收增量會算進下一年的考核基數——這是一條隱性的鼓勵併購通道。真正該看的指標是「併購後三年的 ROIIC」，而這項公司並不披露。</p></div><div class="section"><div class="section-title">誠信記錄：三次上調指引 vs 一次下調 EPS</div><p class='txt'>2026 年營收指引上調了三次：年初到 850–870 億，年中維持，10 月 29 日直接抬到 910–920 億美元（中位數 +55 億）。同一份財報裡，Non-GAAP EPS 指引從 35.50–36.50 下調到 35.00–36.00。<b>一邊上調一邊下調，是最能看出管理層品格的动作</b>——想美化報表的人會把 42 億美元收購費用挪到「一次性項目」裡剔掉，禮來選擇了讓它進 Non-GAAP。</p><p class='txt'>爭議點有兩個。一是藥價政治：2025 年 11 月與白宮達成 MFN 協議，Medicare 淨價 245 美元/月、患者自付上限 50 美元，2026 年 1 月 TrumpRx 上線。這是被動妥協，不是主動讓利，但禮來接受了，沒有去打官司。二是 FDA 11 月 9 日要求 GLP-1 加註 NAION 眼病風險，公司配合加註、沒有爭辯。<b>在監管關係上，禮來一直是「配合型」而不是「對抗型」，這在製藥業裡是加分項。</b></p></div><div class="section"><div class="section-title">接班人：最大的治理空白</div><p class='txt'>里克斯 2026 年接近 60 歲，公開資訊裡沒有接班計畫，也沒有把 COO 位置明確設成「儲君」。這在美股大型藥企裡不算異常——他任內股價漲了十倍以上，董事會沒有換人的動力——但對長期股東是個實打實的風險：<b>這家公司的策略（自建產能 + 買管線 + 直銷通路）高度依賴他在任時形成的路徑，換人就有搖擺的可能。</b></p><p class='txt'>觀察指標很具體：未來 12–24 個月如果出現「總裁兼 COO」的新任命，或者 CFO 之外的業務負責人開始獨立對外溝通，就是接班程序啟動的信號。目前沒有。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>管理層 8 分。</b>加分項：指引誠實（營收上調、EPS 下調）、產能敢下重手、監管配合、不做雙重股權。扣分項：資本配置越來越依賴併購（當期費用化、回報滯後三五年）、接班計畫空白、股息率 0.3% 對收益型股東沒有吸引力。這家公司的管理層不會毀掉好生意，但也別指望他們在 48 倍 PE 的時候幫你踩煞車。</p></div>
+</div>
+<div class="footer">禮來 (LLY) · 2026/11/09</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣篩選 — 快手</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/kuaishou/2-七条硬指标去劣/快手-去劣筛选.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/kuaishou/2-七條硬指標去劣/快手-去劣篩選-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/kuaishou/2-Seven-Hard-Metrics/Kuaishou-Quality Screen-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>去劣篩選 — 快手</h1>
+  <div class="subtitle">快手 (01024) | 02 · 去劣篩選</div>
+  <div class="meta">研究日期 2026/10/12 &nbsp;·&nbsp; 股價 HK$29.26（-2.79%） &nbsp;·&nbsp; 市值 約 1,267 億港元 &nbsp;·&nbsp; PE(TTM) 約 10.5 倍</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/kuaishou/00-快手研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>七條硬指標過三條。過的是毛利率（51.6%）、淨現金（242.7 億元、占市值 20.9%）、股東回報（Q2 回購 8.8 億港元，年化約 2.8% 市值）。不過的是收入增長（+1.4%）、經調整淨利率（11.0%）、盈利趨勢（-30.3%）、研發費用率（12.9%）。</p><p class='txt'>四條不過裡，研發費用率是主動選擇，可以容忍；淨利率是結果，可以解釋；<b>真正致命的是收入 +1.4% 和淨利 -30.3% 同時出現——這不是投入期的陣痛，是分子分母一起壞。</b></p></div><table class="dt"><caption>七條硬指標（2026Q2，人民幣；門檻為 AI Berkshire 去劣標準）</caption><thead><tr><th>指標</th><th>公司數值</th><th>門檻</th><th>判定</th></tr></thead><tbody><tr><td>營收成長（單季同比）</td><td>355.35 億元，+1.4%</td><td>≥ +5%</td><td>不過</td></tr><tr><td>毛利率</td><td>51.6%，同比 -4.1pct</td><td>≥ 40%</td><td>過（趨勢壞）</td></tr><tr><td>經調整淨利率</td><td>39.13 ÷ 355.35 = 11.0%（去年 16.0%）</td><td>≥ 12%</td><td>不過</td></tr><tr><td>盈利趨勢</td><td>經調整淨利 -30.3%，報表淨利 -36.0%</td><td>同比不為負</td><td>不過</td></tr><tr><td>研發費用率</td><td>46 億元，占收入 12.9%（+3.2pct）</td><td>≤ 10%</td><td>不過</td></tr><tr><td>淨現金</td><td>現金類資產 242.7 億元，無有息負債壓力</td><td>淨現金為正</td><td>過</td></tr><tr><td>股東回報與股本</td><td>第二季回購 8.8 億港元、1,960 萬股；股本 43.3 億股未增發，2.0</td><td>有回購或分紅、不稀釋</td><td>過</td></tr></tbody></table><div class="note">資料來源：快手 2026Q2 及中期業績公告（2026/08/18）；淨利率按經調整淨利口徑（剔除股權激勵與無形資產攤銷），報表淨利率為 8.9%（31.52/355.35）。ROE 因公告未披露單季淨資產，本表不設該條。</div><div class="section"><div class="section-title">過的三條，含金量不一樣</div><p class='txt'><b>毛利率 51.6%，過線但不體面。</b>門檻 40% 是給製造業和零售設的，一家廣告平台做到 51.6% 只算中等，而且方向是向下：-4.1pct 意味著每 100 元收入少賺 4.1 元，一個季度就是 14.6 億元。公司歸因於收入分成成本上升，翻譯過來是「為了留住創作者和主播，平台讓出了更多的錢」。</p><p class='txt'><b>淨現金 242.7 億元，是這七條裡最硬的一條。</b>占市值 20.9%，攤到每股約 6.1 港元，短期沒有任何償債壓力。但要注意它是「類現金資產」合計口徑（現金及等價物、定期存款、理財），不是可以全部拿來分紅的自由現金。<b>股東回報 8.8 億港元/季，年化約 35 億港元、2.8% 市值，及格，但買在了 45 港元。</b></p></div><div class="section"><div class="section-title">不過的四條，只有一條是真病</div><p class='txt'>研發費用率 12.9%（+3.2pct）這條不過，是<b>選擇</b>不是<b>惡化</b>：46 億元裡多出來的約 12 億元基本進了 AI 訓練。一家公司在主業失速時加大投入，可以批評它判斷失誤，但這屬於戰略分歧，不屬於財務品質差。</p><p class='txt'>淨利率 11.0% 不過，是前面幾項的算術結果，不是獨立問題。收入 +1.4% 這條才是真病：<b>廣告 +4.4%（低於一致預期 6.3%）、直播 -13.5%、只有可靈 +200%——而可靈只占收入 2.4%。</b>把可靈拿掉，其餘業務合計同比是負的。一家 4 億 DAU 的平台，收入停在原地，說明它賣不出更多的廣告，也留不住打賞的人。</p><p class='txt'>盈利趨勢 -30.3% 緊隨其後。這兩條合起來看才有意義：收入沒長、利潤掉了三成，等於經營槓桿在反向工作。過去三年市場給快手的估值邏輯是「利潤率修復」，這條硬指標不過，等於那個邏輯被證偽了。</p></div><div class="section"><div class="section-title">七條之外的一個隱性指標</div><p class='txt'>每 DAU 每季的廣告收入：206 ÷ 4.12 = 50.0 元；每 DAU 每季的直播收入：87 ÷ 4.12 = 21.1 元，去年同期約 24.6 元（按 DAU 4.087 億反推）。<b>廣告單用戶產出在漲，直播在掉</b>——這就是為什麼總收入還能微增，而利潤在掉：廣告的邊際成本低，直播要付分成。</p><p class='txt'>這個結構變化本身不算壞事，壞在幅度太小。廣告每 DAU 一年多出 2 元，救不回直播每 DAU 掉 3.5 元。</p></div><div class="section"><div class="section-title">三個會一起變好的條件</div><p class='txt'>四條不過裡，淨利率和盈利趨勢是同源的：都卡在毛利率與研發費用率之間。算一遍彈性——毛利率每修復 1pct，單季多賺 3.55 億元；研發費用率每降 1pct，同樣多賺 3.55 億元。兩者合計修復 3pct，單季經調整淨利就從 39 億元回到 50 億元以上，七條裡能過六條。</p><p class='txt'><b>所以問題不是修復難不難，是公司願不願意。</b>AI 投入是它自己選的，分成比例是它自己讓的，兩件事都不是外部衝擊。這決定了修復的時點只能由管理層給，不能由行業週期給。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>七條過三條，按去劣標準這家公司已被降級：<b>它不再是成長股，也還不是現金牛。</b>三條過的說明它有底（毛利、現金、回購），四條不過的說明底在變薄（增速、淨利率、趨勢、投入）。</p><p class='txt'>處理方式：從「成長股」池子裡劃出去，放進「特殊情形／資產折價」觀察池。要重新升級，必須看到收入增速回到 5% 以上、淨利率回到 12% 以上——兩條同時。</p></div>
+</div>
+<div class="footer">快手 (01024) · 2026/10/12</div>
+</body>
+</html>

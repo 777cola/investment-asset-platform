@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeamLead 彙總 — AMD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/amd/5-四角色并行分析/AMD-TeamLead-汇总.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/amd/5-四角色並行分析/AMD-四角色-5.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/amd/5-Four-Role-Analysis/AMD-Four Roles-5.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>TeamLead 彙總 — AMD</h1>
+  <div class="subtitle">AMD（AMD）| 共識、分歧與裁決</div>
+  <div class="meta">研究日期 2026/08/07 &nbsp;·&nbsp; 股價 $483.36（-1.21%） &nbsp;·&nbsp; 市值 約 8,020 億美元 &nbsp;·&nbsp; PE(TTM，GAAP) 約 125x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/amd/00-AMD研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>四篇讀完，共識比分歧多。共識是：生意在變好、管理層一流、價格太貴。分歧有三個：成長能不能持續到 2028、毛利率的天花板在哪、現價該不該有一點點倉位。<b>裁決如下。</b></p></div><div class="section"><div class="section-title">共識三條</div><p class='txt'>第一，資料中心的成長是真的。67.18 億、+107%、分部營業利益 21 億，這三個數字互相印證——如果是低價衝量，分部利潤率不會是 31.3%。</p><p class='txt'>第二，管理層是這家公司最硬的資產。蘇姿丰十二年的資本配置紀錄（剝離製造、收賽靈思、收 ZT、押 chiplet）在半導體行業裡只有黃仁勳能比。<b>四篇裡沒有一篇對管理層提出實質質疑。</b></p><p class='txt'>第三，現價沒有安全邊際。125 倍 TTM、24 倍 2027 年最樂觀 EPS，四個視角獨立得出同一個結論：這不是一個可以建倉的價格。</p><p class='txt'>三條共識裡，最硬的是第三條。前兩條還有爭論空間——成長能持續幾年、管理層能不能再贏一次，都可以辯。但「125 倍 TTM 沒有安全邊際」是算術，不是觀點。四個視角在這一點上沒有任何分歧，這在四角色分析裡不常見。</p></div><div class="section"><div class="section-title">分歧一：成長能否延續到 2028</div><p class='txt'>商業視角認為能——二供政策是制度性的，份額從 9% 到 20% 有五年空間。行業視角認為難——雲廠資本開支在週期第三年，2028 年增速大概率回落到 10%–15%，行業收縮會抵消份額提升。</p><b>裁決：偏向行業視角。</b>二供政策給的是「下限」不是「上限」，它保證 AMD 有 15% 的份額，不保證 25%。而 2028 年的行業增速大概率低於 2027 年，所以「2027 年翻倍之後繼續高增長」的假設不成立。這也是我們中性情景只給 19 美元 EPS 的原因。</div><div class="section"><div class="section-title">分歧二：毛利率的天花板</div><p class='txt'>財務視角認為 56% 還能往上，因為產品結構還在改善、Helios 整機櫃能帶來系統溢價。風險視角認為 56% 已經接近上限，HBM4 漲價會吃掉 3–5 個點。</p><b>裁決：55%–57% 是合理區間，60% 需要 Helios 成功。</b>Helios 是 AMD 第一次賣整機櫃（72 顆 GPU、液冷、網路），如果它能拿到 20% 以上的機櫃訂單，系統溢價能把毛利率推到 60%；如果只是賣晶片，55% 就是頂。這條要看 2026Q4 的 Helios 收入占比。</div><div class="section"><div class="section-title">分歧三：現價要不要留一點倉位</div><p class='txt'>商業視角傾向「先買 1%–2%，邊看邊加」，理由是錯過這家公司的機會成本高。風險視角堅持「零倉位，等 350 美元」。</p><b>裁決：零倉位，但要放入觀察池第一檔。</b>理由是賠率不對稱：上行 +49%（樂觀）需要「比公司目標更好」，下行 -50%（悲觀）只需要「行業正常化」。在這種賠率下，1%–2% 的倉位賺不到錢，只會消耗注意力。等兩個信號之一出現再動手：股價 350 美元以下，或 MI450 單季收入過 30 億美元。<p class='txt'>再補一條紀律：不要用「小倉位試錯」的方式買高估值成長股。1% 的倉位在 -50% 的時候只虧 0.5%，對組合沒有影響；但它會讓你持續跟蹤這隻股票、持續產生「我持有它」的心理帳戶，從而在真正的機會來臨時倉位已經用完。<b>要麼 3% 以上，要麼 0%。</b></p></div><div class="section"><div class="section-title">動作</div><p class='txt'>倉位：0%。觀察池：第一檔，每週看一次價格與訂單新聞。</p><p class='txt'>加倉觸發：① 股價 ≤350 美元（對應 2027 年中性 EPS 18 倍）；② MI450 單季收入 ≥30 億美元且毛利率 ≥55%；③ 2027 年 Q1 指引確認資料中心同比 ≥80%。三條滿足一條即可建倉 2%，兩條滿足加到 4%。</p><p class='txt'>減倉／迴避觸發：① 毛利率跌破 52%；② 雲廠資本支出指引下修超過 10%；③ 輝達公開降價超過 15%。任一條出現，評級降為迴避。</p><p class='txt'>再補一句關於「觀察」的定義。觀察不是「什麼都不做」，是三件事：每月核對一次價格與訂單新聞、每季讀一次財報的三個數（DC 收入、毛利率、營業現金流）、出現買點時分批建倉而不是一次打滿。<b>觀察是一種動作，只是不花錢。</b></p></div><div class="summary-box"><h3>結論</h3><b>總評：觀察，不追高。</b>四視角共識是「好公司、壞價格」。這家公司值得放進池子，不值得現在付錢。<b>零部位不是不看好，是價格沒到。</b></div>
+</div>
+<div class="footer">AMD (AMD) · 2026/08/07</div>
+</body>
+</html>

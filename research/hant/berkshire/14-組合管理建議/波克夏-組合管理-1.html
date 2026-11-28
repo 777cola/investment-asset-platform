@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組合管理 — 波克夏</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/berkshire/14-组合管理建议/伯克希尔-组合管理.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/berkshire/14-組合管理建議/波克夏-組合管理-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/berkshire/14-Portfolio-Action/Berkshire-Portfolio-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>組合管理 — 波克夏</h1>
+  <div class="subtitle">波克夏 (BRK.B) | 14 · 組合管理</div>
+  <div class="meta">研究日期 2026/11/16 &nbsp;·&nbsp; 股價 $592.85（-0.02%） &nbsp;·&nbsp; 市值 約 1.26 萬億美元 &nbsp;·&nbsp; PE(TTM) 約 16.6x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/berkshire/00-波克夏研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>組合建議</h3><p class='txt'>目前建議倉位 0%。不是因為公司不好，是因為 1.66 倍帳面、向上 6% 向下 18% 的賠率不值得占用組合風險預算。</p><p class='txt'>建倉分三檔：500 美元（1.4x 帳面）3%、460 美元（1.3x）5%、430 美元（1.2x）8%。<b>上限 8%，不是 15%——它是防禦資產，不是進攻資產。</b>它的作用是降低組合波動，不是提高收益。</p></div><table class="dt"><caption>倉位建議（按價格分檔）</caption><thead><tr><th>情境</th><th>對應價格</th><th>對應 PB</th><th>建議倉位</th><th>理由</th></tr></thead><tbody><tr><td>當前（2026/11/16）</td><td>592.85 美元</td><td>1.66x</td><td>0%</td><td>中性 +6%、悲觀 -18%，賠率不成立</td></tr><tr><td>回調一檔</td><td>≤500 美元</td><td>1.40x</td><td>3%</td><td>歷史中樞，中性情景變 +18%</td></tr><tr><td>回檔第二檔</td><td>≤460 美元</td><td>1.29x</td><td>5%</td><td>接近 2022 年低點，悲觀情景只虧 6%</td></tr><tr><td>恐慌檔</td><td>≤430 美元</td><td>1.20x</td><td>8%</td><td>十年一遇，需確認論點未破</td></tr><tr><td>論文破壞</td><td>任意價格</td><td>—</td><td>0%（清倉）</td><td>綜合成本率連續兩季 &gt;100% 或浮存金下降</td></tr></tbody></table><div class="note">PB 按當期 B 股等價帳面 357.7 美元計算；帳面每年增長 8%–10%，各檔價格每年上移約 8%。</div><div class="section"><div class="section-title">為什麼上限只有 8%</div><p class='txt'>波克夏的年化預期報酬是 8%–10%，波動率比標普低三分之一。<b>它的功能是「降低組合的最大回撤」，不是「提高組合的收益」。</b>給它 15% 倉位，等於用防禦資產佔掉進攻資產的額度。</p><p class='txt'>8% 的含義：在一個 10–12 檔股票的組合裡，它是「壓艙石」級別的配置，不是核心持倉。核心持倉應該是年化 15% 以上的生意。</p><p class='txt'>例外情況：如果組合整體進入防禦模式（比如你判斷未來 12 個月會有一次衰退），可以臨時提到 12%–15%。但那是宏觀判斷，不是這檔股票的判斷。</p></div><div class="section"><div class="section-title">加減倉紀律：用價格和論文兩條線</div><p class='txt'><b>加碼：</b>只在價格觸發時加，不在「利多」觸發時加。500 / 460 / 430 三檔，每檔間隔 8%–9%，不用猜底。<b>減碼：</b>兩個條件——① PB >1.85（約 730 美元）且投資論點沒有實質改善；② 單一持倉超過 10%。</p><p class='txt'><b>停損：不設價格停損，設論點停損。</b>這家公司跌 30% 往往是最好的買點，價格停損會讓你在最低點賣出。真正該走的時候是生意變壞：綜合成本率突破 100%、浮存金下降、或做了一筆毀掉資產負債表的收購。</p><p class='txt'>這條紀律的反面教材是 2020 年 3 月：波克夏跌 30%，很多人停損，然後在 2021 年看著它漲回來。</p></div><div class="section"><div class="section-title">與其他持倉的相關性：它是「負 Beta 的 Beta」</div><p class='txt'>長期來看，波克夏與標普 500 的相關性約 0.6–0.7，因為它持有大量美股。但在<b>恐慌期，相關性會掉到 0.3 以下甚至轉負</b>——2026 年 11 月就是例子：標普跌，它漲 13.2%。</p><p class='txt'>與短債相關性接近 0（它的現金部分像短債，但股價會波動）；與黃金接近 0（都不產生現金流，但機制不同）；與公用事業板塊（XLU）約 0.5（BHE 的估值邏輯相似）；<b>與 AI 硬體股在避險期負相關</b>——這是它今年最值錢的相關性。</p><p class='txt'>組合含義：如果你已經重倉 AI 產業鏈，波克夏是對沖；如果你的組合本來就偏防禦（公用事業、消費必需品、短債），它的邊際價值很低，8% 都嫌多。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'>0 倉位，掛三檔條件單：500 / 460 / 430，對應 3% / 5% / 8%。上限 8%，因為它是壓艙石不是發動機。</p><p class='txt'>停損用論文不用價格。<b>不加槓桿、不做選擇權、不因為「避險」追高</b>——這三條是這檔股票最容易犯的錯，因為它的故事太適合講給恐慌的人聽。</p></div>
+</div>
+<div class="footer">波克夏 (BRK.B) · 2026/11/16</div>
+</body>
+</html>

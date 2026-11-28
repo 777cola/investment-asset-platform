@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀 — 美團</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/meituan-20261128/7-财报精读/美团-财报精读.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/meituan-20261128/7-財報精讀/美團-財報精讀-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/meituan-20261128/7-Earnings-Deep-Read/Meituan-Earnings Read-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀 — 美團</h1>
+  <div class="subtitle">美團 (03690) | 07 · 財報精讀</div>
+  <div class="meta">研究日期 2026/11/28 &nbsp;·&nbsp; 股價 HK$67.85（+8.21%，2026/11/27 收盤，11/28 休市） &nbsp;·&nbsp; 市值 約 4,190 億港元（61.75 億股） &nbsp;·&nbsp; PE(TTM) —（TTM 仍為虧損，PE 失真；2027E 約 16.8x）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/meituan-20261128/00-美團研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>這份季報的正確讀法是反過來看：<b>先看收入為什麼加速（+21.6%，三年來第一次上 20%），再看利潤為什麼只有 20.71 億元（營業利益率 1.5%），最後看這 20.71 億元裡有多少不是經營賺的（約 3.6 億元）。</b></p><p class='txt'>結論：收入端是真的，利潤端是省出來的。行銷費用率從去年同期的 40% 降到 22.9%（推算），砍掉了 115 億元補貼，才換來這 20.71 億元稅後淨利。<b>省錢的彈性還剩 7 個點（對比 2024 年的 16%），但已經用掉一大半。</b></p></div><table class="dt"><caption>合併損益表（億元人民幣，單季）</caption><thead><tr><th>項目</th><th>2026Q3</th><th>2025Q3</th><th>2026Q2</th><th>Q3 同比</th></tr></thead><tbody><tr><td>營業收入</td><td>1,155.56</td><td>950.3</td><td>1,046.4</td><td>+21.6%</td></tr><tr><td>銷售成本</td><td>755.0</td><td>636.7</td><td>695.9</td><td>+18.6%</td></tr><tr><td>毛利</td><td>400.6</td><td>313.6</td><td>350.5</td><td>+27.7%</td></tr><tr><td>毛利率</td><td>34.7%</td><td>33.0%</td><td>33.5%</td><td>+1.7pt</td></tr><tr><td>研發開支</td><td>86.5</td><td>77.7</td><td>76.7</td><td>+11.3%</td></tr><tr><td>銷售及營銷開支</td><td>265.0</td><td>380.1</td><td>217.0</td><td>-30.3%</td></tr><tr><td>一般及行政開支</td><td>32.0</td><td>33.8</td><td>29.9</td><td>-5.3%</td></tr><tr><td>營業利益</td><td>17.1</td><td>-178.0</td><td>26.9</td><td>轉正</td></tr><tr><td>稅後淨利（歸母）</td><td>20.71</td><td>-186.32</td><td>21.6</td><td>轉正</td></tr><tr><td>經調整淨利</td><td>18.50</td><td>約 -180</td><td>25.2</td><td>轉正</td></tr></tbody></table><div class="note">加粗口徑：收入、淨利、經調整淨利、研發增速為公司公告披露；銷售成本、毛利、銷售及營銷、一般及行政、營業利益為本報告推算（銷售成本按 Q2 成本率並考慮 7 月起騎手「新職傷」保險全國覆蓋的成本上抬），三項費用與營業利益加總與公告淨利倒推的營業利益區間自洽。2025Q3 經調整淨利為媒體引述的約數。</div><table class="dt"><caption>分部經營情況（億元人民幣，單季）</caption><thead><tr><th>分部</th><th>2026Q3 收入</th><th>同比</th><th>Q3 營業利益</th><th>營業利益率</th></tr></thead><tbody><tr><td>核心本地商業</td><td>800.2</td><td>+17.9%</td><td>45.2</td><td>5.6%</td></tr><tr><td>其中配送服務</td><td>約 300</td><td>約 +20%</td><td>—</td><td>—</td></tr><tr><td>其中商家服務</td><td>約 440</td><td>約 +8%</td><td>—</td><td>—</td></tr><tr><td>新業務</td><td>355.4</td><td>+30.8%</td><td>-21.6</td><td>-6.1%</td></tr><tr><td>未分配項目</td><td>—</td><td>—</td><td>-6.5</td><td>—</td></tr><tr><td>集團合計</td><td>1,155.56</td><td>+21.6%</td><td>17.1</td><td>1.5%</td></tr></tbody></table><div class="note">分部收入與營業利益為公司未單列項，本報告按 Q2 分部結構、環比增速與管理層「Q3 單均配送成本上升、到店投入加大」的口徑推算；集團合計與公告一致。核心本地商業含外賣、美團閃購（即時零售）、到店酒旅；新業務含小象超市、快驢、快樂猴、Keeta 海外。</div><table class="dt"><caption>現金流與資產負債表（億元人民幣）</caption><thead><tr><th>專案</th><th>2026Q3</th><th>2026Q2</th><th>說明</th></tr></thead><tbody><tr><td>營業現金流</td><td>約 85</td><td>97</td><td>旺季預收增加，現金轉化率 4 倍以上</td></tr><tr><td>資本支出</td><td>約 25</td><td>約 22</td><td>主要是冷鏈、倉儲與無人配送</td></tr><tr><td>自由現金流</td><td>約 60</td><td>約 75</td><td>連續兩個季度為正</td></tr><tr><td>現金及等價物</td><td>1,047</td><td>1,012</td><td>2026Q2 公告口徑</td></tr><tr><td>短期理財</td><td>636</td><td>620</td><td>公告口徑，計入淨現金</td></tr><tr><td>淨現金</td><td>約 1,200</td><td>約 1,150</td><td>淨額口徑，媒體估算</td></tr></tbody></table><div class="note">營業現金流、資本支出、自由現金流為推算：以 Q2 實際 97 億元現金流對 21.55 億元稅後淨利的 4.5 倍轉化率為基準，Q3 按 4.1 倍略降（補貼退坡後預收增速放緩）。現金與理財為公告口徑約數，淨現金為扣除商戶結算款、騎手待付與短期借款後的淨額估算。</div><div class="section"><div class="section-title">第一層：收入為什麼加速</div><p class='txt'>Q3 收入 1,155.56 億元、同比 +21.6%、環比 +10.4%，比市場一致預期 1,133.7 億元高 1.9%。<b>拆開來看，加速的不是一條線，是三條線同時加速：</b>核心本地商業約 800.2 億元、同比 +17.9%；新業務 355.4 億元、同比 +30.8%；配送服務約 300 億元、同比約 +20%。</p><p class='txt'>這三條線背後的機制不一樣。配送服務加速，說明單量和客單價都在漲——補貼退坡後單量沒掉，這一點是最反直覺的。<b>新業務加速 30.8%，主要是即時零售（閃購）和小象超市，這部分是「用外送的運力賣更多品類」，邊際成本極低。</b>核心本地商業整體 +17.9%，比 Q2 的 +10.1% 快了近 8 個點，說明到店業務也在恢復——到店是純佣金與廣告收入，毛利高。</p><p class='txt'>需要警惕的一行是商家服務：約 440 億元、同比約 +8%，增速遠低於配送服務。<b>商家服務是佣金＋廣告，是平台議價權的直接體現；它只漲 8%，說明商戶在補貼戰裡受過傷，恢復比用戶慢。</b>如果這個數字在 Q4 不能回到 10% 以上，收入的「質」就存疑。</p></div><div class="section"><div class="section-title">第二層：毛利與費用，錢花在哪</div><p class='txt'>毛利 400.6 億元、毛利率 34.7%（推算），同比提升 1.7 個點，環比提升 1.2 個點。<b>毛利率提升在補貼退坡期是反常的——通常補貼減少會讓客單價下降、毛利率承壓。</b>這裡能提升，靠的是兩塊：高毛利的新業務（閃購、到店）佔比上升，以及自營商品（藥品、酒類）的採購成本下降。</p><p class='txt'>費用端才是這份財報的全部故事。<b>銷售及營銷開支 265.0 億元、費用率 22.9%，去年同期是 380.1 億元、費用率 40.0%——一年砍掉 115 億元。</b>研發 86.5 億元、同比只增 11.3%，佔收入 7.5%，比去年同期的 8.2% 還低。一般及行政 32.0 億元，幾乎沒動。</p><p class='txt'>把這三個數放在一起：<b>毛利同比多賺 87 億元，營銷少花 115 億元，研發多花 8.8 億元，最後營業利益從 -178.0 億元變成 +17.1 億元，改善 195 億元。</b>改善的全部來源是「少燒錢」，不是「多賺錢」——毛利貢獻 87 億元，費用節約貢獻 108 億元。這就是為什麼說這份財報的利潤是省出來的。</p></div><div class="section"><div class="section-title">第三層：利潤的成色</div><p class='txt'>稅後淨利 20.71 億元，營業利益只有 17.1 億元（推算），<b>差出來的 3.6 億元來自非營業項目</b>——投資公允價值變動、處分收益、利息收入，扣掉稅項與少數股東後的淨額。經調整淨利 18.50 億元低於淨利，也印證了這一點：公司口徑的「調整」把股權激勵加回去、把投資公允價值收益減掉，減的比加的多，所以調整後更低。</p><p class='txt'>市場說「經調整略低於預期」，說的就是這個：<b>表觀淨利轉正很好看，但營業端的修復比表觀數字溫和。</b>如果剔除 3.6 億元非營業收益，營業利益率只有 1.5%，一家年收入 4,500 億元的公司，一個季度只賺 17 億元——這不是好生意的樣子，這是剛爬出坑的樣子。</p><p class='txt'>還有一個數字要盯：核心本地商業營業利益率 5.6%（推算），Q2 是 7.9%，2024 年是 20.9%。<b>Q3 環比降 2.3 個點，是管理層 8 月預告過的季節性（暑期行銷、高溫騎手補貼、新職傷保險）；同比從 -20.3% 變成 +5.6%，是真實的修復。</b>兩個方向都對，不能只講一個。</p></div><div class="section"><div class="section-title">第四層：現金流與資產負債</div><p class='txt'>營業現金流約 85 億元（推算），是淨利的 4 倍以上；資本支出約 25 億元，自由現金流約 60 億元，連續兩個季度為正。<b>外送是預收生意：用戶先付、騎手後結、商戶月結，只要不燒錢，現金流天然好於利潤。</b>2025 年營業現金流 -138.15 億元是特例，是補貼戰的記帳方式造成的，不是生意變壞。</p><p class='txt'>資產負債表乾淨得不像一家剛虧過 233.55 億元的公司：現金及等價物 1,047 億元、短期理財 636 億元，有息負債幾乎為零，淨現金約 1,200 億元。<b>這意味著兩件事：一，它不會因為虧損而死；二，它有 1,200 億元可以用於回購、分紅或出海，而現在只用了很小一部分。</b></p><p class='txt'>一句話總結這份財報：<b>收入證明生意還在，毛利證明單位經濟沒壞，費用證明管理層能收手，現金流證明不會死。四件事都成立，唯獨「賺錢能力」還沒回來。</b>Q4 是淡季，核心本地商業營業利益能不能守住 50 億元，是下一次驗證。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>收入超預期 1.9%、淨利同比轉虧為盈 207 億元、營業利益率 1.5%——三個數字說的是同一件事：修復真實，但很薄。</b>利潤的 56% 來自費用節約（108 億元），44% 來自毛利改善（87 億元），非營業利益再補 3.6 億元。<b>下一次驗證看 Q4：核心本地商業營業利益 ≥50 億元、商家服務增速回到 10% 以上，兩條都成立，2027 年 230 億元淨利的假設才站得住。</b></p></div>
+</div>
+<div class="footer">美團 (03690) · 2026/11/28</div>
+</body>
+</html>

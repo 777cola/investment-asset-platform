@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀（巴菲特） — 特斯拉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/tesla/8-财报团队解读/特斯拉-大师精读-巴菲特.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/tesla/8-財報團隊解讀/特斯拉-財報團隊解讀-2.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/tesla/8-Earnings-Team-Read/Tesla-Earnings Team-2.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>財報精讀（巴菲特） — 特斯拉</h1>
+  <div class="subtitle">所有者收益是負的，這就夠了</div>
+  <div class="meta">研究日期 2026/07/22 &nbsp;·&nbsp; 股價 $374.01（-1.30%） &nbsp;·&nbsp; 市值 約 1.48 萬億美元 &nbsp;·&nbsp; PE(TTM) —（利潤太薄，PE 已失真）</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/tesla/00-特斯拉研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3>巴菲特只看一個數：所有者收益——營業現金流減去維持性資本支出。這個季度是 46.97 億減去（至少）30 億維持性支出，再減去 28 億增長性支出，結果是負 10.9 億。</div><div class="section"><div class="section-title">所有者收益：本季度為負值</div><p class='txt'>巴菲特算公司價值，用的是「所有者收益」= 營業現金流 − 維持性資本支出。特斯拉這個季度營業現金流 46.97 億，聽起來不錯；但資本支出 57.89 億，其中維持性部分（設備更新、模具、產線維護）保守估計 30 億，增長性部分（AI 算力、Cybercab、Optimus）約 28 億。<b>所有者收益 = 46.97 − 30 = 16.97 億，自由現金流 = −10.92 億。</b></p><p class='txt'>兩個數字的差別在於：所有者收益假設增長性開支可以停，自由現金流假設不能停。<b>對特斯拉來說，增長性開支停不下來——一停就意味著放棄 Robotaxi 和 Optimus，那 9,100 億期權立刻歸零。</b>所以真實可分配的錢是負的。</p><p class='txt'>一家不能自由分配現金的公司，它的價值只能靠「未來某一年開始產生自由現金流」來支撐。<b>而「未來某一年」是最難估值的東西。</b></p></div><div class="section"><div class="section-title">護城河檢驗：能不能提價</div><p class='txt'>我判斷護城河只有一個標準：能不能提價而不丟客戶。喜詩糖果能，可口可樂能，蘋果能。<b>特斯拉 2026 年在所有主要市場都在降價，Q2 交付 48 萬輛創紀錄，代價是均價繼續下行。</b></p><p class='txt'>它有真資產：7 萬根超充樁、垂直整合的製造體系、幾百萬輛車的車隊資料、200MW 級的訓練算力。這些都是錢買不到、時間堆出來的。<b>但資產不等於護城河——護城河是「競爭對手搶不走你的利潤」，而不是「競爭對手追不上你的技術」。</b></p><p class='txt'>中國廠商追上來了。比亞迪用垂直整合把成本壓到特斯拉之下，小米用生態和智駕分流 20–30 萬價格帶，華為把智駕做成標配。<b>技術領先三年，在汽車行業只夠撐一個產品週期。</b></p></div><div class="section"><div class="section-title">我為什麼會看一眼儲能</div><p class='txt'>這份財報裡唯一符合我口味的業務是能源：13.5GWh、同比 +41%，收入 31.39 億，長週期合約、可預測現金流、規模效應明顯，客戶是公用事業公司和資料中心。<b>這是我能看懂的生意。</b></p><p class='txt'>但它的毛利率這個季度只有 20.4%，去年同期 39.5%，原因是一筆 2.4 億美元的電池供應商保固計提，加上關稅優惠消失。<b>保固計提是製造業的常態——說明它對供應鏈的控制力沒有想像中強，電芯是買來的。</b></p><p class='txt'>如果哪天特斯拉把儲能單獨拆出來上市，我會認真看。放在整車業務裡，它被 AI 投入和價格戰掩蓋了，<b>就像把一塊好地和一塊鹽鹼地捆在一起賣。</b></p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>巴菲特式結論：</b>這是一家偉大的公司，不是一筆偉大的投資。<b>所有者收益為負、護城河正在被價格戰侵蝕、估值沒有任何傳統錨點——三條裡任何一條都足以讓我放下它。</b>我會記住它，等它的價格回到「算得清」的區間。</p></div>
+</div>
+<div class="footer">特斯拉 (TSLA) · 2026/07/22</div>
+</body>
+</html>

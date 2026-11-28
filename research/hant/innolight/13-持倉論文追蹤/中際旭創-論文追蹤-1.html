@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>論文追蹤 — 中際旭創</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; position: relative; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.lang-switch { position: absolute; top: 1rem; right: 1.2rem; display: flex; gap: 2px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); border-radius: 14px; padding: 3px; }
+.lang-switch a { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 26px; border-radius: 11px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 12px; line-height: 1; white-space: nowrap; overflow: hidden; transition: background .2s ease, color .2s ease; }
+.lang-switch a.active { background: #fff; color: #1A4B8C; font-weight: 600; }
+.lang-switch .full { display: inline-grid; grid-template-columns: 0fr; transition: grid-template-columns .3s ease; margin-left: 2px; }
+.lang-switch a.active .full { grid-template-columns: 1fr; }
+.lang-switch .full > span { overflow: hidden; white-space: nowrap; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="lang-switch"><a class="lang zh" data-lang="zh" href="/research/innolight/13-持仓论文追踪/中际旭创-论文追踪.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant active" data-lang="hant" href="/research/hant/innolight/13-持倉論文追蹤/中際旭創-論文追蹤-1.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" data-lang="en" href="/research/en/innolight/13-Thesis-Tracking/Zhongji Innolight-Thesis-1.html"><span>EN</span><span class="full"><span>English</span></span></a></div>
+  <h1>論文追蹤 — 中際旭創</h1>
+  <div class="subtitle">中際旭創 (300308) | 13 · 論文追蹤</div>
+  <div class="meta">研究日期 2026/09/18 &nbsp;·&nbsp; 股價 ¥925.24（+3.40%） &nbsp;·&nbsp; 市值 約 1.09 萬億元 &nbsp;·&nbsp; PE(TTM) 約 53.3x</div>
+</div>
+<div class="container">
+<a class="back" href="/research/hant/innolight/00-中際旭創研究報告總目錄.html">← 返回總目錄</a>
+<div class="summary-box"><h3>核心判斷</h3><p class='txt'>現在還沒有倉位，所以這不是「持倉論文」，是「觀察論文」——<b>先寫清楚什麼條件下買，再寫什麼條件下永久放棄。</b>五條假設裡，1.6T 需求持續性成立、3.2T 技術儲備成立；毛利率守 42%、淨現比修復兩條待驗證；客戶集中度已經部分證偽（75.98% → 81.9%）。<b>最關鍵的一條是淨現比：三季報回到 50% 以上，論文繼續；低於 30%，論文作廢。</b></p></div><table class="dt"><caption>五條核心假設與驗證狀態</caption><thead><tr><th>#</th><th>假設</th><th>當前證據</th><th>驗證指標</th><th>狀態</th></tr></thead><tbody><tr><td>1</td><td>1.6T 需求至少持續到 2027 年</td><td>2026Q2 四大雲廠資本支出 1,649 億美元、+86%；LightCounting 預計 2026 年 1.6T 需求 860–2,000 萬隻</td><td>季度訂單、單隻均價環比</td><td>成立</td></tr><tr><td>2</td><td>光模組毛利率 2027 年守住 42%</td><td>2026H1 46.59%；對手新易盛 48.44%，說明是行業窗口價</td><td>單隻均價、季度毛利率</td><td>待驗證（關鍵）</td></tr><tr><td>3</td><td>淨現比在 2026H2 修復到 50% 以上</td><td>長期應付款 +41.6 億元、預付 9.5 億元指向主動備料</td><td>三季報營業現金流／稅後淨利</td><td>待驗證（最重要）</td></tr><tr><td>4</td><td>3.2T 2027 年接棒 1.6T</td><td>3.2T NPO、6.4T NPO 已完成開發；4 月口徑「尚未送樣」</td><td>送樣、客戶認證、量產時點</td><td>待驗證</td></tr><tr><td>5</td><td>客戶集中度不再上升</td><td>2025 年 75.98% → 2026Q1 81.9%、最大 25.1%</td><td>半年報／年報客戶披露</td><td>已部分證偽</td></tr></tbody></table><div class="note">狀態定義：成立＝證據充分；待驗證＝有正面證據但缺關鍵資料；已部分證偽＝方向與假設相反但未到不可逆。</div><div class="section"><div class="section-title">論文一句話：買的是「代差租金 + 現金流修復」，不是「AI 敘事」</div><p class='txt'>如果要在 700 元以下買入，理由必須寫成這樣：<b>「中際旭創在 1.6T 這一代有 2–3 個季度的技術代差，能拿到 42% 以上的毛利率；同時 2026 年上半年的現金流緊張是備料造成的一次性現象，三季報會修復；2027 年 3.2T 接棒，收入還能增長 25%。」</b></p><p class='txt'>三條缺一條，論文就不完整。<b>尤其第二條——如果現金流不修復，說明 198 億元存貨賣不掉，那 42% 的毛利率就是假的。</b></p></div><div class="section"><div class="section-title">逐條驗證：哪條最脆弱</div><p class='txt'><b>第 1 條最穩。</b>需求端有硬證據：雲廠資本支出同比 +86%，1.6T 從 2026 年開始規模放量，行業機構給的 2026 年需求區間是 860–2,000 萬隻。<b>這條假設的風險不在需求，在「需求是否已經被股價算進去」——已經算了。</b></p><p class='txt'><b>第 2 條最脆。</b>46.59% 的毛利率有三個支撐：1.6T 供給不足、矽光方案降本、規模效應。前兩個都在被侵蝕：新易盛 1.6T 量產爬坡、矽光門檻下降。<b>42% 的中性假設意味著毛利率要下滑 4.6 個百分點，這個幅度在歷史上一個季度就能完成（2025Q2 毛利率 41.49%，環比 +4.79pct）。</b></p><p class='txt'><b>第 3 條最關鍵。</b>備料說的證據鏈是：長期應付款增加 41.6 億元（鎖一年以上物料）、預付 9.5 億元、存貨 198.26 億元。<b>反證只有一個：如果這些料在 2026H2 沒有變成收入，存貨就會繼續堆，現金流不會修復。</b>三季報是唯一的裁判。</p><p class='txt'><b>第 5 條已經部分證偽。</b>客戶集中度從 2025 年 75.98% 升到 2026Q1 81.9%，方向與「分散風險」相反。<b>這不影響它賺錢，但影響它該值多少倍 PE——單一客戶占 25.1% 的公司，估值應該有折價。</b></p></div><div class="section"><div class="section-title">證偽條件：三條紅線，觸一條就放棄</div><p class='txt'><b>紅線一：三季報淨現比低於 30%。</b>說明備料沒有變成收入，198 億元存貨開始積壓。這條一破，整個「現金流一次性緊張」的假設就倒了。</p><p class='txt'><b>紅線二：1.6T 單隻均價環比下跌超過 8%。</b>說明價格戰開打，46% 的毛利率守不住，42% 的中性假設要下調到 38%，中性目標價從 772 元降到約 690 元。</p><p class='txt'><b>紅線三：前五大客戶佔比升破 85%，或單一客戶砍單 20%。</b>前者說明依賴加深，後者說明需求拐點。兩條都會讓 2027 年的收入預測失效。</p><p class='txt'>補充一條軟紅線：<b>如果輝達 CPO 交換機的端口佔比在 2027 年超過 20%，長期估值上限從 30 倍降到 22 倍</b>——這條不影響一兩年內的業績，但會影響退出時的價格。</p></div><div class="section"><div class="section-title">觀察日曆：什麼時候看什麼</div><p class='txt'>把未來的資訊節點排好，避免被日常噪音帶走。</p><ul><li><b>2026 年 10 月下旬</b>：三季報——淨現比、存貨環比、單隻均價，三個數一次定生死</li><li><b>2026 年 10 月底–11 月初</b>：微軟、亞馬遜、Meta、谷歌三季報的資本支出指引，決定 2027 年需求</li><li><b>2026 年 11 月中</b>：輝達財報與 CPO 交換機出貨口徑，決定替代節奏</li><li><b>2027 年 1 月</b>：年度業績預告，驗證 2026 全年 310 億元淨利（粗算）是否兌現</li><li><b>2027 年 3–4 月</b>：年報與一季報，看 3.2T 是否送樣/量產、客戶集中度是否改善</li></ul><p class='txt'><b>在 10 月下旬之前，任何買入都是在賭三季報。</b>賭對了賺 20%，賭錯了虧 30%——這個賠率不值得。</p></div><div class="summary-box"><h3>結論</h3><p class='txt'><b>結論：論文成立但價格不成立。</b>五條假設裡三條支撐「公司好」，一條支撐「現金流會修復」，一條已部分證偽。<b>買入條件是「700 元以下 + 三季報淨現比 ≥50%」，放棄條件是「淨現比 <30% 或 1.6T 均價環比跌 8%」。</b>在 10 月下旬之前，保持空倉觀察，不做預判性建倉。</p></div>
+</div>
+<div class="footer">中際旭創 (300308) · 2026/09/18</div>
+</body>
+</html>
