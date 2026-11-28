@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>风险评估（李录视角） — CoreWeave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>风险评估（李录视角） — CoreWeave</h1>
+  <div class="subtitle">五种死法，以及哪一种最可能</div>
+  <div class="meta">研究日期 2026/11/20 &nbsp;·&nbsp; 股价 $39.51（-12.02%） &nbsp;·&nbsp; 市值 约 220 亿美元 &nbsp;·&nbsp; PE(TTM) —（GAAP 亏损，PE 无意义）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-CoreWeave研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>CoreWeave 的风险不是「AI 需求不及预期」——那个概率很低。真正会杀死股权的是四种：<b>再融资窗口关闭、客户把订单挪回自建、折旧年限被迫下调、股权被大幅摊薄</b>。四种里有三种与 AI 需求无关，全部与资本结构有关。</p></div><table class="dt"><caption>风险清单与触发条件</caption><thead><tr><th>风险</th><th>触发条件</th><th>对股权的影响</th><th>概率判断</th></tr></thead><tbody><tr><td>再融资失败</td><td>高收益债市场对 neocloud 关门，2027 年 134 亿到期无法展期</td><td>股权被摊薄 30%–60%，或强制重组</td><td>中（35%）</td></tr><tr><td>客户流失</td><td>微软/ Meta 把合同挪回自建，OpenAI 缩减承诺</td><td>backlog 缩水、租金下滑，EBITDA 不及预期</td><td>中高（40%）</td></tr><tr><td>折旧下调</td><td>技术迭代加速，GPU 经济寿命被认定为 3–4 年</td><td>账面利润转负，触发债务契约压力</td><td>中（30%）</td></tr><tr><td>股权稀释</td><td>3,500 万股增发落地，或后续继续增发</td><td>每股价值被摊薄，股价承压</td><td>高（60%）</td></tr><tr><td>循环融资破裂</td><td>英伟达收缩投资与兜底，SEC 调查扩大</td><td>供货优先级下降、订单可信度受损</td><td>中（25%）</td></tr></tbody></table><div class="note">概率为主观判断，用于排序而非精算。数据来源：2026Q3 10-Q 债务到期表、11 月中旬债券收益率与公开报道。</div><div class="section"><div class="section-title">最可能的死法：不是需求崩，是滚不动</div><p class='txt'>把债务到期表和现金流放在一起看，结论很清楚：<b>2027 年到期的 134 亿美元，靠自身现金流还不上</b>。2026 年前三季自由现金流累计约 -179 亿美元，即使 2027 年资本开支不再增长，缺口也在百亿量级。这意味着它必须在 2027 年继续进入债券市场，而它的无担保债收益率已经是 15%。</p><p class='txt'>15% 的融资成本意味着什么？粗算：如果再借 200 亿、成本 15%，年利息 30 亿——比 2026 年全年的调整后 EBITDA 的一半还多。<b>这是一个自我强化的死亡螺旋：越缺钱越贵，越贵越缺钱。</b></p></div><div class="section"><div class="section-title">被低估的风险：合同是「最高承诺」不是「保底付款」</div><p class='txt'>Meta 的 210 亿美元、OpenAI 的 65 亿美元，都是 commitment 而非 take-or-pay。差别在会计和现金上都是实质性的：<b>如果客户实际用量低于承诺，CoreWeave 拿不到全额，但机柜、电力、债务已经按满负荷配置了</b>。</p><p class='txt'>1,325 亿美元的 backlog 听起来是 36 倍的年营收覆盖，但它的质量取决于两件事：客户能不能履约、合同有没有最低付款条款。10-Q 里对这两点的披露有限，这本身就是风险——<b>当你无法验证一个数字的质量时，应该按最差情况给它打折</b>。</p></div><div class="section"><div class="section-title">李录会怎么给这个风险定价</div><p class='txt'>李录的框架强调「下行保护」：一笔投资如果最坏情况是亏 70%，那它的期望值必须显著为正才值得做。这里期望值只有 +9%（43 美元 vs 39.51 美元），下行 -70%，<b>赔率完全不成立</b>。</p><p class='txt'>他也会提醒一个更根本的问题：<b>AI 是文明级机会，但参与方式决定收益</b>。买英伟达是买标准制定者，买微软是买现金流 + 期权，买 CoreWeave 是买「最薄的那层股权 + 最高的杠杆」。同一个趋势，三种风险收益结构，选最差的那种没有道理。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>风险判断：不可接受。</b>五种风险里四种与资本结构相关，且相互强化——客户流失会让现金流更差，现金流更差会让再融资更贵，再融资更贵会逼出股权稀释。这不是「波动大」，是「结构脆弱」。<b>李录式结论：不参与。</b>如果一定要跟踪，只看两个先行指标：无担保债收益率（现约 15%）与季度客户预付款金额（本季 21.27 亿、Q4 指引约 90 亿）——前者决定能不能活，后者决定活得像不像一家正常公司。</p></div>
+</div>
+<div class="footer">CoreWeave (CRWV) 投资研究报告集 · 2026/11/20</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>组合管理 — CoreWeave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>组合管理 — CoreWeave</h1>
+  <div class="subtitle">CoreWeave (CRWV) | 14-组合管理建议</div>
+  <div class="meta">研究日期 2026/11/20 &nbsp;·&nbsp; 股价 $39.51（-12.02%） &nbsp;·&nbsp; 市值 约 220 亿美元 &nbsp;·&nbsp; PE(TTM) —（GAAP 亏损，PE 无意义）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-CoreWeave研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>对一家股权只占企业价值 26%、债券收益率 15% 的公司，仓位管理的答案很简单：<b>0%</b>。不建议做空（借券成本高、逼空风险大——一条「上调指引」或「新签大单」就能引发 20%–30% 的反弹，空头扛不住这个回撤），也不建议「小仓位试错」——<b>赔率是亏 70% 赚 9%，任何大于 0 的仓位都是在为负期望值付费</b>。若已持有，用反弹减仓，不设止损位（因为止损位在 -70% 之外）。</p></div><table class="dt"><caption>仓位建议（按情景）</caption><thead><tr><th>情景</th><th>建议仓位</th><th>理由</th></tr></thead><tbody><tr><td>基准（信贷窗口维持、无重大恶化）</td><td>0%</td><td>中性估值 43 美元，仅比现价高 9%，不值得承担 -70% 的下行</td></tr><tr><td>信贷窗口收窄（收益率 &gt;18%）</td><td>0%，并考虑对冲</td><td>股权将被摊薄 30%–60%，企业价值不变但股权价值腰斩</td></tr><tr><td>三项触发条件中两条落地</td><td>≤2%（观察仓）</td><td>论文部分修复，但仍需验证现金流与债务久期</td></tr><tr><td>三项触发条件全部落地</td><td>≤5%</td><td>回到「可以估值」的状态，按 7x EV/EBITDA 定价</td></tr><tr><td>已持有（历史成本高于 80 美元）</td><td>反弹减至 0%</td><td>沉没成本不影响决策；债券定价已给出违约概率</td></tr></tbody></table><div class="note">仓位上限按单一高波动标的管理，组合层面 AI 算力总敞口建议不超过 15%，且优先配置上游与 hyperscaler。</div><div class="section"><div class="section-title">为什么不做空</div><p class='txt'>三个理由。<b>第一，借券成本与逼空风险</b>：这类高波动、高关注度的标的，任何一条「上调指引」或「新签大单」都能引发 20%–30% 的反弹，空头的回撤承受不了。<b>第二，时间不在空头这边</b>：它的债务到期在 2027 年，违约是「可能发生」而不是「正在发生」，空头要付一年的借券费去等一个不确定的时点。</p><p class='txt'><b>第三，也是最重要的：不投已经是完整的决策。</b>看空一家公司不需要通过做空来证明，回避本身就是对风险的定价。<b>做空是把「我判断它会跌」变成「我必须在某个时间前跌」，后者需要预测时点，前者只需要判断价值。</b></p></div><div class="section"><div class="section-title">减仓与加仓的价位</div><p class='txt'><b>减仓：任何反弹到 55–60 美元（对应中性估值 43 美元的 1.3–1.4 倍）都是减仓窗口</b>，理由不是技术位，是「在这个价格上，赔率进一步恶化」。<b>加仓：没有加仓价位</b>——不是因为价格不够低，是因为触发条件是结构性的（债务久期、FCF 路径、合同条款），不是价格。</p><p class='txt'><b>止损：不设。</b>这句话听起来反直觉，但对 0% 仓位的人没有意义；对已持有的人，39.51 美元距高点 -71.4%，止损位早就该在 100 美元上方触发。<b>现在讨论止损，是在用交易纪律掩盖当初的买入错误。</b></p></div><div class="section"><div class="section-title">与其他持仓的相关性</div><p class='txt'>如果组合里有英伟达、台积电、SK 海力士、微软，那么 CoreWeave 的相关性极高（同受 AI 资本开支驱动），<b>但风险特征完全不同：上游是「需求 + 定价权」，它是「需求 + 杠杆」</b>。同一件事发生（AI 资本开支放缓），上游跌 20%，它跌 60%。</p><p class='txt'>所以它在组合里的角色只能是「高 β 的卫星仓」，绝不能当核心仓。<b>而既然它的期望值是负的，卫星仓也没有必要</b>。若要表达「AI 算力继续增长」的观点，用上游或 hyperscaler 表达，赔率结构好得多——上涨有份，下跌有现金流兜底。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>结论：0% 仓位，不做空，不设止损，不设加仓位。</b>理由是赔率：中性 +9%、悲观 -70%，任何大于 0 的仓位都在为负期望值付费。已持有者用反弹减仓，减仓区间 55–60 美元。<b>重新建仓的唯一路径是三个结构性条件落地</b>（FCF 缺口连续两季收窄、债务久期拉长、客户合同改保底），而不是股价跌到某个位置。</p></div>
+</div>
+<div class="footer">CoreWeave (CRWV) 投资研究报告集 · 2026/11/20</div>
+</body>
+</html>

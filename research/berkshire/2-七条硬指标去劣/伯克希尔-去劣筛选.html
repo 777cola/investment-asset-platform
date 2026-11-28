@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣筛选 — 伯克希尔</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>去劣筛选 — 伯克希尔</h1>
+  <div class="subtitle">伯克希尔 (BRK.B) | 2-七条硬指标去劣</div>
+  <div class="meta">研究日期 2026/11/16 &nbsp;·&nbsp; 股价 $592.85（-0.02%） &nbsp;·&nbsp; 市值 约 1.26 万亿美元 &nbsp;·&nbsp; PE(TTM) 约 16.6x</div>
+</div>
+<div class="container">
+<a class="back" href="../00-伯克希尔研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>去劣结论</h3><p class='txt'>七条硬指标，过五条。不过的两条是 ROE（约 10.4%，门槛 15%）和毛利率趋势（承保利润率从约 15% 掉到 8.6%）。这两条放在别的公司身上是红灯，放在伯克希尔身上要先看原因。</p><p class='txt'>ROE 低是因为权益 7,614 亿美元太厚、几乎不用杠杆，不是生意不赚钱；承保利润率下滑是车险定价周期正常化，综合成本率 91.4% 仍在赚钱区间。去劣的目的是排掉“结构性差公司”，伯克希尔不属于这一类。</p></div><table class="dt"><caption>七条硬指标（2026Q3 数据，门槛按质量筛选标准）</caption><thead><tr><th>指标</th><th>公司数值</th><th>门槛</th><th>判定</th></tr></thead><tbody><tr><td>ROE（近五年均值）</td><td>约 10.4%（2026 年化粗算），五年区间 9%–12%</td><td>≥15%</td><td>不过</td></tr><tr><td>经营现金流 / 净利润</td><td>长期 &gt;100%（先收保费后赔付）</td><td>≥100%</td><td>过</td></tr><tr><td>利息覆盖倍数</td><td>&gt;10x（利息费用占运营利润不足一成，粗算）</td><td>≥8x</td><td>过</td></tr><tr><td>有息负债 / 股东权益</td><td>约 17%（含 BNSF、BHE 债务，粗算）</td><td><50%</td><td>过</td></tr><tr><td>毛利率趋势</td><td>承保利润率 8.6%（上年约 15%，同口径粗算）</td><td>稳定或提升</td><td>不过</td></tr><tr><td>股本变化</td><td>持续净回购，Q3 96.47 亿美元，前三季 144 亿</td><td>不稀释</td><td>过</td></tr><tr><td>自由现金流</td><td>为正；资本开支由 BNSF/BHE 自行承担</td><td>为正且增长</td><td>过</td></tr></tbody></table><div class="note">门槛取自七条硬指标通用标准；公司数值来自 2026Q3 财报，带“粗算”的为四则运算推算。</div><div class="section"><div class="section-title">不过的第一条：ROE 10.4%，但这不是差生意</div><p class='txt'>15% 的 ROE 门槛是为“轻资产、靠盈利滚动”的公司设计的。伯克希尔有 7,614 亿美元权益，其中 3,774 亿是现金和短债——<b>这堆钱按定义只能赚 4.4%，它把 ROE 数学上压死了</b>。</p><p class='txt'>做个除法：假设把现金全买成 4.5% 的国债，这部分的净资产回报率就是 4.5%。剩下的 3,840 亿运营资产，年化运营利润 508 亿，回报率约 13.2%。<b>实体资产的回报率是合格的，被现金拖到了 10.4%。</b></p><p class='txt'>所以这条不过，含义是“复利速度慢”，不是“生意坏”。它对估值的含义很直接：账面价值每年涨 8%–10%，股价长期回报的天花板就是这个数加估值波动。</p></div><div class="section"><div class="section-title">不过的第二条：承保利润率腰斩</div><p class='txt'>承保利润 13.52 亿、同比 -43%，综合成本率 91.4%。这意味着每一美元保费还赚 8.6 美分，但去年是 15 美分左右（按同口径保费粗算）。GEICO 利润 9.82 亿、-45%，是主要拖累。</p><p class='txt'>原因是车险周期。2023–2025 年车险定价涨得比赔付快，行业赚了三年超额利润；2026 年赔付成本（维修、二手车、医疗）追上来，定价开始松动。<b>这不是伯克希尔独有的问题，Progressive 也一样。</b></p><p class='txt'>判断标准很简单：综合成本率 95% 以下都算健康，100% 以上才是真问题。现在 91.4%，离红线还有 8.6 个点。</p></div><div class="section"><div class="section-title">过的五条里，最硬的是负债和股本</div><p class='txt'><b>负债：</b>有息负债大约 1,300 亿美元量级，全部有具体资产对应——BNSF 的机车和路网、BHE 的电站、Clayton 的抵押贷款组合。母公司层面几乎没有净债务，这是它能当“最后买家”的前提。</p><p class='txt'><b>股本：</b>Q3 回购 96.47 亿美元、前三季 144 亿，股本在缩。这一条在 2026 年尤其值钱——同期大量科技公司在高价增发、发可转债、给员工发股票。</p><p class='txt'><b>现金流：</b>保险是“先收钱、后赔付”，经营现金流天然高于净利润；本季净利 221.12 亿里有大量未实现投资收益，不能当现金看，但运营利润 127.05 亿是实打实的。</p></div><div class="section"><div class="section-title">不过是否致命：不致命，但要降低预期</div><p class='txt'>两条不过都不致命，因为它们的共同指向是同一件事：<b>这是一台 8%–10% 的复利机器，不是 15% 的成长股。</b></p><p class='txt'>去劣筛选的意义在于把“结构性烂公司”排掉——高负债、股本稀释、现金流造假、ROE 靠杠杆撑。伯克希尔一条都不沾。它的问题是另一类：<b>好公司 + 高价格 = 平庸回报</b>。</p><p class='txt'>所以这一关的结论不是“淘汰”，是“合格但别期待惊喜”。真正该做决定的地方在第五关的估值。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'>七条过五条。两条不过——ROE 10.4%、承保利润率 8.6%——都属于“周期或结构原因”，不属于“质量原因”。<b>去劣筛选放行，但附一个条件：把它当 8%–10% 的复利资产定价，不要按成长股给倍数。</b></p><p class='txt'>真正需要警惕的不是这两条，是这两条的推论：如果账面价值年增 8%，而你现在付 1.66 倍，未来五年年化回报大约 4%–6%，跟短债差不多。那为什么要承担股票风险？</p></div>
+</div>
+<div class="footer">伯克希尔 (BRK.B) 投资研究报告集 · 2026/11/16</div>
+</body>
+</html>

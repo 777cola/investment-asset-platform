@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行业漏斗 — CoreWeave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>行业漏斗 — CoreWeave</h1>
+  <div class="subtitle">CoreWeave (CRWV) | 11-行业漏斗对比</div>
+  <div class="meta">研究日期 2026/11/20 &nbsp;·&nbsp; 股价 $39.51（-12.02%） &nbsp;·&nbsp; 市值 约 220 亿美元 &nbsp;·&nbsp; PE(TTM) —（GAAP 亏损，PE 无意义）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-CoreWeave研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>把 AI 算力供给方排成一条漏斗：六家进来，四家因为「无定价权 + 负自由现金流」粗筛出局，剩下微软与甲骨文进入终选。<b>CoreWeave 在第一层就被淘汰——不是因为它增长最慢（它 +168% 最快），而是因为它的增长靠 468.7 亿债务买来，利息覆盖 0.24 倍。</b>结论：这条链上值得持有的是拿毛利的上游和拿现金流的 hyperscaler，不是中间的渠道商。</p></div><table class="dt"><caption>AI 算力供给方对比（2026 年 11 月）</caption><thead><tr><th>公司</th><th>市值（量级）</th><th>营收增速</th><th>毛利率</th><th>PE</th><th>ROE</th><th>判定</th></tr></thead><tbody><tr><td>CoreWeave</td><td>约 220 亿美元</td><td>+168%（Q3）</td><td>约 70%（粗算）</td><td>—（GAAP 亏损）</td><td>负</td><td>淘汰：杠杆 + 负 FCF</td></tr><tr><td>Nebius</td><td>百亿美元量级（粗估）</td><td>三位数增长</td><td>—（未核）</td><td>—（亏损）</td><td>负</td><td>淘汰：无定价权，同样负 FCF</td></tr><tr><td>IREN</td><td>百亿美元量级（粗估）</td><td>高增长（矿转 AI）</td><td>—（未核）</td><td>—（利润薄）</td><td>低</td><td>淘汰：转型未验证</td></tr><tr><td>微软</td><td>3–5 万亿美元量级</td><td>约 15%–20%（Azure 更高）</td><td>约 68%</td><td>约 26x</td><td>约 30%</td><td>入选：资本成本 4.85%</td></tr><tr><td>甲骨文</td><td>5,000–8,000 亿美元量级（粗估）</td><td>OCI 高速增长</td><td>约 70%</td><td>—（杠杆上升，PE 失真）</td><td>负（近年）</td><td>入选（观察）：订单驱动，杠杆上升</td></tr><tr><td>英伟达</td><td>4–5 万亿美元量级</td><td>+103%（FY27Q3）</td><td>70%+</td><td>—（周期高点）</td><td>极高</td><td>入选：标准制定者</td></tr></tbody></table><div class="note">市值与 PE 为 2026 年 11 月中旬量级粗估，非精确核对值；CoreWeave 数据来自 2026Q3 财报与 stockanalysis（PE 因 GAAP 亏损不适用）。微软 PE 约 26x 为底稿引用值。</div><div class="section"><div class="section-title">第一层粗筛：三条硬门槛</div><p class='txt'><b>门槛一，自由现金流是否为正或可在两年内转正。</b>CoreWeave 单季 -74.66 亿、逐季扩大；Nebius、IREN 同样为负。<b>门槛二，利息覆盖是否 ≥ 3 倍。</b>CoreWeave 0.24 倍。<b>门槛三，客户集中度是否低于 30%。</b>CoreWeave 前两大客户 54%。</p><p class='txt'>三条门槛下，三家 neocloud 全灭。这不是行业判断，是财务报表判断——<b>它们在同一个季度里同时踩了「烧钱、借贵钱、靠少数客户」三条线</b>。微软、甲骨文、英伟达都至少过了两条。</p></div><div class="section"><div class="section-title">第二层：为什么 neocloud 整层被淘汰</div><p class='txt'>把三家 neocloud 放在一起看，它们的商业模式是同一个模板：<b>借钱买卡 → 建机房 → 签长约 → 再借钱买卡</b>。区别只在杠杆倍数和客户结构。这个模板在 GPU 短缺期有效（稀缺定价覆盖资金成本），在供给追上后失效（价格战 + 利息刚性）。</p><p class='txt'>2026 年 11 月的证据是：<b>三家同时回撤 50% 以上，且融资成本同步上升</b>。如果是单家公司的问题，不会三家一起；三家一起，说明是模式的问题。这一步淘汰掉整层，是本次漏斗最重要的判断。</p></div><div class="section"><div class="section-title">终选：英伟达、微软，以及观察中的甲骨文</div><p class='txt'><b>英伟达</b>：AI 算力的标准制定者，毛利率 70%+，FY27Q3 营收 1,158 亿、+103%。风险是被质疑的循环融资与客户自研芯片，11 月 17 日 SEC 调查与 CEO 变动是重大不确定性，但它的定价权不依赖任何单一客户。</p><p class='txt'><b>微软</b>：既是最大买方也是最强自建方，资本成本 4.85%（CoreWeave 7.9%），PE 约 26x。它的 AI 敞口被云业务和 Office 现金流包裹，下行保护厚。<b>甲骨文</b>进入观察而非入选：OCI 订单增速极高，但杠杆在上升、OpenAI 占比高，风险结构与 CoreWeave 有相似之处，只是资产负债表厚得多。</p></div><div class="section"><div class="section-title">为什么不是 CoreWeave：三条它答不上的问题</div><p class='txt'><b>第一，你的钱比微软贵 3 个百分点，凭什么在同一个市场里赢？</b>同样一度电、一张卡，微软的资金成本 4.85%，它 7.9%，这 3 个百分点在薄利行业里就是生死线。<b>第二，当微软把 800 亿美元外包收回，你的 4.6GW 电力给谁用？</b><b>第三，2027 年 134 亿到期，你打算用什么还？</b></p><p class='txt'>三个问题它都有答案——「我们交付更快」「客户需求强劲」「我们会再融资」。<b>但三个答案都指向外部条件，没有一个指向自身现金流。</b>这就是它不能进终选的原因：一家需要外部条件持续 favorable 才能活下去的公司，不属于「值得持有十年」的清单。</p></div><div class="section"><div class="section-title">如果只用一条指标筛这条链</div><p class='txt'>只用一条，我会用<b>利息覆盖倍数</b>。它同时包含了三件事：生意的利润率、债务的规模、融资的成本。英伟达、微软轻松过 10 倍，甲骨文在 3–5 倍，CoreWeave 0.24 倍、Nebius 与 IREN 都在 2 倍以下。<b>一条指标就把这条链分成了两组，而且分组结果与 2026 年 11 月的股价表现高度一致。</b></p><p class='txt'>第二重要的指标是资本开支/经营现金流。<b>低于 1 是「自己养自己」，高于 2 是「靠外面输血」</b>。CoreWeave 是 4.8，接近亚马逊、微软当年最激进的阶段——但那两家当年有云业务的现金流兜底，这家没有。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>结论：CoreWeave 在第一层粗筛即被淘汰。</b>它是这条链上增长最快的公司（+168%），也是资本结构最脆弱的公司（D/E 16.5、利息覆盖 0.24 倍）。<b>行业终选：英伟达（标准制定者）、微软（资本成本 + 现金流），甲骨文列为观察。</b>若要保留 AI 算力敞口，用这三家替代，而不是买杠杆最重的渠道商。</p></div>
+</div>
+<div class="footer">CoreWeave (CRWV) 投资研究报告集 · 2026/11/20</div>
+</body>
+</html>

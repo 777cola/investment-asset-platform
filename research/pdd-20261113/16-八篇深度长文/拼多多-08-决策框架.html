@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>决策框架：什么价格买，什么仓位，什么条件下认错 — 拼多多</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>决策框架：什么价格买，什么仓位，什么条件下认错 — 拼多多</h1>
+  <div class="subtitle">八篇深度之八 | 把判断变成可执行的规则</div>
+  <div class="meta">研究日期 2026/11/13 &nbsp;·&nbsp; 股价 $78.97（+1.86%） &nbsp;·&nbsp; 市值 约 1,124 亿美元 &nbsp;·&nbsp; PE(TTM) 约 8.2x</div>
+</div>
+<div class="container">
+<a class="back" href="../00-拼多多研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>前七篇讲的是“是什么”，这一篇讲“怎么做”。<b>决策框架只有三件事：买多少、什么价格、什么时候认错。</b>其他的都是噪音。</p><p class='txt'><b>答案：3% 仓位，78–80 美元建首批，120 美元减半，逻辑破了就走。</b></p></div><table class="dt"><caption>决策规则表</caption><thead><tr><th>动作</th><th>条件</th><th>幅度</th></tr></thead><tbody><tr><td>建仓</td><td>现价 78–80 美元（扣现金 3.4 倍）</td><td>1%</td></tr><tr><td>加仓</td><td>Q3 交易服务增速 ≥10%，或股价 ≤72 美元且现金未减</td><td>+1%</td></tr><tr><td>满仓</td><td>宣布 ≥50 亿美元回购，或广告增速回 6%</td><td>+1%，上限 3%</td></tr><tr><td>减仓</td><td>股价 &gt;120 美元（扣现金 7.6 倍）</td><td>减至 1.5%</td></tr><tr><td>清仓</td><td>广告连续两季负增长 / 交易服务 &lt;5% / 现金同比 −10% / 审计问题</td><td>0%</td></tr></tbody></table><div class="note">价格为 2026/11/13 收盘口径；倍数按 14.23 亿 ADS、7.1 汇率、995 亿元 2026 年预期净利计算。</div><div class="section"><div class="section-title">第一件事：买多少</div><p class='txt'><b>3%。</b>这个数字不是从估值推出来的，是从“回报来源”推出来的：没有分红回购，回报只能来自估值修复；估值修复的时点不由你决定；中概的尾部风险不可对冲。<b>三条加起来，3% 是上限。</b></p><p class='txt'>如果哪天它开始回购，这个上限可以提到 5%；如果广告转负，直接降到 0。<b>仓位是跟着论文走的，不是跟着股价走的。</b></p></div><div class="section"><div class="section-title">第二件事：什么价格</div><p class='txt'><b>买：78–80 美元。</b>扣现金 3.4 倍，悲观情景 66 美元只跌 17%，赔率 3.6:1。</p><p class='txt'><b>卖：120 美元以上。</b>扣现金 7.6 倍，赔率掉到 1.5:1 以下。<b>注意这不是目标价，是减仓线。</b>中性目标价 99 美元，但到了 99 美元不该卖——因为那时候论文可能已经兑现（回购、广告回升），值得继续持有。</p></div><div class="section"><div class="section-title">第三件事：什么时候认错</div><p class='txt'><b>不设价格止损。</b>一只扣现金 3.4 倍的股票跌 20% 变成 2.7 倍，该加不该砍。<b>止损设在逻辑上：</b></p><ul><li>在线营销收入连续两个季度同比负增长——国内生意真的在退。</li><li>交易服务收入增速掉到 5% 以下——Temu 的单位经济被打穿。</li><li>现金及短期投资同比减少 10% 以上——开始烧老本。</li><li>审计师变更或非标意见——治理出问题。</li></ul><p class='txt'><b>任何一条出现，不看价格，直接退出。</b>这不是止损，是承认判断错了。</p></div><div class="section"><div class="section-title">第四件事：多久看一次</div><p class='txt'><b>一个季度看一次，只看四行：</b>营收结构（广告 vs 交易服务）、毛利率、现金余额、经营现金流。其余（股价、评级、新闻）都不看。</p><p class='txt'><b>这个频率是有讲究的。</b>看得太勤会被噪音带走（9 月那 7.3% 就是噪音）；看得太疏会错过拐点（广告转负要两个季度才确认）。<b>季度频率刚好匹配这家公司的信息节奏。</b></p></div><div class="section"><div class="section-title">一个常见错误：在 66 美元的时候恐慌</div><p class='txt'>假设明年一季度广告转负、股价跌到 66 美元（悲观情景）。<b>大多数人的反应是“逻辑破了，卖”。</b>但按这套框架，66 美元对应扣现金 2.7 倍，那是加仓的位置，前提是现金没减少。</p><p class='txt'><b>恐慌的来源不是价格，是没有事先写好规则。</b>如果你在 79 美元的时候就把“什么条件下加、什么条件下走”写清楚，66 美元只是一个执行点，不是一个情绪点。</p></div><div class="section"><div class="section-title">这套框架在什么情况下失效</div><p class='txt'><b>一、如果拼多多变成一家“会分钱”的公司</b>——回购加分红，那么估值框架要从“资产打折”换成“现金流折现”，目标价会显著上移，3% 的仓位上限也该放开。</p><p class='txt'><b>二、如果 Temu 单独上市或被剥离</b>——分部估值会取代合并估值，Temu 的价值会被单独定价，现在的“零估值”处理就不再适用。</p><p class='txt'><b>三、如果监管彻底关闭跨境通道</b>——那 Temu 归零，公司退回纯国内现金牛，估值该给 6 倍左右，对应约 90 美元。<b>三种情况都会让这套框架重写，但都不会让你亏钱。</b></p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>决策落点：3% 仓位、78–80 建首批、120 减半、四条逻辑线任一破了就走、每季度只看四行。</b></p><p class='txt'>这套规则的价值不在精确，在让你在股价跌 30% 的时候不用重新做判断——因为判断早就写好。</p><p class='txt'><b>最后一句话：用三折买一门高毛利生意，赌管理层不会把钱烧在海外。赌对赚 60%，赌错亏 20%。</b></p></div>
+</div>
+<div class="footer">拼多多 (PDD) 投资研究报告集 · 2026/11/13</div>
+</body>
+</html>

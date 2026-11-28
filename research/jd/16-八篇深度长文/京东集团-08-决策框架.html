@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>决策框架：什么价格买、什么情况走 — 京东集团</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>决策框架：什么价格买、什么情况走 — 京东集团</h1>
+  <div class="subtitle">把所有分析压缩成一张操作卡</div>
+  <div class="meta">研究日期 2026/10/26 &nbsp;·&nbsp; 股价 HK$99.40（-0.60%） &nbsp;·&nbsp; 市值 约 2,800 亿港元 &nbsp;·&nbsp; PE(2026E 经调整) 约 7.5x</div>
+</div>
+<div class="container">
+<a class="back" href="../00-京东集团研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>分析做到最后要能执行。这张卡只有四行：<b>什么价格买（90 港元或 Q3 双达标）、买多少（2%–5%）、什么情况走（三个逻辑止损）、什么情况不动（其余全部）。</b>其余的分析都是为这四行服务的。</p></div><table class="dt"><caption>操作卡（2026/10/26，现价 99.40 港元）</caption><thead><tr><th>触发条件</th><th>动作</th><th>仓位</th></tr></thead><tbody><tr><td>现价、无事件</td><td>不动，观察</td><td>0%</td></tr><tr><td>Q3 零售收入转正 + 外卖亏损 ≤80 亿</td><td>建首仓</td><td>3%</td></tr><tr><td>股价 ≤90 港元（每股现金等价）</td><td>分批建仓 90/86/82</td><td>2%–4%</td></tr><tr><td>双触发（价格 + 事件）</td><td>建满</td><td>5%</td></tr><tr><td>宣布新的大规模投入 / 自由现金流转负 / 现金单季降 200 亿</td><td>清空、移出名单</td><td>0%</td></tr></tbody></table><div class="note">仓位为占组合净值比例；中概电商合计敞口上限 8%。</div><div class="section"><div class="section-title">为什么是 90 港元</div><p class='txt'>90 港元 × 28.18 亿股 = 2,536 亿港元 ≈ 2,326 亿人民币，对 2,351 亿现金的覆盖率 101%。<b>也就是说，90 港元是“股价等于每股净现金”的位置——买股票等于免费得到零售、物流、外卖三块业务。</b></p><p class='txt'>这不是精确的科学，是心理与赔率的分界线。在 99.4 港元，你为这三块业务付 8 港元/股；在 90 港元，你付 0 港元。同样一家公司，同一份财报，赔率完全不同。</p></div><div class="section"><div class="section-title">为什么是这两个事件指标</div><p class='txt'>“零售收入转正”决定了收入弹性——没有它，中性情景 125 港元不成立。“外卖亏损 ≤80 亿”决定了现金消耗速度——没有它，2,351 亿现金的托底每年被削掉 400 亿。</p><p class='txt'>两个指标都能在五周内验证（Q3 财报 11 月中、双 11 收官 11/14）。<b>能快速验证的指标优先于需要长期观察的判断，这是纪律的一部分。</b></p></div><div class="section"><div class="section-title">为什么设逻辑止损而不是价格止损</div><p class='txt'>买入后如果股价从 90 跌到 75，而现金还是 2,351 亿，那是更好的价格，不是止损理由（75 港元对应现金覆盖率 121%）。<b>价格止损在这种资产型公司身上会把你洗在最便宜的位置。</b></p><p class='txt'>真正的止损是逻辑失效：现金开始流失、公司再开战场、自由现金流转负。三件事任何一件发生，无论价格多少都要走——因为那时候你买的不是“便宜的资产”，是“正在融化的资产”。</p></div><div class="section"><div class="section-title">使用说明：怎么避免自己骗自己</div><p class='txt'>所有决策框架最后都败在执行上，尤其是“等”这个动作。人有两种方式骗自己：<b>一是把“便宜”当成“机会”</b>，看到 7.5 倍 PE 就下手，忽略了便宜的原因；<b>二是把“等”当成“放弃”</b>，涨了 15% 就追，理由是“错过更贵”。</p><p class='txt'>防这两种骗法的办法是把条件写成不可辩解的形式：90 港元是数字，Q3 双达标是数字，新投入公告是事实。<b>三条都不含糊，所以没有解释空间。</b></p><p class='txt'>还有一条自我约束：这份报告的有效期到 Q3 财报发布为止（11 月中）。如果 Q3 数据出来，两个条件都没满足，就重写报告、重新给评级，而不是“维持观察”——<b>“维持”是最容易被滥用的动作，它让人以为自己在跟踪，其实在拖延。</b></p></div><div class="section"><div class="section-title">什么时候该推翻这份报告</div><p class='txt'>任何报告都有失效条件，写清楚比写漂亮重要。这份报告在四种情况下必须推翻重写：<b>① Q3 数据出来，零售收入转正且外卖亏损 ≤80 亿（判断从“观察”改“买入”）；② 出现新的大规模投入（改“回避”）；③ 现金余额单季降超 200 亿（改“回避”）；④ 出现重大的股权或治理变化，比如双重股权改革、创始人退出（重新评估估值框架）。</b></p><p class='txt'>四种情况里，第一种是向好的推翻，后三种是向坏的推翻。<b>写清楚“什么会让我认错”，是判断是否有纪律的唯一证据。</b>没有这一条的报告，本质上只是观点的包装。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'>决策框架总结：<b>等，但别走远。</b>90 港元或 Q3 双达标，两个触发器五周内见分晓；三条逻辑止损随时待命。现价 99.4 港元、7.5 倍经调整 PE、现金占市值九成——这个价格不坏，但还不够好到可以替管理层的不自制买单。</p></div>
+</div>
+<div class="footer">京东集团 (9618.HK) 投资研究报告集 · 2026/10/26</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>财务真相：三张表怎么勾稽出一个窟窿 — CoreWeave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>财务真相：三张表怎么勾稽出一个窟窿 — CoreWeave</h1>
+  <div class="subtitle">从 36 亿营收到 -74.7 亿自由现金流</div>
+  <div class="meta">研究日期 2026/11/20 &nbsp;·&nbsp; 股价 $39.51（-12.02%） &nbsp;·&nbsp; 市值 约 220 亿美元 &nbsp;·&nbsp; PE(TTM) —（GAAP 亏损，PE 无意义）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-CoreWeave研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>三张表连起来读一次，比看十篇研报有用。<b>利润表：营收 36.61 亿、净亏 7.09 亿；现金流表：经营 +19.75 亿（其中 21.27 亿是预付款）、投资 -94.41 亿；筹资表：发债、可转债、增发全部净流入。</b>三张表讲的是同一件事：收入在涨，现金在漏，缺口靠借。</p></div><div class="section"><div class="section-title">利润表：三层利润，每层差一个数量级</div><p class='txt'>第一层调整后 EBITDA 22.56 亿（62%）——剔除了折旧、利息、股权激励。<b>第二层调整后经营利润 3.79 亿（10.4%）</b>——剔除了股权激励（约 1.72 亿，按 379−207 反推）。<b>第三层 GAAP 经营利润 2.07 亿（5.7%）</b>——全额计提折旧。再往下扣净利息 8.46 亿，净亏 7.09 亿。</p><p class='txt'>三层之间的差距，就是这门生意的全部真相：<b>62% 到 5.7% 之间是折旧，5.7% 到 -19.4% 之间是利息。</b>市场过去两年给的是 62% 那一层的估值，现在开始按 -19.4% 那一层定价。</p></div><div class="section"><div class="section-title">现金流表：预付款把融资伪装成经营</div><p class='txt'>经营现金流 19.75 亿，看着健康。但附注里写着：<b>客户预付款增加 21.27 亿。</b>预付款是「客户为未来服务先付的钱」，会计上记递延收入（负债），现金上记经营流入。<b>这意味着它把「融资」记成了「经营」——严格说合规，但读表的人必须自己扣掉。</b></p><p class='txt'>扣掉之后，日常经营是净流出的。投资端 94.41 亿现金支出（权责 145 亿），自由现金流 -74.66 亿。<b>Q1 -47.11、Q2 -57.43、Q3 -74.66，三个季度缺口扩大 58%。</b>这不是「投入期」，投入期的缺口应该随规模效应收窄，它是在扩大。</p></div><div class="section"><div class="section-title">折旧敏感性：一个假设撑起全部利润</div><p class='txt'>粗算：4.6GW 对应设备投入按 3,000 万美元/MW 约 1,380 亿美元。<b>折旧年限 6 年 → 年折旧 230 亿；改成 4 年 → 345 亿，多 115 亿。</b>而它 2026 年全年调整后 EBITDA 大概 60–70 亿量级。<b>换句话说，折旧年限缩短两年，多出来的折旧是它全年 EBITDA 的 1.6 倍。</b></p><p class='txt'>这不是说它一定会改，而是说<b>它的利润表对会计假设的敏感度，远高于对经营改善的敏感度</b>。一家公司的利润主要取决于管理层选哪个数字，它就不该享受成长股的估值。</p></div><div class="section"><div class="section-title">负债表：股权只占企业价值的 26%</div><p class='txt'>总债务 468.73 亿（416 亿有追索权）、平均成本 7.9%、两年内到期 134 亿、现金 55 亿；加上租赁负债，企业价值约 835 亿，市值 220 亿。<b>股权占比 26%——企业价值每变动 1%，股权变动 3.8%。</b></p><p class='txt'>这个杠杆倍数解释了两件事：<b>为什么它涨的时候能翻倍（2025 年从 40 涨到 138），为什么跌的时候能腰斩再腰斩（138 到 39.5）。</b>同一台机器，正反两个方向都被放大。</p></div><div class="section"><div class="section-title">一个被忽略的科目：股权激励</div><p class='txt'>调整后经营利润 3.79 亿与 GAAP 经营利润 2.07 亿的差额 1.72 亿，主要是股权激励。<b>这笔钱不出现金，但真实稀释股东</b>：一年约 7 亿的股权激励，对应 220 亿市值是 3% 的年稀释率。</p><p class='txt'>把三件事加在一起看——3,500 万股增发计划（约 6.3%）、每年 3% 的股权激励稀释、以及潜在的危机融资——<b>未来三年股本可能扩大 30% 以上</b>。这也是为什么估值里股本用 5.6–6.2 亿股而不是当前的 5.56 亿：稀释不是风险，是计划的一部分。</p></div><div class="section"><div class="section-title">最容易读错的一行</div><p class='txt'>10-Q 里「客户预付款增加 21.27 亿」这一行，是全篇最容易被读错的地方。<b>它让经营现金流转正，但它是负债的增加，不是利润的产生。</b>读财报时要养成一个习惯：先看现金流量表的「经营活动」里有没有大额的递延收入变动，有就把它扣掉再判断。</p><p class='txt'>判断「预付款是不是经营现金流」，有一个简单办法：<b>看它下一季是否还能维持同等金额。</b>如果 Q4 预付款从 21.27 亿掉到 5 亿，而资本开支没降，缺口就会暴露在所有人面前。这也是为什么 Q4 指引里那句「未来三个月约 90 亿美元预付款」值得单独记下来对账。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>财务真相：利润靠假设，现金靠预付款，生存靠再融资。</b>三层利润从 62% 掉到 -19.4%，中间是折旧与利息；经营现金流靠 21.27 亿预付款撑着；债务 468.73 亿对现金 55 亿。任何一个假设或渠道出问题，报表就会崩。<b>投资含义：不要用 PE 或 PS 给它定价，用「EV/EBITDA 减净债务」，并且对 EBITDA 打折 40% 以上。</b></p></div>
+</div>
+<div class="footer">CoreWeave (CRWV) 投资研究报告集 · 2026/11/20</div>
+</body>
+</html>

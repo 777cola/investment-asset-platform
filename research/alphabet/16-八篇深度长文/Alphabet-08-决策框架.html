@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>决策框架：买多少，什么价，什么时候认错 — Alphabet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>决策框架：买多少，什么价，什么时候认错 — Alphabet</h1>
+  <div class="subtitle">第八篇：把判断变成可执行的规则</div>
+  <div class="meta">研究日期 2026/10/30 &nbsp;·&nbsp; 股价 $279.84（-1.40%） &nbsp;·&nbsp; 市值 约 3.42 万亿美元 &nbsp;·&nbsp; EV/EBIT(2026E) 约 21x</div>
+</div>
+<div class="container">
+<a class="back" href="../00-Alphabet研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>把前面七篇的结论压缩成规则：<b>279.84 美元建首仓 4%（目标 8% 的一半），240 美元加满，200 美元以下上限 10%，350 美元以上不加仓。</b>退出不看价格，看论文：云增速连续两季 <30% 且 capex 不降、或营业利润率连续两季 <26%、或搜索增速连续两季 <8%，任一触发减半。<b>每季只做一个决定，48 小时内做完。</b></p></div><table class="dt"><caption>决策规则表</caption><thead><tr><th>条件</th><th>动作</th><th>依据</th></tr></thead><tbody><tr><td>现价 279–300 美元</td><td>买入目标仓位的 50%（4%）</td><td>21 倍 EV/EBIT，合理不便宜</td></tr><tr><td>跌到 240–270 美元</td><td>加满到 8%</td><td>约 18 倍 EV/EBIT，为折旧留缓冲</td></tr><tr><td>跌破 200 美元</td><td>最多 10%</td><td>约 14 倍 EV/EBIT，按重资产定价</td></tr><tr><td>涨过 350 美元</td><td>持有不加，评估减仓</td><td>25 倍 2027 年 EPS，历史区间上沿</td></tr><tr><td>云增速 &lt;30% 且 capex 不降</td><td>减半</td><td>买的算力卖不出去</td></tr><tr><td>营业利润率 &lt;26% 连续两季</td><td>减半</td><td>折旧吞掉规模效应</td></tr><tr><td>搜索增速 &lt;8% 连续两季</td><td>减半</td><td>AI 分流侵蚀存量</td></tr></tbody></table><div class="note">仓位按单一标的占组合市值比例。论文条件优先于价格条件——若论文证伪，即使价格更低也不加仓。</div><div class="section"><div class="section-title">为什么是“分批”而不是“等更低”</div><p class='txt'>两种做法都合理：等 240 再买，或者现在买一半。我选后者，理由是<b>“我不知道它会不会到 240”</b>。距 52 周低点只有 2.3%，说明市场情绪已经很差；如果 Q4 财报的 capex 指引低于预期，股价可能直接从 280 到 320，那时候再等 240 就是空等。</p><p class='txt'>分批的代价是“如果它跌到 200，我的成本是 260 而不是 200”。<b>但这个代价可以用“跌到 240 加满”来补偿——加满之后成本会被摊到 260 以下。</b>而不分批的代价是“如果它不跌，我一份都没有”。<b>在赔率接近 1 比 1、概率偏上行的局里，先上车比等最低点重要。</b></p></div><div class="section"><div class="section-title">为什么退出不看价格看论文</div><p class='txt'>价格止损在这只股票上会失效：一年区间 273.5–402.62，波动 47%。<b>设 15% 止损，会在 238 被震出去，而那正好是加仓点。</b>所以价格止损不是纪律，是噪音。</p><p class='txt'>论文止损才有效，因为论文是可以被季报证伪的。<b>三条论文条件——云增速、营业利润率、搜索增速——每一条都在季报里有明确数字，不需要解释空间。</b>触发就减半，不触发就不动。这比“感觉不对劲就卖”强一百倍。</p><p class='txt'><b>最重要的一条：三条里触发两条，清仓重估。</b>因为两条同时触发意味着“投入没有回报 + 主业在萎缩”同时发生，那是论文的根本性失败，不是波动。</p></div><div class="section"><div class="section-title">最后一个问题：这笔投资的“期望值”是多少</div><p class='txt'>三情景：悲观 200（-28.5%）、中性 350（+25.1%）、乐观 450（+60.8%）。主观概率 25%/50%/25%，加权目标价 337.5，相对现价 +20.6%。<b>也就是说，按分批建仓（成本约 260），期望收益率约 30%。</b></p><p class='txt'>这个期望值不算高，但它的“下限”是可以承受的：<b>悲观情景 -28.5%，8% 仓位对应组合 -2.3%。</b>这就是为什么我敢买，但只买 8%。</p><p class='txt'><b>如果期望值低于 15%，我就不买了——那说明价格已经把好消息吃掉了。</b>现在 20.6% 的期望值加 8% 的仓位上限，是一个“值得做但不值得赌”的组合。这个尺度感，比任何精确的估值模型都重要。</p></div><div class="section"><div class="section-title">前 90 天：怎么知道自己是错的</div><p class='txt'>买入之后的头 90 天，没有新财报，只有碎片信息。这段时间最容易犯的错是“用股价验证判断”——涨了觉得自己对，跌了觉得自己错。<b>正确的方法是给自己列一份“可观察清单”，只看清单上的东西。</b></p><p class='txt'>清单四条：<b>① 云客户的公开签约（大单、续约、涨价），这比股价更能说明需求；② AI 产品的使用数据（Gemini App 排名、开发者活跃度），说明入口有没有丢；③ 竞争对手的资本开支指引（微软、亚马逊、Meta），如果它们也在加，说明需求是真的、价格战会来；④ 债券市场对 Alphabet 新债的定价，利差扩大说明市场在担心现金流。</b></p><p class='txt'>90 天后第一次财报，才做第一个决定。<b>在此之前，唯一要做的事是“不动”——不动仓位、不改论文、不因为一条新闻加减仓。</b>这条纪律听起来简单，做起来最难，因为市场每天都在提供“行动的理由”。<b>能忍住不动的人，才有资格谈分批。</b></p></div><div class="section"><div class="section-title">这份报告最可能错在哪里</div><p class='txt'>三处。<b>① 折旧测算</b>：我按混合五年半估算 360 亿新增折旧，如果公司实际按四年摊服务器，会到 450 亿，利润率压力比我算的更大。<b>② 云增速的持续性</b>：我把 2027 年中性假设定在 55%，这可能偏乐观——103% 的增速里有 TPU 对外销售的一次性成分，我没法拆分。<b>③ 分部估值</b>：搜索按 15 倍 EBIT、云按 25 倍 EBIT，这两个倍数是我拍的，不同假设会让结论从“便宜”变“贵”。</p><p class='txt'><b>三处里第一处最可能错，第三处影响最大。</b>把这句话写在这里，是为了三个月后回看时知道自己错在哪，而不是找理由。</p></div><div class="summary-box"><h3>结论</h3><p>决策框架三句话：<b>分批买（279.84 建一半、240 加满）、论文止损（三条硬条件，触发减半）、仓位上限 8%。</b>期望收益率 20.6%（分批后约 30%），下限可承受。这就是“买入，分批”的完整执行版本。</p></div>
+</div>
+<div class="footer">Alphabet (GOOGL) 投资研究报告集 · 2026/10/30</div>
+</body>
+</html>

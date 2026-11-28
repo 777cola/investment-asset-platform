@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>风险清单：五种死法与一条传导路径 — CoreWeave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>风险清单：五种死法与一条传导路径 — CoreWeave</h1>
+  <div class="subtitle">哪一个先来，会怎么传导</div>
+  <div class="meta">研究日期 2026/11/20 &nbsp;·&nbsp; 股价 $39.51（-12.02%） &nbsp;·&nbsp; 市值 约 220 亿美元 &nbsp;·&nbsp; PE(TTM) —（GAAP 亏损，PE 无意义）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-CoreWeave研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>这家公司的风险不是「AI 需求下滑」，那个概率很低。真正会杀死股权的是四种：<b>再融资窗口关闭、客户收回外包、折旧年限被迫下调、股权大幅摊薄</b>，再加上一个外生的「循环融资破裂」。五种风险相互强化，传导路径统一指向同一个终点：股权被摊薄或清零。</p></div><div class="section"><div class="section-title">传导路径：从债券到股票</div><p class='txt'>把它画成一条链：<b>债券收益率上升（现约 15%）→ 新债发行成本上升或发不出去 → 到期 134 亿无法展期 → 被迫股权融资 → 股本摊薄 30%–60% → 每股价值下降。</b>这条链上每一环都有公开数据可查，不需要预测。</p><p class='txt'>关键节点是第一步。<b>债券市场是先行指标，因为债权人拿固定收益、输不起，他们对同一份财报的解读最快最狠。</b>11 月 17 日它的无担保债进入困境区间，就是这条链启动的信号——股价随后补跌，是滞后的反应。</p></div><div class="section"><div class="section-title">五种死法，按概率排序</div><p class='txt'><b>① 股权稀释（概率高，60%）</b>：3,500 万股增发计划已经在案，加上每年约 3% 的股权激励稀释。<b>② 客户收回外包（中高，40%）</b>：微软审查 800 亿外部算力、取消 32.2 亿 Nscale 订单、纳德拉公开质疑外包模式。<b>③ 再融资失败（中，35%）</b>：2027 年到期 134 亿，现金 55 亿。</p><p class='txt'><b>④ 折旧下调（中，30%）</b>：英伟达年更一代，6 年假设一旦改为 4 年，GAAP 经营利润立刻转负。<b>⑤ 循环融资破裂（中，25%）</b>：英伟达被 SEC 调查、CEO 变动，供货优先级与兜底承诺的可信度下降。<b>五种风险里四种与资本结构相关，且相互强化。</b></p></div><div class="section"><div class="section-title">被忽略的风险：合同质量</div><p class='txt'>Meta 的 210 亿、OpenAI 的 65 亿，都是「最高承诺额」而非 take-or-pay。<b>如果客户实际用量低于承诺，公司拿不到全额，但机柜、电力、债务已按满负荷配置。</b>1,325 亿 backlog 的 36 倍年营收覆盖是假的——真实覆盖取决于履约率。</p><p class='txt'>10-Q 对「最低付款条款」的披露有限，这本身就是风险。<b>当你无法验证一个数字的质量时，应该按最差情况给它打折</b>；本报告在乐观情景里按 60% 折算 backlog，就是这个原因。</p></div><div class="section"><div class="section-title">外生风险：AI 资本开支周期的转向</div><p class='txt'>如果 2027 年北美四大云厂的资本开支增速从 +40% 降到 +10%，整个 neocloud 板块的租金和估值会同时下修。<b>CoreWeave 的 β 是板块的 3–4 倍（股权只占企业价值 26%），所以板块跌 20%，它跌 60%–80%。</b></p><p class='txt'>这不是「可能」，是「必然在某天发生」——所有资本开支周期都会转向。唯一的问题是它转向时，这家公司的债务到期表是否已经滚过去了。<b>按现在的到期结构，2027 年是它最脆弱的一年。</b></p></div><div class="section"><div class="section-title">风险清单的正确用法</div><p class='txt'>风险清单不是用来吓自己的，是用来排序的。<b>五种风险里，只有「再融资」是不可逆的，其余四种都可以通过经营改善缓解。</b>所以观察重心应该放在债券价格上，而不是每季的营收超预期。</p><p class='txt'>排序的结论是：<b>短期（6 个月内）最可能发生的是股权稀释，中期（12–18 个月）最可能发生的是再融资成本上升，长期（24 个月以上）最可能发生的是模式重估。</b>三条时间线对应三种不同的应对，但对 0% 仓位的人来说，三条都是「继续不参与」。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>风险结论：不可接受。</b>五种风险四种与资本结构相关、相互强化，传导路径清晰可查（债券 → 再融资 → 摊薄）。<b>最该盯的两个先行指标</b>：无担保债收益率（现约 15%，回到 10% 以下才算缓解）、季度客户预付款（本季 21.27 亿、Q4 指引约 90 亿）——前者决定能不能活，后者决定活得像不像正常公司。</p></div>
+</div>
+<div class="footer">CoreWeave (CRWV) 投资研究报告集 · 2026/11/20</div>
+</body>
+</html>

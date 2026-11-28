@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第八篇：决策框架——买多少、什么价、什么条件卖 — 奈飞</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>第八篇：决策框架——买多少、什么价、什么条件卖 — 奈飞</h1>
+  <div class="subtitle">把判断变成可执行的三张纸</div>
+  <div class="meta">研究日期 2026/10/23 &nbsp;·&nbsp; 股价 $65.85（-1.79%） &nbsp;·&nbsp; 市值 约 2,700 亿美元 &nbsp;·&nbsp; PE(2026E) 约 18x（含一次性收益，剔除后约 21x）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-奈飞研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>框架的价值在于「事先写死」，不在于「事后解释」</h3><p class='txt'>前面七篇都是分析，这一篇是执行。<b>分析可以模糊，执行必须具体：买多少、什么价、什么条件下卖、怎么验证。</b></p><p class='txt'>框架的核心是一句话：<b>买假设，不买价格。</b>所以建仓分三批（对应三种证据），减仓设三条线（对应三条假设被证伪），全程不看盘。</p></div><table class="dt"><caption>执行框架一页纸</caption><thead><tr><th>项目</th><th>内容</th><th>依据</th></tr></thead><tbody><tr><td>目标仓位</td><td>6%（占股票组合）</td><td>管理层 6 分，单票上限 10% 打七折</td></tr><tr><td>首仓</td><td>现价 65.85 建 2%</td><td>18 倍 2026E PE，估值区间下沿</td></tr><tr><td>加仓一</td><td>≤55 美元加至 4%</td><td>15 倍正常化 PE，历史绝对底部</td></tr><tr><td>加满</td><td>≤45 美元且基本面未破加至 6%</td><td>悲观情景已定价，赔率反转</td></tr><tr><td>减仓线</td><td>2027 年营收指引个位数增长</td><td>增速假设被证伪</td></tr><tr><td>清仓线</td><td>2027 年营业利润率 &lt; 30%</td><td>利润率与叙事双杀</td></tr><tr><td>停手线</td><td>净负债/营业利润 &gt; 1 倍</td><td>回购开始侵蚀财务弹性</td></tr></tbody></table><div class="note">仓位为占股票组合比例。PE 口径：2026E EPS 3.66 美元（65.85 ÷ 18 反推）；55 ÷ 3.66 ≈ 15 倍。三条线均为事件触发，不看股价。</div><div class="section"><div class="section-title">第一张纸：买多少——用管理层评分定上限</div><p class='txt'>仓位上限不是拍脑袋，是<b>「确定性 × 赔率」的结果</b>。奈飞的确定性中等（管理层 6 分、时长风险未解），赔率中等（向下 32%、向上 20%–62%）。<b>两者都中等，仓位就该中等——6% 是合理值，不是保守值。</b></p><p class='txt'>如果你更看重「现金流确定性」而不在乎增长，可以给到 8%；如果你组合里科技股已经很重，应该压到 4%。<b>6% 是基准，不是教条。</b></p><p class='txt'>分批的节奏对应三种证据：<b>现价买「生意质量」（已兑现）、55 美元买「估值安全」（等市场给）、45 美元买「悲观已定价」（等恐慌）。</b>每一档都有明确的「为什么现在买」，而不是「跌了就买」。</p></div><div class="section"><div class="section-title">第二张纸：什么条件卖——三条线，不看价格</div><p class='txt'>减仓看事件：<b>①2027 年营收指引个位数增长；②2027 年营业利润率跌破 30%；③净负债/营业利润超过 1 倍。</b></p><p class='txt'>为什么不用价格止损？<b>因为它的波动率太高——年内跌 29%、距高点跌 39.8%，任何 15% 的价格止损都会被反复触发。</b>止损的目的是控制损失，不是控制波动。</p><p class='txt'>为什么是这三条？因为它们分别对应买入时的三个核心假设：增长能撑住（营收）、成本可控（利润率）、资本配置不失控（杠杆）。<b>任何一条破了，买入理由就不成立了，跟股价高低无关。</b></p></div><div class="section"><div class="section-title">第三张纸：怎么验证——一张日历胜过一百个模型</div><p class='txt'>验证日历：<b>2027 年 1 月中下旬</b> Q4 财报（营收是否 ≥133 亿、Q4 营业利润率是否 ≥26.0%、2027 年指引第一句话）；<b>2027 年 3 月</b> 广告扩 15 国；<b>2027 年 4 月</b> Q1 财报（广告环比、流失率）；<b>每季度</b> 回购额与净负债。</p><p class='txt'>这张日历比目标价有用。<b>目标价是猜的，日历是等事实。</b>投资做到最后，赚的是「等事实兑现」的钱，不是「猜对价格」的钱。</p><p class='txt'>最后一个提醒：<b>别在财报前一天加仓。</b>奈飞单季财报的波动经常超过 8%，在信息不对称最大的时候下注，是最差的时机。分批的意义之一，就是把「下注时点」分散到不同的信息状态里。</p></div><div class="section"><div class="section-title">三个常见错误：买它的人最容易犯的错</div><p class='txt'><b>错误一：按「流媒体颠覆者」的框架给它估值。</b>这会导致在 45 倍时买入、在 18 倍时不敢买。正确的框架是「成熟内容现金流资产」——18–22 倍。</p><p class='txt'><b>错误二：用价格止损。</b>它的年波动率超过 40%，15% 的止损会被反复触发，最后的结果是「在最低点被洗出去」。<b>正确的做法是用事件止损：三条线，一年只可能触发一次。</b></p><p class='txt'><b>错误三：把「广告下修」当成「生意变差」。</b>27 亿只占营收 5.3%，它影响估值，不影响利润。<b>把估值问题和质量问题混在一起，是这只股票上最常见的认知错误。</b></p></div><div class="summary-box"><h3>结论</h3><p>框架三张纸：<b>买多少（6%，分三批）、什么条件卖（三条事件线）、怎么验证（四个时间节点）。</b>全部事先写死，事后只做一件事——对照检查。<b>这就是「买入，分批」的完整执行版本。</b></p></div>
+</div>
+<div class="footer">奈飞 (NFLX) 投资研究报告集 · 2026/10/23</div>
+</body>
+</html>

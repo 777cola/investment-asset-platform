@@ -13,16 +13,14 @@ export function bindEvents(state, t, renderApp) {
     localStorage.setItem("cj-theme", nextTheme);
   });
 
-  /* ── 语言切换（三档胶囊，点哪档切哪档） ── */
-  document.querySelectorAll("#lang-toggle .lang-item").forEach(el => {
-    el.addEventListener("click", () => {
-      const next = el.dataset.lang;
-      if (!next || next === state.ui.lang) return;
-      state.ui.lang = next;
-      localStorage.setItem("cj-lang", next);
-      try { localStorage.setItem("lang", next === "zh-hant" ? "hant" : next); } catch (e) {}
-      renderApp(state, t);
-    });
+  /* ── 语言切换 ── */
+  document.querySelector("#lang-toggle")?.addEventListener("click", () => {
+    const languages = ["zh", "zh-hant", "en"];
+    const currentIndex = languages.indexOf(state.ui.lang);
+    const nextIndex = (currentIndex + 1) % languages.length;
+    state.ui.lang = languages[nextIndex];
+    localStorage.setItem("cj-lang", state.ui.lang);
+    renderApp(state, t);
   });
 
   /* ── 全局点击委托 ── */

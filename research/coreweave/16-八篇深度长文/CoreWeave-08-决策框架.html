@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>决策框架：把「不买」变成可执行的规则 — CoreWeave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>决策框架：把「不买」变成可执行的规则 — CoreWeave</h1>
+  <div class="subtitle">什么条件下买、什么条件下永远不买</div>
+  <div class="meta">研究日期 2026/11/20 &nbsp;·&nbsp; 股价 $39.51（-12.02%） &nbsp;·&nbsp; 市值 约 220 亿美元 &nbsp;·&nbsp; PE(TTM) —（GAAP 亏损，PE 无意义）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-CoreWeave研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>一份好的看空报告不该只给结论，要给规则。<b>对 CoreWeave 的规则是：触发条件是结构性的（现金流、债务久期、合同质量），不是价格性的。</b>股价跌多少都不构成买入理由，因为赔率的另一端是 -70%，而中枢只有 +9%。</p></div><div class="section"><div class="section-title">三条买入前提（缺一不可）</div><p class='txt'><b>前提一：自由现金流的缺口连续两个季度收窄，且管理层给出转正的具体季度。</b>当前 Q1 -47.1、Q2 -57.4、Q3 -74.7，方向完全相反。<b>前提二：债务久期拉长</b>——把 2 年内到期的 134 亿换成 5 年以上，或成功发行票息低于 10% 的新债。</p><p class='txt'><b>前提三：至少一个大客户把合同从「最高承诺额」改为「保底付款」。</b>这一条最难，也最能说明客户对它的依赖是真实的。三条全部满足，估值方法才从「期权定价」回到「企业估值」——那时才谈得上 PE 或 EV/EBITDA。</p></div><div class="section"><div class="section-title">三条永不买入的理由（结构性）</div><p class='txt'><b>① 资本成本劣势。</b>7.9% 对微软 4.85%，在薄利行业里是结构性劣势，改善的唯一方式是提升信用评级，而这需要先降杠杆——循环。<b>② 产品同质。</b>算力是标准品，客户迁移以周计，不存在定价权。</p><p class='txt'><b>③ 股权结构脆弱。</b>股权只占企业价值 26%，任何现金流波动被放大 3.8 倍。三条里任何一条单独存在，都足以让一家公司只能「交易」不能「持有」；三条同时存在，连交易的价值都不大。<b>这三条不会因为一个季度的好财报而改变。</b></p></div><div class="section"><div class="section-title">可执行的动作清单</div><ul><li><b>仓位：0%。</b>不做空（借券成本 + 逼空风险），不做「小仓位试错」（负期望值）</li><li><b>已持有：</b>任何反弹到 55–60 美元减至 0，不等基本面变化</li><li><b>观察频率：</b>债券收益率每周看一次，财报每季看一次，预付款每季核对</li><li><b>替代方案：</b>用英伟达、台积电、HBM 三家或微软表达同一个 AI 算力观点</li><li><b>记录：</b>把三条买入前提写进论文追踪，避免下次因为「跌太多了」而破例</li></ul></div><div class="section"><div class="section-title">这套框架的可复用部分</div><p class='txt'>这套框架不只对 CoreWeave 有效。任何一家<b>重资产 + 高杠杆 + 客户集中</b>的公司，都可以套用同一套问题：利息覆盖多少倍？自由现金流缺口在收窄还是扩大？前两大客户占比多少？合同是保底还是最高承诺？股权占企业价值多少？</p><p class='txt'>五个问题里如果有三个答不上来或答得难看，直接跳过。<b>这套框架的价值不在于算得多准，而在于用五分钟排除掉 90% 的标的</b>——剩下的 10%，才值得花两周去研究。</p></div><div class="section"><div class="section-title">框架的最后一句</div><p class='txt'><b>投资的第一原则是不亏钱，第二原则是记住第一原则。</b>这家公司不需要你判断 AI 会不会继续增长，只需要你判断一件事：在信贷窗口关上之前，它能不能把现金流做正。这个问题的答案，现在是否定的。</p><p class='txt'>所以框架的最后一句不是「它一定会跌」，而是<b>「在答案变成肯定之前，我不需要参与」</b>。市场每天都有机会，错过一个是成本最低的错误；买错一个是成本最高的错误。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>决策结论：回避，且规则化。</b>三条买入前提（FCF 缺口连续两季收窄 + 债务久期拉长 + 大客户改保底）缺一不可，全部与股价无关；三条永不买入的理由（资本成本劣势、产品同质、股权脆弱）不会因短期财报改善。<b>可复用的一句话：先算利息覆盖，再看增长率；先读负债表，再读利润表。</b></p></div>
+</div>
+<div class="footer">CoreWeave (CRWV) 投资研究报告集 · 2026/11/20</div>
+</body>
+</html>

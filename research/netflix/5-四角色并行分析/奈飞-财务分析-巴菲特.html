@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>财务分析（巴菲特视角） — 奈飞</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>财务分析（巴菲特视角） — 奈飞</h1>
+  <div class="subtitle">现金流是不是真的、钱花得对不对、资产负债表能不能扛</div>
+  <div class="meta">研究日期 2026/10/23 &nbsp;·&nbsp; 股价 $65.85（-1.79%） &nbsp;·&nbsp; 市值 约 2,700 亿美元 &nbsp;·&nbsp; PE(2026E) 约 18x（含一次性收益，剔除后约 21x）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-奈飞研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>一句话：现金是真的，花钱有点猛，资产负债表很干净</h3><p class='txt'>巴菲特看三件事：利润能不能变成现金、管理层怎么花钱、资产负债表撑不撑得住。奈飞三条都过，但第二条要打个折——<b>Q3 回购 48 亿美元，而当季自由现金流只有 28.84 亿，回购是 FCF 的 1.66 倍。</b></p><p class='txt'>利润质量这一条很有意思：Q3 净利 36.64 亿，经营现金流 31.62 亿，净利比现金流还高 5 亿。这不是坏事，是内容摊销与现金支出的季度错位，但它提醒我们：<b>看这家公司，现金流比利润可靠。</b></p></div><table class="dt"><caption>现金流的三个层次（2026Q3，百万美元）</caption><thead><tr><th>项目</th><th>金额</th><th>含义</th></tr></thead><tbody><tr><td>净利润</td><td>3,664</td><td>账面利润，含非现金项目</td></tr><tr><td>经营现金流</td><td>3,162</td><td>净利 − 营运资本与内容资产变动</td></tr><tr><td>资本开支（倒算）</td><td>约 278</td><td>经营现金流 − 自由现金流（粗算）</td></tr><tr><td>自由现金流</td><td>2,884</td><td>可分配给股东的钱</td></tr><tr><td>回购</td><td>4,800</td><td>当季股份回购，为 FCF 的 1.66 倍</td></tr><tr><td>净负债</td><td>7,100</td><td>153 亿债务 − 82 亿现金</td></tr></tbody></table><div class="note">数据来自奈飞 2026Q3 财报。资本开支为倒算值（3,162 − 2,884 = 278），财报摘要未单列，仅作量级参考。净负债 = 153 亿美元债务 − 82 亿美元现金。</div><div class="section"><div class="section-title">利润质量：净利高于经营现金流，为什么不是红旗</div><p class='txt'>正常情况下，一家公司的经营现金流应该高于净利润，因为折旧摊销不花钱。奈飞 Q3 反过来了：净利 36.64 亿，经营现金流 31.62 亿，差 5 亿。</p><p class='txt'>原因在内容会计。奈飞把内容支出资本化，然后按观看情况在几年内摊销——<b>利润表里扣的是摊销，现金流里出的是真金白银的支出。</b>当某一季现金支出高于摊销时，现金流就会低于利润。这不是造假，是时点错位。但反过来说，如果连续几个季度都这样，就说明它在加速买内容，利润被「摊销慢了」美化。</p><p class='txt'>怎么验证？看年度而不是季度。<b>2026 年自由现金流指引 120 亿美元，对净利 129 亿（正常化）的比值是 93%</b>——这个数字是健康的。如果哪天这个比值掉到 70% 以下，才是真的问题。所以我的判断是：Q3 的 5 亿差额是噪音，年度 93% 才是信号。</p></div><div class="section"><div class="section-title">资本配置：回购的手笔比现金流大</div><p class='txt'>这是我最在意的一点。Q3 回购 48 亿美元、6,390 万股，均价约 75.12 美元（粗算）——<b>比现在的 65.85 美元高 14%。</b>也就是说，公司在一个月前用 75 美元的价格买自己的股票，现在市场只给 65.85。短期看这笔钱花得不精明，长期看只要内在价值高于 75，就不算错。</p><p class='txt'>规模上更值得关注：按 Q3 节奏年化 192 亿，而全年 FCF 只有 120 亿。<b>差额 72 亿从哪来？账面现金 82 亿，加债务市场。</b>净负债只有 71 亿，占营业利润 0.44 倍，完全扛得住。但如果连续三年这么干，净负债会爬到 200 亿以上，那时候回购就从「信心」变成「杠杆」。</p><p class='txt'>我给这条打 7 分：方向对（在低估值上回购是最优资本配置），力度偏大（超过 FCF 的部分靠负债）。<b>红线设在这里：净负债/营业利润超过 1 倍，就说明回购开始侵蚀财务弹性，那时候要减仓而不是加仓。</b></p></div><div class="section"><div class="section-title">资产负债表：干净，但不再是净现金</div><p class='txt'>153 亿美元债务、82 亿美元现金，净负债 71 亿。对一个年营业利润 161 亿的生意，这是 0.44 倍的杠杆，可以忽略。<b>但要注意一个变化：奈飞曾经是净现金公司，现在不是了。</b>2026 年回购规模上来之后，现金在往下走。</p><p class='txt'>债务结构上看，奈飞的债是长期、固定利率为主，2022 年利率低点时发了不少。这意味着未来两年的利息支出是锁定的，不受利率上行影响。<b>这是它敢大额回购的底气之一。</b></p><p class='txt'>巴菲特会问的最后一句是：「如果营收停止增长，它还撑得住吗？」算一下：营收 511 亿、营业利润率 31.5%，就算营收零增长，每年仍有 161 亿营业利润、120 亿自由现金流，覆盖 71 亿净负债绰绰有余。<b>答案是撑得住。这是我认为它下跌空间有限的核心依据。</b></p></div><div class="summary-box"><h3>结论</h3><p>三条都过：现金是真的（年度 FCF/净利 93%）、资本配置方向对但力度偏大（回购 1.66 倍 FCF）、资产负债表干净（净负债 0.44 倍营业利润）。<b>结论：这是一家可以在 18 倍 PE 上买的公司，但要盯着回购节奏——它是唯一可能把好资产负债表用坏的地方。</b></p></div>
+</div>
+<div class="footer">奈飞 (NFLX) 投资研究报告集 · 2026/10/23</div>
+</body>
+</html>

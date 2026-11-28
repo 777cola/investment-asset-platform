@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>财务分析（巴菲特视角） — Meta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>财务分析（巴菲特视角） — Meta</h1>
+  <div class="subtitle">利润表还行，现金流量表第一次报警</div>
+  <div class="meta">研究日期 2026/11/02 &nbsp;·&nbsp; 股价 $606.73（-1.34%） &nbsp;·&nbsp; 市值 约 1.58 万亿美元 &nbsp;·&nbsp; PE(TTM) 约 21x</div>
+</div>
+<div class="container">
+<a class="back" href="../00-Meta研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>四张表看下来，只有一张有问题：现金流量表。<b>利润表剔除诉讼和解后营业利润 228.8 亿、同比 +11%；资产负债表有 820 亿现金；现金流量表的自由现金流是 -21.2 亿。</b>这一张表决定了估值的上限。</p></div><table class="dt"><caption>三张表关键项（百万美元，2026Q3）</caption><thead><tr><th>项目</th><th>2026Q3</th><th>2025Q3</th><th>同比</th></tr></thead><tbody><tr><td>经营现金流</td><td>32,790</td><td>30,000</td><td>+9.3%</td></tr><tr><td>资本开支（含租赁本金）</td><td>34,910</td><td>18,810</td><td>+85.6%</td></tr><tr><td>自由现金流</td><td>-2,120</td><td>10,630</td><td>由正转负</td></tr><tr><td>现金及有价证券</td><td>82,000</td><td>—</td><td>—</td></tr><tr><td>回购</td><td>0</td><td>—</td><td>2026 年前九个月为零</td></tr><tr><td>股息</td><td>约 1,300</td><td>—</td><td>单季，全年约 52 亿</td></tr></tbody></table><div class="note">现金及有价证券 82,000 为 2026Q3 末数据（引自公司增发公告）；股息按单季约 13 亿美元估算（GuruFocus 口径约 12.08 亿欧元/泰铢折算），属粗算。回购为零引自公司现金流表与 ainvest 报道（2026/11/01）。</div><div class="section"><div class="section-title">利润表：好看的部分是真的</div><p class='txt'>营收 646.0 亿、+26.1%，广告 630.6 亿、+26.0%。营业利润 129.9 亿、-37%，但其中 98.9 亿是 8 月与 52 州总检察长达成的青少年诉讼和解（总额最高 185.9 亿，分十年支付）。剔除后 228.8 亿、+11%，利润率 35%，和去年同期一个量级。</p><p class='txt'>费用端有两条值得记：研发 200.5 亿、+32%；营收成本 133.7 亿、+45%。<b>成本涨得比收入快 19 个百分点，这是折旧和算力开始咬人的第一个证据。</b></p></div><div class="section"><div class="section-title">现金流量表：第一次为负</div><p class='txt'>经营现金流 327.9 亿，还不错；购置物业设备 339.4 亿，加融资租赁本金 9.7 亿，自由现金流 -21.2 亿。这是 2012 年上市以来第一次单季为负，上一季已经降到“极低的正值”。</p><p class='txt'>巴菲特会追问一句：<b>如果资本开支持续三年在 1,400 亿量级，累计需要 4,200 亿美元，钱从哪来？</b>答案已经在 10 月 26 日给出了：375 亿美元股权 + 600 亿美元 ATM + 投资级债务 + 经营现金流。这是一套完整的融资方案，说明管理层自己也知道现金流不够。</p></div><div class="section"><div class="section-title">资产负债表：还有余地，但在变薄</div><p class='txt'>现金及有价证券 820 亿美元，前三季经营现金流 970 亿，看起来充裕。但另一边是 8,250 亿美元的租赁与采购承诺，以及刚发的 125 亿美元 6.5% 票息强制可转换优先股——<b>一家现金流为负的公司开始付 6.5% 的优先股股息，这是信用市场上的信号，不是财务技巧。</b></p><p class='txt'>财报后 Meta 的 CDS 利差升到高位，市场已经在给它的信用重新定价。巴菲特看这类公司，第一眼看的不是 PE，是“它还能自己养活自己多久”。按现在的烧钱速度，答案大概是两年——之后就要靠融资。</p></div><div class="section"><div class="section-title">折旧的账：未来三年每年多出两三百亿</div><p class='txt'>1,400 亿美元资本开支，按服务器四到六年、数据中心十五到二十年的混合折旧期，粗算每年新增折旧 230–280 亿美元。这笔钱不会出现在 2026 年的现金流量表里，但会从 2027 年开始压在利润表上。</p><p class='txt'>要覆盖这部分成本，按 40% 的营业利润率反推，需要每年多做 600–700 亿美元收入——相当于在 2026 年 2,560 亿的基础上再增 25%。<b>广告业务今年增速 26%，刚好够；明年如果掉到 15%，就不够了。</b>这就是“折旧与增长的赛跑”，也是 2027 年最该盯的一条线。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>财务判断：主业造血能力没坏，资本配置把它花光了。</b>三段式结论：利润表 7 分、资产负债表 7 分、现金流量表 3 分。综合下来，这不是一家可以用 DCF 定价的公司，只能用“正常化盈利 × 合理倍数”，而正常化本身要等资本开支见顶。</p></div>
+</div>
+<div class="footer">Meta (META) 投资研究报告集 · 2026/11/02</div>
+</body>
+</html>
