@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣筛选 — 微软</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>去劣筛选 — 微软</h1>
+  <div class="subtitle">微软 (MSFT) | 2-七条硬指标去劣</div>
+  <div class="meta">研究日期 2026/07/31 &nbsp;·&nbsp; 股价 $464.72（+3.02%） &nbsp;·&nbsp; 市值 约 3.45 万亿美元 &nbsp;·&nbsp; PE(TTM，FY2026) 约 25.8x</div>
+</div>
+<div class="container">
+<a class="back" href="../00-微软研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断：质地过关，问题在钱怎么花</h3><p class='txt'>七条硬指标里六条轻松通过：ROE 约 39%、毛利率 67.2%、净利率 39.7%、净现金为正、经营现金流是净利润的 1.55 倍、自由现金流 196 亿美元。</p><p class='txt'>唯一不过的是<b>资本开支／经营现金流 = 74%</b>（门槛 50%）。这不是财务困境，是主动选择：微软在用电费和机柜换 2028 年的收入。它意味着这家公司未来两年的自由现金流不会好看，估值也不能再用「稳定现金牛」的尺子量。</p></div><table class="dt"><caption>七条硬指标（FY2026Q4 为主，年度数据补充）</caption><thead><tr><th>指标</th><th>公司数值</th><th>门槛</th><th>判定</th></tr></thead><tbody><tr><td>ROE</td><td>约 39%（粗算）</td><td>≥15%</td><td>通过</td></tr><tr><td>毛利率</td><td>67.2%（Q4），同比 -1.4pct</td><td>≥40%</td><td>通过</td></tr><tr><td>净利率</td><td>39.7%（Q4）；剔除 Anthropic 32 亿收益后约 36.8%</td><td>≥10%</td><td>通过</td></tr><tr><td>净现金</td><td>现金与短投约 900 亿、长期债务约 600 亿，净现金约 300 亿美元（粗算）</td><td>净现金为正</td><td>通过</td></tr><tr><td>经营现金流／净利润</td><td>155%（554 亿 ÷ 357.7 亿）</td><td>≥100%</td><td>通过</td></tr><tr><td>自由现金流</td><td>196 亿美元（同比 -23%），全年 670 亿</td><td>为正</td><td>通过</td></tr><tr><td>资本开支／经营现金流</td><td>74%（410 亿 ÷ 554 亿）；全年 63%</td><td>≤50%</td><td>不通过</td></tr></tbody></table><div class="note">ROE 为粗算：FY2026 净利润约 1,337 亿美元（市值 3.45 万亿 ÷ 25.8 倍反推）÷ 股东权益约 3,400 亿美元。净现金一项公司未在财报摘要中单列，按公开资产负债数据粗算，方向为正。资本开支 410 亿为含融资租赁口径，现金购置口径 357.6 亿（由经营现金流 554 亿 − 自由现金流 196.4 亿反推）。</div><div class="section"><div class="section-title">过的六条：不是勉强，是很宽</div><p class='txt'>看这六条不能只看「过」，要看余量。<b>净利率 39.7%，门槛 10%，四倍余量；ROE 约 39%，门槛 15%；经营现金流是净利润的 1.55 倍</b>——最后这条说明利润不是纸面数字，折旧摊销把账面利润压低了，实际收到的现金比利润多一半。</p><p class='txt'>净利润里有一笔要剔掉：Anthropic 投资带来的 32 亿美元收益，占单季净利的 9%。剔掉之后净利约 331 亿、净利率 36.8%，依然远超门槛。做这个调整不是吹毛求疵，是因为这笔钱不会重复发生，用它算 PE 会低估估值。</p><p class='txt'>毛利率同比 -1.4 个百分点是七条里唯一在恶化的方向。它不是竞争导致的降价，是产品结构从软件转向算力。这个趋势会持续，未来三年毛利率大概率还会往下走两三个点，但因为 Azure 的绝对毛利额更大，利润总额仍然向上。</p></div><div class="section"><div class="section-title">不过的那一条：资本开支吃掉了 74% 的经营现金流</div><p class='txt'>410 亿资本开支对 554 亿经营现金流，比率 74%。全年更夸张：现金资本开支 1,159 亿对经营现金流 1,829 亿，63%；如果按含融资租赁口径，比例还要高。<b>七条里唯一不过的指标，恰好是唯一在快速恶化的指标</b>——两年前这个比率还在 45% 以下，2026 财年已经是 63%，一年一跳。</p><p class='txt'>这条指标的含义很具体：公司每收 100 块现金，要拿 74 块去买 GPU、建机房。剩下的钱要付股息（全年约 258 亿）、做回购（约 172 亿），还要留出余量。这就是为什么 FY2027 那 1,750 亿资本开支，市场一定会追问「剩下的缺口怎么补」——<b>经营现金流不够的部分，只能靠资产负债表。</b></p></div><div class="section"><div class="section-title">一条不过，是否致命</div><p class='txt'>不致命，但它改变了估值方法。资本开支强度过高在两种情况下会变成灾难：一是需求在折旧提完之前掉下来，数据中心变闲置产能；二是融资成本上升，用债务滚资本开支的模式断掉。第一种是商业风险，第二种是利率风险，目前两个都还没出现——Azure 增速在加速、RPO 同比 +84%、公司评级仍是 AAA。</p><p class='txt'>所以这条不过的正确读法是：<b>它把微软从「可以给 30 倍的稳定现金牛」降级为「应该给 22–26 倍的资本密集型成长股」。</b>底稿给的中性 24 倍正是这个意思。如果哪天资本开支／经营现金流回落到 50% 以下而 Azure 增速还在 35% 以上，那才是重新评级的时候。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>结论：七条过六条，质地无瑕，扣分全在资本配置。</b>不通过的那条不足以否决投资，但足以否掉「闭眼买」。两个跟踪点：资本开支／经营现金流能否在 FY2028 回到 50% 以下；毛利率能否在 Azure 占比继续上升的同时守住 65%。两条都恶化，就要重估。</p></div>
+</div>
+<div class="footer">微软 (MSFT) 投资研究报告集 · 2026/07/31</div>
+</body>
+</html>

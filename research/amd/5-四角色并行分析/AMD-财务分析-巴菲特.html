@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>财务分析（巴菲特视角） — AMD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>财务分析（巴菲特视角） — AMD</h1>
+  <div class="subtitle">AMD (AMD) | 利润有多少变成现金，资本花到哪去了</div>
+  <div class="meta">研究日期 2026/08/07 &nbsp;·&nbsp; 股价 $483.36（-1.21%） &nbsp;·&nbsp; 市值 约 8,020 亿美元 &nbsp;·&nbsp; PE(TTM，GAAP) 约 125x</div>
+</div>
+<div class="container">
+<a class="back" href="../00-AMD研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>巴菲特的三个问题：利润率能不能持续、利润能不能变成现金、资本开支花得值不值。AMD 这一季的答案是：<b>能、基本能、花得对但看不透。</b>毛利率 56.0% 是结构性的，经营现金流覆盖净利 1.3 倍，资本开支 8.08 亿是市场预期的 2.7 倍。</p></div><table class="dt"><caption>三年财务轨迹（亿美元，GAAP）</caption><thead><tr><th>项目</th><th>2024</th><th>2025</th><th>2026Q2（单季）</th></tr></thead><tbody><tr><td>营收</td><td>257.9</td><td>约 360</td><td>115.4</td></tr><tr><td>毛利率</td><td>49.4%</td><td>约 52%</td><td>56.0%</td></tr><tr><td>营业利润</td><td>19.0</td><td>约 45</td><td>19.9</td></tr><tr><td>净利</td><td>16.4</td><td>约 40</td><td>23.0</td></tr><tr><td>数据中心收入</td><td>125.8</td><td>约 190</td><td>67.2</td></tr><tr><td>经营现金流</td><td>约 30</td><td>约 60</td><td>约 30（粗算）</td></tr></tbody></table><div class="note">2024 年为公司年报口径；2025 年为按公开季报加总的近似值（标注「约」）；2026Q2 为单季数据，不可与全年直接比较。2024 年净利含一次性项目。数据来源：AMD 年报与季报、stockanalysis.com。</div><div class="section"><div class="section-title">利润率：56% 是结构性的，不是周期性的</div><p class='txt'>2022 年 AMD 的毛利率是 45%，2024 年 49.4%，2026Q2 是 56.0%。三年提升 11 个百分点，驱动因素只有一个：数据中心占比从 25% 涨到 58%。这不是涨价周期，是产品组合换挡。</p><p class='txt'>所以它的可持续性取决于一件事：数据中心占比能不能维持。如果 2027 年 MI450 放量，占比会到 65%，毛利率还有 2–3 个点的空间；如果份额停滞，占比回落，毛利率会退回 52%。<b>毛利率的方向就是份额的方向，这两个数是一枚硬币的两面。</b></p><p class='txt'>研发是另一条线索。AMD 2026 年研发投入约 95 亿美元，是英伟达的三分之一、英特尔的一半。这笔钱要同时养 CPU、GPU、FPGA、DPU 四条线，分摊到 GPU 上的只有 40 亿左右。英伟达把 120 亿全砸在一条线上。<b>组织效率再高，也补不上三倍的资源差。</b></p></div><div class="section"><div class="section-title">现金流：赚的是真钱，但被备货吃掉一部分</div><p class='txt'>净利 22.97 亿、经营现金流约 30 亿，覆盖率 1.3 倍。这个比例健康——半导体设备公司常年低于 0.8，Fabless 公司通常高于 1.2，因为折旧轻、应收短。</p><p class='txt'>资本开支 8.08 亿，是预期的 2.7 倍。对 Fabless 来说这是异常值。钱大概花在两个地方：预付 CoWoS 产能、以及 ZT Systems 带来的系统集成产线。前者是「买产能」，后者是「买交付能力」，两笔都指向 2027 年的订单已经排产。</p><b>巴菲特会喜欢这个动作——在需求确定时提前鎖定产能，是 1973 年喜诗糖果扩产的同构动作。</b>但他也会问一句：这 8 亿如果最后没有对应的收入，减值算谁的？答案是算股东的。<p class='txt'>股东回报这条要单独说。AMD 不分红，回购规模每年约 10–15 亿美元，刚好抵消股权激励的稀释（每年约 4 亿股权激励 × 4 季）。这意味着持有 AMD 的回报 100% 来自股价，没有一分钱现金回报。<b>对一家 125 倍市盈率的公司，这是把全部风险压在「估值不压缩」上。</b></p></div><div class="summary-box"><h3>结论</h3><b>财务判断：A-。</b>利润真实、现金真实、资产负债表干净。唯一看不透的是 8.08 亿资本开支对应的客户承诺——如果它是为单一客户专用，那么这笔钱把风险从「需求不确定」换成了「客户不确定」。</div>
+</div>
+<div class="footer">AMD (AMD) 投资研究报告集 · 2026/08/07</div>
+</body>
+</html>

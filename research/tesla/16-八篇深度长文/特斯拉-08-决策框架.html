@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>决策框架：什么价、什么证据、怎么执行 — 特斯拉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>决策框架：什么价、什么证据、怎么执行 — 特斯拉</h1>
+  <div class="subtitle">把判断变成可执行的规则</div>
+  <div class="meta">研究日期 2026/07/22 &nbsp;·&nbsp; 股价 $374.01（-1.30%） &nbsp;·&nbsp; 市值 约 $1.48 万亿 &nbsp;·&nbsp; PE(TTM) —（利润太薄，PE 已失真）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-特斯拉研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3>研究做完了，最后要落到三件事：什么价格买、什么证据可以破例、买了之后怎么管。三条规则写下来，就不容易被情绪带走。</div><table class="dt"><caption>四层决策清单</caption><thead><tr><th>层级</th><th>问题</th><th>当前答案</th><th>是否通过</th></tr></thead><tbody><tr><td>第一层 质量</td><td>这是不是一家值得拥有的公司</td><td>是，六家里唯一横跨四环节</td><td>通过</td></tr><tr><td>第二层 估值</td><td>现在价格有没有安全边际</td><td>没有，61% 是期权</td><td>不通过</td></tr><tr><td>第三层 证据</td><td>有没有可验证的兑现信号</td><td>暂无，FSD 收入未单列</td><td>不通过</td></tr><tr><td>第四层 纪律</td><td>买入后能否管住</td><td>可以，规则已写死</td><td>通过</td></tr></tbody></table><div class="note">本表为全文结论的浓缩。</div><div class="section"><div class="section-title">一、第一层：能不能买（公司质量）</div><p class='txt'>结论是能——它是六家同行里唯一横跨制造、数据、能源、机器人的公司，护城河 33/50，管理层能力 9 分。<b>如果只能选一家押注“电动车+自动驾驶+机器人”的终局，答案是特斯拉。</b></p><p class='txt'>但“能买”只是必要条件。六关评分 33/60、七条硬指标过两条，说明它不符合“一流公司”的财务标准。<b>这一层的结论是：值得研究、值得跟踪、值得在合适的价格买入。</b></p></div><div class="section"><div class="section-title">二、第二层：什么价格买（估值）</div><p class='txt'>分部估值：汽车 4,500 亿 + 储能 800 亿 + 净现金 400 亿 = 5,700 亿，对应每股 144 美元。期权 9,100 亿，对应每股 230 美元。<b>当前 374 美元 = 144 + 230。</b></p><p class='txt'>买点怎么定？<b>把期权部分打折。</b>如果只愿意为期权付一半价钱（115 美元），买点是 259 美元；付六成（138 美元），买点是 282 美元；付七成（161 美元），买点是 305 美元。</p><b>本报告的规则：300 美元以下开始建仓，250 美元以下加仓。</b>对应期权占比 55% 和 45%。这不是精确的科学，是纪律的锚。</div><div class="section"><div class="section-title">三、第三层：什么证据可以破例</div><p class='txt'>价格不是唯一的路径。如果基本面出现“可能性变成事实”的证据，可以在更高价格买入。<b>三个证据，出现两个即可：</b></p><ul><li>FSD 与 Robotaxi 收入在财报中单独列示，年化超过 50 亿美元；</li><li>Robotaxi 在 10 个以上城市无安全员运营，且公司披露周单量；</li><li>储能分部毛利率回到 25% 以上，且资本开支环比下降、自由现金流转正。</li></ul><p class='txt'>三条的共同点是“可以在财报里看到”，不是“管理层说”。<b>这是纪律与信仰的分界线。</b></p></div><div class="section"><div class="section-title">四、第四层：买了之后怎么管</div><b>仓位上限 5%</b>（占股票组合），因为它与纳指、AI 算力链高度相关，不是分散工具。<b>止损线 280 美元</b>：跌破意味着市场开始按实体业务定价，逻辑已变。<b>每季度对账一次</b>：汽车毛利率、储能毛利率、FCF、FSD 是否单列。四项里两项恶化，减半；三项恶化，清仓。<b>移出观察名单的条件</b>：FSD 被主要市场限制、马斯克卸任、储能毛利率连续两季低于 15%。<b>出现任一，不再跟踪，因为投资逻辑已经不存在。</b></div><div class="section"><div class="section-title">五、四个常见错误，每一个都能让人亏钱</div><b>错误一：把交付量当利润。</b>48 万辆是历史最好，但单车净利从 3,051 美元掉到 2,320 美元。<b>交付量是收入的上限，不是利润的上限。</b><b>错误二：把故事当现金流。</b>Robotaxi 覆盖 7 大都市区是真的，但没有单量、没有单车收入、没有利润率。<b>进度条不是利润表。</b><b>错误三：用“长期看好”替代价格纪律。</b>“十年后它一定更大”这句话可能是对的，但它不能回答“374 美元买是否划算”。<b>长期看好是判断，价格纪律是动作，两者不能互相替代。</b><b>错误四：用仓位表达兴趣。</b>买 1% “观察一下”，结果所有分析都开始为持仓找理由。<b>兴趣用跟踪表达，确信才用仓位表达。</b></div><div class="section"><div class="section-title">六、这份报告可能在哪儿错</div><p class='txt'>三种可能：<b>一、Optimus 提前成功。</b>如果 2027 年出货十万台、单台毛利 2 万美元，机器人业务一年就能贡献 20 亿美元利润，期权会立刻变成事实。<b>二、FSD 在中国放量。</b>中国市场年销 2,000 万辆级别，如果 FSD 订阅渗透率做到 20%，光中国一年就是几十亿美元的高毛利收入。</p><b>三、储能被单独估值。</b>如果特斯拉把储能分拆上市，市场会按公用事业给 25–30 倍，这块业务单独就能值 1,500 亿以上。<p class='txt'>三个都成立，1.48 万亿就不贵；三个都不成立，144 美元才是它的价格。<b>我们押的是“三个都不成立”，如果押错，会在证据出现时改口——这就是第三层“破例条件”的意义。</b></p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>决策框架的一句话：</b>用质量决定“要不要研究”，用估值决定“什么价格买”，用证据决定“能不能破例”，用纪律决定“买了怎么管”。<b>四层都过了才动手；现在过了第一层，卡在第二层。</b></p></div>
+</div>
+<div class="footer">特斯拉 (TSLA) 投资研究报告集 · 2026/07/22</div>
+</body>
+</html>

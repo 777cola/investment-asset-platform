@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>观点合成 — AMD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>观点合成 — AMD</h1>
+  <div class="subtitle">AMD 2026Q2 财报 | 四个人读同一份报表，读出什么</div>
+  <div class="meta">研究日期 2026/08/07 &nbsp;·&nbsp; 股价 $483.36（-1.21%） &nbsp;·&nbsp; 市值 约 8,020 亿美元 &nbsp;·&nbsp; PE(TTM，GAAP) 约 125x</div>
+</div>
+<div class="container">
+<a class="back" href="../00-AMD研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>四个人读同一份财报，关注的数字完全不一样：段永平看客户结构与生意位置，巴菲特看利润率与现金流，芒格看叙事里的水分，李录看转型的历史概率。<b>四个人得出的结论却一致：公司好、财报真、价格贵。</b></p></div><div class="section"><div class="section-title">共识：三个数字没得辩</div><p class='txt'>数据中心 67.18 亿、+107%，毛利率 56.0%、+12.8pct，Q3 指引 130 亿、高于预期 5 亿。这三个数字是这份财报的骨架，四个人都认。</p><p class='txt'>更难得的是这三件事互相印证：如果增长靠低价冲量，毛利率不会升；如果毛利率靠涨价，指引不会超预期；如果指引靠压货，现金流不会覆盖净利。三条同时成立，说明增长是真实的、有质量的。</p></div><div class="section"><div class="section-title">分歧：能持续多久、值多少钱</div><p class='txt'>段永平与李录的分歧在「位置」：段认为二供位置稳定但不值钱，李认为 Helios 可能改变位置。这个分歧的裁决点在 2027 年——Helios 的机柜份额。</p><p class='txt'>巴菲特与芒格的分歧在「口径」：巴菲特愿意用非 GAAP 看经营趋势，芒格坚持 GAAP 才是股东拿到的。裁决：估值用 GAAP（125 倍），趋势用非 GAAP（1.66 美元 EPS 环比增长）。</p><p class='txt'>四个人都同意的一件事：<b>125 倍不是「贵一点」，是「贵到需要完美执行」。</b>完美执行的定义是：MI450 按时放量、毛利率守 55%、OpenAI 与 Anthropic 的订单不延期、英伟达不降价。四件事同时成立的概率，不超过一半。</p></div><div class="section"><div class="section-title">合议结论</div><p class='txt'>公司质地：A-（执行 A+、位置 B、财务 A）。</p><p class='txt'>财报质量：A-（增长真实、毛利结构改善、现金流健康，扣分在集中度与基数）。</p><p class='txt'>估值：D（125 倍 TTM、24 倍 2027 年最乐观 EPS）。</p><b>综合：观察，不追高。</b>这不是「不看好」，是「不在这个价格看好」。四个人的共同建议是：等 MI450 的收入进表，或者等价格回到 350 美元。<p class='txt'>还有一层是「谁在定价」。四个人都同意现价偏贵，但对「贵多少」的看法不同：段永平用 2027 年 EPS 算，觉得差不多；巴菲特用 10 年现金流折现，觉得贵一倍；芒格用「周期高点利润」折现，觉得贵两倍；李录用「行业平均利润」折现，觉得贵一倍半。<b>分歧的根源是用哪一年的利润当分母，不是用多少倍。</b>这也是为什么本报告坚持用 2027 年中性 EPS 19 美元——它是四个人都能接受的中间值。</p></div><div class="summary-box"><h3>结论</h3><b>合议：好公司、真财报、贵价格。</b>三个人会买这家公司，但没有一个人会在 483 美元买。这就是「观察」的全部含义。</div>
+</div>
+<div class="footer">AMD (AMD) 投资研究报告集 · 2026/08/07</div>
+</body>
+</html>
