@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Alibaba (BABA) — In-Depth Research Report on the Four Masters</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f7fa; color: #333; line-height: 1.8; font-size: 15px; }
+.header { background: linear-gradient(135deg, #FF6600 0%, #CC5500 100%); color: #fff; padding: 50px 0 40px; text-align: center; }
+.header h1 { font-size: 28px; font-weight: 900; letter-spacing: 1px; margin-bottom: 8px; }
+.header .subtitle { font-size: 16px; font-weight: 300; opacity: 0.85; }
+.header .meta { margin-top: 14px; font-size: 13px; opacity: 0.7; }
+.container { max-width: 920px; margin: 0 auto; padding: 30px 24px; }
+.card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 32px 36px; margin-bottom: 28px; }
+.card h2 { font-size: 22px; font-weight: 700; color: #FF6600; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid #FF6600; display: inline-block; }
+.card h3 { font-size: 17px; font-weight: 600; color: #2c3e50; margin: 20px 0 10px; }
+.card h4 { font-size: 15px; font-weight: 600; color: #e67e22; margin: 14px 0 8px; }
+.card p, .card ul, .card ol { margin-bottom: 12px; color: #444; }
+.card ul, .card ol { padding-left: 22px; }
+.card li { margin-bottom: 6px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+thead th { background: #FF6600; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 14px; }
+thead th:first-child { border-radius: 6px 0 0 0; }
+thead th:last-child { border-radius: 0 6px 0 0; }
+tbody td { padding: 10px 12px; border-bottom: 1px solid #e8ecf1; }
+tbody tr:nth-child(even) { background: #f8f9fb; }
+.tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; margin-right: 4px; }
+.tag-buffett { background: #e3f2fd; color: #1565c0; }
+.tag-munger { background: #fce4ec; color: #c62828; }
+.tag-duan { background: #e8f5e9; color: #2e7d32; }
+.tag-lilu { background: #fff3e0; color: #e65100; }
+.quote-box { background: #f8f9fb; border-left: 4px solid #FF6600; padding: 14px 18px; margin: 14px 0; border-radius: 0 8px 8px 0; font-style: italic; color: #555; }
+.quote-box .author { font-style: normal; font-weight: 600; color: #FF6600; margin-top: 6px; text-align: right; }
+.score-bar { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
+.score-fill { height: 8px; border-radius: 4px; background: linear-gradient(90deg, #FF6600, #FF9933); }
+.score-empty { height: 8px; border-radius: 4px; background: #e8ecf1; flex: 1; }
+.highlight-red { color: #e74c3c; font-weight: 600; }
+.highlight-green { color: #27ae60; font-weight: 600; }
+.highlight-blue { color: #2980b9; font-weight: 600; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; }
+.master-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+.master-card { border-radius: 8px; padding: 16px 18px; border: 1px solid #e8ecf1; }
+.master-card.buffett { border-left: 4px solid #1565c0; }
+.master-card.munger { border-left: 4px solid #c62828; }
+.master-card.duan { border-left: 4px solid #2e7d32; }
+.master-card.lilu { border-left: 4px solid #e65100; }
+.master-card .name { font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+.master-card .verdict { font-size: 13px; color: #555; }
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>Alibaba (BABA.NYSE)<br>Four Masters In-Depth Research Report</h1>
+<div class="subtitle">Report date: 2026-07-07 | Share price: $98.40 | Market cap: ~$224.6B</div>
+<div class="meta">PE 15.35x · PB 0.22x · Net cash RMB 56.9 billion · FCF turned negative · Gross margin ~40%</div>
+</div>
+
+<div class="container">
+
+<div class="card">
+<h2>Table of contents</h2>
+<ol>
+<li><a href="#s1">Company overview and business characteristics (business model)</a></li>
+<li><a href="#s2">Moat depth</a></li>
+<li><a href="#s3">Management quality</a></li>
+<li><a href="#s4">Financial health</a></li>
+<li><a href="#s5">Growth headroom and certainty</a></li>
+<li><a href="#s6">Risk identification</a></li>
+<li><a href="#s7">Valuation and margin of safety</a></li>
+<li><a href="#final">Conclusion: Would the four masters invest in Alibaba?</a></li>
+</ol>
+</div>
+
+<!-- ============================================================ -->
+<!-- 模块1: 公司概况与生意特性 -->
+<!-- ============================================================ -->
+<div class="card" id="s1">
+<h2>1. Company overview and business characteristics (business model)</h2>
+
+<h3>Company overview</h3>
+<p>Alibaba Group was founded in 1999 and is China's largest comprehensive internet company, with core businesses spanning<strong>E-commerce (Taobao and Tmall Group), international e-commerce (Lazada/AliExpress/Trendyol), cloud computing (Alibaba Cloud), local services (Ele.me/Amap/Fliggy), logistics (Cainiao), digital media and entertainment (Youku/Damai)</strong>Six major segments. FY2026 revenue RMB 1,023.7 billion (about USD 142.2 billion), 131,462 employees.</p>
+
+<h3>Business model breakdown: the seven-layer flywheel</h3>
+<ol>
+<li><strong>Transaction layer (e-commerce)</strong>: A super transacting platform with China retail GMV of about RMB 8 trillion, monetized mainly through commissions, advertising and technical service fees</li>
+<li><strong>Payment layer</strong>: Ant Group (divested but still 33%-owned) provides payment infrastructure, creating ecosystem synergies</li>
+<li><strong>Logistics layer</strong>: Cainiao Network, integrating Tongda-system express delivery plus proprietary logistics, handles over 50 billion parcels annually</li>
+<li><strong>Compute layer</strong>: Alibaba Cloud, No. 1 in China by market share (~34%), provides computing power services to millions of customers</li>
+<li><strong>Internationalization layer</strong>: Lazada (Southeast Asia) + AliExpress (global) + Trendyol (Turkey): three overseas growth engines</li>
+<li><strong>Local life services layer</strong>: Ele.me + Amap + Fliggy, capturing "near-field consumption" scenarios</li>
+<li><strong>Entertainment and investment segment</strong>: Youku + Damai + strategic investments across sectors (from cloud to AI to retail)</li>
+</ol>
+
+<div class="quote-box">"Alibaba is essentially a super ecosystem aggregator—it connects Chinese consumers, merchants, logistics and computing resources, then continuously optimizes the efficiency of these connections through data and algorithms. Its value lies not in any single business, but in the synergies of the entire system."<div class="author">— Core insight</div>
+</div>
+
+<h3>Four masters' perspectives</h3>
+
+<div class="master-grid">
+<div class="master-card buffett">
+<div class="name"><span class="tag tag-buffett">Buffett</span>Value perspective</div>
+<div class="verdict">Alibaba's business is enormous and has a certain economic moat (brand, scale, platform effects), but it has two characteristics Buffett dislikes: ①<strong>Capital intensity is rising</strong>— FY2026 CapEx RMB 126.1 billion, FCF turns negative — this is the signal Buffett warns about; ②<strong>High business complexity</strong>—From e-commerce to cloud to logistics to entertainment to AI, the scope is too broad and exceeds Buffett's "circle of competence" preference. But a PB of just 0.22x (below book!) means the market is pricing it at almost liquidation value—which in Buffett's framework would trigger the "cigar butt" alarm.</div>
+</div>
+<div class="master-card munger">
+<div class="name"><span class="tag tag-munger">Munger</span>Multidimensional thinking</div>
+<div class="verdict">Notably,<strong>Munger's Daily Journal actually bought Alibaba in 2021-2022</strong>, although he fully exited the position in 2023 (at a loss of about 40%), this itself was a practice of his "contrarian thinking." At the time, he was bullish on the long-term value of Alibaba Cloud and the resilience of China's consumer market. Buying Alibaba demonstrated Munger's belief in "being greedy when others are fearful," while selling demonstrated the discipline of "admitting mistakes and iterating." Key lesson: even Munger himself made a mistake on Alibaba—this is precisely the price that contrarian thinking demands.</div>
+</div>
+<div class="master-card duan">
+<div class="name"><span class="tag tag-duan">Duan Yongping</span>The Benfen Perspective</div>
+<div class="verdict">Duan Yongping has publicly stated on multiple occasions<strong>Bearish on Alibaba</strong>, arguing it was "not minding its own business" — the core criticisms: ① Taobao Tmall's GMV growth is slowing yet it still pursues scale rather than user experience; ② Alibaba Cloud is waging a price war under competitive pressure, eroding long-term value; ③ management's attention is spread across a large number of non-core businesses (digital media and entertainment, strategic investments, etc.) and is not "doing the right things". Duan Yongping stresses: a good business matters most; a good price comes second. Alibaba's current low valuation may be a "value trap" — not because the company is worth this price, but because it may never return to its past growth trajectory.</div>
+</div>
+<div class="master-card lilu">
+<div class="name"><span class="tag tag-lilu">Li Lu</span>The Certainty Perspective</div>
+<div class="verdict">Li Lu's investment framework centers on "certainty"—identifying the most certain beneficiaries of China's modernization. Alibaba, as the infrastructure of Chinese e-commerce and cloud computing, theoretically possesses this certainty. But he would also focus on: ①<strong>Worsening competitive landscape</strong>— Pinduoduo, Douyin and JD.com are eroding Alibaba's turf from different directions, and certainty is declining; ②<strong>Management changes</strong>— Founder Jack Ma steps back; the new Tsai/Wu pairing must prove itself; ③<strong>Declining return on capital</strong>—ROE fell from over 20% to around 10%, a classic signal of weakening certainty.</div>
+</div>
+</div>
+
+<table>
+<thead><tr><th>Business segments</th><th>FY2026 revenue share</th><th>Growth rate</th><th>Competitive position</th></tr></thead>
+<tbody>
+<tr><td>Taobao and Tmall Group (China e-commerce)</td><td>~45%</td><td>~0-2%</td><td>Market share under pressure (Pinduoduo/Douyin)</td></tr>
+<tr><td>International e-commerce</td><td>~12%</td><td>~20-30%</td><td>Southeast Asia's largest, expanding globally</td></tr>
+<tr><td>Alibaba Cloud</td><td>~10%</td><td>~5-8%</td><td>China's number one (~34%), price war</td></tr>
+<tr><td>Cainiao Logistics</td><td>~10%</td><td>~10-15%</td><td>Top three domestically, synergy effects</td></tr>
+<tr><td>Local services</td><td>~6%</td><td>~10-15%</td><td>Fierce competition (Meituan/Douyin)</td></tr>
+<tr><td>Large entertainment and other</td><td>~5%</td><td>~-5-5%</td><td>Edge businesses</td></tr>
+<tr><td>Unallocated/eliminations</td><td>~12%</td><td>—</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- ============================================================ -->
+<!-- 模块2: 护城河深度 -->
+<!-- ============================================================ -->
+<div class="card" id="s2">
+<h2>2. Moat depth</h2>
+
+<h3>Five moat assessment</h3>
+
+<table>
+<thead><tr><th>Moat type</th><th>Score</th><th>Valuation</th></tr></thead>
+<tbody>
+<tr><td>Platform network effects</td><td>8/10</td><td>China's e-commerce GMV exceeds RMB 8 trillion, and the two-sided network effects between buyers and sellers are extremely strong. Yet the rise of Pinduoduo and Douyin proves that network effects are not unassailable—when challengers enter with more efficient matching, an incumbent's network can be "bypassed." Key indicator: Taotian's GMV growth has nearly stalled.</td></tr>
+<tr><td>Brand and trust</td><td>7/10</td><td>Taobao/Tmall enjoy extremely high brand awareness, built on consumer trust accumulated over years. Yet the "counterfeit goods" label persists in the mid-to-low-end market, and Pinduoduo is eroding this foundation of trust with a "cheap plus genuine" combination.</td></tr>
+<tr><td>Switching costs</td><td>8/10</td><td>For sellers: store design, data accumulation, follower base and the operations tooling system create high switching costs. For consumers: payment binding, order history and the review system create moderate switching costs. For cloud customers: migration costs are extremely high (data, applications, API dependencies).</td></tr>
+<tr><td>Scale advantage</td><td>9/10</td><td>China's largest data-center network, most complete logistics integration system (Cainiao plus the Tongda carriers), and largest merchant and product database. These scale advantages are capital-intensive—it would take competitors tens of billions of US dollars to catch up.</td></tr>
+<tr><td>Data flywheel</td><td>7/10</td><td>Massive transaction data trains algorithms → more precise recommendations → higher conversion → more data. But this data flywheel is being challenged by Douyin's interest-based recommendations plus Pinduoduo's social fission—neither model relies on Alibaba-style traditional e-commerce data.</td></tr>
+</tbody>
+</table>
+
+<h3>Four Masters' Perspectives</h3>
+
+<div class="master-grid">
+<div class="master-card buffett">
+<div class="name"><span class="tag tag-buffett">Buffett</span>Moat assessment</div>
+<div class="verdict">"A truly great business must have an enduring moat that protects excellent returns on invested capital." Alibaba's moat—scale, data, platform effects—is real and deep. But Buffett would also note: FY2026 operating margin plunged from 14.14% to 4.90%, with SG&A surging 47.7%. The moat is shallowing—if margins keep sliding, the moat's "depth" needs reassessment. Buffett's biggest concern: does Alibaba need to invest ever more capital to sustain the same level of revenue and profit? The answer is:<strong>Yes, CapEx surged from JPY 32.1 billion in FY2024 to JPY 126.1 billion in FY2026</strong>This is a clear warning signal.</div>
+</div>
+<div class="master-card munger">
+<div class="name"><span class="tag tag-munger">Munger</span>Moat assessment</div>
+<div class="verdict">"Invert, always invert—what would cause a moat company to lose its moat?" Munger would ask: (1) Have regulatory crackdowns (antitrust fines, higher data-compliance costs) permanently weakened Alibaba's competitive advantage? (2) Are Pinduoduo and Douyin creating a "parallel universe" e-commerce ecosystem, so that Alibaba's network effects no longer reach new users? (3) Will AI disrupt the underlying technology of e-commerce search and recommendation, replacing Alibaba's data advantage with a new paradigm? Munger once "slipped up" on Alibaba—which shows precisely that even a mind like his can overestimate the durability of a moat.</div>
+</div>
+<div class="master-card duan">
+<div class="name"><span class="tag tag-duan">Duan Yongping</span>Moat assessment</div>
+<div class="verdict">"A good moat is one others want to attack but cannot break into, and one you yourself will not actively destroy." Duan Yongping believes Alibaba's biggest problem is not external competition, but<strong>Self-sabotage</strong>. The large entertainment segment burns billions every year without generating returns; its investment portfolio totals RMB 656.7 billion but many holdings deliver low returns; Ele.me and Meituan keep burning cash in competition. None of this is "benfen" capital allocation. In Duan Yongping's view, if management itself does not respect the moat, the moat will eventually run dry.</div>
+</div>
+<div class="master-card lilu">
+<div class="name"><span class="tag tag-lilu">Li Lu</span>Moat assessment</div>
+<div class="verdict">"The real moat is the ability to keep evolving." Alibaba has historically shown strong evolutionary capacity—from B2B to C2C to B2C to cloud computing to internationalization. But the pace of evolution has slowed over the past two years: Taotian's responses (the 1688 strategic upgrade, the price war) look reactive rather than proactive; cloud computing's competitive edge is being eroded by Huawei Cloud and Tencent Cloud. Li Lu would ask: does Alibaba still hold to its original mission of "making it easy to do business anywhere"? If mission-drivenness weakens, the foundation of the moat will wobble too.</div>
+</div>
+</div>
+
+<div class="quote-box">"The most honest assessment of Alibaba's moat is this: it has China's largest e-commerce infrastructure and the most complete ecosystem synergies, but the competitive landscape is deteriorating faster than the moat is being reinforced. The moat has gone from extremely wide (2020) to relatively wide (2026), and the trend is downward."<div class="author">— Overall moat assessment</div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- 模块3: 管理层品质 -->
+<!-- ============================================================ -->
+<div class="card" id="s3">
+<h2>3. Management quality</h2>
+
+<h3>Core management</h3>
+<table>
+<thead><tr><th>People</th><th>Position</th><th>Background</th><th>Rating</th></tr></thead>
+<tbody>
+<tr><td>Joseph Tsai</td><td>Chairman of the Board</td><td>Alibaba's "number two", Yale JD, one of Alibaba's earliest employees, led Alibaba's financing, listing and internationalization. Owner of the NBA's Brooklyn Nets.</td><td>8.5/10</td></tr>
+<tr><td>Eddie Wu</td><td>CEO</td><td>One of Alibaba's 18 founding partners, former CTO of Alibaba Cloud and chairman of the technology committee; became CEO in September 2023.</td><td>7/10</td></tr>
+<tr><td>Jack Ma</td><td>Founder / permanent partner</td><td>Spiritual leader of Alibaba, but has faded from day-to-day management. His frequent recent appearances in Europe and Japan are read as "exile" or "voluntary retreat."</td><td>—</td></tr>
+</tbody>
+</table>
+
+<h3>Three key observations</h3>
+<ol>
+<li><strong>Founder steps back, management reshuffle</strong>: Jack Ma gradually stepped back from 2020, Daniel Zhang stepped down in September 2023, and Eddie Wu took over. This is a<strong>Huge management uncertainty</strong>. At Chinese internet companies, the founder's presence is often a core competitive advantage (think Pony Ma at Tencent, Colin Huang at Pinduoduo, Zhang Yiming at Douyin). Jack Ma's influence is irreplaceable, and his retreat left a leadership vacuum.</li>
+<li><strong>Assessment of the Cai Chongxin + Wu Yongming pairing</strong>: Joseph Tsai is the finest capital allocator in Alibaba's history (he led all key financings, investments and listings), and his return as board chairman reinforces capital-allocation discipline. Eddie Wu comes from a technology background, and his appointment signals Alibaba's "return to technology-driven" approach. This pairing<strong>Direction is right, but execution remains to be proven</strong>。</li>
+<li><strong>Capital allocation decisions</strong>: This is a key metric for gauging management. Decision quality in FY2026 is concerning — buybacks shrank sharply to RMB 7.6 billion (FY2025: RMB 86.7 billion, a 91% drop), while the share price sits in its lowest historical range. This should have been the best time to buy back, yet it was cut sharply — this is<strong>A clear signal of management capital misallocation</strong>CapEx surged to RMB 126.1 billion, yet FCF turned negative, raising doubts about investment efficiency.</li>
+</ol>
+
+<h3>Four Masters' Perspectives</h3>
+
+<div class="master-grid">
+<div class="master-card buffett">
+<div class="name"><span class="tag tag-buffett">Buffett</span>Management assessment</div>
+<div class="verdict">"We want to invest in management teams that wake up every morning figuring out how to create shareholder value." Joe Tsai is excellent as a capital allocator—he helped Alibaba go from a lakeside apartment to the NYSE, and he understands capital discipline. But Eddie Wu's tenure as CEO is too short (under 3 years), leaving insufficient track record for Buffett to assess. What unsettles Buffett most is:<strong>Slashing buybacks sharply when the stock trades at historic lows</strong>— That is like a CEO saying "I don't think our stock is worth buying enough" when the stock is at a 10-year low — a severe rebuke to management's judgment.</div>
+</div>
+<div class="master-card munger">
+<div class="name"><span class="tag tag-munger">Munger</span>Management assessment</div>
+<div class="verdict">"Trust is the greatest competitive advantage." Munger spent much of his life studying the question of management trust. The core trust problems Alibaba faces: ① Trust in shareholders — the restructuring plan ("1+6+N") was launched in 2023 and then withdrawn, the Cainiao IPO was withdrawn, the Alibaba Cloud spin-off was withdrawn, which shows management's commitment to strategic direction<strong>Not resolute enough</strong>; ② Trust in regulators — has the rectification process truly been completed? ③ Trust from users/society — after the antitrust fine, the suspension of Ant Group's IPO and the data-compliance storm, Alibaba's public trust capital has been severely depleted. Management will need a long time to rebuild that trust.</div>
+</div>
+<div class="master-card duan">
+<div class="name"><span class="tag tag-duan">Duan Yongping</span>Management assessment</div>
+<div class="verdict">Duan Yongping believes<strong>Management's failure to "know its place" is Alibaba's biggest problem</strong>: ① Too many businesses it should not be in — from Youku to Ele.me to various investments, management lacks the courage and wisdom to "let go"; ② Blurred value proposition for users — is Taobao offering users "the cheapest", "the most reassuring" or "the richest" selection? Positioning keeps wavering; ③ Chaotic internal management — the "1+6+N" major restructuring launched in 2023 was scrapped in 2024, showing management has no confidence in its own strategy. In Duan Yongping's framework, "a management team that is not benfen = uninvestable". But the good news: the Cai Chongxin and Wu Yongming pairing is subtracting — they have cut a large number of non-core businesses, which may mark the start of a return to "benfen".</div>
+</div>
+<div class="master-card lilu">
+<div class="name"><span class="tag tag-lilu">Li Lu</span>Management assessment</div>
+<div class="verdict">"The most important qualities in management are honesty and ability—you need both." Joe Tsai's investment in the NBA's Brooklyn Nets diverts a considerable amount of his energy—how much time can a board chairman who also owns an NBA team spend on Alibaba? This is something Li Lu would seriously question. Eddie Wu comes from a technical background and is better at product and technology than at capital allocation. Li Lu would ask: at this inflection point of such intense competition, is Alibaba's management<strong>Fully committed</strong>The answer is: worrying. Joseph Tsai is focused on the Nets, Jack Ma has stepped back, Eddie Wu has just taken office — the core management team does not appear to be "all in".</div>
+</div>
+</div>
+
+<div class="quote-box">Management rating: downgraded from the historical average (8/10) to the current level (6/10). The core issue is not a lack of ability, but divided attention, strategic vacillation, and misallocated capital at critical moments. The good news: direction is being corrected—shifting from adding to subtracting. The bad news: the cost of that correction is already visible in the financials.<div class="author">— Management's overall assessment</div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- 模块4: 财务健康度 -->
+<!-- ============================================================ -->
+<div class="card" id="s4">
+<h2>4. Financial health</h2>
+
+<h3>Core financial indicators</h3>
+
+<table>
+<thead><tr><th>Indicator</th><th>FY2024</th><th>FY2025</th><th>FY2026</th><th>Trend</th><th>Signal</th></tr></thead>
+<tbody>
+<tr><td>Revenue (RMB 100 million)</td><td>9,412</td><td>9,963</td><td>10,237</td><td>↗ +2.7%</td><td>Growth slowed to single digits, with weakening momentum</td></tr>
+<tr><td>Gross margin</td><td>37.7%</td><td>39.95%</td><td>39.81%</td><td>→ Stable</td><td>Core business earnings stable but not improving</td></tr>
+<tr><td>Operating margin</td><td>12.04%</td><td>14.14%</td><td>4.90%</td><td class="highlight-red">↘ Sharp drop</td><td>The 47.7% surge in SG&A is the main driver; watch whether it persists long term</td></tr>
+<tr><td>Net profit (RMB 100 million)</td><td>797</td><td>1,295</td><td>1,059</td><td class="highlight-red">↘ -18.2%</td><td>FY2025's high growth is unsustainable</td></tr>
+<tr><td>Operating cash flow (RMB 100 million)</td><td>1,826</td><td>1,635</td><td>762</td><td class="highlight-red">↘ -53.4%</td><td>Earnings quality deteriorates, cash conversion ratio declines</td></tr>
+<tr><td>Free cash flow (RMB 100 million)</td><td>1,505</td><td>775</td><td class="highlight-red">-499</td><td class="highlight-red">↘ Turns negative</td><td>Negative FCF! Surging CapEx is the core reason</td></tr>
+<tr><td>Net cash (RMB 100 million)</td><td>4,003</td><td>1,974</td><td>569</td><td class="highlight-red">↘ -71.2%</td><td>Net cash burn is rapid, and financial flexibility is declining</td></tr>
+<tr><td>Interest-bearing debt (RMB 100 million)</td><td>1,708</td><td>2,307</td><td>2,600</td><td class="highlight-red">↗ +52.2%</td><td>Leverage is rising markedly</td></tr>
+<tr><td>EPS (diluted)</td><td>31.28</td><td>53.60</td><td>44.00</td><td class="highlight-red">↘ -17.9%</td><td>EPS fell, and reduced buybacks intensified dilution pressure</td></tr>
+<tr><td>ROE</td><td>~8%</td><td>~12.8%</td><td>~10%</td><td>↘ Declining</td><td>Far below Tencent (20%+) and Pinduoduo</td></tr>
+<tr><td>Book value per share</td><td>387.66</td><td>418.20</td><td>441.23</td><td>↗ +5.5%</td><td>Book value grows, but at a slower pace</td></tr>
+</tbody>
+</table>
+
+<h3>Comprehensive Analysis of Financial Position</h3>
+
+<p><strong>The most notable deterioration signals (ranked by severity):</strong></p>
+<ol>
+<li><strong>⚠️ FCF turned negative (-RMB 49.9 billion)</strong>: This is the most dangerous signal. Negative FCF means the company is burning cash to sustain operations—a state absolutely intolerable within a value-investing framework (Buffett: FCF is everything). The core reason is CapEx surging from RMB 32.1 billion in FY2024 to RMB 126.1 billion in FY2026 (+293%). Can such aggressive capital expenditure truly generate future returns? Extreme vigilance is warranted.</li>
+<li><strong>⚠️ SG&A surged (+47.7% to RMB 278.1 billion)</strong>: Alibaba is sharply increasing sales and administrative expenses. This may directly reflect competitive pressure—to compete for merchants and users, Alibaba must spend more. If so, this would be structural rather than one-off—meaning margins could be suppressed over the long term.</li>
+<li><strong>⚠️ Sharp net cash burn (from RMB 400.3 billion to RMB 56.9 billion, -86%)</strong>Alibaba's net cash fell from RMB 400 billion to under RMB 60 billion in two years. Although it still holds net cash of RMB 56.9 billion (still positive), the burn rate is troubling. Combined with interest-bearing debt rising from RMB 170.8 billion to RMB 260 billion, financial flexibility is weakening fast.</li>
+<li><strong>⚠️ Sharp cutback in buybacks (-91.2% → RMB 7.6 billion)</strong>: Slashing buybacks when the stock sits at a 10-year low—likely because management "has no money to buy back" or "doesn't think the shares are cheap enough." Either explanation is bad news.</li>
+<li><strong>⚠️ Operating cash flow fell (-53.4%→RMB 76.2 billion)</strong>: The decline in operating cash flow is more severe than the decline in net profit—indicating deteriorating earnings quality, with more profit coming from non-cash items or the consumption of working capital.</li>
+</ol>
+
+<p><strong>Positive aspects:</strong></p>
+<ul>
+<li>Gross margin stable at ~40% — pricing power in the core business has not been materially lost</li>
+<li>Book value per share keeps growing (+5.5% to ¥441)</li>
+<li>PB just 0.22x — the market is pricing the stock below book value, which in itself signals extreme undervaluation</li>
+<li>Dividends keep growing (FY2026 RMB 33.7 billion, +16% YoY) — modest in size, but the right direction</li>
+<li>Cash plus short-term investments still total RMB 316.9 billion, so short-term liquidity is not a concern</li>
+</ul>
+
+<h3>Four Masters' Perspectives</h3>
+
+<div class="master-grid">
+<div class="master-card buffett">
+<div class="name"><span class="tag tag-buffett">Buffett</span>Financial assessment</div>
+<div class="verdict">"Ultimately, what we care about most is free cash flow—the final yardstick." Alibaba's FY2026 FCF was -RMB 49.9 billion, which in Buffett's framework is<strong>Fatal flaw</strong>Buffett's preferred company trait: FCF/revenue >15%. FY2024 was 15.99% (passes), FY2025 fell to 7.78% (below standard), FY2026 turned negative (fails). The trend is deteriorating rapidly. SG&A surge + CapEx surge + FCF turning negative + sharp drop in net cash — with all four metrics deteriorating simultaneously, Buffett would never accept this. He would say: "Only when the tide goes out do you discover who's been swimming naked." By this standard, Alibaba's FY2026 financials amount to<strong>Swimming naked</strong>。</div>
+</div>
+<div class="master-card munger">
+<div class="name"><span class="tag tag-munger">Munger</span>Financial assessment</div>
+<div class="verdict">"Cross-validate financial quality using multiple models." Munger would examine it from several angles: ①<strong>Human nature model</strong>—Slashing buybacks when the stock has fallen 91% is a classic human behavioral bias (panic → conservatism), not rational capital allocation; ②<strong>Economies of scale model</strong>—Has Alibaba's scale advantage actually translated into a cost advantage? FY2026 data shows: scale is growing (revenue +2.7%), but SG&A rose 47.7% — diseconomies of scale are setting in; ③<strong>Signal model</strong>— Cutting buybacks at a low share price while expanding CapEx sends contradictory signals: management believes the stock is not worth buying (no buybacks) yet believes the future warrants heavy investment (CapEx expansion). This is not logical.</div>
+</div>
+<div class="master-card duan">
+<div class="name"><span class="tag tag-duan">Duan Yongping</span>Financial assessment</div>
+<div class="verdict">"Companies that borrow money are off-limits—because once you borrow, you lose the initiative." Alibaba remains in a net cash position (RMB 56.9 billion), but interest-bearing debt rose from RMB 170.8 billion to RMB 260 billion, a trend that is unsettling. What Duan Yongping focuses on most is: the company's<strong>Break-even point</strong>is rising. The operating margin fell from 14% to 5%, meaning profit shrinks sharply on the same revenue. If market competition worsens further, could Alibaba slip into a loss? Current operating profit is RMB 50.2 billion, while the EBITDA margin fell to 9.5% from 18.4% a year earlier — the safety buffer is thinning.</div>
+</div>
+<div class="master-card lilu">
+<div class="name"><span class="tag tag-lilu">Li Lu</span>Financial assessment</div>
+<div class="verdict">"The best way to understand a company's finances is to look at how it performs at the trough." Alibaba is now in a clear trough — revenue growth near zero, FCF turning negative, SG&A surging. Li Lu would ask two questions: ① Is this cyclical or structural? If cyclical (intensified competition driving a short-term increase in investment), it is tolerable; if structural (a permanent weakening of the business model's own competitive advantage), a reassessment is needed. ② Does the company have sufficient financial resources to ride out the trough? RMB 316.9 billion in cash + RMB 656.7 billion in long-term investments — abundant resources, but the pace of net cash burn is too fast.</div>
+</div>
+</div>
+
+<table>
+<thead><tr><th>Financial sub-dimension</th><th>Rating</th><th>Explanation</th></tr></thead>
+<tbody>
+<tr><td>Profitability</td><td>5/10</td><td>Gross margin held up, but operating margin plunged to 5%; runaway SG&A is the core problem</td></tr>
+<tr><td>Cash flow quality</td><td>3/10</td><td>Negative FCF is the most serious warning, and operating cash flow also fell sharply</td></tr>
+<tr><td>Balance sheet</td><td>6/10</td><td>Still net cash, but down from RMB 400.3 billion to RMB 56.9 billion within 2 years — a deteriorating trend</td></tr>
+<tr><td>Capital allocation</td><td>4/10</td><td>Sharply cutting buybacks from historic lows, surging CapEx with uncertain payoff, a sprawling portfolio with low returns</td></tr>
+<tr><td>Shareholder returns</td><td>5/10</td><td>Dividends are growing but the amount is small, buybacks have shrunk sharply, and overall shareholder returns are insufficient</td></tr>
+<tr><td><strong>Composite score</strong></td><td><strong>4.6/10</strong></td><td>Financial health is shifting from "sound" to "concerning" — the most worrying trend.</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- ============================================================ -->
+<!-- 模块5: 成长空间与确定性 -->
+<!-- ============================================================ -->
+<div class="card" id="s5">
+<h2>5. Growth headroom and certainty</h2>
+
+<h3>Six growth engines</h3>
+
+<table>
+<thead><tr><th>Growth engine</th><th>Potential</th><th>Certainty</th><th>Time window</th><th>Specific path</th></tr></thead>
+<tbody>
+<tr><td>① International e-commerce</td><td>High (~20-30% CAGR)</td><td>Mid-to-high</td><td>3-5 years</td><td>Lazada (Southeast Asia) + AliExpress (global) + Trendyol (Turkey): revenue to double in 3-5 years</td></tr>
+<tr><td>② Alibaba Cloud/AI</td><td>High (China AI boom)</td><td>Mid</td><td>5-10 years</td><td>China's cloud market CAGR 20%+, Alibaba Cloud ranks first, but price war and Huawei competition are the main risks</td></tr>
+<tr><td>③ Cainiao Logistics</td><td>Medium-high (~10-15%)</td><td>Mid-to-high</td><td>3-5 years</td><td>Cross-border e-commerce logistics demand is surging, and Cainiao is the core beneficiary; but the withdrawal of its IPO plan adds uncertainty</td></tr>
+<tr><td>④ Local life services</td><td>Medium (~10-15%)</td><td>Low</td><td>Long term</td><td>Ele.me + Amap + Fliggy remain in a cash-burning competitive phase, with no clear path to profitability</td></tr>
+<tr><td>⑤ Taobao and Tmall core e-commerce</td><td>Low (~0-3%)</td><td>Mid</td><td>Long term</td><td>In a stock-competition environment, maintain slight growth by raising CMR and optimizing user experience</td></tr>
+<tr><td>⑥ Portfolio returns</td><td>Uncertain</td><td>Low</td><td>Monetizable</td><td>RMB 656.7 billion in long-term investments, much of it in illiquid unlisted equity with unclear exit paths</td></tr>
+</tbody>
+</table>
+
+<h3>Certainty assessment framework</h3>
+
+<p><strong>High-certainty components:</strong>A neutral view of Taotian's core e-commerce: even at very low growth (0-3%), it still generates RMB 30-50 billion in operating profit each year. This is Alibaba's cash cow, with relatively high certainty.</p>
+<p><strong>Moderate-confidence portion:</strong>International e-commerce (fast growth but poor profitability; Lazada has yet to turn a profit) + Cainiao logistics (good growth but unclear independence and IPO path).</p>
+<p><strong>Lower-certainty components:</strong>Alibaba Cloud (the price war on the front end caps profitability) + local life services (continuous cash burn) + digital media and entertainment (strategic value in doubt).</p>
+<p><strong>The most uncertain part:</strong>Portfolio realization value and timing. The RMB 656.7 billion of investments spans multiple industries, but the true value and liquidity of a large chunk of unlisted assets remain unknown.</p>
+
+<h3>Four masters' perspectives</h3>
+
+<div class="master-grid">
+<div class="master-card buffett">
+<div class="name"><span class="tag tag-buffett">Buffett</span>Growth assessment</div>
+<div class="verdict">"Certainty matters more than growth." The core problem facing Alibaba:<strong>High-growth businesses do not make money (international e-commerce), money-making businesses do not grow (Taobao and Tmall), and the businesses that most need investment face brutal competition (cloud and local services)</strong>This pattern of "good businesses that don't grow, and growing businesses that aren't good" is unwelcome in Buffett's framework. He would rather buy businesses with certain growth and rich profits at a fair price (such as Coca-Cola and Apple) than buy businesses with uncertain growth and deteriorating profits at a cheap price.</div>
+</div>
+<div class="master-card munger">
+<div class="name"><span class="tag tag-munger">Munger</span>Growth assessment</div>
+<div class="verdict">"The best way to predict the future is to understand which factors will not change." What will not change in ten years: ① Chinese people will still need to shop online, but the channels will change; ② Chinese enterprises will still need cloud computing, but the suppliers will change; ③ Cross-border trade will still need logistics, but the logistics methods will change. The challenge Alibaba faces is this: its position within each "unchanging need" is being eroded—in e-commerce it is being encroached upon by Pinduoduo/Douyin, and in cloud it is being caught up to by Huawei/Tencent. Munger would press: can Alibaba still retain its "supplier of first choice" status in every important track? The answer is increasingly uncertain.</div>
+</div>
+<div class="master-card duan">
+<div class="name"><span class="tag tag-duan">Duan Yongping</span>Growth assessment</div>
+<div class="verdict">"Good companies and good prices matter more than high growth." From the benfen perspective, Alibaba's core problem today is this: the company has not gotten the most important things right. What is the most important thing for Taotian? User experience. Yet over the past few years, Taotian has not held a clear lead over Pinduoduo and Douyin on user experience. What is the most important thing for Alibaba Cloud? Technology and cost-effectiveness. Yet the price war has eroded its technology premium. Duan Yongping would say: don't think about growth first; think first about how to take the existing business<strong>Do the right things, do them deeply, do them well</strong>. If core e-commerce cannot make users "unable to do without you," how can internationalization and AI growth even be discussed?</div>
+</div>
+<div class="master-card lilu">
+<div class="name"><span class="tag tag-lilu">Li Lu</span>Growth assessment</div>
+<div class="verdict">"The process of China's modernisation is the best growth story there is." Driven by three long-term trends—consumption upgrading among 400 million middle-class consumers, the digital transformation of Chinese enterprises, and the globalisation of cross-border e-commerce—Alibaba sits in a highly certain "lane". But Li Lu also stresses:<strong>A good sector does not guarantee a winning company</strong>Can Alibaba make the right strategic choice at every node? That depends on management's judgment and execution. Against the backdrop of current management turnover and strategic vacillation, this is not reassuring.</div>
+</div>
+</div>
+
+<div class="quote-box">"Growth assessment: Alibaba has multiple high-potential growth engines (international, cloud, AI, logistics), but these engines currently contribute little to profit or are loss-making. Profitability at the core Taobao and Tmall business is deteriorating. Growth has direction, but in the course of execution<strong>Insufficient certainty</strong>This contradicts the four masters' principle of "prefer a certain 10% over an uncertain 20%."<div class="author">— Comprehensive assessment of growth potential</div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- 模块6: 风险识别 -->
+<!-- ============================================================ -->
+<div class="card" id="s6">
+<h2>6. Risk identification</h2>
+
+<h3>Six core risks</h3>
+
+<table>
+<thead><tr><th>Risk category</th><th>Probability</th><th>Impact</th><th>Risk score</th><th>Detailed analysis</th></tr></thead>
+<tbody>
+<tr><td>① Competitive landscape deteriorates</td><td>High</td><td>High</td><td>9/10</td><td>Pinduoduo (lower-tier markets + low prices), Douyin (interest-based e-commerce + livestreaming) and JD.com (logistics + supply chain) are attacking from three sides. Pinduoduo's market cap has overtaken Alibaba's, and Douyin e-commerce GMV has topped RMB 2 trillion — these are not short-term disturbances but a structural migration of market share. Alibaba is losing its position as the "platform of first choice" for e-commerce.</td></tr>
+<tr><td>2) China ADR regulation/policy</td><td>Mid</td><td>High</td><td>8/10</td><td>Antitrust fallout (RMB 18.2 billion fine plus rectification requirements), data security regulations (restricting cross-border data flows), uncertainty over the VIE structure, and US-China audit oversight (HFCAA delisting risk). These are swords of Damocles overhead — you never know when another will fall.</td></tr>
+<tr><td>③ Profitability continues to decline</td><td>Mid-to-high</td><td>High</td><td>8/10</td><td>Will the SG&A surge persist long term? If so, the operating margin may stay stuck at a low 5-8%. Will the sharp CapEx expansion pay off? If ROIC falls, these investments become wasted capital. This is the most pressing earnings risk today.</td></tr>
+<tr><td>④ Cloud computing price war</td><td>High</td><td>Mid</td><td>7/10</td><td>Alibaba Cloud cut prices (25-50% on core products), and Huawei Cloud and Tencent Cloud followed. China's cloud computing market is shifting from "growth first" to "price competition." Alibaba Cloud, as the market leader, bore the greatest pricing pressure.</td></tr>
+<tr><td>⑤ Management uncertainty</td><td>Mid</td><td>The middle</td><td>7/10</td><td>Ma's retreat, CEO turnover and strategic vacillation (the "1+6+N" reorganization launched then reversed, the Cainiao IPO withdrawn) have raised doubts about management stability and strategic consistency.</td></tr>
+<tr><td>⑥ Geopolitics and China-US relations</td><td>Mid</td><td>Mid</td><td>6/10</td><td>US-China tech competition could affect Alibaba's access to technology (restricted AI chips), its international business (US market access), and investor confidence in China concept stocks.</td></tr>
+</tbody>
+</table>
+
+<h3>Four Masters' Perspectives</h3>
+
+<div class="master-grid">
+<div class="master-card buffett">
+<div class="name"><span class="tag tag-buffett">Buffett</span>Risk assessment</div>
+<div class="verdict">"Risk comes from not knowing what you are doing." For most investors, Alibaba is a highly complex business—e-commerce + cloud + logistics + entertainment + finance + investments... Few can truly understand all of it. Buffett would advise: if you cannot understand how each business makes money, do not buy. With Alibaba, most investors can probably only "truly understand" its e-commerce and cloud businesses (~55% of revenue), while the other 45% lies outside their circle of competence. In addition, negative FCF in Buffett's framework is<strong>High-risk indicators</strong>— A company that cannot generate free cash flow rests on an extremely fragile valuation foundation.</div>
+</div>
+<div class="master-card munger">
+<div class="name"><span class="tag tag-munger">Munger</span>Risk assessment</div>
+<div class="verdict">"Avoid the obvious stupidities." Munger would spend just two minutes on this risk checklist, then say:<strong>"Worsening competitive landscape + regulatory risk + management uncertainty—all three at once is reason enough not to invest"</strong>His Daily Journal actually held Alibaba and eventually exited at a loss—a real-world case: even Munger struggled to win when playing against regulatory, competitive and management uncertainty all at once. In Munger's framework, "what not to do" matters as much as "what to do."</div>
+</div>
+<div class="master-card duan">
+<div class="name"><span class="tag tag-duan">Duan Yongping</span>Risk assessment</div>
+<div class="verdict">"Not doing things matters more than doing things." Duan Yongping long ago gave his verdict on Alibaba: "Don't buy." His logic is simple and profound: ① He cannot understand why the core business (Taotian) is being eroded by Pinduoduo and Douyin; ② he cannot understand why management does so many things that are "not benfen" (greater cultural and entertainment, a large number of investments); ③ he cannot understand why buybacks would be cut at a low share price. Three "cannot understands" stacked together lead to the conclusion: "Don't invest." Duan Yongping's famous saying:<strong>"When you hesitate between a good company and a good price, it means the company isn't good enough."</strong></div>
+</div>
+<div class="master-card lilu">
+<div class="name"><span class="tag tag-lilu">Li Lu</span>Risk assessment</div>
+<div class="verdict">"The core of risk management is understanding the dangers and opportunities of the company you invest in, then determining whether your margin of safety is sufficient." Li Lu's risk-management framework emphasizes: ① The risk of permanent capital loss — will Alibaba go bankrupt? The probability is extremely low (RMB 316.9 billion in cash + RMB 656.7 billion in investments). ② The risk of opportunity cost — is investing in Alibaba better than investing in Tencent, Pinduoduo or other alternatives? This is highly debatable. ③ The risk of time cost — Alibaba may need 3-5 years to complete its strategic adjustment, and investors need sufficient patience.</div>
+</div>
+</div>
+
+<div class="quote-box">Comprehensive risk assessment: Alibaba faces<strong>Multiple compounding risks</strong>— Competition, regulation, management, profitability, geopolitics. Each risk on its own may be manageable, but the probability of all five occurring at once, though falling, still carries weight. Munger's experience has already proven that even the world's smartest investors have "stepped in it" with Alibaba.<div class="author">— Overall risk assessment</div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- 模块7: 估值与安全边际 -->
+<!-- ============================================================ -->
+<div class="card" id="s7">
+<h2>7. Valuation and margin of safety</h2>
+
+<h3>Current valuation level</h3>
+
+<table>
+<thead><tr><th>Valuation metrics</th><th>Alibaba</th><th>Tencent</th><th>Pinduoduo</th><th>JD.com</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td>PE (TTM)</td><td><strong>15.35x</strong></td><td>15.19x</td><td>~8x</td><td>~11x</td><td>Alibaba trades at the sector median valuation, not the cheapest.</td></tr>
+<tr><td>Forward PE</td><td>15.03x</td><td>12.87x</td><td>~7x</td><td>~10x</td><td>Forward PE is close to TTM PE, indicating the market expects zero growth</td></tr>
+<tr><td>PB</td><td><strong>0.22x</strong></td><td>2.95x</td><td>~3.5x</td><td>~1.1x</td><td>PB extremely low! Market pricing below net current assets</td></tr>
+<tr><td>PS (TTM)</td><td>~1.6x</td><td>~4.5x</td><td>~1.8x</td><td>~0.2x</td><td>PS valuation reasonably low</td></tr>
+<tr><td>FCF Yield</td><td class="highlight-red">Negative value</td><td>~6.0%</td><td>~8%</td><td>~3%</td><td>Negative FCF renders FCF yield meaningless</td></tr>
+<tr><td>EV/EBITDA</td><td>~8.5x</td><td>~11x</td><td>~5x</td><td>~5x</td><td>Given the decline in FY2026 EBITDA, EV/EBITDA is actually rising</td></tr>
+<tr><td>Dividend yield</td><td>1.07%</td><td>0.78%</td><td>—</td><td>2.5%</td><td>Low dividend yield; not an income stock</td></tr>
+</tbody>
+</table>
+
+<h3>Valuation deep dive</h3>
+
+<p><strong>What does a PB of 0.22x mean?</strong></p>
+<p>Alibaba's book value per share is RMB 441.23 (=~$61/ADR), while the stock trades at just $98.40. PB=0.22 means the market believes Alibaba's<strong>Extreme discount on asset quality</strong>But this does not necessarily mean "value discovered"—it may be because:</p>
+<ul>
+<li>Much of fixed assets (PPE RMB 282.7 billion) consists of servers and data centers, whose depreciated book value sits below replacement cost</li>
+<li>Goodwill of RMB 247.4 billion — any future impairment would sharply reduce book value</li>
+<li>Long-term investments of RMB 656.7 billion—much of it unlisted equity, whose fair value may be well below carrying value</li>
+<li>Net cash plunged from RMB 400.3 billion to RMB 56.9 billion—the market's concerns are not unfounded</li>
+</ul>
+
+<p><strong>Is a PE of 15.35x reasonable?</strong></p>
+<p>At a normal operating profit level (FY2025: RMB 140.9 billion, operating margin 14.14%), the PE is about 10-11x — very cheap. But at the FY2026 operating profit level (RMB 50.2 billion, operating margin 4.90%), the PE is about 30-35x — not cheap. So the core question is:<strong>Is the FY2026 profit deterioration one-off or structural?</strong>If the short-term increase in SG&A and CapEx caused it and can be reversed, the current PE is actually in the 10-11x range (calculated on normalized profit); if structural competitive pressure caused it, the "true level" of the current PE is 15-20x — reasonable but not cheap.</p>
+
+<h3>Four masters' perspectives</h3>
+
+<div class="master-grid">
+<div class="master-card buffett">
+<div class="name"><span class="tag tag-buffett">Buffett</span>Valuation assessment</div>
+<div class="verdict">"Price is what you pay; value is what you get." Alibaba's current share price of $98.40 — Buffett would use<strong>Enterprise value (EV)</strong>To assess: market cap ~$225B + net debt (net cash of RMB 56.9 billion ≈ ~$8B net value, actually net cash) → EV ≈ $217B. Based on FY2025 normalized operating profit of RMB 140.9 billion (≈ $196B): EV/operating profit ≈ 1.1x — possibly one of the cheapest steady tech companies Buffett has ever seen. But the conditions are stringent: operating profit must return to normalized levels (14% operating margin). If FCF also normalizes (FY2024 was RMB 150.5 billion ≈ $209B), then FCF Yield ≈ $209B/$225B ≈ 93% — a figure so absurd it cannot be real, indicating extremely pessimistic market pricing. In Buffett's eyes:<strong>Either the market is right (Alibaba really is collapsing), or the market is wrong (deeply undervalued)</strong>— His judgment: the market is overly pessimistic, but positive FCF is needed to confirm.</div>
+</div>
+<div class="master-card munger">
+<div class="name"><span class="tag tag-munger">Munger</span>Valuation assessment</div>
+<div class="verdict">"Value is not a number; it is judgment." Munger would use<strong>Reverse valuation method</strong>: If Alibaba closed today and was sold off in pieces, how much would shareholders get back? ① Net cash: RMB 56.9 billion; ② Long-term investments (readily monetizable portion): assuming a 50% discount, about RMB 328.3 billion; ③ Going-concern value of the core businesses (e-commerce + cloud): at 7-8x normalized operating profit ≈ RMB 700-800 billion; ④ Other (Cainiao + local services + entertainment): assign a small residual value. Total about RMB 1-1.2 trillion (≈USD 140-170B), versus a current market cap of USD 225B — still a premium to liquidation value. This means:<strong>Even if Alibaba is "sold for parts," it is worth USD 140-170 billion</strong>—This provides solid downside protection for the current share price. Munger would say: today's price is not "incredibly cheap," but it does offer a "reasonable margin of safety."</div>
+</div>
+<div class="master-card duan">
+<div class="name"><span class="tag tag-duan">Duan Yongping</span>Valuation assessment</div>
+<div class="verdict">"A good business model, a good corporate culture, a good price—all three must be satisfied at the same time." Duan Yongping's core investment framework is the "three goods" principle. Applied to Alibaba: ① Business model—once "very good" (monopolist in platform e-commerce), now "good but no longer excellent" (intensified competition + margin decline); ② Corporate culture—shifted from "doing the right things" to "wanting to do everything" (Greater Entertainment, heavy investing), with a declining degree of benfen; ③ Price—genuinely cheap. Of the three conditions, the business model is deteriorating, the corporate culture is being diluted, and only the price is reasonable. Duan Yongping's conclusion is likely still<strong>"Don't buy"</strong>—Because a "good price" cannot substitute for a "good business" and a "good culture." He said: "Time is your friend when you buy a good company; time is your enemy when you buy a poor company." Alibaba is in transition from "good" to "neither good nor bad," and time is not necessarily a friend yet.</div>
+</div>
+<div class="master-card lilu">
+<div class="name"><span class="tag tag-lilu">Li Lu</span>Valuation assessment</div>
+<div class="verdict">"Buy securities at prices below intrinsic value and hold them for the long term." Li Lu would build a<strong>Conservative DCF model</strong>: Assuming revenue CAGR of 3-5% over the next five years, operating margin recovering from 4.9% to 10-12% (competitive pressure persists but does not deteriorate fully), and FCF returning to normal from negative territory. Under a WACC of 10%, Alibaba's fair value range is USD 150-250/ADR. The current USD 98.40 sits at the lower bound. But Li Lu stresses: this model's<strong>The biggest variable is the speed and magnitude of operating margin recovery.</strong>— If competitive pressure keeps margins at 5-8% long term, fair value drops to $80-120. Alibaba's current share price already reflects the worst case of "deteriorating competition + permanently low margins." If reality proves better than the worst case (likely), a margin of safety exists.</div>
+</div>
+</div>
+
+<div class="quote-box">Valuation assessment: 0.22x PB, 15x PE, 1.1x EV/FY2025 normalized operating profit — deeply undervalued on historical data. But the market assigns such a low valuation because the FY2026 financial deterioration (FCF turning negative, SG&A surging, operating margin collapsing) has fundamentally undermined the valuation base. The current share price already reflects pessimistic expectations of "worsening competition + falling earnings + management uncertainty." The core question is:<strong>Has this pessimism gone too far?</strong>For investors willing to believe Alibaba can ride out the adjustment, the current valuation offers a substantial margin of safety; for skeptics, this "cheapness" may be a value trap.<div class="author">— Overall valuation assessment</div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- 综合结论 -->
+<!-- ============================================================ -->
+<div class="card" id="final">
+<h2>Conclusion: Would the four masters invest in Alibaba?</h2>
+
+<h3>Warren Buffett: Probably not (30% probability)</h3>
+<p>Core obstacles: ① FCF turned negative — a "veto" item in Buffett's framework; ② operating margin plunged from 14% to 5% — competitiveness is deteriorating; ③ business complexity exceeds his circle of competence; ④ SG&A surge + CapEx surge + sharp drop in net cash — a triple drag. The only attraction is the extreme cheapness of 0.22x PB — but he would likely say: "It's far better to buy a wonderful company at a fair price than a fair company at a wonderful price." Alibaba is currently in a transition of "wonderful or fair," with too much uncertainty.</p>
+
+<h3>Charlie Munger: Most likely not (25% probability)</h3>
+<p>Munger has already "paid his tuition" on Alibaba (Daily Journal exited its position at a loss of about 40%). Given his wisdom of "not walking the same old road," the odds of him investing in Alibaba again are slim. He would say: "What I learned from Alibaba is that even the best investment ideas can be wrong. What matters isn't whether you make mistakes, but what you learn from them." What Munger learned: ① Chinese ADRs carry regulatory risks he cannot control; ② the competitive model of Pinduoduo plus Douyin is beyond his circle of understanding; ③ management stability is more fragile than he expected. Were he to act again, he would need to see marked improvement in all three conditions.</p>
+
+<h3>Duan Yongping: Most likely not (15% probability)</h3>
+<p>Duan Yongping has publicly stated his bearish view on Alibaba multiple times. His core logic is unchanged: (1) the business model is deteriorating (intensifying competition, falling margins); (2) the corporate culture is not sufficiently "benfen" (overly broad business scope, inefficient investment portfolio); (3) the quality of management's decisions at key moments is questionable (scaled-back buybacks, strategic vacillation). None of these three conditions gives him confidence. Even at a cheap price, he will not act — "never buy a stock you don't understand or don't trust" is his iron rule.</p>
+
+<h3>Li Lu: possible small allocation (40% probability)</h3>
+<p>Li Lu is the most likely candidate to invest in Alibaba. His framework emphasizes "certain investment opportunities in China's modernization process," and Alibaba, as a hub of e-commerce and cloud infrastructure, fits this theme. But it would<strong>Control position size</strong>(2-5%), because: ① insufficient certainty—all three variables of competitive landscape, management, and profit margin are deteriorating, and time is needed to verify whether a bottom has formed; ② better China targets exist—Tencent offers higher certainty (its social moat is unassailable), and Pinduoduo has stronger dominance in lower-tier markets; ③ clear signals need to be awaited—positive FCF, SG&A returning to control, and management stability. If he buys, it will definitely be at<strong>At this price ($98), wait for a larger margin of safety or a clearer inflection signal.</strong>。</p>
+
+<h3>Composite voting matrix</h3>
+
+<table>
+<thead><tr><th>Master</th><th>Probability</th><th>Positioning recommendation</th><th>Core rationale</th></tr></thead>
+<tbody>
+<tr><td>Buffett</td><td>30% will not</td><td>0-2% (observation position, very light)</td><td>Negative FCF + complex business + deteriorating margins = fails the "great company" test; but an extreme low price could draw his interest</td></tr>
+<tr><td>Munger</td><td>25% will not</td><td>0% (fully exited)</td><td>Tuition paid: learned the lesson of triple uncertainty—regulatory, competitive and management.</td></tr>
+<tr><td>Duan Yongping</td><td>15% will not</td><td>0% (firmly not buying)</td><td>Two of the three good conditions are missing — the business is not good enough and the culture is not dutiful enough; a good price alone is not enough to act</td></tr>
+<tr><td>Li Lu</td><td>40% probability of a small amount</td><td>2-5%</td><td>China modernization theme plus deep undervaluation offers a margin of safety, but the inflection in FCF and margins is still pending</td></tr>
+</tbody>
+</table>
+
+<h3>Composite module score</h3>
+
+<table>
+<thead><tr><th>Module</th><th>Rating</th><th>Explanation</th></tr></thead>
+<tbody>
+<tr><td>1. Business characteristics (business model)</td><td>3.5/5</td><td>Strong platform network effects, but a deteriorating competitive landscape lowers the business model from "excellent" to "good"</td></tr>
+<tr><td>2. Moat depth</td><td>3.5/5</td><td>Moat remains wide but the trend is down, narrowing from very wide (2020) to wide (2026)</td></tr>
+<tr><td>3. Management quality</td><td>2.5/5</td><td>Founder retreat + CEO turnover + strategic vacillation + poor capital allocation have sharply reduced management appeal</td></tr>
+<tr><td>4. Financial health</td><td>2/5</td><td>FCF turns negative + operating margin plunges + net cash depletes rapidly + buybacks sharply cut — multiple deteriorations</td></tr>
+<tr><td>5. Growth headroom and certainty</td><td>3/5</td><td>International/AI/logistics growth engines have potential but lack certainty; core e-commerce growth has stalled</td></tr>
+<tr><td>6. Risk controllability</td><td>2/5</td><td>Competition + regulation + management + deteriorating earnings + geopolitics — five overlapping risks</td></tr>
+<tr><td>7. Valuation and margin of safety</td><td>4/5</td><td>PB 0.22x, PE 15x—the numbers scream deeply undervalued; but "cheap" needs "quality" as an escort</td></tr>
+<tr><td><strong>Consensus</strong></td><td><strong>2.9/5</strong></td><td><strong>Four-master consensus: not attractive enough at present. Alibaba is in a "transition period"—moving from a monopolistic platform to a competitive one, with an uncertain outcome. The core contradiction is "a cheap business, but not the best business."</strong></td></tr>
+</tbody>
+</table>
+
+<h3>Investment recommendation</h3>
+<ul>
+<li><strong>Long-term value investor</strong>(Agrees Alibaba can ride out the transition): At the current price (~$98), a small position (2-5%) can be initiated, with a holding period of over 5 years. Core things to watch: whether FCF turns positive in FY2027 and whether the operating margin recovers above 8%.</li>
+<li><strong>Conservative investors</strong>Wait for clearer inflection signals: (1) FCF turning positive (key!); (2) SG&A growth slowing below revenue growth; (3) management sending a clear "subtraction" signal (large-scale divestiture of non-core assets).</li>
+<li><strong>Conservative investors</strong>: Not recommended for entry. Alibaba's certainty is insufficient to attract conservative capital allocators. Better China names are Tencent (stronger commercial moat) or Pinduoduo (clearer competitive landscape).</li>
+<li><strong>Existing holders</strong>: If the holding cost is relatively low (<$100），建议持有但不加仓；如果持仓成本较高（>$150), we need to consider whether rebalancing is necessary—because it may take 2-3 years for the share price to return above $150.</li>
+</ul>
+
+<div class="quote-box">
+<p style="font-size:16px;font-weight:600;color:#FF6600;">&ldquo;Alibaba's situation today: it owns one of China's best internet infrastructures, yet it is undergoing a transition from 'monopolist' to 'competitor'. That transition is painful — it will leave wounds on margins and cash flow. The four masters' consensus: Alibaba today is not a certain investment. Its low valuation is not a declaration of opportunity but a pricing of uncertainty. To change the four masters' judgment, Alibaba must prove over the next 18 months that the margin deterioration is reversible, that FCF is sustainable, and that management's decisions are sound. Until then, it deserves only one label: &rsquo;wait and see&lsquo;.&rdquo;</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+<p>Report date: 2026-07-07 | Framework: Four Masters (Buffett/Munger/Duan Yongping/Li Lu) value-investing system</p>
+<p>Data sources: company filings, public market data, stockanalysis.com, macrotrends.net | Hermes Agent — Nous Research</p>
+</div>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>德明利 (001309.SZ) — 行業漏斗對比</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #2a5fa0 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+td, th { padding: 0.6rem 0.75rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+th { color: #666; font-weight: 600; background: #f9fafc; }
+tr:hover { background: #f5f8fc; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #fde8e8; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.highlight { background: #fff8e6; border-left: 4px solid #f0a500; padding: 1rem 1.2rem; border-radius: 0 8px 8px 0; margin: 1rem 0; font-size: 0.9rem; color: #333; }
+.highlight strong { color: #1A4B8C; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.info-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.info-box p { margin-bottom: 0.5rem; font-size: 0.9rem; color: #333; }
+.info-box p:last-child { margin-bottom: 0; }
+.info-box .label { color: #1A4B8C; font-weight: 600; }
+
+/* Funnel / 漏斗樣式 */
+.funnel-container { display: flex; flex-direction: column; align-items: center; gap: 0; margin: 1.5rem 0; }
+.funnel-row { display: flex; justify-content: center; gap: 0.5rem; width: 100%; }
+.funnel-tier { display: flex; flex-direction: column; align-items: center; padding: 1rem; border-radius: 8px; text-align: center; transition: transform 0.2s; }
+.funnel-tier:hover { transform: scale(1.03); }
+.funnel-tier .company-name { font-weight: 700; font-size: 1rem; margin-bottom: 0.2rem; }
+.funnel-tier .company-score { font-size: 1.5rem; font-weight: 700; font-family: 'Instrument Sans', monospace; }
+.funnel-tier .company-detail { font-size: 0.75rem; opacity: 0.8; }
+.funnel-tier.pass { background: #e6f7e6; border: 2px solid #1a7a1a; color: #1a7a1a; }
+.funnel-tier.caution { background: #fff8e6; border: 2px solid #9a7a1a; color: #9a7a1a; }
+.funnel-tier.fail { background: #fde8e8; border: 2px solid #c00; color: #c00; }
+
+/* 公司卡片 */
+.company-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.company-card { background: #fff; border-radius: 8px; padding: 1.2rem; border: 1px solid #e8edf5; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.company-card h3 { font-size: 1rem; color: #1A4B8C; margin-bottom: 0.5rem; }
+.company-card .stock { font-family: 'Instrument Sans', monospace; font-size: 0.8rem; color: #999; }
+.company-card .desc { font-size: 0.85rem; color: #555; margin-top: 0.3rem; }
+.company-card .tag { display: inline-block; background: #e6f0ff; color: #1a4b8c; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.7rem; margin-top: 0.4rem; }
+
+/* 評分條 */
+.score-bar-wrap { display: flex; align-items: center; gap: 0.5rem; }
+.score-bar-bg { flex: 1; height: 8px; background: #e8edf5; border-radius: 4px; overflow: hidden; }
+.score-bar-fill { height: 100%; border-radius: 4px; }
+.score-bar-label { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; min-width: 2.2rem; text-align: right; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>德明利 (001309.SZ) — 行業漏斗對比</h1>
+  <div class="subtitle">德明利 vs 江波龍 vs 佰維存儲 vs 朗科科技 · 儲存模組行業橫向比較</div>
+  <div class="meta">研究日期 2026/07/19 &nbsp;·&nbsp; 所屬目錄：11-行業漏斗對比</div>
+</div>
+
+<div class="container">
+
+  <!-- 公司概览 -->
+  <div class="section">
+    <div class="section-title">🏢 可比公司概覽</div>
+    <div class="company-cards">
+      <div class="company-card">
+        <h3>德明利</h3>
+        <div class="stock">001309.SZ | 市值約 1,217 億元</div>
+        <div class="desc">記憶體模組加自有控制器設計。2026Q1業績爆發（稅後淨利33.46億），但營業現金流為負、存貨佔比66%。</div>
+        <span class="tag">自有控制器</span>
+        <span class="tag">高彈性</span>
+        <span class="tag" style="background:#fde8e8;color:#c00;">高風險</span>
+      </div>
+      <div class="company-card">
+        <h3>江波龍</h3>
+        <div class="stock">301308.SZ | 市值約 400 億元</div>
+        <div class="desc">國內記憶體模組龍頭，與 SK 海力士深度合作。面向消費級與企業級 SSD，營收規模大但毛利率偏低。</div>
+        <span class="tag">模組龍頭</span>
+        <span class="tag">海力士合作</span>
+        <span class="tag" style="background:#e6f7e6;color:#1a7a1a;">規模優勢</span>
+      </div>
+      <div class="company-card">
+        <h3>佰維儲存</h3>
+        <div class="stock">688525.SZ | 市值約200億元</div>
+        <div class="desc">嵌入式記憶體（eMMC/UFS）＋SSD模組。聚焦消費電子與工控領域，規模較小但成長快速。</div>
+        <span class="tag">嵌入式儲存</span>
+        <span class="tag" style="background:#fff8e6;color:#9a7a1a;">規模較小</span>
+      </div>
+      <div class="company-card">
+        <h3>朗科科技</h3>
+        <div class="stock">300042.SZ | 市值約 80 億元</div>
+        <div class="desc">老牌儲存品牌（U盤/SSD/記憶卡）。品牌認知度高但成長性弱，已從模組轉向品牌營運。</div>
+        <span class="tag">品牌營運</span>
+        <span class="tag" style="background:#fde8e8;color:#c00;">成長放緩</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 核心财务对比 -->
+  <div class="section">
+    <div class="section-title">📊 核心財務指標對比（2025全年 / 2026Q1）</div>
+    <div style="overflow-x: auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>指標</th>
+            <th>德明利<br><span style="font-weight:400;font-size:0.75rem;color:#999;">001309</span></th>
+            <th>江波龍<br><span style="font-weight:400;font-size:0.75rem;color:#999;">301308</span></th>
+            <th>佰維儲存<br><span style="font-weight:400;font-size:0.75rem;color:#999;">688525</span></th>
+            <th>朗科科技<br><span style="font-weight:400;font-size:0.75rem;color:#999;">300042</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>2025年營收</strong></td>
+            <td>107.9億</td>
+            <td>約180億元</td>
+            <td>約50億元</td>
+            <td>約30億元</td>
+          </tr>
+          <tr>
+            <td><strong>2025年稅後淨利</strong></td>
+            <td>+6.88億</td>
+            <td>~8億</td>
+            <td>約2.5億</td>
+            <td>約1億</td>
+          </tr>
+          <tr>
+            <td><strong>2026Q1營收</strong></td>
+            <td><strong>75.67億元</strong></td>
+            <td>約55億</td>
+            <td>約20億元</td>
+            <td>~8億</td>
+          </tr>
+          <tr>
+            <td><strong>2026Q1稅後淨利</strong></td>
+            <td><strong style="color:#1a7a1a;">+33.46億元</strong></td>
+            <td>~8億</td>
+            <td>約3億元</td>
+            <td>約0.8億</td>
+          </tr>
+          <tr>
+            <td><strong>毛利率（2025）</strong></td>
+            <td>14.8%</td>
+            <td>~15%</td>
+            <td>~18%</td>
+            <td>~12%</td>
+          </tr>
+          <tr>
+            <td><strong>毛利率（2026Q1）</strong></td>
+            <td><span class="badge badge-green">57.4%</span></td>
+            <td>~30%</td>
+            <td>~35%</td>
+            <td>~15%</td>
+          </tr>
+          <tr>
+            <td><strong>淨利率（2026Q1）</strong></td>
+            <td><span class="badge badge-green">44.2%</span></td>
+            <td>~15%</td>
+            <td>~15%</td>
+            <td>~10%</td>
+          </tr>
+          <tr>
+            <td><strong>營業現金流（2025）</strong></td>
+            <td><span class="badge badge-red">-22.41億元</span></td>
+            <td>~+5億</td>
+            <td>約 -2 億</td>
+            <td>~+0.5億</td>
+          </tr>
+          <tr>
+            <td><strong>存貨／總資產</strong></td>
+            <td><span class="badge badge-red">121.9億/183.8億<br>= 66.3%</span></td>
+            <td>~50%</td>
+            <td>~55%</td>
+            <td>~35%</td>
+          </tr>
+          <tr>
+            <td><strong>資產負債率</strong></td>
+            <td><span class="badge badge-yellow">64%</span></td>
+            <td>~55%</td>
+            <td>~60%</td>
+            <td>~30%</td>
+          </tr>
+          <tr>
+            <td><strong>研發費用率</strong></td>
+            <td>~2.5%</td>
+            <td>~3.5%</td>
+            <td>~5%</td>
+            <td>~2%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="highlight" style="margin-top:0.8rem;">
+      <strong>關鍵發現：</strong>德明利2026Q1毛利率（57.4%）和淨利率（44.2%）遠高於同業，但營業現金流持續為負、存貨佔比高達66%——盈利品質存疑，可能存在「囤貨漲價」帶來的帳面利潤泡沫。</div>
+  </div>
+
+  <!-- 业务模式对比 -->
+  <div class="section">
+    <div class="section-title">🔬 業務模式對比</div>
+    <div style="overflow-x: auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>維度</th>
+            <th>德明利</th>
+            <th>江波龍</th>
+            <th>佰維儲存</th>
+            <th>朗科科技</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>核心業務</strong></td>
+            <td>NAND 模組+<span class="badge badge-green">自有控制器</span></td>
+            <td>DRAM/NAND 模組</td>
+            <td>嵌入式eMMC+UFS+SSD</td>
+            <td>品牌隨身碟／SSD／記憶卡</td>
+          </tr>
+          <tr>
+            <td><strong>上游合作</strong></td>
+            <td>多源採購（三星／SK 海力士／美光）</td>
+            <td><span class="badge badge-blue">與 SK 海力士深度綁定</span></td>
+            <td>多源採購</td>
+            <td>多源採購</td>
+          </tr>
+          <tr>
+            <td><strong>下游客戶</strong></td>
+            <td>手機 OEM／PC OEM／通路</td>
+            <td>手機／PC／資料中心／通路</td>
+            <td>消費電子／工控</td>
+            <td>終端消費者／通路</td>
+          </tr>
+          <tr>
+            <td><strong>技術壁壘</strong></td>
+            <td><span class="badge badge-green">控制器設計（中等）</span></td>
+            <td>模組設計+封裝（低）</td>
+            <td>嵌入式封裝（中等）</td>
+            <td>品牌+通路（低）</td>
+          </tr>
+          <tr>
+            <td><strong>成長動能</strong></td>
+            <td>NAND 漲價＋囤貨差價</td>
+            <td>產能爬坡＋客戶拓展</td>
+            <td>嵌入式記憶體滲透率提升</td>
+            <td>品牌溢價＋通路</td>
+          </tr>
+          <tr>
+            <td><strong>週期敏感性</strong></td>
+            <td><span class="badge badge-red">極高（存貨66%）</span></td>
+            <td><span class="badge badge-yellow">高</span></td>
+            <td><span class="badge badge-yellow">高</span></td>
+            <td><span class="badge badge-blue">中等（輕資產）</span></td>
+          </tr>
+          <tr>
+            <td><strong>行業排名</strong></td>
+            <td>二線模組廠（估值最高）</td>
+            <td><span class="badge badge-green">國內模組龍頭</span></td>
+            <td>二線模組廠</td>
+            <td>品牌老牌（市佔下滑）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 估值对比 -->
+  <div class="section">
+    <div class="section-title">💰 估值對比</div>
+    <div style="overflow-x: auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>估值指標</th>
+            <th>德明利</th>
+            <th>江波龍</th>
+            <th>佰維儲存</th>
+            <th>朗科科技</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>總市值</strong></td>
+            <td><strong>約1,217億元</strong></td>
+            <td>約 400 億元</td>
+            <td>約 200 億元</td>
+            <td>約80億元</td>
+          </tr>
+          <tr>
+            <td><strong>PE(TTM)</strong></td>
+            <td><span class="badge badge-yellow">~29.7x</span></td>
+            <td>~25x</td>
+            <td>~40x</td>
+            <td>~80x</td>
+          </tr>
+          <tr>
+            <td><strong>動態本益比（2026E）</strong></td>
+            <td><span class="badge badge-green">~9x<br><small>（假設可持續）</small></span></td>
+            <td>~15x</td>
+            <td>~20x</td>
+            <td>~60x</td>
+          </tr>
+          <tr>
+            <td><strong>市淨率PB</strong></td>
+            <td><span class="badge badge-red">18.37x</span></td>
+            <td>~6x</td>
+            <td>~8x</td>
+            <td>~5x</td>
+          </tr>
+          <tr>
+            <td><strong>營收增速（2025→2026Q1）</strong></td>
+            <td><span class="badge badge-green">+380%（YoY）</span></td>
+            <td>~+100%</td>
+            <td>~+120%</td>
+            <td>~+50%</td>
+          </tr>
+          <tr>
+            <td><strong>PEG（基於2026E）</strong></td>
+            <td><span class="badge badge-green">~0.1x</span></td>
+            <td>~0.3x</td>
+            <td>~0.4x</td>
+            <td>~2x</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="highlight">
+      <strong>估值結論：</strong>德明利動態PE看似最低（~9x），但這是建立在2026Q1利潤爆發的基礎上。<strong>若 NAND 價格回落，利潤可能驟降 90%+，屆時 PE 將暴漲至 100x+。</strong>朗科科技PE最高但業務最穩定、存貨最低。江波龍估值相對合理，但規模優勢並不明顯。</div>
+  </div>
+
+  <!-- 漏斗过滤表 -->
+  <div class="section">
+    <div class="section-title">🔍 行業漏斗過濾（從優到劣）</div>
+    <div style="overflow-x: auto;">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:28px;">#</th>
+            <th>過濾標準</th>
+            <th>德明利</th>
+            <th>江波龍</th>
+            <th>佰維儲存</th>
+            <th>朗科科技</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align:center;">1</td>
+            <td><strong>存貨風險</strong><br><span style="font-size:0.75rem;color:#999;">存貨佔比是否可控</span></td>
+            <td><span class="badge badge-red">❌ 66%</span></td>
+            <td><span class="badge badge-yellow">⚠ ~50%</span></td>
+            <td><span class="badge badge-yellow">⚠ ~55%</span></td>
+            <td><span class="badge badge-green">✅ ~35%</span></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">2</td>
+            <td><strong>現金流品質</strong><br><span style="font-size:0.75rem;color:#999;">營業現金流是否為正</span></td>
+            <td><span class="badge badge-red">❌ -22.4億元</span></td>
+            <td><span class="badge badge-green">✅ 約 +5億</span></td>
+            <td><span class="badge badge-red">❌ -2億</span></td>
+            <td><span class="badge badge-green">✅ 約 +0.5億</span></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">3</td>
+            <td><strong>毛利率穩定性</strong><br><span style="font-size:0.75rem;color:#999;">是否可持續</span></td>
+            <td><span class="badge badge-red">❌ 劇烈波動<br>14.8%→57.4%</span></td>
+            <td><span class="badge badge-yellow">⚠ 一般</span></td>
+            <td><span class="badge badge-yellow">⚠ 一般</span></td>
+            <td><span class="badge badge-green">✅ 平穩~12-15%</span></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">4</td>
+            <td><strong>技術壁壘</strong><br><span style="font-size:0.75rem;color:#999;">是否具備護城河</span></td>
+            <td><span class="badge badge-green">✅ 自有控制器</span></td>
+            <td><span class="badge badge-yellow">⚠ 模組設計</span></td>
+            <td><span class="badge badge-yellow">⚠ 嵌入式封裝</span></td>
+            <td><span class="badge badge-red">❌ 品牌無護城河</span></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">5</td>
+            <td><strong>估值合理性</strong><br><span style="font-size:0.75rem;color:#999;">PB/PE是否合理</span></td>
+            <td><span class="badge badge-red">❌ PB 18x 極貴</span></td>
+            <td><span class="badge badge-yellow">⚠ PB 6x中等</span></td>
+            <td><span class="badge badge-yellow">⚠ PB 8x偏高</span></td>
+            <td><span class="badge badge-yellow">⚠ PE 80x 極貴</span></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">6</td>
+            <td><strong>規模與市佔</strong><br><span style="font-size:0.75rem;color:#999;">行業地位</span></td>
+            <td><span class="badge badge-blue">○ 二線（估值最高）</span></td>
+            <td><span class="badge badge-green">✅ 模組龍頭</span></td>
+            <td><span class="badge badge-blue">○ 二線</span></td>
+            <td><span class="badge badge-red">❌ 市佔率下滑</span></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">7</td>
+            <td><strong>週期風險暴露</strong><br><span style="font-size:0.75rem;color:#999;">下行期抗風險能力</span></td>
+            <td><span class="badge badge-red">❌ 極高（存貨66%+負債64%）</span></td>
+            <td><span class="badge badge-yellow">⚠ 高（55%負債）</span></td>
+            <td><span class="badge badge-red">❌ 高（60%負債）</span></td>
+            <td><span class="badge badge-green">✅ 低（30%負債）</span></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">8</td>
+            <td><strong>利潤真實性</strong><br><span style="font-size:0.75rem;color:#999;">利潤與現金匹配度</span></td>
+            <td><span class="badge badge-red">❌ 嚴重不匹配</span></td>
+            <td><span class="badge badge-yellow">⚠ 部分匹配</span></td>
+            <td><span class="badge badge-red">❌ 不匹配</span></td>
+            <td><span class="badge badge-green">✅ 較匹配</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 综合评分 -->
+  <div class="section">
+    <div class="section-title">📈 綜合評分（滿分40）</div>
+    <div style="overflow-x: auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>公司</th>
+            <th style="text-align:center;">存貨風險<br><small>/5</small></th>
+            <th style="text-align:center;">現金流<br><small>/5</small></th>
+            <th style="text-align:center;">毛利率<br><small>/5</small></th>
+            <th style="text-align:center;">技術壁壘<br><small>/5</small></th>
+            <th style="text-align:center;">估值<br><small>/5</small></th>
+            <th style="text-align:center;">規模<br><small>/5</small></th>
+            <th style="text-align:center;">抗週期<br><small>/5</small></th>
+            <th style="text-align:center;">利潤品質<br><small>/5</small></th>
+            <th style="text-align:center;">總分<br><small>/40</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>德明利</strong></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">2</span></td>
+            <td style="text-align:center;"><span class="badge badge-green">4</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">3</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><strong style="font-size:1.2rem;color:#c00;">14</strong></td>
+          </tr>
+          <tr>
+            <td><strong>江波龍</strong></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">3</span></td>
+            <td style="text-align:center;"><span class="badge badge-green">4</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">3</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">2</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">3</span></td>
+            <td style="text-align:center;"><span class="badge badge-green">4</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">2</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">3</span></td>
+            <td style="text-align:center;"><strong style="font-size:1.2rem;color:#9a7a1a;">24</strong></td>
+          </tr>
+          <tr>
+            <td><strong>佰維儲存</strong></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">2</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">3</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">3</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">2</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">2</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><strong style="font-size:1.2rem;color:#9a7a1a;">15</strong></td>
+          </tr>
+          <tr>
+            <td><strong>朗科科技</strong></td>
+            <td style="text-align:center;"><span class="badge badge-green">4</span></td>
+            <td style="text-align:center;"><span class="badge badge-green">4</span></td>
+            <td style="text-align:center;"><span class="badge badge-green">4</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><span class="badge badge-green">5</span></td>
+            <td style="text-align:center;"><span class="badge badge-green">4</span></td>
+            <td style="text-align:center;"><strong style="font-size:1.2rem;color:#1a7a1a;">24</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 漏斗可视化 -->
+  <div class="section">
+    <div class="section-title">🔽 行業漏斗視覺化</div>
+    <div class="highlight">以下漏斗逐步過濾——每層淘汰「不達標」的公司，看誰最能經得起多維度拷問。</div>
+
+    <div class="funnel-container">
+
+      <!-- Tier 1: 存货风险 -->
+      <div class="funnel-row">
+        <div class="funnel-tier fail" style="width:90%;">
+          <div class="company-name">第1層 · 存貨風險</div>
+          <div style="font-size:0.8rem;">存貨佔比 >60% → 淘汰</div>
+          <div style="display:flex;gap:1rem;margin-top:0.5rem;flex-wrap:wrap;justify-content:center;">
+            <span style="color:#c00;">✗ 德明利 66%</span>
+            <span style="color:#9a7a1a;">⚠ 江波龍 ~50%</span>
+            <span style="color:#9a7a1a;">⚠ 佰維 ~55%</span>
+            <span style="color:#1a7a1a;">✓ 朗科 ~35%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 2: 现金流 -->
+      <div class="funnel-row">
+        <div class="funnel-tier fail" style="width:75%;">
+          <div class="company-name">第2層 · 營業現金流</div>
+          <div style="font-size:0.8rem;">營業現金流為負 → 淘汰</div>
+          <div style="display:flex;gap:1rem;margin-top:0.5rem;flex-wrap:wrap;justify-content:center;">
+            <span style="color:#c00;">✗ 德明利 -22.4億</span>
+            <span style="color:#1a7a1a;">✓ 江波龍 ~+5億</span>
+            <span style="color:#c00;">✗ 佰維 -2億</span>
+            <span style="color:#1a7a1a;">✓ 朗科 ~+0.5億</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 3: 毛利率稳定 -->
+      <div class="funnel-row">
+        <div class="funnel-tier caution" style="width:60%;">
+          <div class="company-name">第3層 · 毛利率可持續性</div>
+          <div style="font-size:0.8rem;">毛利率劇烈波動 → 存疑</div>
+          <div style="display:flex;gap:1rem;margin-top:0.5rem;flex-wrap:wrap;justify-content:center;">
+            <span style="color:#9a7a1a;">⚠ 德明利 14.8%↔57.4%</span>
+            <span style="color:#1a7a1a;">✓ 江波龍 相對穩定</span>
+            <span style="color:#9a7a1a;">⚠ 佰維 波動中等</span>
+            <span style="color:#1a7a1a;">✓ 朗科 穩定~12-15%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 4: 技术壁垒 -->
+      <div class="funnel-row">
+        <div class="funnel-tier pass" style="width:50%;">
+          <div class="company-name">第4層 · 技術壁壘</div>
+          <div style="font-size:0.8rem;">自有控制器／核心技術 → 加分</div>
+          <div style="display:flex;gap:1rem;margin-top:0.5rem;flex-wrap:wrap;justify-content:center;">
+            <span style="color:#1a7a1a;">✓ 德明利 自有控制器</span>
+            <span style="color:#9a7a1a;">⚠ 江波龍 模組設計</span>
+            <span style="color:#9a7a1a;">⚠ 佰維 嵌入式封裝</span>
+            <span style="color:#c00;">✗ 朗科 品牌無護城河</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 5: 抗周期 -->
+      <div class="funnel-row">
+        <div class="funnel-tier caution" style="width:40%;">
+          <div class="company-name">第5層 · 週期抗性</div>
+          <div style="font-size:0.8rem;">高存貨＋高負債 → 高脆弱性</div>
+          <div style="display:flex;gap:1rem;margin-top:0.5rem;flex-wrap:wrap;justify-content:center;">
+            <span style="color:#c00;">✗ 德明利 66%存貨+64%負債</span>
+            <span style="color:#9a7a1a;">⚠ 江波龍 50%存貨+55%負債</span>
+            <span style="color:#9a7a1a;">⚠ 佰維 55%存貨+60%負債</span>
+            <span style="color:#1a7a1a;">✓ 朗科 35%存貨+30%負債</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 最终幸存者 -->
+      <div class="funnel-row">
+        <div class="funnel-tier caution" style="width:30%;">
+          <div class="company-name">🏆 最終評價</div>
+          <div style="display:flex;gap:0.8rem;margin-top:0.5rem;flex-wrap:wrap;justify-content:center;font-size:0.85rem;">
+            <span style="background:#e6f0ff;padding:0.2rem 0.6rem;border-radius:4px;"><strong>江波龍</strong>24分 — 綜合最優</span>
+            <span style="background:#fde8e8;padding:0.2rem 0.6rem;border-radius:4px;"><strong>德明利</strong>14分 — 風險最大</span>
+            <span style="background:#fff8e6;padding:0.2rem 0.6rem;border-radius:4px;"><strong>朗科</strong>24分 — 安全但缺成長</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 投资启示 -->
+  <div class="section">
+    <div class="section-title">💡 投資啟示</div>
+    <div class="highlight">
+      <strong>1. 德明利是「放大版週期賭注」</strong>看似最低PE，實則最高風險。利潤依賴NAND漲價與囤貨，一旦週期逆轉，利潤崩塌速度快於同業。PB 18x反映市場已充分定價了「樂觀情景」。<br><br>
+      <strong>2. 江波龍是「中等風險＋規模優勢」</strong>— 模組龍頭，與海力士深度綁定，營業現金流為正。缺點：毛利率低、技術壁壘不高。在記憶體牛市彈性不如德明利，但在熊市抗風險能力更強。<br><br>
+      <strong>3. 佰維儲存是「高彈性小型股」</strong>嵌入式儲存賽道有結構性成長邏輯（IoT／工控），但營業現金流也為負，且規模小、流動性差。<br><br>
+      <strong>4. 朗科科技是「防守型標的」</strong>資產最輕（存貨35%）、負債最低（30%）、現金流穩定，但業務萎縮、PE極高，本質是「價值陷阱」。<br><br>
+      <strong>結論：</strong>當前記憶體模組行業整體處於週期高位，<strong style="color:#c00;">德明利風險收益比最差</strong>（市場已定價了完美情景）。如果一定要選，<strong style="color:#1a7a1a;">江波龍</strong>是四個中相對最平衡的選擇——但有更好的記憶體投資標的嗎？（如直接持有三星／海力士，或等待週期底部再進場）</div>
+  </div>
+
+</div>
+
+<div class="footer">資料來源：同花順F10 · TrendForce · Omdia · 各公司年報／季報 &nbsp;|&nbsp; 研究日期 2026/07/19</div>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>簡</span><span class="full"><span>簡體中文</span></span></a><a class="lang hant active" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

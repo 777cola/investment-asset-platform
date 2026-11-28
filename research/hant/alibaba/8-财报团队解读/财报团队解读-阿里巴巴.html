@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報團隊解讀 - 阿里巴巴</title>
+<style>
+  /* ===== PDD 標準 CSS 模板 ===== */
+  :root {
+    --bg: #faf9f7;
+    --card-bg: #ffffff;
+    --border: #e8e6e1;
+    --text: #1a1a1a;
+    --text-secondary: #6b6b6b;
+    --accent: #1a3a5c;
+    --accent-light: #2c5f8a;
+    --red: #c0392b;
+    --orange: #e67e22;
+    --green: #27ae60;
+    --gold: #b8860b;
+    --radius: 8px;
+    --shadow: 0 1px 3px rgba(0,0,0,.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+  /* ---- Header ---- */
+  .header {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    color: #fff;
+    padding: 48px 24px 32px;
+    text-align: center;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 1px; margin-bottom: 6px; }
+  .header .subtitle { font-size: 14px; opacity: .85; }
+  .header .meta { margin-top: 12px; font-size: 12px; opacity: .7; }
+  /* ---- Phase tabs ---- */
+  .phase-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+  }
+  .phase-tabs button {
+    padding: 14px 28px;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all .2s;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+  .phase-tabs button:hover { color: var(--accent); background: #f5f3f0; }
+  .phase-tabs button.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+  /* ---- Sub-tabs (within a phase) ---- */
+  .sub-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    flex-wrap: wrap;
+    padding: 12px 16px 8px;
+    background: var(--bg);
+  }
+  .sub-tabs button {
+    padding: 6px 16px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--card-bg);
+    font-size: 12px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all .2s;
+    font-family: inherit;
+  }
+  .sub-tabs button:hover { border-color: var(--accent); color: var(--accent); }
+  .sub-tabs button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  /* ---- Main content ---- */
+  .container { max-width: 820px; margin: 0 auto; padding: 24px 20px 60px; }
+  .article { display: none; }
+  .article.active { display: block; }
+  /* ---- Article card ---- */
+  .article-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 32px 36px;
+    margin-bottom: 20px;
+  }
+  .article-card h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 28px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    color: var(--accent);
+  }
+  .article-card h2:first-child { margin-top: 0; }
+  .article-card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin: 20px 0 8px;
+    color: #2c3e50;
+  }
+  .article-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 14px 0 6px;
+    color: #555;
+  }
+  .article-card p { margin: 8px 0; text-align: justify; }
+  .article-card ul, .article-card ol { margin: 8px 0 8px 20px; }
+  .article-card li { margin: 4px 0; }
+  .article-card blockquote {
+    margin: 14px 0;
+    padding: 12px 18px;
+    border-left: 4px solid var(--accent);
+    background: #f0f4f8;
+    border-radius: 0 4px 4px 0;
+    color: #2c3e50;
+    font-style: italic;
+  }
+  .article-card table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 13px;
+  }
+  .article-card th, .article-card td {
+    border: 1px solid var(--border);
+    padding: 8px 10px;
+    text-align: left;
+  }
+  .article-card th {
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+  }
+  .article-card tr:nth-child(even) { background: #f8f7f5; }
+  .article-card code {
+    background: #f0eee8;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 13px;
+  }
+  .article-card hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 24px 0;
+  }
+  /* ---- tags ---- */
+  .tag-red { color: var(--red); font-weight: 600; }
+  .tag-orange { color: var(--orange); font-weight: 600; }
+  .tag-green { color: var(--green); font-weight: 600; }
+  .tag-gold { color: var(--gold); font-weight: 600; }
+  /* ---- footer ---- */
+  .footer {
+    text-align: center;
+    padding: 32px 20px;
+    color: var(--text-secondary);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  /* ---- Master icons ---- */
+  .master-badge {
+    display: inline-block;
+    padding: 2px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .master-badge.buffett { background: #2c3e50; color: #fff; }
+  .master-badge.duan { background: #8e44ad; color: #fff; }
+  .master-badge.munger { background: #d35400; color: #fff; }
+  .master-badge.lilu { background: #16a085; color: #fff; }
+  /* ---- Responsive ---- */
+  @media (max-width: 600px) {
+    .header { padding: 32px 16px 24px; }
+    .header h1 { font-size: 22px; }
+    .phase-tabs button { padding: 10px 14px; font-size: 12px; }
+    .article-card { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 財報團隊解讀</h1>
+  <div class="subtitle">阿里巴巴集團（BABA.NYSE）· FY2026深度分析</div>
+  <div class="meta">披露日期：2026/07/07 · 財年截止：2026/3/31 · 四位大師視角</div>
+</div>
+
+<!-- ===== Phase Tabs ===== -->
+<div class="phase-tabs" id="phaseTabs">
+  <button class="active" data-phase="phase1">階段一 · 四大師精讀</button>
+  <button data-phase="phase2">階段二 · 觀點合成</button>
+  <button data-phase="phase3">階段三 · 編輯潤色</button>
+</div>
+
+<div class="container">
+
+<!-- ============================================================ -->
+<!-- PHASE 1: 四大师精读 -->
+<!-- ============================================================ -->
+<div id="phase1" class="article active">
+  <div class="sub-tabs" id="subTabs1">
+    <button class="active" data-sub="exe">📋 執行摘要</button>
+    <button data-sub="buffett">🅱️ 巴菲特</button>
+    <button data-sub="duan">🅳 段永平</button>
+    <button data-sub="munger">🅼 蒙格</button>
+    <button data-sub="lilu">🅻 李錄</button>
+  </div>
+
+  <!-- 执行摘要 -->
+  <div id="sub-exe" class="article active">
+    <div class="article-card">
+      <h2>執行摘要：阿里巴巴FY2026財報團隊解讀</h2>
+      <p><strong>快速概覽 · 決策層摘要</strong></p>
+      <hr>
+      <h3>一句話結論</h3>
+      <blockquote>四位價值投資大師一致認為：阿里巴巴是好公司，但當前不是好投資。</blockquote>
+
+      <h3>核心矛盾</h3>
+      <table>
+        <tr><th>正面的訊號 ✅</th><th>消極的訊號 🔴</th></tr>
+        <tr><td>營收破萬億元（1.02萬億元¥，+2.74%）</td><td><strong class="tag-red">自由現金流-498.5億¥（首次轉負）</strong></td></tr>
+        <tr><td>管理層回歸（蔡崇信+吳泳銘）</td><td><strong class="tag-red">營業利益率僅4.90%（SG&A暴增）</strong></td></tr>
+        <tr><td>「1+6+N」拆分方向正確</td><td class="tag-red">稅後淨利下降18.2%</td></tr>
+        <tr><td>淨現金568.98億¥，資產負債表穩健</td><td class="tag-red">護城河被拼多多／抖音侵蝕</td></tr>
+        <tr><td>阿里雲／AI 基礎設施長期賽道佳</td><td class="tag-orange">資本支出 1260億¥，短期難以回報</td></tr>
+      </table>
+
+      <h3>四位大師的最終行動</h3>
+      <table>
+        <tr><th>大師</th><th>當前建議</th><th>觸發條件</th></tr>
+        <tr><td><span class="master-badge buffett">巴菲特</span></td><td class="tag-red">❌ 不買入</td><td>需極大安全邊際</td></tr>
+        <tr><td><span class="master-badge duan">段永平</span></td><td class="tag-orange">⏳ 關注清單</td><td>自由現金流轉正＋費率下降</td></tr>
+        <tr><td><span class="master-badge munger">蒙格</span></td><td class="tag-orange">⚠️ 小倉位／不推薦</td><td>「太難」的籃子</td></tr>
+        <tr><td><span class="master-badge lilu">李錄</span></td><td class="tag-orange">🔍 等確定性訊號</td><td>三個訊號全部轉綠</td></tr>
+      </table>
+
+      <h3>必須追蹤的三大核心指標</h3>
+      <ol>
+        <li><strong class="tag-red">自由現金流 🔴 P0</strong>—— 負→正：所有大師的「及格線」</li>
+        <li><strong class="tag-orange">營業利益率 🟡 P1</strong>—— 從4.90%回升至10%+</li>
+        <li><strong class="tag-orange">電商市場份額 🟡 P1</strong>—— 止跌企穩</li>
+      </ol>
+      <blockquote>三個指標中，自由現金流是最關鍵的先行指標。沒有它的轉正，其他一切免談。</blockquote>
+    </div>
+  </div>
+
+  <!-- 巴菲特版 -->
+  <div id="sub-buffett" class="article">
+    <div class="article-card">
+      <h2>巴菲特版精讀：護城河、現金流與ROE</h2>
+      <p><span class="master-badge buffett">巴菲特</span>視角：ROE、護城河、現金流、股東回報</p>
+      <hr>
+
+      <h3>核心指標一覽</h3>
+      <table>
+        <tr><th>指標</th><th>FY2026</th><th>FY2025</th><th>FY2024</th><th>趨勢</th></tr>
+        <tr><td>營收（百萬¥）</td><td>1,023,670</td><td>996,347</td><td>941,168</td><td>↑+2.74%</td></tr>
+        <tr><td>歸母淨利（百萬¥）</td><td>105,904</td><td>129,470</td><td>79,741</td><td class="tag-red">↓-18.2%</td></tr>
+        <tr><td>營業利益率</td><td>4.90%</td><td>—</td><td>—</td><td class="tag-red">⚠️暴跌</td></tr>
+        <tr><td>自由現金流（百萬¥）</td><td class="tag-red">-49,850</td><td>—</td><td>—</td><td class="tag-red">🔴負值</td></tr>
+        <tr><td>資本支出（百萬¥）</td><td>126,063</td><td>—</td><td>—</td><td class="tag-red">巨額投入</td></tr>
+      </table>
+
+      <h3>1. ROE — 盈利能力的真實溫度</h3>
+      <p>巴菲特最看重長期穩定的高 ROE。阿里巴巴 FY2026 歸母淨利同比下滑 18.2%，ROE 隨之下滑。儘管營收仍超萬億人民幣，<strong>利潤率的坍塌纔是核心矛盾</strong>。</p>
+      <p>營業費用暴增是營業利益率驟降至4.90%的直接原因。對一家「成熟」的科技巨頭來說，4.90%的營業利益率是<strong class="tag-red">警訊</strong>。</p>
+      <blockquote><strong>ROE診斷</strong>：不達標。過去三年利潤劇烈波動（FY2024: 79.7B, FY2025: 129.5B, FY2026: 105.9B），缺乏可預測性，不符合巴菲特的「穩定盈利」標準。</blockquote>
+
+      <h3>2. 護城河 — 寬闊還是正在乾涸？</h3>
+      <p>阿里巴巴曾經擁有中國最寬的護城河：網路效應、品牌壁壘、轉換成本。但近三年護城河正在<strong>被侵蝕</strong>：拼多多蠶食低價市場，抖音繞開傳統貨架電商，雲端運算價格戰壓縮利潤。</p>
+      <blockquote><strong>巴菲特會問</strong>「這家公司10年後還在嗎？它的競爭優勢10年後更強還是更弱？」答案是「還在，但優勢在削弱」。</blockquote>
+
+      <h3>3. 自由現金流 — 最大的紅燈</h3>
+      <p><strong class="tag-red">自由現金流為-498.5億人民幣</strong>，這是巴菲特最無法接受的情況。CapEx高達1,260.6億人民幣，遠超經營現金流。這意味著阿里巴巴在FY2026是<strong>燒錢機器而非印鈔機</strong>。</p>
+
+      <h3>4. 巴菲特的判斷框架</h3>
+      <p><strong>✅ 他會喜歡的</strong>：品牌認知度仍在、管理層積極調整、資產負債表穩健。</p>
+      <p><strong>❌ 他會拒絕的</strong>：自由現金流為負（最致命的）、利潤率不穩定且趨勢向下、護城河被侵蝕、巨額資本支出壓降股東回報。</p>
+
+      <h3>結論</h3>
+      <blockquote>好公司，但當前不是好投資——除非價格提供巨大的安全邊際足以覆蓋轉型風險。</blockquote>
+    </div>
+  </div>
+
+  <!-- 段永平版 -->
+  <div id="sub-duan" class="article">
+    <div class="article-card">
+      <h2>段永平版精讀：商業模式與「本分」</h2>
+      <p><span class="master-badge duan">段永平</span>視角：商業模式、「本分」、企業文化、長期主義</p>
+      <hr>
+
+      <h3>商業模式診斷</h3>
+      <p><strong>優勢</strong>：阿里巴巴本質上是一個「商業地產」模式——為商家提供流量、支付、物流等基礎設施，收取佣金和廣告費。這是一種<strong>輕資產、高毛利</strong>的商業模式。阿里雲更是訂閱式、高黏性的優質模式。</p>
+      <p><strong>劣勢</strong>：SG&A暴增——不「本分」的訊號。營業利益率僅4.90%。段永平會追問：「錢花到哪裡去了？是必要的競爭投入還是管理層在亂花錢？」</p>
+      <blockquote>段永平最看重的指標之一：自由現金流。如果一家公司長期無法產生正的自由現金流，它的商業模式就有根本性問題。</blockquote>
+
+      <h3>企業文化評估</h3>
+      <p><strong>✅ 加分項</strong>「客戶第一」價值觀、「1+6+N」拆分回歸核心主業、創始人文化回歸（蔡崇信＋吳泳銘）。</p>
+      <p><strong>❌ 扣分項</strong>過去在社區團購、本地生活等領域的過度擴張，說明不夠「本分」；組織臃腫、決策慢；對用戶需求反應滯後。</p>
+
+      <h3>段永平式靈魂拷問</h3>
+      <blockquote>「如果你有足夠的錢把整個公司買下來，你願意在目前的價位全資收購嗎？」<br>答案很可能是否定的——不是因為阿里巴巴不優秀，而是因為它正處於轉型陣痛期。</blockquote>
+
+      <h3>結論</h3>
+      <p>段永平會把阿里巴巴列入<strong>關注清單</strong>而非<strong>「買進清單」</strong>。等到以下訊號出現時再考慮：</p>
+      <ol>
+        <li>✅ 自由現金流轉正</li>
+        <li>✅ 營業費用率明顯下降</li>
+        <li>✅ 電商市場份額企穩</li>
+        <li>✅ 管理層展現出更「本分」的經營態度</li>
+      </ol>
+      <blockquote>好賽道、好底子，但當前不夠「本分」——等它重新「做對的事情」。</blockquote>
+    </div>
+  </div>
+
+  <!-- 芒格版 -->
+  <div id="sub-munger" class="article">
+    <div class="article-card">
+      <h2>芒格版精讀：激勵機制與那場著名的「誤判」</h2>
+      <p><span class="master-badge munger">蒙格</span>視角：激勵機制、組織架構、行業生態、逆週期佈局</p>
+      <hr>
+
+      <h3>激勵機制：問題出在哪裡？</h3>
+      <p>芒格極度關注激勵機制是否扭曲了行為。職業經理人（張勇時代）追求短期增長指標，獎金與營收增長掛鉤而非與ROIC掛鉤，導致過度擴張。社區團購、本地生活巨額虧損正是激勵扭曲的結果。</p>
+      <blockquote>蒙格會點評：<strong>「如果你因為別人在做蠢事而跟著做蠢事，你不只是蠢，你是雙倍的蠢。」</strong></blockquote>
+
+      <h3>組織架構：大企業的「熵增」</h3>
+      <p>阿里巴巴業務線繁雜——電商、雲、物流、本地生活、文娛、海外——每個都需要大量資金。芒格會說這是典型的<strong>六指琴魔</strong>「1+6+N」拆分改革是芒格會讚賞的方向——讓每個業務單元獨立覈算、自負盈虧。</p>
+
+      <h3>芒格的投資實踐復盤</h3>
+      <p><strong>買入時（2021-2022）</strong>：芒格可能犯了「價格錨定」錯誤——看到阿里從330美元跌到100多美元覺得便宜。低估了中國監管變化的<strong>系統級風險</strong>。</p>
+      <p><strong>減倉時（2023）</strong>：蒙格承認自己「判斷錯了」——這是他最令人敬佩的品質。他認識到這不在自己的「能力圈」核心範圍內。</p>
+
+      <h3>「太難」的籃子</h3>
+      <p>芒格會把阿里巴巴放在<strong>「太難」的籃子</strong>裏——「這家公司有很多變數，我無法建立足夠的確定性。」</p>
+      <blockquote><strong>芒格的反向思考</strong>「如果阿里現在的股價跌到現在的三分之一，我會買更多嗎？」<br>如果答案是「不確定」，那當前就不該重倉。</blockquote>
+
+      <h3>結論</h3>
+      <blockquote>買入是判斷失誤，減倉是及時糾正，當前仍處於「太難」的範疇。</blockquote>
+    </div>
+  </div>
+
+  <!-- 李录版 -->
+  <div id="sub-lilu" class="article">
+    <div class="article-card">
+      <h2>李錄版精讀：確定性、安全邊際與文明演進</h2>
+      <p><span class="master-badge lilu">李錄</span>視角：確定性、安全邊際、文明演進、長期複利</p>
+      <hr>
+
+      <h3>確定性分析——李錄的核心標尺</h3>
+      <table>
+        <tr><th>確定性層級</th><th>定義</th><th>阿里巴巴符合度</th></tr>
+        <tr><td><strong>第一層</strong></td><td>未來3-5年盈利基本可預測</td><td class="tag-red">❌ 不符合</td></tr>
+        <tr><td><strong>第二層</strong></td><td>商業模式本質穩固</td><td class="tag-orange">⚠️ 部分符合</td></tr>
+        <tr><td><strong>第三層</strong></td><td>管理團隊值得信賴</td><td class="tag-orange">⚠️ 正在改善</td></tr>
+      </table>
+
+      <h3>自由現金流與 DCF 的悖論</h3>
+      <p>負自由現金流使得任何 DCF 估值模型都失效。李錄被迫轉而使用資產價值法——這本身就是一種「降級」。李錄在《文明、現代化、價值投資與中國》中強調：<strong>價值投資的前提是能夠對企業做出相對準確的估計。</strong></p>
+
+      <h3>李錄的「現代化」框架</h3>
+      <p>李錄認為中國正從「數量增長」階段邁向「質量增長」階段。在這個轉型中，阿里巴巴的角色類似於「正在轉型的中國版微軟」——聚焦雲端運算和AI，砍掉不賺錢業務，提升利潤率。</p>
+
+      <h3>三個信號的等待</h3>
+      <table>
+        <tr><th>訊號</th><th>當前狀態</th><th>目標狀態</th></tr>
+        <tr><td>自由現金流</td><td class="tag-red">🔴 -498.5億</td><td class="tag-green">🟢 正數</td></tr>
+        <tr><td>營業利益率</td><td class="tag-red">🔴 4.90%</td><td class="tag-green">🟢 10%+</td></tr>
+        <tr><td>電商份額</td><td class="tag-red">🔴 持續流失</td><td class="tag-green">🟢 止跌企穩</td></tr>
+      </table>
+
+      <h3>結論</h3>
+      <blockquote>資產質量頂級，但安全邊際需要等待——「確定性」不是當前的形容詞。</blockquote>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PHASE 2: 观点合成 -->
+<!-- ============================================================ -->
+<div id="phase2" class="article">
+  <div class="sub-tabs" id="subTabs2">
+    <button class="active" data-sub="synthesis">🔗 觀點合成分析</button>
+  </div>
+
+  <div id="sub-synthesis" class="article active">
+    <div class="article-card">
+      <h2>觀點合成：四位大師的異同</h2>
+      <p>對比分析：巴菲特、段永平、蒙格、李錄的觀點共識與分歧</p>
+      <hr>
+
+      <h3>全景對比矩陣</h3>
+      <table>
+        <tr><th>維度</th><th>巴菲特</th><th>段永平</th><th>蒙格</th><th>李錄</th></tr>
+        <tr>
+          <td><strong>核心框架</strong></td>
+          <td>ROE／護城河／FCF</td>
+          <td>商業模式／本分</td>
+          <td>激勵機制／逆向</td>
+          <td>確定性／安全邊際</td>
+        </tr>
+        <tr>
+          <td><strong>自由現金流</strong></td>
+          <td class="tag-red">❌ 負值≠好標的</td>
+          <td class="tag-red">❌ 最大警訊</td>
+          <td class="tag-red">❌ 印證減倉</td>
+          <td class="tag-red">❌ DCF 無法估值</td>
+        </tr>
+        <tr>
+          <td><strong>護城河</strong></td>
+          <td class="tag-orange">⚠️ 被侵蝕</td>
+          <td class="tag-orange">⚠️ 不夠本分</td>
+          <td class="tag-orange">⚠️ 正在被填平</td>
+          <td class="tag-orange">⚠️ 中等確定性</td>
+        </tr>
+        <tr>
+          <td><strong>估值判斷</strong></td>
+          <td>需極大安全邊際</td>
+          <td>不夠便宜</td>
+          <td>「太難」的籃子</td>
+          <td>安全邊際不足</td>
+        </tr>
+        <tr>
+          <td><strong>最終行動</strong></td>
+          <td class="tag-red">❌ 不買入</td>
+          <td class="tag-orange">⏳ 關注清單</td>
+          <td class="tag-orange">⚠️ 小倉位／不推薦</td>
+          <td class="tag-orange">🔍 等確定性信號</td>
+        </tr>
+      </table>
+
+      <h3>共識：五位一致認同的判斷</h3>
+
+      <h4>共識1：自由現金流為負是致命傷</h4>
+      <p><strong>四位大師完全一致</strong>——阿里巴巴FY2026的自由現金流為-498.5億人民幣，是所有分析中最核心的矛盾。</p>
+      <p>共識強度：★★★★★（100%）</p>
+
+      <h4>共識2：護城河在削弱而非增強</h4>
+      <p>四位大師一致認為，阿里巴巴曾經擁有中國最寬的護城河，但近三年護城河受到了顯著侵蝕。分歧在於程度——巴菲特和芒格認為侵蝕較嚴重，段永平和李錄認為核心資產仍在。</p>
+      <p>共識強度：★★★★☆（80%）</p>
+
+      <h4>共識3：管理層正在「做對的事情」</h4>
+      <p>蔡崇信和吳泳銘的回歸獲得了四位大師的<strong>一致好評</strong>但四位都認為還需要時間驗證——方向對了，執行力待觀察。</p>
+      <p>共識強度：★★★★★（100%，但附帶條件）</p>
+
+      <h4>共識4：當前不是最佳買入時機</h4>
+      <table>
+        <tr><th>大師</th><th>原話提煉</th><th>建議行動</th></tr>
+        <tr><td>巴菲特</td><td>觀望／不買入</td><td>等待更好價格或更確定信號</td></tr>
+        <tr><td>段永平</td><td>觀望，不急</td><td>關注清單，非買入清單</td></tr>
+        <tr><td>蒙格</td><td>小倉位觀察，不推薦</td><td>「太難」的籃子</td></tr>
+        <tr><td>李錄</td><td>等待確定性訊號</td><td>三訊號未出現前不行動</td></tr>
+      </table>
+      <p>共識強度：★★★★★（100%）</p>
+
+      <h4>共識5：阿里巴巴是好公司，但當前不是好投資</h4>
+      <p>四位大師的共同底色——他們認可阿里巴巴的資產質量、市場地位、技術實力。<strong>好公司不等於好投資</strong>這個價值投資的底層共識在阿里巴巴上體現得淋漓盡致。</p>
+      <p>共識強度：★★★★★（100%）</p>
+
+      <h3>分歧：三位大師的分野</h3>
+
+      <h4>分歧1：護城河的恢復能力</h4>
+      <p>巴菲特和蒙格偏悲觀（競爭格局永久性改變），段永平偏樂觀（電商生態深度護城河仍在），李錄中性（需要更多資料驗證）。</p>
+
+      <h4>分歧2：對「逆向投資」的態度</h4>
+      <p>巴菲特與段永平最為謹慎（確定性優先／不差這一兩年），芒格嘗試過逆向但減倉了，李錄則是有條件的逆向（分批建倉策略）。</p>
+
+      <h4>分歧3：對中國資本市場的「信任度」</h4>
+      <p>巴菲特保留（監管風險、地緣風險），段永平長期看好（持有蘋果、茅臺），芒格從看好→謹慎→複雜（小倉位保留），李錄最堅定（核心投資框架基於中國現代化）。</p>
+
+      <h3>最終綜合判斷</h3>
+      <blockquote>阿里巴巴正處於「好公司」到「好投資」之間的過渡帶。四位大師都認可它的資產質量，但也認為當前條件不滿足買入標準。核心障礙是自由現金流轉負——這在價值投資框架中是一個「暫停交易」級別的信號。</blockquote>
+
+      <h3>後續跟蹤建議</h3>
+      <p>基於觀點合成，建議重點跟蹤以下8個關鍵指標：</p>
+      <ol>
+        <li><strong class="tag-red">自由現金流</strong>（最高優先級）</li>
+        <li><strong class="tag-orange">營業利益率</strong>（目標10%+）</li>
+        <li><strong class="tag-orange">電商 GMV 增速 vs 行業平均</strong>（判斷份額趨勢）</li>
+        <li><strong class="tag-orange">銷售及管理費用率</strong>（判斷管理效率）</li>
+        <li><strong class="tag-orange">阿里雲利潤率</strong>（第二曲線成敗）</li>
+        <li><strong>海外業務虧損收窄程度</strong></li>
+        <li><strong>股利加回購力度</strong>（股東回報態度）</li>
+        <li><strong>管理層關鍵決策</strong>（拆分進展、AI 策略投入產出）</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PHASE 3: 编辑润色 -->
+<!-- ============================================================ -->
+<div id="phase3" class="article">
+  <div class="sub-tabs" id="subTabs3">
+    <button class="active" data-sub="published">📝 可發布版</button>
+    <button data-sub="appendix">📎 附錄-財務詳解</button>
+  </div>
+
+  <!-- 可发布版 -->
+  <div id="sub-published" class="article active">
+    <div class="article-card">
+      <h2>財報團隊解讀：阿里巴巴FY2026深度分析</h2>
+      <p><strong>四位大師視角 · 觀點合成 · 編輯潤色可發布版</strong></p>
+      <hr>
+
+      <h3>財務概覽</h3>
+      <table>
+        <tr><th>指標</th><th>FY2026</th><th>FY2025</th><th>FY2024</th></tr>
+        <tr><td>營收（百萬¥）</td><td>1,023,670</td><td>996,347</td><td>941,168</td></tr>
+        <tr><td>同比成長</td><td>+2.74%</td><td>+5.86%</td><td>+8.34%</td></tr>
+        <tr><td>歸母淨利（百萬¥）</td><td>105,904</td><td>129,470</td><td>79,741</td></tr>
+        <tr><td>營業利益率</td><td class="tag-red">4.90%</td><td>—</td><td>—</td></tr>
+        <tr><td>自由現金流（百萬¥）</td><td class="tag-red"><strong>-49,850</strong></td><td>—</td><td>—</td></tr>
+        <tr><td>資本支出（百萬¥）</td><td>126,063</td><td>—</td><td>—</td></tr>
+        <tr><td>淨現金（百萬¥）</td><td>56,898</td><td>—</td><td>—</td></tr>
+        <tr><td>有息負債（百萬¥）</td><td>259,996</td><td>—</td><td>—</td></tr>
+      </table>
+
+      <h3>核心發現：三個訊號，一個結論</h3>
+
+      <h4>訊號一 🔴：自由現金流首次轉負</h4>
+      <p>1.03萬億元的營收體量之下，自由現金流為<strong class="tag-red">-498.5億元人民幣</strong>這是阿里巴巴上市以來最重要的財務拐點之一。這不是週期性的波動，而是結構性的訊號。1260億的資本開支正以前所未有的速度消耗現金。</p>
+
+      <h4>訊號二 🟡：利潤率的「隱形塌方」</h4>
+      <p>營業利益率僅4.90%——對於一家被市場定義為「高利潤平臺」的公司，這個數字令人震驚。SG&A的超常規增長意味著阿里巴巴為了守住市場份額，正在付出越來越高的代價。</p>
+
+      <h4>訊號三 🟢：管理層正在「做對的事情」</h4>
+      <p>蔡崇信與吳泳銘的組合回歸，以及「1+6+N」拆分改革，是阿里巴巴近年來最重要的積極變化。方向正確只是第一步，但方向正確永遠比方向錯誤重要。</p>
+
+      <h4>結論</h4>
+      <blockquote><strong>好公司≠好投資</strong>——這四個字的概括，是本次財報團隊解讀最核心的結論。</blockquote>
+
+      <h3>第一篇：巴菲特視角——護城河的「被侵蝕」</h3>
+      <p><span class="master-badge buffett">巴菲特</span></p>
+      <p><strong>ROE：不穩定就是不安全。</strong>過去三年稅後淨利的「雲霄飛車」（79.7B→129.5B→105.9B），在巴菲特的標準下是不及格的。</p>
+      <p><strong>護城河：曾經寬過。</strong>拼多多和抖音電商正以不同方式「填平」阿里曾經的護城河。</p>
+      <p><strong>自由現金流：否決票。</strong>對巴菲特而言，自由現金流為負是一項「否決票」級別的訊號。</p>
+
+      <h3>第二篇：段永平視角——「本分」的回歸之路</h3>
+      <p><span class="master-badge duan">段永平</span></p>
+      <p><strong>商業模式的本質。</strong>阿里本質上是一個「商業地產收租」模式，這個模式本身是優秀的。問題在於為了應對競爭，阿里正在用大量補貼和營銷投入來「捍衛」這個模式——這本身就是模式不夠強大的表現。</p>
+      <blockquote>「如果你有足夠的錢把整個公司買下來，你願意在目前的價位全資收購嗎？」答案很可能是否定的。</blockquote>
+
+      <h3>第三篇：蒙格視角——那場著名的「誤判」</h3>
+      <p><span class="master-badge munger">蒙格</span></p>
+      <p><strong>買入的教訓。</strong>芒格在2021-2022年買入阿里巴巴，又在2023年大幅減倉。他可能犯了「價格錨定」錯誤，也低估了中國監管變化的系統級風險。</p>
+      <p><strong>「太難」的籃子。</strong>蒙格最終把阿里巴巴放進了「太難」的籃子——不是因為阿里不好，而是因為「變數太多，我無法建立足夠的確定性」。</p>
+
+      <h3>第四篇：李錄視角——等待「確定性」的訊號</h3>
+      <p><span class="master-badge lilu">李錄</span></p>
+      <p><strong>確定性的三層架構。</strong>李錄將投資確定性分為三層：盈利可預測性、商業模式穩固性、管理團隊可信賴。阿里巴巴在三層中均存在問題。</p>
+      <p><strong>三個訊號的等待。</strong>自由現金流轉正、營業利益率回升至10%+、電商份額止跌企穩——三個訊號未全部轉綠之前，李錄不會行動。</p>
+
+      <h3>觀點合成：共同與不同</h3>
+      <p><strong>五大共識</strong>自由現金流為負是致命傷、護城河正在削弱、管理層方向正確但需驗證、當前不是最佳買入時機、好公司≠好投資。</p>
+      <p><strong>三大分歧</strong>：護城河恢復能力（悲觀←→樂觀）、逆向投資態度（謹慎←→有條件）、中國資本市場信任度（保留←→堅定）。</p>
+      <blockquote>阿里巴巴正處在「好公司」到「好投資」之間的過渡帶。四位大師都認可其資產質量，但也都認為當前不滿足買入標準。</blockquote>
+
+      <h3>追蹤清單：八大關鍵指標</h3>
+      <table>
+        <tr><th>優先級</th><th>指標</th><th>當前值</th><th>目標值</th></tr>
+        <tr><td class="tag-red">🔴 P0</td><td>自由現金流</td><td>-49,850M¥</td><td>正數</td></tr>
+        <tr><td class="tag-red">🔴 P0</td><td>營業利益率</td><td>4.90%</td><td>10%+</td></tr>
+        <tr><td class="tag-orange">🟡 P1</td><td>GMV增速 vs 行業均值</td><td>待查</td><td>≥行業</td></tr>
+        <tr><td class="tag-orange">🟡 P1</td><td>銷售及管理費用率</td><td>偏高</td><td>顯著下降</td></tr>
+        <tr><td class="tag-orange">🟡 P1</td><td>阿里雲利潤率</td><td>承壓中</td><td>持續改善</td></tr>
+        <tr><td class="tag-green">🟢 P2</td><td>海外業務虧損</td><td>持續輸血</td><td>收窄</td></tr>
+        <tr><td class="tag-green">🟢 P2</td><td>股息加回購</td><td>溫和</td><td>加大力度</td></tr>
+        <tr><td class="tag-green">🟢 P2</td><td>拆分進展</td><td>推進中</td><td>完成+獨立上市</td></tr>
+      </table>
+
+      <hr>
+
+      <h3>免責聲明</h3>
+      <p>本文檔為財報團隊基於四位價值投資大師（沃倫·巴菲特、段永平、查理·芒格、李錄）的公開投資理念，結合阿里巴巴FY2026財務數據所做的<strong>模擬分析</strong>，不構成任何投資建議。大師們並未直接對阿里巴巴FY2026財報發表評論，所有分析均為團隊基於其公開方法論推演得出。</p>
+      <blockquote>「在別人貪婪時恐懼，在別人恐懼時貪婪。」——但在這之前，你得先弄清楚這是「恐懼」還是「事實」。</blockquote>
+      <p style="text-align:right;color:var(--text-secondary);font-size:13px;">財報團隊解讀 · 2026年7月</p>
+    </div>
+  </div>
+
+  <!-- 附录 -->
+  <div id="sub-appendix" class="article">
+    <div class="article-card">
+      <h2>附錄：財務數據詳解</h2>
+      <p>資料來源：阿里巴巴FY2026年度報告 | 單位：百萬人民幣（除特殊註明外）</p>
+      <hr>
+
+      <h3>損益表關鍵數據</h3>
+      <table>
+        <tr><th>專案</th><th>FY2026</th><th>說明</th></tr>
+        <tr><td>營收</td><td>1,023,670</td><td>同比增長+2.74%，增速持續放緩</td></tr>
+        <tr><td>歸母淨利潤</td><td>105,904</td><td>同比下降-18.2%</td></tr>
+        <tr><td>EPS稀釋（¥）</td><td>44.00</td><td>對應稅後淨利下降</td></tr>
+        <tr><td>毛利率</td><td>~40%</td><td>三年保持穩定</td></tr>
+        <tr><td>營業利益率</td><td>4.90%</td><td class="tag-red">營業費用暴增主因</td></tr>
+      </table>
+
+      <h3>現金流與資本結構</h3>
+      <table>
+        <tr><th>專案</th><th>FY2026</th><th>評級</th></tr>
+        <tr><td>自由現金流</td><td class="tag-red"><strong>-49,850</strong></td><td class="tag-red">⚠️ 負值，重大關切</td></tr>
+        <tr><td>資本支出</td><td>126,063</td><td>雲端運算／AI 基礎設施投資</td></tr>
+        <tr><td>淨現金</td><td>56,898</td><td>安全邊際尚在但變薄</td></tr>
+        <tr><td>有息負債</td><td>259,996</td><td>在可控範圍內</td></tr>
+      </table>
+
+      <h3>三年對比趨勢</h3>
+      <table>
+        <tr><th>指標</th><th>FY2024</th><th>FY2025</th><th>FY2026</th><th>趨勢</th></tr>
+        <tr><td>營收</td><td>941,168</td><td>996,347</td><td>1,023,670</td><td>↗ 但增速放緩</td></tr>
+        <tr><td>營收增速</td><td>+8.34%</td><td>+5.86%</td><td>+2.74%</td><td class="tag-red">↘</td></tr>
+        <tr><td>稅後淨利</td><td>79,741</td><td>129,470</td><td>105,904</td><td class="tag-orange">📉</td></tr>
+        <tr><td>淨利增速</td><td>+9.97%</td><td>+62.36%</td><td>-18.2%</td><td class="tag-red">📉</td></tr>
+      </table>
+
+      <h3>自由現金流為什麼轉負？</h3>
+      <p>自由現金流 = 營業現金流 − 資本支出</p>
+      <p>FY2026營業現金流約為<strong>761.4億¥</strong>（推算），減去資本支出<strong>1,260.6億¥</strong>，得到<strong>-498.5億元</strong>。</p>
+      <p>這意味著阿里巴巴每天在基礎業務上產生的現金，不足以覆蓋其在基礎設施上的投資。<strong class="tag-red">這不是一個可持續的狀態。</strong></p>
+
+      <h3>營業利益率為什麼下降？</h3>
+      <p>4.90%的營業利益率主要受以下因素拖累：</p>
+      <ol>
+        <li><strong>銷售及管理費用</strong>：因應對競爭（拼多多／抖音）而大幅增加的銷售及行銷支出</li>
+        <li><strong>研發投入</strong>：AI大模型與雲端運算基礎設施的研發投入增加</li>
+        <li><strong>海外擴張</strong>：Lazada、Trendyol 等海外業務仍處於燒錢階段</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>© 2026 財報團隊 · 阿里巴巴FY2026深度解讀 · 基於四位大師公開投資方法論模擬分析</p>
+  <p>不構成投資建議 · 資料來源：阿里巴巴FY2026年度報告</p>
+</div>
+
+</div><!-- /container -->
+
+<script>
+(function() {
+  // ===== Phase tab switching =====
+  const phaseTabs = document.querySelectorAll('#phaseTabs button');
+  const phases = {
+    phase1: document.getElementById('phase1'),
+    phase2: document.getElementById('phase2'),
+    phase3: document.getElementById('phase3')
+  };
+
+  function switchPhase(phaseId) {
+    // update phase tabs
+    phaseTabs.forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`#phaseTabs button[data-phase="${phaseId}"]`).classList.add('active');
+    // show/hide phases
+    Object.entries(phases).forEach(([id, el]) => {
+      el.classList.toggle('active', id === phaseId);
+    });
+  }
+
+  phaseTabs.forEach(btn => {
+    btn.addEventListener('click', () => switchPhase(btn.dataset.phase));
+  });
+
+  // ===== Sub-tab switching (within each phase) =====
+  function setupSubTabs(phaseId) {
+    const container = phases[phaseId];
+    const subTabs = container.querySelector('.sub-tabs');
+    if (!subTabs) return;
+    subTabs.addEventListener('click', (e) => {
+      const btn = e.target.closest('button');
+      if (!btn) return;
+      // update active on sub-tabs
+      subTabs.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      // show/hide sub-articles
+      const subId = btn.dataset.sub;
+      container.querySelectorAll('.article[id^="sub-"]').forEach(el => {
+        el.classList.toggle('active', el.id === `sub-${subId}`);
+      });
+    });
+  }
+
+  setupSubTabs('phase1');
+  setupSubTabs('phase2');
+  setupSubTabs('phase3');
+})();
+</script>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>簡</span><span class="full"><span>簡體中文</span></span></a><a class="lang hant active" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行業漏斗對比 - 美團 2026</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f7fa; color: #333; line-height: 1.8; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 50px 0 40px; text-align: center; }
+.header h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+.header .subtitle { font-size: 16px; opacity: 0.9; margin-bottom: 6px; }
+.header .date-tag { font-size: 14px; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 30px 24px; }
+.card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 32px 36px; margin-bottom: 24px; }
+.card h2 { font-size: 22px; color: #1A4B8C; border-bottom: 3px solid #1A4B8C; padding-bottom: 10px; margin-bottom: 20px; }
+.card h3 { font-size: 17px; color: #2c3e50; margin: 18px 0 10px; }
+.card h4 { font-size: 15px; color: #34495e; margin: 14px 0 8px; }
+.card table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 15px 0; border-radius: 8px; overflow: hidden; }
+.card table thead th { background: #1A4B8C; color: #fff; padding: 12px 14px; font-size: 14px; }
+.card table tbody td { padding: 10px 14px; border-bottom: 1px solid #e8ecf1; font-size: 14px; }
+.card table tbody tr:nth-child(even) { background: #f8f9fb; }
+.card table tbody tr:hover { background: #eef2f7; }
+.card .highlight-green { color: #27ae60; font-weight: 600; }
+.card .highlight-red { color: #e74c3c; font-weight: 600; }
+.card .highlight-blue { color: #2980b9; font-weight: 600; }
+.card .highlight-orange { color: #e67e22; font-weight: 600; }
+.card .value-up { color: #27ae60; }
+.card .value-down { color: #e74c3c; }
+.card .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; margin: 0 4px 4px 0; }
+.card .tag-mt { background: #e8f5e9; color: #2e7d32; }
+.card .tag-ele { background: #fff3e0; color: #e65100; }
+.card .tag-jd { background: #e3f2fd; color: #1565c0; }
+.card .tag-dy { background: #fce4ec; color: #c62828; }
+.card .tag-alibaba { background: #f3e5f5; color: #7b1fa2; }
+.card .tag-pdd { background: #fff8e1; color: #f57f17; }
+.card .insight-box { background: #eef5ff; border-left: 4px solid #1A4B8C; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+.card .insight-box p { margin-bottom: 4px; }
+.card .warn-box { background: #fff8e1; border-left: 4px solid #f39c12; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+.card .alert-box { background: #fdecea; border-left: 4px solid #e74c3c; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+.card .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0; }
+.card .kpi-item { background: #f8f9fb; border-radius: 8px; padding: 14px; text-align: center; }
+.card .kpi-item .kpi-label { font-size: 12px; color: #888; margin-bottom: 4px; }
+.card .kpi-item .kpi-value { font-size: 20px; font-weight: 700; }
+.card .kpi-item .kpi-change { font-size: 11px; }
+.card ul, .card ol { padding-left: 22px; margin: 10px 0; }
+.card ul li, .card ol li { margin-bottom: 6px; }
+.card .chart-bar-group { margin: 16px 0; }
+.card .chart-bar-row { display: flex; align-items: center; margin-bottom: 6px; }
+.card .chart-bar-label { width: 90px; font-size: 13px; color: #555; flex-shrink: 0; }
+.card .chart-bar-track { flex: 1; height: 22px; background: #ecf0f1; border-radius: 4px; overflow: hidden; position: relative; }
+.card .chart-bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px; font-size: 11px; color: #fff; font-weight: 600; }
+.card .chart-bar-value { width: 80px; text-align: right; font-size: 13px; font-weight: 600; padding-left: 8px; flex-shrink: 0; }
+.card .comparison-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; }
+.card .ranking-table td:first-child { font-weight: 600; }
+.card .score-badge { display: inline-block; padding: 4px 12px; border-radius: 16px; font-size: 13px; font-weight: 700; }
+.card .score-high { background: #e8f5e9; color: #2e7d32; }
+.card .score-mid { background: #fff8e1; color: #f57f17; }
+.card .score-low { background: #fdecea; color: #c62828; }
+.footer { text-align: center; color: #999; font-size: 0.8rem; padding: 30px 24px; }
+.competitor-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.competitor-header img { width: 32px; height: 32px; border-radius: 8px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🔭 行業漏斗對比：美團 (3690.HK / MPNGY)</h1>
+  <div class="subtitle">本地生活服務賽道 · 5大競對多維對比 · 行業格局全透視</div>
+  <div class="date-tag">研究日期：2026-07-07 · 資料來源：MacroTrends / 公司財報 / 行業研究報告</div>
+</div>
+
+<div class="container">
+
+<!-- ==================== 1. 执行摘要 ==================== -->
+<div class="card">
+  <h2>一、執行摘要</h2>
+  <p>美團所處的本地生活服務賽道是中國網路競爭最為激烈的領域之一。透過對餓了麼（阿里）、京東（即時零售）、抖音（本地生活）、阿里生態（高德／飛豬）、拼多多（即時零售潛力）五大競對進行多維度對比分析，我們發現：</p>
+  <div class="insight-box">
+    <p><strong>核心結論：</strong>美團在<strong>配送網路密度、外送市佔率、營收規模</strong>三個維度上保持顯著領先。但抖音在<strong>到店／到店綜合</strong>領域的滲透率侵蝕速度超預期，京東在<strong>即時零售</strong>賽道正加速追趕。行業競爭格局從「美團 vs 餓了麼」的二元格局，演變為<strong>多極混戰</strong>態勢。</p>
+  </div>
+  <div class="kpi-grid">
+    <div class="kpi-item">
+      <div class="kpi-label">美團領先維度</div>
+      <div class="kpi-value highlight-green">4/7</div>
+      <div class="kpi-change">配送·營收·市佔·資本</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-label">抖音領先維度</div>
+      <div class="kpi-value highlight-orange">2/7</div>
+      <div class="kpi-change">增速·用戶黏著度</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-label">京東追趕維度</div>
+      <div class="kpi-value highlight-blue">1/7</div>
+      <div class="kpi-change">資本實力</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-label">行業競爭壓力</div>
+      <div class="kpi-value highlight-red">高</div>
+      <div class="kpi-change">補貼戰持續升級</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 2. 竞对全景概览 ==================== -->
+<div class="card">
+  <h2>二、競對全景概覽</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>競爭對手</th>
+        <th>核心業務</th>
+        <th>與美團重疊領域</th>
+        <th>競爭強度</th>
+        <th>優劣勢簡述</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="tag tag-ele">餓了麼</span><br><small>（阿里本地生活）</small></td>
+        <td>外送配送、到店餐飲</td>
+        <td>外送（直接競爭）</td>
+        <td><span class="score-badge score-high">極高</span></td>
+        <td>背靠阿里生態與高德流量導入，但持續虧損，市佔率被美團壓制</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-jd">京東</span><br><small>（京東到家/小時購）</small></td>
+        <td>即時零售、商超配送</td>
+        <td>閃購（即時零售）</td>
+        <td><span class="score-badge score-high">高</span></td>
+        <td>供應鏈優勢突出，但用戶心智仍偏「次日達」，小時購增速亮眼</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-dy">抖音</span><br><small>（抖音本地生活）</small></td>
+        <td>到店團購、到店綜合服務</td>
+        <td>到店（酒店旅遊／餐飲）</td>
+        <td><span class="score-badge score-high">極高</span></td>
+        <td>內容與推薦演算法驅動，到店GMV增速驚人，但尚未涉足外送配送</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-alibaba">阿里生態</span><br><small>（高德／飛豬／口碑）</small></td>
+        <td>地圖／出行、酒店旅遊預訂</td>
+        <td>到店、酒店及旅遊</td>
+        <td><span class="score-badge score-mid">中</span></td>
+        <td>高德日活高但轉化率低，飛豬在酒旅領域與美團正面競爭</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-pdd">拼多多</span><br><small>（即時零售潛力）</small></td>
+        <td>社區團購、多多買菜</td>
+        <td>優選（社區團購）</td>
+        <td><span class="score-badge score-low">中低</span></td>
+        <td>多買買菜有區域優勢，但即時零售佈局較淺，尚未構成直接威脅</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== 3. 营收规模与增速 ==================== -->
+<div class="card">
+  <h2>三、營收規模與增速</h2>
+  <p style="margin-bottom: 10px;">本地生活服務各平臺2024年營收規模對比（單位：億美元）。美團以絕對規模領先，但抖音本地生活增速遠超行業均值。</p>
+  
+  <div class="chart-bar-group">
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-mt">美團</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:100%; background:#2e7d32;">$469.6億</div></div>
+      <div class="chart-bar-value">+20.1%</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-ele">餓了麼</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:42%; background:#e65100;">~$197億*</div></div>
+      <div class="chart-bar-value">~+5%</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-jd">京東到家</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:18%; background:#1565c0;">約 84 億元*</div></div>
+      <div class="chart-bar-value">~+25%</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-dy">抖音本地</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:22%; background:#c62828;">~$103億*</div></div>
+      <div class="chart-bar-value">~+40%</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-alibaba">阿里酒旅</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:15%; background:#7b1fa2;">~$70億元*</div></div>
+      <div class="chart-bar-value">~+8%</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-pdd">拼多多</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:8%; background:#f57f17;">約 38 億美元*</div></div>
+      <div class="chart-bar-value">~+15%</div>
+    </div>
+  </div>
+  
+  <div class="warn-box">
+    <p><strong>⚠ 重要說明：</strong>餓了麼營收為阿里本地生活集團（含餓了麼+高德+飛豬）整體估算值，並非純外送收入。「京東到家」併入京東財報「新業務」板塊未單獨披露，為行業機構估算。「抖音本地生活」為估算GMV轉化收入。「阿里酒旅」和「拼多多」為相關業務板塊拆分估算。標註「*」為市場估算值，僅供參考。</p>
+  </div>
+
+  <h3>增速趨勢對比</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>公司／業務線</th>
+        <th>2022年增速</th>
+        <th>2023年增速</th>
+        <th>2024年增速</th>
+        <th>2025E增速</th>
+        <th>趨勢</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>美團（整體）</strong></td>
+        <td>+17.7%</td>
+        <td>+19.6%</td>
+        <td>+20.1%</td>
+        <td class="value-down">~+12%</td>
+        <td>📉 增速放緩</td>
+      </tr>
+      <tr>
+        <td>🍔 美團外賣</td>
+        <td>+14%</td>
+        <td>+11%</td>
+        <td>+8%</td>
+        <td>~+6%</td>
+        <td>📉 成熟期減速</td>
+      </tr>
+      <tr>
+        <td>🏪 美團閃購</td>
+        <td>+32%</td>
+        <td>+28%</td>
+        <td>+24%</td>
+        <td>~+20%</td>
+        <td>📉 仍處高成長</td>
+      </tr>
+      <tr>
+        <td>🏨 美團到店酒旅</td>
+        <td>+12%</td>
+        <td>+25%</td>
+        <td>+22%</td>
+        <td>~+15%</td>
+        <td>📉 抖音衝擊</td>
+      </tr>
+      <tr>
+        <td><strong>餓了麼（阿里本地）</strong></td>
+        <td>-5%</td>
+        <td>+3%</td>
+        <td>+5%</td>
+        <td>~+5%</td>
+        <td>→ 低成長</td>
+      </tr>
+      <tr>
+        <td><strong>京東小時購</strong></td>
+        <td>+40%</td>
+        <td>+33%</td>
+        <td>+25%</td>
+        <td>~+22%</td>
+        <td>📉 高基期放緩</td>
+      </tr>
+      <tr>
+        <td><strong>抖音本地生活</strong></td>
+        <td>+100%+</td>
+        <td>+60%</td>
+        <td>+40%</td>
+        <td>~+30%</td>
+        <td>📉 仍處爆發期</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight-box">
+    <p><strong>洞察：</strong>美團整體增速與外賣增速之間出現了顯著「剪刀差」——閃購和到店酒旅正在成為新增長引擎。抖音本地生活雖然增速在下降（基數效應），但絕對增量依然可觀，到店領域正在成為美團利潤率的長期侵蝕變數。</p>
+  </div>
+</div>
+
+<!-- ==================== 4. 盈利能力 ==================== -->
+<div class="card">
+  <h2>四、盈利能力（毛利率／淨利率）</h2>
+  <p>各公司相關業務線的盈利能力對比。美團在2024年實現了歷史性的盈利突破，但與其他競對相比，毛利率仍有提升空間。</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>公司／業務線</th>
+        <th>毛利率</th>
+        <th>淨利率</th>
+        <th>營業利益率</th>
+        <th>盈利能力評級</th>
+        <th>備註</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>美團（整體）</strong></td>
+        <td class="highlight-green">38.4%</td>
+        <td class="highlight-green">10.6%</td>
+        <td>10.9%</td>
+        <td><span class="score-badge score-high">強</span></td>
+        <td>2024年首次全面獲利</td>
+      </tr>
+      <tr>
+        <td>🍔 美團外賣</td>
+        <td>~28%</td>
+        <td>~3%</td>
+        <td>~2%</td>
+        <td><span class="score-badge score-mid">一般</span></td>
+        <td>單均盈利微薄，靠規模效應</td>
+      </tr>
+      <tr>
+        <td>🏨 美團到店酒旅</td>
+        <td>~75%</td>
+        <td>~25%</td>
+        <td>~30%</td>
+        <td><span class="score-badge score-high">很強</span></td>
+        <td>利潤核心「現金牛」</td>
+      </tr>
+      <tr>
+        <td>🏪 美團閃購</td>
+        <td>~22%</td>
+        <td>~-2%</td>
+        <td>~-3%</td>
+        <td><span class="score-badge score-low">虧損</span></td>
+        <td>仍在投入期</td>
+      </tr>
+      <tr>
+        <td><strong>餓了麼</strong></td>
+        <td>~25%</td>
+        <td class="highlight-red">~-5%</td>
+        <td class="highlight-red">~-8%</td>
+        <td><span class="score-badge score-low">弱</span></td>
+        <td>持續虧損，依賴阿里輸血</td>
+      </tr>
+      <tr>
+        <td><strong>京東（整體）</strong></td>
+        <td>~14%</td>
+        <td>~3%</td>
+        <td>~2%</td>
+        <td><span class="score-badge score-mid">一般</span></td>
+        <td>低毛利零售模式</td>
+      </tr>
+      <tr>
+        <td>📦 京東到家</td>
+        <td>~12%</td>
+        <td class="highlight-red">~-8%</td>
+        <td class="highlight-red">~-12%</td>
+        <td><span class="score-badge score-low">虧損</span></td>
+        <td>配送成本居高不下</td>
+      </tr>
+      <tr>
+        <td><strong>抖音（整體）</strong></td>
+        <td>~50%</td>
+        <td>~25%</td>
+        <td>~30%</td>
+        <td><span class="score-badge score-high">極強</span></td>
+        <td>廣告高毛利模式</td>
+      </tr>
+      <tr>
+        <td>🎯 抖音本地生活</td>
+        <td class="highlight-green">~45%</td>
+        <td>~10%</td>
+        <td>~12%</td>
+        <td><span class="score-badge score-high">強</span></td>
+        <td>輕資產高抽傭</td>
+      </tr>
+      <tr>
+        <td><strong>阿里巴巴（整體）</strong></td>
+        <td>~38%</td>
+        <td>~12%</td>
+        <td>~14%</td>
+        <td><span class="score-badge score-high">強</span></td>
+        <td>雲端＋電商驅動</td>
+      </tr>
+      <tr>
+        <td><strong>拼多多（整體）</strong></td>
+        <td class="highlight-green">~62%</td>
+        <td class="highlight-green">~28%</td>
+        <td>~30%</td>
+        <td><span class="score-badge score-high">極強</span></td>
+        <td>Temu+Temu 驅動</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight-box">
+    <p><strong>洞察：</strong>美團的綜合盈利能力在本地生活賽道中領先，但這是一個「結構性的領先」——利潤幾乎完全由到店酒旅（高毛利）貢獻，外賣只是微利，閃購仍在虧損。抖音本地生活憑藉輕資產模式實現了比美團外賣高得多的利潤率，這是美團面臨的真正威脅。</p>
+  </div>
+
+  <h3>利潤率趨勢（2021-2024）</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>指標</th>
+        <th>2021</th>
+        <th>2022</th>
+        <th>2023</th>
+        <th>2024</th>
+        <th>4年變化</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>美團毛利率</strong></td>
+        <td>23.7%</td>
+        <td>28.1%</td>
+        <td>35.1%</td>
+        <td class="highlight-green">38.4%</td>
+        <td class="value-up">+14.7pp</td>
+      </tr>
+      <tr>
+        <td><strong>美團淨利率</strong></td>
+        <td class="highlight-red">-13.1%</td>
+        <td class="highlight-red">-3.0%</td>
+        <td>5.0%</td>
+        <td class="highlight-green">10.6%</td>
+        <td class="value-up">+23.7pp</td>
+      </tr>
+      <tr>
+        <td><strong>阿里本地生活利潤率</strong></td>
+        <td class="highlight-red">-35%</td>
+        <td class="highlight-red">-28%</td>
+        <td class="highlight-red">-15%</td>
+        <td class="highlight-red">-8%</td>
+        <td class="value-up">+27pp</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== 5. 用户规模与粘性 ==================== -->
+<div class="card">
+  <h2>五、用戶規模與黏著度</h2>
+  <p>用戶規模與活躍度是本地生活平臺的核心競爭壁壘。以下對比各平臺在本地生活領域的用戶資料（含估算）。</p>
+
+  <div class="chart-bar-group">
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-mt">美團</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:100%; background:#2e7d32;">MAU 約4.8億</div></div>
+      <div class="chart-bar-value">交易用戶 ~7億</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-ele">餓了麼</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:52%; background:#e65100;">MAU 約2.5億*</div></div>
+      <div class="chart-bar-value">支付寶導入流量</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-jd">京東到家</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:33%; background:#1565c0;">月活躍用戶約1.6億*</div></div>
+      <div class="chart-bar-value">京東主站導流</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-dy">抖音</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:150%; background:#c62828;">MAU 約 7.5 億（全站）</div></div>
+      <div class="chart-bar-value">本地生活滲透率約20%</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-alibaba">高德</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:62%; background:#7b1fa2;">MAU 約3.0億</div></div>
+      <div class="chart-bar-value">出行流量為主</div>
+    </div>
+  </div>
+
+  <h3>用戶黏性指標對比</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>指標</th>
+        <th>美團</th>
+        <th>餓了麼</th>
+        <th>京東到家</th>
+        <th>抖音本地</th>
+        <th>說明</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>年活躍買家（億）</td>
+        <td class="highlight-green">~7.0</td>
+        <td>~3.8</td>
+        <td>~2.0</td>
+        <td class="highlight-green">~5.5*</td>
+        <td>包含到店服務用戶</td>
+      </tr>
+      <tr>
+        <td>日均下單頻次</td>
+        <td class="highlight-green">~0.8次</td>
+        <td>~0.4次</td>
+        <td>~0.2次</td>
+        <td>~0.3次</td>
+        <td>高頻 vs 低頻</td>
+      </tr>
+      <tr>
+        <td>平均客單價（元）</td>
+        <td>~55（外送）</td>
+        <td>~50</td>
+        <td class="highlight-green">~90</td>
+        <td>~120（到店）</td>
+        <td>品類差異</td>
+      </tr>
+      <tr>
+        <td>月留存率</td>
+        <td class="highlight-green">~75%</td>
+        <td>~60%</td>
+        <td>~55%</td>
+        <td>~50%</td>
+        <td>外送場景剛需高黏性</td>
+      </tr>
+      <tr>
+        <td>年ARPU（元）</td>
+        <td class="highlight-green">~680</td>
+        <td>~320</td>
+        <td>~260</td>
+        <td>~180*</td>
+        <td>本地生活服務</td>
+      </tr>
+      <tr>
+        <td>NPS（淨推薦值）</td>
+        <td>~45</td>
+        <td>~35</td>
+        <td>~50</td>
+        <td class="highlight-green">~60</td>
+        <td>抖音內容推薦更具吸引力</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight-box">
+    <p><strong>洞察：</strong>美團的核心護城河在於「高頻剛需」——日均近1億筆外賣訂單構成極高的用戶黏著度與回購率。餓了麼雖然背靠支付寶的龐大流量池，但轉換率遠低於美團。抖音雖然全站MAU遠超美團，但本地生活服務的轉換漏斗尚淺。京東到家的客單價最高（商超／3C配送），但頻次最低。</p>
+  </div>
+</div>
+
+<!-- ==================== 6. 配送网络密度 ==================== -->
+<div class="card">
+  <h2>六、配送網路密度</h2>
+  <p>即時配送網路是本地生活服務最重的資產壁壘之一，也是美團最核心的競爭護城河。</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>指標</th>
+        <th>美團</th>
+        <th>餓了麼</th>
+        <th>京東（達達）</th>
+        <th>備註</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>活躍騎手數（萬）</td>
+        <td class="highlight-green">~400</td>
+        <td>~200</td>
+        <td>~120（達達）</td>
+        <td>核心運力</td>
+      </tr>
+      <tr>
+        <td>日均配送單量（萬單）</td>
+        <td class="highlight-green">~7,500</td>
+        <td>~3,200</td>
+        <td>~800</td>
+        <td>配送效率</td>
+      </tr>
+      <tr>
+        <td>覆蓋城市數</td>
+        <td class="highlight-green">~2,800</td>
+        <td>~2,000</td>
+        <td>~2,400</td>
+        <td>下沉市場滲透</td>
+      </tr>
+      <tr>
+        <td>平均配送時長（分鐘）</td>
+        <td class="highlight-green">~30</td>
+        <td>~35</td>
+        <td>~40</td>
+        <td>核心城市vs下沉市場</td>
+      </tr>
+      <tr>
+        <td>智慧排程系統</td>
+        <td class="highlight-green">美團超腦</td>
+        <td>方舟智能</td>
+        <td>達達智配</td>
+        <td>AI 調度能力</td>
+      </tr>
+      <tr>
+        <td>無人配送佈局</td>
+        <td>已落地（北京／深圳）</td>
+        <td>試營運</td>
+        <td>研發階段</td>
+        <td>長期降本關鍵</td>
+      </tr>
+      <tr>
+        <td>外送員成本／單（元）</td>
+        <td>~6.5</td>
+        <td>~7.0</td>
+        <td>~8.5</td>
+        <td>規模優勢降本</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>配送網路競爭態勢</h3>
+  <div class="chart-bar-group">
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">日均配送單量</div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:100%; background:#2e7d32;">美團 7,500萬單</div></div>
+      <div class="chart-bar-value">🏆 行業第一</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:43%; background:#e65100;">餓了麼 3,200萬單</div></div>
+      <div class="chart-bar-value">vs 43%</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:11%; background:#1565c0;">京東達達 800萬單</div></div>
+      <div class="chart-bar-value">vs 11%</div>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <p><strong>洞察：</strong>美團的配送網路是本地生活賽道中最深的護城河——日均7,500萬單的規模是餓了麼的2.3倍、京東達達的9.4倍。單均騎手成本$6.5也是行業最低，充分體現了規模經濟的成本優勢。餓了麼雖然在部分一二線城市具備競爭力，但整體配送效率差距明顯。京東達達在商超品類有差異化優勢，但配送覆蓋面受限。</p>
+  </div>
+</div>
+
+<!-- ==================== 7. 估值对比 ==================== -->
+<div class="card">
+  <h2>七、估值比較（PS / PE）</h2>
+  <p>網路本地生活服務公司的估值邏輯正在經歷從「成長優先」到「獲利優先」的切換。以下為各公司2024年7月的估值水準估算：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>公司</th>
+        <th>市值（億美元）</th>
+        <th>PS (TTM)</th>
+        <th>PE (TTM)</th>
+        <th>EV/EBITDA</th>
+        <th>PB</th>
+        <th>FCF Yield</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>美團</strong></td>
+        <td>~$620</td>
+        <td class="highlight-blue">~1.3x</td>
+        <td class="highlight-green">~12-15x</td>
+        <td>~8x</td>
+        <td>~1.4x</td>
+        <td class="highlight-green">~10.6%</td>
+      </tr>
+      <tr>
+        <td><strong>阿里巴巴</strong></td>
+        <td>~$1,900</td>
+        <td>~1.8x</td>
+        <td>~14x</td>
+        <td>~9x</td>
+        <td>~1.5x</td>
+        <td>~5%</td>
+      </tr>
+      <tr>
+        <td><strong>京東</strong></td>
+        <td>~$470</td>
+        <td>~0.4x</td>
+        <td>~13x</td>
+        <td>~5x</td>
+        <td>~1.3x</td>
+        <td>~6%</td>
+      </tr>
+      <tr>
+        <td><strong>拼多多</strong></td>
+        <td>~$1,800</td>
+        <td class="highlight-green">~7.0x</td>
+        <td class="highlight-green">~25x</td>
+        <td>~18x</td>
+        <td class="highlight-green">~8x</td>
+        <td>~3%</td>
+      </tr>
+      <tr>
+        <td><strong>字節跳動（未上市）</strong></td>
+        <td>~$2,680（估）</td>
+        <td>~5x</td>
+        <td>~20x（估）</td>
+        <td>~15x</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>估值特徵對比</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>特徵</th>
+        <th>美團</th>
+        <th>阿里</th>
+        <th>京東</th>
+        <th>拼多多</th>
+        <th>字節</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>估值邏輯</td>
+        <td>盈利反轉＋成長</td>
+        <td>成熟價值型</td>
+        <td>低毛利零售型</td>
+        <td>高成長國際型</td>
+        <td>高成長內容型</td>
+      </tr>
+      <tr>
+        <td>市場情緒</td>
+        <td>分歧中（競爭擔憂）</td>
+        <td>低估修復</td>
+        <td>中性偏弱</td>
+        <td>高期望</td>
+        <td>上市預期的溢價</td>
+      </tr>
+      <tr>
+        <td>PS 1.3x 的含義</td>
+        <td class="highlight-orange" colspan="4">市場對本地生活服務行業的整體估值中樞在 PS 1-2x 之間，低於電商平臺（PS 3-7x）</td>
+      </tr>
+      <tr>
+        <td>自由現金流收益率優勢</td>
+        <td class="highlight-green">10.6%</td>
+        <td>~5%</td>
+        <td>~6%</td>
+        <td>~3%</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight-box">
+    <p><strong>洞察：</strong>美團的 PS 僅 1.3x，PE 12-15x，在網路平臺公司中屬於被低估水準。對比拼多多的 PS 7.0x（市場給予高成長＋國際化溢價）和字節的 PS ~5x（未上市＋高成長預期），美團的估值折價反映了市場對其競爭加劇、增速放緩的擔憂。但 10.6% 的 FCF Yield 提供了較高安全邊際——如果維持當前盈利水準，理論上約 9-10 年可透過自由現金流「買下整個公司」。</p>
+  </div>
+</div>
+
+<!-- ==================== 8. 市占率趋势 ==================== -->
+<div class="card">
+  <h2>八、市佔率趨勢</h2>
+  <p>本地生活服務各細分賽道的市場份額演變。資料來源為行業研究報告估算，部分區間為合理推測。</p>
+
+  <h3>外送配送市場</h3>
+  <div class="chart-bar-group">
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2021</div>
+      <div class="chart-bar-track" style="display:flex;">
+        <div style="width:66%; background:#2e7d32; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; font-weight:600;">美團 66%</div>
+        <div style="width:32%; background:#e65100; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; font-weight:600;">餓了麼 32%</div>
+        <div style="width:2%; background:#999; height:22px;"></div>
+      </div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2023</div>
+      <div class="chart-bar-track" style="display:flex;">
+        <div style="width:69%; background:#2e7d32; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; font-weight:600;">美團 69%</div>
+        <div style="width:29%; background:#e65100; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; font-weight:600;">餓了麼 29%</div>
+        <div style="width:2%; background:#999; height:22px;"></div>
+      </div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2024</div>
+      <div class="chart-bar-track" style="display:flex;">
+        <div style="width:70%; background:#2e7d32; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; font-weight:600;">美團 70%</div>
+        <div style="width:28%; background:#e65100; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; font-weight:600;">餓了麼 28%</div>
+        <div style="width:2%; background:#999; height:22px;"></div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size: 13px; color: #666;">▲ 外送市場美團持續擴大領先優勢，從2021年66%提升至2024年約70%。餓了麼從32%下滑至28%。抖音尚未大規模入局外送配送。</p>
+
+  <h3>到店餐飲／本地生活服務市場</h3>
+  <div class="chart-bar-group">
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2021</div>
+      <div class="chart-bar-track" style="display:flex;">
+        <div style="width:55%; background:#2e7d32; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">美團55%</div>
+        <div style="width:20%; background:#e65100; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">口碑15%</div>
+        <div style="width:10%; background:#7b1fa2; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">其他30%</div>
+      </div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2023</div>
+      <div class="chart-bar-track" style="display:flex;">
+        <div style="width:48%; background:#2e7d32; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">美團48%</div>
+        <div style="width:20%; background:#c62828; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">抖音 20%</div>
+        <div style="width:15%; background:#e65100; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">口碑12%</div>
+        <div style="width:17%; background:#999; height:22px;"></div>
+      </div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2024</div>
+      <div class="chart-bar-track" style="display:flex;">
+        <div style="width:43%; background:#2e7d32; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">美團43%</div>
+        <div style="width:25%; background:#c62828; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">抖音25%</div>
+        <div style="width:14%; background:#e65100; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">口碑10%</div>
+        <div style="width:18%; background:#999; height:22px;"></div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size: 13px; color: #666;">▲ 到店市場格局劇烈變化——抖音從2021年的幾乎為零飆升至2024年的~25%，美團的份額從55%被侵蝕至43%。這是美團最危險的競爭領域。</p>
+
+  <h3>即時零售（閃購／小時達）</h3>
+  <div class="chart-bar-group">
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2024</div>
+      <div class="chart-bar-track" style="display:flex;">
+        <div style="width:40%; background:#2e7d32; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">美團閃購40%</div>
+        <div style="width:30%; background:#1565c0; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">京東到家30%</div>
+        <div style="width:15%; background:#e65100; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">餓了麼15%</div>
+        <div style="width:15%; background:#999; height:22px;"></div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size: 13px; color: #666;">▲ 即時零售格局相對分散。美團閃購以40%份額領先，京東到家（含小時購）30%緊隨其後。這是一個仍在快速增長的賽道，競爭格局尚未固化。</p>
+
+  <div class="warn-box">
+    <p><strong>⚠ 風險提示：</strong>到店業務（毛利率約 75%）是美團利潤的核心來源，貢獻了公司大部分稅後淨利。抖音在到店領域的持續侵蝕，可能對美團的利潤結構產生結構性破壞——即使外送市場份額穩固，如果到店市場份額繼續流失，美團的整體盈利水準將面臨壓力。</p>
+  </div>
+</div>
+
+<!-- ==================== 9. 资本实力 ==================== -->
+<div class="card">
+  <h2>九、資本實力</h2>
+  <p>資本儲備決定各平臺在補貼戰和長期投入中的持續作戰能力。</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>公司</th>
+        <th>現金及等價物（億美元）</th>
+        <th>長期債務（億美元）</th>
+        <th>淨現金狀態</th>
+        <th>年營業現金流（億美元）</th>
+        <th>資本實力評級</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>美團</strong></td>
+        <td class="highlight-green">$261</td>
+        <td>$59</td>
+        <td class="highlight-green">淨現金 $202億</td>
+        <td class="highlight-green">$79.5</td>
+        <td><span class="score-badge score-high">⭐ 極強</span></td>
+      </tr>
+      <tr>
+        <td><strong>阿里巴巴</strong></td>
+        <td class="highlight-green">~$780</td>
+        <td>~$200</td>
+        <td class="highlight-green">淨現金約 580 億美元</td>
+        <td class="highlight-green">~$250</td>
+        <td><span class="score-badge score-high">⭐ 極強</span></td>
+      </tr>
+      <tr>
+        <td><strong>京東</strong></td>
+        <td>~$180</td>
+        <td>~$80</td>
+        <td>淨現金約 100 億美元</td>
+        <td>~$60</td>
+        <td><span class="score-badge score-high">強</span></td>
+      </tr>
+      <tr>
+        <td><strong>字節跳動</strong></td>
+        <td>~$600（估）</td>
+        <td>~$50</td>
+        <td>淨現金約 550 億美元</td>
+        <td>~$400+</td>
+        <td><span class="score-badge score-high">⭐ 極強</span></td>
+      </tr>
+      <tr>
+        <td><strong>拼多多</strong></td>
+        <td>~$350</td>
+        <td>~$10</td>
+        <td class="highlight-green">淨現金約 340 億美元</td>
+        <td class="highlight-green">~$200</td>
+        <td><span class="score-badge score-high">⭐ 極強</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight-box">
+    <p><strong>洞察：</strong>在本地生活賽道，所有主要玩家都背靠「彈藥充足」的母公司。美團自身現金儲備 261 億美元已相當充裕，但對比阿里和字節的千億級現金儲備，在任何「全面戰爭」式的補貼戰中，美團並不具備絕對的資金優勢。然而好消息是：行業已經從「燒錢換增長」階段進入「盈利優先」階段，全面補貼戰的可能性在降低。</p>
+  </div>
+</div>
+
+<!-- ==================== 10. 综合评分矩阵 ==================== -->
+<div class="card">
+  <h2>十、綜合評分矩陣（五分制）</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>維度</th>
+        <th>權重</th>
+        <th>美團</th>
+        <th>餓了麼</th>
+        <th>京東到家</th>
+        <th>抖音本地</th>
+        <th>阿里酒旅</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>營收規模</td>
+        <td>15%</td>
+        <td class="highlight-green">5.0</td>
+        <td>3.0</td>
+        <td>2.0</td>
+        <td>2.5</td>
+        <td>2.5</td>
+      </tr>
+      <tr>
+        <td>成長潛力</td>
+        <td>15%</td>
+        <td>3.5</td>
+        <td>2.0</td>
+        <td class="highlight-green">4.0</td>
+        <td class="highlight-green">4.5</td>
+        <td>2.5</td>
+      </tr>
+      <tr>
+        <td>盈利能力</td>
+        <td>15%</td>
+        <td class="highlight-green">4.0</td>
+        <td>2.0</td>
+        <td>2.5</td>
+        <td class="highlight-green">4.5</td>
+        <td>3.0</td>
+      </tr>
+      <tr>
+        <td>用戶規模／黏著度</td>
+        <td>15%</td>
+        <td class="highlight-green">4.5</td>
+        <td>3.0</td>
+        <td>2.5</td>
+        <td class="highlight-green">4.0</td>
+        <td>3.0</td>
+      </tr>
+      <tr>
+        <td>配送網路</td>
+        <td>15%</td>
+        <td class="highlight-green">5.0</td>
+        <td>3.5</td>
+        <td>2.5</td>
+        <td>1.0</td>
+        <td>1.0</td>
+      </tr>
+      <tr>
+        <td>估值吸引力</td>
+        <td>15%</td>
+        <td class="highlight-green">4.0</td>
+        <td>2.5</td>
+        <td>3.0</td>
+        <td>3.0</td>
+        <td>3.5</td>
+      </tr>
+      <tr>
+        <td>資本實力</td>
+        <td>10%</td>
+        <td class="highlight-green">4.5</td>
+        <td class="highlight-green">5.0</td>
+        <td>4.0</td>
+        <td class="highlight-green">5.0</td>
+        <td class="highlight-green">5.0</td>
+      </tr>
+      <tr style="font-weight: 700; background: #eef5ff;">
+        <td><strong>加權總分</strong></td>
+        <td><strong>100%</strong></td>
+        <td class="highlight-green"><strong>4.38</strong></td>
+        <td><strong>2.95</strong></td>
+        <td><strong>2.88</strong></td>
+        <td><strong>3.44</strong></td>
+        <td><strong>2.88</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight-box">
+    <p><strong>綜合結論：</strong>美團以4.38分（滿分5分）在本地生活賽道的綜合競爭力評估中位居第一。抖音本地生活以3.44分躍居第二，其核心優勢在於內容驅動的增長潛力和輕資產盈利能力。餓了麼（2.95分）與京東到家（2.88分）分別面臨不同的結構性挑戰——前者始終無法縮小與美團的配送和用戶規模差距，後者則在解決配送頻次和成本問題。</p>
+  </div>
+</div>
+
+<!-- ==================== 11. 竞争格局总结 ==================== -->
+<div class="card">
+  <h2>十一、競爭格局總結與前瞻</h2>
+
+  <h3>格局總覽</h3>
+  <p>本地生活服務市場已從「美團 vs 餓了麼」的二元競爭，進入<strong>多極混戰</strong>新階段：</p>
+  <ul>
+    <li><strong>外送賽道：</strong>美團70% vs 餓了麼28% —— 格局最穩定，雙寡頭固化</li>
+    <li><strong>到店賽道：</strong>美團43% vs 抖音25% —— 格局劇烈變化，競爭白熱化</li>
+    <li><strong>即時零售：</strong>美團閃購40% vs 京東到家30% —— 高速成長，格局未定</li>
+    <li><strong>酒旅賽道：</strong>美團 vs 攜程 vs 飛豬 —— 古典格局，抖音入局攪動</li>
+  </ul>
+
+  <h3>前瞻判斷</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>時間維度</th>
+        <th>核心預期</th>
+        <th>對美團影響</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>短期（1年）</strong></td>
+        <td>抖音本地生活到店GMV增速放緩（基數效應），但絕對增量仍大。美團透過加碼直播／影片化應對。</td>
+        <td class="highlight-orange">利潤承壓，但營收穩健</td>
+      </tr>
+      <tr>
+        <td><strong>中期（2-3年）</strong></td>
+        <td>即時零售成為新戰場。京東小時購與美團閃購的競爭決定行業第三極的格局。抖音是否入局外送配送是關鍵變數。</td>
+        <td class="highlight-orange">投入增加，但成長空間更大</td>
+      </tr>
+      <tr>
+        <td><strong>長期（5年）</strong></td>
+        <td>無人配送技術可能顛覆行業成本結構。擁有最大運力網路和調度資料的美團最有先發優勢。下沉市場滲透仍是增長主線。</td>
+        <td class="highlight-green">護城河加深，盈利能力提升</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert-box">
+    <p><strong>⚠️ 最大風險：</strong>抖音若決定進入外送配送賽道（目前尚未大舉進入），將對美團的估值邏輯產生根本性衝擊。外送配送是美團的「基本盤流量入口」，若基本盤受到威脅，到店酒旅的流量也會連鎖性地被侵蝕。目前來看，抖音入局外送的最大障礙在於配送網路的建設成本和營運難度——而這正是美團最強的護城河。</p>
+  </div>
+
+  <h3>投資啟示</h3>
+  <ol>
+    <li><strong>美團的護城河比市場認知更寬：</strong>日均7,500萬單的配送網路不是短期可以複製的，餓了麼八年追趕仍未縮小差距。</li>
+    <li><strong>到店業務的利潤率承壓是最大的估值壓制因素：</strong>市場對美團的 PS／PE 折價，主要反映對到店盈利能力被侵蝕的擔憂。</li>
+    <li><strong>即時零售是最大的增量機會：</strong>從「送餐」到「送萬物」的品類擴張，可能將美團的 TAM（可觸達市場）擴大 3-5 倍。</li>
+    <li><strong>估值安全邊際較高：</strong>PS 1.3x、FCF Yield 10.6%提供了足夠的安全邊際。即使競爭加劇導致利潤下降30%，PE仍在20x以下。</li>
+    <li><strong>關鍵監測指標：</strong>外送日均單量增速、到店GTV增速、抖音本地生活GMV、閃購滲透率、單均配送成本。</li>
+  </ol>
+</div>
+
+</div>
+
+<div class="footer">
+  <p>行業漏斗對比報告 · 美團 (3690.HK / MPNGY) · 研究日期：2026-07-07</p>
+  <p>資料來源：MacroTrends、Google Finance、Stock Analysis、公司財報、行業研究報告</p>
+  <p>⚠ 本報告中的競對資料部分來自行業估算，標註「*」為合理推測值，不構成投資建議</p>
+</div>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>簡</span><span class="full"><span>簡體中文</span></span></a><a class="lang hant active" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

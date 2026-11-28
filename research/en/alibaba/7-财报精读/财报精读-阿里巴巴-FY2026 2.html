@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earnings Deep Dive — Alibaba FY2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, 'Helvetica Neue', sans-serif;
+    background: #f4f6f9;
+    color: #1a1a2e;
+    line-height: 1.8;
+    font-weight: 400;
+  }
+  .header {
+    background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+    color: #fff;
+    padding: 48px 0 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #e67e22, #f39c12, #e67e22);
+  }
+  .header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(4px);
+    padding: 4px 18px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+  }
+  .header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: 2px; }
+  .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+  .header .meta {
+    margin-top: 18px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .container { max-width: 920px; margin: 0 auto; padding: 32px 24px 60px; }
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    padding: 32px;
+    margin-bottom: 28px;
+    border: 1px solid #eaeef3;
+  }
+  .card h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #c0392b;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e8edf4;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h2 .num {
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    width: 32px; height: 32px;
+    background: #c0392b;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .card h3 { font-size: 1.05rem; font-weight: 600; color: #2c3e50; margin: 18px 0 10px; }
+  .card p { margin-bottom: 12px; color: #333; }
+  .card ul, .card ol { padding-left: 20px; margin-bottom: 12px; }
+  .card li { margin: 6px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 18px;
+    font-size: 0.9rem;
+  }
+  th {
+    background: #c0392b;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child  { border-radius: 0 6px 0 0; }
+  td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #e8edf4;
+    text-align: center;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f7f9fc; }
+  .hl-green  { color: #27ae60; font-weight: 600; }
+  .hl-red    { color: #e74c3c; font-weight: 600; }
+  .hl-amber  { color: #e67e22; font-weight: 600; }
+  .hl-blue   { color: #2980b9; font-weight: 600; }
+  .td-left   { text-align: left; }
+  blockquote {
+    background: #fdf2f0;
+    border-left: 4px solid #c0392b;
+    padding: 14px 20px;
+    margin: 16px 0;
+    border-radius: 0 6px 6px 0;
+    color: #1a2a3a;
+    font-style: italic;
+    font-size: 0.92rem;
+  }
+  blockquote strong { color: #c0392b; font-style: normal; }
+  /* Signal boxes */
+  .signal-normal { background: #eafaf1; border-left: 4px solid #27ae60; padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 6px 0; font-size: 0.9rem; }
+  .signal-warn  { background: #fef9e7; border-left: 4px solid #e67e22; padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 6px 0; font-size: 0.9rem; }
+  .signal-alert { background: #fde8e8; border-left: 4px solid #e74c3c; padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 6px 0; font-size: 0.9rem; }
+  /* KPI boxes */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .kpi-box {
+    background: #f7f9fc;
+    border: 1px solid #e0e6ed;
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+  }
+  .kpi-box .num { font-size: 1.3rem; font-weight: 700; color: #c0392b; }
+  .kpi-box .label { font-size: 0.75rem; color: #7f8c9b; margin-top: 4px; }
+  .kpi-box .change { font-size: 0.75rem; font-weight: 600; margin-top: 2px; }
+  .change-up   { color: #e74c3c; }
+  .change-down { color: #27ae60; }
+  .bad-up   { display:inline-block; background:#eafaf1; color:#27ae60; padding:1px 8px; border-radius:4px; font-weight:600; font-size:0.85rem; }
+  .bad-down { display:inline-block; background:#fde8e8; color:#e74c3c; padding:1px 8px; border-radius:4px; font-weight:600; font-size:0.85rem; }
+  .bad-mid  { display:inline-block; background:#fef9e7; color:#e67e22; padding:1px 8px; border-radius:4px; font-weight:600; font-size:0.85rem; }
+  .verdict-box {
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .verdict-box.alert { background: #fde8e8; border: 1px solid #e74c3c; color: #c0392b; }
+  .verdict-box.warn  { background: #fef9e7; border: 1px solid #e67e22; color: #e67e22; }
+  .verdict-box.good  { background: #eafaf1; border: 1px solid #27ae60; color: #27ae60; }
+  .verdict-box .detail { font-weight: 400; font-size: 0.85rem; margin-left: auto; color: #666; }
+  .footer {
+    text-align: center;
+    padding: 24px 0;
+    color: #95a5b4;
+    font-size: 0.8rem;
+    border-top: 1px solid #e0e6ed;
+    margin-top: 12px;
+  }
+  @media (max-width: 640px) {
+    .header h1 { font-size: 1.4rem; }
+    .card { padding: 20px; }
+    table { font-size: 0.78rem; }
+    th, td { padding: 6px 8px; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="badge">📉 Earnings Deep Dive</div>
+  <h1>Alibaba Group · FY2026 Annual Financial Analysis</h1>
+  <p class="subtitle">ALIBABA GROUP HOLDING LIMITED (BABA.NYSE / 9988.HK)</p>
+  <div class="meta">
+    <span>📅 Reporting period: FY2026 (ended 3/31/2026)</span>
+    <span>📊 Data source: FY2026 annual report</span>
+    <span>📋 Data availability:<strong style="color:#f6b26b;">Grade A</strong></span>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- ===== 一、核心数据速览 ===== -->
+<div class="card">
+  <h2><span class="num">One</span>Key data at a glance</h2>
+
+  <div class="kpi-grid">
+    <div class="kpi-box">
+      <div class="num">RMB 1,023.7 billion</div>
+      <div class="label">Total revenue CNY</div>
+      <div class="change change-up">⬆ +2.74% YoY</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">39.81%</div>
+      <div class="label">Gross margin</div>
+      <div class="change change-up">⬇ -0.14pp YoY</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">4.90%</div>
+      <div class="label">Operating margin</div>
+      <div class="change change-up" style="color:#e74c3c;">⬇ -9.24pp YoY</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">RMB 105.9 billion</div>
+      <div class="label">Net profit attributable to shareholders CNY</div>
+      <div class="change change-up">⬇ -18.2% YoY</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">-RMB 49.85 billion</div>
+      <div class="label">Free cash flow CNY</div>
+      <div class="change change-up" style="color:#e74c3c;">⬇ FCF turns negative</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">RMB 56.9 billion</div>
+      <div class="label">Net cash CNY</div>
+      <div class="change change-down">⬇ -71.2% YoY</div>
+    </div>
+  </div>
+
+  <div class="verdict-box alert">
+    <span>🔴</span>
+    <span>FY2026 is one of Alibaba's worst annual reports in nearly a decade</span>
+    <span class="detail">SG&A surged 47.7%, eroding profit; FCF turned negative for the first time</span>
+  </div>
+
+  <table>
+    <tr><th>Metric (RMB million)</th><th>FY2025</th><th>FY2026</th><th>YoY change</th><th>Judgment</th></tr>
+    <tr><td>Revenue</td><td>996,347</td><td>1,023,670</td><td><span class="hl-amber">+2.74%</span></td><td><span class="bad-down">🔴 Growth hits a new low</span></td></tr>
+    <tr><td>Gross profit</td><td>398,062</td><td>407,534</td><td><span class="hl-amber">+2.38%</span></td><td><span class="bad-mid">⚠️ In line with revenue</span></td></tr>
+    <tr><td>Gross margin</td><td>39.95%</td><td>39.81%</td><td><span class="hl-amber">-0.14pp</span></td><td><span class="bad-mid">⚠️ Broadly stable</span></td></tr>
+    <tr><td>Operating profit</td><td>140,905</td><td>50,150</td><td><span class="hl-red">-64.41%</span></td><td><span class="bad-down">🔴 Cliff-edge decline</span></td></tr>
+    <tr><td>Operating margin</td><td>14.14%</td><td>4.90%</td><td><span class="hl-red">-9.24pp</span></td><td><span class="bad-down">🔴 Sharp drop</span></td></tr>
+    <tr><td>Net profit attributable to shareholders</td><td>129,470</td><td>105,904</td><td><span class="hl-red">-18.2%</span></td><td><span class="bad-mid">⚠️ Supported by interest-bearing income</span></td></tr>
+    <tr><td>SG&A</td><td>188,260</td><td>278,105</td><td><span class="hl-red">+47.7%</span></td><td><span class="bad-down">🔴 Main reasons for the operational decline</span></td></tr>
+    <tr><td>Interest income</td><td>20,770</td><td>87,512</td><td><span class="hl-green">+321%</span></td><td><span class="bad-mid">⚠️ Abnormal surge</span></td></tr>
+    <tr><td>Operating cash flow</td><td>163,509</td><td>76,213</td><td><span class="hl-red">-53.4%</span></td><td><span class="bad-down">🔴 Deteriorating cash collection</span></td></tr>
+    <tr><td>Free cash flow</td><td>77,537</td><td>-49,850</td><td><span class="hl-red">FCF turns negative</span></td><td><span class="bad-down">🔴 Severe deterioration</span></td></tr>
+    <tr><td>Capital expenditure</td><td>85,972</td><td>126,063</td><td><span class="hl-red">+46.6%</span></td><td><span class="bad-down">🔴 Aggressive expansion</span></td></tr>
+  </table>
+
+  <p style="font-size:1rem; font-weight:600; margin-top:12px; padding:12px; background:#fdf2f0; border-radius:6px;">One-line summary: weak revenue growth (+2.74%), SG&A expenses surged 47.7% and eroded operating profit, operating margin plunged from 14.14% to 4.90%, and FCF turned negative for the first time. Without the 321% surge in interest income
+    to cushion the fall, net profit attributable to shareholders would have dropped far more than 18.2%.</p>
+</div>
+
+<!-- ===== 二、本期最重要的4个异常信号 ===== -->
+<div class="card">
+  <h2><span class="num">Two</span>The 4 most important anomalous signals this period</h2>
+
+  <h3>⚠️ Anomaly signal 1: SG&A surged 47.7% — the real culprit behind the operating profit collapse</h3>
+  <p>SG&A expense from FY2025's<strong>RMB 188.26 billion</strong>Soaring to FY2026<strong>RMB 278.11 billion</strong>, net increase<strong>RMB 89.85 billion</strong>. That increment alone is equivalent to the full-year revenue of a mid-sized internet company.</p>
+
+  <table>
+    <tr><th>Expense items (RMB million)</th><th>FY2025</th><th>FY2026</th><th>Year-on-year</th><th>Share of revenue</th></tr>
+    <tr><td class="td-left"><strong>SG&A</strong></td><td>188,260</td><td>278,105</td><td><span class="hl-red">+47.7%</span></td><td>27.2%</td></tr>
+    <tr><td class="td-left">R&D expenses</td><td>57,151</td><td>66,533</td><td><span class="hl-amber">+16.4%</span></td><td>6.5%</td></tr>
+    <tr><td class="td-left"><strong>Total operating expenses</strong></td><td>245,411</td><td>344,638</td><td><span class="hl-red">+40.4%</span></td><td>33.7%</td></tr>
+  </table>
+
+  <div class="signal-alert">
+    <strong>The deeper reason behind the surge in SG&A:</strong><br>
+    <strong>① Marketing spend on international business expansion:</strong>AIDC (Lazada/AliExpress/Trendyol) sharply increased overseas marketing and subsidy spending to counter Temu/Shein. Customer acquisition costs keep climbing in Southeast Asia, the Middle East and Eastern Europe.<br>
+    <strong>② Domestic e-commerce "price war":</strong>To counter competition from Pinduoduo and Douyin, Taobao and Tmall Group increased consumer subsidies and merchant incentives, driving a marked rise in its marketing expense ratio.<br>
+    <strong>③ Organizational adjustment and personnel restructuring:</strong>The 1+6+N restructuring brought one-off workforce optimization costs (severance and reorganization expenses), while aggressive hiring in AI and cloud computing pushed up compensation spending.<br>
+    <strong>④ Local life continues to receive cash support:</strong>The food-delivery battle between Ele.me and Meituan continues, and the local-services segment still requires heavy subsidies to defend share.</div>
+
+  <div class="signal-warn">
+    <strong>How should we view this SG&A crisis?</strong>This is not merely a short-term expense-control problem but a structural predicament: in a market of stock competition, Alibaba must spend heavily to defend market share, while rivals (Pinduoduo, Douyin, Temu) are burning cash just the same. Whoever burns cash more efficiently survives to the end.</div>
+
+  <h3>📈 Anomaly signal 2: interest income surges 321% — the "lifeline" for net profit</h3>
+  <p>Interest income from FY2025's<strong>RMB 20.77 billion</strong>Soaring to FY2026<strong>RMB 87.51 billion</strong>, net increase<strong>RMB 66.74 billion</strong>. This increase is highly unusual and warrants deeper analysis.</p>
+
+  <table>
+    <tr><th>Item (RMB million)</th><th>FY2025</th><th>FY2026</th><th>Year-on-year change</th><th>Note</th></tr>
+    <tr><td class="td-left">Interest income (including investment income)</td><td>20,770</td><td>87,512</td><td><span class="hl-green">+321%</span></td><td>Including interest + investment disposal + dividends</td></tr>
+    <tr><td class="td-left">— Of which: interest on cash and time deposits</td><td>~10,000</td><td>~15,000</td><td>~+50%</td><td>Improved rate environment contributes little</td></tr>
+    <tr><td class="td-left">— Of which: gains on disposal of investments</td><td>~8,000</td><td>~50,000+</td><td><span class="hl-amber">Increase substantially</span></td><td>Proceeds from the sale of non-core assets</td></tr>
+    <tr><td class="td-left">— Of which: dividends from associates/joint ventures</td><td>~2,000</td><td>~20,000+</td><td><span class="hl-amber">Increase substantially</span></td><td>Ant Group and others raise dividends</td></tr>
+  </table>
+
+  <div class="signal-warn">
+    <strong>Key judgment:</strong>The surge in interest income did not stem from organic operational improvement, but rather from<strong>Asset disposal</strong>And<strong>Monetizing investment gains</strong>Alibaba accelerated its "streamlining" strategy in FY2026—divesting some non-core assets (such as Intime, Sun Art Retail and other offline retail assets) and potentially receiving a large dividend from Ant Group. This portion of income<strong>Unsustainable</strong>, once the disposal is completed, the profit will be reversed.<br><br>
+    <strong>Impact assessment:</strong>Excluding the incremental interest income (+RMB 66.7 billion), net profit attributable to shareholders could fall from RMB 105.9 billion to under RMB 40 billion, a decline of ~70%. Interest income "masked" the true extent of the operating deterioration.</div>
+
+  <h3>💸 Anomaly signal 3: FCF turns negative — from cash machine to cash burner</h3>
+  <p>Free cash flow plunged from +RMB 77.54 billion to<strong>-RMB 49.85 billion</strong>, a decline of as much as 164%. This marks the first time Alibaba has posted negative full-year free cash flow since its listing.</p>
+
+  <table>
+    <tr><th>Cash flow items (RMB million)</th><th>FY2024</th><th>FY2025</th><th>FY2026</th><th>Trend</th></tr>
+    <tr><td class="td-left">Operating cash flow</td><td>182,593</td><td>163,509</td><td><span class="hl-red">76,213</span></td><td>⬇ Declining year by year</td></tr>
+    <tr><td class="td-left">Capital expenditure</td><td>32,087</td><td>85,972</td><td><span class="hl-red">126,063</span></td><td>⬆ Significant expansion</td></tr>
+    <tr><td class="td-left"><strong>Free cash flow</strong></td><td><span class="hl-green">150,506</span></td><td><span class="hl-amber">77,537</span></td><td><span class="hl-red"><strong>-49,850</strong></span></td><td><span class="bad-down">🔴 Turns negative</span></td></tr>
+    <tr><td class="td-left">FCF margin</td><td>15.99%</td><td>7.78%</td><td><span class="hl-red">-4.87%</span></td><td>⬇ Deterioration</td></tr>
+    <tr><td class="td-left">OCF/net profit</td><td>1.49×</td><td>1.30×</td><td><span class="hl-red">0.75×</span></td><td>⬇ Below 1x</td></tr>
+  </table>
+
+  <div class="signal-alert">
+    <strong>Three reasons FCF turned negative:</strong><br>
+    <strong>① Operating cash flow halved (-53.4%):</strong>The sharp decline in operating profit was the main driver, while higher working capital tied up (buildup in receivables and inventory) further worsened cash collection.<br>
+    <strong>② Capital expenditure doubled (+46.6%):</strong>CapEx surged from RMB 85.97 billion to RMB 126.06 billion, mainly for AI/cloud infrastructure buildout (GPU clusters, data centers) and Cainiao logistics network expansion.<br>
+    <strong>③ FCF/net profit ratio 0.75×:</strong>A ratio below 1 means net profit is not adequately backed by cash—earnings contain substantial non-cash items (depreciation, amortization, share-based compensation), while actual cash collection efficiency deteriorates.</div>
+
+  <h3>🐌 Anomaly signal 4: revenue growth slows to 2.74% — the elephant stumbles</h3>
+  <p>Revenue growth from +8.34% in FY2024 → +5.86% in FY2025 → FY2026<strong>+2.74%</strong>with a clear trend of slowing year by year. At a revenue scale of RMB 1 trillion, stalling growth means Alibaba has transformed from a "growth stock" into a "value stock".</p>
+
+  <table>
+    <tr><th>Fiscal year</th><th>Revenue (RMB million)</th><th>Growth rate</th><th>China GDP</th><th>Alibaba vs GDP</th></tr>
+    <tr><td>FY2022</td><td>853,062</td><td>+18.93%</td><td>~5%</td><td><span class="hl-green">Significantly outperformed</span></td></tr>
+    <tr><td>FY2023</td><td>868,687</td><td>+1.83%</td><td>~5%</td><td><span class="hl-red">Underperform</span></td></tr>
+    <tr><td>FY2024</td><td>941,168</td><td>+8.34%</td><td>~5%</td><td><span class="hl-green">Outperform</span></td></tr>
+    <tr><td>FY2025</td><td>996,347</td><td>+5.86%</td><td>~5%</td><td><span class="hl-amber">Broadly flat</span></td></tr>
+    <tr style="background:#fdf2f0;"><td><strong>FY2026</strong></td><td><strong>1,023,670</strong></td><td><strong>+2.74%</strong></td><td><strong>~5%</strong></td><td><span class="hl-red"><strong>Significantly underperformed</strong></span></td></tr>
+  </table>
+
+  <div class="signal-alert">
+    <strong>Structural causes of the growth stall:</strong><br>
+    <strong>① Domestic e-commerce has hit its ceiling:</strong>Taobao-Tmall GMV growth has nearly stalled, while Pinduoduo and Douyin e-commerce keep taking share. Alibaba is caught in a dilemma in the low-price battle: discounting erodes profit, but holding back means losing share.<br>
+    <strong>② Core consumption weak:</strong>China's macro consumption recovery has fallen short of expectations. As an e-commerce infrastructure platform, Alibaba directly reflects the temperature of consumption.<br>
+    <strong>③ Cloud computing growth slows:</strong>Alibaba Cloud has grown amid the AI wave, but faces fierce competition from Huawei Cloud and Tencent Cloud, and cost-cutting and efficiency drives at major customers have kept its cloud revenue growth below the industry average.<br>
+    <strong>④ Divest non-core assets:</strong>The disposal of offline retail assets such as Intime and SunArt directly reduced consolidated revenue.</div>
+</div>
+
+<!-- ===== 三、分业务板块深度分析 ===== -->
+<div class="card">
+  <h2><span class="num">Three</span>By business segment: contribution and drag by company</h2>
+
+  <p>Under Alibaba's "1+6+N" organizational structure, the revenue and profit contribution of its business segments shows extreme<strong>Imbalance</strong>: Only Taotian Group is a major source of profit; almost every other segment is burning cash.</p>
+
+  <table>
+    <tr><th>Business segments</th><th>Estimated revenue (RMB million)</th><th>Share</th><th>Estimated growth rate</th><th>Profitability</th><th>Trend</th></tr>
+    <tr>
+      <td class="td-left"><strong>Taobao and Tmall Group</strong>(China e-commerce)</td>
+      <td>~380,000–400,000</td>
+      <td>~38%</td>
+      <td><span class="hl-amber">~0–3%</span></td>
+      <td><span class="hl-green">Main profit driver</span></td>
+      <td>⬇ Share erosion, GMV growth approaching zero</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>Alibaba International Digital Commerce (AIDC)</strong></td>
+      <td>~120,000–140,000</td>
+      <td>~12%</td>
+      <td><span class="hl-green">~25–30%</span></td>
+      <td><span class="hl-red">Substantial loss</span></td>
+      <td>⬆ High growth, but heavy cash burn (Lazada/Trendyol/AliExpress)</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>Cloud computing</strong>(Alibaba Cloud + DingTalk)</td>
+      <td>~115,000–125,000</td>
+      <td>~12%</td>
+      <td><span class="hl-amber">~5–10%</span></td>
+      <td><span class="hl-amber">Approaching profitability</span></td>
+      <td>⬆ AI-driven, margins improving</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>Cainiao Logistics</strong></td>
+      <td>~95,000–105,000</td>
+      <td>~10%</td>
+      <td><span class="hl-amber">~8–12%</span></td>
+      <td><span class="hl-amber">Low margin / break-even</span></td>
+      <td>➡️ Solid; AI + automation cuts costs</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>Local life services</strong>(Ele.me/Amap/Fliggy)</td>
+      <td>~65,000–75,000</td>
+      <td>~7%</td>
+      <td><span class="hl-amber">~10–15%</span></td>
+      <td><span class="hl-red">Sustained losses</span></td>
+      <td>⬇ Endless subsidy war with Meituan</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>Greater entertainment</strong>(Youku/Alibaba Pictures)</td>
+      <td>~20,000–25,000</td>
+      <td>~2%</td>
+      <td><span class="hl-amber">~0–5%</span></td>
+      <td><span class="hl-amber">Approaching break-even</span></td>
+      <td>➡️ Small scale, negligible</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>Other</strong>(Sun Art Retail / Intime / Freshippo / etc.)</td>
+      <td>~180,000–200,000</td>
+      <td>~19%</td>
+      <td><span class="hl-red">~-5–0%</span></td>
+      <td><span class="hl-amber">Low-margin / For sale</span></td>
+      <td>⬇ Continued divestment, diminishing contribution to revenue</td>
+    </tr>
+  </table>
+
+  <div class="signal-warn">
+    <strong>Key sector analysis conclusions:</strong><br>
+    <strong>Taobao and Tmall Group</strong>(~38% of revenue) contributed almost all of the group's profit, but growth is approaching zero, making it a direct casualty of the domestic e-commerce "stock war".<br>
+    <strong>AIDC</strong>(~12% of revenue) is the fastest-growing segment, but also the biggest cash drain—marketing subsidies at Lazada, Trendyol and AliExpress are a major driver of the SG&A surge.<br>
+    <strong>Cloud computing</strong>(~12% of revenue) is the most promising "second curve," with AI inference demand driving revenue growth, but heavy CapEx weighs on FCF in the near term.<br>
+    <strong>Other businesses</strong>(~19% of revenue) The vast majority consists of non-core retail assets being divested, with negative or marginal profit contribution.</div>
+
+  <div class="signal-normal">
+    <strong>Hidden concern: overly concentrated profit sources.</strong>Once Taotian Group's profit declines (as Pinduoduo/Douyin keep eroding its share), the group's earnings base will be shaken. The model of "one person earning to support the whole family" is unsustainable.</div>
+</div>
+
+<!-- ===== 四、SG&A暴增深度拆解 ===== -->
+<div class="card">
+  <h2><span class="num">Four</span>SG&A surges 47.7%: deep dive and attribution</h2>
+
+  <p>Net increase in SG&A expenses<strong>RMB 89.85 billion</strong>(from RMB 188.26 billion to RMB 278.11 billion), among all FY2026 financial metrics<strong>The number that most needs deeper understanding</strong>。</p>
+
+  <h3>4.1 Breakdown of cost structure (estimated)</h3>
+  <table>
+    <tr><th>Cost breakdown</th><th>Estimated incremental amount (RMB million)</th><th>Share of incremental volume</th><th>Explanation</th></tr>
+    <tr>
+      <td class="td-left"><strong>Marketing/promotion expenses</strong></td>
+      <td>~40,000–50,000</td>
+      <td>~45–55%</td>
+      <td class="td-left">International e-commerce (AIDC) promotional subsidies + domestic Taotian price-war subsidies + local services subsidies</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>Personnel compensation and benefits</strong></td>
+      <td>~20,000–25,000</td>
+      <td>~22–28%</td>
+      <td class="td-left">Severance costs + AI talent premium + overseas headcount expansion</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>Restructuring/organizational realignment costs</strong></td>
+      <td>~10,000–15,000</td>
+      <td>~11–17%</td>
+      <td class="td-left">One-off legal/consulting/system-migration costs from the 1+6+N spin-off</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>Other (bad debt/asset write-downs, etc.)</strong></td>
+      <td>~5,000–10,000</td>
+      <td>~6–11%</td>
+      <td class="td-left">Higher bad-debt provisions from increased receivables</td>
+    </tr>
+    <tr style="background:#fdf2f0;">
+      <td class="td-left"><strong>Total</strong></td>
+      <td><strong>~89,845</strong></td>
+      <td><strong>100%</strong></td>
+      <td class="td-left">SG&A rose from RMB 188.26 billion to RMB 278.11 billion (+47.7%)</td>
+    </tr>
+  </table>
+
+  <h3>4.2 External perspective: peer SG&A comparison</h3>
+  <p>Alibaba's SG&A as a percentage of revenue, from FY2025's<strong>18.9%</strong>Surged to by FY2026<strong>27.2%</strong>, increased<strong>8.3 percentage points</strong>Against the same competitive backdrop:</p>
+  <ul>
+    <li><strong>Pinduoduo (PDD):</strong>Operating expense ratio has been held at ~35-40% year-round (including R&D), but the mix differs — Pinduoduo invests heavily in overseas marketing for Temu</li>
+    <li><strong>Tencent:</strong>Management expense ratio around ~15-18% and falling steadily (quality-and-efficiency strategy)</li>
+    <li><strong>JD.com:</strong>Fulfilment plus marketing expense ratio ~15%, but JD's self-built logistics model differs from Alibaba's</li>
+  </ul>
+  <div class="signal-alert">Alibaba is, among the three internet giants,<strong>The only company with a sharp deterioration in its expense ratio</strong>Tencent is cutting costs and raising efficiency, Pinduoduo is holding its efficiency steady, while Alibaba is seeing an "efficiency regression."</div>
+
+  <h3>4.3 Is it reversible?</h3>
+  <div class="signal-warn">
+    <strong>Partly reversible, partly irreversible:</strong><br>
+    ✅ <strong>Reversible portion (~30-40%):</strong>Restructuring costs are one-off; some domestic subsidies can be scaled back once share stabilizes; compensation growth will ease after headcount optimization is completed.<br>
+    ❌ <strong>Irreversible portion (~60-70%):</strong>The competitive landscape in international e-commerce means marketing spend will be permanent (Temu and Shein will not back down); AI talent pay has already been bid up across the industry; and the subsidy war in local services has no end in sight.<br>
+    ⚠️ <strong>In the short term (FY2027), SG&A is likely to remain elevated and is unlikely to return to FY2025 levels.</strong>
+  </div>
+</div>
+
+<!-- ===== 五、利息收入异常深度分析 ===== -->
+<div class="card">
+  <h2><span class="num">Five</span>Interest income surges 321%: "accounting magic" or real gains?</h2>
+
+  <p>This is an anomaly signal that is easy to overlook but critically important. Interest income from<strong>RMB 20.77 billion</strong>Surged to<strong>RMB 87.51 billion</strong>(+321%), behind which lies Alibaba's strategic adjustment in FY2026.</p>
+
+  <h3>5.1 The true composition of interest income</h3>
+  <p>The "interest income and net investment gains" in Alibaba's financial report are not simply bank deposit interest; they cover three major sources:</p>
+  <table>
+    <tr><th>Source</th><th>FY2025 estimate</th><th>FY2026 estimate</th><th>Change</th><th>Sustainability</th></tr>
+    <tr>
+      <td class="td-left"><strong>① Bank deposit/wealth management interest</strong></td>
+      <td>~RMB 10 billion</td>
+      <td>~RMB 15 billion</td>
+      <td>+USD 5 billion</td>
+      <td><span class="bad-up">✅ Sustainable</span></td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>2) Investment disposal gains (asset sales)</strong></td>
+      <td>~RMB 8 billion</td>
+      <td>~RMB 50 billion+</td>
+      <td>+ RMB 42 billion +</td>
+      <td><span class="bad-down">❌ Unsustainable</span></td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>③ Dividends from associates/joint ventures</strong></td>
+      <td>~RMB 2 billion</td>
+      <td>~RMB 20 billion+</td>
+      <td>+ RMB 18 billion +</td>
+      <td><span class="bad-mid">⚠️ Partially sustainable</span></td>
+    </tr>
+    <tr style="background:#fdf2f0;">
+      <td class="td-left"><strong>Total</strong></td>
+      <td><strong>~RMB 20.77 billion</strong></td>
+      <td><strong>~RMB 87.51 billion</strong></td>
+      <td><strong>+66.74 billion</strong></td>
+      <td><span class="bad-down">🔴 Mostly unsustainable</span></td>
+    </tr>
+  </table>
+
+  <h3>5.2 What assets were sold?</h3>
+  <p>In FY2026, Alibaba accelerated its "streamlining" strategy, divesting non-core assets on a large scale:</p>
+  <ul>
+    <li><strong>Yintai Commercial:</strong>Fully divested, recovering substantial cash</li>
+    <li><strong>Sun Art Retail:</strong>Significant reduction/sale, recognizing investment gains</li>
+    <li><strong>Equity stakes in some listed companies:</strong>Reduced part of its equity holdings</li>
+    <li><strong>Potential Ant Group dividend:</strong>Ant Group may have paid a large dividend in FY2026 (Alibaba holds ~33% of Ant)</li>
+  </ul>
+
+  <h3>5.3 Is this "accounting magic"?</h3>
+  <div class="signal-alert">
+    <strong>Not accounting fraud, but "asset stripping."</strong>These investment gains are real and reflect Alibaba's strategy of "offloading non-core assets and repatriating cash." But from the perspective of operating quality:<br><br>
+    <strong>Core question:</strong>Excluding the incremental interest income of RMB 66.74 billion, operating profit would be only RMB 50.15 billion, and interest income actually exceeds operating profit itself. This means that Alibaba's<strong>The profitability of the core e-commerce business has been largely consumed by expense expansion</strong>, the company is relying on "selling assets" to keep its income statement looking respectable.<br><br>
+    <strong>How would Buffett see it?</strong>He would be highly wary of this pattern of "falling profit from the main business, with net profit sustained by investment disposals"—akin to a factory showing "profit" by selling off its machinery, which is unsustainable.</div>
+</div>
+
+<!-- ===== 六、资产负债表与现金流趋势 ===== -->
+<div class="card">
+  <h2><span class="num">Six</span>A qualitative shift in the balance sheet: net cash burn</h2>
+
+  <p>Although the debt-to-asset ratio is only 41% and the structure is sound, asset quality is undergoing a fundamental shift—<strong>Cash reserves are falling sharply while interest-bearing debt is rising fast</strong>。</p>
+
+  <table>
+    <tr><th>Key metrics (RMB million)</th><th>FY2024</th><th>FY2025</th><th>FY2026</th><th>Two-year change</th></tr>
+    <tr><td class="td-left">Cash and short-term investments</td><td>571,029</td><td>428,093</td><td><span class="hl-red">316,894</span></td><td>-254,135</td></tr>
+    <tr><td class="td-left">Interest-bearing debt</td><td>170,776</td><td>230,703</td><td><span class="hl-red">259,996</span></td><td>+89,220</td></tr>
+    <tr><td class="td-left"><strong>Net cash</strong></td><td><span class="hl-green">400,253</span></td><td><span class="hl-amber">197,390</span></td><td><span class="hl-red"><strong>56,898</strong></span></td><td><span class="bad-down">🔴 -343,355</span></td></tr>
+    <tr><td class="td-left">Long-term investing</td><td>424,073</td><td>566,987</td><td>656,745</td><td>+232,672</td></tr>
+    <tr><td class="td-left">Goodwill</td><td>259,679</td><td>255,501</td><td>247,378</td><td>-12,301</td></tr>
+  </table>
+
+  <div class="signal-alert">
+    <strong>Net cash plunged from RMB 400.25 billion to RMB 56.9 billion:</strong>It burned through RMB 343.36 billion of cash reserves in two years. At that pace, FY2027 could see a complete swing from net cash to net debt.<br><br>
+    <strong>Where the cash burn goes:</strong><br>- CapEx expansion (AI/cloud infrastructure): RMB 126.06 billion<br>- International business loss: estimated at ~RMB 30–40 billion<br>- Lower buybacks (only RMB 7.64 billion in FY2026 vs RMB 86.66 billion in FY2025)<br>- Higher dividend (RMB 33.73 billion)</div>
+
+  <div class="signal-warn">
+    <strong>Positive signal:</strong>Long-term investments rose from RMB 424.07 billion to RMB 656.75 billion (+RMB 232.67 billion), indicating that while Alibaba was "monetizing" short-term cash, it was "stockpiling" long-term strategic investments (possibly including take-private deals, AI startup stakes, and the like). The asset form shifted from "cash" to "equity." If these investments generate returns in future, the current cash burn is worthwhile.</div>
+</div>
+
+<!-- ===== 七、五年来趋势总结 ===== -->
+<div class="card">
+  <h2><span class="num">Seven</span>Five-year trend summary (FY2022–FY2026)</h2>
+
+  <table>
+    <tr><th>Fiscal year</th><th>Revenue (million)</th><th>Growth rate</th><th>Operating profit</th><th>Operating margin</th><th>Net profit attributable to shareholders</th><th>FCF</th></tr>
+    <tr><td>FY2022</td><td>853,062</td><td>+18.93%</td><td>69,638</td><td>8.16%</td><td>61,959</td><td>89,450</td></tr>
+    <tr><td>FY2023</td><td>868,687</td><td>+1.83%</td><td>100,351</td><td>11.55%</td><td>72,509</td><td>165,422</td></tr>
+    <tr><td>FY2024</td><td>941,168</td><td>+8.34%</td><td>113,350</td><td>12.04%</td><td>79,741</td><td>150,506</td></tr>
+    <tr><td>FY2025</td><td>996,347</td><td>+5.86%</td><td>140,905</td><td>14.14%</td><td>129,470</td><td>77,537</td></tr>
+    <tr style="background:#fdf2f0;font-weight:700;">
+      <td>FY2026</td><td>1,023,670</td><td>+2.74%</td><td>50,150</td><td>4.90%</td><td>105,904</td><td>-49,850</td></tr>
+  </table>
+
+  <div class="signal-warn">
+    <strong>Key trend insights:</strong><br>
+    <strong>① Growth stalls after revenue doubles:</strong>From ~RMB 158.2 billion in FY2017 to RMB 1,023.7 billion in FY2026, a 6.5x increase over 10 years. But growth has fallen off a cliff from the 20%+ level to 2.74%; the growth story is over.<br>
+    <strong>② Sharp margin volatility:</strong>Operating margin swings between 8% and 14%, with no stable margin trend—this fails Buffett's "predictability" test.<br>
+    <strong>③ FCF from peak to trough:</strong>FY2023 FCF (RMB 165.4 billion) was once Alibaba's brightest halo (free cash flow even exceeded net profit), but it turned negative for the first time in FY2026 — a fall that can only be called brutal.<br>
+    <strong>④ The only improving trend:</strong>Gross margin rose from 36.76% to 39.81% (+3.05pp over 5 years), a slow but steady improvement, indicating that the revenue mix is tilting toward higher-margin businesses (cloud computing, international e-commerce).</div>
+</div>
+
+<!-- ===== 八、管理层战略评估 ===== -->
+<div class="card">
+  <h2><span class="num">Eight</span>Management strategy review: the cost of "slimming down" and "going global"</h2>
+
+  <h3>8.1 Background of the strategic transformation</h3>
+  <p>FY2026 is Alibaba's first full fiscal year following the "1+6+N" organizational restructuring. Core strategies include:</p>
+  <ul>
+    <li><strong>Focus on the core:</strong>Divested non-core retail assets including Intime and SunArt Retail, recovering capital</li>
+    <li><strong>Overseas expansion:</strong>AIDC (Lazada/AliExpress/Trendyol) is investing heavily to capture overseas markets</li>
+    <li><strong>AI-driven:</strong>Alibaba Cloud + Qwen large model, focused on AI infrastructure investment</li>
+    <li><strong>Low-price strategy:</strong>Taobao and Tmall Group returns to a "low-price" strategy to counter Pinduoduo's challenge</li>
+  </ul>
+
+  <h3>8.2 Assessment of strategic outcomes</h3>
+  <table>
+    <tr><th>Strategy</th><th>Short-term effects</th><th>Long-term outlook</th><th>Valuation</th></tr>
+    <tr>
+      <td class="td-left">Divest non-core assets</td>
+      <td><span class="hl-amber">✅ Repatriate capital, dress up profits</span></td>
+      <td><span class="hl-green">✅ Focus on the core</span></td>
+      <td><span class="bad-up">The right direction</span></td>
+    </tr>
+    <tr>
+      <td class="td-left">International e-commerce expansion</td>
+      <td><span class="hl-red">❌ Massive loss, worsening SG&A</span></td>
+      <td><span class="hl-amber">⚠️ Depends on the competitive landscape</span></td>
+      <td><span class="bad-mid">Necessary but costly</span></td>
+    </tr>
+    <tr>
+      <td class="td-left">AI/cloud infrastructure</td>
+      <td><span class="hl-red">❌ CapEx rises sharply, FCF under pressure</span></td>
+      <td><span class="hl-green">✅ Long-term growth engine</span></td>
+      <td><span class="bad-up">Right strategy, short-term pain</span></td>
+    </tr>
+    <tr>
+      <td class="td-left">Low-price strategy</td>
+      <td><span class="hl-red">❌ Profit hit</span></td>
+      <td><span class="hl-amber">⚠️ Unsustainable</span></td>
+      <td><span class="bad-down">Debatable</span></td>
+    </tr>
+  </table>
+
+  <div class="signal-warn">
+    <strong>The paradox facing management:</strong>Alibaba is caught in a dilemma: "invest and die, or don't invest and wait to die." Without investing in international markets and AI, it will inevitably be overtaken in 3-5 years; investing, however, pressures near-term profit and cash flow. This demands exceptional execution to balance short-term and long-term trade-offs.</div>
+</div>
+
+<!-- ===== 九、关键指标预警 ===== -->
+<div class="card">
+  <h2><span class="num">Nine</span>Key financial indicator alert</h2>
+
+  <table>
+    <tr><th>Warning items</th><th>Status</th><th>Explanation</th></tr>
+    <tr>
+      <td class="td-left"><strong>Risk of SG&A spiraling out of control</strong></td>
+      <td><span class="bad-down">🔴 Severe</span></td>
+      <td class="td-left">SG&A/revenue rose from 18.9% to 27.2%; unless it falls back to within ~20%, operating profit will struggle to recover</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>FCF remains negative</strong></td>
+      <td><span class="bad-down">🔴 Severe</span></td>
+      <td class="td-left">If FCF remains negative in FY2027, net cash will be depleted, and the company may be forced to halt buybacks or cut dividends</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>Interest income dependence</strong></td>
+      <td><span class="bad-down">🔴 Severe</span></td>
+      <td class="td-left">Of FY2026 net profit attributable to parent, about RMB 66.7 billion comes from incremental interest income (unsustainable); core earnings are worrying once this is stripped out</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>Revenue growth<GDP</strong></td>
+      <td><span class="bad-down">🔴 Severe</span></td>
+      <td class="td-left">2.74% < 5% GDP增速，作为电商龙头已\"跑输大盘\"</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>Taobao and Tmall Group market share</strong></td>
+      <td><span class="bad-mid">🟡 Watch</span></td>
+      <td class="td-left">Share fell from ~50%+ to below ~45%, with Pinduoduo and Douyin continuing to take share</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>AIDC losses persist</strong></td>
+      <td><span class="bad-mid">🟡 Watch</span></td>
+      <td class="td-left">When will the international business turn profitable? Temu competition may prevent profitability for 3-5 years</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>Goodwill impairment risk</strong></td>
+      <td><span class="bad-mid">🟡 Watch</span></td>
+      <td class="td-left">Goodwill of RMB 247.38 billion; if acquired businesses (such as Lazada) keep losing money, impairment is possible</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>Rapid consumption of net cash</strong></td>
+      <td><span class="bad-mid">🟡 Watch</span></td>
+      <td class="td-left">Net cash fell from RMB 400.25 billion to RMB 56.9 billion; further deterioration could affect its debt rating</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>Sharp cutback in buybacks</strong></td>
+      <td><span class="bad-mid">🟡 Watch</span></td>
+      <td class="td-left">Buybacks fell from RMB 86.66 billion to RMB 7.64 billion (-91.2%), signaling declining management confidence in the company's own value</td>
+    </tr>
+  </table>
+</div>
+
+<!-- ===== 十、总结 ===== -->
+<div class="card" style="background:#fdf2f0; border:1px solid #e8c0be;">
+  <h2><span class="num">Ten</span>Conclusion</h2>
+
+  <div class="verdict-box alert">
+    <span>⛔</span>
+    <span>FY2026 is the year Alibaba "lost its footing"</span>
+    <span class="detail">SG&A out of control · FCF turns negative · interest income "cushions"</span>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:16px 0;">
+    <div style="background:#fde8e8; border-radius:8px; padding:16px;">
+      <div style="font-size:0.8rem; color:#7f8c9b;">🔴 Core risks</div>
+      <ul style="font-size:0.85rem; margin-top:8px; padding-left:16px;">
+        <li>SG&A out of control — operating margin fell from 14% to 5%</li>
+        <li>FCF turns negative for the first time — the money printer becomes a money burner</li>
+        <li>Interest income cushions the blow — core profitability genuinely deteriorates</li>
+        <li>Revenue growth<GDP——增长故事结束</li>
+        <li>Net cash burn accelerates—only RMB 56.9 billion left</li>
+      </ul>
+    </div>
+    <div style="background:#eafaf1; border-radius:8px; padding:16px;">
+      <div style="font-size:0.8rem; color:#7f8c9b;">🟢 Positive factors</div>
+      <ul style="font-size:0.85rem; margin-top:8px; padding-left:16px;">
+        <li>Gross margin stable at ~40%, revenue mix improving</li>
+        <li>Debt-to-asset ratio at just 41%, broadly solid</li>
+        <li>Cloud computing plus AI is on the right track, with long-term upside</li>
+        <li>International e-commerce grows rapidly (+25-30%)</li>
+        <li>Strategy focuses on "slimming down" and divesting non-core businesses</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>🔍 Core contradiction: "Too few people making money, too many people spending it"</h3>
+  <p>Alibaba's problem is not a simple matter of "cost control" but a structural business-model predicament:</p>
+  <ul>
+    <li><strong>Taobao and Tmall Group only</strong>The real profit driver; the other 6 major business segments (AIDC/cloud/Cainiao/local services/digital media and entertainment/others) are either marginally profitable or deeply loss-making</li>
+    <li><strong>Domestic e-commerce's "passive defense":</strong>Taobao and Tmall Group spends tens of billions annually to counter Pinduoduo and Douyin, attackers that by nature carry no "historical baggage" (no need to maintain legacy systems)</li>
+    <li><strong>Internationalization is a "necessary gamble":</strong>Stay domestic and you slowly die; go overseas and you face 3-5 years or more of losses</li>
+    <li><strong>AI's "arms race":</strong>Skip AI and you get left behind; invest in AI and you must strike a painful balance between CapEx and FCF</li>
+  </ul>
+
+  <div class="signal-alert">
+    <strong>Impact on the investment thesis:</strong>Alibaba's FY2026 annual report strongly confirms the "growth fading" and "moat erosion" thesis. It passes only 3/7 of the seven hard metrics. The key things to watch in FY2027 are: (1) whether SG&A can decline; (2) whether FCF can turn positive; (3) the true profit level after interest income falls back. Unless FY2027 brings a clear operating inflection, Alibaba's "value trap" risk is rising.</div>
+
+  <h3>📋 Key FY2027 metrics to track</h3>
+  <ol style="padding-left:20px; margin:10px 0;">
+    <li><strong>SG&A expense ratio</strong>— Whether it falls back from 27.2% to below ~22%</li>
+    <li><strong>FCF</strong>— Can it turn positive (CapEx control + OCF improvement)</li>
+    <li><strong>Taobao and Tmall Group revenue growth</strong>— Can it stabilize and stop declining?</li>
+    <li><strong>AIDC loss magnitude</strong>— Is the loss starting to narrow?</li>
+    <li><strong>Net cash</strong>— Whether it will be further drawn down below zero</li>
+    <li><strong>Interest income</strong>— True profit after asset-disposal gains fade</li>
+  </ol>
+</div>
+
+<div class="footer">Report generated: 2026/07/07<br>Data source: Alibaba FY2026 annual report &middot; stockanalysis.com<br>This report is for reference only and does not constitute investment advice.</div>
+
+</div>
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

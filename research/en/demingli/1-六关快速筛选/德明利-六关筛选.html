@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demingli (001309.SZ) — Six-gate rapid screen + seven hard metrics to filter out the weak</title>
+<style>
+  /* === PDD 标准 CSS 模板 v2.0 === */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f4f6f9;
+    color: #1a1a2e;
+    padding: 40px 20px;
+  }
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 24px 24px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 16px 16px 0 0;
+    color: #fff;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .header .sub {
+    font-size: 14px;
+    opacity: .75;
+    margin-top: 4px;
+  }
+  .header .ticker {
+    display: inline-block;
+    background: rgba(255,255,255,.12);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  .summary-ribbon {
+    display: flex;
+    justify-content: space-around;
+    background: #fff;
+    border-left: 1px solid #e8ecf1;
+    border-right: 1px solid #e8ecf1;
+    padding: 18px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .summary-ribbon .stat {
+    text-align: center;
+    min-width: 80px;
+  }
+  .summary-ribbon .stat .val { font-size: 20px; font-weight: 700; color: #1a1a2e; }
+  .summary-ribbon .stat .lbl { font-size: 11px; color: #888; margin-top: 2px; }
+  .verdict-banner {
+    background: #fff;
+    border-left: 1px solid #e8ecf1;
+    border-right: 1px solid #e8ecf1;
+    padding: 20px 24px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .verdict-banner .pass { color: #22c55e; }
+  .verdict-banner .warn { color: #f59e0b; }
+  .verdict-banner .fail { color: #ef4444; }
+  .card {
+    background: #fff;
+    border: 1px solid #e8ecf1;
+    border-top: none;
+    padding: 28px 32px;
+  }
+  .card:last-child { border-radius: 0 0 16px 16px; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f0f2f5;
+  }
+  .card-header .step { 
+    width: 36px; height: 36px; border-radius: 50%; 
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px; color: #fff; flex-shrink: 0;
+  }
+  .card-header .step.pass { background: #22c55e; }
+  .card-header .step.warn { background: #f59e0b; }
+  .card-header .step.fail { background: #ef4444; }
+  .card-header .title { font-size: 18px; font-weight: 700; }
+  .card-header .badge {
+    margin-left: auto;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .badge.pass { background: #dcfce7; color: #166534; }
+  .badge.warn { background: #fef3c7; color: #92400e; }
+  .badge.fail { background: #fee2e2; color: #991b1b; }
+  .card-body { font-size: 14.5px; line-height: 1.75; color: #334155; }
+  .card-body p { margin-bottom: 10px; }
+  .card-body ul { margin: 8px 0 12px 24px; }
+  .card-body li { margin-bottom: 5px; }
+  .card-body strong { color: #1e293b; }
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .data-grid .item {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .data-grid .item .num { font-size: 17px; font-weight: 700; color: #1a1a2e; }
+  .data-grid .item .desc { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+  .roi-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  .roi-table th {
+    background: #f1f5f9;
+    padding: 8px 10px;
+    text-align: center;
+    font-weight: 600;
+    color: #475569;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .roi-table td {
+    padding: 8px 10px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .roi-table tr:last-child td { border-bottom: none; }
+  .roi-table .good { color: #22c55e; font-weight: 600; }
+  .roi-table .ok   { color: #f59e0b; font-weight: 600; }
+  .roi-table .bad  { color: #ef4444; font-weight: 600; }
+  .highlight-box {
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  .highlight-box.warn { background: #fef3c7; }
+  .highlight-box.info { background: #eff6ff; }
+  .highlight-box.good { background: #f0fdf4; }
+  .star-rating { font-size: 16px; letter-spacing: 2px; }
+  .star-filled { color: #f59e0b; }
+  .star-empty { color: #d1d5db; }
+  .footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  @media (max-width: 640px) {
+    .header h1 { font-size: 22px; }
+    .card { padding: 20px 16px; }
+    .summary-ribbon { gap: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ======== HEADER ======== -->
+<div class="header">
+  <h1>🧾 Buffett's Six Gates Before Buying · Quick Screen + Seven Hard Metrics to Filter Out the Weak</h1>
+  <div class="sub">Demingli Technology Co., Ltd.</div>
+  <div class="ticker">001309.SZ (Shenzhen Main Board)</div>
+  <div style="margin-top:14px;font-size:13px;opacity:.6;">Research date: 2026-07-19 &nbsp;|&nbsp; Share price: RMB 536.54 &nbsp;|&nbsp; Market cap: ~RMB 121.7 billion</div>
+</div>
+
+<!-- ======== KEY STATS RIBBON ======== -->
+<div class="summary-ribbon">
+  <div class="stat"><div class="val">29.66x</div><div class="lbl">PE (TTM)</div></div>
+  <div class="stat"><div class="val">~RMB 121.7 billion</div><div class="lbl">Total market cap</div></div>
+  <div class="stat"><div class="val">~RMB 88.6 billion</div><div class="lbl">Free-float market cap</div></div>
+  <div class="stat"><div class="val">536.54</div><div class="lbl">Share price (RMB)</div></div>
+  <div class="stat"><div class="val">Grade A</div><div class="lbl">Information richness</div></div>
+</div>
+
+<!-- ======== OVERALL VERDICT ======== -->
+<div class="verdict-banner">
+  <span class="warn">⚠️ Overall call: Wait and see, but with close attention</span><br>
+  <span style="font-size:14px;font-weight:400;color:#64748b;">2026Q1 earnings surge (net profit of RMB 3.346 billion, 44% net margin); if sustainable, annualized PE is only ~9x — but margin sustainability needs verification</span>
+</div>
+
+<!-- ======== 公司速览 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step pass">📋</div>
+    <div class="title">Company snapshot</div>
+    <div class="badge pass">Overview</div>
+  </div>
+  <div class="card-body">
+    <table class="roi-table">
+      <thead>
+        <tr><th style="width:30%;">Project</th><th>Data</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Company name</strong></td><td>Demingli Technology Co., Ltd.</td></tr>
+        <tr><td><strong>Stock ticker</strong></td><td>001309.SZ (Shenzhen Main Board)</td></tr>
+        <tr><td><strong>Latest share price</strong></td><td>RMB 536.54 (2026/07/17)</td></tr>
+        <tr><td><strong>Total market cap</strong></td><td>~RMB 121.7 billion</td></tr>
+        <tr><td><strong>Free-float market cap</strong></td><td>~RMB 88.6 billion</td></tr>
+        <tr><td><strong>P/E ratio (TTM)</strong></td><td>29.66x</td></tr>
+        <tr><td><strong>Total shares outstanding (estimated)</strong></td><td>~227 million shares</td></tr>
+        <tr><td><strong>Main business</strong></td><td>NAND flash controllers/storage modules/embedded storage</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======== 核心财务数据 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step pass">📊</div>
+    <div class="title">Core financial data</div>
+    <div class="badge pass">Financials</div>
+  </div>
+  <div class="card-body">
+    <p><strong>Income statement</strong></p>
+    <table class="roi-table">
+      <thead>
+        <tr>
+          <th>Indicator</th>
+          <th>2023</th>
+          <th>2024</th>
+          <th>2025</th>
+          <th>Q1 2026</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Total operating revenue</strong></td><td>~RMB 6.839 billion</td><td>RMB 7.54 billion</td><td><strong>RMB 10.79 billion</strong></td><td><strong>RMB 7.54 billion</strong></td></tr>
+        <tr><td><strong>Total operating costs</strong></td><td>—</td><td>—</td><td>RMB 10.10 billion</td><td>RMB 3.644 billion</td></tr>
+        <tr><td>Of which: cost of sales</td><td>—</td><td>—</td><td>RMB 9.19 billion</td><td><strong>RMB 3.21 billion</strong></td></tr>
+        <tr><td>Selling expenses</td><td>—</td><td>—</td><td>RMB 93 million</td><td>RMB 24 million</td></tr>
+        <tr><td>Administrative expenses</td><td>—</td><td>—</td><td>207 million</td><td>RMB 68 million</td></tr>
+        <tr><td>R&D expenses</td><td>—</td><td>—</td><td>292 million</td><td>168 million</td></tr>
+        <tr><td>Finance costs</td><td>—</td><td>—</td><td>202 million</td><td>118 million</td></tr>
+        <tr><td><strong>Net profit attributable to shareholders</strong></td><td class="bad">-0.28 billion (loss)</td><td class="good">RMB 680 million</td><td class="good">688 million</td><td class="good"><strong>RMB 3.346 billion</strong></td></tr>
+        <tr><td><strong>Net profit excluding non-recurring items</strong></td><td>—</td><td>—</td><td>668 million</td><td><strong>RMB 3.334 billion</strong></td></tr>
+        <tr><td><strong>Gross margin</strong></td><td>—</td><td>—</td><td>~14.8%</td><td><strong>~57.4%</strong></td></tr>
+        <tr><td><strong>Net margin</strong></td><td>—</td><td>—</td><td>~6.4%</td><td><strong>~44.4%</strong></td></tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top:20px;"><strong>Analysis of explosive growth in 2026Q1</strong></p>
+    <table class="roi-table">
+      <thead>
+        <tr><th>Comparison</th><th>Revenue</th><th>Net profit</th><th>Gross margin</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Full year 2025</strong></td><td>RMB 10.79 billion</td><td>688 million</td><td>14.8%</td></tr>
+        <tr><td><strong>2026Q1 single quarter</strong></td><td>RMB 7.538 billion (≈70% of full-year 2025)</td><td>RMB 3.346 billion (≈486% of full-year 2025)</td><td class="good">57.4%</td></tr>
+        <tr><td><strong>Year-on-year growth</strong></td><td>~500%+</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-box info">
+      <strong>📌 Conclusion:</strong>2026Q1 results surged, with single-quarter net profit already exceeding the combined total of 2024 and 2025. Gross margin jumped from 14.8% to 57.4%, reflecting a sharp improvement in product mix or gains from the memory chip price upcycle.</div>
+  </div>
+</div>
+
+<!-- ======== 六关快速筛选 ======== -->
+
+<!-- ======== GATE 1 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step pass">①</div>
+    <div class="title">Gate one: Can I understand this business?</div>
+    <div class="badge pass">
+      <span class="star-rating"><span class="star-filled">★★★★★</span><span class="star-empty">☆</span></span>
+    </div>
+  </div>
+  <div class="card-body">
+    <p><strong>Core view: the business model is clear, but watch for a qualitative shift in the business mix.</strong></p>
+    <p>Demingli makes storage modules and controllers—it buys NAND Flash chips from SK hynix/Micron/Samsung, turns them into SSDs, memory cards and embedded storage, and sells to phone makers and data-center customers. The business model is clear: "trading plus processing" of memory chips.</p>
+    <div class="highlight-box warn">
+      <strong>⚠️ Key takeaway:</strong>2026Q1 gross margin of 57.4% far exceeds traditional module makers (typically 10-25%), indicating a qualitative shift in the business mix—possibly an integrated in-house controller chip plus module model.</div>
+  </div>
+</div>
+
+<!-- ======== GATE 2 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step pass">②</div>
+    <div class="title">Gate two: is this a good business?</div>
+    <div class="badge pass">
+      <span class="star-rating"><span class="star-filled">★★★★★</span><span class="star-empty">☆</span></span>
+    </div>
+  </div>
+  <div class="card-body">
+    <table class="roi-table">
+      <thead>
+        <tr><th>Indicator</th><th>Demingli</th><th>Reference standard</th><th>Judgment</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Gross margin (2025)</td>
+          <td>14.8%</td>
+          <td>>40% pricing power</td>
+          <td><span class="ok">⚠️ Average (but excellent at 57% in Q1)</span></td>
+        </tr>
+        <tr>
+          <td>Gross margin (Q1 2026)</td>
+          <td class="good"><strong>57.4%</strong></td>
+          <td>>40% pricing power</td>
+          <td><span class="good">✅ Excellent</span></td>
+        </tr>
+        <tr>
+          <td>Net margin (2026Q1)</td>
+          <td class="good"><strong>44.4%</strong></td>
+          <td>>15% excellent</td>
+          <td><span class="good">✅ Outstanding</span></td>
+        </tr>
+        <tr>
+          <td>ROE (estimated)</td>
+          <td>To be calculated</td>
+          <td>&gt;15%</td>
+          <td><span class="ok">⚠️ To be confirmed</span></td>
+        </tr>
+        <tr>
+          <td>Free cash flow</td>
+          <td>To be verified</td>
+          <td>Consistently positive</td>
+          <td><span class="ok">⚠️ To be confirmed</span></td>
+        </tr>
+        <tr>
+          <td>Debt level</td>
+          <td>To be verified</td>
+          <td>Interest-bearing debt/net profit &lt;3 years</td>
+          <td><span class="ok">⚠️ To be confirmed</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======== GATE 3 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step warn">③</div>
+    <div class="title">Gate three: is the moat deep enough?</div>
+    <div class="badge warn">
+      <span class="star-rating"><span class="star-filled">★★★★</span><span class="star-empty">★★</span></span>
+    </div>
+  </div>
+  <div class="card-body">
+    <table class="roi-table">
+      <thead>
+        <tr><th>Moat</th><th>Score</th><th>Evidence</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Brand/pricing power</td>
+          <td><span class="ok">★★</span></td>
+          <td>Standardized module products, limited pricing power</td>
+        </tr>
+        <tr>
+          <td>Technical barriers</td>
+          <td><span class="ok">★★★</span></td>
+          <td>In-house controller chips involve technical barriers</td>
+        </tr>
+        <tr>
+          <td>Customer lock-in</td>
+          <td><span class="ok">★★★</span></td>
+          <td>Customer validation cycles are long, but SK hynix/Samsung can also sell direct</td>
+        </tr>
+        <tr>
+          <td>Scale effects</td>
+          <td><span class="ok">★★★</span></td>
+          <td>Revenue above RMB 10 billion, with a certain scale advantage</td>
+        </tr>
+        <tr>
+          <td><strong>Comprehensive</strong></td>
+          <td><strong>★★★</strong></td>
+          <td>Midstream moat</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======== GATE 4 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step warn">④</div>
+    <div class="title">Gate 4: Is management trustworthy?</div>
+    <div class="badge warn">
+      <span class="star-rating"><span class="star-filled">★★★★</span><span class="star-empty">★★</span></span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="highlight-box warn">
+      <strong>⚠️ To be confirmed:</strong>Further research is needed on management backgrounds and shareholding structure.</div>
+  </div>
+</div>
+
+<!-- ======== GATE 5 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step warn">⑤</div>
+    <div class="title">Gate 5: Is it cheap?</div>
+    <div class="badge warn">
+      <span class="star-rating"><span class="star-filled">★★★★</span><span class="star-empty">★★</span></span>
+    </div>
+  </div>
+  <div class="card-body">
+    <table class="roi-table">
+      <thead>
+        <tr><th>Indicator</th><th>Numeric value</th><th>Judgment</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>PE(TTM)</td>
+          <td>29.66x</td>
+          <td><span class="ok">Not cheap, but not expensive</span></td>
+        </tr>
+        <tr>
+          <td>2025 PE</td>
+          <td>~177x</td>
+          <td class="bad">Expensive on 2025 earnings</td>
+        </tr>
+        <tr>
+          <td>2026E PE (Q1 annualized)</td>
+          <td class="good"><strong>~9x</strong></td>
+          <td class="good">If Q1 results are sustainable, it is very cheap</td>
+        </tr>
+        <tr>
+          <td>Market cap</td>
+          <td>RMB 121.7 billion</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="highlight-box warn">
+      <strong>⚠️ Key point of contention:</strong>Is the RMB 3.346 billion net profit in 2026Q1 sustainable or non-recurring?</div>
+  </div>
+</div>
+
+<!-- ======== GATE 6 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step warn">⑥</div>
+    <div class="title">Stage Six: Decision Discipline</div>
+    <div class="badge warn">
+      <span class="star-rating"><span class="star-filled">★★★★</span><span class="star-empty">★★</span></span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="highlight-box info">
+      <strong>🪞 Mirror test:</strong>I bought Demingli at RMB 536.54 because it delivered net profit of RMB 3.346 billion in 2026Q1, implying an annualized PE of only ~9x. But the key assumption is the sustainability of that net profit—if the Q1 results are one-off (a spike in memory chip prices, a large one-time contract, etc.), the current valuation logic does not hold.</div>
+  </div>
+</div>
+
+<!-- ======== 七条硬指标去劣 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step pass">📏</div>
+    <div class="title">Seven hard metrics to weed out the weak</div>
+    <div class="badge pass">Hard metric</div>
+  </div>
+  <div class="card-body">
+    <table class="roi-table">
+      <thead>
+        <tr><th>#</th><th>Indicator</th><th>Data</th><th>Through</th><th>Exemption</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>10-year average ROE > 8%</td>
+          <td>Listed for less than 3 years</td>
+          <td><span class="ok">⚠️ Insufficient data</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Cumulative FCF positive over 5 years</td>
+          <td>To be verified</td>
+          <td><span class="ok">⚠️</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Interest coverage >2x</td>
+          <td>To be verified</td>
+          <td><span class="ok">⚠️</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Long-term gross margin >15%</td>
+          <td>14.8% in 2025, 57.4% in Q1 2026</td>
+          <td><span class="good">✅ Trend improving</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Operating cash flow/net profit >0.7</td>
+          <td>To be verified</td>
+          <td><span class="ok">⚠️</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Net margin >5%</td>
+          <td>2026Q1 44.4%</td>
+          <td><span class="good">✅</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>5-year share count dilution &lt;20%</td>
+          <td>Just 2 years after listing</td>
+          <td><span class="good">✅</span></td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="highlight-box warn">
+      <strong>📌 Preliminary assessment:</strong>The data is insufficient for a hard veto, but FCF and ROE data need to be added.</div>
+  </div>
+</div>
+
+<!-- ======== 关键风险 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step fail">⚠️</div>
+    <div class="title">Key risks</div>
+    <div class="badge fail">Focus</div>
+  </div>
+  <div class="card-body">
+    <ol style="margin:0 0 0 20px;">
+      <li><strong>Q1 earnings sustainability</strong>: Is the 44% net margin sustainable, or a one-off windfall from the memory price upcycle?</li>
+      <li><strong>Industry cyclicality</strong>: Memory chip prices swing sharply, and module makers' profits depend heavily on price direction</li>
+      <li><strong>Customer concentration</strong>: Top five customer concentration, large-customer dependence</li>
+      <li><strong>Inventory risk</strong>: Inventory impairment risk when memory prices fall</li>
+      <li><strong>Technology dependence</strong>: Reliance on upstream NAND Flash manufacturers (Samsung / SK hynix / Micron / YMTC)</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ======== 初步结论 ======== -->
+<div class="card" style="border-radius:0 0 16px 16px;border-top:2px solid #e8ecf1;">
+  <div class="card-header">
+    <div class="step pass">🎯</div>
+    <div class="title">Preliminary conclusion</div>
+    <div class="badge pass">Conclusion</div>
+  </div>
+  <div class="card-body">
+    <p><strong>Wait and see, but with close attention.</strong></p>
+    <p>Demingli's explosive 2026Q1 results (RMB 3.346 billion net profit, 44% net margin) are an exceptionally bright signal. If this profitability is sustainable, at the current market cap of RMB 121.7 billion and annualized net profit of ~RMB 13.4 billion, PE is only 9x, offering a margin of safety.</p>
+    <p><strong>The following key questions need verification, however:</strong></p>
+    <ol style="margin:8px 0 12px 20px;">
+      <li>What drove the high margins in 2026Q1? Upstream and downstream price increases, or a structural transformation of the business mix?</li>
+      <li>How many quarters can this margin be sustained?</li>
+      <li>Is management inclined to raise capital or reduce holdings at the peak?</li>
+    </ol>
+
+    <!-- ======== 六关综合判定总表 ======== -->
+    <p style="margin-top:20px;"><strong>Six-gate composite assessment summary table</strong></p>
+    <table class="roi-table">
+      <thead>
+        <tr><th style="width:130px;">Checkpoint</th><th style="width:100px;">Determination</th><th>Brief rationale</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>① Understanding the business</strong></td>
+          <td><span class="good">✅ 4/5</span></td>
+          <td>Storage module plus controller model is clear; Q1 gross margin step-change warrants attention</td>
+        </tr>
+        <tr>
+          <td><strong>② A good business</strong></td>
+          <td><span class="good">✅ 4/5</span></td>
+          <td>Q1 net margin of 44.4% is excellent, but ROE/FCF still to be confirmed</td>
+        </tr>
+        <tr>
+          <td><strong>③ Moat</strong></td>
+          <td><span class="ok">⚠️ 3/5</span></td>
+          <td>Moderate technical barriers and scale effects, limited pricing power</td>
+        </tr>
+        <tr>
+          <td><strong>④ Management</strong></td>
+          <td><span class="ok">⚠️ To be confirmed</span></td>
+          <td>Further research is needed on management backgrounds and shareholding structure.</td>
+        </tr>
+        <tr>
+          <td><strong>⑤ Price</strong></td>
+          <td><span class="ok">⚠️ 3/5</span></td>
+          <td>TTM PE of 29x is not expensive; Q1 annualized at only 9x, but sustainability is questionable</td>
+        </tr>
+        <tr>
+          <td><strong>⑥ Decision discipline</strong></td>
+          <td><span class="ok">⚠️ 3/5</span></td>
+          <td>The buy case hinges on the sustainability of Q1 results, which needs further verification</td>
+        </tr>
+        <tr style="background:#f8fafc;font-weight:700;">
+          <td><strong>Overall</strong></td>
+          <td><span class="ok">⚠️ Wait and see</span></td>
+          <td>Earnings breakout signal is very bright, but sustainability is key—verify before acting</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-box warn" style="margin-top:16px;">
+      <strong>💡 Trading recommendation:</strong>It currently falls under the "High Attention" rating. Recommend adding to<strong>Watchlist</strong>, waiting for the following signals: (1) Q2 results confirming margin sustainability; (2) additional FCF and ROE data; (3) whether management takes any share-reduction or financing action. Before Q2 data is released, it is not advisable to build a heavy position.</div>
+  </div>
+</div>
+
+<div class="footer">This report is compiled from public financial data for research reference only and does not constitute investment advice.<br>Data as of: 2026-07-19 &nbsp;|&nbsp; Sources: Tonghuashun F10 financial data, Eastmoney, Sina Finance &nbsp;|&nbsp; Generated by: Hermes Agent</div>
+
+</div>
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

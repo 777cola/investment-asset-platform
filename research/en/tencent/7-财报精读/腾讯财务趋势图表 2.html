@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tencent financial trend charts FY2021-FY2025</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f7fa; color: #333; line-height: 1.8; font-size: 15px; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 50px 0 40px; text-align: center; }
+.header h1 { font-size: 28px; font-weight: 900; letter-spacing: 1px; margin-bottom: 8px; }
+.header .subtitle { font-size: 16px; font-weight: 300; opacity: 0.85; }
+.header .meta { margin-top: 14px; font-size: 13px; opacity: 0.7; }
+.container { max-width: 1100px; margin: 0 auto; padding: 30px 24px; }
+.card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 24px 28px; margin-bottom: 28px; }
+.card h2 { font-size: 22px; font-weight: 700; color: #1A4B8C; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid #1A4B8C; display: inline-block; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; }
+
+/* Extra styles for chart content */
+.summary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; margin: 0 0 28px; }
+.summary-item { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 20px 16px; text-align: center; }
+.summary-item .big { font-size: 1.6em; font-weight: 700; color: #1A4B8C; }
+.summary-item .label { font-size: 0.8em; color: #666; margin-top: 4px; }
+.summary-item .trend { font-size: 0.85em; margin-top: 4px; }
+.up { color: #10B981; }
+.down { color: #EF4444; }
+.chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.chart-card { background: #fff; border: 1px solid #e8ecf1; border-radius: 10px; padding: 20px; }
+.chart-card.full { grid-column: 1 / -1; }
+.chart-card h3 { font-size: 0.95em; color: #333; margin-bottom: 12px; text-align: center; }
+.chart-wrapper { position: relative; height: 300px; }
+.chart-wrapper.tall { height: 360px; }
+.insight-box { background: #f8f9fb; border-radius: 10px; padding: 16px 20px; margin: 16px 0; border-left: 3px solid #1A4B8C; font-size: 0.9em; }
+.insight-box strong { color: #1A4B8C; }
+
+@media (max-width: 768px) {
+  .header { padding: 36px 16px 30px; }
+  .header h1 { font-size: 22px; }
+  .container { padding: 20px 12px; }
+  .card { padding: 16px; }
+  .chart-grid { grid-template-columns: 1fr; gap: 16px; }
+  .summary-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .summary-item { padding: 14px; }
+  .summary-item .big { font-size: 1.3em; }
+  .chart-wrapper { height: 240px; }
+  .chart-wrapper.tall { height: 280px; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <h1>Tencent financial trend charts FY2021 — FY2025</h1>
+  <div class="subtitle">Data source: Tencent annual reports | Unit: RMB billion (unless otherwise noted)</div>
+</header>
+
+<div class="container">
+
+<!-- 速览卡片 -->
+<div class="summary-grid">
+  <div class="summary-item">
+    <div class="big">RMB 751.8 billion</div>
+    <div class="label">FY2025 total revenue</div>
+    <div class="trend up">▲ +13.9% YoY</div>
+  </div>
+  <div class="summary-item">
+    <div class="big">56.3%</div>
+    <div class="label">FY2025 gross margin</div>
+    <div class="trend up">▲ +12.9pp five-year</div>
+  </div>
+  <div class="summary-item">
+    <div class="big">RMB 224.8 billion</div>
+    <div class="label">FY2025 net profit attributable to parent</div>
+    <div class="trend up">▲ +15.9% YoY</div>
+  </div>
+  <div class="summary-item">
+    <div class="big">95.9%</div>
+    <div class="label">FCF/net profit ratio</div>
+    <div class="trend" style="color:#F59E0B">▼ -4.9pp YoY</div>
+  </div>
+  <div class="summary-item">
+    <div class="big">20.51%</div>
+    <div class="label">ROE</div>
+    <div class="trend up">▲ High-quality returns</div>
+  </div>
+</div>
+
+<!-- 图表1+2：收入与利润 -->
+<div class="card">
+  <h2>Revenue and profit trends</h2>
+  <div class="chart-grid">
+    <div class="chart-card">
+      <h3>Total revenue (RMB billion)</h3>
+      <div class="chart-wrapper"><canvas id="chartRevenue"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>Gross profit vs net profit (RMB billion)</h3>
+      <div class="chart-wrapper"><canvas id="chartProfit"></canvas></div>
+    </div>
+  </div>
+  <div class="insight-box">
+    <strong>Insight:</strong>Revenue grew from RMB 560.1 billion in FY2021 to RMB 751.8 billion in FY2025 (+34%). Gross profit growth (+87% to RMB 422.9 billion) far outpaced revenue growth, directly reflecting a structural improvement in gross margin. Net profit was volatile—FY2021 included substantial investment gains, while FY2022-23 were hit by declines in investment fair value—but FY2024-25 returned to healthy operating growth.</div>
+</div>
+
+<!-- 图表3+4：利润率 -->
+<div class="card">
+  <h2>Margin trajectory</h2>
+  <div class="chart-grid">
+    <div class="chart-card">
+      <h3>Gross margin and net margin</h3>
+      <div class="chart-wrapper"><canvas id="chartMargin"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>Operating margin and EBITDA margin</h3>
+      <div class="chart-wrapper"><canvas id="chartOpMargin"></canvas></div>
+    </div>
+  </div>
+  <div class="insight-box">
+    <strong>Insight:</strong>Gross margin rose nearly 13pp over five years (43.4%→56.3%), the biggest structural change in Tencent's fundamentals. Net margin has swung widely on investment gains and losses, but the 29.9% net margin in FY2025 is already near its historical high (FY2021's 40.1% included substantial non-recurring gains and is not comparable).</div>
+</div>
+
+<!-- 图表5+6：现金流与FCF -->
+<div class="card">
+  <h2>Cash flow trends</h2>
+  <div class="chart-grid">
+    <div class="chart-card">
+      <h3>Free cash flow (RMB billion)</h3>
+      <div class="chart-wrapper"><canvas id="chartFCF"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>FCF/net profit ratio</h3>
+      <div class="chart-wrapper"><canvas id="chartFCFRatio"></canvas></div>
+    </div>
+  </div>
+  <div class="insight-box">
+    <strong>Insight:</strong>FCF grew from ~RMB 148.0 billion in FY2021 to RMB 215.6 billion in FY2025 (+46%). The FCF/net profit ratio has held at an extremely high ~90-100%, indicating Tencent's earnings are of very high quality. It dipped slightly to 95.9% in FY2025, mainly due to deliberately increased AI-related CapEx.</div>
+</div>
+
+<!-- 图表7：ROE趋势 -->
+<div class="card">
+  <h2>Profitability (ROE/ROIC)</h2>
+  <div class="chart-grid">
+    <div class="chart-card full">
+      <h3>ROE and ROIC trends</h3>
+      <div class="chart-wrapper tall"><canvas id="chartROE"></canvas></div>
+    </div>
+  </div>
+  <div class="insight-box">
+    <strong>Insight:</strong>After ROE fell from ~23% in FY2021 (including substantial investment gains) to ~11% in FY2023, it rebounded strongly to 20.51% in FY2024-5, above the 15% excellence threshold for internet companies generally. ROIC reached 17.57%, far above the cost of funding (~3-4%), with each RMB 1 of capital deployed generating ~RMB 0.18 of return.</div>
+</div>
+
+<!-- 图表8：板块增长 -->
+<div class="card">
+  <h2>Business segment structure</h2>
+  <div class="chart-grid">
+    <div class="chart-card full">
+      <h3>Revenue segment breakdown (estimated, RMB billion)</h3>
+      <div class="chart-wrapper tall"><canvas id="chartSegment"></canvas></div>
+    </div>
+  </div>
+  <div class="insight-box">
+    <strong>Insight:</strong>Value-added services (VAS) remain the largest revenue source but their share is gradually declining (~55% to ~48%); online advertising's share rose from ~15% to ~18% and is the fastest-growing segment; enterprise services rose from ~6% to ~9%, becoming the third growth engine. Structural optimization is the core driver of gross margin expansion.</div>
+</div>
+
+</div>
+
+<footer class="footer">
+  <p>Data source: Tencent FY2021-FY2025 annual reports | Some FY2021-FY2023 figures are approximate</p>
+  <p>Visualization generated: 2026-07-07 | Powered by Chart.js</p>
+</footer>
+
+<script>
+// Color palette
+const colors = {
+  primary: '#1A4B8C',
+  primaryLight: '#2A6BBF',
+  primaryLighter: '#6B9FD2',
+  accent: '#E8A838',
+  accentLight: '#F5D68A',
+  green: '#10B981',
+  greenLight: '#6EE7B7',
+  red: '#EF4444',
+  purple: '#8B5CF6',
+  gray: '#94A3B8',
+};
+
+// === DATA ===
+const years = ['FY2021', 'FY2022', 'FY2023', 'FY2024', 'FY2025'];
+
+// Revenue & profit
+const revenue = [5601, 5546, 6090, 6603, 7518];
+const grossProfit = [2431, 2363, 2930, 3493, 4229];
+const operatingProfit = [1526, 1305, 1602, 2080, 2456];
+const netProfit = [2248, 1882, 1580, 1941, 2248];
+
+// Margins
+const grossMargin = [43.4, 42.6, 48.1, 52.9, 56.3];
+const netMargin = [40.1, 33.9, 25.9, 29.4, 29.9];
+const opMargin = [27.2, 23.5, 26.3, 31.5, 32.7];
+const ebitdaMargin = [33.5, 30.2, 32.0, 34.9, 36.4];
+
+// FCF
+const fcf = [1480, 1350, 1680, 1956, 2156];
+const fcfRatio = [65.8, 71.7, 106.3, 100.8, 95.9];
+
+// ROE/ROIC
+const roe = [23.2, 14.8, 11.3, 18.0, 20.51];
+const roic = [18.5, 12.0, 9.5, 15.0, 17.57];
+
+// Segment data (estimated)
+const segmentData = [
+  [3080, 2950, 3100, 3300, 3600],   // VAS
+  [840, 860, 1015, 1188, 1430],       // Ad
+  [1400, 1420, 1500, 1550, 1650],     // FinTech
+  [281, 316, 475, 565, 838]           // Enterprise
+];
+
+// === CHART CONFIG ===
+function createConfig(type, labels, datasets, options = {}) {
+  return {
+    type: type,
+    data: { labels: labels, datasets: datasets },
+    options: Object.assign({
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { usePointStyle: true, padding: 16, font: { size: 11 } } },
+        tooltip: { backgroundColor: '#1A1A2E', titleFont: { size: 12 }, bodyFont: { size: 12 }, padding: 10, cornerRadius: 8 }
+      },
+      scales: {
+        y: { beginAtZero: true, ticks: { font: { size: 11 } }, grid: { color: '#F1F5F9' } },
+        x: { ticks: { font: { size: 11 } }, grid: { display: false } }
+      }
+    }, options)
+  };
+}
+
+// 1. Revenue
+new Chart(document.getElementById('chartRevenue'), createConfig('bar', years, [{
+  label: '总收入（亿元）',
+  data: revenue,
+  backgroundColor: colors.primary,
+  borderRadius: 4,
+}], {
+  scales: { y: { beginAtZero: false, min: 5000 } }
+}));
+
+// 2. Gross Profit vs Net Profit
+new Chart(document.getElementById('chartProfit'), createConfig('line', years, [
+  { label: '毛利润', data: grossProfit, borderColor: colors.green, backgroundColor: colors.greenLight, fill: false, tension: 0.3, pointRadius: 5, pointBackgroundColor: colors.green },
+  { label: '净利润（归母）', data: netProfit, borderColor: colors.primary, backgroundColor: colors.primaryLighter, fill: false, tension: 0.3, pointRadius: 5, pointBackgroundColor: colors.primary },
+], { scales: { y: { beginAtZero: false, min: 1000 } } }));
+
+// 3. Margins
+new Chart(document.getElementById('chartMargin'), createConfig('line', years, [
+  { label: '毛利率', data: grossMargin, borderColor: colors.primary, backgroundColor: colors.primary, fill: false, tension: 0.3, pointRadius: 5, pointBackgroundColor: colors.primary },
+  { label: '净利率', data: netMargin, borderColor: colors.accent, backgroundColor: colors.accent, fill: false, tension: 0.3, pointRadius: 5, pointBackgroundColor: colors.accent },
+], { scales: { y: { min: 20, max: 60, ticks: { callback: v => v + '%' } } } }));
+
+// 4. Operating Margin
+new Chart(document.getElementById('chartOpMargin'), createConfig('line', years, [
+  { label: '营业利润率', data: opMargin, borderColor: colors.green, backgroundColor: colors.green, fill: false, tension: 0.3, pointRadius: 5, pointBackgroundColor: colors.green },
+  { label: 'EBITDA利润率', data: ebitdaMargin, borderColor: colors.purple, backgroundColor: colors.purple, fill: false, tension: 0.3, pointRadius: 5, pointBackgroundColor: colors.purple, borderDash: [5, 3] },
+], { scales: { y: { min: 20, max: 40, ticks: { callback: v => v + '%' } } } }));
+
+// 5. FCF
+new Chart(document.getElementById('chartFCF'), createConfig('bar', years, [{
+  label: '自由现金流（亿元）',
+  data: fcf,
+  backgroundColor: fcf.map(v => v >= 1800 ? colors.green : colors.primaryLighter),
+  borderRadius: 4,
+}], { scales: { y: { beginAtZero: false, min: 1000 } } }));
+
+// 6. FCF Ratio
+new Chart(document.getElementById('chartFCFRatio'), createConfig('line', years, [{
+  label: 'FCF/净利润',
+  data: fcfRatio,
+  borderColor: colors.accent,
+  backgroundColor: colors.accentLight,
+  fill: true,
+  tension: 0.3,
+  pointRadius: 6,
+  pointBackgroundColor: fcfRatio.map(v => v >= 95 ? colors.green : colors.red),
+}], {
+  scales: { y: { min: 50, max: 120, ticks: { callback: v => v + '%' } } }
+}));
+
+// 7. ROE/ROIC
+new Chart(document.getElementById('chartROE'), createConfig('bar', years, [
+  { label: 'ROE', data: roe, backgroundColor: colors.primary, borderRadius: 4 },
+  { label: 'ROIC', data: roic, backgroundColor: colors.green, borderRadius: 4 },
+], {
+  scales: { y: { min: 0, max: 28, ticks: { callback: v => v + '%' } } }
+}));
+
+// 8. Segment stacked bar
+new Chart(document.getElementById('chartSegment'), createConfig('bar', years, [
+  { label: '增值服务', data: segmentData[0], backgroundColor: colors.primary },
+  { label: '网络广告', data: segmentData[1], backgroundColor: colors.accent },
+  { label: '金融科技', data: segmentData[2], backgroundColor: colors.green },
+  { label: '企业服务', data: segmentData[3], backgroundColor: colors.purple },
+], {
+  scales: {
+    x: { stacked: true },
+    y: { stacked: true, beginAtZero: false, min: 5000 }
+  }
+}));
+</script>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

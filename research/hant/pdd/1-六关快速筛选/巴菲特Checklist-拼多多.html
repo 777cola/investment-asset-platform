@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>巴菲特價值投資Checklist — 拼多多 (PDD) | 六關快速篩選</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans SC', -apple-system, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+        .header {
+            background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%);
+            color: #fff;
+            padding: 50px 0 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .header .subtitle {
+            font-size: 16px;
+            font-weight: 300;
+            opacity: 0.85;
+        }
+        .header .meta {
+            margin-top: 14px;
+            font-size: 13px;
+            opacity: 0.7;
+        }
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 30px 24px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            padding: 32px 36px;
+            margin-bottom: 28px;
+        }
+        .card h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1A4B8C;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #1A4B8C;
+            display: inline-block;
+        }
+        .card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 20px 0 10px;
+        }
+        .card p, .card ul, .card ol {
+            margin-bottom: 12px;
+            color: #444;
+        }
+        .card ul, .card ol {
+            padding-left: 22px;
+        }
+        .card li {
+            margin-bottom: 6px;
+        }
+
+        /* 表格樣式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        thead th {
+            background: #1A4B8C;
+            color: #fff;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        thead th:first-child { border-radius: 6px 0 0 0; }
+        thead th:last-child { border-radius: 0 6px 0 0; }
+        tbody td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e8ecf1;
+            vertical-align: top;
+        }
+        tbody tr:nth-child(even) { background: #f8faff; }
+        tbody tr:hover { background: #eef4ff; }
+        tbody td:first-child { font-weight: 500; }
+
+        /* 徽章 */
+        .badge {
+            display: inline-block;
+            background: #1A4B8C;
+            color: #fff;
+            font-size: 12px;
+            padding: 2px 12px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        .badge.green { background: #27ae60; }
+        .badge.yellow { background: #f39c12; }
+        .badge.red { background: #e74c3c; }
+        .badge.gray { background: #95a5a6; }
+
+        .score-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 14px 0;
+        }
+        .score-item {
+            flex: 1;
+            min-width: 120px;
+            background: #f8faff;
+            border: 1px solid #dde6f0;
+            border-radius: 8px;
+            padding: 12px 14px;
+            text-align: center;
+        }
+        .score-item .dim { font-size: 13px; color: #666; }
+        .score-item .val { font-size: 20px; font-weight: 700; color: #1A4B8C; }
+
+        .quote {
+            background: #f0f4f8;
+            border-left: 4px solid #1A4B8C;
+            padding: 16px 20px;
+            margin: 16px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .checklist-item:last-child { border-bottom: none; }
+        .checklist-item .check {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            margin-top: 2px;
+        }
+        .checklist-item .check.pass {
+            background: #d4edda;
+            color: #155724;
+        }
+        .checklist-item .check.warn {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .checklist-item .check.fail {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .code-block {
+            background: #1e2a3a;
+            color: #e6eef9;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-family: 'SF Mono', 'Menlo', 'Monaco', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            overflow-x: auto;
+            margin: 14px 0;
+        }
+
+        .alert {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #856404;
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: #999;
+            font-size: 13px;
+            border-top: 1px solid #e8ecf1;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 640px) {
+            .card { padding: 20px 18px; }
+            .header h1 { font-size: 22px; }
+            table { font-size: 13px; }
+            thead th, tbody td { padding: 8px 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>巴菲特價值投資買入前 Checklist</h1>
+    <div class="subtitle">六關快速篩選 — 拼多多 (PDD)</div>
+    <div class="meta">資料截止：2026/07/05 | 資訊豐富度評級：A級 | 報告生成：2026/07/05</div>
+</div>
+
+<div class="container">
+
+    <!-- 概要 -->
+    <div class="card">
+        <h2>📋 概要資訊</h2>
+        <table>
+            <tbody>
+                <tr><td style="width:140px;font-weight:600;">公司全稱</td><td>拼多多控股有限公司（PDD Holdings Inc.）</td></tr>
+                <tr><td style="font-weight:600;">股票代碼</td><td>PDD (NASDAQ)</td></tr>
+                <tr><td style="font-weight:600;">資料截止</td><td>2026/07/05</td></tr>
+                <tr><td style="font-weight:600;">資訊評級</td><td><span class="badge green">A級</span>— 上市多年、資料充裕、覆蓋廣泛</td></tr>
+                <tr><td style="font-weight:600;">綜合結論</td><td><span class="badge green">5/6 關通過</span>— 進入深度研究</td></tr>
+            </tbody>
+        </table>
+        <div class="alert">
+            ⚠️ <strong>AI 研究偏誤預警：</strong>拼多多資訊量大、券商覆蓋廣，容易產生「確定性幻覺」。共識過強時，alpha來自於反面檢驗——聰明人為什麼不買？被忽略的風險是什麼？</div>
+    </div>
+
+    <!-- 第一关 -->
+    <div class="card">
+        <h2>🔰 第一關：我能理解這門生意嗎（能力圈）</h2>
+        <p><strong>一句話說清靠什麼賺錢：</strong>拼多多透過社交裂變加上極致低價吸引價格敏感用戶，賺取線上營銷服務費（廣告）加交易佣金。本質是「幫用戶省錢的電商平臺」。</p>
+        <p><strong>10年後大概率還在做什麼？</strong>10年後拼多多大概率仍在做「低價電商」，但形式可能改變：國內主站持續滲透低價市場，Temu複製低價模式出海。</p>
+        <h3>關鍵變數</h3>
+        <ul>
+            <li>用戶增長天花板（國內已趨飽和）</li>
+            <li>Temu 海外擴張能否盈利</li>
+            <li>與淘寶／京東／抖音的競爭</li>
+            <li>監管政策（跨境、資料安全）</li>
+        </ul>
+        <div class="score-row">
+            <div class="score-item"><div class="dim">評分</div><div class="val">★★★★☆</div><div style="font-size:13px;color:#666;">4/5</div></div>
+            <div class="score-item"><div class="dim">結論</div><div class="val" style="font-size:15px;color:#27ae60;">✅ 通過</div><div style="font-size:12px;color:#666;">商業模式清晰</div></div>
+        </div>
+    </div>
+
+    <!-- 第二关 -->
+    <div class="card">
+        <h2>💰 第二關：這是一門好生意嗎（經濟特徵）</h2>
+        <table>
+            <thead>
+                <tr><th>指標</th><th>拼多多</th><th>參考標準</th><th>判斷</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ROE（近3年均值）</td><td>~30.5% (23.7%/35.9%/32.1%)</td><td>&gt;15%優秀，&gt;20%卓越</td><td><span class="badge green">✅ 卓越</span></td></tr>
+                <tr><td>毛利率（FY2025）</td><td>56.3%</td><td>&gt;40%暗示定價權</td><td><span class="badge green">✅</span></td></tr>
+                <tr><td>自由現金流（FY2025）</td><td>1,058億 CNY</td><td>持續為正、≈稅後淨利</td><td><span class="badge green">✅ 自由現金流&gt;稅後淨利</span></td></tr>
+                <tr><td>資本支出強度</td><td>0.27%（資本支出／收入）</td><td>輕資產優於重資產</td><td><span class="badge green">✅ 極輕資產</span></td></tr>
+                <tr><td>負債水準</td><td>有息負債53.8億 vs 年稅後淨利978億</td><td>&lt;3年稅後淨利</td><td><span class="badge green">✅ 幾近零負債</span></td></tr>
+            </tbody>
+        </table>
+
+        <div class="code-block">市值驗算：$82.39 × 13.98億股 = $1,151.8億 ✅
+PE(TTM)：8.98x
+FCF Yield：17.83%
+ROE：23.68%</div>
+
+        <h3>補充分析</h3>
+        <ul>
+            <li>ROE近3年均值約30%，極其優秀</li>
+            <li>毛利率從2022年的75.9%下降到56.3%，主要因為 Temu 跨境業務拉低整體毛利率——這不是競爭惡化，而是<strong>業務結構變化</strong></li>
+            <li>淨利率依然高達22.6%</li>
+            <li>營業現金流／稅後淨利=1.09（FY2025），利潤品質極高</li>
+            <li><strong>淨現金頭寸 4,169億CNY</strong>，佔總市值（約8,240億CNY）的50.6%</li>
+        </ul>
+        <div class="score-row">
+            <div class="score-item"><div class="dim">評分</div><div class="val">★★★★★</div><div style="font-size:13px;color:#666;">5/5</div></div>
+            <div class="score-item"><div class="dim">結論</div><div class="val" style="font-size:15px;color:#27ae60;">✅ 教科書級</div><div style="font-size:12px;color:#666;">極輕資產·高ROE·強FCF·零淨負債</div></div>
+        </div>
+    </div>
+
+    <!-- 第三关 -->
+    <div class="card">
+        <h2>🏰 第三關：護城河夠不夠深（競爭優勢）</h2>
+        <table>
+            <thead>
+                <tr><th>護城河類型</th><th>是否具備</th><th>具體證據</th><th>趨勢</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>品牌／定價權</td><td><span class="badge yellow">⚠️ 有限</span></td><td>拼多多的品牌附著於「低價」，非情感溢價。用戶忠誠於便宜，而非品牌本身</td><td>穩定</td></tr>
+                <tr><td>轉換成本</td><td><span class="badge red">⚠️ 低</span></td><td>使用者可以隨時去淘寶／抖音比價，轉換成本極低</td><td>不變</td></tr>
+                <tr><td>網路效應</td><td><span class="badge green">✅ 中等</span></td><td>買家人多→商家多→品類豐富→買家人多，但淘寶／抖音同樣具備</td><td>穩定</td></tr>
+                <tr><td>成本／規模優勢</td><td><span class="badge green">✅ 強</span></td><td>極致低成本營運體系（極簡APP、少SKU爆款模式、AI推薦降低流量成本）；供應鏈深度整合（C2M模式）</td><td><span class="badge green">變寬</span></td></tr>
+                <tr><td>技術／專利壁壘</td><td><span class="badge green">✅ 中等</span></td><td>推薦演算法和社交裂變技術有一定護城河，但並非不可複製</td><td>穩定</td></tr>
+            </tbody>
+        </table>
+
+        <h3>追加檢驗</h3>
+        <p><strong>如果給阿里巴巴100億，能否複製拼多多？</strong></p>
+        <p>→ <strong>部分可以。</strong>阿里可以複製低價策略（已推出「淘特」），也可以做社交裂變。但拼多多在「低價心智」的佔領上已經形成——用戶想到「最便宜」就想到拼多多，這種心智佔領很難用錢買來。然而，抖音電商正在用「興趣推薦」模式侵蝕低價市場。</p>
+
+        <div class="score-row">
+            <div class="score-item"><div class="dim">評分</div><div class="val">★★★☆☆</div><div style="font-size:13px;color:#666;">3/5</div></div>
+            <div class="score-item"><div class="dim">趨勢</div><div class="val" style="font-size:15px;color:#f39c12;">穩定偏窄</div><div style="font-size:12px;color:#666;">國內受抖音擠壓</div></div>
+        </div>
+    </div>
+
+    <!-- 第四关 -->
+    <div class="card">
+        <h2>👥 第四關：管理層是否值得信任（人的因素）</h2>
+        <table>
+            <thead>
+                <tr><th>檢查項</th><th>評估</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>誠實度</td><td><span class="badge green">✅</span>管理層通常坦誠，業績會直接面對問題</td></tr>
+                <tr><td>資本配置能力</td><td><span class="badge green">✅</span>極度理性——在不需大額投入的國內電商賺取巨量利潤，將資金投入Temu出海；幾乎沒有高價併購</td></tr>
+                <tr><td>股東利益導向</td><td><span class="badge yellow">⚠️ 不足</span>多年不分紅、不回購（直到2025下半年才開始小規模回購），大量現金囤積帳上</td></tr>
+                <tr><td>所有者心態</td><td><span class="badge green">✅</span>創辦人黃崢雖卸任CEO但仍是大股東（持股約26%），利益綁定</td></tr>
+                <tr><td>公司治理</td><td><span class="badge green">✅</span>同股同權、AB股結構清晰（黃崢超級投票權）</td></tr>
+                <tr><td>執行長離開後能否運轉？</td><td><span class="badge yellow">⚠️</span>黃崢2021年卸任後公司運轉良好——陳磊接手後業績持續超預期。說明組織能力已沉澱</td></tr>
+            </tbody>
+        </table>
+        <p><strong>關鍵問題：</strong>拼多多的核心是黃崢的思想遺產（C2M模式、極致低價、Distributed AI推薦），陳磊是優秀的執行者，但長期看創辦人的戰略視野是否可替代？</p>
+        <div class="score-row">
+            <div class="score-item"><div class="dim">評分</div><div class="val">★★★★☆</div><div style="font-size:13px;color:#666;">4/5</div></div>
+            <div class="score-item"><div class="dim">扣分項</div><div class="val" style="font-size:14px;color:#f39c12;">股東回報不足</div><div style="font-size:12px;color:#666;">巨額現金不回購不分紅</div></div>
+        </div>
+    </div>
+
+    <!-- 第五关 -->
+    <div class="card">
+        <h2>🏷️ 第五關：價格是否足夠便宜（安全邊際）</h2>
+        <h3>當前估值</h3>
+        <table>
+            <thead>
+                <tr><th>指標</th><th>數值</th><th>判斷</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>PE (TTM)</td><td>8.98x</td><td><span class="badge green">極其便宜</span></td></tr>
+                <tr><td>PB</td><td>2.13x</td><td><span class="badge green">合理偏低</span></td></tr>
+                <tr><td>FCF Yield</td><td>17.83%</td><td><span class="badge green">極高</span></td></tr>
+                <tr><td>PEG（基於10%增長）</td><td>0.9</td><td><span class="badge green">&lt; 1，低估</span></td></tr>
+            </tbody>
+        </table>
+
+        <h3>三情境估值</h3>
+        <table>
+            <thead>
+                <tr><th>情境</th><th>年增速</th><th>目標PE</th><th>目標股價</th><th>漲跌幅</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>樂觀（Bull）</td><td>15%</td><td>15x</td><td>$209.2</td><td><span class="badge green">+153.9%</span></td></tr>
+                <tr><td>中性（基準）</td><td>10%</td><td>12x</td><td>$146.5</td><td><span class="badge green">+77.8%</span></td></tr>
+                <tr><td>悲觀（Bear）</td><td>5%</td><td>8x</td><td>$84.9</td><td><span class="badge green">+3.1%</span></td></tr>
+            </tbody>
+        </table>
+
+        <p><strong>核心發現：</strong>即使在悲觀情景（5%成長、8x PE）下，當前價格僅比目標價高3.1%，下行空間極其有限。在中性情景下，有78%的上漲空間。</p>
+
+        <h3>股價腰斬你敢加碼嗎？</h3>
+        <p>→ 以拼多多約$40的價格（腰斬），PE約4.5x、FCF Yield ~36%、市值中淨現金佔比超過100%——這是一個極其荒謬的低估水平。如果基本面不崩塌（盈利能力維持），腰斬是絕佳加倉點。</p>
+
+        <div class="score-row">
+            <div class="score-item"><div class="dim">評分</div><div class="val">★★★★★</div><div style="font-size:13px;color:#666;">5/5</div></div>
+            <div class="score-item"><div class="dim">安全邊際</div><div class="val" style="font-size:15px;color:#27ae60;">極其充裕</div><div style="font-size:12px;color:#666;">市場極端定價</div></div>
+        </div>
+    </div>
+
+    <!-- 第六关 -->
+    <div class="card">
+        <h2>📏 第六關：倉位與決策紀律</h2>
+        <div class="checklist-item">
+            <div class="check pass">✓</div>
+            <div><strong>是否因為 FOMO 想買？</strong>→ 否。市場情緒對中概股整體悲觀，不存在FOMO</div>
+        </div>
+        <div class="checklist-item">
+            <div class="check pass">✓</div>
+            <div><strong>是否因為別人推薦纔想買？</strong>→ 否。資料支撐獨立判斷</div>
+        </div>
+        <div class="checklist-item">
+            <div class="check pass">✓</div>
+            <div><strong>如果停牌5年你能接受嗎？</strong>→ 能。拼多多是一臺持續產生現金的機器，即使無法交易，內生價值仍在增長</div>
+        </div>
+        <div class="checklist-item">
+            <div class="check pass">✓</div>
+            <div><strong>買入論述能否用200字以內寫清楚？</strong>→ 能，見下方鏡子測試</div>
+        </div>
+    </div>
+
+    <!-- 镜子测试 -->
+    <div class="card">
+        <h2>🪞 鏡子測試</h2>
+        <div class="quote">
+            <strong>我以 $82.39 買入 拼多多控股公司 (PDD)，因為：</strong><br><br>1. 這門生意的本質是<strong>低價電商平臺</strong>，透過社交裂變和極致供應鏈效率讓使用者買到最便宜的商品，我理解它；<br>2. 它的護城河是<strong>成本優勢與「低價心智」</strong>，國內鞏固但受抖音擠壓，Temu 仍在驗證期；<br>3. 管理層<strong>整體優秀</strong>，執行力與資本配置理性，但股東回報不足；<br>4. 目前價格相當於內在價值的<strong>約5-6折</strong>（基於中性情景），有<strong>充裕的安全邊際</strong>；<br>5. 即使我錯了（盈利持續惡化），下行風險可控——淨現金佔市值50%+、零淨負債、自由現金流仍在增長。</div>
+        <p style="text-align:center;font-weight:700;color:#1A4B8C;font-size:16px;margin-top:10px;">✅ 通過 Checklist（5/6 關，護城河扣 1 分）— 可進入深度研究階段。</p>
+    </div>
+
+    <!-- 快速否决清单 -->
+    <div class="card">
+        <h2>🚫 快速否決清單</h2>
+        <table>
+            <thead>
+                <tr><th>否決項</th><th>結果</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>說不清楚怎麼賺錢</td><td><span class="badge green">✅ 說清楚了</span></td></tr>
+                <tr><td>連續3年自由現金流為負</td><td><span class="badge green">✅ FCF連續4年正成長</span></td></tr>
+                <tr><td>管理層有誠信污點</td><td><span class="badge green">✅ 未發現</span></td></tr>
+                <tr><td>競爭優勢被不可逆侵蝕</td><td><span class="badge yellow">⚠️ 受抖音壓力，但未到不可逆程度</span></td></tr>
+                <tr><td>靠博傻賺錢</td><td><span class="badge green">✅ 基本面支撐</span></td></tr>
+                <tr><td>無法承受歸零後果</td><td><span class="badge green">✅ 可以承受</span></td></tr>
+                <tr><td>別人買所以跟著買</td><td><span class="badge green">✅ 市場實際極度悲觀</span></td></tr>
+                <tr><td>200字寫不清理由</td><td><span class="badge green">✅ 寫清楚了</span></td></tr>
+            </tbody>
+        </table>
+        <p style="margin-top:10px;font-weight:600;color:#27ae60;">未觸發任何否決項。</p>
+    </div>
+
+    <!-- 综合结论 -->
+    <div class="card">
+        <h2>📊 綜合結論</h2>
+        <table>
+            <thead>
+                <tr><th>維度</th><th>評分</th><th>結論</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>能力圈</td><td>★★★★☆</td><td>商業模式清晰，Temu存變數</td></tr>
+                <tr><td>好生意</td><td>★★★★★</td><td>極致輕資產、高ROE、強FCF</td></tr>
+                <tr><td>護城河</td><td>★★★☆☆</td><td>成本優勢仍在，但轉換成本低，競爭對手強</td></tr>
+                <tr><td>管理層</td><td>★★★★☆</td><td>卓越執行力，股東回報需改善</td></tr>
+                <tr><td>安全邊際</td><td>★★★★★</td><td>PE~9x，極度低估</td></tr>
+                <tr><td style="font-weight:700;">綜合</td><td style="font-weight:700;color:#1A4B8C;">5/6 關通過</td><td style="font-weight:700;color:#27ae60;">進入深度研究</td></tr>
+            </tbody>
+        </table>
+        <div class="quote">「投資的第一條規則是不要虧損。第二條規則是不要忘記第一條。」—— 巴菲特<br><br>拼多多的下行風險在當前價格下極為有限，而上行空間充裕。這是一筆典型的「好公司 + 差價格預期」的機會。</div>
+    </div>
+
+    <div class="footer">報告生成日期：2026/07/05 &nbsp;|&nbsp; 資料來源：stockanalysis.com（主）、macrotrends.net（副）</div>
+
+</div>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>簡</span><span class="full"><span>簡體中文</span></span></a><a class="lang hant active" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

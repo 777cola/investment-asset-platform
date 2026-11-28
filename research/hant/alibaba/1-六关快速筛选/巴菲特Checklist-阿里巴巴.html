@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>巴菲特Checklist - 阿里巴巴（BABA）</title>
+<style>
+  /* === PDD 標準 CSS 模板 v2.0 === */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f4f6f9;
+    color: #1a1a2e;
+    padding: 40px 20px;
+  }
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 24px 24px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 16px 16px 0 0;
+    color: #fff;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .header .sub {
+    font-size: 14px;
+    opacity: .75;
+    margin-top: 4px;
+  }
+  .header .ticker {
+    display: inline-block;
+    background: rgba(255,255,255,.12);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  .summary-ribbon {
+    display: flex;
+    justify-content: space-around;
+    background: #fff;
+    border-left: 1px solid #e8ecf1;
+    border-right: 1px solid #e8ecf1;
+    padding: 18px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .summary-ribbon .stat {
+    text-align: center;
+    min-width: 80px;
+  }
+  .summary-ribbon .stat .val { font-size: 20px; font-weight: 700; color: #1a1a2e; }
+  .summary-ribbon .stat .lbl { font-size: 11px; color: #888; margin-top: 2px; }
+  .verdict-banner {
+    background: #fff;
+    border-left: 1px solid #e8ecf1;
+    border-right: 1px solid #e8ecf1;
+    padding: 20px 24px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .verdict-banner .pass { color: #22c55e; }
+  .verdict-banner .warn { color: #f59e0b; }
+  .verdict-banner .fail { color: #ef4444; }
+  .card {
+    background: #fff;
+    border: 1px solid #e8ecf1;
+    border-top: none;
+    padding: 28px 32px;
+  }
+  .card:last-child { border-radius: 0 0 16px 16px; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f0f2f5;
+  }
+  .card-header .step { 
+    width: 36px; height: 36px; border-radius: 50%; 
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px; color: #fff; flex-shrink: 0;
+  }
+  .card-header .step.pass { background: #22c55e; }
+  .card-header .step.warn { background: #f59e0b; }
+  .card-header .step.fail { background: #ef4444; }
+  .card-header .title { font-size: 18px; font-weight: 700; }
+  .card-header .badge {
+    margin-left: auto;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .badge.pass { background: #dcfce7; color: #166534; }
+  .badge.warn { background: #fef3c7; color: #92400e; }
+  .badge.fail { background: #fee2e2; color: #991b1b; }
+  .card-body { font-size: 14.5px; line-height: 1.75; color: #334155; }
+  .card-body p { margin-bottom: 10px; }
+  .card-body ul { margin: 8px 0 12px 24px; }
+  .card-body li { margin-bottom: 5px; }
+  .card-body strong { color: #1e293b; }
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .data-grid .item {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .data-grid .item .num { font-size: 17px; font-weight: 700; color: #1a1a2e; }
+  .data-grid .item .desc { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+  .roi-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  .roi-table th {
+    background: #f1f5f9;
+    padding: 8px 10px;
+    text-align: center;
+    font-weight: 600;
+    color: #475569;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .roi-table td {
+    padding: 8px 10px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .roi-table tr:last-child td { border-bottom: none; }
+  .roi-table .good { color: #22c55e; font-weight: 600; }
+  .roi-table .ok   { color: #f59e0b; font-weight: 600; }
+  .roi-table .bad  { color: #ef4444; font-weight: 600; }
+  .footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  @media (max-width: 640px) {
+    .header h1 { font-size: 22px; }
+    .card { padding: 20px 16px; }
+    .summary-ribbon { gap: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ======== HEADER ======== -->
+<div class="header">
+  <h1>🧾 巴菲特買入前六關 · 快速篩選</h1>
+  <div class="sub">阿里巴巴集團控股有限公司 &nbsp;·&nbsp; Alibaba Group Holding Ltd</div>
+  <div class="ticker">BABA (NYSE) &nbsp;·&nbsp; 9988 (HKEX)</div>
+  <div style="margin-top:14px;font-size:13px;opacity:.6;">研究日期：2026-07-07 &nbsp;|&nbsp; 股價：$98.40 &nbsp;|&nbsp; 市值：~$2,246億</div>
+</div>
+
+<!-- ======== KEY STATS RIBBON ======== -->
+<div class="summary-ribbon">
+  <div class="stat"><div class="val">15.35</div><div class="lbl">PE (TTM)</div></div>
+  <div class="stat"><div class="val">15.03</div><div class="lbl">Forward PE</div></div>
+  <div class="stat"><div class="val">0.22</div><div class="lbl">PB</div></div>
+  <div class="stat"><div class="val">$98.40</div><div class="lbl">股價</div></div>
+  <div class="stat"><div class="val">$91.99-192.67</div><div class="lbl">52週範圍</div></div>
+  <div class="stat"><div class="val">🟢 Strong Buy</div><div class="lbl">分析師共識</div></div>
+</div>
+
+<!-- ======== OVERALL VERDICT ======== -->
+<div class="verdict-banner">
+  <span class="warn">⚠️ 整體判定：有條件通過（3 ✅ / 3 ⚠️ / 0 ❌）</span><br>
+  <span style="font-size:14px;font-weight:400;color:#64748b;">估值夠便宜，但盈利能力下降、自由現金流轉負、管理層信號混亂 — 需結合第七關「能力圈」綜合決策</span>
+</div>
+
+<!-- ======== GATE 1 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step pass">①</div>
+    <div class="title">看得懂 —— 業務本質</div>
+    <div class="badge pass">✅ 通過</div>
+  </div>
+  <div class="card-body">
+    <p><strong>核心判斷：阿里巴巴的核心業務邏輯並不難懂。</strong></p>
+    <p>說人話就是：阿里是一家「幫中國人做生意 + 幫中國工廠賣到全世界 + 賣雲端運算服務」的公司。它賺的錢來自三塊：</p>
+    <ul>
+      <li><strong>🛒 中國電商（淘天集團）</strong>— 淘寶+天貓+1688，佔營收~65%。模式是「收租」：商家交廣告費、交易佣金、店鋪費。這是阿里的糧倉，但正被拼多多和抖音偷襲。</li>
+      <li><strong>☁️ 雲端運算（阿里雲）</strong>— 佔營收約 12%。銷售算力與資料服務，國內第一（市佔約 34%），但增速放緩，仍在與華為雲、騰訊雲削價競爭。</li>
+      <li><strong>🌍 國際電商（Lazada/AliExpress/Trendyol）</strong>— 佔營收約12%。東南亞、土耳其與拉美，燒錢換增長，尚未賺大錢。</li>
+    </ul>
+    <p><strong>巴菲特視角：</strong>阿里不像蘋果（消費者看得見摸得著），但它本質上是「商業基礎設施」——跟波克夏買的<strong>railroads（鐵路）和 utilities（公用事業）</strong>有相似之處：都是經濟運轉的管道。區別在於阿里的管道既有物理的（菜鳥物流）也有數位的（阿里雲＋支付）。</p>
+    <p><strong>複雜的地方：</strong>阿里旗下還有餓了麼、高德、大文娛（優酷／阿里影業）、盒馬、銀泰百貨…… 一堆「副業」。這些如果拆不乾淨就很難估值。好消息是阿里正在「回歸核心」，逐步剝離非核心資產。</p>
+    <p><strong>結論：</strong>核心業務（電商＋雲）看得懂，但需要忽略一部分「看不懂的邊角料」。✅</p>
+  </div>
+</div>
+
+<!-- ======== GATE 2 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step warn">②</div>
+    <div class="title">護城河 —— 競爭壁壘</div>
+    <div class="badge warn">⚠️ 待考察</div>
+  </div>
+  <div class="card-body">
+    <p><strong>核心判斷：護城河還在，但牆在變矮。</strong></p>
+    <p><strong>仍然穩固的部分：</strong></p>
+    <ul>
+      <li><strong>🕸️ 網路效應（最寬的部分）：</strong>淘寶+天貓有~10億年活躍買家、數百萬商家——這是一個巨大的雙邊市場。商家因為買家多而來，買家因為商品多而來，形成飛輪。拼多多和抖音暫時還沒打斷這個飛輪，只是搶了增量。</li>
+      <li><strong>🏢 商家生態／基礎設施：</strong>商家在阿里的體系裡投入了大量資源（店鋪裝修、資料工具、客服團隊、菜鳥物流對接）。遷移成本很高，不是拼多多開個店就能替代的。</li>
+      <li><strong>☁️ 雲端運算的先發優勢：</strong>阿里雲雖然增速放緩，但國內 IaaS+PaaS 市場份額仍接近 34%，遠高於第二名華為雲（約 19%）。企業級客戶遷移雲服務商的成本極高。</li>
+      <li><strong>📦 菜鳥物流網路：</strong>雖然不是完全擁有，但菜鳥控制的快遞網路是電商履約的護城河。京東有自營物流，但菜鳥覆蓋的商家端更廣。</li>
+    </ul>
+    <p><strong>城牆在變薄的地方：</strong></p>
+    <ul>
+      <li><strong>🔻 拼多多的降維打擊：</strong>從下沉市場起家，現在直接打到天貓的基本盤（品牌商品）。拼多多的「低價」心智太強，阿里被迫跟進打價格戰，利潤受損。</li>
+      <li><strong>📱 抖音／快手的興趣電商：</strong>直播電商正在蠶食傳統貨架電商的市場。2025年抖音電商GMV已經接近3.5萬億元，雖然只有淘寶天貓的~40%，但增速是淘寶的3倍。</li>
+      <li><strong>☁️ 雲端運算價格戰：</strong>阿里雲 2024-2025 年多次大幅降價，部分核心產品降價 55%。這是市場競爭加劇的直接證據。</li>
+      <li><strong>🔧 護城河的「裂縫」：</strong>阿里歷史上依靠「先發優勢」形成的壁壘，在移動網路紅利消退後，正被更激進的競爭對手（PDD）和更懂演算法的競爭對手（抖音）蠶食。</li>
+    </ul>
+    <p><strong>結論：護城河仍在（寬但不深），但競爭壓力明顯增大。需要密切關注市場份額變化。與巴菲特的「又寬又深」的護城河標準相比，阿里目前只能算「中等偏上」。⚠️</strong></p>
+  </div>
+</div>
+
+<!-- ======== GATE 3 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step warn">③</div>
+    <div class="title">ROE歷史 —— 股東回報效率</div>
+    <div class="badge warn">⚠️ 臨界</div>
+  </div>
+  <div class="card-body">
+    <p><strong>核心判斷：ROE在10%上下波動，未達巴菲特15%+的門檻。</strong></p>
+    <p>近5年歸母ROE（歸母稅後淨利 / 期末歸母權益）：</p>
+    <table class="roi-table">
+      <thead>
+        <tr>
+          <th>財年</th><th>歸母淨利（億RMB）</th><th>期末權益（估算，億元RMB）</th><th>ROE</th><th>同比變化</th><th>判定</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>FY2022</td><td>619.59</td><td>9,256</td><td>6.7%</td><td>-58.8%</td><td class="bad">❌ 差</td>
+        </tr>
+        <tr>
+          <td>FY2023</td><td>725.09</td><td>9,680</td><td>7.5%</td><td>+17.0%</td><td class="bad">❌ 差</td>
+        </tr>
+        <tr>
+          <td>FY2024</td><td>797.41</td><td>10,058</td><td>7.9%</td><td>+10.0%</td><td class="ok">⚠️ 偏低</td>
+        </tr>
+        <tr>
+          <td>FY2025</td><td>1,294.70</td><td>10,468</td><td>12.4%</td><td>+62.4%</td><td class="ok">⚠️ 接近及格</td>
+        </tr>
+        <tr>
+          <td>FY2026</td><td>1,059.04</td><td>10,241</td><td>10.3%</td><td>-18.2%</td><td class="ok">⚠️ 偏低</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>⚠️ 重要說明：</strong>阿里的ROE被<strong>大量淨現金</strong>拖低。FY2024 末帳上有近 2,000 億淨現金（現金-負債），這些錢趴在帳上不產生高回報。如果剔除超額現金，<strong>調整後ROE大約在12-16%之間</strong>勉強達到巴菲特的及格線。</p>
+    <p><strong>一個關鍵惡化訊號：</strong>FY2026營業利益率從14.14%暴跌到4.90%，SG&A費用從~1,600億暴增到~2,781億。這意味著阿里在<strong>燒錢打防守戰</strong>（對抗 PDD 和抖音），對股東回報效率是負面的。</p>
+    <p><strong>巴菲特標準：</strong>老爺子偏好ROE長期>15%且穩定的公司。阿里過去5年均值約9%，加上FY2026的利潤率崩塌，<strong>ROE 維度暫不達標。</strong></p>
+  </div>
+</div>
+
+<!-- ======== GATE 4 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step warn">④</div>
+    <div class="title">管理層誠信 —— 資本配置與治理</div>
+    <div class="badge warn">⚠️ 訊號混雜</div>
+  </div>
+  <div class="card-body">
+    <p><strong>核心判斷：管理層有誠意但能力受質疑，資本配置記錄混合。</strong></p>
+    <p><strong>✅ 做對的事情：</strong></p>
+    <ul>
+      <li><strong>大規模回購：</strong>FY2024回購887億RMB（約$122億），FY2025回購867億。管理層確實踐行了「低估時回購」的承諾。但FY2026急降至76億（-91%），官方說是因為投資AI基礎設施需要現金——這可以理解但讓股東失望。</li>
+      <li><strong>啟動分紅：</strong>2024財年開始首次派息，FY2026分紅337億元（同比+16%）。這在網路公司中不常見，體現股東回報意識。</li>
+      <li><strong>組織拆分（1拆6）：</strong>2023年宣佈的「1+6+N」組織變革，試圖讓各業務獨立營運、自負盈虧。方向正確，但執行進度慢。</li>
+      <li><strong>削減非核心：</strong>逐步退出非核心零售資產（銀泰、大潤發等），回歸電商＋雲＋AI的主航道。</li>
+    </ul>
+    <p><strong>⚠️ 做錯／有疑問的事情：</strong></p>
+    <ul>
+      <li><strong>FY2026利潤率崩盤：</strong>銷售及管理費用從FY2025的約1,660億暴增到2,781億（+68%），但營收只增2.7%。這說明管理層為了搶市場份額在「花錢買增長」——這跟巴菲特厭惡的「燒錢換規模」如出一轍。</li>
+      <li><strong>資本配置優先級問題：</strong>淨現金從1,974億暴跌到569億（-71%），同時資本支出飆到1,261億（+90% YoY）。大量資金砸進了AI基礎設施建設。方向沒錯（AI是未來），但時機和節奏值得商榷——在競爭加劇的時候大規模投資，短期利潤壓力很大。</li>
+      <li><strong>管理層更替頻繁：</strong>2019-2023 期間 CEO 換了 3 次（張勇→吳永明→吳泳銘兼 CEO）。2025 年阿里雲 CEO 也換了。高層動盪不利於長期策略執行。</li>
+      <li><strong>政治／監管風險處理：</strong>螞蟻集團IPO被叫停（2020）、反壟斷罰款182億（2021）、「二選一」整改——雖然這些更多是宏觀因素，但阿里管理層在與監管溝通方面顯然不夠前瞻。</li>
+    </ul>
+    <p><strong>吳泳銘（CEO）的風格：</strong>技術出身（阿里雲創始人），上任後明確「用戶為先、AI驅動」戰略。他在2024-2025年推動了一系列組織瘦身，說明他看到了問題。但FY2026的利潤崩塌讓人懷疑他的執行能力。</p>
+    <p><strong>結論：管理層不是「騙子」，但坦率地說——資本配置紀錄混合。做了一些對的事（回購、分紅、聚焦核心），也犯了一些大錯（利潤率失控、現金消耗過快）。⚠️</strong></p>
+  </div>
+</div>
+
+<!-- ======== GATE 5 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step pass">⑤</div>
+    <div class="title">估值合理 —— 便宜就是硬道理</div>
+    <div class="badge pass">✅ 通過</div>
+  </div>
+  <div class="card-body">
+    <p><strong>核心判斷：阿里的估值無疑處於歷史低位。</strong></p>
+    <div class="data-grid">
+      <div class="item"><div class="num">15.35x</div><div class="desc">PE (TTM)</div></div>
+      <div class="item"><div class="num">15.03x</div><div class="desc">Forward PE</div></div>
+      <div class="item"><div class="num">0.22x</div><div class="desc">PB（破淨）</div></div>
+      <div class="item"><div class="num">0.47x</div><div class="desc">P/S</div></div>
+      <div class="item"><div class="num">3.4%</div><div class="desc">股息率（估算）</div></div>
+      <div class="item"><div class="num">$191.33</div><div class="desc">分析師目標價（+94%）</div></div>
+    </div>
+    <p><strong>橫向對比（中國網路同業，PE TTM）：</strong></p>
+    <ul>
+      <li>騰訊（0700.HK）：約22倍 —— 阿里折價30%</li>
+      <li>拼多多（PDD）：約 9 倍 —— 阿里溢價，但 PDD 利潤增速更快</li>
+      <li>京東（JD）：~12x —— 阿里略貴於京東</li>
+      <li>美團（3690.HK）：約25倍 —— 較阿里折價40%</li>
+      <li>亞馬遜（AMZN）：約 35 倍 —— 阿里折價 56%</li>
+    </ul>
+    <p><strong>便宜的理由（市場在擔憂什麼？）：</strong></p>
+    <ul>
+      <li>📉 利潤下滑（FY2026 -18.2%）—— 市場認為這不是一次性問題</li>
+      <li>⚔️ 競爭加劇（PDD／抖音持續蠶食份額）—— 市場定價了「阿里已不再是中國電商之王」</li>
+      <li>🇨🇳 中概股系統性折價 —— 地緣政治、審計風險、資本管制</li>
+      <li>🔄 AI投資回報不確定 —— 1,261億資本支出砸向AI，何時產生回報？</li>
+    </ul>
+    <p><strong>但從巴菲特視角：</strong></p>
+    <p>15 倍 PE 對一家每年還能賺 1,000 億以上的公司來說，無論如何不算貴。PB 0.22 倍意味著你花 $1 可以買到 $4.5 的淨資產——這在巴菲特的職業生涯中都是少見的機會。即使保守假設未來 5 年利潤零成長，15 倍 PE 的買入價也能提供約 6.7% 的年化報酬（=1/15）。加上回購（雖然 FY2026 減少了），長期持有者的每股內在價值仍在成長。</p>
+    <p><strong>結論：估值維度毫無疑問通過✅。問題是：市場先生是對的（阿里的護城河確實在瓦解）還是錯的（市場過度悲觀）？這需要第六關來判斷。</strong></p>
+  </div>
+</div>
+
+<!-- ======== GATE 6 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step warn">⑥</div>
+    <div class="title">安全邊際 —— 容錯空間</div>
+    <div class="badge warn">⚠️ 有安全邊際但不夠厚</div>
+  </div>
+  <div class="card-body">
+    <p><strong>核心判斷：安全邊際存在（股價近52週低點 + PB破淨），但FY2026的財報暴露了「利潤比想像中脆弱」的風險。</strong></p>
+    <p><strong>🛡️ 安全邊際的來源：</strong></p>
+    <ul>
+      <li><strong>破淨交易：</strong>PB 0.22x。即使清算（極端假設），股東理論上能拿回~$441/share的帳面價值，當前$98.40的股價意味著市場在按「重度打折」定價。阿里帳上有大量可變現資產（股權、房產、資料中心）。</li>
+      <li><strong>非核心資產價值：</strong>阿里持有的螞蟻集團（約33%）、菜鳥（約64%）、阿里健康、阿里影業等上市／非上市股權價值，保守估計在800至1,200億美元之間。如果把這些拆出來，核心電商加雲的實際本益比可能只有10至12倍。</li>
+      <li><strong>回購支撐：</strong>雖然FY2026回購大減，但董事會仍有$310億的未執行回購額度（美股+港股雙重上市）。只要管理層願意，隨時可以出手託底。</li>
+      <li><strong>現金流基礎：</strong>即便FY2026 FCF轉負，但營業現金流仍有762億。負FCF主要是因為資本支出激增（AI基建）。如果經濟下行迫使管理層收縮投資，FCF可迅速轉正。</li>
+    </ul>
+    <p><strong>⚠️ 安全邊際的風險點：</strong></p>
+    <ul>
+      <li><strong>利潤率可能繼續惡化：</strong>如果PDD和抖音的價格戰持續，阿里可能需要繼續燒錢。FY2026 SG&A暴漲68%可能只是開始。如果營業利益率從4.9%繼續下滑到2-3%，PE會快速膨脹到20x+。</li>
+      <li><strong>負自由現金流不可持續：</strong>-498億的自由現金流是一個紅色警報。巴菲特的「安全邊際」概念建立在公司能自我維持的基礎上。如果阿里連續2-3年負FCF，要麼削減開支，要麼停止回購／分紅，要麼發債／增發——哪一個對股東都不好。</li>
+      <li><strong>淨現金消耗過快：</strong>淨現金從FY2025末的1,974億驟降到569億（-71%）。按這個速度，FY2027末可能轉為淨負債。資產負債表的靈活性在下降。</li>
+      <li><strong>中概股系統性風險：</strong>PB 0.22x 本身已經包含了「被退市／被沒收」的極端風險定價。這種「折上折」對價值投資者來說可能是機會，也可能是價值陷阱。</li>
+    </ul>
+    <p><strong>巴菲特的安全邊際計算（粗略）：</strong></p>
+    <ul>
+      <li><strong>保守情境（利潤持續下滑10%/年）：</strong>未來3年累計利潤約2,500億，當前市值約1.6萬億元（RMB）。約15倍PE，安全邊際一般。</li>
+      <li><strong>樂觀情景（利潤率回升＋雲端／AI貢獻增量）：</strong>未來3年累計利潤約4,000億，當前市值對應約4年回本。安全邊際厚。</li>
+      <li><strong>極端情境（競爭失控＋利潤腰斬）：</strong>利潤降至每年500億，PE升至32x。安全邊際被擊穿。</li>
+    </ul>
+    <p><strong>結論：有安全邊際，但不夠「厚」到讓巴菲特放心買入。</strong>低估值提供了下行保護，但FY2026的財務惡化讓上行空間變得不明確。阿里更像是一個「困境反轉」的機會，而不是一個「優質公司遇到暫時困難」的經典巴菲特式買入點。⚠️</p>
+  </div>
+</div>
+
+<!-- ======== SUMMARY TABLE ======== -->
+<div class="card" style="border-radius:0 0 16px 16px;border-top:2px solid #e8ecf1;">
+  <div class="card-header">
+    <div class="step pass">📊</div>
+    <div class="title">六關綜合判定總表</div>
+    <div class="badge pass">彙總</div>
+  </div>
+  <div class="card-body">
+    <table class="roi-table">
+      <thead>
+        <tr>
+          <th style="width:120px;">關卡</th>
+          <th style="width:100px;">判定</th>
+          <th>簡要理由</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>① 看得懂</strong></td>
+          <td><span class="good">✅ 通過</span></td>
+          <td>電商加雲端核心業務清晰；非核心資產可忽略處理</td>
+        </tr>
+        <tr>
+          <td><strong>② 護城河</strong></td>
+          <td><span class="ok">⚠️ 臨界</span></td>
+          <td>網路效應＋基礎設施轉換成本仍在，但PDD／抖音正在侵蝕</td>
+        </tr>
+        <tr>
+          <td><strong>③ ROE歷史</strong></td>
+          <td><span class="ok">⚠️ 臨界</span></td>
+          <td>均值約9%，剔除超額現金後約12-16%，未穩定達到15%以上</td>
+        </tr>
+        <tr>
+          <td><strong>④ 管理層誠信</strong></td>
+          <td><span class="ok">⚠️ 臨界</span></td>
+          <td>回購／分紅誠意足，但利潤率崩盤、現金消耗過快令人擔憂</td>
+        </tr>
+        <tr>
+          <td><strong>⑤ 估值合理</strong></td>
+          <td><span class="good">✅ 通過</span></td>
+          <td>15倍本益比 + 0.22倍股價淨值比，歷史低位，股息率3.4%</td>
+        </tr>
+        <tr>
+          <td><strong>⑥ 安全邊際</strong></td>
+          <td><span class="ok">⚠️ 臨界</span></td>
+          <td>低股價提供了下行保護，但自由現金流轉負加上利潤率下滑削弱了安全邊際</td>
+        </tr>
+        <tr style="background:#f8fafc;font-weight:700;">
+          <td><strong>整體</strong></td>
+          <td><span class="ok">⚠️ 有條件通過</span></td>
+          <td>3關通過 + 3關臨界 = 等待更清晰訊號再扣扳機</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:16px;padding:12px 16px;background:#fef3c7;border-radius:8px;font-size:13px;">
+      <strong>💡 操作建議：</strong>阿里巴巴目前屬於「好價格但不是好公司」的區間（價格便宜但公司基本面在變差）。如果採取巴菲特式投資，建議放入<strong>觀察池</strong>，等待至少以下一個信號出現再動手：(1) SG&A費用率開始下降（競爭緩和）；(2) FCF轉正；(3) 回購恢復至FY2025水準。當前倉位建議不超過組合的<strong>3-5%</strong>。
+    </p>
+  </div>
+</div>
+
+<div class="footer">本報告基於公開財務資料整理，僅供研究參考，不構成投資建議。<br>資料截止：2026-07-07 &nbsp;|&nbsp; 生成工具：Hermes Agent investment-checklist</div>
+
+</div>
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>簡</span><span class="full"><span>簡體中文</span></span></a><a class="lang hant active" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earnings Deep Dive - Meituan 2021-2024</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f7fa; color: #333; line-height: 1.8; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 50px 0 40px; text-align: center; }
+.header h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+.header .subtitle { font-size: 16px; opacity: 0.9; margin-bottom: 6px; }
+.header .date-tag { font-size: 14px; opacity: 0.7; }
+.container { max-width: 920px; margin: 0 auto; padding: 30px 24px; }
+.card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 32px 36px; margin-bottom: 24px; }
+.card h2 { font-size: 22px; color: #1A4B8C; border-bottom: 3px solid #1A4B8C; padding-bottom: 10px; margin-bottom: 20px; }
+.card h3 { font-size: 17px; color: #2c3e50; margin: 18px 0 10px; }
+.card table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 15px 0; border-radius: 8px; overflow: hidden; }
+.card table thead th { background: #1A4B8C; color: #fff; padding: 12px 14px; }
+.card table tbody td { padding: 10px 14px; border-bottom: 1px solid #e8ecf1; }
+.card table tbody tr:nth-child(even) { background: #f8f9fb; }
+.card table tbody tr:hover { background: #eef2f7; }
+.card .highlight-green { color: #27ae60; font-weight: 600; }
+.card .highlight-red { color: #e74c3c; font-weight: 600; }
+.card .highlight-blue { color: #2980b9; font-weight: 600; }
+.card .value-up { color: #27ae60; }
+.card .value-down { color: #e74c3c; }
+.card .insight-box { background: #eef5ff; border-left: 4px solid #1A4B8C; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+.card .insight-box p { margin-bottom: 4px; }
+.card .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0; }
+.card .kpi-item { background: #f8f9fb; border-radius: 8px; padding: 14px; text-align: center; }
+.card .kpi-item .kpi-label { font-size: 12px; color: #888; margin-bottom: 4px; }
+.card .kpi-item .kpi-value { font-size: 20px; font-weight: 700; }
+.card .kpi-item .kpi-change { font-size: 11px; }
+.card ul, .card ol { padding-left: 22px; margin: 10px 0; }
+.card ul li, .card ol li { margin-bottom: 6px; }
+.card .chart-bar-group { margin: 16px 0; }
+.card .chart-bar-row { display: flex; align-items: center; margin-bottom: 6px; }
+.card .chart-bar-label { width: 60px; font-size: 13px; color: #555; }
+.card .chart-bar-track { flex: 1; height: 22px; background: #ecf0f1; border-radius: 4px; overflow: hidden; position: relative; }
+.card .chart-bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s; }
+.card .chart-bar-value { width: 70px; text-align: right; font-size: 13px; font-weight: 600; padding-left: 8px; }
+.footer { text-align: center; color: #999; font-size: 0.8rem; padding: 30px 24px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 Earnings Deep Dive: Meituan (3690.HK / MPNGY)</h1>
+  <div class="subtitle">2021–2024 Financial Deep Dive · The Road from Losses to Profitability</div>
+  <div class="date-tag">Research date: 2026-07-07 · Data sources: MacroTrends / Google Finance / Stock Analysis</div>
+</div>
+
+<div class="container">
+
+<!-- ==================== 1. 执行摘要 ==================== -->
+<div class="card">
+  <h2>I. Executive Summary</h2>
+  <p>Meituan completed one of the most emblematic financial reversals in China's internet sector between 2021 and 2024: net profit swung from a loss in 2021<strong class="highlight-red">USD 3.65 billion</strong>By 2024 profitability<strong class="highlight-green">USD 4.98 billion</strong>, cumulative improvement of more than<strong>USD 8.6 billion</strong>Over the same period, revenue grew from USD 27.77 billion to USD 46.96 billion, a CAGR of about 19.2%.</p>
+  <div class="kpi-grid">
+    <div class="kpi-item">
+      <div class="kpi-label">Revenue (2024)</div>
+      <div class="kpi-value">USD 46.96 billion</div>
+      <div class="kpi-change value-up">+20.1% YoY</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-label">Net profit (2024)</div>
+      <div class="kpi-value highlight-green">USD 4.98 billion</div>
+      <div class="kpi-change">vs -USD 3.65 billion (2021)</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-label">Gross margin (2024)</div>
+      <div class="kpi-value">38.4%</div>
+      <div class="kpi-change value-up">+14.7pp vs 2021</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-label">FCF (2024)</div>
+      <div class="kpi-value highlight-green">USD 6.54 billion</div>
+      <div class="kpi-change">Cash-rich</div>
+    </div>
+  </div>
+  <div class="insight-box">
+    <strong>💡 Core view:</strong>Meituan's earnings turnaround is sustainable. Gross margin improvement is driven mainly by better food-delivery efficiency (lower delivery cost per order plus stronger ad monetization), not by accounting adjustments or one-off gains. But persistently rising SG&A shows competitive pressure has not faded, and revenue growth has already slowed to single digits in 2025; the next growth engine must come from profit release in in-store, hotel and travel and from narrowing losses in new initiatives.</div>
+</div>
+
+<!-- ==================== 2. 收入结构分析 ==================== -->
+<div class="card">
+  <h2>II. Revenue structure analysis</h2>
+  <p>Meituan's revenue structure is the key to understanding its business model. Although the financial reports do not break down the precise revenue share of the three business lines, we can infer it from industry knowledge and financial characteristics:<strong>Food delivery</strong>Contributes about 50-55% of revenue,<strong>In-store/hotel and travel</strong>Around 20-25%,<strong>New businesses (Meituan Select, Instashopping, etc.)</strong>Around 25-30%.</p>
+
+  <h3>2.1 Revenue growth trajectory</h3>
+  <table>
+    <thead>
+      <tr><th>Year</th><th>Revenue (USD million)</th><th>Year-on-year growth rate</th><th>Incremental ($M)</th><th>Growth drivers</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>2021</td><td>$27,765</td><td>—</td><td>—</td><td>Community group buying (Meituan Select) expands at scale</td></tr>
+      <tr><td>2022</td><td>$32,685</td><td>+17.7%</td><td>+$4,920</td><td>Food delivery resilient growth + continued investment in Youxuan</td></tr>
+      <tr><td>2023</td><td>$39,104</td><td>+19.6%</td><td>+$6,419</td><td>In-store recovery + instant retail takeoff</td></tr>
+      <tr><td>2024</td><td>$46,959</td><td>+20.1%</td><td>+$7,855</td><td>Broad-based growth, in-store hotel and travel profit release</td></tr>
+    </tbody>
+  </table>
+
+  <div class="chart-bar-group">
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2021</div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:59%; background:#3498db;"></div></div>
+      <div class="chart-bar-value">USD 27.77 billion</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2022</div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:70%; background:#3498db;"></div></div>
+      <div class="chart-bar-value">USD 32.69 billion</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2023</div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:83%; background:#3498db;"></div></div>
+      <div class="chart-bar-value">USD 39.10 billion</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2024</div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:100%; background:#1A4B8C;"></div></div>
+      <div class="chart-bar-value">USD 46.96 billion</div>
+    </div>
+  </div>
+
+  <h3>2.2 Business segment analysis</h3>
+  <table>
+    <thead>
+      <tr><th>Business lines</th><th>Expected revenue share</th><th>Profitability</th><th>Competitive landscape</th><th>Growth expectations</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Food delivery</strong></td>
+        <td>~50-55%</td>
+        <td>Already profitable (per-order UE turned positive)</td>
+        <td>Douyin enters the fray, but Meituan's moat runs deep</td>
+        <td>Mid-single-digit growth, penetration nearing its ceiling</td>
+      </tr>
+      <tr>
+        <td><strong>In-store/hotel and travel</strong></td>
+        <td>~20-25%</td>
+        <td>High gross margin (>60%), core profit source</td>
+        <td>Intense Douyin competition, Dianping's moat</td>
+        <td>10-15% growth, margins improving</td>
+      </tr>
+      <tr>
+        <td><strong>New business</strong></td>
+        <td>~25-30%</td>
+        <td>Continued losses, but the loss narrowed</td>
+        <td>Pinduoduo/Alibaba/JD.com multi-front competition</td>
+        <td>Losses narrow at Youxuan; flash sales grow fast</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="insight-box">
+    <strong>🔍 Analysis:</strong>Meituan's core growth engine is shifting—from "scale expansion" in food delivery to "profit release" in in-store services and "narrowing losses" in new initiatives. Growth slowed to +9.4% in the first three quarters of 2025, indicating that overall growth has matured. What to watch next: ① whether in-store services can keep lifting profit ② whether Meituan Instashopping can become a second growth curve ③ when community group buying will reach break-even.</div>
+</div>
+
+<!-- ==================== 3. 毛利率趋势分析 ==================== -->
+<div class="card">
+  <h2>III. Gross margin trend: the leap from 23.7% to 38.4%</h2>
+
+  <div class="kpi-grid">
+    <div class="kpi-item">
+      <div class="kpi-label">2021</div>
+      <div class="kpi-value">23.7%</div>
+      <div class="kpi-change">Benchmark</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-label">2022</div>
+      <div class="kpi-value">28.1%</div>
+      <div class="kpi-change value-up">+4.4pp</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-label">2023</div>
+      <div class="kpi-value">35.1%</div>
+      <div class="kpi-change value-up">+7.0pp</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-label">2024</div>
+      <div class="kpi-value highlight-green">38.4%</div>
+      <div class="kpi-change value-up">+3.3pp</div>
+    </div>
+  </div>
+
+  <p>Gross margin improved cumulatively over four years<strong>14.7 percentage points</strong>, is one of the most notable profit-structure improvements in China's internet sector. The drivers are as follows:</p>
+
+  <h3>3.1 Breaking down the improvement drivers</h3>
+  <table>
+    <thead>
+      <tr><th>Factors</th><th>Degree of impact</th><th>Explanation</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>① Delivery efficiency gains</strong></td>
+        <td><span class="value-up">High</span></td>
+        <td>Smart dispatch algorithm optimization plus pilot unmanned delivery programs continue to push down per-order delivery costs. Autonomous delivery vehicles and drones already covered dozens of cities in 2024, with marginal costs declining.</td>
+      </tr>
+      <tr>
+        <td><strong>② Revenue mix shifts toward higher-margin businesses</strong></td>
+        <td><span class="value-up">Mid-to-high</span></td>
+        <td>In-store/hotel & travel (gross margin >60%) and online marketing services (advertising, gross margin >80%) increased their share. High-margin service revenue grew faster than low-margin delivery revenue.</td>
+      </tr>
+      <tr>
+        <td><strong>③ Scale effects</strong></td>
+        <td><span class="value-up">Mid</span></td>
+        <td>Revenue grew from USD 27.77 billion to USD 46.96 billion (+69%), and the amortization ratio of fixed costs declined. Covered cost per delivery order was diluted.</td>
+      </tr>
+      <tr>
+        <td><strong>④ Targeted subsidies</strong></td>
+        <td><span class="value-up">The middle</span></td>
+        <td>Shift from the early "burn cash for growth" approach to an ROI-driven subsidy strategy. Both user subsidy rates and merchant subsidy rates have declined.</td>
+      </tr>
+      <tr>
+        <td><strong>⑤ Loss reduction in the Youxuan business</strong></td>
+        <td><span class="value-up">Mid-to-low</span></td>
+        <td>Meituan Select (community group buying) has a lower gross margin than food delivery, but its losses are narrowing, so the drag on overall gross margin has eased.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>3.2 Assessing Gross Margin Sustainability</h3>
+  <div class="insight-box">
+    <strong>✅ Sustainable factors:</strong>Improved delivery efficiency (automation, dispatch algorithms) and a better revenue mix are structural improvements that will not reverse.<br>
+    <strong>⚠️ Hidden concern:</strong>① Price wars with competitors such as Douyin in in-store services could squeeze margins on high-margin businesses; ② slower revenue growth in 2025 could weaken economies of scale; ③ the share of low-margin new businesses such as Meituan Select is still rising.</div>
+</div>
+
+<!-- ==================== 4. 费用结构分析 ==================== -->
+<div class="card">
+  <h2>IV. Cost structure analysis: hidden concerns over rising SG&A</h2>
+
+  <h3>4.1 Expense ratio comparison</h3>
+  <table>
+    <thead>
+      <tr><th>Project</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>Trend</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>R&D expense (USD M)</strong></td><td>$2,585</td><td>$3,082</td><td>$2,996</td><td>$2,929</td>
+        <td><span class="value-down">↓</span></td>
+      </tr>
+      <tr>
+        <td>R&D expense ratio</td><td>9.3%</td><td>9.4%</td><td>7.7%</td><td>6.2%</td>
+        <td><span class="value-down">↓ 3.1pp</span></td>
+      </tr>
+      <tr>
+        <td><strong>SG&A ($M)</strong></td><td>$7,641</td><td>$7,358</td><td>$9,607</td><td>$10,391</td>
+        <td><span class="value-up">↑</span></td>
+      </tr>
+      <tr>
+        <td>SG&A expense ratio</td><td>27.5%</td><td>22.5%</td><td>24.6%</td><td>22.1%</td>
+        <td><span class="value-down">↓ 5.4pp</span>(record absolute high)</td>
+      </tr>
+      <tr>
+        <td><strong>Total fees (USD million)</strong></td><td>$10,226</td><td>$10,440</td><td>$12,603</td><td>$13,320</td>
+        <td><span class="value-up">↑ 30.3%</span></td>
+      </tr>
+      <tr>
+        <td>Total expense ratio</td><td>36.8%</td><td>31.9%</td><td>32.2%</td><td>28.4%</td>
+        <td><span class="value-down">↓ 8.4pp</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>4.2 Key findings</h3>
+  <ul>
+    <li><strong>Absolute SG&A continues to climb</strong>: Growing from USD 7.64 billion in 2021 to USD 10.39 billion in 2024 (+36%), reflecting intense market competition. Sustained investment by Douyin, Alibaba and JD.com in local life services forces Meituan to maintain high marketing spending.</li>
+    <li><strong>R&D spending peaks and declines</strong>: After peaking at USD 3.08 billion in 2022, it declined for consecutive years, with the R&D expense ratio falling from 9.4% to 6.2%. This may reflect efficiency gains, but could also signal diminishing marginal returns on technological innovation investment.</li>
+    <li><strong>Overall expense ratio improved</strong>: Although absolute SG&A rose, the combined expense ratio fell from 36.8% to 28.4%, indicating revenue grew faster than expenses—scale effects are at work.</li>
+  </ul>
+
+  <h3>4.3 Subsidy competition pressure</h3>
+  <div class="insight-box">
+    <strong>⚠️ Key focus:</strong>In 2024, SG&A reached USD 10.39 billion, up 8.2% YoY. Under pressure from Douyin, Alibaba, JD.com and other competitors, Meituan has limited room to compress its selling expense ratio. If revenue growth continues to slow in 2025 (+9.4%) while SG&A growth stays elevated, the expense ratio could deteriorate again. This is Meituan's biggest financial risk point for 2025-2026.</div>
+</div>
+
+<!-- ==================== 5. 净利润大逆转 ==================== -->
+<div class="card">
+  <h2>V. Net income reverses sharply: from -USD 3.65 billion to +USD 4.98 billion</h2>
+
+  <div class="chart-bar-group">
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2021</div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:73%; background:#e74c3c;"></div></div>
+      <div class="chart-bar-value highlight-red">-USD 3.648 billion</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2022</div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:20%; background:#e67e22;"></div></div>
+      <div class="chart-bar-value">-USD 993 million</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2023</div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:39%; background:#27ae60;"></div></div>
+      <div class="chart-bar-value highlight-green">+USD 1.958 billion</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2024</div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:100%; background:#27ae60;"></div></div>
+      <div class="chart-bar-value highlight-green">+USD 4.981 billion</div>
+    </div>
+  </div>
+
+  <h3>5.1 Breaking down the reversal path</h3>
+  <table>
+    <thead>
+      <tr><th>Year</th><th>Operating profit (USD million)</th><th>vs prior year improvement (USD million)</th><th>Core drivers</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2021</td><td>-$3,585</td><td>—</td>
+        <td>Heavy investment in community group buying + food delivery not yet profitable</td>
+      </tr>
+      <tr>
+        <td>2022</td><td>-$865</td><td>+$2,720</td>
+        <td>Food delivery turns profitable; Youxuan losses peak</td>
+      </tr>
+      <tr>
+        <td>2023</td><td>+$1,896</td><td>+$2,761</td>
+        <td>In-store recovery + sharp gross margin improvement</td>
+      </tr>
+      <tr>
+        <td>2024</td><td>+$5,125</td><td>+$3,229</td>
+        <td>Full profit release + operating leverage</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>5.2 Earnings quality assessment</h3>
+  <p>Based on 2024 data, the composition of net profit of USD 4.98 billion is relatively healthy:</p>
+  <ul>
+    <li><strong>Operating profit USD 5.13 billion</strong>(97% of pre-tax profit) — core operating earnings, not one-off gains</li>
+    <li><strong>Non-operating income USD 160 million</strong>—Very small, no profit "inflation"</li>
+    <li><strong>Effective tax rate just 5.7%</strong>(USD 300 million/USD 5.28 billion) — benefits from tax incentives for high-tech enterprises and key software enterprises</li>
+  </ul>
+  <div class="insight-box">
+    <strong>✅ Quality assessment:</strong>The 2024 net profit of USD 4.98 billion is high-quality "real profit", not an accounting adjustment or one-off gain. Operating profit accounts for 97%, operating cash flow of USD 7.95 billion far exceeds net profit, and FCF is USD 6.54 billion, so the profit is backed by very high cash content.</div>
+</div>
+
+<!-- ==================== 6. 自由现金流分析 ==================== -->
+<div class="card">
+  <h2>VI. Free cash flow analysis: from cash burn to cash generation</h2>
+
+  <table>
+    <thead>
+      <tr><th>Project (USD million)</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Operating cash flow</strong></td><td>-$622</td><td>+$1,696</td><td>+$5,726</td><td class="highlight-green">+$7,949</td></tr>
+      <tr><td>Capital expenditure</td><td>-$1,380</td><td>-$791</td><td>-$930</td><td>-$1,405</td></tr>
+      <tr><td><strong>Free cash flow</strong></td><td class="highlight-red">-$2,002</td><td>+$905</td><td>+$4,796</td><td class="highlight-green">+$6,544</td></tr>
+      <tr><td><strong>FCF / net profit</strong></td><td>—</td><td>—</td><td>2.45x</td><td>1.31x</td></tr>
+      <tr><td>FCF / revenue</td><td>-7.2%</td><td>2.8%</td><td>12.3%</td><td>13.9%</td></tr>
+    </tbody>
+  </table>
+
+  <h3>6.1 Cash flow quality analysis</h3>
+  <ul>
+    <li><strong>Operating cash flow continues to significantly exceed net profit</strong>: 2024 operating cash flow USD 7.95 billion vs net profit USD 4.98 billion, with the difference mainly from depreciation and amortization of USD 1.17 billion and non-cash items of USD 0.70 billion. This shows the cash behind the profit is real money.</li>
+    <li><strong>Capital expenditure well controlled</strong>: 2024 capex was USD 141 million, just 3.0% of revenue, showing Meituan runs an asset-light platform model that sustains growth without heavy fixed-asset investment.</li>
+    <li><strong>Very high FCF conversion rate</strong>: A 13.9% FCF/revenue ratio is healthy for a technology platform, close to the level of mature internet companies.</li>
+    <li><strong>From -USD 2 billion to +USD 6.5 billion</strong>: The four-year reversal in FCF is the strongest evidence of the company's strategic shift from "cash-burning expansion" to "profitable growth."</li>
+  </ul>
+
+  <div class="insight-box">
+    <strong>💰 Strategic significance:</strong>Free cash flow of USD 6.54 billion gives Meituan enormous strategic flexibility—usable for ① share buybacks (current market cap only USD 62 billion) ② strategic investments/M&A ③ weathering price wars ④ enhancing shareholder returns. Given the current net cash position and low PS valuation, buybacks are the most cost-effective use of capital.</div>
+</div>
+
+<!-- ==================== 7. 资产负债表分析 ==================== -->
+<div class="card">
+  <h2>VII. Balance sheet health: net cash position</h2>
+
+  <h3>7.1 Key metrics</h3>
+  <table>
+    <thead>
+      <tr><th>Indicator</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Cash and equivalents (USD M)</td><td>$20,161</td><td>$18,818</td><td>$23,249</td><td class="highlight-green">$26,122</td></tr>
+      <tr><td>Long-term debt (USD million)</td><td>$7,068</td><td>$5,700</td><td>$5,485</td><td>$5,887</td></tr>
+      <tr><td><strong>Net cash (USD million)</strong></td><td>$13,093</td><td>$13,118</td><td>$17,764</td><td class="highlight-green">$20,235</td></tr>
+      <tr><td>Current liabilities (USD million)</td><td>$10,632</td><td>$11,358</td><td>$14,254</td><td>$15,014</td></tr>
+      <tr><td><strong>Quick ratio</strong></td><td>2.16x</td><td>1.87x</td><td>1.82x</td><td>1.94x</td></tr>
+      <tr><td>Total assets (USD million)</td><td>$37,301</td><td>$36,330</td><td>$41,405</td><td>$45,118</td></tr>
+      <tr><td>Total liabilities (USD million)</td><td>~$17,700</td><td>~$17,058</td><td>~$19,739</td><td>~$20,901</td></tr>
+      <tr><td><strong>Debt-to-asset ratio</strong></td><td>~47.5%</td><td>~46.9%</td><td>~47.7%</td><td>~46.3%</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.2 Financial Position Assessment</h3>
+  <ul>
+    <li><strong>Net cash USD 20.2 billion</strong>: Cash of USD 26.1 billion less long-term debt of USD 5.9 billion gives net cash of USD 20.2 billion, an exceptionally healthy financial position.</li>
+    <li><strong>No short-term solvency pressure</strong>: Quick ratio 1.94x; current liabilities of USD 15 billion are easily covered by cash alone (even excluding receivables and other current assets).</li>
+    <li><strong>Low leverage</strong>: The debt-to-asset ratio holds steady at 46-48%, very conservative for an operating technology company.</li>
+    <li><strong>Long-term investment USD 6.79 billion</strong>: Includes strategic investments such as Li Auto; these assets are high-quality and liquid.</li>
+  </ul>
+
+  <div class="insight-box">
+    <strong>🏦 Overall assessment:</strong>Meituan's balance sheet is at its healthiest level since its 2018 listing. Net cash of USD 20.2 billion means the company has ample "ammunition" to tackle competition, make investments, or conduct defensive capital operations when necessary. Against the current market cap of USD 62 billion, net cash accounts for as much as 32.6% of market cap, implying an enterprise value (EV) of just USD 41.8 billion, corresponding to EV/EBITDA of about 6-7x — a highly attractive valuation.</div>
+</div>
+
+<!-- ==================== 8. 季度营收趋势 ==================== -->
+<div class="card">
+  <h2>VIII. Quarterly Revenue Trend Analysis</h2>
+
+  <h3>8.1 Quarterly data</h3>
+  <table>
+    <thead>
+      <tr><th>Quarter</th><th>Revenue (USD million)</th><th>Month-on-month growth rate</th><th>Year-on-year growth rate</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>2024 Q1</td><td>$10,237</td><td>—</td><td>—</td></tr>
+      <tr><td>2024 Q2</td><td>$11,359</td><td>+11.0%</td><td>—</td></tr>
+      <tr><td>2024 Q3</td><td>$13,063</td><td>+15.0%</td><td>—</td></tr>
+      <tr><td>2024 Q4</td><td>$12,300</td><td>-5.8%</td><td>—</td></tr>
+      <tr><td>2025 Q1</td><td>$11,893</td><td>-3.3%</td><td>+16.2%</td></tr>
+      <tr><td>2025 Q2</td><td>$12,692</td><td>+6.7%</td><td>+11.7%</td></tr>
+      <tr><td>2025 Q3</td><td>$13,340</td><td>+5.1%</td><td>+2.1%</td></tr>
+    </tbody>
+  </table>
+
+  <h3>8.2 Analysis of the slowdown in growth</h3>
+  <div class="insight-box">
+    <strong>📉 Key trend:</strong>Consolidated revenue for the first three quarters of 2025 totaled USD 37.93 billion, up only slightly from USD 34.66 billion in the first three quarters of 2024<strong>+9.4%</strong>, far below the +20.1% growth rate for full-year 2024. The slowdown is clear. On a year-on-year quarterly basis, growth in Q3 2025 had fallen to<strong>+2.1%</strong>, close to stagnation.</div>
+  <p>Analysis of the slowdown drivers:</p>
+  <ul>
+    <li><strong>Food delivery penetration is nearing its ceiling</strong>— Overall growth in China's food delivery market has fallen to single digits;</li>
+    <li><strong>In-store business competition is intense</strong>— Douyin continues to take share in the in-store market;</li>
+    <li><strong>Macroeconomic pressure</strong>— Trade-down in consumption weighs on high-ticket categories such as liquor and travel;</li>
+    <li><strong>High base effect</strong>—2024 was a high-growth year of post-pandemic recovery, setting a high comparison base.</li>
+  </ul>
+  <p>If full-year 2025 growth holds at around 9-10%, it will mark Meituan's formal shift from a "high-growth phase" to a "mature-growth phase". Whether the market is willing to award a 20x+ PE to a local life platform whose growth has fallen to single digits is the core valuation question.</p>
+</div>
+
+<!-- ==================== 9. 核心财务比率对比 ==================== -->
+<div class="card">
+  <h2>9. Core financial ratio comparison table</h2>
+
+  <table>
+    <thead>
+      <tr><th>Ratio metrics</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>Change over 4 years</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Gross margin</strong></td>
+        <td>23.7%</td><td>28.1%</td><td>35.1%</td><td class="highlight-green">38.4%</td>
+        <td><span class="value-up">+14.7pp</span></td>
+      </tr>
+      <tr>
+        <td><strong>Operating margin</strong></td>
+        <td class="highlight-red">-12.9%</td><td class="highlight-red">-2.6%</td><td>4.8%</td><td class="highlight-green">10.9%</td>
+        <td><span class="value-up">+23.8pp</span></td>
+      </tr>
+      <tr>
+        <td><strong>Net margin</strong></td>
+        <td class="highlight-red">-13.1%</td><td class="highlight-red">-3.0%</td><td>5.0%</td><td class="highlight-green">10.6%</td>
+        <td><span class="value-up">+23.7pp</span></td>
+      </tr>
+      <tr>
+        <td><strong>Revenue growth</strong></td><td>—</td><td>+17.7%</td><td>+19.6%</td><td class="highlight-green">+20.1%</td>
+        <td>Maintain ~20%</td>
+      </tr>
+      <tr>
+        <td><strong>Operating cash flow/revenue</strong></td>
+        <td class="highlight-red">-2.2%</td><td>5.2%</td><td>14.6%</td><td class="highlight-green">16.9%</td>
+        <td><span class="value-up">+19.1pp</span></td>
+      </tr>
+      <tr>
+        <td><strong>FCF/revenue</strong></td>
+        <td class="highlight-red">-7.2%</td><td>2.8%</td><td>12.3%</td><td class="highlight-green">13.9%</td>
+        <td><span class="value-up">+21.1pp</span></td>
+      </tr>
+      <tr>
+        <td><strong>R&D expense ratio</strong></td><td>9.3%</td><td>9.4%</td><td>7.7%</td><td>6.2%</td>
+        <td><span class="value-down">-3.1pp</span></td>
+      </tr>
+      <tr>
+        <td><strong>SG&A expense ratio</strong></td><td>27.5%</td><td>22.5%</td><td>24.6%</td><td>22.1%</td>
+        <td><span class="value-down">-5.4pp</span></td>
+      </tr>
+      <tr>
+        <td><strong>Quick ratio</strong></td><td>2.16x</td><td>1.87x</td><td>1.82x</td><td>1.94x</td>
+        <td>Slight decline</td>
+      </tr>
+      <tr>
+        <td><strong>Net cash (USD billion)</strong></td><td>$130.9</td><td>$131.2</td><td>$177.6</td><td class="highlight-green">$202.4</td>
+        <td><span class="value-up">+$71.5B</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>9.1 Comprehensive assessment framework</h3>
+  <table>
+    <thead>
+      <tr><th>Dimension</th><th>Rating</th><th>Explanation</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Profitability</td><td><span class="highlight-green">★★★★☆</span></td><td>From loss to USD 5 billion net profit, a striking improvement, yet a 10.6% net margin remains mid-tier for the internet sector</td></tr>
+      <tr><td>Growth potential</td><td><span class="highlight-blue">★★★☆☆</span></td><td>Growth slows from 20% to 9-10%; food delivery peaks while new businesses have yet to fully take over</td></tr>
+      <tr><td>Financial health</td><td><span class="highlight-green">★★★★★</span></td><td>Net cash of USD 20.2 billion, quick ratio of 1.94x, top-tier in the industry</td></tr>
+      <tr><td>Cash flow</td><td><span class="highlight-green">★★★★★</span></td><td>FCF USD 6.54 billion, FCF/revenue 13.9%, exceptionally high earnings quality</td></tr>
+      <tr><td>Competitive moat</td><td><span class="highlight-blue">★★★★☆</span></td><td>Deep moat in food delivery network, but in-store business under threat from Douyin</td></tr>
+      <tr><td>Valuation appeal</td><td><span class="highlight-green">★★★★☆</span></td><td>PS 1.3x, PE 12-15x, FCF yield 10.6%, valuation on the low side</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== 10. 风险与展望 ==================== -->
+<div class="card">
+  <h2>10. Risks and Outlook</h2>
+
+  <h3>10.1 Principal risks</h3>
+  <ol>
+    <li><strong>Growth stall risk</strong>: Q3 2025 YoY growth was only +2.1%; a continued decline would trigger a valuation re-rating. The market is divided on whether the combination of "slowing growth + improving profit" can support the current valuation.</li>
+    <li><strong>Risk of intensifying competition</strong>: Douyin keeps investing in in-store services, while Alibaba and JD.com ramp up instant retail, potentially forcing Meituan to raise subsidies and squeezing its profit margins.</li>
+    <li><strong>New business loss risk</strong>Meituan Select and other community group-buying businesses remain loss-making; if loss reduction lags expectations, it will drag on overall margins.</li>
+    <li><strong>Macroeconomic risk</strong>Consumer trade-down and employment pressure could weigh on food-delivery average order value and in-store visit frequency.</li>
+    <li><strong>Regulatory risk</strong>: Social-security and other labor-protection policies for food-delivery riders may raise labor costs and squeeze delivery margins.</li>
+  </ol>
+
+  <h3>10.2 Positive outlook</h3>
+  <ol>
+    <li><strong>There is still room for profit release</strong>: The current 10.6% net margin remains in the lower-middle range among mature internet platforms (versus ~25% for Tencent and ~15% for Alibaba), leaving room for improvement.</li>
+    <li><strong>New businesses set to narrow losses</strong>: After multiple rounds of adjustment, Meituan Select's losses are expected to narrow sharply in 2025-2026.</li>
+    <li><strong>Shareholder return potential</strong>: USD 20.2 billion in net cash plus USD 6.5 billion in annual FCF gives ample firepower for large-scale buybacks. With the stock well below its 52-week high, buybacks are likely to ramp up.</li>
+    <li><strong>Overseas expansion opportunities</strong>Keeta (the Hong Kong food-delivery business) is a testing ground for overseas expansion; if the model proves out, long-term growth headroom will reopen.</li>
+  </ol>
+
+  <div class="insight-box">
+    <strong>🎯 Investment conclusion:</strong>Meituan is the undisputed leader in China's local life services sector, having completed a strategic transformation from "loss-making expansion" to "profitable growth" over 2021-2024. The current valuation (PS 1.3x, PE 12-15x) sits at a low level among technology platforms, with the market mainly concerned about slowing growth and competitive pressure. For investors willing to accept mid-to-low growth and who value cash flow quality and margin of safety, Meituan is attractive. Key metrics to watch: ① whether full-year 2025 revenue growth holds at 8-10% ② whether the SG&A expense ratio continues to improve ③ the margin trend in the in-store business ④ the scale of share buybacks.</div>
+</div>
+
+<div class="footer">
+  <p>This report is for reference only and does not constitute investment advice. Data sources: MacroTrends, Google Finance, Stock Analysis.</p>
+  <p>Research date: 2026-07-07 · Generated by: Hermes Agent</p>
+</div>
+
+</div>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

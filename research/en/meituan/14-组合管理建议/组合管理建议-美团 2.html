@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio management recommendation — Meituan | 3690.HK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f5f7fa; color: #1a2332; line-height: 1.8;
+    padding: 0;
+  }
+  .hero {
+    background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%)
+    color: #fff; padding: 64px 24px 48px; text-align: center;
+  }
+  .hero h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: 2px; }
+  .hero .subtitle { font-size: 1rem; font-weight: 300; margin-top: 8px; opacity: .85; }
+  .hero .quote { margin-top: 20px; font-size: .85rem; font-style: italic; opacity: .8; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .container { max-width: 920px; margin: 0 auto; padding: 32px 20px 64px; }
+  .card {
+    background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    padding: 28px 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 1.3rem; font-weight: 700; color: #008C4A;
+    border-left: 4px solid #008C4A; padding-left: 14px; margin-bottom: 18px;
+  }
+  .card h3 { font-size: 1rem; font-weight: 600; color: #2c3e50; margin: 16px 0 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: .85rem; margin: 12px 0; }
+  th { background: #e8f5e9; color: #008C4A; font-weight: 600; padding: 10px 8px; text-align: center; border: 1px solid #dce4ed; }
+  td { padding: 10px 8px; text-align: center; border: 1px solid #e8edf3; }
+  tr:nth-child(even) { background: #f9fbfd; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: .75rem; font-weight: 600; }
+  .tag-green { background: #e8f5e9; color: #27ae60; }
+  .tag-yellow { background: #fff3e0; color: #e67e22; }
+  .tag-red { background: #fee; color: #c0392b; }
+  .tag-blue { background: #e3f2fd; color: #1976d2; }
+  .tag-gray { background: #f0f0f0; color: #666; }
+  .tag-meituan { background: #e8f5e9; color: #008C4A; }
+  .role-box { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+  .role-item { flex: 1; min-width: 180px; background: #f9fbfd; border-radius: 8px; padding: 16px; text-align: center; }
+  .role-item .role-label { font-size: .8rem; color: #7f8c8d; }
+  .role-item .role-value { font-size: 1.2rem; font-weight: 700; margin-top: 4px; }
+  .alert-box { border-radius: 8px; padding: 16px; margin: 8px 0; font-size: .85rem; }
+  .alert-red { background: #fee; border-left: 4px solid #c0392b; }
+  .alert-yellow { background: #fff3e0; border-left: 4px solid #e67e22; }
+  .alert-green { background: #e8f5e9; border-left: 4px solid #27ae60; }
+  .alert-blue { background: #e3f2fd; border-left: 4px solid #1976d2; }
+  .summary-box {
+    background: linear-gradient(135deg, #e8f5e9, #f0faf3);
+    border: 2px solid #008C4A; border-radius: 12px;
+    padding: 24px; text-align: center;
+  }
+  .summary-box .big { font-size: 1.3rem; font-weight: 700; color: #008C4A; }
+  .summary-box .small { font-size: .85rem; color: #555; margin-top: 8px; }
+  .verdict-box {
+    background: linear-gradient(135deg, #e3f2fd, #e8f5e9);
+    border: 2px solid #1976d2; border-radius: 12px;
+    padding: 24px; text-align: center;
+  }
+  .verdict-box .big { font-size: 1.5rem; font-weight: 900; color: #1976d2; }
+  .verdict-box .small { font-size: .85rem; color: #555; margin-top: 8px; }
+  .compare-grid { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+  .compare-item { flex: 1; min-width: 240px; border-radius: 10px; padding: 18px; }
+  .compare-item h4 { font-size: .95rem; font-weight: 700; margin-bottom: 8px; }
+  .compare-item ul { list-style: none; padding: 0; font-size: .8rem; }
+  .compare-item ul li { padding: 4px 0; border-bottom: 1px solid rgba(0,0,0,.05); }
+  .compare-item ul li:last-child { border-bottom: none; }
+  .compare-tencent { background: #e3f2fd; border: 2px solid #1976d2; }
+  .compare-pdd { background: #e8f5e9; border: 2px solid #27ae60; }
+  .compare-baba { background: #fce4e4; border: 2px solid #c0392b; }
+  .compare-meituan { background: #e8f5e9; border: 2px solid #008C4A; }
+  .progress-bar-bg { background: #eee; border-radius: 8px; height: 24px; overflow: hidden; margin: 6px 0; }
+  .progress-bar { height: 100%; border-radius: 8px; color: #fff; font-size: .75rem; font-weight: 600; line-height: 24px; padding-left: 8px; }
+  .footer { text-align: center; font-size: .8rem; color: #95a5a6; padding: 32px 20px; border-top: 1px solid #e8edf3; }
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.5rem; }
+    .container { padding: 16px 12px 48px; }
+    .card { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>📊 Portfolio management recommendation — Meituan (3690.HK)</h1>
+  <div class="subtitle">Local life services platform | Scout date 2026/07/07 | Share price HKD 78.35</div>
+  <div class="quote">"Price is what you pay. Value is what you get." — Buffett<br>"Great companies often run into a great problem at some point. That creates a once-in-a-lifetime opportunity." — Charlie Munger</div>
+</div>
+<div class="container">
+
+  <!-- 一、组合角色定位 -->
+  <div class="card">
+    <h2>🎯 1. Meituan's portfolio role</h2>
+    <div class="role-box">
+      <div class="role-item">
+        <div class="role-label">Core holdings</div>
+        <div class="role-value"><span class="tag tag-green">✅ Suitable</span></div>
+        <div style="font-size:.75rem;color:#666;margin-top:4px;">FCF cash machine + growth + net cash</div>
+      </div>
+      <div class="role-item">
+        <div class="role-label">Satellite holdings</div>
+        <div class="role-value"><span class="tag tag-green">✅ Also suitable</span></div>
+        <div style="font-size:.75rem;color:#666;margin-top:4px;">When concerned about intensifying competition</div>
+      </div>
+      <div class="role-item">
+        <div class="role-label">Trading position</div>
+        <div class="role-value"><span class="tag tag-red">❌ Not suitable</span></div>
+        <div style="font-size:.75rem;color:#666;margin-top:4px;">High volatility plus value release takes time</div>
+      </div>
+    </div>
+
+    <h3>Meituan vs other Chinese internet companies — portfolio role comparison</h3>
+    <table>
+      <tr><th>The company</th><th>Portfolio role</th><th>Core thesis</th><th>Portfolio positioning</th></tr>
+      <tr>
+        <td><strong>Tencent (0700.HK)</strong></td>
+        <td><span class="tag tag-blue">🏛️ Core holdings</span></td>
+        <td>Social moat is irreplaceable; RMB 100 billion buyback lifts per-share value</td>
+        <td>Ballast</td>
+      </tr>
+      <tr>
+        <td><strong>Meituan (3690.HK)</strong></td>
+        <td><span class="tag tag-meituan">🚀 Growth core</span></td>
+        <td>Local life infrastructure, rapid FCF growth plus low penetration</td>
+        <td>Growth engine</td>
+      </tr>
+      <tr>
+        <td><strong>Pinduoduo (PDD)</strong></td>
+        <td><span class="tag tag-green">🎯 Deep value + options</span></td>
+        <td>Ultra-low PE + net cash safety cushion + Temu call option</td>
+        <td>Odds engine</td>
+      </tr>
+      <tr>
+        <td><strong>Alibaba (BABA)</strong></td>
+        <td><span class="tag tag-red">🔄 Turnaround</span></td>
+        <td>PB ~0.22 is extremely undervalued, but negative FCF requires fundamental repair</td>
+        <td>Distressed bet</td>
+      </tr>
+    </table>
+
+    <div class="alert-box alert-blue">
+      <strong>Meituan's core portfolio value:</strong>In the Tencent-Pinduoduo-Alibaba three-company framework, Meituan's addition fills<strong>"High growth + high FCF + reasonable valuation"</strong>—the blank space. Tencent has the highest certainty but low growth (~10%), Pinduoduo offers high odds but Temu is uncertain, and Alibaba is a distressed case awaiting a turnaround. What Meituan offers is—<strong>20%+ growth + 10.6% FCF yield + USD 20 billion net cash</strong>— This combination of the three is unique among Chinese internet companies.</div>
+  </div>
+
+  <!-- 二、如果已持有美团：仓位调整建议 -->
+  <div class="card">
+    <h2>📈 II. If you already hold Meituan: position adjustment recommendations</h2>
+
+    <div class="summary-box">
+      <div class="big">Current recommendation: Hold / modest add</div>
+      <div class="small">The stock has fallen about 42% from its 52-week high of HKD 136.10, leaving valuation in a reasonably low range.</div>
+    </div>
+
+    <h3>Current portfolio assessment</h3>
+    <table>
+      <tr><th>Indicator</th><th>Data</th><th>Rating</th></tr>
+      <tr><td>Current share price</td><td>HKD 78.35</td><td><span class="tag tag-green">Down 42% from its peak</span></td></tr>
+      <tr><td>PE (TTM)</td><td>~12-15x</td><td><span class="tag tag-green">Historic low range</span></td></tr>
+      <tr><td>PS (TTM)</td><td>~1.3x</td><td><span class="tag tag-green">Mid-to-low in tech platforms</span></td></tr>
+      <tr><td>FCF Yield</td><td>~10.6%</td><td><span class="tag tag-green">Excellent</span></td></tr>
+      <tr><td>Net cash position</td><td>$20.2B (cash $26B > debt $5.9B)</td><td><span class="tag tag-green">Exceptionally strong balance sheet</span></td></tr>
+      <tr><td>Revenue growth (2024)</td><td>+20.1%</td><td><span class="tag tag-green">Double-digit growth</span></td></tr>
+      <tr><td>Revenue growth (first 3 quarters of 2025)</td><td>~+9.4%</td><td><span class="tag tag-yellow">Slowing growth warrants attention</span></td></tr>
+      <tr><td>Competitive pressure</td><td>Alibaba and JD.com enter on-demand delivery</td><td><span class="tag tag-yellow">Medium risk</span></td></tr>
+    </table>
+
+    <h3>Recommended position adjustment plan</h3>
+    <table>
+      <tr><th>Investor type</th><th>Recommended position</th><th>Direction of adjustment</th><th>Rationale</th></tr>
+      <tr><td>🟢 Conservative</td><td><strong>5-8%</strong></td><td><span class="tag tag-green">Hold / modest add</span></td><td>Recognizes the local-services business model but avoids competitive uncertainty</td></tr>
+      <tr><td>Balanced</td><td><strong>8-12%</strong></td><td><span class="tag tag-green">Hold / add 2-3%</span></td><td>Valuation is reasonably low, and strong FCF provides a margin of safety</td></tr>
+      <tr><td>🔴 Aggressive</td><td><strong>12-15%</strong></td><td><span class="tag tag-green">Increase position to the cap</span></td><td>Bullish on local-life penetration gains plus Meituan's execution</td></tr>
+    </table>
+
+    <div class="alert-box alert-green">
+      <strong>Core view:</strong>Falling from a 52-week high of HKD 136 to HKD 78, the market has priced in two core concerns: ① slowing growth (20%→9.4%) and ② intensifying competition (Alibaba/JD entering the fray). Yet Meituan's current FCF yield has reached 10.6%, with PS at just 1.3x—meaning that even if growth slows further below 10%, the current valuation has already fully reflected pessimistic expectations. For holders,<strong>Now is not the time to sell; instead, consider whether to add to positions.</strong>
+    </div>
+  </div>
+
+  <!-- 三、如果未持有：建仓价格区间 -->
+  <div class="card">
+    <h2>💰 3. If you do not hold Meituan: position-building recommendation</h2>
+
+    <h3>Valuation range and corresponding strategy</h3>
+    <table>
+      <tr><th>Price range</th><th>PE range (estimated)</th><th>FCF Yield</th><th>Recommended action</th><th>Explanation</th></tr>
+      <tr><td><strong>HKD 60-70</strong></td><td>~9-11x</td><td>~13-15%</td><td><span class="tag tag-green">🔵 Building positions aggressively</span></td><td>Extreme undervaluation zone. Net cash/market cap ratio >35%, an exceptionally thick fundamental safety cushion</td></tr>
+      <tr><td><strong>HKD 70-80</strong></td><td>~11-12x</td><td>~10-13%</td><td><span class="tag tag-green">🟢 Build positions in tranches</span></td><td>Current price range (HKD 78.35). An excellent entry point with FCF yield >10%</td></tr>
+      <tr><td><strong>HKD 80-100</strong></td><td>~12-15x</td><td>~8-10%</td><td><span class="tag tag-yellow">Amber: initiate a small position</span></td><td>Valuation sits in a reasonably low range. Recommend building a small observation position.</td></tr>
+      <tr><td><strong>HKD 100-120</strong></td><td>~15-18x</td><td>~6-8%</td><td><span class="tag tag-yellow">⏸️ Wait and see</span></td><td>Valuation normalizing range. Wait for a pullback before entering</td></tr>
+      <tr><td><strong>HKD 120+</strong></td><td>>18x</td><td><6%</td><td><span class="tag tag-red">🔴 Waiting</span></td><td>Valuation is stretched, with insufficient margin of safety; unsuitable for initiating new positions</td></tr>
+    </table>
+
+    <h3>Recommended position-building strategy</h3>
+    <div style="background:#f8f9fb;border:1px solid #e8ecf1;border-radius:8px;padding:16px;font-family:monospace;font-size:.85rem;line-height:2;white-space:pre;overflow-x:auto;margin:12px 0;">Meituan position-building roadmap:
+
+Current price HKD 78.35 ──→ in the [scale-in] zone
+    Strategy: 3-4 tranches, add one tranche per 5-8% decline
+
+    Tranche 1 (HKD 78): build 40% of target position
+    Tranche 2 (HKD 72): add to 70% of target position
+    Tranche 3 (HKD 66): add to 100% of target position
+    Tranche 4 (HKD 60): overweight to the cap (if fundamentals have not deteriorated)
+
+    ⚠️ If the stock rises above HKD 90 without first falling to the Tranche 2 level
+       stop building and hold the existing position to monitor</div>
+
+    <div class="alert-box alert-yellow">
+      <strong>Position-building thesis:</strong>Buying at the current HKD 78.35, you are paying for<strong>"Slowing growth and intensifying competition in local life services"</strong>The pessimistic price of, what is obtained is<strong>A cash machine generating over USD 6.5 billion in FCF, holding over USD 20 billion in net cash, and still growing at a double-digit rate</strong>. Even if growth slows to 8-10%, a 10%+ FCF yield means your return already outpaces the vast majority of fixed-income assets.</div>
+
+    <h3>Key entry signal</h3>
+    <table>
+      <tr><th>Signal type</th><th>Positive signals (add to position)</th><th>Negative signal (on hold)</th></tr>
+      <tr><td>📊 Results</td><td>2025Q4 revenue growth rebounded to 12%+</td><td>Growth falls below 8%</td></tr>
+      <tr><td>💼 Competition</td><td>Alibaba/JD instant delivery expansion slows</td><td>Alibaba/JD.com capture >10% of food-delivery share</td></tr>
+      <tr><td>💰 Profit</td><td>Operating margin stable or improving</td><td>Subsidy war drives sharp margin decline</td></tr>
+      <tr><td>🔄 Buyback</td><td>Meituan launches large-scale buyback</td><td>Continued share dilution</td></tr>
+    </table>
+  </div>
+
+  <!-- 四、仓位上限建议 -->
+  <div class="card">
+    <h2>IV. Position cap recommendations (based on risk tolerance)</h2>
+
+    <h3>Hard constraint framework</h3>
+    <table>
+      <tr><th>Constraint hierarchy</th><th>Cap</th><th>Explanation</th></tr>
+      <tr><td>Meituan single stock</td><td><strong>≤ 15%</strong></td><td>Even if extremely bullish, keep room for "what if I'm wrong." The competitive landscape changes fast.</td></tr>
+      <tr><td>Local life/consumer internet total</td><td><strong>≤ 30%</strong></td><td>Meituan + Meituan's industry-related companies (e.g., those linked to Alibaba's local life services business)</td></tr>
+      <tr><td>Chinese ADRs (including Stock Connect) total</td><td><strong>≤ 50%</strong></td><td>Special risks such as delisting risk, capital controls and information asymmetry</td></tr>
+      <tr><td>Single-industry exposure</td><td><strong>≤ 40%</strong></td><td>E-commerce, local services and advertising are highly interconnected</td></tr>
+    </table>
+
+    <h3>Position limits by investor type</h3>
+    <table>
+      <tr><th>Investor type</th><th>Meituan cap</th><th>Combined ceiling for China internet</th><th>China exposure cap in total portfolio</th></tr>
+      <tr><td>🟢 Conservative</td><td><strong>8%</strong></td><td><strong>20%</strong></td><td><strong>30%</strong></td></tr>
+      <tr><td>Balanced</td><td><strong>12%</strong></td><td><strong>30%</strong></td><td><strong>40%</strong></td></tr>
+      <tr><td>🔴 Aggressive</td><td><strong>15%</strong></td><td><strong>40%</strong></td><td><strong>50%</strong></td></tr>
+    </table>
+
+    <div class="alert-box alert-red">
+      <strong>🚨 Important risk warning:</strong>Meituan's food delivery and community group-buying businesses are highly sensitive to the macroeconomy and consumer confidence. If Chinese consumption stays weak, both Meituan's revenue growth and profit margin will come under pressure. Even under the most optimistic assumptions, Meituan's position should not exceed, as a share of the total portfolio,<strong>15%</strong>。
+    </div>
+  </div>
+
+  <!-- 五、与腾讯、拼多多、阿里协同分析 -->
+  <div class="card">
+    <h2>🔗 V. Synergy analysis with Tencent, Pinduoduo and Alibaba</h2>
+
+    <h3>Four-company portfolio role matrix</h3>
+    <table>
+      <tr><th>Company</th><th>Portfolio role</th><th>Correlation with Meituan</th><th>Synergies</th><th>Diversification effect</th></tr>
+      <tr>
+        <td><strong>Tencent (0700.HK)</strong></td>
+        <td><span class="tag tag-blue">🏛️ Core holdings</span></td>
+        <td><span class="tag tag-yellow">Medium-high (~0.6)</span></td>
+        <td>✅ Tencent is Meituan's largest shareholder (~17%), and WeChat provides Meituan with a traffic gateway</td>
+        <td>⚠️ Limited (same shareholder + both exposed to China-ADR macro)</td>
+      </tr>
+      <tr>
+        <td><strong>Pinduoduo (PDD)</strong></td>
+        <td><span class="tag tag-green">Deep value plus options</span></td>
+        <td><span class="tag tag-yellow">Moderate (~0.5)</span></td>
+        <td>✅ Meituan in-store vs PDD local life — competitors, but with different market focus</td>
+        <td>✅ Partially diversified (across different sub-sectors)</td>
+      </tr>
+      <tr>
+        <td><strong>Alibaba (BABA)</strong></td>
+        <td><span class="tag tag-red">🔄 Turnaround</span></td>
+        <td><span class="tag tag-red">Moderately high (~0.55-0.65)</span></td>
+        <td>⚠️ Direct competition between Ele.me and Meituan Waimai as Alibaba enters on-demand delivery</td>
+        <td>⚠️ Limited diversification (competitors in the same industry)</td>
+      </tr>
+    </table>
+
+    <h3>Four-company portfolio allocation recommendation (including Meituan)</h3>
+    <table>
+      <tr><th>Investor type</th><th>Tencent</th><th>Meituan</th><th>Pinduoduo</th><th>Alibaba</th><th>China internet aggregate</th></tr>
+      <tr><td>🟢 Conservative</td><td>8-10%</td><td>5-8%</td><td>3-5%</td><td>2-3%</td><td><strong>18-26%</strong></td></tr>
+      <tr><td>🟡 Balanced</td><td>10-12%</td><td>8-12%</td><td>8-10%</td><td>3-5%</td><td><strong>29-39%</strong></td></tr>
+      <tr><td>🔴 Aggressive</td><td>12-15%</td><td>12-15%</td><td>10-12%</td><td>5-8%</td><td><strong>39-50%</strong></td></tr>
+    </table>
+
+    <div class="alert-box alert-blue">
+      <strong>Portfolio changes after Meituan's inclusion:</strong><br>
+      ① <strong>Increase growth</strong>: Meituan's inclusion raised the portfolio's central revenue growth rate (from ~10% to ~12-15%)<br>
+      ② <strong>Lower the valuation center</strong>: Meituan's PS of ~1.3x drags down the average valuation of the four companies<br>
+      ③ <strong>Increase exposure to local life services</strong>: Exposed to positive competitive risk with Alibaba (both compete in local life services)<br>
+      ④ <strong>Supplementary FCF yield</strong>: Meituan FCF yield 10.6%, second only to Pinduoduo among the four companies<br>
+      <strong style="color:#c0392b;">→ In the four-company framework, Meituan replaces part of the role played by the Pinduoduo and Alibaba positions; we recommend trimming the latter two modestly to accommodate Meituan</strong>
+    </div>
+
+    <h3>Adjustment recommendation: how to adjust existing holdings if Meituan is added</h3>
+    <table>
+      <tr><th>Existing position</th><th>Direction of adjustment</th><th>Logic</th></tr>
+      <tr><td>Tencent</td><td><span class="tag tag-yellow">Slightly reduced (-1–2%)</span></td><td>The two have strong shareholder ties and high macro correlation; balance them appropriately</td></tr>
+      <tr><td>Pinduoduo</td><td><span class="tag tag-yellow">Slightly lowered (-2–3%)</span></td><td>Meituan offers a growth alternative, reducing reliance on a single high-volatility name</td></tr>
+      <tr><td>Alibaba</td><td><span class="tag tag-yellow">Consider reducing (-1–2%)</span></td><td>Meituan competes head-on with Alibaba in local services; do not overweight both at once</td></tr>
+      <tr><td><strong>Meituan (newly added)</strong></td><td><span class="tag tag-green">Add 8-12%</span></td><td>Filling the gap of "high growth + FCF + reasonable valuation"</td></tr>
+    </table>
+  </div>
+
+  <!-- 六、集中度风险提示 -->
+  <div class="card">
+    <h2>⚠️ 6. Concentration risk warning</h2>
+
+    <h3>Meituan-specific risks</h3>
+    <table>
+      <tr><th>Risk category</th><th>Risk description</th><th>Degree of impact</th><th>Countermeasures</th></tr>
+      <tr>
+        <td>🏢 <strong>Intensifying competition</strong></td>
+        <td>Alibaba (Ele.me + Amap) and JD.com (Dada + Miaosong) are pushing aggressively into instant delivery, and the subsidy war could weigh on profits</td>
+        <td><span class="tag tag-red">High</span></td>
+        <td>Watch delivery market share shifts; reassess if Meituan's share falls below 50%</td>
+      </tr>
+      <tr>
+        <td>📉 <strong>Slowing growth</strong></td>
+        <td>Revenue growth slowed from 20.1% in 2024 to 9.4% in the first 3 quarters of 2025, with local-life penetration approaching its ceiling of 3.0%.</td>
+        <td><span class="tag tag-yellow">Mid-to-high</span></td>
+        <td>Watch whether new growth drivers such as flash shopping, in-store and overseas take over</td>
+      </tr>
+      <tr>
+        <td>📊 <strong>Profit volatility</strong></td>
+        <td>From a USD 993M loss in 2022 to USD 4,981M profit in 2024, the high elasticity masks the latent risk of a subsidy war</td>
+        <td><span class="tag tag-yellow">Mid</span></td>
+        <td>Watch the operating margin trend; a break below 8% would signal an escalating subsidy war</td>
+      </tr>
+      <tr>
+        <td>🏛️ <strong>Regulatory policy</strong></td>
+        <td>Policy risks persist, including social insurance for food-delivery riders and regulation of platform commissions</td>
+        <td><span class="tag tag-yellow">Mid</span></td>
+        <td>Watch policy changes; rider social-insurance pilots in Shanghai/Beijing and other regions have a manageable impact</td>
+      </tr>
+      <tr>
+        <td>🌍 <strong>China concept stocks macro</strong></td>
+        <td>US-China relations, Hong Kong stock market liquidity, and the impact of the Fed's rate cycle</td>
+        <td><span class="tag tag-yellow">Mid</span></td>
+        <td>Cap overall China ADR exposure and allocate non-China assets as a hedge</td>
+      </tr>
+      <tr>
+        <td>⌛ <strong>Abnormal negative EPS</strong></td>
+        <td>Google Finance shows EPS of -HKD 7.64, likely reflecting a loss in one quarter of 2025</td>
+        <td><span class="tag tag-yellow">Worth watching</span></td>
+        <td>To be verified after the 2025 annual report is disclosed; currently does not affect the investment thesis</td>
+      </tr>
+    </table>
+
+    <h3>Concentration management matrix</h3>
+    <table>
+      <tr><th>Scenario</th><th>Meituan position</th><th>Tencent position</th><th>Pinduoduo position</th><th>Alibaba position</th><th>China Internet overview</th></tr>
+      <tr><td>✅ Base case</td><td>10%</td><td>12%</td><td>10%</td><td>5%</td><td><strong>37%</strong></td></tr>
+      <tr><td>⚠️ Meituan falls to HKD 60</td><td>Rises to ~13%</td><td>Unchanged</td><td>Unchanged</td><td>Unchanged</td><td><strong>~40%</strong></td></tr>
+      <tr><td>🚨 Chinese ADRs fall 30% across the board</td><td>Rises to ~14%</td><td>Rises to ~14%</td><td>Rises to ~12%</td><td>Rises to ~6%</td><td><strong>~46% ⚠️ may exceed limit</strong></td></tr>
+      <tr><td>🔴 Extreme scenario (China ADRs halve)</td><td>Rises to ~17%</td><td>Rises to ~17%</td><td>Rises to ~14%</td><td>Rises to ~7%</td><td><strong>~55% 🔴</strong></td></tr>
+    </table>
+
+    <div class="alert-box alert-red">
+      <strong>🚨 Operational discipline under extreme scenarios:</strong><br>When the overall decline in China concept stocks caused combined China internet positions to passively exceed<strong>40%</strong>(balanced type), do not mechanically sell — check whether the investment thesis for each stock still holds.<br><br>① If the thesis still holds (business fundamentals have not deteriorated), exceeding the cap can be tolerated until the thesis is disproven<br>② If the thesis weakens (e.g., intensifying competition causes Alibaba's share to slump), cut the position immediately to within the cap<br>③ At any time, Meituan's passive position in a single stock exceeds<strong>18%</strong>, must be reduced to within 15%<br>④ Meanwhile, use the hedging effect of other assets (US Treasuries, A-share consumer, US tech) to reduce portfolio volatility</div>
+  </div>
+
+  <!-- 七、不同情景下的仓位管理方案 -->
+  <div class="card">
+    <h2>VII. Position management under different scenarios</h2>
+
+    <h3>Three-scenario model (based on the current price of HKD 78.35)</h3>
+
+    <div class="compare-grid">
+      <div class="compare-item" style="background:#e8f5e9;border:2px solid #27ae60;">
+        <h4>🟢 Bull case (20% probability)</h4>
+        <ul>
+          <li><strong>Trigger conditions:</strong>Flash sale/overseas business explosive growth; stable competitive landscape; consumer recovery</li>
+          <li><strong>Target share price:</strong>HKD 120-140</li>
+          <li><strong>Upside:</strong>+53~+79%</li>
+          <li><strong>Position management:</strong>Hold to the cap; consider trimming at PE ~18x (~HKD 120)</li>
+        </ul>
+      </div>
+      <div class="compare-item" style="background:#fff3e0;border:2px solid #e67e22;">
+        <h4>🟡 Base case (55% probability)</h4>
+        <ul>
+          <li><strong>Trigger conditions:</strong>Revenue growth holds at 8-12%; competitive landscape stable but subsidies persist; profit improves slowly</li>
+          <li><strong>Target price:</strong>HKD 85-110</li>
+          <li><strong>Upside:</strong>+8~+40%</li>
+          <li><strong>Position management:</strong>Maintain a baseline position of 8-12% and use volatility for small tactical trades</li>
+        </ul>
+      </div>
+      <div class="compare-item" style="background:#fee;border:2px solid #c0392b;">
+        <h4>🔴 Bear case (25% probability)</h4>
+        <ul>
+          <li><strong>Trigger conditions:</strong>Subsidy war escalates, margins plunge; growth falls below 5%; consumption stays weak</li>
+          <li><strong>Target share price:</strong>HKD 50-65</li>
+          <li><strong>Downside:</strong>-17~-36%</li>
+          <li><strong>Position management:</strong>Add to the position if it falls below HKD 65 (deeply undervalued), but trim if fundamentals deteriorate</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Bayesian-weighted expected return</h3>
+    <table>
+      <tr><th>Scenario</th><th>Probability</th><th>Expected return</th><th>Weighted contribution</th></tr>
+      <tr><td>🟢 Bullish</td><td>20%</td><td>+53~+79%</td><td>+10.6~+15.8%</td></tr>
+      <tr><td>🟡 Base case</td><td>55%</td><td>+8~+40%</td><td>+4.4~+22.0%</td></tr>
+      <tr><td>🔴 Bearish</td><td>25%</td><td>-17~-36%</td><td>-4.3~-9.0%</td></tr>
+      <tr><td><strong>Bayesian weighting</strong></td><td><strong>100%</strong></td><td></td><td><strong>+10.7~+28.8%</strong></td></tr>
+    </table>
+
+    <h3>Dynamic position-sizing rules</h3>
+    <table>
+      <tr><th>Trigger conditions</th><th>Action</th><th>Positioning target</th><th>Time frame</th></tr>
+      <tr><td>📊 <strong>Earnings beat the consensus</strong>(Revenue growth >15% + margin expansion)</td><td><span class="tag tag-green">Increase position</span></td><td>12-15%</td><td>1-2 quarters</td></tr>
+      <tr><td>📊 <strong>Results in line with expectations</strong>(Revenue 8–12%, stable margins)</td><td><span class="tag tag-yellow">Maintain</span></td><td>8-12%</td><td>Hold</td></tr>
+      <tr><td>📊 <strong>Earnings below expectations</strong>(Revenue<8%或利润率明显下滑）</td><td><span class="tag tag-yellow">Cut to below benchmark</span></td><td>5-8%</td><td>Act now</td></tr>
+      <tr><td>🏢 <strong>Competition has clearly deteriorated</strong>(Alibaba/JD food delivery share >15%)</td><td><span class="tag tag-red">Significant reduction in position</span></td><td>3-5%</td><td>Within 1 month</td></tr>
+      <tr><td>💰 <strong>The share price rose to HKD 120+</strong></td><td><span class="tag tag-yellow">Cut position by half</span></td><td>4-6%</td><td>Batch</td></tr>
+      <tr><td>💰 <strong>The share price fell to HKD 60-65</strong></td><td><span class="tag tag-green">Increase position</span></td><td>10-15%</td><td>In batches</td></tr>
+      <tr><td>🔄 <strong>Meituan launches large-scale buyback</strong>(annual buyback >$5B)</td><td><span class="tag tag-green">Add 2-3%</span></td><td>Cap +3%</td><td>Post-announcement</td></tr>
+      <tr><td>🏛️ <strong>Major regulatory change</strong>(antitrust/major policy on rider social insurance)</td><td><span class="tag tag-yellow">Temporarily trim position</span></td><td>5-8%</td><td>Once policy clarity emerges</td></tr>
+      <tr><td>🌍 <strong>Delisting risk for Chinese ADRs escalates</strong></td><td><span class="tag tag-red">Significant reduction in position</span></td><td>3-5% or liquidate the position</td><td>Act now</td></tr>
+    </table>
+
+    <h3>Stress test: scenario analysis with a 10% initial position</h3>
+    <table>
+      <tr><th>Meituan share price</th><th>Change in position value</th><th>Change in total portfolio value</th><th>Meituan's weight in the portfolio</th><th>Recommended action</th></tr>
+      <tr><td>HKD 140</td><td>+78.7%</td><td>+7.9%</td><td>~16.5%</td><td>Trim to benchmark (act above HKD 120)</td></tr>
+      <tr><td>HKD 120</td><td>+53.2%</td><td>+5.3%</td><td>~14.5%</td><td>Consider cutting the position by half</td></tr>
+      <tr><td>HKD 100</td><td>+27.6%</td><td>+2.8%</td><td>~12.2%</td><td>No action needed</td></tr>
+      <tr><td>HKD 78.35 (current)</td><td>0%</td><td>0%</td><td>10.0%</td><td>Benchmark position</td></tr>
+      <tr><td>HKD 65</td><td>-17.0%</td><td>-1.7%</td><td>~8.7%</td><td>Consider adding to position (extremely undervalued)</td></tr>
+      <tr><td>HKD 50</td><td>-36.2%</td><td>-3.6%</td><td>~7.0%</td><td>Assess whether to add to the position or stop out</td></tr>
+    </table>
+
+    <div class="alert-box alert-yellow">
+      <strong>Rebalancing discipline:</strong><br>
+      ① <strong>⏰ Semi-annual review</strong>Review whether Meituan's investment thesis still holds every 6 months<br>
+      ② <strong>💰 Price triggers</strong>: Reassess the risk-reward ratio when a single stock moves more than 50%<br>
+      ③ <strong>📢 Event trigger</strong>: After each earnings release, check ① revenue growth ② operating margin ③ changes in the competitive landscape<br>
+      ④ <strong>🌍 Macro triggers</strong>: Major shifts in China-US relations or abrupt changes in China ADR policy — cut overall exposure</div>
+  </div>
+
+  <!-- 八、总结 -->
+  <div class="card">
+    <h2>📝 8. Summary</h2>
+
+    <div class="summary-box">
+      <div class="big">Meituan = high growth + high FCF + reasonable valuation</div>
+      <div class="small">Within the portfolio framework of Tencent (highest certainty), Pinduoduo (best risk-reward), and Alibaba (distressed turnaround),<br>Meituan fills the "growth engine" role—delivering portfolio growth momentum with ~20% growth and a ~10.6% FCF yield.</div>
+    </div>
+
+    <h3>Core conclusion</h3>
+    <div style="background:#f8f9fb;border:1px solid #e8ecf1;border-radius:8px;padding:16px;font-family:monospace;font-size:.85rem;line-height:2;white-space:pre;overflow-x:auto;margin:12px 0;">Meituan portfolio management key conclusions:
+
+1️⃣ [If already holding] The current HKD 78.35 is 42% below the 52-week high, and the 10.6% FCF Yield provides an ample margin of safety
+   → Primarily hold, add on dips (HKD 65-70) up to the cap
+
+2️⃣ [If not holding] The current HKD 78.35 is in the phased position-building range
+   → Build in 3-4 tranches, adding one tranche for every 5-8% decline
+
+3️⃣ [Position cap] Conservative 5-8% | Balanced 8-12% | Aggressive 12-15%
+   → A 15% single-name cap is a hard constraint
+
+4️⃣ [Synergy with Tencent, PDD and Alibaba] Meituan fills the "growth engine" gap
+   → After adding Meituan, moderately reduce PDD and Alibaba positions
+
+5️⃣ [Concentration risk] The four Chinese internet companies combined should not exceed 40%
+   → Meituan carries positive competitive-exposure risk versus Alibaba's local life services
+
+6️⃣ [Scenario-weighted return] Bayesian expected return +10.7% to +28.8%
+   → Maximum downside of -36% in the bear case (25% probability), but the FCF Yield provides a margin of safety</div>
+
+    <h3>Benchmark comparison: Meituan vs major Chinese internet companies</h3>
+    <table>
+      <tr><th>Dimension</th><th>Meituan</th><th>Tencent</th><th>Pinduoduo</th><th>Alibaba</th></tr>
+      <tr><td><strong>Growth</strong></td><td><span class="tag tag-green">★★★★★</span><br>20% to 9% but still growing</td><td><span class="tag tag-yellow">★★★☆☆</span><br>~10% steady growth</td><td><span class="tag tag-green">★★★★★</span><br>~50% high growth</td><td><span class="tag tag-red">★★☆☆☆</span><br>~3% stagnation</td></tr>
+      <tr><td><strong>FCF quality</strong></td><td><span class="tag tag-green">★★★★★</span><br>USD 6.5 billion+, 14% of revenue</td><td><span class="tag tag-green">★★★★★</span><br>RMB 230.5 billion</td><td><span class="tag tag-green">★★★★★</span><br>RMB 100 billion+</td><td><span class="tag tag-red">★☆☆☆☆</span><br>Turns negative</td></tr>
+      <tr><td><strong>Valuation appeal</strong></td><td><span class="tag tag-green">★★★★☆</span><br>PE~12-15x, PS~1.3x</td><td><span class="tag tag-green">★★★★☆</span><br>PE ~15x, a historical low</td><td><span class="tag tag-green">★★★★★</span><br>PE ~9x is deeply undervalued</td><td><span class="tag tag-yellow">★★★☆☆</span><br>PB ~0.22x but not cheap</td></tr>
+      <tr><td><strong>Moat</strong></td><td><span class="tag tag-green">★★★★☆</span><br>Food-delivery network effects + merchant lock-in</td><td><span class="tag tag-blue">★★★★★</span><br>The WeChat ecosystem is irreplaceable</td><td><span class="tag tag-green">★★★★☆</span><br>Low-price mindset + dominance in lower-tier markets</td><td><span class="tag tag-yellow">★★★☆☆</span><br>Share erosion</td></tr>
+      <tr><td><strong>Management</strong></td><td><span class="tag tag-green">★★★★☆</span><br>Wang Xing provides stable leadership and strong execution</td><td><span class="tag tag-green">★★★★☆</span><br>Pony Ma stabilizes</td><td><span class="tag tag-green">★★★★☆</span><br>Huang Zheng's focus + minimalist organization</td><td><span class="tag tag-yellow">★★★☆☆</span><br>In transition</td></tr>
+      <tr><td><strong>Shareholder returns</strong></td><td><span class="tag tag-yellow">★★☆☆☆</span><br>No dividend, no buyback</td><td><span class="tag tag-blue">★★★★★</span><br>Hundred-billion buyback</td><td><span class="tag tag-yellow">★★☆☆☆</span><br>Very few</td><td><span class="tag tag-yellow">★★☆☆☆</span><br>Buybacks plunge 91%</td></tr>
+      <tr><td><strong>Portfolio role</strong></td><td><span class="tag tag-meituan">🚀 Growth core</span></td><td><span class="tag tag-blue">🏛️ Core Holdings</span></td><td><span class="tag tag-green">🎯 Deep value + options</span></td><td><span class="tag tag-red">🔄 Turnaround</span></td></tr>
+    </table>
+
+    <div class="alert-box alert-green" style="margin-top:16px;">
+      <strong>Final recommendation:</strong><br><br>
+      ① <strong>Meituan is the portfolio's "growth engine"</strong>— Within the four-company framework of Tencent (certainty) + Pinduoduo (odds) + Alibaba (distressed reversal), Meituan offers the combination of the highest growth and the strongest FCF. Recommended for balanced investors.<strong>8-12%</strong>Position.<br><br>
+      ② <strong>The current price of HKD 78.35 offers a margin of safety</strong>— An FCF yield of 10.6% means that even with zero growth, the return already beats most assets. The 42% drawdown from the 52-week high has fully priced in pessimistic expectations.<br><br>
+      ③ <strong>The main risks are intensifying competition and slowing growth</strong>Alibaba and JD.com entering on-demand delivery is a real threat, but for now Meituan's food-delivery network effects (rider density + merchant coverage + delivery speed) will be hard to overtake in the near term.<br><br>
+      ④ <strong>Holders should not panic-sell</strong>— With FCF yield at 10.6%, PS at 1.3x and net cash of USD 20 billion, the bear case (competition plus slowing growth) is already fully priced in. Selling now means capitulating at the bottom of pessimism.<br><br>
+      ⑤ <strong>Those who do not hold a position can build one in tranches</strong>— Building a position in 3-4 tranches within the HKD 65-80 range, adding once on each 5-8% decline, is the most reliable entry strategy.</div>
+  </div>
+
+  <div style="font-size:.8rem;color:#95a5a6;text-align:center;margin-top:12px;">*This analysis is based on a hypothetical position and is for research reference only; it does not constitute investment advice. Actual allocation should reflect individual risk tolerance and investment objectives.*</div>
+
+</div>
+<div class="footer">AI-Berkshire | Meituan (3690.HK / MPNGY) Portfolio Management Recommendation | 2026/07/07</div>
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

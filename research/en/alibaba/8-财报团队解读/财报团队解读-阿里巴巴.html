@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earnings team analysis - Alibaba</title>
+<style>
+  /* ===== PDD 标准 CSS 模板 ===== */
+  :root {
+    --bg: #faf9f7;
+    --card-bg: #ffffff;
+    --border: #e8e6e1;
+    --text: #1a1a1a;
+    --text-secondary: #6b6b6b;
+    --accent: #1a3a5c;
+    --accent-light: #2c5f8a;
+    --red: #c0392b;
+    --orange: #e67e22;
+    --green: #27ae60;
+    --gold: #b8860b;
+    --radius: 8px;
+    --shadow: 0 1px 3px rgba(0,0,0,.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+  /* ---- Header ---- */
+  .header {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    color: #fff;
+    padding: 48px 24px 32px;
+    text-align: center;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 1px; margin-bottom: 6px; }
+  .header .subtitle { font-size: 14px; opacity: .85; }
+  .header .meta { margin-top: 12px; font-size: 12px; opacity: .7; }
+  /* ---- Phase tabs ---- */
+  .phase-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+  }
+  .phase-tabs button {
+    padding: 14px 28px;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all .2s;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+  .phase-tabs button:hover { color: var(--accent); background: #f5f3f0; }
+  .phase-tabs button.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+  /* ---- Sub-tabs (within a phase) ---- */
+  .sub-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    flex-wrap: wrap;
+    padding: 12px 16px 8px;
+    background: var(--bg);
+  }
+  .sub-tabs button {
+    padding: 6px 16px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--card-bg);
+    font-size: 12px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all .2s;
+    font-family: inherit;
+  }
+  .sub-tabs button:hover { border-color: var(--accent); color: var(--accent); }
+  .sub-tabs button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  /* ---- Main content ---- */
+  .container { max-width: 820px; margin: 0 auto; padding: 24px 20px 60px; }
+  .article { display: none; }
+  .article.active { display: block; }
+  /* ---- Article card ---- */
+  .article-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 32px 36px;
+    margin-bottom: 20px;
+  }
+  .article-card h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 28px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    color: var(--accent);
+  }
+  .article-card h2:first-child { margin-top: 0; }
+  .article-card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin: 20px 0 8px;
+    color: #2c3e50;
+  }
+  .article-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 14px 0 6px;
+    color: #555;
+  }
+  .article-card p { margin: 8px 0; text-align: justify; }
+  .article-card ul, .article-card ol { margin: 8px 0 8px 20px; }
+  .article-card li { margin: 4px 0; }
+  .article-card blockquote {
+    margin: 14px 0;
+    padding: 12px 18px;
+    border-left: 4px solid var(--accent);
+    background: #f0f4f8;
+    border-radius: 0 4px 4px 0;
+    color: #2c3e50;
+    font-style: italic;
+  }
+  .article-card table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 13px;
+  }
+  .article-card th, .article-card td {
+    border: 1px solid var(--border);
+    padding: 8px 10px;
+    text-align: left;
+  }
+  .article-card th {
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+  }
+  .article-card tr:nth-child(even) { background: #f8f7f5; }
+  .article-card code {
+    background: #f0eee8;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 13px;
+  }
+  .article-card hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 24px 0;
+  }
+  /* ---- tags ---- */
+  .tag-red { color: var(--red); font-weight: 600; }
+  .tag-orange { color: var(--orange); font-weight: 600; }
+  .tag-green { color: var(--green); font-weight: 600; }
+  .tag-gold { color: var(--gold); font-weight: 600; }
+  /* ---- footer ---- */
+  .footer {
+    text-align: center;
+    padding: 32px 20px;
+    color: var(--text-secondary);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  /* ---- Master icons ---- */
+  .master-badge {
+    display: inline-block;
+    padding: 2px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .master-badge.buffett { background: #2c3e50; color: #fff; }
+  .master-badge.duan { background: #8e44ad; color: #fff; }
+  .master-badge.munger { background: #d35400; color: #fff; }
+  .master-badge.lilu { background: #16a085; color: #fff; }
+  /* ---- Responsive ---- */
+  @media (max-width: 600px) {
+    .header { padding: 32px 16px 24px; }
+    .header h1 { font-size: 22px; }
+    .phase-tabs button { padding: 10px 14px; font-size: 12px; }
+    .article-card { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 Earnings report team analysis</h1>
+  <div class="subtitle">Alibaba Group (BABA.NYSE) · FY2026 In-Depth Analysis</div>
+  <div class="meta">Disclosure date: 2026/07/07 · Fiscal year end: 2026/3/31 · Four master perspectives</div>
+</div>
+
+<!-- ===== Phase Tabs ===== -->
+<div class="phase-tabs" id="phaseTabs">
+  <button class="active" data-phase="phase1">Stage 1 · Deep read with the four masters</button>
+  <button data-phase="phase2">Phase 2 · View synthesis</button>
+  <button data-phase="phase3">Stage 3 · Editing and polishing</button>
+</div>
+
+<div class="container">
+
+<!-- ============================================================ -->
+<!-- PHASE 1: 四大师精读 -->
+<!-- ============================================================ -->
+<div id="phase1" class="article active">
+  <div class="sub-tabs" id="subTabs1">
+    <button class="active" data-sub="exe">📋 Executive summary</button>
+    <button data-sub="buffett">🅱️ Buffett</button>
+    <button data-sub="duan">🅳 Duan Yongping</button>
+    <button data-sub="munger">M Munger</button>
+    <button data-sub="lilu">L Li Lu</button>
+  </div>
+
+  <!-- 执行摘要 -->
+  <div id="sub-exe" class="article active">
+    <div class="article-card">
+      <h2>Executive summary: Alibaba FY2026 results — team interpretation</h2>
+      <p><strong>Quick overview · Decision-maker summary</strong></p>
+      <hr>
+      <h3>One-line conclusion</h3>
+      <blockquote>Four value-investing masters agree: Alibaba is a good company, but not a good investment right now.</blockquote>
+
+      <h3>Core conflict</h3>
+      <table>
+        <tr><th>Positive signal ✅</th><th>Negative signals 🔴</th></tr>
+        <tr><td>Revenue tops RMB 1 trillion (RMB 1.02 trillion, +2.74%)</td><td><strong class="tag-red">Free cash flow -RMB 49.85 billion (negative for the first time)</strong></td></tr>
+        <tr><td>Management returns (Joseph Tsai + Eddie Wu)</td><td><strong class="tag-red">Operating margin only 4.90% (SG&A surged)</strong></td></tr>
+        <tr><td>The "1+6+N" split is the right direction</td><td class="tag-red">Net profit fell 18.2%</td></tr>
+        <tr><td>Net cash of RMB 56.898 billion; a solid balance sheet</td><td class="tag-red">Moat eroded by Pinduoduo/Douyin</td></tr>
+        <tr><td>Alibaba Cloud / AI infrastructure: attractive long-term track</td><td class="tag-orange">CapEx RMB 126 billion, hard to recoup in the short term</td></tr>
+      </table>
+
+      <h3>The Final Moves of Four Masters</h3>
+      <table>
+        <tr><th>Master</th><th>Current recommendation</th><th>Trigger conditions</th></tr>
+        <tr><td><span class="master-badge buffett">Buffett</span></td><td class="tag-red">❌ Do not buy</td><td>Requires a substantial margin of safety</td></tr>
+        <tr><td><span class="master-badge duan">Duan Yongping</span></td><td class="tag-orange">Watchlist</td><td>Free cash flow turns positive + fee rate declines</td></tr>
+        <tr><td><span class="master-badge munger">Munger</span></td><td class="tag-orange">⚠️ Small position / Not recommended</td><td>The "too difficult" basket</td></tr>
+        <tr><td><span class="master-badge lilu">Li Lu</span></td><td class="tag-orange">🔍 Wait for a certainty signal</td><td>All three signals turned green</td></tr>
+      </table>
+
+      <h3>Three core metrics to track</h3>
+      <ol>
+        <li><strong class="tag-red">Free cash flow 🔴 P0</strong>— Negative to positive: the "passing grade" for every master</li>
+        <li><strong class="tag-orange">Operating margin 🟡 P1</strong>— Rebound from 4.90% to 10%+</li>
+        <li><strong class="tag-orange">E-commerce market share 🟡 P1</strong>— Stabilizing after the decline</li>
+      </ol>
+      <blockquote>Of the three metrics, free cash flow is the most critical leading indicator. Without it turning positive, nothing else matters.</blockquote>
+    </div>
+  </div>
+
+  <!-- 巴菲特版 -->
+  <div id="sub-buffett" class="article">
+    <div class="article-card">
+      <h2>Buffett-style close reading: moat, cash flow and ROE</h2>
+      <p><span class="master-badge buffett">Buffett</span>Perspective: ROE, moat, cash flow, shareholder returns</p>
+      <hr>
+
+      <h3>Key metrics at a glance</h3>
+      <table>
+        <tr><th>Indicator</th><th>FY2026</th><th>FY2025</th><th>FY2024</th><th>Trend</th></tr>
+        <tr><td>Revenue (RMB million)</td><td>1,023,670</td><td>996,347</td><td>941,168</td><td>↑+2.74%</td></tr>
+        <tr><td>Net profit attributable to parent (RMB million)</td><td>105,904</td><td>129,470</td><td>79,741</td><td class="tag-red">↓-18.2%</td></tr>
+        <tr><td>Operating margin</td><td>4.90%</td><td>—</td><td>—</td><td class="tag-red">⚠️ Sharp drop</td></tr>
+        <tr><td>Free cash flow (RMB million)</td><td class="tag-red">-49,850</td><td>—</td><td>—</td><td class="tag-red">🔴Negative value</td></tr>
+        <tr><td>Capital expenditure (RMB million)</td><td>126,063</td><td>—</td><td>—</td><td class="tag-red">Heavy investment</td></tr>
+      </table>
+
+      <h3>1. ROE — the true temperature of profitability</h3>
+      <p>Buffett values long-term, stable, high ROE above all. Alibaba's net profit attributable to shareholders fell 18.2% year on year in FY2026, dragging ROE down. Although revenue still exceeds RMB 1 trillion,<strong>The collapse in profit margins is the core issue</strong>。</p>
+      <p>The surge in SG&A expenses directly caused the operating margin to plunge to 4.90%. For a "mature" tech giant, an operating margin of 4.90% is<strong class="tag-red">Warning signs</strong>。</p>
+      <blockquote><strong>ROE diagnosis</strong>: Fails the test. Profit has swung sharply over the past three years (FY2024: 79.7B, FY2025: 129.5B, FY2026: 105.9B), leaving no predictability and failing Buffett's "consistent earnings" standard.</blockquote>
+
+      <h3>2. Moat — wide or drying up?</h3>
+      <p>Alibaba once had the widest moat in China: network effects, brand barriers, switching costs. But over the past three years the moat has been<strong>Eroded</strong>: Pinduoduo erodes the low-price market, Douyin bypasses traditional shelf e-commerce, and the cloud computing price war squeezes margins.</p>
+      <blockquote><strong>What would Buffett ask?</strong>"Will this company still be around in 10 years? Will its competitive advantage be stronger or weaker in 10 years?" The answer is "still around, but the advantage is weakening."</blockquote>
+
+      <h3>3. Free cash flow — the biggest red flag</h3>
+      <p><strong class="tag-red">Free cash flow was -RMB 49.85 billion</strong>, and this is what Buffett finds least acceptable. CapEx reached RMB 126.06 billion, far exceeding operating cash flow. This means that in FY2026, Alibaba is<strong>A cash incinerator, not a money printer</strong>。</p>
+
+      <h3>4. Buffett's judgment framework</h3>
+      <p><strong>✅ He will like it</strong>Brand recognition persists, management is actively restructuring, and the balance sheet is solid.</p>
+      <p><strong>❌ He will refuse</strong>: Negative free cash flow (the most fatal), unstable margins on a downward trend, an eroding moat, and massive capex suppressing shareholder returns.</p>
+
+      <h3>Conclusion</h3>
+      <blockquote>A good company, but not a good investment at present—unless the price offers a margin of safety large enough to cover transformation risk.</blockquote>
+    </div>
+  </div>
+
+  <!-- 段永平版 -->
+  <div id="sub-duan" class="article">
+    <div class="article-card">
+      <h2>Duan Yongping's Close Reading: Business Models and "Benfen"</h2>
+      <p><span class="master-badge duan">Duan Yongping</span>Perspective: business model, "Benfen", corporate culture, long-termism</p>
+      <hr>
+
+      <h3>Business model diagnosis</h3>
+      <p><strong>Advantages</strong>: Alibaba is essentially a "commercial real estate" model—it provides merchants with infrastructure such as traffic, payments and logistics, and charges commissions and advertising fees. This is a<strong>Asset-light, high-margin</strong>business model. Alibaba Cloud is an even better model: subscription-based, highly sticky and high quality.</p>
+      <p><strong>Disadvantage</strong>: SG&A surged—a signal of not "staying true to one's roots." Operating margin was just 4.90%. Duan Yongping would press: "Where did the money go? Was it necessary competitive spending, or is management burning cash?"</p>
+      <blockquote>One metric Duan Yongping values most: free cash flow. If a company cannot generate positive free cash flow over the long term, its business model has fundamental problems.</blockquote>
+
+      <h3>Corporate culture assessment</h3>
+      <p><strong>✅ Bonus points</strong>:"Customer first" values, the "1+6+N" split and refocus on the core business, and the return of founder culture (Joseph Tsai + Eddie Wu).</p>
+      <p><strong>❌ Negative factor</strong>: Past over-expansion in community group buying and local services showed a lack of "benben"; bloated organization and slow decision-making; lagging response to user needs.</p>
+
+      <h3>Duan Yongping-style soul-searching question</h3>
+      <blockquote>"If you had enough money to buy the entire company, would you be willing to acquire it outright at the current price?"<br>The answer is likely no—not because Alibaba is not excellent, but because it is in the throes of transition.</blockquote>
+
+      <h3>Conclusion</h3>
+      <p>Duan Yongping would include Alibaba in<strong>Watchlist</strong>Rather than<strong>"Buy list"</strong>Wait for the following signals before reconsidering:</p>
+      <ol>
+        <li>✅ Free cash flow turns positive</li>
+        <li>✅ SG&A expense ratio fell markedly</li>
+        <li>✅ E-commerce market share stabilizes</li>
+        <li>✅ Management displayed a more disciplined operating attitude</li>
+      </ol>
+      <blockquote>Good sector, solid fundamentals, but currently not "doing the right things" enough—wait for it to get back to "doing the right things."</blockquote>
+    </div>
+  </div>
+
+  <!-- 芒格版 -->
+  <div id="sub-munger" class="article">
+    <div class="article-card">
+      <h2>Munger's close reading: incentives and that famous "misjudgment"</h2>
+      <p><span class="master-badge munger">Munger</span>Perspective: incentives, organizational structure, industry ecosystem, countercyclical positioning</p>
+      <hr>
+
+      <h3>Incentive mechanism: where does the problem lie?</h3>
+      <p>Munger focused intensely on whether incentive structures distort behavior. Professional managers (the Zhang Yong era) pursued short-term growth metrics, with bonuses tied to revenue growth rather than ROIC, leading to overexpansion. The massive losses in community group buying and local services were precisely the result of distorted incentives.</p>
+      <blockquote>Munger would comment:<strong>"If you do something stupid because someone else is doing something stupid, you are not just stupid, you are doubly stupid."</strong></blockquote>
+
+      <h3>Organizational structure: the "entropy increase" of large companies</h3>
+      <p>Alibaba's business lines are sprawling—e-commerce, cloud, logistics, local services, entertainment, overseas—each demanding heavy capital. Munger would call this a textbook case of<strong>"Six-Fingered Demon"</strong>The "1+6+N" split reform is a direction Munger would applaud—making each business unit account for itself and bear its own profits and losses.</p>
+
+      <h3>A Review of Munger's Investment Practice</h3>
+      <p><strong>Buy timing (2021-2022)</strong>: Munger may have made a "price anchoring" error—seeing Alibaba fall from USD 330 to just over USD 100 and judging it cheap. He underestimated the<strong>Systemic risk</strong>。</p>
+      <p><strong>When trimming the position (2023)</strong>: Munger admitted he "got it wrong" — this is his most admirable quality. He recognized that this lay outside the core of his "circle of competence."</p>
+
+      <h3>The "too difficult" basket</h3>
+      <p>Munger would put Alibaba in<strong>The "too difficult" basket</strong>Li — "This company has too many variables; I can't build enough certainty."</p>
+      <blockquote><strong>Munger's inversion</strong>"If Alibaba's share price fell to one-third of its current level, would I buy more?"<br>If the answer is "uncertain," then this is not the time to hold a heavy position.</blockquote>
+
+      <h3>Conclusion</h3>
+      <blockquote>Buying was a misjudgment; trimming the position was a timely correction. The stock still falls into the "too hard" bucket.</blockquote>
+    </div>
+  </div>
+
+  <!-- 李录版 -->
+  <div id="sub-lilu" class="article">
+    <div class="article-card">
+      <h2>Li Lu's Close Reading: Certainty, Margin of Safety and Civilizational Evolution</h2>
+      <p><span class="master-badge lilu">Li Lu</span>Perspective: certainty, margin of safety, civilizational evolution, long-term compounding</p>
+      <hr>
+
+      <h3>Certainty analysis — Li Lu's core benchmark</h3>
+      <table>
+        <tr><th>Certainty hierarchy</th><th>Definition</th><th>Alibaba alignment</th></tr>
+        <tr><td><strong>Tier one</strong></td><td>Earnings are largely predictable over the next 3-5 years</td><td class="tag-red">❌ Does not meet criteria</td></tr>
+        <tr><td><strong>Tier two</strong></td><td>The business model is fundamentally sound.</td><td class="tag-orange">⚠️ Partially meets expectations</td></tr>
+        <tr><td><strong>Tier three</strong></td><td>The management team is trustworthy</td><td class="tag-orange">⚠️ Improving</td></tr>
+      </table>
+
+      <h3>The free cash flow and DCF paradox</h3>
+      <p>Negative free cash flow invalidates any DCF model. Li Lu was forced to switch to an asset-value approach — itself a "downgrade." In "Civilization, Modernization, Value Investing, and China," Li Lu stresses:<strong>"The premise of value investing is the ability to make a relatively accurate assessment of a business."</strong></p>
+
+      <h3>Li Lu's "modernization" framework</h3>
+      <p>Li Lu argues that China is moving from a phase of "quantitative growth" to one of "qualitative growth." Within this transition, Alibaba's role resembles that of "a Chinese Microsoft in the midst of transformation"—focusing on cloud computing and AI, cutting unprofitable businesses, and lifting margins.</p>
+
+      <h3>Waiting on three signals</h3>
+      <table>
+        <tr><th>Signal</th><th>Current status</th><th>Target state</th></tr>
+        <tr><td>Free cash flow</td><td class="tag-red">🔴 -RMB 49.85 billion</td><td class="tag-green">🟢 Positive</td></tr>
+        <tr><td>Operating margin</td><td class="tag-red">🔴 4.90%</td><td class="tag-green">🟢 10%+</td></tr>
+        <tr><td>E-commerce share</td><td class="tag-red">🔴 Continued attrition</td><td class="tag-green">🟢 Stabilizing after the decline</td></tr>
+      </table>
+
+      <h3>Conclusion</h3>
+      <blockquote>Asset quality is top-tier, but the margin of safety requires patience—"certainty" is not the right adjective right now.</blockquote>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PHASE 2: 观点合成 -->
+<!-- ============================================================ -->
+<div id="phase2" class="article">
+  <div class="sub-tabs" id="subTabs2">
+    <button class="active" data-sub="synthesis">🔗 Synthesis of Views</button>
+  </div>
+
+  <div id="sub-synthesis" class="article active">
+    <div class="article-card">
+      <h2>Synthesis of views: similarities and differences among four masters</h2>
+      <p>Comparative analysis: consensus and divergence among Buffett, Duan Yongping, Munger and Li Lu</p>
+      <hr>
+
+      <h3>Panoramic comparison matrix</h3>
+      <table>
+        <tr><th>Dimension</th><th>Buffett</th><th>Duan Yongping</th><th>Munger</th><th>Li Lu</th></tr>
+        <tr>
+          <td><strong>Core framework</strong></td>
+          <td>ROE/moat/FCF</td>
+          <td>Business model/Benfen</td>
+          <td>Incentive mechanism / adverse selection</td>
+          <td>Certainty/margin of safety</td>
+        </tr>
+        <tr>
+          <td><strong>Free cash flow</strong></td>
+          <td class="tag-red">❌ Negative value ≠ good investment target</td>
+          <td class="tag-red">❌ Biggest red flag</td>
+          <td class="tag-red">❌ Confirms the reduction</td>
+          <td class="tag-red">❌ DCF cannot value it</td>
+        </tr>
+        <tr>
+          <td><strong>Moat</strong></td>
+          <td class="tag-orange">⚠️ Eroded</td>
+          <td class="tag-orange">⚠️ Not dutiful enough</td>
+          <td class="tag-orange">⚠️ The gap is being closed</td>
+          <td class="tag-orange">⚠️ Medium confidence</td>
+        </tr>
+        <tr>
+          <td><strong>Valuation</strong></td>
+          <td>Requires a very large margin of safety</td>
+          <td>Not cheap enough</td>
+          <td>The "too difficult" basket</td>
+          <td>Insufficient margin of safety</td>
+        </tr>
+        <tr>
+          <td><strong>Final action</strong></td>
+          <td class="tag-red">❌ Do not buy</td>
+          <td class="tag-orange">⏳ Watchlist</td>
+          <td class="tag-orange">⚠️ Small position / not recommended</td>
+          <td class="tag-orange">🔍 Wait for a certainty signal</td>
+        </tr>
+      </table>
+
+      <h3>Consensus: five unanimously agreed judgments</h3>
+
+      <h4>Consensus 1: Negative free cash flow is a fatal flaw</h4>
+      <p><strong>All four masters agree completely</strong>— Alibaba's FY2026 free cash flow was -RMB 49.85 billion, the central contradiction across all analyses.</p>
+      <p>Consensus strength: ★★★★★ (100%)</p>
+
+      <h4>Consensus 2: The moat is weakening, not strengthening</h4>
+      <p>All four masters agree that Alibaba once had the widest moat in China, but that moat has been significantly eroded over the past three years. They differ on degree—Buffett and Munger see the erosion as severe, while Duan Yongping and Li Lu believe the core assets remain intact.</p>
+      <p>Consensus strength: ★★★★☆ (80%)</p>
+
+      <h4>Consensus 3: Management is "doing the right things"</h4>
+      <p>The return of Joseph Tsai and Eddie Wu won the backing of four masters.<strong>Universally well received</strong>But all four believe more time is needed to verify—the direction is right, execution remains to be seen.</p>
+      <p>Consensus strength: ★★★★★ (100%, with caveats)</p>
+
+      <h4>Consensus 4: Now is not the best time to buy</h4>
+      <table>
+        <tr><th>Master</th><th>Distilling the original remarks</th><th>Recommended action</th></tr>
+        <tr><td>Buffett</td><td>"Wait/Do not buy"</td><td>Wait for a better price or a clearer signal</td></tr>
+        <tr><td>Duan Yongping</td><td>"Wait and see, no rush"</td><td>Watchlist, not a buy list</td></tr>
+        <tr><td>Munger</td><td>"Watch with a small position; not recommended"</td><td>The "too difficult" basket</td></tr>
+        <tr><td>Li Lu</td><td>"Waiting for a clear signal"</td><td>Do not act until all three signals appear</td></tr>
+      </table>
+      <p>Consensus strength: ★★★★★ (100%)</p>
+
+      <h4>Consensus 5: Alibaba is a good company, but not a good investment right now</h4>
+      <p>What the four masters share: they recognize Alibaba's asset quality, market position and technological strength.<strong>A good company is not the same as a good investment</strong>—This underlying value-investing consensus is on full display at Alibaba.</p>
+      <p>Consensus strength: ★★★★★ (100%)</p>
+
+      <h3>Divergence: where the three masters part ways</h3>
+
+      <h4>Disagreement 1: The moat's capacity to recover</h4>
+      <p>Buffett and Munger lean pessimistic (a permanent change in the competitive landscape), Duan Yongping leans optimistic (the e-commerce ecosystem's deep moat remains), and Li Lu is neutral (more data needed for verification).</p>
+
+      <h4>Disagreement 2: Attitudes toward "contrarian investing"</h4>
+      <p>Buffett and Duan Yongping were the most cautious (certainty first / no rush over a year or two), Munger tried contrarian buying but trimmed his position, and Li Lu was conditionally contrarian (staged position building).</p>
+
+      <h4>Divergence 3: "Trust" in China's capital markets</h4>
+      <p>Buffett keeps his position (regulatory risk, geopolitical risk); Duan Yongping is bullish long term (holds Apple, Moutai); Munger went from bullish to cautious to conflicted (kept a small position); Li Lu is the most committed (his core investment framework is built on China's modernization).</p>
+
+      <h3>Ultimate synthesis judgment</h3>
+      <blockquote>Alibaba sits in the transition zone between a "good company" and a "good investment." All four masters acknowledge its asset quality, but all agree current conditions do not meet buy criteria. The core obstacle is negative free cash flow—a "trading halt"-level signal in a value-investing framework.</blockquote>
+
+      <h3>Suggested follow-up</h3>
+      <p>Based on the synthesized views, we recommend closely tracking the following 8 key indicators:</p>
+      <ol>
+        <li><strong class="tag-red">Free cash flow</strong>(Highest priority)</li>
+        <li><strong class="tag-orange">Operating margin</strong>(Target 10%+)</li>
+        <li><strong class="tag-orange">E-commerce GMV growth vs industry average</strong>(Judging share trends)</li>
+        <li><strong class="tag-orange">SG&A expense ratio</strong>(Assessing management efficiency)</li>
+        <li><strong class="tag-orange">Alibaba Cloud profit margin</strong>(Success or failure of the second curve)</li>
+        <li><strong>The degree to which overseas business losses narrowed</strong></li>
+        <li><strong>Dividend plus buyback intensity</strong>(Attitude toward shareholder returns)</li>
+        <li><strong>Key management decisions</strong>(Split progress, AI strategy input and output)</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PHASE 3: 编辑润色 -->
+<!-- ============================================================ -->
+<div id="phase3" class="article">
+  <div class="sub-tabs" id="subTabs3">
+    <button class="active" data-sub="published">📝 Publishable version</button>
+    <button data-sub="appendix">📎 Appendix — Financial details</button>
+  </div>
+
+  <!-- 可发布版 -->
+  <div id="sub-published" class="article active">
+    <div class="article-card">
+      <h2>Earnings team analysis: Alibaba FY2026 in-depth review</h2>
+      <p><strong>Four masters' perspectives · View synthesis · Edited for publication</strong></p>
+      <hr>
+
+      <h3>Financial overview</h3>
+      <table>
+        <tr><th>Indicator</th><th>FY2026</th><th>FY2025</th><th>FY2024</th></tr>
+        <tr><td>Revenue (RMB million)</td><td>1,023,670</td><td>996,347</td><td>941,168</td></tr>
+        <tr><td>Up year on year</td><td>+2.74%</td><td>+5.86%</td><td>+8.34%</td></tr>
+        <tr><td>Net profit attributable to parent (RMB million)</td><td>105,904</td><td>129,470</td><td>79,741</td></tr>
+        <tr><td>Operating margin</td><td class="tag-red">4.90%</td><td>—</td><td>—</td></tr>
+        <tr><td>Free cash flow (RMB million)</td><td class="tag-red"><strong>-49,850</strong></td><td>—</td><td>—</td></tr>
+        <tr><td>Capital expenditure (RMB million)</td><td>126,063</td><td>—</td><td>—</td></tr>
+        <tr><td>Net cash (RMB million)</td><td>56,898</td><td>—</td><td>—</td></tr>
+        <tr><td>Interest-bearing debt (RMB million)</td><td>259,996</td><td>—</td><td>—</td></tr>
+      </table>
+
+      <h3>Core finding: three signals, one conclusion</h3>
+
+      <h4>Signal 1 🔴: Free cash flow turns negative for the first time</h4>
+      <p>At a revenue scale of RMB 1.03 trillion, free cash flow was<strong class="tag-red">-RMB 49.85 billion</strong>This is one of the most important financial inflection points since Alibaba's listing. This is not a cyclical fluctuation but a structural signal. RMB 126 billion in capital expenditure is burning through cash at an unprecedented pace.</p>
+
+      <h4>Signal 2 🟡: The "hidden collapse" in margins</h4>
+      <p>Operating margin of just 4.90% — startling for a company the market defines as a "high-margin platform." The outsized growth in SG&A means Alibaba is paying an increasingly steep price to defend its market share.</p>
+
+      <h4>Signal 3 🟢: Management is "doing the right things"</h4>
+      <p>The return of the Tsai–Wu pairing and the "1+6+N" breakup are Alibaba's most important positive changes in recent years. Getting the direction right is only the first step, but the right direction always matters more than the wrong one.</p>
+
+      <h4>Conclusion</h4>
+      <blockquote><strong>"A good company is not the same as a good investment"</strong>—This four-word summary is the core conclusion of this earnings team's interpretation.</blockquote>
+
+      <h3>Part One: The Buffett Lens — the "Erosion" of the Moat</h3>
+      <p><span class="master-badge buffett">Buffett</span></p>
+      <p><strong>ROE: instability means insecurity.</strong>The net profit rollercoaster of the past three years (79.7B→129.5B→105.9B) fails Buffett's test.</p>
+      <p><strong>Moat: once wide.</strong>Pinduoduo and Douyin e-commerce are "filling in" Alibaba's former moat, each in its own way.</p>
+      <p><strong>Free cash flow: the veto vote.</strong>For Buffett, negative free cash flow is a "veto-vote" level signal.</p>
+
+      <h3>Part Two: Duan Yongping's Perspective — The Road Back to "Benfen"</h3>
+      <p><span class="master-badge duan">Duan Yongping</span></p>
+      <p><strong>The essence of the business model.</strong>Alibaba is essentially a "commercial real estate rent-collection" model, and the model itself is excellent. The problem is that to counter competition, Alibaba is spending heavily on subsidies and marketing to "defend" this model—which in itself shows the model is not strong enough.</p>
+      <blockquote>"If you had enough money to buy the entire company, would you be willing to acquire it outright at the current price?" The answer is most likely no.</blockquote>
+
+      <h3>Part Three: Munger's Lens — That Famous "Misjudgment"</h3>
+      <p><span class="master-badge munger">Munger</span></p>
+      <p><strong>Lessons from buying.</strong>Munger bought Alibaba in 2021-2022 and then cut the position sharply in 2023. He may have made a "price anchoring" error and also underestimated the system-level risk of regulatory change in China.</p>
+      <p><strong>The "too difficult" basket.</strong>Munger ultimately put Alibaba in the "too hard" pile—not because Alibaba is a bad company, but because "there were too many variables, and I couldn't build enough certainty."</p>
+
+      <h3>Part Four: Li Lu's Perspective — Waiting for the Signal of "Certainty"</h3>
+      <p><span class="master-badge lilu">Li Lu</span></p>
+      <p><strong>The three-tier architecture of certainty.</strong>Li Lu divides investment certainty into three layers: earnings predictability, business-model durability, and management trustworthiness. Alibaba has problems at all three layers.</p>
+      <p><strong>Waiting for three signals.</strong>Free cash flow turning positive, operating margin recovering above 10%, and e-commerce share stabilizing after its decline—until all three signals turn green, Li Lu will not act.</p>
+
+      <h3>Synthesis of views: common ground and differences</h3>
+      <p><strong>Five consensus themes</strong>: Negative free cash flow is a fatal flaw; the moat is weakening; management is heading in the right direction but needs validation; now is not the best time to buy; a good company is not the same as a good investment.</p>
+      <p><strong>Three major disagreements</strong>: Moat resilience (pessimistic ←→ optimistic), contrarian stance (cautious ←→ conditional), trust in China's capital markets (reserved ←→ firm).</p>
+      <blockquote>Alibaba sits in the transition zone between a "good company" and a "good investment." All four masters recognize its asset quality, but all agree it currently fails to meet buy criteria.</blockquote>
+
+      <h3>Tracking list: eight key indicators</h3>
+      <table>
+        <tr><th>Priority</th><th>Metric</th><th>Current value</th><th>Target</th></tr>
+        <tr><td class="tag-red">🔴 P0</td><td>Free cash flow</td><td>-49,850M¥</td><td>Positive</td></tr>
+        <tr><td class="tag-red">🔴 P0</td><td>Operating margin</td><td>4.90%</td><td>10%+</td></tr>
+        <tr><td class="tag-orange">🟡 P1</td><td>GMV growth vs industry average</td><td>To be verified</td><td>≥ industry</td></tr>
+        <tr><td class="tag-orange">🟡 P1</td><td>SG&A expense ratio</td><td>On the high side</td><td>Declined significantly</td></tr>
+        <tr><td class="tag-orange">🟡 P1</td><td>Alibaba Cloud profit margin</td><td>Under pressure</td><td>Continuous improvement</td></tr>
+        <tr><td class="tag-green">🟢 P2</td><td>Overseas business posted a loss</td><td>Continued capital injection</td><td>Narrowing</td></tr>
+        <tr><td class="tag-green">🟢 P2</td><td>Dividends + buybacks</td><td>Mild</td><td>Step up efforts</td></tr>
+        <tr><td class="tag-green">🟢 P2</td><td>Spin-off progress</td><td>In progress</td><td>Completion plus independent listing</td></tr>
+      </table>
+
+      <hr>
+
+      <h3>Disclaimer</h3>
+      <p>This document is prepared by the financial reporting team based on the publicly stated investment philosophies of four value-investing masters (Warren Buffett, Duan Yongping, Charlie Munger, Li Lu), combined with Alibaba's FY2026 financial data.<strong>Scenario analysis</strong>, and does not constitute any investment advice. The masters did not directly comment on Alibaba's FY2026 financial results; all analysis is derived by the team based on their public methodologies.</p>
+      <blockquote>"Be fearful when others are greedy, and greedy when others are fearful." — But before that, you must first figure out whether this is "fear" or "fact."</blockquote>
+      <p style="text-align:right;color:var(--text-secondary);font-size:13px;">Earnings team analysis · July 2026</p>
+    </div>
+  </div>
+
+  <!-- 附录 -->
+  <div id="sub-appendix" class="article">
+    <div class="article-card">
+      <h2>Appendix: Financial Data in Detail</h2>
+      <p>Data source: Alibaba FY2026 annual report | Unit: RMB million (unless otherwise noted)</p>
+      <hr>
+
+      <h3>Key income statement data</h3>
+      <table>
+        <tr><th>Project</th><th>FY2026</th><th>Explanation</th></tr>
+        <tr><td>Revenue</td><td>1,023,670</td><td>Up +2.74% year on year, with growth continuing to slow</td></tr>
+        <tr><td>Net profit attributable to shareholders</td><td>105,904</td><td>Down 18.2% year on year</td></tr>
+        <tr><td>EPS dilution (RMB)</td><td>44.00</td><td>Corresponding net profit decline</td></tr>
+        <tr><td>Gross margin</td><td>~40%</td><td>Remained stable for three years</td></tr>
+        <tr><td>Operating margin</td><td>4.90%</td><td class="tag-red">Main reason for the SG&A surge</td></tr>
+      </table>
+
+      <h3>Cash flow and capital structure</h3>
+      <table>
+        <tr><th>Project</th><th>FY2026</th><th>Rating</th></tr>
+        <tr><td>Free cash flow</td><td class="tag-red"><strong>-49,850</strong></td><td class="tag-red">⚠️ Negative value, major concern</td></tr>
+        <tr><td>Capital expenditure</td><td>126,063</td><td>Cloud computing/AI infrastructure investment</td></tr>
+        <tr><td>Net cash</td><td>56,898</td><td>Safety cushion remains but is thinning</td></tr>
+        <tr><td>Interest-bearing debt</td><td>259,996</td><td>Within manageable range</td></tr>
+      </table>
+
+      <h3>Three-year comparative trend</h3>
+      <table>
+        <tr><th>Indicator</th><th>FY2024</th><th>FY2025</th><th>FY2026</th><th>Trend</th></tr>
+        <tr><td>Revenue</td><td>941,168</td><td>996,347</td><td>1,023,670</td><td>↗ but growth is slowing</td></tr>
+        <tr><td>Revenue growth</td><td>+8.34%</td><td>+5.86%</td><td>+2.74%</td><td class="tag-red">↘</td></tr>
+        <tr><td>Net profit</td><td>79,741</td><td>129,470</td><td>105,904</td><td class="tag-orange">📉</td></tr>
+        <tr><td>Net profit growth rate</td><td>+9.97%</td><td>+62.36%</td><td>-18.2%</td><td class="tag-red">📉</td></tr>
+      </table>
+
+      <h3>Why did free cash flow turn negative?</h3>
+      <p>Free cash flow = operating cash flow − capital expenditure</p>
+      <p>FY2026 operating cash flow is approximately<strong>RMB 76.14 billion</strong>(estimated), minus CapEx<strong>RMB 126.06 billion</strong>, obtaining<strong>-RMB 49.85 billion</strong>。</p>
+      <p>This means the cash Alibaba generates each day from its core business is not enough to cover its infrastructure investment.<strong class="tag-red">This is not a sustainable state.</strong></p>
+
+      <h3>Why did the operating margin decline?</h3>
+      <p>The 4.90% operating margin was mainly dragged down by the following factors:</p>
+      <ol>
+        <li><strong>SG&A expenses</strong>: Sharply higher sales and marketing spend to counter competition (Pinduoduo/Douyin)</li>
+        <li><strong>R&D investment</strong>: Rising R&D spending on AI large models and cloud computing infrastructure</li>
+        <li><strong>Overseas expansion</strong>: Overseas businesses such as Lazada and Trendyol are still burning cash</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>© 2026 Earnings Team · Alibaba FY2026 In-Depth Analysis · Simulated analysis based on the publicly disclosed investment methodologies of four masters</p>
+  <p>Not investment advice · Source: Alibaba FY2026 annual report</p>
+</div>
+
+</div><!-- /container -->
+
+<script>
+(function() {
+  // ===== Phase tab switching =====
+  const phaseTabs = document.querySelectorAll('#phaseTabs button');
+  const phases = {
+    phase1: document.getElementById('phase1'),
+    phase2: document.getElementById('phase2'),
+    phase3: document.getElementById('phase3')
+  };
+
+  function switchPhase(phaseId) {
+    // update phase tabs
+    phaseTabs.forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`#phaseTabs button[data-phase="${phaseId}"]`).classList.add('active');
+    // show/hide phases
+    Object.entries(phases).forEach(([id, el]) => {
+      el.classList.toggle('active', id === phaseId);
+    });
+  }
+
+  phaseTabs.forEach(btn => {
+    btn.addEventListener('click', () => switchPhase(btn.dataset.phase));
+  });
+
+  // ===== Sub-tab switching (within each phase) =====
+  function setupSubTabs(phaseId) {
+    const container = phases[phaseId];
+    const subTabs = container.querySelector('.sub-tabs');
+    if (!subTabs) return;
+    subTabs.addEventListener('click', (e) => {
+      const btn = e.target.closest('button');
+      if (!btn) return;
+      // update active on sub-tabs
+      subTabs.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      // show/hide sub-articles
+      const subId = btn.dataset.sub;
+      container.querySelectorAll('.article[id^="sub-"]').forEach(el => {
+        el.classList.toggle('active', el.id === `sub-${subId}`);
+      });
+    });
+  }
+
+  setupSubTabs('phase1');
+  setupSubTabs('phase2');
+  setupSubTabs('phase3');
+})();
+</script>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

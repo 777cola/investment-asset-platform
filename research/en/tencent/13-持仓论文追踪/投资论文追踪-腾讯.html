@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investment thesis tracker — Tencent Holdings (00700.HK)</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f7fa; color: #333; line-height: 1.8; font-size: 15px; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 50px 0 40px; text-align: center; }
+.header h1 { font-size: 28px; font-weight: 900; letter-spacing: 1px; margin-bottom: 8px; }
+.header .subtitle { font-size: 16px; font-weight: 300; opacity: 0.85; }
+.header .meta { margin-top: 14px; font-size: 13px; opacity: 0.7; }
+.header .meta-bar { margin-top: 16px; font-size: 13px; opacity: 0.85; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.header .meta-bar .item { display: inline-flex; align-items: center; gap: 4px; }
+.header .meta-bar .label { opacity: 0.7; }
+.container { max-width: 920px; margin: 0 auto; padding: 30px 24px; }
+.card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 32px 36px; margin-bottom: 28px; }
+.card h2 { font-size: 22px; font-weight: 700; color: #1A4B8C; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid #1A4B8C; display: inline-block; }
+.card h3 { font-size: 17px; font-weight: 600; color: #2c3e50; margin: 20px 0 10px; }
+.card p, .card ul, .card ol { margin-bottom: 12px; color: #444; }
+.card ul, .card ol { padding-left: 22px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+thead th { background: #1A4B8C; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
+thead th:first-child { border-radius: 6px 0 0 0; }
+thead th:last-child { border-radius: 0 6px 0 0; }
+tbody td { padding: 10px 12px; border-bottom: 1px solid #e8ecf1; }
+tbody tr:nth-child(even) { background: #f8f9fb; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; }
+
+/* File-specific extras */
+.weight-badge { display: inline-block; background: #1A4B8C; color: #fff; border-radius: 20px; padding: 3px 12px; font-size: 13px; font-weight: 600; }
+.verdict { display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; }
+.verdict.pass { background: #e8f5e9; color: #27ae60; }
+.verdict.hold { background: #fff8e1; color: #f57f17; }
+.verdict.fail { background: #ffebee; color: #c62828; }
+.verdict.improve { background: #e3f2fd; color: #1565c0; }
+.metrics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin: 16px 0; }
+.metric-card { background: #f8f9fb; border-radius: 8px; padding: 16px; text-align: center; border: 1px solid #e8ecf1; }
+.metric-card .value { font-size: 18px; font-weight: 700; color: #1A4B8C; }
+.metric-card .label { font-size: 12px; color: #999; margin-top: 4px; }
+.metric-card .trend { font-size: 12px; margin-top: 2px; }
+.trend.up { color: #27ae60; }
+.trend.down { color: #c62828; }
+.trend.stable { color: #999; }
+.risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+.risk-item { background: #f8f9fb; border-radius: 8px; padding: 16px; border-left: 4px solid; font-size: 14px; }
+.risk-item.high { border-color: #c62828; }
+.risk-item.medium { border-color: #f57f17; }
+.risk-item.low { border-color: #27ae60; }
+.risk-item .risk-label { font-weight: 600; color: #333; }
+.risk-item .risk-desc { color: #666; margin-top: 4px; font-size: 13px; }
+.risk-tag { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 12px; font-weight: 600; }
+.risk-tag.high { background: #ffebee; color: #c62828; }
+.risk-tag.medium { background: #fff8e1; color: #f57f17; }
+.risk-tag.low { background: #e8f5e9; color: #27ae60; }
+.drift-row { padding: 14px 0; border-bottom: 1px solid #e8ecf1; display: grid; grid-template-columns: 1fr 2fr 2fr 70px; gap: 12px; align-items: start; font-size: 14px; }
+.drift-row:last-child { border-bottom: none; }
+.drift-row .drift-label { font-weight: 600; }
+.drift-row .drift-old { color: #999; }
+.drift-row .drift-new { color: #333; }
+.drift-badge { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 13px; font-weight: 600; text-align: center; }
+.drift-badge.positive { background: #e8f5e9; color: #27ae60; }
+.drift-badge.negative { background: #ffebee; color: #c62828; }
+.drift-badge.neutral { background: #f1f5f9; color: #999; }
+.conclusion-box { background: #eef3fc; border: 2px solid #1A4B8C; border-radius: 10px; padding: 28px; margin: 16px 0; }
+.conclusion-box h3 { color: #1A4B8C; font-size: 18px; margin-bottom: 12px; }
+.score-ring { display: inline-flex; align-items: center; justify-content: center; width: 80px; height: 80px; border-radius: 50%; font-size: 24px; font-weight: 700; color: #fff; background: #1A4B8C; flex-shrink: 0; }
+.score-row { display: flex; align-items: center; gap: 20px; padding: 10px 0; }
+.score-row .score-info { flex: 1; }
+.score-row .score-title { font-weight: 600; }
+.score-row .score-desc { font-size: 13px; color: #666; }
+.prob-low { color: #27ae60; font-weight: 600; }
+.prob-medium { color: #f57f17; font-weight: 600; }
+.prob-high { color: #c62828; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>📋 Investment thesis tracker</h1>
+<div class="subtitle">Tencent Holdings · 00700.HK / TCEHY</div>
+<div class="meta-bar">
+<span class="item"><span class="label">Tracking date</span> 2026-07-07</span>
+<span class="item"><span class="label">Share price</span> HK$463.60 / US$57.73</span>
+<span class="item"><span class="label">Market cap</span>HKD 4.22 trillion</span>
+<span class="item"><span class="label">PE(TTM)</span> 15.19x</span>
+<span class="item"><span class="label">Forward PE</span> 12.87x</span>
+</div>
+</div>
+
+<div class="container">
+
+<!-- Section 1: Buy Thesis -->
+<div class="card">
+<h2>I. Position buy thesis (core logic)</h2>
+<table>
+<thead>
+<tr>
+<th style="width:40px">#</th>
+<th>Buy thesis</th>
+<th style="width:80px">Weight</th>
+<th>Basis for initiating the position</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="font-weight:700;color:#1A4B8C;">①</td>
+<td><strong>China's internet infrastructure monopoly</strong><br><span style="font-size:13px;color:#999;">WeChat 1.3 billion MAU · social + payments + mini-program ecosystem</span></td>
+<td><span class="weight-badge">35%</span></td>
+<td style="font-size:13px;">Moat assessed as "extremely wide", with network effects and switching costs top-tier globally</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#1A4B8C;">②</td>
+<td><strong>Global gaming leader</strong><br><span style="font-size:13px;color:#999;">In-house development + investment + publishing · licence approvals resumed + overseas expansion</span></td>
+<td><span class="weight-badge">25%</span></td>
+<td style="font-size:13px;">The world's largest gaming company, with the strongest monetization engine and cash-cow business</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#1A4B8C;">③</td>
+<td><strong>Superior earnings quality and capital allocation</strong><br><span style="font-size:13px;color:#999;">Gross margin 56%+ · FCF/revenue 28%+ · rational management</span></td>
+<td><span class="weight-badge">25%</span></td>
+<td style="font-size:13px;">Buffett-style "good business" criteria: high ROE + real cash + rational steward</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#1A4B8C;">④</td>
+<td><strong>New growth engines gather momentum</strong><br><span style="font-size:13px;color:#999;">WeChat Channels ads · Hunyuan AI · Tencent Cloud</span></td>
+<td><span class="weight-badge">15%</span></td>
+<td style="font-size:13px;">Low-cost optionality — even partial realization could significantly boost valuation</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- Section 2: Thesis Evaluation -->
+<div class="card">
+<h2>II. Paper-by-paper assessment</h2>
+
+<h3>Paper ①: Monopoly in China's Internet Infrastructure</h3>
+<p style="font-size:14px;color:#666;background:#f8f9fb;padding:10px 14px;border-radius:8px;margin-bottom:14px;">WeChat is the infrastructure of digital life in China, and its 1.3 billion MAU form a very deep moat. With social-graph lock-in, the Mini Program ecosystem and WeChat Pay, the cost of switching for users is almost infinitely high.</p>
+
+<div style="margin-bottom:14px;">
+<span class="verdict pass">✅ Thesis intact · moat strengthening</span>
+</div>
+
+<div class="metrics-grid">
+<div class="metric-card"><div class="value">1.35 billion+</div><div class="label">WeChat MAU</div><div class="trend up">↑ Sustained growth</div></div>
+<div class="metric-card"><div class="value">600 million+</div><div class="label">Mini program DAU</div><div class="trend up">↑ Ecosystem expansion</div></div>
+<div class="metric-card"><div class="value">500 million+</div><div class="label">WeChat Channels DAU</div><div class="trend up">↑ Above consensus</div></div>
+<div class="metric-card"><div class="value">RMB 400 billion</div><div class="label">WeChat Channels e-commerce GMV</div><div class="trend up">↑ Explosive growth</div></div>
+</div>
+
+<div style="margin:12px 0;">
+<span style="font-weight:600;color:#27ae60;">New positive signal:</span>
+<span style="font-size:14px;">WeChat Search DAU tops 200 million · Channels e-commerce GMV RMB 400 billion · Hunyuan AI integrated into WeChat ecosystem</span>
+</div>
+<div style="margin:12px 0;">
+<span style="font-weight:600;color:#c62828;">New risks:</span>
+<span style="font-size:14px;">ByteDance competition for user time · Data Security Law restrictions · AI social paradigm disruption (currently limited)</span>
+</div>
+
+<hr style="border:none;border-top:1px solid #e8ecf1;margin:24px 0;">
+
+<h3>Paper 2: Global Gaming Leader</h3>
+<p style="font-size:14px;color:#666;background:#f8f9fb;padding:10px 14px;border-radius:8px;margin-bottom:14px;">The world's largest gaming company, with full in-house development, investment and publishing capabilities. Dual drivers: resumption of game licence approvals and overseas expansion.</p>
+
+<div style="margin-bottom:14px;">
+<span class="verdict hold">⚠️ Broadly holds · expectations need revision</span>
+</div>
+
+<div class="metrics-grid">
+<div class="metric-card"><div class="value">Global #1</div><div class="label">Game revenue ranking</div><div class="trend stable">→ Leading and stable</div></div>
+<div class="metric-card"><div class="value">+8%</div><div class="label">Domestic gaming growth</div><div class="trend stable">→ Solid but below expectations</div></div>
+<div class="metric-card"><div class="value">~30%</div><div class="label">Overseas revenue share</div><div class="trend up">↑ Upgrading to Medium</div></div>
+<div class="metric-card"><div class="value">RMB 20 billion+</div><div class="label">DNF Mobile first-year gross billings</div><div class="trend up">↑ Above-consensus hit product</div></div>
+</div>
+
+<div style="margin:12px 0;">
+<span style="font-weight:600;color:#27ae60;">New positive signal:</span>
+<span style="font-size:14px;">DNF Mobile grossed RMB 20 billion in its first year · Valorant console version launched · Mini games annual gross revenue RMB 50 billion</span>
+</div>
+<div style="margin:12px 0;">
+<span style="font-weight:600;color:#c62828;">New risks:</span>
+<span style="font-size:14px;">Domestic competition for existing users · miHoYo's rise · Microsoft's acquisition of Activision Blizzard · AI plus gaming catch-up</span>
+</div>
+
+<div style="background:#fff8e1;padding:12px 16px;border-radius:8px;font-size:14px;margin-top:10px;">
+<strong>📌 Revision suggestion:</strong>Downgrade from "high-growth gaming engine" to "steady cash-cow gaming"; weight from 25% to 20%</div>
+
+<hr style="border:none;border-top:1px solid #e8ecf1;margin:24px 0;">
+
+<h3>Paper 3: Superior Earnings Quality and Capital Allocation</h3>
+<p style="font-size:14px;color:#666;background:#f8f9fb;padding:10px 14px;border-radius:8px;margin-bottom:14px;">Gross margin rose from 43% to over 56%, FCF conversion near 100%, ROE above 20%. Management is rational: buybacks, stake reductions and higher dividends.</p>
+
+<div style="margin-bottom:14px;">
+<span class="verdict improve">✅ Still valid · Stronger than at initial position</span>
+</div>
+
+<div class="metrics-grid">
+<div class="metric-card"><div class="value">56.3%</div><div class="label">Gross margin</div><div class="trend up">↑ Historical high</div></div>
+<div class="metric-card"><div class="value">30.6%</div><div class="label">Net margin</div><div class="trend up">↑ Continues to rise</div></div>
+<div class="metric-card"><div class="value">28.7%</div><div class="label">FCF/revenue</div><div class="trend up">↑ Remains elevated</div></div>
+<div class="metric-card"><div class="value">20.51%</div><div class="label">ROE</div><div class="trend up">↑ Slight upward revision</div></div>
+</div>
+
+<div class="metrics-grid">
+<div class="metric-card"><div class="value">¥4.76</div><div class="label">DPS (dividend)</div><div class="trend up">↑ +40%</div></div>
+<div class="metric-card"><div class="value">RMB 100 billion+</div><div class="label">Annual buyback (HKD)</div><div class="trend up">↑ Increase position</div></div>
+<div class="metric-card"><div class="value">RMB 300 billion+</div><div class="label">Reduction proceeds (HKD)</div><div class="trend up">↑ Cashing out at highs</div></div>
+<div class="metric-card"><div class="value">USD 13.2 billion</div><div class="label">Net cash</div><div class="trend up">↑ Financially sound</div></div>
+</div>
+
+<div style="margin:12px 0;">
+<span style="font-weight:600;color:#c62828;">New risks:</span>
+<span style="font-size:14px;">CAPEX +30% (AI compute) may drag near-term ROIC · Underweight US equities may miss upside · Buyback continuity hinges on share price</span>
+</div>
+
+<hr style="border:none;border-top:1px solid #e8ecf1;margin:24px 0;">
+
+<h3>Paper 4: New growth engines gather momentum</h3>
+<p style="font-size:14px;color:#666;background:#f8f9fb;padding:10px 14px;border-radius:8px;margin-bottom:14px;">Original: WeChat Channels ad monetization, Hunyuan AI and Tencent Cloud form the second and third growth curves.</p>
+
+<div style="margin-bottom:14px;">
+<span class="verdict improve">✅ Broadly holds up · uneven progress across engines</span>
+</div>
+
+<h4 style="color:#1A4B8C;margin:16px 0 8px;font-size:15px;">🔷 WeChat Channels ad monetization<span class="verdict pass">Above consensus</span></h4>
+<table>
+<thead>
+<tr><th>Indicator</th><th>Original expectation</th><th>Current status</th><th>Assessment</th></tr>
+</thead>
+<tbody>
+<tr><td>DAU</td><td>~RMB 300 million</td><td>500 million+</td><td style="color:#27ae60;">✅ Above consensus</td></tr>
+<tr><td>Average time spent per user</td><td>~35 minutes</td><td>~50 minutes</td><td style="color:#27ae60;">✅ Above consensus</td></tr>
+<tr><td>Advertising revenue</td><td>~RMB 20 billion/year</td><td>~RMB 50 billion/year</td><td style="color:#27ae60;">✅ Above consensus</td></tr>
+<tr><td>E-commerce GMV</td><td>~RMB 100 billion/year</td><td>~RMB 400 billion/year</td><td style="color:#27ae60;">✅ Above consensus</td></tr>
+</tbody>
+</table>
+
+<h4 style="color:#1A4B8C;margin:16px 0 8px;font-size:15px;">🔷 Hunyuan AI<span class="verdict hold">In line with expectations · not yet independent</span></h4>
+<p style="font-size:14px;">A top-tier domestic large model, with commercialization revenue of about RMB 5 billion (2025), still early-stage. AI assistant, search, customer service and creation tools are steadily gaining traction, but no consumer hit product has emerged yet.</p>
+
+<h4 style="color:#1A4B8C;margin:16px 0 8px;font-size:15px;">🔷 Tencent Cloud<span class="verdict improve">Earnings above expectations</span></h4>
+<p style="font-size:14px;">Up 15-20% year on year, already profitable (above expectations). Market share entered the top three, driven by AI demand and a focus on high-quality revenue.</p>
+</div>
+
+<!-- Section 3: Risk Matrix -->
+<div class="card">
+<h2>III. Risk matrix update</h2>
+
+<h3 style="color:#666;font-size:15px;margin-bottom:12px;">Existing risk tracking</h3>
+<table style="margin-bottom:20px;">
+<thead>
+<tr><th>Risk factors</th><th>Original rating</th><th>Current rating</th><th>Change</th><th>Explanation</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Regulation (antitrust/data security/game licences)</td>
+<td><span class="risk-tag high">High</span></td>
+<td><span class="risk-tag medium">Mid</span></td>
+<td style="color:#27ae60;">↓ Easing</td>
+<td style="font-size:13px;">Regulatory peak has passed; game approvals now issued on a regular basis</td>
+</tr>
+<tr>
+<td>Competition (ByteDance competition for user time)</td>
+<td><span class="risk-tag medium">Mid</span></td>
+<td><span class="risk-tag medium">The middle</span></td>
+<td style="color:#999;">→ Flat</td>
+<td style="font-size:13px;">WeChat Channels has defended effectively, but Douyin is still growing</td>
+</tr>
+<tr>
+<td>China-US geopolitics</td>
+<td><span class="risk-tag medium">The middle</span></td>
+<td><span class="risk-tag medium">The middle</span></td>
+<td style="color:#999;">→ Flat</td>
+<td style="font-size:13px;">Persistent uncertainty; Tencent has significantly cut its US investments</td>
+</tr>
+<tr>
+<td>Slowing growth</td>
+<td><span class="risk-tag medium">Mid</span></td>
+<td><span class="risk-tag medium">The middle</span></td>
+<td style="color:#999;">→ Flat</td>
+<td style="font-size:13px;">Revenue growth held steady at 10-15%, in line with expectations</td>
+</tr>
+</tbody>
+</table>
+
+<h3 style="color:#666;font-size:15px;margin-bottom:12px;">New risks</h3>
+<div class="risk-grid">
+<div class="risk-item medium">
+<div class="risk-label">AI competition shock</div>
+<div class="risk-desc">ByteDance Doubao vs Baidu Ernie AI competition; Meta/OpenAI global expansion impact</div>
+<div class="risk-tag medium">Mid</div>
+</div>
+<div class="risk-item low">
+<div class="risk-label">Rising capex drags down ROIC</div>
+<div class="risk-desc">AI compute investment CAPEX +30%, near-term ROIC dilution</div>
+<div class="risk-tag low">Low to medium</div>
+</div>
+<div class="risk-item low">
+<div class="risk-label">Portfolio value shrinks</div>
+<div class="risk-desc">Remaining investment market value fluctuates; but exposure has been substantially reduced</div>
+<div class="risk-tag low">Low</div>
+</div>
+<div class="risk-item low">
+<div class="risk-label">Advertising market sentiment</div>
+<div class="risk-desc">A weakening macroeconomy weighs on advertising revenue</div>
+<div class="risk-tag low">Low</div>
+</div>
+</div>
+</div>
+
+<!-- Section 4: Thesis Drift -->
+<div class="card">
+<h2>IV. Thesis drift detection</h2>
+
+<div style="background:#f8f9fb;padding:14px;border-radius:8px;margin-bottom:16px;font-size:14px;">
+<strong>Purpose of drift detection:</strong>Compare the original position-building thesis with the current view, identify positive/negative drift and its magnitude.</div>
+
+<div class="drift-row" style="font-weight:600;color:#666;padding-bottom:10px;border-bottom:2px solid #e8ecf1;">
+<div>Paper</div>
+<div>Previous assessment (at position initiation)</div>
+<div>Current view (2026-07-07)</div>
+<div style="text-align:center;">Drift</div>
+</div>
+<div class="drift-row">
+<div class="drift-label">① Infrastructure</div>
+<div class="drift-old">Wide moat, but Douyin encroachment and high regulatory risk</div>
+<div class="drift-new">Strengthening moat (Channels + search + AI ecosystem), easing regulatory pressure</div>
+<div style="text-align:center;"><span class="drift-badge positive">+15%</span></div>
+</div>
+<div class="drift-row">
+<div class="drift-label">② Gaming leader</div>
+<div class="drift-old">High-growth engine; resumption of game approvals drives double-digit growth</div>
+<div class="drift-new">Growth is stabilizing (~8-10%), with no explosive overseas surge</div>
+<div style="text-align:center;"><span class="drift-badge negative">-15%</span></div>
+</div>
+<div class="drift-row">
+<div class="drift-label">③ Profitability and allocation</div>
+<div class="drift-old">Excellent and improving earnings quality; rational management</div>
+<div class="drift-new">In line with and above expectations; capital allocation better than initially judged</div>
+<div style="text-align:center;"><span class="drift-badge positive">+20%</span></div>
+</div>
+<div class="drift-row">
+<div class="drift-label">④ New growth engines</div>
+<div class="drift-old">Video Accounts/AI/Cloud are incremental options, not yet realized</div>
+<div class="drift-new">Video Accounts significantly exceeded the consensus, AI and cloud advance steadily</div>
+<div style="text-align:center;"><span class="drift-badge positive">+25%</span></div>
+</div>
+
+<div style="background:#e8f5e9;padding:14px 18px;border-radius:8px;margin-top:16px;">
+<strong style="color:#27ae60;">Composite net drift: positive drift (+11% weighted)</strong><br>
+<span style="font-size:14px;">Management execution above expectations + monetization of Channels + regulatory improvement → positive; lowered game growth expectations → the only negative</span>
+</div>
+</div>
+
+<!-- Section 5: Conclusion -->
+<div class="card">
+<h2>V. Conclusion on Holdings Rationale</h2>
+
+<div class="conclusion-box">
+<h3>✅ Positioning remains reasonable and the thesis holds overall</h3>
+<p style="font-size:14px;">Three of Tencent's four buy theses (1. infrastructure monopoly, 3. earnings quality and capital allocation, 4. new growth engines) are currently, compared with at the time of position-building<strong>Stronger</strong>Or<strong>In line with expectations</strong>; the only thing that needs revising is ② game growth expectations (from "high growth" to "steady growth"). Overall, the thesis's net drift is positive, and the holding logic has more support than at the time of position-building.</p>
+</div>
+
+<div class="score-row">
+<div class="score-ring">83</div>
+<div class="score-info">
+<div class="score-title">Portfolio rationale composite score /100</div>
+<div class="score-desc">Thesis completeness 88 · Thesis stability 85 · Risk controllability 80 · Opportunity cost 75</div>
+</div>
+</div>
+
+<h3 style="margin:20px 0 12px;font-size:16px;">Conditions that would trigger a re-rating</h3>
+<table>
+<thead>
+<tr><th>Trigger conditions</th><th>Probability</th><th>Impact on the thesis</th></tr>
+</thead>
+<tbody>
+<tr><td>WeChat MAU fell for 2 consecutive quarters</td><td><span class="prob-low">Extremely low &lt;5%</span></td><td>Paper ① falsified → trim position</td></tr>
+<tr><td>Gaming revenue fell 4.0% year on year for a fourth consecutive quarter</td><td><span class="prob-low">10-15% lower</span></td><td>Paper ② falsified → underweight</td></tr>
+<tr><td>Management halts buybacks / sharply cuts dividends</td><td><span class="prob-low">Extremely low &lt;5%</span></td><td>Paper ③ weakened</td></tr>
+<tr><td>Hunyuan AI has proven to lag behind the second tier</td><td><span class="prob-medium">Mid 20-30%</span></td><td>Part four of the paper weakens</td></tr>
+<tr><td>Full ban on operating gaming/social platforms</td><td><span class="prob-low">Extremely low &lt;1%</span></td><td>All papers falsified</td></tr>
+</tbody>
+</table>
+
+<h3 style="margin:20px 0 12px;font-size:16px;">Key points to monitor</h3>
+<div class="risk-grid">
+<div style="background:#f8f9fb;border-radius:8px;padding:16px;border:1px solid #e8ecf1;">
+<strong style="color:#1A4B8C;">Every quarter</strong>
+<p style="font-size:13px;margin-top:4px;">WeChat MAU · Channels DAU · ad revenue growth · buyback progress</p>
+</div>
+<div style="background:#f8f9fb;border-radius:8px;padding:16px;border:1px solid #e8ecf1;">
+<strong style="color:#1A4B8C;">Every six months</strong>
+<p style="font-size:13px;margin-top:4px;">AI investment returns · Game pipeline · Overseas revenue share</p>
+</div>
+</div>
+</div>
+
+<!-- Section 6: Drift Supplementary -->
+<div class="card">
+<h2>Appendix: Impact of drift on valuation</h2>
+<table style="margin-bottom:16px;">
+<thead>
+<tr><th>Thesis drift</th><th>Impact on the central PE level</th><th>Magnitude</th></tr>
+</thead>
+<tbody>
+<tr><td>① Infrastructure monopoly strengthens</td><td>Raise PE (moat premium)</td><td style="color:#27ae60;">+2~3x</td></tr>
+<tr><td>② Downward revision to game growth expectations</td><td>Lower PE (reduced growth premium)</td><td style="color:#c62828;">-1~2x</td></tr>
+<tr><td>③ Earnings quality above consensus</td><td>Raise PE (quality premium)</td><td style="color:#27ae60;">+2~3x</td></tr>
+<tr><td>④ WeChat Channels delivered above expectations</td><td>Raise PE (new business value)</td><td style="color:#27ae60;">+1~2x</td></tr>
+</tbody>
+</table>
+
+<div style="background:#eef3fc;padding:16px 20px;border-radius:8px;border-left:4px solid #1A4B8C;">
+<strong style="color:#1A4B8C;">Key insights</strong>
+<p style="font-size:14px;margin-top:6px;">The current PE of 15.19x is not only below the historical median of 28x, but also below the drift-adjusted fair PE range of 20-24x. The paper's net drift is positive overall, so the valuation center should in fact rise rather than fall. The main cause of the current low PE is external factors (China ADR discount, market sentiment, geopolitics), not deteriorating fundamentals. If the market eventually recognizes the positive value of the paper's drift, the valuation re-rating upside could reach<strong>30-50%</strong>。</p>
+</div>
+</div>
+
+<div class="footer">
+<p>Report generated: 2026-07-07 | Sources: company filings, public market data, industry reports</p>
+<p>This report is for research reference only and does not constitute investment advice. Investing carries risk; exercise caution when entering the market.</p>
+</div>
+
+</div>
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

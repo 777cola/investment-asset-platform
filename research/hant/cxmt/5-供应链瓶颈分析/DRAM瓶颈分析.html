@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中國 DRAM 供應鏈瓶頸分析 — 長鑫科技視角</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a2e;
+    --muted: #555;
+    --border: #d0d5dd;
+    --accent: #1a56db;
+    --accent-light: #eef2ff;
+    --bg-table-alt: #f8f9fc;
+    --tag-green: #059669;
+    --tag-red: #dc2626;
+    --tag-orange: #d97706;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    background: #f2f4f8;
+    color: var(--text);
+    line-height: 1.7;
+    padding: 2rem 1rem;
+  }
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  /* ---- Cover / Header ---- */
+  .report-header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+  }
+  .report-header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .report-header .meta {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-top: 0.25rem;
+  }
+  .report-header .meta strong { color: #cbd5e1; }
+  /* ---- Section ---- */
+  .section {
+    background: var(--bg);
+    border-radius: 10px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow);
+  }
+  .section h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent);
+    border-left: 4px solid var(--accent);
+    padding-left: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .section h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #374151;
+    margin: 1rem 0 0.5rem;
+  }
+  .section h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #4b5563;
+    margin: 0.75rem 0 0.25rem;
+  }
+  .section p { margin-bottom: 0.6rem; }
+  .section ul, .section ol { padding-left: 1.5rem; margin-bottom: 0.6rem; }
+  .section li { margin-bottom: 0.2rem; }
+  /* ---- Confirmation table (超級趨勢) ---- */
+  .confirm-table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.9rem; }
+  .confirm-table th, .confirm-table td { border: 1px solid var(--border); padding: 0.5rem 0.75rem; text-align: center; vertical-align: middle; }
+  .confirm-table th { background: var(--accent-light); color: var(--accent); font-weight: 600; }
+  .confirm-table td:first-child { font-weight: 500; white-space: nowrap; }
+  .confirm-table .tag-yes { display: inline-block; background: #d1fae5; color: var(--tag-green); font-size: 0.8rem; font-weight: 600; padding: 1px 8px; border-radius: 4px; }
+  /* ---- Bottleneck tables ---- */
+  .bottleneck-table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.88rem; }
+  .bottleneck-table th, .bottleneck-table td { border: 1px solid var(--border); padding: 0.5rem 0.7rem; text-align: left; vertical-align: top; }
+  .bottleneck-table th { background: var(--accent-light); color: var(--accent); font-weight: 600; text-align: center; }
+  .bottleneck-table td:nth-child(1),
+  .bottleneck-table td:nth-child(2) { text-align: center; white-space: nowrap; }
+  .bottleneck-table tr:nth-child(even) { background: var(--bg-table-alt); }
+  /* ---- Investment table ---- */
+  .invest-table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.88rem; }
+  .invest-table th, .invest-table td { border: 1px solid var(--border); padding: 0.5rem 0.7rem; text-align: center; vertical-align: middle; }
+  .invest-table th { background: var(--accent-light); color: var(--accent); font-weight: 600; }
+  .invest-table tr:nth-child(even) { background: var(--bg-table-alt); }
+  .star { color: #f59e0b; letter-spacing: 1px; }
+  /* ---- Code block (supply chain tree) ---- */
+  .tree-block {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    font-family: "SF Mono", "Menlo", "Monaco", "Consolas", "Liberation Mono", monospace;
+    font-size: 0.82rem;
+    line-height: 1.65;
+    white-space: pre;
+    overflow-x: auto;
+    margin: 0.5rem 0;
+    color: #1e293b;
+  }
+  /* ---- Path analysis ---- */
+  .path-item { margin: 0.4rem 0; font-size: 0.92rem; }
+  .path-item .icon-yes { color: var(--tag-green); margin-right: 0.3rem; }
+  .path-item .icon-no  { color: var(--tag-red); margin-right: 0.3rem; }
+  .path-item .icon-warn { color: var(--tag-orange); margin-right: 0.3rem; }
+  /* ---- Tags ---- */
+  .tag-s { display: inline-block; background: #fef2f2; color: var(--tag-red); font-size: 0.75rem; font-weight: 700; padding: 1px 10px; border-radius: 4px; margin-right: 4px; }
+  .tag-a { display: inline-block; background: #fffbeb; color: var(--tag-orange); font-size: 0.75rem; font-weight: 700; padding: 1px 10px; border-radius: 4px; margin-right: 4px; }
+  .tag-b { display: inline-block; background: #eef2ff; color: var(--accent); font-size: 0.75rem; font-weight: 700; padding: 1px 10px; border-radius: 4px; margin-right: 4px; }
+  /* ---- Separator ---- */
+  .section hr { border: none; border-top: 1px solid var(--border); margin: 1rem 0; }
+  /* ---- Data source ---- */
+  .data-source { font-size: 0.82rem; color: var(--muted); margin-top: 0.75rem; text-align: right; border-top: 1px solid var(--border); padding-top: 0.6rem; }
+  /* ---- Notes / caution ---- */
+  .note-box {
+    background: #fef9c3;
+    border-left: 4px solid var(--tag-orange);
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+  .key-finding {
+    background: var(--accent-light);
+    border-left: 4px solid var(--accent);
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+  @media (max-width: 640px) {
+    body { padding: 1rem 0.5rem; }
+    .report-header { padding: 1.5rem 1rem; }
+    .report-header h1 { font-size: 1.3rem; }
+    .section { padding: 1.25rem 1rem; }
+    .bottleneck-table { font-size: 0.82rem; }
+    .bottleneck-table th, .bottleneck-table td { padding: 0.35rem 0.4rem; }
+    .confirm-table { font-size: 0.82rem; }
+    .confirm-table th, .confirm-table td { padding: 0.35rem 0.4rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ==================== HEADER ==================== -->
+<div class="report-header">
+  <h1>中國DRAM供應鏈瓶頸分析</h1>
+  <div class="meta">長鑫科技視角 ·<strong>分析日期：</strong>2026-07-19</div>
+</div>
+
+<!-- ==================== 一、超级趋势确认 ==================== -->
+<div class="section">
+  <h2>一、超級趨勢確認：AI與國產化雙輪驅動</h2>
+  <table class="confirm-table">
+    <thead><tr><th>標準</th><th>驗證</th></tr></thead>
+    <tbody>
+      <tr><td>持續性（3-5年）</td><td><span class="tag-yes">✅</span>AI 推理需求持續成長＋中國半導體自給率提升</td></tr>
+      <tr><td>物理性（需硬體建設）</td><td><span class="tag-yes">✅</span>晶圓廠建設、設備採購、產能爬坡全部是物理性投入</td></tr>
+      <tr><td>規模性（Capex&gt;$50B/年）</td><td><span class="tag-yes">✅</span>三星／海力士／美光年度資本支出合計超 600 億美元 + 中國設備採購</td></tr>
+      <tr><td>加速性（需求&gt;供給）</td><td><span class="tag-yes">✅</span>DRAM預期2025-2027年供需持續偏緊（HBM消耗大量產能）</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== 二、供应链物理拆解 ==================== -->
+<div class="section">
+  <h2>二、DRAM 供應鏈物理拆解</h2>
+  <div class="tree-block">Layer 0（終端）：AI伺服器 / PC / 手機 / 汽車 / 資料中心
+Layer 1（核心）：DRAM晶片（DDR4/DDR5/LPDDR/HBM）
+Layer 2（重點掃描區）：
+  ├─ 矽晶圓（300mm拋光片/磊晶片）
+  ├─ 光阻劑（ArF/KrF）
+  ├─ 特種氣體（高純NF3/WF6/Xe）
+  ├─ CMP研磨液/研磨墊
+  ├─ 靶材（高純金屬）
+  ├─ 光罩/掩模版
+  └─ 先進封裝載板
+Layer 3（上游設備）：
+  ├─ EUV微影設備 ←<strong>最大瓶頸</strong>├─ DUV 光刻機（ArFi）
+  ├─ 蝕刻設備（介質／導體）
+  ├─ 薄膜沉積（ALD／CVD／PVD）
+  ├─ 離子注入
+  ├─ 檢測／量測設備（KLA 關鍵）
+  └─ CMP 設備
+Layer 4（基礎設施）：
+  ├─ 潔淨室建設
+  ├─ 電力供應（晶圓廠耗電極大）
+  ├─ 超純水系統
+  └─ 技術人才（DRAM 研發工程師極度稀缺）</div>
+</div>
+
+<!-- ==================== 三、瓶颈识别 ==================== -->
+<div class="section">
+  <h2>三、瓶頸識別</h2>
+
+  <h3>S級瓶頸（單點故障級）</h3>
+  <table class="bottleneck-table">
+    <thead><tr><th>#</th><th>環節</th><th>原因</th><th>對CXMT影響</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag-s">S</span></td><td><strong>EUV 微影設備</strong></td><td>全球僅ASML能生產，美國出口管制禁止向中國出售</td><td>無法進入1α nm級，長期技術代差不可彌合</td></tr>
+      <tr><td><span class="tag-s">S</span></td><td><strong>DRAM人才</strong></td><td>全球具備 DRAM 量產經驗的工程師&lt;5,000 人，被三星、SK 海力士、美光鎖定</td><td>技術突破依賴人才，CXMT存在三星前員工訴訟風險</td></tr>
+    </tbody>
+  </table>
+
+  <h3>A級瓶頸（嚴重受限）</h3>
+  <table class="bottleneck-table">
+    <thead><tr><th>#</th><th>環節</th><th>原因</th><th>對CXMT影響</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag-a">A</span></td><td><strong>先進光阻</strong></td><td>日本JSR、TOK、信越三家壟斷ArF光阻劑，國產替代純度不足</td><td>制約先進製程良率提升</td></tr>
+      <tr><td><span class="tag-a">A</span></td><td><strong>檢測量測設備</strong></td><td>KLA科磊在DRAM檢測領域市佔率&gt;70%，受出口管制</td><td>影響量產良率控制與製程調試</td></tr>
+      <tr><td><span class="tag-a">A</span></td><td><strong>HBM 封裝</strong></td><td>SK 海力士領先 CXMT 2-3 年，TSV＋MR-MUF 技術門檻極高</td><td>錯失本輪 AI 最核心增量市場</td></tr>
+    </tbody>
+  </table>
+
+  <h3>B級瓶頸（有壓力但可控）</h3>
+  <table class="bottleneck-table">
+    <thead><tr><th>#</th><th>環節</th><th>原因</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag-b">B</span></td><td><strong>300mm 矽晶圓</strong></td><td>信越／SUMCO 全球&gt;50% 份額，中國滬矽產業量產規模不足</td></tr>
+      <tr><td><span class="tag-b">B</span></td><td><strong>CMP 設備</strong></td><td>華海清科可供應，但先進節點仍需應用材料</td></tr>
+      <tr><td><span class="tag-b">B</span></td><td><strong>IC 載板</strong></td><td>日本 Ibiden／臺灣欣興主導，中國深南電路在追趕</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== 四、国产替代路径分析 ==================== -->
+<div class="section">
+  <h2>四、中國 DRAM 國產替代路徑分析</h2>
+
+  <h3>路徑A（正常路徑，當前狀態）</h3>
+  <p>DUV ArFi 加多重曝光 → 追到 1α nm 附近（預計 2027-2028 年）</p>
+  <div class="path-item"><span class="icon-yes">✅</span>不需要 EUV</div>
+  <div class="path-item"><span class="icon-no">❌</span>製程複雜度高、良率低、成本高</div>
+  <div class="path-item"><span class="icon-no">❌</span>每萬片產能投資需求比 EUV 方案高 30-50%</div>
+
+  <h3>路徑B（制裁升級路徑）</h3>
+  <p>若被列入實體清單，DUV 也被切斷：</p>
+  <div class="path-item"><span class="icon-no">❌</span>DUV 亦遭限制→17nm 節點無法擴產</div>
+  <div class="path-item"><span class="icon-no">❌</span>現有晶圓廠維護困難（備件斷供）</div>
+  <div class="path-item"><span class="icon-warn">⚠️</span>只能依賴二手設備、反向工程與國產替代設備，技術迭代基本停滯</div>
+
+  <h3>路徑C（突破性路徑）</h3>
+  <p>國產 EUV 取得突破（預計 2030 年以後）：</p>
+  <div class="path-item"><span class="icon-yes">✅</span>技術差距可彌合</div>
+  <div class="path-item"><span class="icon-warn">⚠️</span>時間窗口太長（4+年），屆時三巨頭已進入更先進節點</div>
+</div>
+
+<!-- ==================== 五、与德明利联动 ==================== -->
+<div class="section">
+  <h2>五、與德明利（001309.SZ）的連動關係</h2>
+
+  <div class="key-finding"><strong>關鍵發現：</strong>德明利雖然以 NAND 快閃記憶體模組為主，但：</div>
+
+  <ol>
+    <li><strong>DRAM 模組業務</strong>：如果CXMT DRAM產能持續擴大，德明利可以作為下游模組廠採購CXMT DRAM顆粒</li>
+    <li><strong>供應鏈互補</strong>：長鑫科技提供 DRAM 顆粒（上游），德明利做成記憶體模組（中游）</li>
+    <li><strong>國產替代鏈條</strong>：CXMT DRAM + 德明利模組 = 完整國產儲存解決方案</li>
+    <li><strong>競爭關係</strong>：德明利的競爭對手江波龍／佰維也是 CXMT 的客戶，CXMT 不選邊站隊</li>
+  </ol>
+
+  <div class="note-box">
+    <strong>但需注意：</strong>德明利目前業務以 NAND（快閃記憶體）為主，DRAM 模組佔比有限。長鑫科技擴產對德明利的直接拉動效應可能被高估。</div>
+</div>
+
+<!-- ==================== 六、投资机会总结 ==================== -->
+<div class="section">
+  <h2>六、投資機會總結</h2>
+
+  <table class="invest-table">
+    <thead><tr><th>排名</th><th>瓶頸環節</th><th>投資標的</th><th>訊號強度</th><th>估值判斷</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>DRAM 製造</td><td>長鑫科技（科創板IPO中）</td><td class="star">★★★★</td><td>偏高（308倍PE）</td></tr>
+      <tr><td>2</td><td>蝕刻設備</td><td>中微公司（688012.SH）</td><td class="star">★★★★</td><td>合理</td></tr>
+      <tr><td>3</td><td>薄膜沉積設備</td><td>北方華創（002371.SZ）</td><td class="star">★★★★</td><td>合理偏貴</td></tr>
+      <tr><td>4</td><td>CMP 設備</td><td>華海清科（688120.SH）</td><td class="star">★★★</td><td>偏貴</td></tr>
+      <tr><td>5</td><td>測試設備</td><td>華峯測控（688200.SH）</td><td class="star">★★★</td><td>合理</td></tr>
+      <tr><td>6</td><td>記憶體模組</td><td>德明利（001309.SZ）</td><td class="star">★★★</td><td>待分析</td></tr>
+    </tbody>
+  </table>
+
+  <div class="data-source">資料來源：36氪、Wikipedia、Omdia、Semianalysis、各公司公告</div>
+</div>
+
+</div>
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>簡</span><span class="full"><span>簡體中文</span></span></a><a class="lang hant active" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

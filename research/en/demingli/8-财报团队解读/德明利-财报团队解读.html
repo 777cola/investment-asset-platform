@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earnings team interpretation - Demingli</title>
+<style>
+  /* ===== 财报团队解读 标准 CSS 模板 ===== */
+  :root {
+    --bg: #faf9f7;
+    --card-bg: #ffffff;
+    --border: #e8e6e1;
+    --text: #1a1a1a;
+    --text-secondary: #6b6b6b;
+    --accent: #1a3a5c;
+    --accent-light: #2c5f8a;
+    --red: #c0392b;
+    --orange: #e67e22;
+    --green: #27ae60;
+    --gold: #b8860b;
+    --radius: 8px;
+    --shadow: 0 1px 3px rgba(0,0,0,.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+  /* ---- Header ---- */
+  .header {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    color: #fff;
+    padding: 48px 24px 32px;
+    text-align: center;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 1px; margin-bottom: 6px; }
+  .header .subtitle { font-size: 14px; opacity: .85; }
+  .header .meta { margin-top: 12px; font-size: 12px; opacity: .7; }
+  /* ---- Phase tabs ---- */
+  .phase-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+  }
+  .phase-tabs button {
+    padding: 14px 28px;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all .2s;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+  .phase-tabs button:hover { color: var(--accent); background: #f5f3f0; }
+  .phase-tabs button.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+  /* ---- Sub-tabs (within a phase) ---- */
+  .sub-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    flex-wrap: wrap;
+    padding: 12px 16px 8px;
+    background: var(--bg);
+  }
+  .sub-tabs button {
+    padding: 6px 16px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--card-bg);
+    font-size: 12px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all .2s;
+    font-family: inherit;
+  }
+  .sub-tabs button:hover { border-color: var(--accent); color: var(--accent); }
+  .sub-tabs button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  /* ---- Main content ---- */
+  .container { max-width: 820px; margin: 0 auto; padding: 24px 20px 60px; }
+  .article { display: none; }
+  .article.active { display: block; }
+  /* ---- Article card ---- */
+  .article-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 32px 36px;
+    margin-bottom: 20px;
+  }
+  .article-card h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 28px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    color: var(--accent);
+  }
+  .article-card h2:first-child { margin-top: 0; }
+  .article-card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin: 20px 0 8px;
+    color: #2c3e50;
+  }
+  .article-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 14px 0 6px;
+    color: #555;
+  }
+  .article-card p { margin: 8px 0; text-align: justify; }
+  .article-card ul, .article-card ol { margin: 8px 0 8px 20px; }
+  .article-card li { margin: 4px 0; }
+  .article-card blockquote {
+    margin: 14px 0;
+    padding: 12px 18px;
+    border-left: 4px solid var(--accent);
+    background: #f0f4f8;
+    border-radius: 0 4px 4px 0;
+    color: #2c3e50;
+    font-style: italic;
+  }
+  .article-card table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 13px;
+  }
+  .article-card th, .article-card td {
+    border: 1px solid var(--border);
+    padding: 8px 10px;
+    text-align: left;
+  }
+  .article-card th {
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+  }
+  .article-card tr:nth-child(even) { background: #f8f7f5; }
+  .article-card code {
+    background: #f0eee8;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 13px;
+  }
+  .article-card hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 24px 0;
+  }
+  /* ---- tags ---- */
+  .tag-red { color: var(--red); font-weight: 600; }
+  .tag-orange { color: var(--orange); font-weight: 600; }
+  .tag-green { color: var(--green); font-weight: 600; }
+  .tag-gold { color: var(--gold); font-weight: 600; }
+  /* ---- footer ---- */
+  .footer {
+    text-align: center;
+    padding: 32px 20px;
+    color: var(--text-secondary);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  /* ---- Master icons ---- */
+  .master-badge {
+    display: inline-block;
+    padding: 2px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .master-badge.buffett { background: #2c3e50; color: #fff; }
+  .master-badge.duan { background: #8e44ad; color: #fff; }
+  .master-badge.munger { background: #d35400; color: #fff; }
+  .master-badge.lilu { background: #16a085; color: #fff; }
+  /* ---- Responsive ---- */
+  @media (max-width: 600px) {
+    .header { padding: 32px 16px 24px; }
+    .header h1 { font-size: 22px; }
+    .phase-tabs button { padding: 10px 14px; font-size: 12px; }
+    .article-card { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 Earnings team analysis</h1>
+  <div class="subtitle">Demingli (001309.SZ) · Inflection-Point In-Depth Analysis</div>
+  <div class="meta">Disclosed data: 2025 annual report &amp; 2026Q1 · Four masters' perspectives</div>
+</div>
+
+<!-- ===== Phase Tabs ===== -->
+<div class="phase-tabs" id="phaseTabs">
+  <button class="active" data-phase="phase1">Stage 1 · Deep Read by the Four Masters</button>
+  <button data-phase="phase2">Phase 2 · View synthesis</button>
+  <button data-phase="phase3">Stage 3 · Editing and polishing</button>
+</div>
+
+<div class="container">
+
+<!-- ============================================================ -->
+<!-- PHASE 1: 四大师精读 -->
+<!-- ============================================================ -->
+<div id="phase1" class="article active">
+  <div class="sub-tabs" id="subTabs1">
+    <button class="active" data-sub="exe">📋 Executive summary</button>
+    <button data-sub="buffett">🅱️ Buffett</button>
+    <button data-sub="duan">🅳 Duan Yongping</button>
+    <button data-sub="munger">M Munger</button>
+    <button data-sub="lilu">L Li Lu</button>
+  </div>
+
+  <!-- 执行摘要 -->
+  <div id="sub-exe" class="article active">
+    <div class="article-card">
+      <h2>Executive summary: Demingli financial reporting team analysis</h2>
+      <p><strong>Quick overview · Executive summary</strong></p>
+      <hr>
+      <h3>One-line conclusion</h3>
+      <blockquote>Demingli is undergoing a rare "nuclear" earnings reversal—moving from thin margins in 2025 onto an exceptionally high-profitability trajectory in 2026Q1, driven chiefly by a powerful upswing in the memory chip industry cycle.</blockquote>
+
+      <h3>Core data comparison</h3>
+      <table>
+        <tr><th>Indicator</th><th>2025 Annual Report</th><th>2026Q1</th><th>Change</th></tr>
+        <tr><td>Revenue</td><td>RMB 10.79 billion</td><td>RMB 7.54 billion</td><td class="tag-green">🚀 Q1 already at 70% of full-year 2025</td></tr>
+        <tr><td>Net profit</td><td>688 million</td><td>RMB 3.346 billion</td><td class="tag-green">🚀 Q1 already reached 486% of full-year 2025</td></tr>
+        <tr><td>Gross margin</td><td>14.8%</td><td><strong>57.4%</strong></td><td class="tag-green">🚀 +42.6ppt</td></tr>
+      </table>
+
+      <h3>Core conflict</h3>
+      <table>
+        <tr><th>Positive signal ✅</th><th>Warning signals to watch 🔴</th></tr>
+        <tr><td>Gross margin jumped from 14.8% to 57.4%, an explosive improvement</td><td class="tag-orange">Memory chips are highly cyclical—can high gross margins last?</td></tr>
+        <tr><td>Net profit RMB 688 million to RMB 3.346 billion (single quarter), a leap in profitability</td><td class="tag-orange">Does revenue growth match profit growth? (scale effects)</td></tr>
+        <tr><td>Memory chip upcycle (AI-driven demand surge)</td><td class="tag-orange">Is the company fabless or IDM? How deep is its competitive moat?</td></tr>
+        <tr><td>2026Q1 revenue already reached ~70% of full-year 2025, growing rapidly</td><td class="tag-red">2025 annual report gross margin of 14.8% sits at a low — cyclical trough?</td></tr>
+      </table>
+
+      <h3>The final moves of four masters</h3>
+      <table>
+        <tr><th>Master</th><th>Current recommendation</th><th>Trigger conditions</th></tr>
+        <tr><td><span class="master-badge buffett">Buffett</span></td><td class="tag-orange">Deep Research</td><td>Stable ROE + quantifiable moat</td></tr>
+        <tr><td><span class="master-badge duan">Duan Yongping</span></td><td class="tag-orange">🔍 Watchlist</td><td>Business model validation + disciplined operations</td></tr>
+        <tr><td><span class="master-badge munger">Munger</span></td><td class="tag-orange">⚠️ Understanding the cycle is key</td><td>Counter-cyclical thinking—is this a cycle peak or only halfway up?</td></tr>
+        <tr><td><span class="master-badge lilu">Li Lu</span></td><td class="tag-green">🟢 Conditionally bullish</td><td>Storage sector certainty plus a margin of safety from domestic substitution</td></tr>
+      </table>
+
+      <h3>Three core metrics to track</h3>
+      <ol>
+        <li><strong class="tag-orange">Gross margin sustainability 🟡 P0</strong>— Is 57.4% a flash in the pan or the new normal?</li>
+        <li><strong class="tag-orange">Revenue growth quality 🟡 P1</strong>— Volume and price rising together, or purely price-driven?</li>
+        <li><strong class="tag-green">Industry cycle position 🟢 P1</strong>— Where are we in the cycle?</li>
+      </ol>
+      <blockquote>Demingli is a classic "cyclical reversal plus growth" story. The core question: is the current high profitability a temporary peak in the industry upcycle, or a structural improvement in the company's own competitiveness? That determines whether it is a "good investment" or a "cyclical trap."</blockquote>
+    </div>
+  </div>
+
+  <!-- 巴菲特版 -->
+  <div id="sub-buffett" class="article">
+    <div class="article-card">
+      <h2>Buffett-style close reading: ROE, cyclicality and moat</h2>
+      <p><span class="master-badge buffett">Buffett</span>Perspective: ROE, moat, cash flow, certainty</p>
+      <hr>
+
+      <h3>Key metrics at a glance</h3>
+      <table>
+        <tr><th>Indicator</th><th>2025 Annual Report</th><th>2026Q1</th><th>Trend</th></tr>
+        <tr><td>Revenue (RMB 100 million)</td><td>107.9</td><td>75.38</td><td class="tag-green">↑ Explosive growth</td></tr>
+        <tr><td>Net profit (RMB billion)</td><td>6.88</td><td>33.46</td><td class="tag-green">↑ Net profit margin from 6.4% to 44.4%</td></tr>
+        <tr><td>Gross margin</td><td>14.8%</td><td>57.4%</td><td class="tag-green">↑ +42.6ppt</td></tr>
+        <tr><td>Net margin</td><td>~6.4%</td><td>~44.4%</td><td class="tag-green">↑ Leap in improvement</td></tr>
+      </table>
+
+      <h3>1. ROE analysis — the ROE dilemma of inflection-point companies</h3>
+      <p>The 2025 annual report net profit of RMB 688 million corresponds to an ROE of roughly 10-15% (assuming net assets in the RMB 5 billion range), which is acceptable but not outstanding. The single-quarter net profit of RMB 3.346 billion in Q1 2026 implies annualized ROE could reach<strong class="tag-green">50%+</strong>Even higher—but Buffett would not judge on a single quarter's data.</p>
+      <blockquote><strong>ROE diagnosis</strong>: 2025 was a cyclical trough with mediocre ROE; 2026Q1 showed explosive improvement. Buffett needs at least 2-3 years of sustained ROE data to confirm the durability of the trend. The current ROE "surge" is cycle-driven rather than a structural upgrade, and that is the biggest uncertainty.</blockquote>
+
+      <h3>2. Moat — competitive barriers for memory chip design companies</h3>
+      <p>Demingli's core business is the design and sale of memory chips (NAND Flash / DRAM). The moat for companies of this type typically comes from:</p>
+      <ul>
+        <li><strong>Technological barriers</strong>: Chip design capability, advanced process adaptation</li>
+        <li><strong>Customer stickiness</strong>: Long certification cycles and high switching costs</li>
+        <li><strong>Supply chain relationships</strong>: Long-term stable cooperation with wafer foundries</li>
+        <li><strong>Domestic substitution dividend</strong>: Policy support and downstream customers' demand for "independent and controllable" technology</li>
+      </ul>
+      <p>Buffett would focus on evaluating: Demingli's moat is<strong>"Broad and enduring"</strong>(such as Samsung Memory), or<strong>"Track cyclical fluctuations"</strong>(such as most second-tier chip design companies).</p>
+      <blockquote><strong>What would Buffett ask?</strong>"The cyclicality of the memory chip industry means all players' profits swing sharply. What unique competitive advantage does Demingli have that would let it outperform rivals in a downturn?"</blockquote>
+
+      <h3>3. Cash flow analysis—a potential red flag</h3>
+      <p>Chip design companies are a typical<strong>Asset-light plus heavy R&D spending</strong>Pattern. The 2025 annual report gross margin was only 14.8%, showing severe profitability pressure at the bottom of the cycle. The gross margin jumped to 57.4% in 2026Q1; an improvement of this magnitude typically implies:</p>
+      <ul>
+        <li>The sharp rise in memory chip prices (industry factor)</li>
+        <li>Product mix shifts toward higher-margin products</li>
+        <li>Unit cost decline driven by economies of scale</li>
+      </ul>
+      <p>Buffett digs deep<strong>Free cash flow</strong>— Did high gross margins actually convert into high free cash flow? Are R&D spending and receivables management healthy?</p>
+
+      <h3>4. Buffett's judgment framework</h3>
+      <p><strong>✅ He will like it</strong>: Memory chips are the "infrastructure" of the digital economy (long-term demand is certain), the domestic substitution trend provides a structural margin of safety, and the Q1 2026 data is stunning.</p>
+      <p><strong>❌ He will refuse</strong>: Strong cyclicality (does not fit the "stable earnings" preference); the low gross margin in the 2025 annual report exposed cyclical fragility; moat depth is hard to quantify; lacks a sufficiently long track record of sustained profitability.</p>
+
+      <h3>Conclusion</h3>
+      <blockquote>Demingli shows tempting turnaround characteristics, but Buffett would not enter on a single quarter of data. He needs at least one full cycle of profitability validation—"when the next downturn comes, if Demingli can still hold a net margin of 15%+, I'll seriously consider it."</blockquote>
+    </div>
+  </div>
+
+  <!-- 段永平版 -->
+  <div id="sub-duan" class="article">
+    <div class="article-card">
+      <h2>Duan Yongping's Close Reading: Business Models and "Benfen"</h2>
+      <p><span class="master-badge duan">Duan Yongping</span>Perspective: business model, corporate culture, long-termism</p>
+      <hr>
+
+      <h3>Business model diagnosis</h3>
+      <p>Demingli's core business model is<strong>Memory chip design and distribution</strong>Duan Yongping would analyze this in depth from this angle:</p>
+      <ul>
+        <li><strong>Asset-light vs asset-heavy</strong>Fabless chip designers run a typically asset-light model, but they depend on foundry capacity and have limited bargaining power.</li>
+        <li><strong>Product differentiation</strong>: Memory chips (NAND/DRAM) are commoditized products; prices are set by market supply and demand, and the company has limited pricing power</li>
+        <li><strong>Customer concentration</strong>: Is there reliance on major customers? Customer diversification determines risk resilience</li>
+      </ul>
+      <p>Duan Yongping would pay particular attention to:<strong>14.8%→57.4% gross margin jump</strong>How much of that comes from industry conditions (uncontrollable) and how much from product mix upgrading (controllable)?</p>
+      <blockquote>Duan Yongping's core question: "Is Demingli earning 'hard money' or 'smart money'? If the industry cycle turns down, will the company's gross margin fall back below 15%?"</blockquote>
+
+      <h3>"Benfen" assessment</h3>
+      <p><strong>✅ Bonus points</strong>: Focused on the core memory-chip business, positioned in the domestic-substitution track, and still committed to its core business through the 2025 cycle bottom (no blind diversification).</p>
+      <p><strong>❌ Items to verify</strong>: Did management over-expand at the industry peak? Is R&D spending sustained and stable? Is there a tendency to chase quick profits?</p>
+
+      <h3>Duan Yongping-style soul-searching question</h3>
+      <blockquote>"If you had enough money to buy all of Demingli, would you be willing to acquire 100% of it at the current valuation—2026Q1 annualized net profit of RMB 13 billion+?"<br>The answer depends on how long you think annualized profitability of RMB 13 billion can last. If net profit falls back to RMB 3 billion next year, is the current price still a good deal?</blockquote>
+
+      <h3>Conclusion</h3>
+      <p>Duan Yongping would include Demingli<strong>"Deep Watch List"</strong>—A more active level than a standard watchlist. Rationale:</p>
+      <ol>
+        <li>✅ Memory chips are a "necessity" of the AI era, with long-term demand trending favorably</li>
+        <li>✅ Gross margin jumping from 14.8% to 57.4% signals a qualitative shift in product competitiveness or industry structure</li>
+        <li>⏳ Need to confirm the sustainability of high gross margins — monitor for at least another 2-3 quarters</li>
+        <li>⏳ Need to understand whether management has the "Benfen" trait — restraint at industry peaks, persistence at troughs</li>
+      </ol>
+      <blockquote>"A good sector, a good inflection point, but 'Benfen' needs time to prove itself. If the next earnings report still holds gross margin above 40%, I will look at it more seriously."</blockquote>
+    </div>
+  </div>
+
+  <!-- 芒格版 -->
+  <div id="sub-munger" class="article">
+    <div class="article-card">
+      <h2>Munger-Style Close Reading: Cycles, Human Nature and Contrarian Thinking</h2>
+      <p><span class="master-badge munger">Munger</span>Perspective: cyclical fluctuations, incentive mechanisms, contrarian investing, interdisciplinary thinking</p>
+      <hr>
+
+      <h3>Memory chips: the cyclical industry Munger most loved to study</h3>
+      <p>Munger had a deep understanding of cyclical industries—he commented repeatedly on the cyclical nature of the semiconductor industry. Memory chips are among the most cyclical categories in semiconductors, because:</p>
+      <ul>
+        <li><strong>Supply side</strong>: Fab construction cycles are long (2-3 years), creating a mismatch between capacity coming online and demand</li>
+        <li><strong>Demand side</strong>: Volatile on AI, servers, consumer electronics and other factors</li>
+        <li><strong>Price mechanism</strong>: When supply and demand fall out of balance, prices can spike or crash (NAND Flash prices can swing ±50%)</li>
+      </ul>
+      <blockquote>Munger would cite his favorite<strong>Contrarian thinking</strong>"If Demingli's net profit is RMB 13 billion this year, what is its net profit most likely to be three years from now? — Taking historical cycles into account, the answer could be any number between RMB 3 billion and RMB 30 billion."</blockquote>
+
+      <h3>Incentive mechanism: what will management do at the cycle peak?</h3>
+      <p>Munger paid close attention to whether incentive structures distort behavior. A classic "Munger-style trap" is this:</p>
+      <ul>
+        <li>Strong industry conditions → company profits surge → management receives huge bonuses → confidence inflates → aggressive capacity expansion or unrelated diversification → industry turns cold → massive losses</li>
+      </ul>
+      <p>2026Q1 net profit RMB 3.346 billion, annualized above RMB 13 billion. Munger would press further:<strong>"Will management think they are smart because of good results, and then do something stupid?"</strong></p>
+
+      <h3>The "plight" of contrarian investing</h3>
+      <p>Munger's contrarian investment philosophy is:<strong>"Be fearful when others are greedy, and greedy when others are fearful."</strong></p>
+      <p>Dinglong is now in the "others are turning greedy" phase (gross margin jumped from 14.8% to 57.4%, and the market is starting to chase it). Munger would ask:</p>
+      <ul>
+        <li><strong>Has the contrarian entry point passed?</strong>The cyclical bottom in 2025 (gross margin 14.8%) is the time for contrarian buying</li>
+        <li><strong>Chase the rally now?</strong>Munger was typically cautious about buying strong cyclical stocks during their high-profit phase.</li>
+        <li><strong>Waiting for the next low?</strong>Munger might choose to wait for the next cycle bottom before considering it</li>
+      </ul>
+      <blockquote><strong>Munger's inversion</strong>"If memory chips enter a downcycle next year and Demingli's net profit falls back to RMB 1 billion, the stock could drop more than 70% — can you stomach that? If the answer is no, you shouldn't buy it now."</blockquote>
+
+      <h3>Conclusion</h3>
+      <blockquote>Demingli is a classic "Munger-style puzzle" — it could be an excellent investment opportunity, or it could be a cyclical trap. The key lies in understanding the cycle position of the memory chip industry and the company's true competitiveness within it. The current high-gross-margin phase may be better suited to holding than to buying.</blockquote>
+    </div>
+  </div>
+
+  <!-- 李录版 -->
+  <div id="sub-lilu" class="article">
+    <div class="article-card">
+      <h2>Li Lu's Close Reading: Certainty, Domestic Substitution and Civilizational Evolution</h2>
+      <p><span class="master-badge lilu">Li Lu</span>Perspective: certainty, margin of safety, Chinese modernization, long-term compounding</p>
+      <hr>
+
+      <h3>Certainty analysis — Li Lu's core benchmark</h3>
+      <table>
+        <tr><th>Certainty hierarchy</th><th>Definition</th><th>Demingli conformity</th></tr>
+        <tr><td><strong>Tier one</strong></td><td>Earnings are largely predictable over the next 3-5 years</td><td class="tag-orange">⚠️ Moderate — the industry is highly cyclical, but domestic substitution provides downside protection</td></tr>
+        <tr><td><strong>Tier two</strong></td><td>The business model remains fundamentally solid.</td><td class="tag-orange">⚠️ Relatively strong — long-term growth in memory chip demand is certain, but the competitive landscape may shift</td></tr>
+        <tr><td><strong>Tier 3</strong></td><td>The management team is trustworthy</td><td class="tag-orange">⚠️ To be verified — management decisions need to be observed through the cycle transition</td></tr>
+      </table>
+
+      <h3>Domestic substitution: Li Lu's most valued margin of safety</h3>
+      <p>Li Lu stresses in "Civilization, Modernization, Value Investing, and China":<strong>"China is undergoing a transition from quantitative growth to qualitative growth."</strong>In this process, domestic substitution in semiconductors is one of the highest-certainty directions.</p>
+      <p>Dinglong, as a domestic memory chip design company, benefits from:</p>
+      <ul>
+        <li>China's memory chip self-sufficiency rate is extremely low (<5%），替代空间巨大</li>
+        <li>The explosion in storage demand driven by AI computing infrastructure buildout</li>
+        <li>Policy support (Big Fund, government procurement preference)</li>
+        <li>Downstream customers (servers, data centers) prefer "self-controllable" procurement</li>
+      </ul>
+      <p>This structural trend provides Demingli with<strong>Margin of safety that transcends industry cycles</strong>—Even amid a downturn in the global memory-chip cycle, gains in domestic substitution share can partially offset the impact of falling prices.</p>
+
+      <h3>Li Lu's "modernization" framework</h3>
+      <p>Li Lu argues that China's modernization process falls into three stages:</p>
+      <ol>
+        <li><strong>Industrialization phase</strong>(Completed) — Large-scale foundational manufacturing</li>
+        <li><strong>Informatization phase</strong>(Ongoing) — Digitalization, AI infrastructure</li>
+        <li><strong>Intelligentization stage</strong>(Future) — AI applications achieve full penetration</li>
+      </ol>
+      <p>Memory chips are the "grain" of the second phase (informatization)—whichever AI company wins, memory chips are needed. The track Demingli operates in has<strong>Irreplaceable long-term certainty</strong>。</p>
+
+      <h3>Three key signals</h3>
+      <table>
+        <tr><th>Signal</th><th>Current status</th><th>Target state</th></tr>
+        <tr><td>Gross margin sustainability</td><td class="tag-green">🟢 57.4% — impressive, needs sustained validation</td><td class="tag-green">🟢 Maintain 40%+ for at least four quarters</td></tr>
+        <tr><td>Revenue growth quality</td><td class="tag-orange">🟡 Rapid growth, but volume and price factors must be separated</td><td class="tag-green">🟢 Volume and price rising together confirmed</td></tr>
+        <tr><td>Industry cycle position</td><td class="tag-orange">🟡 In an upcycle; need to gauge how far it has progressed</td><td class="tag-green">Understand where we are in the cycle and position counter-cyclically</td></tr>
+      </table>
+
+      <h3>Conclusion</h3>
+      <blockquote>Demingli scores highly in Li Lu's framework—the domestic substitution trend provides a structural margin of safety, memory chips represent "certain demand" in the AI era, and the company's fundamentals are undergoing explosive improvement. The core uncertainty is: is the current high profitability cyclical or structural? Li Lu would choose<strong>Build positions in tranches</strong>Strategy: build the position gradually as gross margin sustainability is consistently validated.</blockquote>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PHASE 2: 观点合成 -->
+<!-- ============================================================ -->
+<div id="phase2" class="article">
+  <div class="sub-tabs" id="subTabs2">
+    <button class="active" data-sub="synthesis">🔗 Synthesis of views</button>
+  </div>
+
+  <div id="sub-synthesis" class="article active">
+    <div class="article-card">
+      <h2>Synthesis of Views: Similarities and Differences Among Four Masters</h2>
+      <p>Comparative analysis: consensus and divergence among Buffett, Duan Yongping, Munger and Li Lu</p>
+      <hr>
+
+      <h3>Panoramic comparison matrix</h3>
+      <table>
+        <tr><th>Dimension</th><th>Buffett</th><th>Duan Yongping</th><th>Munger</th><th>Li Lu</th></tr>
+        <tr>
+          <td><strong>Core framework</strong></td>
+          <td>ROE/moat/FCF</td>
+          <td>Business model / Benfen</td>
+          <td>Cycle / incentives / contrarian</td>
+          <td>Certainty / domestic substitution / civilizational evolution</td>
+        </tr>
+        <tr>
+          <td><strong>Gross margin 57.4%</strong></td>
+          <td class="tag-orange">⚠️ Stunning but needs verification</td>
+          <td class="tag-orange">⚠️ Key validation metrics</td>
+          <td class="tag-orange">⚠️ Beware of cycle peaks</td>
+          <td class="tag-green">🟢 Structural and cyclical drivers combined</td>
+        </tr>
+        <tr>
+          <td><strong>Cycle assessment</strong></td>
+          <td class="tag-red">❌ Strong cyclicality = low certainty</td>
+          <td class="tag-orange">⚠️ Understand the cycle but stay cautious</td>
+          <td class="tag-orange">⚠️ Contrarian opportunity vs value trap</td>
+          <td class="tag-green">🟢 Domestic substitution offsets the cycle</td>
+        </tr>
+        <tr>
+          <td><strong>Investment recommendation</strong></td>
+          <td class="tag-orange">⏳ In-depth research</td>
+          <td class="tag-orange">🔍 Watchlist</td>
+          <td class="tag-orange">⚠️ Awaiting the cycle low</td>
+          <td class="tag-green">🟢 Conditionally bullish / scale in on dips</td>
+        </tr>
+      </table>
+
+      <h3>Consensus: what four masters agree on</h3>
+
+      <h4>Consensus 1: Long-term demand for memory chips is certain</h4>
+      <p>All four masters agree that memory chips are the infrastructure of the digital economy and the "grain" of the AI era. Whatever the cycle, the long-term demand trend is upward.</p>
+      <p>Consensus strength: ★★★★★ (100%)</p>
+
+      <h4>Consensus 2: gross margin expansion is the key metric to watch</h4>
+      <p>The gross margin jump from 14.8% to 57.4% is "nuclear-grade" data. But all four masters believe<strong>Sustainability needs monitoring</strong>— At least 2-4 quarters are needed to confirm whether this is a structural improvement or a cyclical flash in the pan.</p>
+      <p>Consensus strength: ★★★★★ (100%)</p>
+
+      <h4>Consensus 3: Domestic substitution provides an extra margin of safety</h4>
+      <p>Buffett and Munger are more cautious (geopolitical risk), while Duan Yongping and Li Lu are more positive (certainty trends). But all four agree that domestic substitution is a "plus" for Demingli.</p>
+      <p>Consensus strength: ★★★★☆ (80%)</p>
+
+      <h4>Consensus 4: Understand where the industry is in its cycle before deciding</h4>
+      <p>Memory chip cycles typically last 12-18 months. Where does the industry currently sit in the upcycle: early, middle or late stage? That judgment determines the investment strategy.</p>
+      <p>Consensus strength: ★★★★★ (100%)</p>
+
+      <h3>Divergence: what the masters emphasize differently</h3>
+
+      <h4>Disagreement 1: Strategy for addressing the cycle</h4>
+      <p><strong>Buffett</strong>Avoid highly cyclical sectors; favor certainty—prefer to wait until a company demonstrates the ability to weather cycles.</p>
+      <p><strong>Duan Yongping</strong>: Focus on the quality of the business model itself—if the business model is strong, cyclical fluctuations are not a problem.</p>
+      <p><strong>Munger</strong>: Contrarian positioning — buy at the cycle bottom, stay cautious at the cycle top. The current phase looks more like the top of the cycle; wait for the next bottom.</p>
+      <p><strong>Li Lu</strong>: The domestic substitution trend can smooth out cyclical swings — structural growth plus cyclical upswing is a rare double tailwind window.</p>
+
+      <h4>Disagreement 2: Is now a buying opportunity?</h4>
+      <p>Buffett:<strong>No</strong>—More data is needed to verify sustainability.</p>
+      <p>Duan Yongping:<strong>Conditional watch</strong>— If valuation is reasonable, an observation position can be established.</p>
+      <p>Munger:<strong>Do not chase the rally</strong>— Waiting for the next cycle bottom may be the better strategy.</p>
+      <p>Li Lu:<strong>Conditionally bullish</strong>— Build the position in tranches and keep validating the sustainability of gross margins.</p>
+
+      <h3>Ultimate synthesis judgment</h3>
+      <blockquote>Demingli is in a dual tailwind window of "upcycle + domestic substitution." The Q1 2026 figures (revenue RMB 7.538 billion, net profit RMB 3.346 billion, gross margin 57.4%) are undeniably stunning. The core disagreement among the four masters lies in:<strong>How much of current high profitability is structural (sustainable) and how much is cyclical (mean-reverting)?</strong>Li Lu is the most optimistic (bullish on the structural force of domestic substitution), Munger the most cautious (wary of a cyclical peak), and Buffett and Duan Yongping fall in between (deep research, awaiting verification).</blockquote>
+
+      <h3>Suggested follow-up</h3>
+      <p>Based on the synthesized views, we recommend closely tracking the following 7 key indicators:</p>
+      <ol>
+        <li><strong class="tag-orange">Gross margin 🟡 P0</strong>— Can it sustain 40%+? The most critical validation metric</li>
+        <li><strong class="tag-orange">Revenue growth structure 🟡 P1</strong>— Volume-price breakdown: price increases vs shipment growth vs product-mix upgrade</li>
+        <li><strong class="tag-orange">Industry prosperity indicator 🟡 P1</strong>— NAND Flash / DRAM spot and contract price trends</li>
+        <li><strong class="tag-green">R&D spending intensity 🟢 P2</strong>— Signal of sustained investment in technical barriers</li>
+        <li><strong class="tag-green">Customer concentration 🟢 P2</strong>— Is the customer base expanding into lower-tier markets?</li>
+        <li><strong class="tag-green">Accounts receivable and cash flow 🟢 P2</strong>— Do high margins come with healthy cash flow?</li>
+        <li><strong class="tag-green">Management action 🟢 P2</strong>— Is the industry expanding rationally at the peak?</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PHASE 3: 编辑润色 -->
+<!-- ============================================================ -->
+<div id="phase3" class="article">
+  <div class="sub-tabs" id="subTabs3">
+    <button class="active" data-sub="published">📝 Publishable version</button>
+    <button data-sub="appendix">📎 Appendix — Financial details</button>
+  </div>
+
+  <!-- 可发布版 -->
+  <div id="sub-published" class="article active">
+    <div class="article-card">
+      <h2>Earnings team analysis: Demingli in-depth report</h2>
+      <p><strong>Four masters' perspectives · view synthesis · edited and polished for publication</strong></p>
+      <hr>
+
+      <h3>Financial overview</h3>
+      <table>
+        <tr><th>Metric</th><th>2025 Annual Report</th><th>2026Q1</th><th>Change</th></tr>
+        <tr><td>Revenue (RMB 100 million)</td><td>107.90</td><td>75.38</td><td class="tag-green">Q1 has already reached 70% of full-year 2025</td></tr>
+        <tr><td>Net profit (RMB billion)</td><td>6.88</td><td>33.46</td><td class="tag-green">Q1 already reached 486% of full-year 2025</td></tr>
+        <tr><td>Gross margin</td><td class="tag-orange">14.8%</td><td class="tag-green">57.4%</td><td class="tag-green">+42.6ppt</td></tr>
+        <tr><td>Net margin</td><td>~6.4%</td><td>~44.4%</td><td class="tag-green">Leapfrog improvement</td></tr>
+      </table>
+
+      <h3>Core finding: three signals, one conclusion</h3>
+
+      <h4>Signal 1 🟢: The "nuclear" reversal in gross margin</h4>
+      <p>From 14.8% in the 2025 annual report to 57.4% in 2026Q1—<strong>Gross margin surged 42.6 percentage points</strong>This is the most fundamental change at Demingli. The data implies three things: memory chip prices have risen sharply, the company's product mix has undergone a qualitative shift, and scale effects are starting to kick in. Any one of the three would warrant close attention; together they are a "nuclear-grade" signal.</p>
+
+      <h4>Signal 2 🟢: Geometric growth in net profit</h4>
+      <p>Net profit for Q1 2026 alone reached RMB 3.346 billion, already matching the full-year 2025 figure (RMB 688 million)<strong>486%</strong>Annualized net profit exceeds RMB 13 billion. Such growth is extremely rare among A-share listed companies, reflecting the strength of the memory chip industry upcycle and Demingli's full benefit from it.</p>
+
+      <h4>Signal 3 🟡: Sustainability is the only issue</h4>
+      <p>Behind the strong financials, the core question is sustainability. Memory chips are a highly cyclical industry—when the cycle turns down, gross margin can quickly fall back below 20%. The 14.8% gross margin in the 2025 annual report is a case in point. Today's high gross margin reflects both the industry upcycle and possibly a richer product mix. The key is to distinguish:<strong>How much is structural, how much is cyclical?</strong></p>
+
+      <h4>Judgment</h4>
+      <blockquote><strong>"The inflection point has arrived, but the cycle is both friend and foe"</strong>Demingli's fundamentals are undergoing a qualitative improvement, but its strongly cyclical nature makes timing critical.</blockquote>
+
+      <h3>Part One: Buffett's Lens — The Cycle Is the Biggest Uncertainty</h3>
+      <p><span class="master-badge buffett">Buffett</span></p>
+      <p><strong>ROE is on a rollercoaster ride.</strong>ROE was mediocre in 2025 (cycle bottom) and could soar in 2026 (cycle top). Buffett dislikes such sharp swings—he prefers predictable ROE.</p>
+      <p><strong>Moat yet to be proven.</strong>The moat of a memory chip design company depends on technology leadership and customer stickiness. The depth of Demingli's moat needs more evidence.</p>
+      <p><strong>Free cash flow is the bottom line.</strong>High gross margins must convert into healthy free cash flow. Buffett would scrutinise how receivables and R&D spending affect cash flow.</p>
+
+      <h3>Part Two: Duan Yongping's Perspective — The Test of "Benfen"</h3>
+      <p><span class="master-badge duan">Duan Yongping</span></p>
+      <p><strong>The business model is sound.</strong>Memory-chip fabless is an asset-light, high-barrier, high-quality model. The key is whether a company can stay "true to its fundamentals" through industry cycles—not inflating expectations when the industry booms, not retreating when it slumps.</p>
+      <blockquote>"A good business model plus good management equals a good long-term investment. Demingli is demonstrating the potential of an excellent business model, but management's 'integrity' will only be truly tested in the next downturn."</blockquote>
+
+      <h3>Part Three: Munger's Lens — The Contrarian Dilemma</h3>
+      <p><span class="master-badge munger">Munger</span></p>
+      <p><strong>Cycles are Munger's old friend.</strong>Munger had a deep understanding of cyclical industries. He knew that the memory chip cycle turns every 2-3 years, and that the industry is currently in an upcycle with gross margins improving sharply.</p>
+      <p><strong>The contrarian's dilemma.</strong>2025 (gross margin 14.8%) was a prime moment for contrarian buying, but sentiment was bearish and no one was paying attention. Now (gross margin 57.4%) is the "consensus forming" stage—the contrarian entry point has passed, but the trend may still be only halfway up the hill.</p>
+      <blockquote>"If you didn't buy when the industry was at its worst, will you buy now that it's at its best? — This is a Munger-style question, and the answer depends on your read of the cycle."</blockquote>
+
+      <h3>Part Four: Li Lu's Perspective — The Structural Dividend of Domestic Substitution</h3>
+      <p><span class="master-badge lilu">Li Lu</span></p>
+      <p><strong>The most steadfast long-term investor.</strong>In Li Lu's framework, domestic substitution provides a structural margin of safety that partly hedges the cyclical risk of memory chips.</p>
+      <p><strong>The certainty assessment is on the positive side.</strong>Within Li Lu's three-tier certainty framework, Demingli scores above average: long-term industry demand is certain, the domestic-substitution trend is certain, and the company's fundamentals are still being validated.</p>
+      <blockquote>China's semiconductor localization is a structural trend spanning 10-20 years. Against this backdrop, Demingli's cyclical swings are instead an opportunity for long-term positioning—provided the company's fundamentals are solid.</blockquote>
+
+      <h3>View synthesis: commonalities and differences</h3>
+      <p><strong>Four consensus views</strong>: Long-term storage demand is assured, gross margin is the key metric to watch, domestic substitution is a bonus, and decisions require understanding where we are in the cycle.</p>
+      <p><strong>Biggest disagreement</strong>: Is now the time to buy — Li Lu (conditionally bullish) vs Munger (wait for the cycle bottom) vs Buffett and Duan Yongping (deep research, continuous verification).</p>
+      <blockquote>Demingli stands at the intersection of two tailwinds: an upcycle and domestic substitution. The 2026Q1 numbers are stunning, but sustainability is the only open question. The four masters agree: this is a name worth deep research, but strategy must be built on an understanding of where we are in the cycle.</blockquote>
+
+      <h3>Tracking list: seven key indicators</h3>
+      <table>
+        <tr><th>Priority</th><th>Indicator</th><th>Current value</th><th>Target value</th></tr>
+        <tr><td class="tag-orange">🟡 P0</td><td>Gross margin</td><td>57.4%</td><td>Sustained above 40%</td></tr>
+        <tr><td class="tag-orange">🟡 P1</td><td>Revenue growth structure</td><td>Strong growth</td><td>Volume and price both rising, confirming the setup</td></tr>
+        <tr><td class="tag-orange">🟡 P1</td><td>Memory chip price trends</td><td>Upturn</td><td>Determining the cycle position</td></tr>
+        <tr><td class="tag-green">🟢 P2</td><td>R&D intensity</td><td>To be verified</td><td>Sustained and steady investment</td></tr>
+        <tr><td class="tag-green">🟢 P2</td><td>Customer concentration</td><td>To be verified</td><td>Diversified health</td></tr>
+        <tr><td class="tag-green">🟢 P2</td><td>Operating cash flow</td><td>To be verified</td><td>Matched to profit</td></tr>
+        <tr><td class="tag-green">🟢 P2</td><td>Management actions</td><td>To be watched</td><td>Rational restraint</td></tr>
+      </table>
+
+      <hr>
+
+      <h3>Disclaimer</h3>
+      <p>This document is prepared by the financial reporting team based on the public investment philosophies of four value-investing masters (Warren Buffett, Duan Yongping, Charlie Munger, and Li Lu), combined with Demingli's (001309.SZ) 2025 annual report and 2026Q1 financial data.<strong>Scenario analysis</strong>, and does not constitute any investment advice. The masters have not directly commented on Demingli's financial reports; all analysis is derived by the team based on their public methodologies.</p>
+      <blockquote>"Investing is the art of forecasting the future, and the best way to forecast the future is to understand cycles." — Understanding the memory chip cycle matters more than understanding Demingli itself.</blockquote>
+      <p style="text-align:right;color:var(--text-secondary);font-size:13px;">Earnings team analysis · July 2026</p>
+    </div>
+  </div>
+
+  <!-- 附录 -->
+  <div id="sub-appendix" class="article">
+    <div class="article-card">
+      <h2>Appendix: Detailed Financial Data</h2>
+      <p>Data source: Demingli (001309.SZ) 2025 annual report &amp; 2026Q1 report | Unit: RMB billion (unless otherwise noted)</p>
+      <hr>
+
+      <h3>Key data from the 2025 annual report</h3>
+      <table>
+        <tr><th>Project</th><th>2025 Annual Report</th><th>Note</th></tr>
+        <tr><td>Revenue</td><td>RMB 10.79 billion</td><td>Memory chip business revenue</td></tr>
+        <tr><td>Net profit</td><td>688 million</td><td>Net margin of about 6.4%</td></tr>
+        <tr><td>Gross margin</td><td>14.8%</td><td class="tag-orange">Cyclical bottom characteristics</td></tr>
+        <tr><td>Net margin</td><td>~6.4%</td><td>Normal level at the bottom of the industry cycle</td></tr>
+      </table>
+
+      <h3>2026Q1 key data</h3>
+      <table>
+        <tr><th>Project</th><th>2026Q1</th><th>Note</th></tr>
+        <tr><td>Revenue</td><td>RMB 7.54 billion</td><td>Significant year-on-year growth (already 70% of full-year 2025)</td></tr>
+        <tr><td>Net profit</td><td>RMB 3.346 billion</td><td>Single-quarter net profit reached 486% of full-year 2025</td></tr>
+        <tr><td>Gross margin</td><td>57.4%</td><td class="tag-green">QoQ +42.6ppt, explosive improvement</td></tr>
+        <tr><td>Net margin</td><td>~44.4%</td><td>Profitability leaps</td></tr>
+      </table>
+
+      <h3>Comparing the trend across the two periods</h3>
+      <table>
+        <tr><th>Indicator</th><th>2025 Annual Report</th><th>2026Q1</th><th>Annualized extrapolation</th><th>Trend</th></tr>
+        <tr><td>Revenue</td><td>RMB 10.79 billion</td><td>RMB 7.538 billion</td><td>~RMB 30.15 billion/year</td><td class="tag-green">↑ Explosive growth</td></tr>
+        <tr><td>Net profit</td><td>688 million</td><td>RMB 3.346 billion</td><td>~RMB 13.38 billion/year</td><td class="tag-green">↑ Geometric growth</td></tr>
+        <tr><td>Gross margin</td><td>14.8%</td><td>57.4%</td><td>—</td><td class="tag-green">↑ Structural improvement</td></tr>
+        <tr><td>Net margin</td><td>~6.4%</td><td>~44.4%</td><td>—</td><td class="tag-green">↑ Leap in performance</td></tr>
+      </table>
+
+      <h3>Why did gross margin surge from 14.8% to 57.4%?</h3>
+      <p>A "nuclear-scale" reversal in gross margin usually stems from a combination of the following factors:</p>
+      <ol>
+        <li><strong>Price-driven</strong>: AI-driven storage chip demand surges, NAND Flash/DRAM prices rise sharply</li>
+        <li><strong>Product mix upgrade</strong>: Rising share of high-gross-margin products (such as enterprise SSDs and storage for AI servers)</li>
+        <li><strong>Scale effects</strong>: Dilution of unit fixed costs from substantial revenue growth</li>
+        <li><strong>Supply chain optimization</strong>: Lower upstream procurement costs or optimized foundry fees</li>
+      </ol>
+      <p>Core question: which of these four drivers are sustainable and which are cyclical. The price driver (factor 1) is the least sustainable (prices eventually mean-revert), while product-mix upgrading (factor 2) is the most sustainable.</p>
+
+      <h3>Additional data required (to be obtained)</h3>
+      <ul>
+        <li>2024 annual report data — building a more complete trend baseline</li>
+        <li>Operating cash flow and free cash flow — validating earnings quality</li>
+        <li>R&D spending and its share of revenue — gauging the strength of moat-building</li>
+        <li>Top five customers as a share of total — assessing customer concentration risk</li>
+        <li>Days sales outstanding — assessing collection quality</li>
+        <li>Inventory turnover days — assessing inventory management</li>
+        <li>Industry comparable company comparison (e.g., GigaDevice, Ingenic, etc.) — assessing relative competitiveness</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>© 2026 Earnings Team · Demingli (001309.SZ) In-Depth Analysis · Simulated analysis based on the publicly disclosed investment methodologies of four masters</p>
+  <p>Not investment advice · Source: Demingli 2025 annual report &amp; 2026 Q1 report</p>
+</div>
+
+</div><!-- /container -->
+
+<script>
+(function() {
+  // ===== Phase tab switching =====
+  const phaseTabs = document.querySelectorAll('#phaseTabs button');
+  const phases = {
+    phase1: document.getElementById('phase1'),
+    phase2: document.getElementById('phase2'),
+    phase3: document.getElementById('phase3')
+  };
+
+  function switchPhase(phaseId) {
+    // update phase tabs
+    phaseTabs.forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`#phaseTabs button[data-phase="${phaseId}"]`).classList.add('active');
+    // show/hide phases
+    Object.entries(phases).forEach(([id, el]) => {
+      el.classList.toggle('active', id === phaseId);
+    });
+  }
+
+  phaseTabs.forEach(btn => {
+    btn.addEventListener('click', () => switchPhase(btn.dataset.phase));
+  });
+
+  // ===== Sub-tab switching (within each phase) =====
+  function setupSubTabs(phaseId) {
+    const container = phases[phaseId];
+    const subTabs = container.querySelector('.sub-tabs');
+    if (!subTabs) return;
+    subTabs.addEventListener('click', (e) => {
+      const btn = e.target.closest('button');
+      if (!btn) return;
+      // update active on sub-tabs
+      subTabs.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      // show/hide sub-articles
+      const subId = btn.dataset.sub;
+      container.querySelectorAll('.article[id^="sub-"]').forEach(el => {
+        el.classList.toggle('active', el.id === `sub-${subId}`);
+      });
+    });
+  }
+
+  setupSubTabs('phase1');
+  setupSubTabs('phase2');
+  setupSubTabs('phase3');
+})();
+</script>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

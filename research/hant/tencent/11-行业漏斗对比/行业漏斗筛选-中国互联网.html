@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行業漏斗篩選：中國互聯網</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f7fa; color: #333; line-height: 1.8; font-size: 15px; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 50px 0 40px; text-align: center; }
+.header h1 { font-size: 28px; font-weight: 900; letter-spacing: 1px; margin-bottom: 8px; }
+.header .subtitle { font-size: 16px; font-weight: 300; opacity: 0.85; }
+.header .meta { margin-top: 14px; font-size: 13px; opacity: 0.7; }
+.container { max-width: 920px; margin: 0 auto; padding: 30px 24px; }
+.card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 32px 36px; margin-bottom: 28px; }
+.card h2 { font-size: 22px; font-weight: 700; color: #1A4B8C; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid #1A4B8C; display: inline-block; }
+.card h3 { font-size: 17px; font-weight: 600; color: #2c3e50; margin: 20px 0 10px; }
+.card p, .card ul, .card ol { margin-bottom: 12px; color: #444; }
+.card ul, .card ol { padding-left: 22px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+thead th { background: #1A4B8C; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
+thead th:first-child { border-radius: 6px 0 0 0; }
+thead th:last-child { border-radius: 0 6px 0 0; }
+tbody td { padding: 10px 12px; border-bottom: 1px solid #e8ecf1; }
+tbody tr:nth-child(even) { background: #f8f9fb; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; }
+
+/* File-specific extras */
+.funnel-box { background: #f0f4fa; border-left: 4px solid #1A4B8C; padding: 16px 20px; border-radius: 6px; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.8; white-space: pre; overflow-x: auto; }
+.highlight { background: #fff8e1 !important; font-weight: 600; }
+.highlight td { color: #1A4B8C; }
+.pass { color: #27ae60; font-weight: 600; }
+.fail { color: #e74c3c; }
+.rank-1 { font-size: 18px; color: #f39c12; font-weight: 700; }
+.rank-2 { font-size: 16px; color: #95a5a6; font-weight: 600; }
+.rank-3 { font-size: 14px; color: #cd7f32; font-weight: 600; }
+.tag { display: inline-block; padding: 2px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; margin: 2px; }
+.tag-blue { background: #e1ecf7; color: #1A4B8C; }
+.tag-green { background: #e8f5e9; color: #27ae60; }
+.tag-orange { background: #fff3e0; color: #e67e22; }
+.funnel-viz { display: flex; flex-direction: column; align-items: center; margin: 24px 0; }
+.funnel-step { width: 80%; background: #1A4B8C; color: #fff; padding: 14px; border-radius: 8px; margin: 2px 0; text-align: center; font-size: 14px; position: relative; }
+.funnel-step.n1 { width: 90%; background: #1A4B8C; }
+.funnel-step.n2 { width: 70%; background: #2a6bc8; }
+.funnel-step.n3 { width: 55%; background: #3a7bd5; }
+.funnel-step.n4 { width: 40%; background: #4a8be0; }
+.funnel-arrow { color: #1A4B8C; font-size: 20px; margin: -2px 0; }
+.conclusion-box { background: linear-gradient(135deg, #1A4B8C, #2a6bc8); color: #fff; border-radius: 10px; padding: 24px 28px; margin: 20px 0; }
+.conclusion-box h3 { color: #fff; margin-bottom: 12px; font-size: 18px; }
+.conclusion-box ol { padding-left: 20px; }
+.conclusion-box li { margin-bottom: 8px; color: #fff; }
+.conclusion-box li::marker { color: #ffd700; font-weight: 700; }
+.risk-box { background: #fff8e1; border-left: 4px solid #e67e22; padding: 16px 20px; border-radius: 6px; margin: 16px 0; }
+.risk-box h4 { color: #e67e22; margin-bottom: 8px; font-size: 15px; }
+.risk-box ul { padding-left: 18px; }
+.risk-box li { margin-bottom: 4px; color: #7f6b2d; }
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>行業漏斗篩選：中國互聯網</h1>
+<div class="subtitle">對標公司：騰訊控股 (0700.HK)</div>
+<div class="meta">篩選日期：2026-07-07 | 框架：Hermes Agent 漏斗篩選模型</div>
+</div>
+
+<div class="container">
+
+<div class="card">
+<h2>漏斗篩選方法論</h2>
+<p>漏斗篩選框架分為四層，逐層收緊，從14家中國互聯網公司中篩選出最優標的：</p>
+<div class="funnel-box">第1層：全市場掃描 -> 中國主要網路上市公司
+第2層：增速+利潤率 -> 收入增速>5% 且 淨利率>10%
+第3層：ROE+FCF深度 -> ROE>15% 且 FCF/收入>15%
+第4層：估值合理度 -> PE<25x 且 PEG<2.0
+</div>
+</div>
+
+<div class="card">
+<h2>第1層：全市場掃描</h2>
+<p>涵蓋社交、電商、遊戲、廣告、雲端服務、本地生活、內容等子領域，共14家核心公司。</p>
+<table>
+<thead><tr><th>公司</th><th>程式碼</th><th>市值（US$B）</th><th>核心業務</th></tr></thead>
+<tbody>
+<tr class="highlight"><td>騰訊控股</td><td>0700.HK</td><td>517.6</td><td>社交+遊戲+廣告+雲</td></tr>
+<tr><td>阿里巴巴</td><td>BABA/9988</td><td>219.5</td><td>電商＋雲端＋本地生活</td></tr>
+<tr><td>拼多多</td><td>PDD</td><td>~190</td><td>電商</td></tr>
+<tr><td>網易</td><td>NTES/9999</td><td>~72</td><td>遊戲+音樂</td></tr>
+<tr><td>快手</td><td>1024.HK</td><td>~45</td><td>短影音＋直播電商</td></tr>
+<tr><td>百度</td><td>BIDU/9888</td><td>~35</td><td>搜尋+AI+自動駕駛</td></tr>
+<tr><td>美團</td><td>3690.HK</td><td>~120</td><td>本地生活＋外送</td></tr>
+<tr><td>京東</td><td>JD/9618</td><td>~55</td><td>電商＋物流</td></tr>
+<tr><td>小米</td><td>1810.HK</td><td>~60</td><td>硬體＋IoT＋網路服務</td></tr>
+<tr><td>嗶哩嗶哩</td><td>BILI/9626</td><td>~12</td><td>影片＋遊戲</td></tr>
+<tr><td>攜程</td><td>TCOM/9961</td><td>~40</td><td>線上旅遊</td></tr>
+<tr><td>唯品會</td><td>VIPS</td><td>~8</td><td>特賣電商</td></tr>
+<tr><td>貝殼</td><td>BEKE</td><td>~25</td><td>房產交易</td></tr>
+<tr><td>微博</td><td>WB</td><td>~3</td><td>社羣媒體</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="card">
+<h2>第2層：按增速+利潤率初篩</h2>
+<p>篩選條件：<strong>收入增速 > 5%</strong>且<strong>淨利率 > 10%</strong></p>
+<table>
+<thead><tr><th>公司</th><th>營收增速</th><th>淨利率</th><th>結果</th></tr></thead>
+<tbody>
+<tr class="highlight"><td>騰訊控股</td><td>+13.9%</td><td>29.9%</td><td class="pass">透過</td></tr>
+<tr><td>阿里巴巴</td><td>+2.7%</td><td>~10%</td><td class="fail">未通過 - 增速不足</td></tr>
+<tr><td>拼多多</td><td>+15%</td><td>~22%</td><td class="pass">透過</td></tr>
+<tr><td>網易</td><td>~+10%</td><td>~29%</td><td class="pass">透過</td></tr>
+<tr><td>快手</td><td>+15%</td><td>~12%</td><td class="pass">透過</td></tr>
+<tr><td>百度</td><td>+3%</td><td>~15%</td><td class="fail">未通過 - 增速不足</td></tr>
+<tr><td>美團</td><td>+18%</td><td>~8%</td><td class="fail">未通過 - 淨利率不足</td></tr>
+<tr><td>京東</td><td>+5%</td><td>~3%</td><td class="fail">未通過 - 淨利率不足</td></tr>
+<tr><td>小米</td><td>+15%</td><td>~6%</td><td class="fail">未通過 - 淨利率不足</td></tr>
+<tr><td>嗶哩嗶哩</td><td>+18%</td><td>~5%</td><td class="fail">未通過 - 淨利率不足</td></tr>
+<tr><td>攜程</td><td>+20%</td><td>~20%</td><td class="pass">透過</td></tr>
+<tr><td>唯品會</td><td>+2%</td><td>~7%</td><td class="fail">未通過</td></tr>
+<tr><td>貝殼</td><td>+15%</td><td>~8%</td><td class="fail">未通過 - 淨利率不足</td></tr>
+<tr><td>微博</td><td>-5%</td><td>~15%</td><td class="fail">未通過 - 增速負值</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;"><strong>通過（5家）：</strong>
+<span class="tag tag-blue">騰訊</span>
+<span class="tag tag-green">拼多多</span>
+<span class="tag tag-green">網易</span>
+<span class="tag tag-green">攜程</span>
+<span class="tag tag-orange">快手</span></p>
+</div>
+
+<div class="card">
+<h2>第3層：按ROE+FCF深度篩選</h2>
+<p>篩選條件：<strong>ROE > 15%</strong>且<strong>自由現金流／收入 > 15%</strong></p>
+<table>
+<thead><tr><th>公司</th><th>ROE</th><th>自由現金流（億元人民幣）</th><th>自由現金流／收入</th><th>結果</th></tr></thead>
+<tbody>
+<tr class="highlight"><td>騰訊</td><td>20.5%</td><td>2,156</td><td>28.7%</td><td class="pass">透過</td></tr>
+<tr><td>拼多多</td><td>~35%</td><td>~1,100</td><td>~20%</td><td class="pass">透過</td></tr>
+<tr><td>網易</td><td>~25%</td><td>~350</td><td>~29%</td><td class="pass">透過</td></tr>
+<tr><td>攜程</td><td>~15%</td><td>~50</td><td>~10%</td><td class="fail">未通過</td></tr>
+<tr><td>快手</td><td>~15%</td><td>~200</td><td>~15%</td><td class="pass">邊界通過</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="card">
+<h2>第4層：按估值合理度排序</h2>
+<p>篩選條件：<strong>PE < 25x</strong>且<strong>PEG < 2.0</strong></p>
+<table>
+<thead><tr><th>排名</th><th>公司</th><th>PE</th><th>營收增速</th><th>PEG</th><th>PS</th><th>EV/EBITDA</th><th>評級</th></tr></thead>
+<tbody>
+<tr class="highlight"><td><span class="rank-1">#1</span></td><td><strong>騰訊控股</strong></td><td><strong>15.2x</strong></td><td><strong>13.9%</strong></td><td><strong>1.09</strong></td><td><strong>4.65x</strong></td><td><strong>11.56x</strong></td><td><span class="tag tag-green">A+</span></td></tr>
+<tr><td><span class="rank-2">#2</span></td><td>拼多多</td><td>~10x</td><td>~15%</td><td>0.67</td><td>~3.5x</td><td>~7x</td><td><span class="tag tag-green">A+</span></td></tr>
+<tr><td><span class="rank-3">#3</span></td><td>網易</td><td>~15x</td><td>~10%</td><td>1.50</td><td>~4.5x</td><td>~10x</td><td><span class="tag tag-blue">A</span></td></tr>
+<tr><td>4</td><td>快手</td><td>~20x</td><td>~15%</td><td>1.33</td><td>~2.5x</td><td>~12x</td><td><span class="tag tag-orange">B+</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="card">
+<h2>騰訊排位分析</h2>
+<div class="conclusion-box">
+<h3>#1 騰訊在行業漏斗中排名第1</h3>
+<ol>
+<li><strong>規模與品質兼備：</strong>唯一在全部4層漏斗中都排名前2的公司</li>
+<li><strong>現金流之王：</strong>2,156億RMB自由現金流遙遙領先，FCF轉化率28.7%屬頂級</li>
+<li><strong>估值折價：</strong>15.2x PE 低於互聯網行業均值（約 18x），具備安全邊際</li>
+<li><strong>增長確定性：</strong>在517B體量下仍有13.9%增長，PEG僅1.09</li>
+<li><strong>唯一全能型：</strong>社交、遊戲、廣告、雲端、支付五大賽道均具領導地位</li>
+</ol>
+</div>
+
+<div class="funnel-viz">
+<div class="funnel-step n1">全市場掃描：14家網路公司</div>
+<div class="funnel-arrow">▼</div>
+<div class="funnel-step n2">第2層通過：5家（篩選率36%）</div>
+<div class="funnel-arrow">▼</div>
+<div class="funnel-step n3">第3層通過：4家（篩選率29%）</div>
+<div class="funnel-arrow">▼</div>
+<div class="funnel-step n4">第4層排序：騰訊 #1</div>
+</div>
+
+<div class="risk-box">
+<h4>風險提示</h4>
+<ul>
+<li>監管政策變動風險（遊戲版號、資料安全）</li>
+<li>字節跳動競爭加劇（短影音時長爭奪）</li>
+<li>雲端業務盈利能力待驗證</li>
+<li>宏觀消費疲軟影響廣告+遊戲收入</li>
+</ul>
+</div>
+</div>
+
+<div class="footer">
+<p>資料來源：公開財報及市場一致預期 | 篩選框架：Hermes Agent 漏斗篩選模型</p>
+<p>生成日期：2026-07-07</p>
+</div>
+
+</div>
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>簡</span><span class="full"><span>簡體中文</span></span></a><a class="lang hant active" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

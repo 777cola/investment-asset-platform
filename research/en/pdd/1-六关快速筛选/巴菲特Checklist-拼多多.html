@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buffett Value Investing Checklist — PDD | Six-Gate Quick Screen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans SC', -apple-system, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+        .header {
+            background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%);
+            color: #fff;
+            padding: 50px 0 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .header .subtitle {
+            font-size: 16px;
+            font-weight: 300;
+            opacity: 0.85;
+        }
+        .header .meta {
+            margin-top: 14px;
+            font-size: 13px;
+            opacity: 0.7;
+        }
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 30px 24px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            padding: 32px 36px;
+            margin-bottom: 28px;
+        }
+        .card h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1A4B8C;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #1A4B8C;
+            display: inline-block;
+        }
+        .card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 20px 0 10px;
+        }
+        .card p, .card ul, .card ol {
+            margin-bottom: 12px;
+            color: #444;
+        }
+        .card ul, .card ol {
+            padding-left: 22px;
+        }
+        .card li {
+            margin-bottom: 6px;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        thead th {
+            background: #1A4B8C;
+            color: #fff;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        thead th:first-child { border-radius: 6px 0 0 0; }
+        thead th:last-child { border-radius: 0 6px 0 0; }
+        tbody td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e8ecf1;
+            vertical-align: top;
+        }
+        tbody tr:nth-child(even) { background: #f8faff; }
+        tbody tr:hover { background: #eef4ff; }
+        tbody td:first-child { font-weight: 500; }
+
+        /* 徽章 */
+        .badge {
+            display: inline-block;
+            background: #1A4B8C;
+            color: #fff;
+            font-size: 12px;
+            padding: 2px 12px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        .badge.green { background: #27ae60; }
+        .badge.yellow { background: #f39c12; }
+        .badge.red { background: #e74c3c; }
+        .badge.gray { background: #95a5a6; }
+
+        .score-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 14px 0;
+        }
+        .score-item {
+            flex: 1;
+            min-width: 120px;
+            background: #f8faff;
+            border: 1px solid #dde6f0;
+            border-radius: 8px;
+            padding: 12px 14px;
+            text-align: center;
+        }
+        .score-item .dim { font-size: 13px; color: #666; }
+        .score-item .val { font-size: 20px; font-weight: 700; color: #1A4B8C; }
+
+        .quote {
+            background: #f0f4f8;
+            border-left: 4px solid #1A4B8C;
+            padding: 16px 20px;
+            margin: 16px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .checklist-item:last-child { border-bottom: none; }
+        .checklist-item .check {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            margin-top: 2px;
+        }
+        .checklist-item .check.pass {
+            background: #d4edda;
+            color: #155724;
+        }
+        .checklist-item .check.warn {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .checklist-item .check.fail {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .code-block {
+            background: #1e2a3a;
+            color: #e6eef9;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-family: 'SF Mono', 'Menlo', 'Monaco', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            overflow-x: auto;
+            margin: 14px 0;
+        }
+
+        .alert {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #856404;
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: #999;
+            font-size: 13px;
+            border-top: 1px solid #e8ecf1;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 640px) {
+            .card { padding: 20px 18px; }
+            .header h1 { font-size: 22px; }
+            table { font-size: 13px; }
+            thead th, tbody td { padding: 8px 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Buffett Value-Investing Pre-Purchase Checklist</h1>
+    <div class="subtitle">Six-Gate Quick Screen — PDD</div>
+    <div class="meta">Data as of: 2026/07/05 | Information richness rating: Grade A | Report generated: 2026/07/05</div>
+</div>
+
+<div class="container">
+
+    <!-- 概要 -->
+    <div class="card">
+        <h2>📋 Summary</h2>
+        <table>
+            <tbody>
+                <tr><td style="width:140px;font-weight:600;">Company full name</td><td>PDD Holdings Inc.</td></tr>
+                <tr><td style="font-weight:600;">Stock ticker</td><td>PDD (NASDAQ)</td></tr>
+                <tr><td style="font-weight:600;">Data as of</td><td>2026/07/05</td></tr>
+                <tr><td style="font-weight:600;">Information rating</td><td><span class="badge green">Grade A</span>— Listed for years, data-rich, widely covered</td></tr>
+                <tr><td style="font-weight:600;">Overall conclusion</td><td><span class="badge green">5/6 tests passed</span>— Entering deep research</td></tr>
+            </tbody>
+        </table>
+        <div class="alert">
+            ⚠️ <strong>AI research bias alert:</strong>Pinduoduo carries a heavy information load and broad broker coverage, which easily breeds an "illusion of certainty." When consensus is too strong, alpha comes from testing the opposite case—why aren't the smart money buying? What risks are being overlooked?</div>
+    </div>
+
+    <!-- 第一关 -->
+    <div class="card">
+        <h2>🔰 Gate 1: Can I understand this business (circle of competence)</h2>
+        <p><strong>In one sentence: how the company makes money:</strong>Pinduoduo uses social viral loops and extreme low prices to attract price-sensitive users, earning online marketing service fees (advertising) plus transaction commissions. In essence, it is "an e-commerce platform that helps users save money."</p>
+        <p><strong>What will most likely still be done 10 years from now?</strong>Ten years from now, Pinduoduo will most likely still be in "low-price e-commerce," though the form may change: the domestic main site keeps penetrating the low-price market, while Temu replicates the low-price model overseas.</p>
+        <h3>Key variables</h3>
+        <ul>
+            <li>User growth ceiling (domestic market saturated)</li>
+            <li>Can Temu's overseas expansion be profitable?</li>
+            <li>Competition with Taobao/JD.com/Douyin</li>
+            <li>Regulatory policy (cross-border, data security)</li>
+        </ul>
+        <div class="score-row">
+            <div class="score-item"><div class="dim">Rating</div><div class="val">★★★★☆</div><div style="font-size:13px;color:#666;">4/5</div></div>
+            <div class="score-item"><div class="dim">Conclusion</div><div class="val" style="font-size:15px;color:#27ae60;">✅ Passed</div><div style="font-size:12px;color:#666;">Clear business model</div></div>
+        </div>
+    </div>
+
+    <!-- 第二关 -->
+    <div class="card">
+        <h2>💰 Level 2: Is this a good business (economic characteristics)</h2>
+        <table>
+            <thead>
+                <tr><th>Indicator</th><th>Pinduoduo</th><th>Reference standard</th><th>Judgment</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ROE (3-year average)</td><td>~30.5% (23.7%/35.9%/32.1%)</td><td>&gt;15% excellent, &gt;20% outstanding</td><td><span class="badge green">✅ Outstanding</span></td></tr>
+                <tr><td>Gross margin (FY2025)</td><td>56.3%</td><td>&gt;40% implies pricing power</td><td><span class="badge green">✅</span></td></tr>
+                <tr><td>Free cash flow (FY2025)</td><td>CNY 105.8 billion</td><td>Consistently positive, ≈ net profit</td><td><span class="badge green">✅ FCF&gt;net profit</span></td></tr>
+                <tr><td>Capex intensity</td><td>0.27% (CapEx/revenue)</td><td>Asset-light beats asset-heavy</td><td><span class="badge green">✅ Ultra-light asset model</span></td></tr>
+                <tr><td>Debt level</td><td>Interest-bearing debt RMB 5.38 billion vs annual net profit RMB 97.8 billion</td><td>Less than 3 years of net profit</td><td><span class="badge green">✅ Near-zero debt</span></td></tr>
+            </tbody>
+        </table>
+
+        <div class="code-block">Market cap check: $82.39 × 1.398 billion shares = $115.18 billion ✅
+PE(TTM): 8.98x
+FCF Yield: 17.83%
+ROE: 23.68%</div>
+
+        <h3>Supplementary analysis</h3>
+        <ul>
+            <li>ROE has averaged about 30% over the past 3 years, exceptionally strong</li>
+            <li>Gross margin fell from 75.9% in 2022 to 56.3%, mainly because Temu's cross-border business dragged down the overall gross margin—this is not a deterioration in competition, but rather<strong>Change in business mix</strong></li>
+            <li>Net profit margin remains as high as 22.6%</li>
+            <li>Operating cash flow/net profit = 1.09 (FY2025), very high earnings quality</li>
+            <li><strong>Net cash position RMB 416.9 billion</strong>, accounting for 50.6% of total market cap (approximately CNY 824 billion)</li>
+        </ul>
+        <div class="score-row">
+            <div class="score-item"><div class="dim">Score</div><div class="val">★★★★★</div><div style="font-size:13px;color:#666;">5/5</div></div>
+            <div class="score-item"><div class="dim">Conclusion</div><div class="val" style="font-size:15px;color:#27ae60;">✅ Textbook case</div><div style="font-size:12px;color:#666;">Ultra-light asset model · High ROE · Strong FCF · Zero net debt</div></div>
+        </div>
+    </div>
+
+    <!-- 第三关 -->
+    <div class="card">
+        <h2>🏰 Level 3: Is the moat deep enough (competitive advantage)</h2>
+        <table>
+            <thead>
+                <tr><th>Moat type</th><th>Does it have</th><th>Specific evidence</th><th>Trend</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Brand/pricing power</td><td><span class="badge yellow">⚠️ Limited</span></td><td>Pinduoduo's brand is anchored to "low price," not emotional premium. Users are loyal to cheapness, not to the brand itself.</td><td>Stable</td></tr>
+                <tr><td>Switching costs</td><td><span class="badge red">⚠️ Low</span></td><td>Users can compare prices on Taobao/Douyin at any time, with minimal switching costs</td><td>Unchanged</td></tr>
+                <tr><td>Network effects</td><td><span class="badge green">✅ Moderate</span></td><td>More buyers leads to more merchants, which leads to richer assortment, which leads to more buyers—but Taobao and Douyin have the same.</td><td>Stable</td></tr>
+                <tr><td>Cost/scale advantage</td><td><span class="badge green">✅ Strong</span></td><td>Ultra-low-cost operating system (minimalist app, few-SKU hit-product model, AI recommendations to lower traffic costs); deep supply-chain integration (C2M model)</td><td><span class="badge green">Widening</span></td></tr>
+                <tr><td>Technology/patent barriers</td><td><span class="badge green">✅ Moderate</span></td><td>Recommendation algorithms and social viral growth techniques present certain barriers, but they are not unreplicable</td><td>Stable</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Additional test</h3>
+        <p><strong>If Alibaba were given RMB 10 billion, could it replicate Pinduoduo?</strong></p>
+        <p>→ <strong>Partially yes.</strong>Alibaba can replicate the low-price strategy (it has already launched Taote) and can also pursue social viral growth. But Pinduoduo has already established its hold on the "low-price mindset" — when users think "cheapest," they think Pinduoduo, and this kind of mindshare is hard to buy with money. However, Douyin e-commerce is eroding the low-price market with its "interest-based recommendation" model.</p>
+
+        <div class="score-row">
+            <div class="score-item"><div class="dim">Rating</div><div class="val">★★★☆☆</div><div style="font-size:13px;color:#666;">3/5</div></div>
+            <div class="score-item"><div class="dim">Trend</div><div class="val" style="font-size:15px;color:#f39c12;">Stable and narrow</div><div style="font-size:12px;color:#666;">Domestically squeezed by Douyin</div></div>
+        </div>
+    </div>
+
+    <!-- 第四关 -->
+    <div class="card">
+        <h2>👥 Gate 4: Is management trustworthy (the human factor)</h2>
+        <table>
+            <thead>
+                <tr><th>Checklist</th><th>Assessment</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Honesty</td><td><span class="badge green">✅</span>Management is usually candid and addresses problems directly at results briefings.</td></tr>
+                <tr><td>Capital allocation capability</td><td><span class="badge green">✅</span>Extremely rational—generating massive profits from domestic e-commerce without heavy capital outlays, deploying capital into Temu's overseas expansion; almost no high-priced M&A</td></tr>
+                <tr><td>Shareholder-interest orientation</td><td><span class="badge yellow">⚠️ Insufficient</span>For years it paid no dividends and bought back no shares (until it began small-scale buybacks in the second half of 2025), hoarding large amounts of cash on its balance sheet</td></tr>
+                <tr><td>Owner's mindset</td><td><span class="badge green">✅</span>Founder Colin Huang stepped down as CEO but remains the largest shareholder (holding about 26%), aligning his interests with the company.</td></tr>
+                <tr><td>Corporate governance</td><td><span class="badge green">✅</span>Clear one-share-one-vote and AB share structure (Colin Huang's super-voting rights)</td></tr>
+                <tr><td>Can it function after the CEO leaves?</td><td><span class="badge yellow">⚠️</span>Huang Zheng stepped down in 2021 and the company has run well since—performance under Chen Lei has consistently beaten the consensus. This shows organizational capability has taken root</td></tr>
+            </tbody>
+        </table>
+        <p><strong>Key question:</strong>Pinduoduo's core is Huang Zheng's intellectual legacy (the C2M model, extreme low pricing, Distributed AI recommendation). Chen Lei is an excellent executor, but can the founder's strategic vision be replaced over the long run?</p>
+        <div class="score-row">
+            <div class="score-item"><div class="dim">Rating</div><div class="val">★★★★☆</div><div style="font-size:13px;color:#666;">4/5</div></div>
+            <div class="score-item"><div class="dim">Deduction items</div><div class="val" style="font-size:14px;color:#f39c12;">Insufficient shareholder returns</div><div style="font-size:12px;color:#666;">Massive cash pile with no buybacks and no dividends</div></div>
+        </div>
+    </div>
+
+    <!-- 第五关 -->
+    <div class="card">
+        <h2>🏷️ Gate 5: Is the price cheap enough (margin of safety)</h2>
+        <h3>Current valuation</h3>
+        <table>
+            <thead>
+                <tr><th>Metric</th><th>Numerical value</th><th>Judgment</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>PE (TTM)</td><td>8.98x</td><td><span class="badge green">Extremely cheap</span></td></tr>
+                <tr><td>PB</td><td>2.13x</td><td><span class="badge green">Moderately undervalued</span></td></tr>
+                <tr><td>FCF Yield</td><td>17.83%</td><td><span class="badge green">Extremely high</span></td></tr>
+                <tr><td>PEG (based on 10% growth)</td><td>0.9</td><td><span class="badge green">< 1, undervalued</span></td></tr>
+            </tbody>
+        </table>
+
+        <h3>Three-scenario valuation</h3>
+        <table>
+            <thead>
+                <tr><th>Scenario</th><th>Annual growth rate</th><th>Target PE</th><th>Target share price</th><th>Change</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Bull case</td><td>15%</td><td>15x</td><td>$209.2</td><td><span class="badge green">+153.9%</span></td></tr>
+                <tr><td>Neutral (Base)</td><td>10%</td><td>12x</td><td>$146.5</td><td><span class="badge green">+77.8%</span></td></tr>
+                <tr><td>Bear</td><td>5%</td><td>8x</td><td>$84.9</td><td><span class="badge green">+3.1%</span></td></tr>
+            </tbody>
+        </table>
+
+        <p><strong>Key findings:</strong>Even under the pessimistic scenario (5% growth, 8x PE), the current price is only 3.1% above the target price, leaving extremely limited downside. Under the neutral scenario, there is 78% upside.</p>
+
+        <h3>Would you add to your position after the stock has halved?</h3>
+        <p>→ At Pinduoduo's price of about $40 (halved), a PE of about 4.5x, an FCF yield of ~36%, and net cash exceeding 100% of market cap — this is an absurdly cheap valuation. If the fundamentals do not collapse (profitability holds), the halving is an excellent entry point to add.</p>
+
+        <div class="score-row">
+            <div class="score-item"><div class="dim">Rating</div><div class="val">★★★★★</div><div style="font-size:13px;color:#666;">5/5</div></div>
+            <div class="score-item"><div class="dim">Margin of safety</div><div class="val" style="font-size:15px;color:#27ae60;">Extremely ample</div><div style="font-size:12px;color:#666;">Extreme market pricing</div></div>
+        </div>
+    </div>
+
+    <!-- 第六关 -->
+    <div class="card">
+        <h2>📏 Level 6: Position sizing and decision discipline</h2>
+        <div class="checklist-item">
+            <div class="check pass">✓</div>
+            <div><strong>Are you thinking of buying because of FOMO?</strong>→ No. Market sentiment toward China concept stocks is broadly bearish; there is no FOMO.</div>
+        </div>
+        <div class="checklist-item">
+            <div class="check pass">✓</div>
+            <div><strong>Are you thinking of buying only because someone recommended it?</strong>→ No. The data supports an independent judgment</div>
+        </div>
+        <div class="checklist-item">
+            <div class="check pass">✓</div>
+            <div><strong>Could you accept a 5-year trading suspension?</strong>→ Yes. Pinduoduo is a machine that continuously generates cash; even if it cannot be traded, its intrinsic value is growing</div>
+        </div>
+        <div class="checklist-item">
+            <div class="check pass">✓</div>
+            <div><strong>Can the buy thesis be stated clearly in under 200 words?</strong>→ Yes, see the mirror test below</div>
+        </div>
+    </div>
+
+    <!-- 镜子测试 -->
+    <div class="card">
+        <h2>🪞 Mirror test</h2>
+        <div class="quote">
+            <strong>I bought PDD Holdings (PDD) at $82.39 because:</strong><br><br>1. The essence of this business is<strong>Low-price e-commerce platforms</strong>, and through social fission and extreme supply-chain efficiency it lets users buy the cheapest goods — that I understand;<br>2. Its moat is<strong>Cost advantage and "low-price mindset"</strong>domestic position consolidating but squeezed by Douyin; Temu still in its validation phase;<br>3. Management<strong>Overall excellent</strong>, execution and rational capital allocation, but insufficient shareholder returns;<br>4. The current price equates to the intrinsic value<strong>About 50-60% of the original price</strong>(Based on the neutral scenario), there are<strong>Ample margin of safety</strong>；<br>5. Even if I am wrong (earnings keep deteriorating), downside risk is manageable — net cash is over 50% of market cap, zero net debt, FCF still growing.</div>
+        <p style="text-align:center;font-weight:700;color:#1A4B8C;font-size:16px;margin-top:10px;">✅ Passes the Checklist (5 of 6 gates, 1 point deducted for moat) — may proceed to the deep-research stage.</p>
+    </div>
+
+    <!-- 快速否决清单 -->
+    <div class="card">
+        <h2>🚫 Quick-rejection checklist</h2>
+        <table>
+            <thead>
+                <tr><th>Veto item</th><th>Results</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Can't explain clearly how it makes money</td><td><span class="badge green">✅ Clearly explained</span></td></tr>
+                <tr><td>Free cash flow negative for 3 consecutive years</td><td><span class="badge green">✅ FCF grew for 4 consecutive years</span></td></tr>
+                <tr><td>Management has integrity issues</td><td><span class="badge green">✅ None found</span></td></tr>
+                <tr><td>Competitive advantage irreversibly eroded</td><td><span class="badge yellow">⚠️ Under Douyin pressure, but not yet irreversible</span></td></tr>
+                <tr><td>Profiting from the greater fool</td><td><span class="badge green">✅ Fundamentals supported</span></td></tr>
+                <tr><td>Cannot afford a zero outcome</td><td><span class="badge green">✅ Can withstand it</span></td></tr>
+                <tr><td>Buying because everyone else is buying</td><td><span class="badge green">✅ The market is in fact extremely pessimistic</span></td></tr>
+                <tr><td>200 words are not enough to explain the reasoning</td><td><span class="badge green">✅ Clearly stated</span></td></tr>
+            </tbody>
+        </table>
+        <p style="margin-top:10px;font-weight:600;color:#27ae60;">No veto items were triggered.</p>
+    </div>
+
+    <!-- 综合结论 -->
+    <div class="card">
+        <h2>📊 Overall conclusion</h2>
+        <table>
+            <thead>
+                <tr><th>Dimension</th><th>Rating</th><th>Conclusion</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Circle of competence</td><td>★★★★☆</td><td>Clear business model, Temu remains a variable</td></tr>
+                <tr><td>A good business</td><td>★★★★★</td><td>Extremely asset-light, high ROE, strong FCF</td></tr>
+                <tr><td>Moat</td><td>★★★☆☆</td><td>Cost advantage exists, but switching costs are low and competitors are strong</td></tr>
+                <tr><td>Management</td><td>★★★★☆</td><td>Strong execution, shareholder returns need improvement</td></tr>
+                <tr><td>Margin of safety</td><td>★★★★★</td><td>PE ~9x, deeply undervalued</td></tr>
+                <tr><td style="font-weight:700;">Comprehensive</td><td style="font-weight:700;color:#1A4B8C;">5/6 checks passed</td><td style="font-weight:700;color:#27ae60;">Enter deep research</td></tr>
+            </tbody>
+        </table>
+        <div class="quote">"The first rule of investing is don't lose money. The second rule is don't forget the first." — Buffett<br><br>At the current price, Pinduoduo's downside risk is extremely limited while upside potential is ample. This is a classic "good company + poor price expectations" opportunity.</div>
+    </div>
+
+    <div class="footer">Report generated: 2026/07/05 &nbsp;|&nbsp; Data sources: stockanalysis.com (primary), macrotrends.net (secondary)</div>
+
+</div>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

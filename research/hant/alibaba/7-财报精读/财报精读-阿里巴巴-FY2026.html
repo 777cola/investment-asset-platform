@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財報精讀 — 阿里巴巴 FY2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, 'Helvetica Neue', sans-serif;
+    background: #f4f6f9;
+    color: #1a1a2e;
+    line-height: 1.8;
+    font-weight: 400;
+  }
+  .header {
+    background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+    color: #fff;
+    padding: 48px 0 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #e67e22, #f39c12, #e67e22);
+  }
+  .header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(4px);
+    padding: 4px 18px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+  }
+  .header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: 2px; }
+  .header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+  .header .meta {
+    margin-top: 18px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .container { max-width: 920px; margin: 0 auto; padding: 32px 24px 60px; }
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    padding: 32px;
+    margin-bottom: 28px;
+    border: 1px solid #eaeef3;
+  }
+  .card h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #c0392b;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e8edf4;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h2 .num {
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    width: 32px; height: 32px;
+    background: #c0392b;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .card h3 { font-size: 1.05rem; font-weight: 600; color: #2c3e50; margin: 18px 0 10px; }
+  .card p { margin-bottom: 12px; color: #333; }
+  .card ul, .card ol { padding-left: 20px; margin-bottom: 12px; }
+  .card li { margin: 6px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 18px;
+    font-size: 0.9rem;
+  }
+  th {
+    background: #c0392b;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child  { border-radius: 0 6px 0 0; }
+  td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #e8edf4;
+    text-align: center;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f7f9fc; }
+  .hl-green  { color: #27ae60; font-weight: 600; }
+  .hl-red    { color: #e74c3c; font-weight: 600; }
+  .hl-amber  { color: #e67e22; font-weight: 600; }
+  .hl-blue   { color: #2980b9; font-weight: 600; }
+  .td-left   { text-align: left; }
+  blockquote {
+    background: #fdf2f0;
+    border-left: 4px solid #c0392b;
+    padding: 14px 20px;
+    margin: 16px 0;
+    border-radius: 0 6px 6px 0;
+    color: #1a2a3a;
+    font-style: italic;
+    font-size: 0.92rem;
+  }
+  blockquote strong { color: #c0392b; font-style: normal; }
+  /* Signal boxes */
+  .signal-normal { background: #eafaf1; border-left: 4px solid #27ae60; padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 6px 0; font-size: 0.9rem; }
+  .signal-warn  { background: #fef9e7; border-left: 4px solid #e67e22; padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 6px 0; font-size: 0.9rem; }
+  .signal-alert { background: #fde8e8; border-left: 4px solid #e74c3c; padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 6px 0; font-size: 0.9rem; }
+  /* KPI boxes */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .kpi-box {
+    background: #f7f9fc;
+    border: 1px solid #e0e6ed;
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+  }
+  .kpi-box .num { font-size: 1.3rem; font-weight: 700; color: #c0392b; }
+  .kpi-box .label { font-size: 0.75rem; color: #7f8c9b; margin-top: 4px; }
+  .kpi-box .change { font-size: 0.75rem; font-weight: 600; margin-top: 2px; }
+  .change-up   { color: #e74c3c; }
+  .change-down { color: #27ae60; }
+  .bad-up   { display:inline-block; background:#eafaf1; color:#27ae60; padding:1px 8px; border-radius:4px; font-weight:600; font-size:0.85rem; }
+  .bad-down { display:inline-block; background:#fde8e8; color:#e74c3c; padding:1px 8px; border-radius:4px; font-weight:600; font-size:0.85rem; }
+  .bad-mid  { display:inline-block; background:#fef9e7; color:#e67e22; padding:1px 8px; border-radius:4px; font-weight:600; font-size:0.85rem; }
+  .verdict-box {
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .verdict-box.alert { background: #fde8e8; border: 1px solid #e74c3c; color: #c0392b; }
+  .verdict-box.warn  { background: #fef9e7; border: 1px solid #e67e22; color: #e67e22; }
+  .verdict-box.good  { background: #eafaf1; border: 1px solid #27ae60; color: #27ae60; }
+  .verdict-box .detail { font-weight: 400; font-size: 0.85rem; margin-left: auto; color: #666; }
+  .footer {
+    text-align: center;
+    padding: 24px 0;
+    color: #95a5b4;
+    font-size: 0.8rem;
+    border-top: 1px solid #e0e6ed;
+    margin-top: 12px;
+  }
+  @media (max-width: 640px) {
+    .header h1 { font-size: 1.4rem; }
+    .card { padding: 20px; }
+    table { font-size: 0.78rem; }
+    th, td { padding: 6px 8px; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="badge">📉 財報精讀</div>
+  <h1>阿里巴巴集團 · FY2026 年度財務分析</h1>
+  <p class="subtitle">ALIBABA GROUP HOLDING LIMITED (BABA.NYSE / 9988.HK)</p>
+  <div class="meta">
+    <span>📅 財報期間：FY2026（截至2026/3/31）</span>
+    <span>📊 資料來源：FY2026年報</span>
+    <span>📋 資料可得性：<strong style="color:#f6b26b;">A級</strong></span>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- ===== 一、核心数据速览 ===== -->
+<div class="card">
+  <h2><span class="num">一</span>核心數據速覽</h2>
+
+  <div class="kpi-grid">
+    <div class="kpi-box">
+      <div class="num">10,237億</div>
+      <div class="label">總收入 CNY</div>
+      <div class="change change-up">⬆ +2.74% YoY</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">39.81%</div>
+      <div class="label">毛利率</div>
+      <div class="change change-up">⬇ -0.14pp YoY</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">4.90%</div>
+      <div class="label">營業利益率</div>
+      <div class="change change-up" style="color:#e74c3c;">⬇ -9.24pp YoY</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">1,059億元</div>
+      <div class="label">歸母淨利 CNY</div>
+      <div class="change change-up">⬇ -18.2% YoY</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">-498.5億元</div>
+      <div class="label">自由現金流 CNY</div>
+      <div class="change change-up" style="color:#e74c3c;">⬇ 自由現金流轉負</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">569億</div>
+      <div class="label">淨現金 CNY</div>
+      <div class="change change-down">⬇ -71.2% YoY</div>
+    </div>
+  </div>
+
+  <div class="verdict-box alert">
+    <span>🔴</span>
+    <span>FY2026是阿里巴巴近十年最差的年報之一</span>
+    <span class="detail">銷售及管理費用暴增47.7%侵蝕利潤，自由現金流首次轉負</span>
+  </div>
+
+  <table>
+    <tr><th>指標（百萬CNY）</th><th>FY2025</th><th>FY2026</th><th>同比變化</th><th>判斷</th></tr>
+    <tr><td>營收</td><td>996,347</td><td>1,023,670</td><td><span class="hl-amber">+2.74%</span></td><td><span class="bad-down">🔴 增速創新低</span></td></tr>
+    <tr><td>毛利</td><td>398,062</td><td>407,534</td><td><span class="hl-amber">+2.38%</span></td><td><span class="bad-mid">⚠️ 與收入同步</span></td></tr>
+    <tr><td>毛利率</td><td>39.95%</td><td>39.81%</td><td><span class="hl-amber">-0.14pp</span></td><td><span class="bad-mid">⚠️ 基本穩定</span></td></tr>
+    <tr><td>營業利益</td><td>140,905</td><td>50,150</td><td><span class="hl-red">-64.41%</span></td><td><span class="bad-down">🔴 斷崖式下跌</span></td></tr>
+    <tr><td>營業利益率</td><td>14.14%</td><td>4.90%</td><td><span class="hl-red">-9.24pp</span></td><td><span class="bad-down">🔴 暴跌</span></td></tr>
+    <tr><td>歸母淨利潤</td><td>129,470</td><td>105,904</td><td><span class="hl-red">-18.2%</span></td><td><span class="bad-mid">⚠️ 有息收入支撐</span></td></tr>
+    <tr><td>SG&A</td><td>188,260</td><td>278,105</td><td><span class="hl-red">+47.7%</span></td><td><span class="bad-down">🔴 經營滑坡主因</span></td></tr>
+    <tr><td>利息收入</td><td>20,770</td><td>87,512</td><td><span class="hl-green">+321%</span></td><td><span class="bad-mid">⚠️ 異常暴增</span></td></tr>
+    <tr><td>營業現金流</td><td>163,509</td><td>76,213</td><td><span class="hl-red">-53.4%</span></td><td><span class="bad-down">🔴 現金回籠惡化</span></td></tr>
+    <tr><td>自由現金流</td><td>77,537</td><td>-49,850</td><td><span class="hl-red">自由現金流轉負</span></td><td><span class="bad-down">🔴 嚴重惡化</span></td></tr>
+    <tr><td>資本支出</td><td>85,972</td><td>126,063</td><td><span class="hl-red">+46.6%</span></td><td><span class="bad-down">🔴 大幅擴張</span></td></tr>
+  </table>
+
+  <p style="font-size:1rem; font-weight:600; margin-top:12px; padding:12px; background:#fdf2f0; border-radius:6px;">一句話總結：營收成長乏力（+2.74%），SG&A費用暴增47.7%吞噬營業利益，營業利益率從14.14%驟降至4.90%，自由現金流首次轉負。若非利息收入暴增321%託底，歸母稅後淨利跌幅將遠超18.2%。</p>
+</div>
+
+<!-- ===== 二、本期最重要的4个异常信号 ===== -->
+<div class="card">
+  <h2><span class="num">二</span>本期最重要的4個異常信號</h2>
+
+  <h3>⚠️ 異常訊號1：SG&A暴增47.7% —— 營業利益崩盤的真兇</h3>
+  <p>營業費用從FY2025的<strong>1,882.6億元</strong>飆升至FY2026的<strong>2,781.1億元</strong>，淨增<strong>898.5億元</strong>這個增量本身就相當於一間中型網路公司的全年收入。</p>
+
+  <table>
+    <tr><th>費用項目（百萬CNY）</th><th>FY2025</th><th>FY2026</th><th>同比</th><th>佔營收比</th></tr>
+    <tr><td class="td-left"><strong>SG&A</strong></td><td>188,260</td><td>278,105</td><td><span class="hl-red">+47.7%</span></td><td>27.2%</td></tr>
+    <tr><td class="td-left">研發費用</td><td>57,151</td><td>66,533</td><td><span class="hl-amber">+16.4%</span></td><td>6.5%</td></tr>
+    <tr><td class="td-left"><strong>總營業費用</strong></td><td>245,411</td><td>344,638</td><td><span class="hl-red">+40.4%</span></td><td>33.7%</td></tr>
+  </table>
+
+  <div class="signal-alert">
+    <strong>管銷費用暴增的深層原因：</strong><br>
+    <strong>① 國際業務擴張的行銷投入：</strong>AIDC（Lazada/AliExpress/Trendyol）為對抗 Temu/Shein，大幅增加海外行銷和補貼支出。東南亞、中東、東歐市場的獲客成本持續攀升。<br>
+    <strong>② 國內電商「價格戰」：</strong>淘天集團為應對拼多多／抖音競爭，增加了對消費者的補貼和商家的激勵，行銷費用率明顯上升。<br>
+    <strong>③ 組織調整與人員重組：</strong>1+6+N架構調整帶來一次性人員優化成本（裁員補償、重組費用），同時在AI和雲端運算領域積極招聘抬高了薪酬支出。<br>
+    <strong>④ 本地生活持續輸血：</strong>餓了麼與美團的外送戰仍在持續，本地生活板塊仍需大量補貼維持市佔。</div>
+
+  <div class="signal-warn">
+    <strong>如何看待這場SG&A危機？</strong>這不僅是短期的費用控制問題，而是結構性困境：阿里在一個存量競爭的市場中，必須靠砸錢來維持市場份額，而競爭對手（拼多多、抖音、Temu）同樣在燒錢。誰的燒錢效率更高，誰就能活到最後。</div>
+
+  <h3>📈 異常訊號2：利息收入暴增321% —— 稅後淨利的「救命稻草」</h3>
+  <p>利息收入從FY2025的<strong>207.7億元</strong>飆升至FY2026的<strong>875.1億元</strong>，淨增<strong>667.4億元</strong>。這一增幅極不尋常，值得深入拆解。</p>
+
+  <table>
+    <tr><th>項目（百萬CNY）</th><th>FY2025</th><th>FY2026</th><th>同比變化</th><th>說明</th></tr>
+    <tr><td class="td-left">利息收入（含投資收益）</td><td>20,770</td><td>87,512</td><td><span class="hl-green">+321%</span></td><td>包含利息＋投資處置＋分紅</td></tr>
+    <tr><td class="td-left">— 其中：現金及定存利息</td><td>~10,000</td><td>~15,000</td><td>~+50%</td><td>利率環境改善貢獻有限</td></tr>
+    <tr><td class="td-left">— 其中：投資處置收益</td><td>~8,000</td><td>~50,000+</td><td><span class="hl-amber">大幅增加</span></td><td>出售非核心資產所得</td></tr>
+    <tr><td class="td-left">— 其中：聯營／合營分紅</td><td>~2,000</td><td>~20,000+</td><td><span class="hl-amber">大幅增加</span></td><td>螞蟻集團等分紅增加</td></tr>
+  </table>
+
+  <div class="signal-warn">
+    <strong>關鍵判斷：</strong>利息收入暴增並非來自內生經營改善，而是<strong>資產處置</strong>和<strong>投資收益變現</strong>阿里在FY2026年加速了「瘦身」戰略——出售了部分非核心資產（如銀泰、高鑫零售等線下零售資產），並可能獲得了螞蟻集團的大額分紅。這部分收入<strong>不可持續</strong>，一旦處置完畢，利潤將回吐。<br><br>
+    <strong>影響評估：</strong>若剔除利息收入增量（+667億），歸母淨利潤可能從1,059億降至不足400億，跌幅達~70%。利息收入「掩蓋」了經營惡化的真實程度。</div>
+
+  <h3>💸 異常訊號3：自由現金流轉負 —— 從印鈔機到燒錢機</h3>
+  <p>自由現金流從+¥775.4億驟降至<strong>-498.5億元</strong>，降幅高達164%。這是阿里巴巴上市以來首次出現全年自由現金流為負。</p>
+
+  <table>
+    <tr><th>現金流項目（百萬CNY）</th><th>FY2024</th><th>FY2025</th><th>FY2026</th><th>趨勢</th></tr>
+    <tr><td class="td-left">營業現金流</td><td>182,593</td><td>163,509</td><td><span class="hl-red">76,213</span></td><td>⬇ 逐年下降</td></tr>
+    <tr><td class="td-left">資本支出</td><td>32,087</td><td>85,972</td><td><span class="hl-red">126,063</span></td><td>⬆ 大幅擴張</td></tr>
+    <tr><td class="td-left"><strong>自由現金流</strong></td><td><span class="hl-green">150,506</span></td><td><span class="hl-amber">77,537</span></td><td><span class="hl-red"><strong>-49,850</strong></span></td><td><span class="bad-down">🔴 轉負</span></td></tr>
+    <tr><td class="td-left">自由現金流利潤率</td><td>15.99%</td><td>7.78%</td><td><span class="hl-red">-4.87%</span></td><td>⬇ 惡化</td></tr>
+    <tr><td class="td-left">營業活動現金流／稅後淨利</td><td>1.49×</td><td>1.30×</td><td><span class="hl-red">0.75×</span></td><td>⬇ 低於1倍</td></tr>
+  </table>
+
+  <div class="signal-alert">
+    <strong>自由現金流轉負的三大原因：</strong><br>
+    <strong>① 營業現金流腰斬（-53.4%）：</strong>營業利益大幅下滑是主因，同時營運資本佔用增加（應收帳款和存貨積壓）進一步惡化了現金回收。<br>
+    <strong>② 資本支出翻倍（+46.6%）：</strong>資本支出從¥859.7億飆升至¥1,260.6億，主要用於AI／雲端運算基礎設施建設（GPU叢集、資料中心），以及菜鳥物流網路擴張。<br>
+    <strong>③ FCF／稅後淨利比0.75×：</strong>低於1意味著稅後淨利的現金保障不足——利潤中包含了大量非現金項目（折舊、攤銷、股權激勵），而實際現金回收效率惡化。</div>
+
+  <h3>🐌 異常信號4：營收增速放緩至2.74% —— 大象步履蹣跚</h3>
+  <p>營收增速從FY2024的+8.34% → FY2025的+5.86% → FY2026的<strong>+2.74%</strong>，逐年放緩趨勢明確。在萬億收入體量下，增長失速意味著阿里已從「成長股」蛻變為「價值股」。</p>
+
+  <table>
+    <tr><th>會計年度</th><th>營收（百萬CNY）</th><th>增速</th><th>中國GDP</th><th>阿里巴巴 vs GDP</th></tr>
+    <tr><td>FY2022</td><td>853,062</td><td>+18.93%</td><td>~5%</td><td><span class="hl-green">大幅跑贏</span></td></tr>
+    <tr><td>FY2023</td><td>868,687</td><td>+1.83%</td><td>~5%</td><td><span class="hl-red">跑輸</span></td></tr>
+    <tr><td>FY2024</td><td>941,168</td><td>+8.34%</td><td>~5%</td><td><span class="hl-green">跑贏</span></td></tr>
+    <tr><td>FY2025</td><td>996,347</td><td>+5.86%</td><td>~5%</td><td><span class="hl-amber">基本持平</span></td></tr>
+    <tr style="background:#fdf2f0;"><td><strong>FY2026</strong></td><td><strong>1,023,670</strong></td><td><strong>+2.74%</strong></td><td><strong>~5%</strong></td><td><span class="hl-red"><strong>大幅落後</strong></span></td></tr>
+  </table>
+
+  <div class="signal-alert">
+    <strong>增長失速的結構性原因：</strong><br>
+    <strong>① 國內電商天花板已至：</strong>淘天GMV增速接近停滯，拼多多和抖音電商持續蠶食份額。阿里在低價競爭中陷入兩難——降價促銷傷利潤，不做就丟份額。<br>
+    <strong>② 核心消費疲軟：</strong>中國宏觀消費復甦不及預期，阿里作為電商基礎設施平臺，直接反映消費冷熱。<br>
+    <strong>③ 雲端運算增速放緩：</strong>阿里雲在 AI 浪潮中雖有成長，但面臨華為雲、騰訊雲的激烈競爭，且大客戶「降本增效」導致雲端收入增速低於行業水準。<br>
+    <strong>④ 剝離非核心資產：</strong>銀泰、高鑫零售等線下零售資產的出售，直接減少了合併報表收入。</div>
+</div>
+
+<!-- ===== 三、分业务板块深度分析 ===== -->
+<div class="card">
+  <h2><span class="num">三</span>分業務板塊：每家公司的貢獻與消耗</h2>
+
+  <p>阿里巴巴的「1+6+N」組織架構下，各業務板塊的收入和利潤貢獻呈現極度的<strong>不平衡</strong>：僅淘天集團是主要的利潤來源，其他板塊幾乎都在燒錢。</p>
+
+  <table>
+    <tr><th>業務板塊</th><th>估計收入（百萬CNY）</th><th>佔比</th><th>估計增速</th><th>盈利能力</th><th>趨勢</th></tr>
+    <tr>
+      <td class="td-left"><strong>淘天集團</strong>（中國電商）</td>
+      <td>~380,000–400,000</td>
+      <td>~38%</td>
+      <td><span class="hl-amber">~0–3%</span></td>
+      <td><span class="hl-green">盈利主力</span></td>
+      <td>⬇ 市佔遭侵蝕，GMV 增速趨近零</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>阿里巴巴國際數字商業（AIDC）</strong></td>
+      <td>~120,000–140,000</td>
+      <td>~12%</td>
+      <td><span class="hl-green">~25–30%</span></td>
+      <td><span class="hl-red">大幅虧損</span></td>
+      <td>⬆ 高成長，但燒錢激烈（Lazada/Trendyol/AliExpress）</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>雲端運算</strong>（阿里雲＋釘釘）</td>
+      <td>~115,000–125,000</td>
+      <td>~12%</td>
+      <td><span class="hl-amber">~5–10%</span></td>
+      <td><span class="hl-amber">接近盈利</span></td>
+      <td>⬆ AI驅動，利潤率改善中</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>菜鳥物流</strong></td>
+      <td>~95,000–105,000</td>
+      <td>~10%</td>
+      <td><span class="hl-amber">~8–12%</span></td>
+      <td><span class="hl-amber">微利／損益兩平</span></td>
+      <td>➡️ 穩健，AI+自動化降本</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>本地生活</strong>（餓了麼/高德/飛豬）</td>
+      <td>~65,000–75,000</td>
+      <td>~7%</td>
+      <td><span class="hl-amber">~10–15%</span></td>
+      <td><span class="hl-red">持續虧損</span></td>
+      <td>⬇ 與美團的補貼戰無休止</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>大文娛</strong>（優酷／阿里影業）</td>
+      <td>~20,000–25,000</td>
+      <td>~2%</td>
+      <td><span class="hl-amber">~0–5%</span></td>
+      <td><span class="hl-amber">接近損益兩平</span></td>
+      <td>➡️ 規模小，無足輕重</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>其他</strong>（高鑫／銀泰／盒馬／等）</td>
+      <td>~180,000–200,000</td>
+      <td>~19%</td>
+      <td><span class="hl-red">~-5–0%</span></td>
+      <td><span class="hl-amber">微利／出售中</span></td>
+      <td>⬇ 持續剝離，對收入貢獻遞減</td>
+    </tr>
+  </table>
+
+  <div class="signal-warn">
+    <strong>板塊分析關鍵結論：</strong><br>
+    <strong>淘天集團</strong>（約 38% 收入）貢獻了幾乎全部的集團利潤，但增速趨近於零，是國內電商「存量戰爭」的直接受害者。<br>
+    <strong>AIDC</strong>（約12%收入）是成長最快的板塊，但也吞噬最多的現金——Lazada、Trendyol、AliExpress的行銷補貼是SG&A暴增的重要推手。<br>
+    <strong>雲端運算</strong>（約12%收入）是最有希望的「第二曲線」，AI推理需求推動收入成長，但資本支出投入龐大，短期對自由現金流形成壓力。<br>
+    <strong>其他業務</strong>（~19%收入）絕大部分是正在剝離的非核心零售資產，對利潤貢獻為負或微利。</div>
+
+  <div class="signal-normal">
+    <strong>隱憂：利潤來源過度集中。</strong>一旦淘天集團利潤下滑（市佔率繼續被拼多多／抖音侵蝕），集團的獲利基礎將被動搖。「只有一個人在賺錢養全家」的模式不可持續。</div>
+</div>
+
+<!-- ===== 四、SG&A暴增深度拆解 ===== -->
+<div class="card">
+  <h2><span class="num">四</span>營業費用暴增47.7%：深度拆解與歸因</h2>
+
+  <p>銷售及管理費用淨增<strong>898.5億元</strong>（1,882.6→2,781.1億元），是FY2026所有財務指標中<strong>最需要深入理解的數字</strong>。</p>
+
+  <h3>4.1 費用構成拆解（估計）</h3>
+  <table>
+    <tr><th>費用構成</th><th>估計增量（百萬CNY）</th><th>佔增量比例</th><th>說明</th></tr>
+    <tr>
+      <td class="td-left"><strong>行銷／推廣費用</strong></td>
+      <td>~40,000–50,000</td>
+      <td>~45–55%</td>
+      <td class="td-left">國際電商（AIDC）促銷補貼＋國內淘天價格戰補貼＋本地生活補貼</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>人員薪酬與福利</strong></td>
+      <td>~20,000–25,000</td>
+      <td>~22–28%</td>
+      <td class="td-left">裁員補償＋AI人才溢價＋海外業務人員擴張</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>重組／架構調整費用</strong></td>
+      <td>~10,000–15,000</td>
+      <td>~11–17%</td>
+      <td class="td-left">1+6+N 分拆產生的一次性法律／諮詢／系統遷移費用</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>其他（壞帳／資產減記等）</strong></td>
+      <td>~5,000–10,000</td>
+      <td>~6–11%</td>
+      <td class="td-left">應收款項增加導致的壞帳計提增加</td>
+    </tr>
+    <tr style="background:#fdf2f0;">
+      <td class="td-left"><strong>合計</strong></td>
+      <td><strong>~89,845</strong></td>
+      <td><strong>100%</strong></td>
+      <td class="td-left">營業費用從1,882.6億→2,781.1億（+47.7%）</td>
+    </tr>
+  </table>
+
+  <h3>4.2 外部視角：競爭對手的SG&A對比</h3>
+  <p>阿里巴巴SG&A佔營收比例從FY2025的<strong>18.9%</strong>暴增至FY2026的<strong>27.2%</strong>，增加了<strong>8.3個百分點</strong>在同樣面臨競爭的背景下：</p>
+  <ul>
+    <li><strong>拼多多（PDD）：</strong>營運費用率常年控制在~35-40%（含R&D），但結構不同——拼多多大量投入在Temu的海外行銷上</li>
+    <li><strong>騰訊：</strong>管理費用率約~15-18%，且持續下降（提質增效戰略）</li>
+    <li><strong>京東：</strong>履約加行銷費用率約15%，但京東自建物流模式與阿里不同</li>
+  </ul>
+  <div class="signal-alert">阿里是三大網際網路巨頭中<strong>唯一出現費用率大幅惡化的公司</strong>。騰訊在降本增效，拼多多在保持效率，而阿里在「效率倒退」。</div>
+
+  <h3>4.3 是否可逆轉？</h3>
+  <div class="signal-warn">
+    <strong>部分可逆轉，部分不可逆轉：</strong><br>
+    ✅ <strong>可逆轉部分（~30-40%）：</strong>重組費用是一次性的；部分國內補貼在份額企穩後可縮減；人員優化完成後薪酬增量將回落。<br>
+    ❌ <strong>不可逆轉部分（~60-70%）：</strong>國際電商的競爭格局決定了行銷投入將是長期性的（Temu/Shein不會退讓）；AI人才的薪酬水準已經被行業抬升；本地生活的補貼戰沒有盡頭。<br>
+    ⚠️ <strong>短期（FY2027）大概率營業費用仍將高位運行，難以回歸FY2025水準。</strong>
+  </div>
+</div>
+
+<!-- ===== 五、利息收入异常深度分析 ===== -->
+<div class="card">
+  <h2><span class="num">五</span>利息收入暴增321%：「會計魔術」還是真實收益？</h2>
+
+  <p>這是一個容易被忽視但極為關鍵的異常訊號。利息收入從<strong>207.7億元</strong>暴增至<strong>875.1億元</strong>（+321%），其背後隱藏著阿里在FY2026年的策略調整。</p>
+
+  <h3>5.1 利息收入的真實構成</h3>
+  <p>阿里財報中的「利息收入和投資淨收益」並非單純的銀行存款利息，而是涵蓋三大來源：</p>
+  <table>
+    <tr><th>來源</th><th>FY2025估計</th><th>FY2026估計</th><th>變化</th><th>可持續性</th></tr>
+    <tr>
+      <td class="td-left"><strong>① 銀行存款／理財利息</strong></td>
+      <td>約100億元</td>
+      <td>約150億元</td>
+      <td>+50億</td>
+      <td><span class="bad-up">✅ 可持續</span></td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>② 投資處分收益（變賣資產）</strong></td>
+      <td>~80億元</td>
+      <td>~500億元以上</td>
+      <td>+420億+</td>
+      <td><span class="bad-down">❌ 不可持續</span></td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>③ 聯營／合營公司分紅</strong></td>
+      <td>約20億元</td>
+      <td>~200億元以上</td>
+      <td>+180億元+</td>
+      <td><span class="bad-mid">⚠️ 部分可持續</span></td>
+    </tr>
+    <tr style="background:#fdf2f0;">
+      <td class="td-left"><strong>合計</strong></td>
+      <td><strong>約 207.7 億元</strong></td>
+      <td><strong>約875.1億</strong></td>
+      <td><strong>+667.4億元</strong></td>
+      <td><span class="bad-down">🔴 大部分不可持續</span></td>
+    </tr>
+  </table>
+
+  <h3>5.2 變賣了什麼資產？</h3>
+  <p>FY2026阿里加速了「瘦身」戰略，大規模處置非核心資產：</p>
+  <ul>
+    <li><strong>銀泰商業：</strong>完全出售，回籠大額現金</li>
+    <li><strong>高鑫零售：</strong>大幅減持／出售，確認投資收益</li>
+    <li><strong>部分上市公司股權：</strong>減持了部分持有的股票投資</li>
+    <li><strong>可能的螞蟻集團分紅：</strong>螞蟻集團在FY2026可能進行了大額分紅（阿里持有螞蟻約33%股權）</li>
+  </ul>
+
+  <h3>5.3 這是「會計魔術」嗎？</h3>
+  <div class="signal-alert">
+    <strong>不是會計造假，但屬於「資產變賣」。</strong>這些投資收益是真實的，反映了阿里「甩賣非核心資產、回籠現金」的戰略。但從經營質量角度看：<br><br>
+    <strong>核心問題：</strong>如果剔除這 ¥667.4 億的利息收入增量，營業利益只有 ¥501.5 億，而利息收入竟然超過了營業利益本身。這意味著阿里的<strong>核心電商業務的賺錢能力已被費用擴張基本吞噬殆盡</strong>，公司在依靠「賣資產」來維持利潤表的體面。<br><br>
+    <strong>巴菲特會怎麼看？</strong>他會非常警惕這種「主營業務利潤下降，靠投資變賣維持淨利潤」的模式——這類似於一家工廠透過賣機器設備來體現「盈利」，是不可持續的。</div>
+</div>
+
+<!-- ===== 六、资产负债表与现金流趋势 ===== -->
+<div class="card">
+  <h2><span class="num">六</span>資產負債表的質變：淨現金消耗</h2>
+
+  <p>儘管資產負債率僅41%，結構穩健，但資產質量正在發生質變——<strong>現金儲備急速下降，有息負債快速上升</strong>。</p>
+
+  <table>
+    <tr><th>關鍵指標（百萬CNY）</th><th>FY2024</th><th>FY2025</th><th>FY2026</th><th>兩年變化</th></tr>
+    <tr><td class="td-left">現金及短期投資</td><td>571,029</td><td>428,093</td><td><span class="hl-red">316,894</span></td><td>-254,135</td></tr>
+    <tr><td class="td-left">有息負債</td><td>170,776</td><td>230,703</td><td><span class="hl-red">259,996</span></td><td>+89,220</td></tr>
+    <tr><td class="td-left"><strong>淨現金</strong></td><td><span class="hl-green">400,253</span></td><td><span class="hl-amber">197,390</span></td><td><span class="hl-red"><strong>56,898</strong></span></td><td><span class="bad-down">🔴 -343,355</span></td></tr>
+    <tr><td class="td-left">長期投資</td><td>424,073</td><td>566,987</td><td>656,745</td><td>+232,672</td></tr>
+    <tr><td class="td-left">商譽</td><td>259,679</td><td>255,501</td><td>247,378</td><td>-12,301</td></tr>
+  </table>
+
+  <div class="signal-alert">
+    <strong>淨現金從¥4,002.5億驟降至¥569億：</strong>兩年內消耗了¥3,433.6億現金儲備。按照這個速度，FY2027可能完全由淨現金狀態轉為淨負債狀態。<br><br>
+    <strong>現金消耗去向：</strong><br>- 資本支出擴張（AI／雲端基建）：¥1,260.6億<br>- 國際業務虧損：估計約300-400億<br>- 回購減少（FY2026僅¥76.4億，FY2025有¥866.6億）<br>- 分紅增加（¥337.3億）</div>
+
+  <div class="signal-warn">
+    <strong>正面訊號：</strong>長期投資從¥4,240.7億增至¥6,567.5億（+¥2,326.7億），說明阿里在「變現」短期現金的同時，在「囤積」長期戰略投資（可能包括私有化投資、AI初創企業持股等）。資產形式從「現金」轉向了「股權」。如果這些投資未來能產生回報，當前的現金消耗是值得的。</div>
+</div>
+
+<!-- ===== 七、五年来趋势总结 ===== -->
+<div class="card">
+  <h2><span class="num">七</span>五年趨勢總結（FY2022–FY2026）</h2>
+
+  <table>
+    <tr><th>會計年度</th><th>營收（百萬）</th><th>增速</th><th>營業利益</th><th>營業利益率</th><th>歸母淨利潤</th><th>FCF</th></tr>
+    <tr><td>FY2022</td><td>853,062</td><td>+18.93%</td><td>69,638</td><td>8.16%</td><td>61,959</td><td>89,450</td></tr>
+    <tr><td>FY2023</td><td>868,687</td><td>+1.83%</td><td>100,351</td><td>11.55%</td><td>72,509</td><td>165,422</td></tr>
+    <tr><td>FY2024</td><td>941,168</td><td>+8.34%</td><td>113,350</td><td>12.04%</td><td>79,741</td><td>150,506</td></tr>
+    <tr><td>FY2025</td><td>996,347</td><td>+5.86%</td><td>140,905</td><td>14.14%</td><td>129,470</td><td>77,537</td></tr>
+    <tr style="background:#fdf2f0;font-weight:700;">
+      <td>FY2026</td><td>1,023,670</td><td>+2.74%</td><td>50,150</td><td>4.90%</td><td>105,904</td><td>-49,850</td></tr>
+  </table>
+
+  <div class="signal-warn">
+    <strong>關鍵趨勢洞察：</strong><br>
+    <strong>① 收入翻倍後的失速：</strong>從FY2017的~1,582億到FY2026的10,237億，10年成長6.5倍。但增速從20%+級別斷崖式滑落至2.74%，成長故事已結束。<br>
+    <strong>② 利潤率波動劇烈：</strong>營業利益率在 8%~14% 之間來回擺動，缺乏穩定的利潤率趨勢——這不符合巴菲特的「可預測性」標準。<br>
+    <strong>③ FCF 從高峯到谷底：</strong>FY2023 的 FCF（1,654 億）曾是阿里最閃亮的招牌（自由現金流甚至超過稅後淨利），但 FY2026 首次轉負，跌幅不可謂不慘烈。<br>
+    <strong>④ 唯一向好趨勢：</strong>毛利率從36.76%→39.81%（+3.05pp/5年），雖然緩慢但穩步提升——說明收入結構在向高毛利業務（雲端運算、國際電商）傾斜。</div>
+</div>
+
+<!-- ===== 八、管理层战略评估 ===== -->
+<div class="card">
+  <h2><span class="num">八</span>管理層戰略評估：「瘦身」與「出海」的代價</h2>
+
+  <h3>8.1 策略轉型背景</h3>
+  <p>FY2026 是阿里「1+6+N」組織架構改革後的第一個完整財年。核心戰略包括：</p>
+  <ul>
+    <li><strong>聚焦核心：</strong>剝離銀泰、高鑫零售等非核心零售資產，回籠資金</li>
+    <li><strong>出海擴張：</strong>AIDC（Lazada/AliExpress/Trendyol）投入重金搶佔海外市場</li>
+    <li><strong>AI 驅動：</strong>阿里雲＋通義千問大模型，聚焦 AI 基礎設施投資</li>
+    <li><strong>低價策略：</strong>淘天集團回歸「低價」策略，應對拼多多挑戰</li>
+  </ul>
+
+  <h3>8.2 策略效果評價</h3>
+  <table>
+    <tr><th>戰略</th><th>短期效果</th><th>長期前景</th><th>評價</th></tr>
+    <tr>
+      <td class="td-left">剝離非核心資產</td>
+      <td><span class="hl-amber">✅ 回收資金，美化利潤</span></td>
+      <td><span class="hl-green">✅ 聚焦核心</span></td>
+      <td><span class="bad-up">正確方向</span></td>
+    </tr>
+    <tr>
+      <td class="td-left">國際電商擴張</td>
+      <td><span class="hl-red">❌ 巨額虧損，SG&A惡化</span></td>
+      <td><span class="hl-amber">⚠️ 取決於競爭格局</span></td>
+      <td><span class="bad-mid">必要但代價高</span></td>
+    </tr>
+    <tr>
+      <td class="td-left">AI／雲端基建</td>
+      <td><span class="hl-red">❌ 資本支出大增，自由現金流承壓</span></td>
+      <td><span class="hl-green">✅ 長期成長引擎</span></td>
+      <td><span class="bad-up">戰略正確，短期陣痛</span></td>
+    </tr>
+    <tr>
+      <td class="td-left">低價策略</td>
+      <td><span class="hl-red">❌ 利潤受損</span></td>
+      <td><span class="hl-amber">⚠️ 不可持續</span></td>
+      <td><span class="bad-down">值得商榷</span></td>
+    </tr>
+  </table>
+
+  <div class="signal-warn">
+    <strong>管理層面臨的悖論：</strong>阿里當前處於「不投入等死，投入找死」的兩難境地。不投入國際和AI，3-5年後必被超越；投入則短期利潤和現金流承壓。這需要極強的執行力來平衡長短期的取捨。</div>
+</div>
+
+<!-- ===== 九、关键指标预警 ===== -->
+<div class="card">
+  <h2><span class="num">九</span>關鍵財務指標預警</h2>
+
+  <table>
+    <tr><th>預警項</th><th>狀態</th><th>說明</th></tr>
+    <tr>
+      <td class="td-left"><strong>營業費用失控風險</strong></td>
+      <td><span class="bad-down">🔴 嚴重</span></td>
+      <td class="td-left">營業費用率從18.9%→27.2%，若不回落至約20%以內，營業利益難以恢復</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>自由現金流持續為負</strong></td>
+      <td><span class="bad-down">🔴 嚴重</span></td>
+      <td class="td-left">若FY2027自由現金流持續為負，淨現金將耗盡，可能被迫停止回購或削減分紅</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>利息收入依賴</strong></td>
+      <td><span class="bad-down">🔴 嚴重</span></td>
+      <td class="td-left">FY2026 歸母淨利中約 ¥667 億來自利息收入增量（不可持續），剔除後核心盈利堪憂</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>營收增速<GDP</strong></td>
+      <td><span class="bad-down">🔴 嚴重</span></td>
+      <td class="td-left">2.74% < 5% GDP增速，作为电商龙头已\"跑输大盘\"</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>淘天集團市場份額</strong></td>
+      <td><span class="bad-mid">🟡 需關注</span></td>
+      <td class="td-left">市佔率從約 50% 以上下滑至約 45% 以下，拼多多與抖音持續搶佔</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>AIDC 虧損持續</strong></td>
+      <td><span class="bad-mid">🟡 需關注</span></td>
+      <td class="td-left">國際業務何時獲利？Temu競爭下可能3-5年無法獲利</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>商譽減值風險</strong></td>
+      <td><span class="bad-mid">🟡 需關注</span></td>
+      <td class="td-left">商譽¥2,473.8億，若收購業務（如Lazada）持續虧損，存在減值可能</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>淨現金快速消耗</strong></td>
+      <td><span class="bad-mid">🟡 需關注</span></td>
+      <td class="td-left">淨現金從¥4,002.5億→¥569億，若持續惡化可能影響償債評級</td>
+    </tr>
+    <tr>
+      <td class="td-left"><strong>回購大幅縮減</strong></td>
+      <td><span class="bad-mid">🟡 需關注</span></td>
+      <td class="td-left">回購從¥866.6億→¥76.4億（-91.2%），管理層對自身價值信心下降</td>
+    </tr>
+  </table>
+</div>
+
+<!-- ===== 十、总结 ===== -->
+<div class="card" style="background:#fdf2f0; border:1px solid #e8c0be;">
+  <h2><span class="num">十</span>結論</h2>
+
+  <div class="verdict-box alert">
+    <span>⛔</span>
+    <span>FY2026是阿里巴巴「失守」的一年</span>
+    <span class="detail">營業費用失控 · 自由現金流轉負 · 利息收入「託底」</span>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:16px 0;">
+    <div style="background:#fde8e8; border-radius:8px; padding:16px;">
+      <div style="font-size:0.8rem; color:#7f8c9b;">🔴 核心風險</div>
+      <ul style="font-size:0.85rem; margin-top:8px; padding-left:16px;">
+        <li>營業費用失控——營業利益率從14%→5%</li>
+        <li>自由現金流首度轉負——印鈔機變燒錢機</li>
+        <li>利息收入支撐——核心盈利實質惡化</li>
+        <li>營收增速<GDP——增长故事结束</li>
+        <li>淨現金急劇消耗——只剩569億</li>
+      </ul>
+    </div>
+    <div style="background:#eafaf1; border-radius:8px; padding:16px;">
+      <div style="font-size:0.8rem; color:#7f8c9b;">🟢 正面因素</div>
+      <ul style="font-size:0.85rem; margin-top:8px; padding-left:16px;">
+        <li>毛利率穩定約40%，收入結構在改善</li>
+        <li>資產負債率僅41%，總體穩健</li>
+        <li>雲端運算加 AI 趨勢正確，長期可期</li>
+        <li>國際電商成長迅猛（+25-30%）</li>
+        <li>戰略聚焦「瘦身」，剝離非核心</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>🔍 核心矛盾：「賺錢的人太少，花錢的人太多」</h3>
+  <p>阿里巴巴的問題不是一個簡單的「費用控制」問題，而是結構性的商業模式困境：</p>
+  <ul>
+    <li><strong>只有淘天集團</strong>真正賺錢的只有一項，其餘6大業務板塊（AIDC／雲端／菜鳥／本地生活／大文娛／其他）不是微利，就是巨額虧損</li>
+    <li><strong>國內電商的「被動防守」：</strong>淘天集團每年要花數百億來應對拼多多和抖音的進攻，而這些進攻方天然沒有「歷史包袱」（不需要維護舊體系）</li>
+    <li><strong>國際化是「必要的賭博」：</strong>不出海就會在國內慢慢消亡，但出海意味著3-5年甚至更長的虧損期</li>
+    <li><strong>AI 的「軍備競賽」：</strong>不投AI會被時代拋棄，投AI則需要在資本支出和自由現金流之間痛苦平衡</li>
+  </ul>
+
+  <div class="signal-alert">
+    <strong>對投資論文的影響：</strong>阿里FY2026年報強烈驗證了「成長褪色」、「護城河侵蝕」的判斷。七條硬指標中僅通過3/7，FY2027的關鍵看點在於：(1) SG&A能否下降；(2) FCF能否回正；(3) 利息收入回落後的真實利潤水準。除非FY2027出現顯著的經營拐點，否則阿里的「價值陷阱」風險在加大。</div>
+
+  <h3>📋 需要追蹤的FY2027關鍵指標</h3>
+  <ol style="padding-left:20px; margin:10px 0;">
+    <li><strong>銷售及管理費用率</strong>— 是否從27.2%回落至~22%以下</li>
+    <li><strong>FCF</strong>— 能否轉正（CapEx 控制＋OCF 改善）</li>
+    <li><strong>淘天集團收入增速</strong>— 能否企穩不再下滑</li>
+    <li><strong>AIDC 虧損幅度</strong>— 虧損是否開始收斂</li>
+    <li><strong>淨現金</strong>— 是否進一步消耗至零以下</li>
+    <li><strong>利息收入</strong>— 處置資產收益消退後的真實利潤</li>
+  </ol>
+</div>
+
+<div class="footer">報告生成日期：2026/07/07<br>資料來源：阿里巴巴FY2026年報 &middot; stockanalysis.com<br>本報告僅供參考，不構成投資建議</div>
+
+</div>
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>簡</span><span class="full"><span>簡體中文</span></span></a><a class="lang hant active" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

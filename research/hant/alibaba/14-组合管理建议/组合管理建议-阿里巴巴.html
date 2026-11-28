@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組合管理建議 — 阿里巴巴 | 騰訊 | 拼多多 三公司組合管理</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f5f7fa; color: #1a2332; line-height: 1.8;
+    padding: 0;
+  }
+  .hero {
+    background: linear-gradient(135deg, #8B0000 0%, #B22222 100%);
+    color: #fff; padding: 64px 24px 48px; text-align: center;
+  }
+  .hero h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: 2px; }
+  .hero .subtitle { font-size: 1rem; font-weight: 300; margin-top: 8px; opacity: .85; }
+  .hero .quote { margin-top: 20px; font-size: .85rem; font-style: italic; opacity: .8; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .container { max-width: 920px; margin: 0 auto; padding: 32px 20px 64px; }
+  .card {
+    background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    padding: 28px 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 1.3rem; font-weight: 700; color: #8B0000;
+    border-left: 4px solid #8B0000; padding-left: 14px; margin-bottom: 18px;
+  }
+  .card h3 { font-size: 1rem; font-weight: 600; color: #2c3e50; margin: 16px 0 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: .85rem; margin: 12px 0; }
+  th { background: #f0e6e6; color: #8B0000; font-weight: 600; padding: 10px 8px; text-align: center; border: 1px solid #dce4ed; }
+  td { padding: 10px 8px; text-align: center; border: 1px solid #e8edf3; }
+  tr:nth-child(even) { background: #fdfafa; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: .75rem; font-weight: 600; }
+  .tag-green { background: #e8f5e9; color: #27ae60; }
+  .tag-yellow { background: #fff3e0; color: #e67e22; }
+  .tag-red { background: #fee; color: #c0392b; }
+  .tag-blue { background: #e3f2fd; color: #1976d2; }
+  .tag-gray { background: #f0f0f0; color: #666; }
+  .role-box { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+  .role-item { flex: 1; min-width: 180px; background: #f9fbfd; border-radius: 8px; padding: 16px; text-align: center; }
+  .role-item .role-label { font-size: .8rem; color: #7f8c8d; }
+  .role-item .role-value { font-size: 1.2rem; font-weight: 700; margin-top: 4px; }
+  .alert-box { border-radius: 8px; padding: 16px; margin: 8px 0; font-size: .85rem; }
+  .alert-red { background: #fee; border-left: 4px solid #c0392b; }
+  .alert-yellow { background: #fff3e0; border-left: 4px solid #e67e22; }
+  .alert-green { background: #e8f5e9; border-left: 4px solid #27ae60; }
+  .alert-blue { background: #e3f2fd; border-left: 4px solid #1976d2; }
+  .summary-box {
+    background: linear-gradient(135deg, #fce4e4, #fff0f0);
+    border: 2px solid #8B0000; border-radius: 12px;
+    padding: 24px; text-align: center;
+  }
+  .summary-box .big { font-size: 1.3rem; font-weight: 700; color: #8B0000; }
+  .summary-box .small { font-size: .85rem; color: #555; margin-top: 8px; }
+  .compare-grid { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+  .compare-item { flex: 1; min-width: 240px; border-radius: 10px; padding: 18px; }
+  .compare-item h4 { font-size: .95rem; font-weight: 700; margin-bottom: 8px; }
+  .compare-item ul { list-style: none; padding: 0; font-size: .8rem; }
+  .compare-item ul li { padding: 4px 0; border-bottom: 1px solid rgba(0,0,0,.05); }
+  .compare-item ul li:last-child { border-bottom: none; }
+  .compare-tencent { background: #e3f2fd; border: 2px solid #1976d2; }
+  .compare-pdd { background: #e8f5e9; border: 2px solid #27ae60; }
+  .compare-baba { background: #fce4e4; border: 2px solid #c0392b; }
+  .verdict-box {
+    background: linear-gradient(135deg, #e3f2fd, #e8f5e9);
+    border: 2px solid #1976d2; border-radius: 12px;
+    padding: 24px; text-align: center;
+  }
+  .verdict-box .big { font-size: 1.5rem; font-weight: 900; color: #1976d2; }
+  .verdict-box .small { font-size: .85rem; color: #555; margin-top: 8px; }
+  .footer { text-align: center; font-size: .8rem; color: #95a5a6; padding: 32px 20px; border-top: 1px solid #e8edf3; }
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.5rem; }
+    .container { padding: 16px 12px 48px; }
+    .card { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>📊 投資組合管理建議 — 三公司中國網路投資組合</h1>
+  <div class="subtitle">阿里巴巴 (BABA) ｜ 騰訊 (0700.HK) ｜ 拼多多 (PDD) ｜ 偵察日期 2026/07/07</div>
+  <div class="quote">「分散投資是對無知的保護。如果你知道自己在做什麼，分散投資就沒有意義。」— 巴菲特<br>「我這輩子見過的真正好的投資機會，十根手指就數得完。」— 李錄</div>
+</div>
+<div class="container">
+
+  <!-- 核心问题1：如果只能买一家 -->
+  <div class="card">
+    <h2>🎯 一、如果只能買一家中國網路公司，選誰？</h2>
+    <div class="verdict-box">
+      <div class="big">🏆 首選：騰訊控股 (0700.HK)</div>
+      <div class="small">不是估值最低的（PDD PE~9x 更低），不是看起來最便宜的（BABA PB~0.22），而是確定性最高的。</div>
+    </div>
+    <h3>為什麼是騰訊？</h3>
+    <table>
+      <tr><th>維度</th><th>騰訊</th><th>阿里巴巴</th><th>拼多多</th></tr>
+      <tr><td>護城河</td><td><span class="tag tag-blue">★★★★★ 極寬</span><br>微信生態不可替代</td><td><span class="tag tag-yellow">★★★☆☆ 被侵蝕</span><br>電商份額被蠶食</td><td><span class="tag tag-green">★★★★☆ 較寬</span><br>下沉市場統治力</td></tr>
+      <tr><td>盈利品質</td><td><span class="tag tag-blue">★★★★★ 優秀</span><br>營業利益率約 30%</td><td><span class="tag tag-red">★★☆☆☆ 惡化</span><br>利潤率從14%→5%</td><td><span class="tag tag-green">★★★★☆ 良好</span><br>淨利率約 23%</td></tr>
+      <tr><td>FCF</td><td><span class="tag tag-blue">★★★★★ ¥2,305億</span><br>充裕的現金生成</td><td><span class="tag tag-red">★☆☆☆☆ 轉負</span><br>-498.5億元</td><td><span class="tag tag-green">★★★★★ ¥1,000億+</span><br>印鈔機級</td></tr>
+      <tr><td>股東回報</td><td><span class="tag tag-blue">★★★★★ 千億回購</span><br>慷慨且持續</td><td><span class="tag tag-red">★★☆☆☆ 回購崩落</span><br>-91.2%至¥76億</td><td><span class="tag tag-yellow">★★★☆☆ 一般</span><br>回購力度不足</td></tr>
+      <tr><td>管理層確定性</td><td><span class="tag tag-blue">★★★★☆ 中高</span><br>小馬哥穩定領導</td><td><span class="tag tag-yellow">★★★☆☆ 不確定</span><br>更迭中＋戰略搖擺</td><td><span class="tag tag-green">★★★★☆ 高</span><br>黃崢主導聚焦</td></tr>
+      <tr><td>成長確定性</td><td><span class="tag tag-blue">★★★★☆ 高</span><br>AI＋出海催化劑</td><td><span class="tag tag-yellow">★★★☆☆ 中等</span><br>雲端 AI 方向正確但燒錢</td><td><span class="tag tag-yellow">★★★☆☆ 有分歧</span><br>Temu 成敗未定</td></tr>
+    </table>
+    <div class="alert-box alert-blue">
+      <strong>核心論斷：</strong>騰訊在「好生意」（高 ROE＋寬護城河）、「好管理」（穩定＋股東友好）、「好價格」（PE 約 15 倍歷史低位）三個維度同時達標，這在當前中國網路公司中獨一無二。拼多多是更好的「深度價值＋看漲期權」標的，但純看生意確定性，騰訊最優。</div>
+  </div>
+
+  <!-- 三维对比概览 -->
+  <div class="card">
+    <h2>📊 二、三公司三維對比總覽</h2>
+    <table>
+      <tr><th>指標</th><th>阿里巴巴 (BABA)</th><th>騰訊 (0700.HK)</th><th>拼多多 (PDD)</th></tr>
+      <tr><td><strong>PE (TTM)</strong></td><td>~15.35x</td><td>~15.19x</td><td>~9x</td></tr>
+      <tr><td><strong>PB</strong></td><td>~0.22x ⚠️ 跌破淨值</td><td>~4.8x</td><td>~4.0x</td></tr>
+      <tr><td><strong>營業利益率</strong></td><td>4.90% 🔴 崩跌</td><td>~30% ✅ 行業標竿</td><td>~28% ✅ 優秀</td></tr>
+      <tr><td><strong>FCF (CNY)</strong></td><td>-498.5億 🔴 轉負</td><td>+2,305億 ✅ 充沛</td><td>+1,000億+ ✅ 強勁</td></tr>
+      <tr><td><strong>淨現金 (CNY)</strong></td><td>569億 ⚠️ 急劇消耗</td><td>充沛 ✅</td><td>佔市值約50% ✅ 極厚</td></tr>
+      <tr><td><strong>營收增速</strong></td><td>+2.74% 🔴 停滯</td><td>~+10% ✅ 穩健</td><td>~+50%+ ✅ 高成長</td></tr>
+      <tr><td><strong>營業費用／營收</strong></td><td>27.2% 🔴 失控</td><td>~10% ✅ 控制好</td><td>~35% ⚠️ 偏高但有效</td></tr>
+      <tr><td><strong>護城河寬度</strong></td><td>被侵蝕中</td><td>社交堡壘穩固</td><td>下沉市場統治力</td></tr>
+      <tr><td><strong>股東回報</strong></td><td>❌ 回購大降91%</td><td>✅ 千億元回購</td><td>⚠️ 有限回購</td></tr>
+      <tr><td><strong>組合角色</strong></td><td><span class="tag tag-red">困境反轉型</span></td><td><span class="tag tag-blue">核心持有型</span></td><td><span class="tag tag-green">深度價值＋期權</span></td></tr>
+    </table>
+    <div class="alert-box alert-yellow">
+      <strong>關鍵發現：</strong>阿里的PE看起來和騰訊相當（~15x），但盈利質量差異巨大——騰訊的15x是優質利潤的15x，阿里的15x是FCF轉負、營業利益率只剩5%的15x。用<strong>P/FCF</strong>衡量，騰訊約 22 倍，阿里則為負數（負自由現金流）。<strong style="color:#c0392b;">阿里並不比騰訊便宜。</strong>
+    </div>
+  </div>
+
+  <!-- 仓位分配 -->
+  <div class="card">
+    <h2>⚖️ 三、三家公司倉位分配方案</h2>
+
+    <h3>組合定位框架</h3>
+    <table>
+      <tr><th>公司</th><th>組合角色</th><th>核心邏輯</th></tr>
+      <tr>
+        <td><strong>騰訊 (0700.HK)</strong></td>
+        <td><span class="tag tag-blue">🏛️ 核心持有</span></td>
+        <td>最佳生意品質 — 護城河最寬、盈利最穩、股東回報最慷慨。組合的「壓艙石」。</td>
+      </tr>
+      <tr>
+        <td><strong>拼多多 (PDD)</strong></td>
+        <td><span class="tag tag-green">🎯 深度價值+成長期權</span></td>
+        <td>極低估值提供安全邊際（PE~9x）＋淨現金佔市值50%。Temu是免費看漲期權。</td>
+      </tr>
+      <tr>
+        <td><strong>阿里巴巴 (BABA)</strong></td>
+        <td><span class="tag tag-red">🔄 困境反轉型</span></td>
+        <td>PB約0.22極端低估，但自由現金流轉負且競爭惡化。需觀察SG&A能否控制、自由現金流能否轉正。</td>
+      </tr>
+    </table>
+
+    <h3>建議倉位分配</h3>
+    <table>
+      <tr><th>投資者類型</th><th>騰訊</th><th>拼多多</th><th>阿里巴巴</th><th>中國網路合計</th></tr>
+      <tr><td>🟢 保守型</td><td><strong>8-10%</strong></td><td><strong>5-8%</strong></td><td><strong>3-5%</strong></td><td><strong>16-23%</strong></td></tr>
+      <tr><td>🟡 平衡型</td><td><strong>12-15%</strong></td><td><strong>10-12%</strong></td><td><strong>5-8%</strong></td><td><strong>27-35%</strong></td></tr>
+      <tr><td>🔴 進取型</td><td><strong>15-20%</strong></td><td><strong>12-15%</strong></td><td><strong>8-10%</strong></td><td><strong>35-45%</strong></td></tr>
+    </table>
+
+    <div class="alert-box alert-red">
+      <strong>⚠️ 硬性限制：</strong>中國網路三家公司合計倉位不應超過總組合的<strong>40%</strong>（進取型）~<strong>25%</strong>（保守型）。中國網際網路受共同宏觀因素（政策、經濟、地緣政治）驅動，市場風險高度同質化，過度集中將失去分散化意義。</div>
+
+    <h3>權重邏輯說明</h3>
+    <table>
+      <tr><th>排序</th><th>公司</th><th>權重比例（平衡型）</th><th>邏輯</th></tr>
+      <tr><td>🥇 最大</td><td>騰訊</td><td>12-15%</td><td>確定性最高＋盈利品質最好。在「選擇一家」框架中首選。</td></tr>
+      <tr><td>🥈 第二大</td><td>拼多多</td><td>10-12%</td><td>賠率最高（極低估值＋巨大上行空間）。用低確定性換高賠率。</td></tr>
+      <tr><td>🥉 最小</td><td>阿里巴巴</td><td>5-8%</td><td>困境反轉邏輯。PB~0.22 是極端低估的訊號，但不是買入的理由——需等基本面企穩。</td></tr>
+    </table>
+
+    <div class="alert-box alert-yellow">
+      <strong>阿里的持倉應該比騰訊大還是小？</strong><br><br>
+      <strong>小，而且應該小得多。</strong>建議比例：<strong>騰訊 : 阿里 = 2:1 ~ 3:1</strong>。<br><br>
+      <strong>理由：</strong><br>① 盈利品質：騰訊營業利益率約30%，阿里僅4.9%——阿里需要2-3年纔可能回到騰訊的盈利水準<br>② FCF：騰訊 FCF ¥2,305 億，阿里 FCF 為負——阿里在「燒錢」，騰訊在「印錢」<br>③ 確定性：騰訊的微信生態護城河未受影響，阿里的電商壁壘正被拼多多和抖音侵蝕<br>④ 股東回報：騰訊千億回購推高每股內在價值，阿里回購大降91%<br>⑤ 阿里唯一的優勢是 PB 約 0.22 倍的極端低價，但低 PB 本身不值得投資——它必須有基本面修復作為催化劑<br><br>
+      <strong>底線：</strong>給阿里倉位超過騰訊的邏輯基礎不成立。除非阿里的SG&A回歸正常水平（從27%降至<18%）且FCF转正，否则阿里只能作为"小仓位困境反转对赌"。
+    </div>
+  </div>
+
+  <!-- 集中度管理 -->
+  <div class="card">
+    <h2>🎯 四、整體組合集中度管理</h2>
+
+    <h3>集中度約束框架</h3>
+    <table>
+      <tr><th>層級</th><th>約束</th><th>說明</th></tr>
+      <tr><td>單一股票上限</td><td><strong>≤ 20%</strong></td><td>即使極度看好，也要保留「萬一錯了」的餘地</td></tr>
+      <tr><td>中國網路合計</td><td><strong>≤ 40%</strong></td><td>宏觀同質化（政策、經濟、地緣政治三重驅動）</td></tr>
+      <tr><td>中概股（含港股通）</td><td><strong>≤ 50%</strong></td><td>中概股特殊風險：退市風險、資本管制、資訊不對稱</td></tr>
+      <tr><td>單一行業曝險</td><td><strong>≤ 40%</strong></td><td>電商＋社交＋廣告高度互相關聯</td></tr>
+    </table>
+
+    <h3>相關性矩陣與風險管理</h3>
+    <table>
+      <tr><th></th><th>騰訊</th><th>拼多多</th><th>阿里巴巴</th><th>建議對沖</th></tr>
+      <tr><td><strong>騰訊</strong></td><td>1.00</td><td>0.55~0.65</td><td>0.65~0.75</td><td>搭配A股消費龍頭（茅臺／五糧液）、美債</td></tr>
+      <tr><td><strong>拼多多</strong></td><td>0.55~0.65</td><td>1.00</td><td>0.70~0.80</td><td>搭配美股科技（Meta／Google）、防禦股</td></tr>
+      <tr><td><strong>阿里巴巴</strong></td><td>0.65~0.75</td><td>0.70~0.80</td><td>1.00</td><td>搭配雲端運算ETF（SKYY）、納指100</td></tr>
+    </table>
+    <p style="font-size:.8rem;color:#666;margin-top:4px;">註：相關性係數0.6+屬於高相關，將降低分散化效果。三家公司的股票同時下跌的風險真實存在，必須用宏觀對沖管理。</p>
+
+    <h3>互補資產建議</h3>
+    <table>
+      <tr><th>互補方向</th><th>標的建議</th><th>互補邏輯</th></tr>
+      <tr><td>A股消費龍頭</td><td>貴州茅臺、五糧液</td><td>中國網路與實體消費雙核心，相關性約 0.35</td></tr>
+      <tr><td>美股科技平臺</td><td>Meta、Google、Amazon</td><td>分散中概股集中風險，同屬全球數位廣告受益者</td></tr>
+      <tr><td>港股高股息</td><td>中國移動、中海油</td><td>高息低波動，對沖成長型波動</td></tr>
+      <tr><td>美國公債／國債</td><td>短期國債、TIPS</td><td>極端風險下提供組合緩衝墊</td></tr>
+    </table>
+  </div>
+
+  <!-- 各公司再平衡条件 -->
+  <div class="card">
+    <h2>🔄 五、各公司再平衡條件</h2>
+
+    <h3>騰訊 — 再平衡條件</h3>
+    <table>
+      <tr><th>情境</th><th>操作</th><th>說明</th></tr>
+      <tr><td>PE跌至≤12x（約HK$390以下）</td><td><span class="tag tag-green">加碼至上限20%</span></td><td>歷史底部區間，逆向投資甜蜜點</td></tr>
+      <tr><td>本益比升至18-20倍（約HK$580-650）</td><td><span class="tag tag-yellow">維持中樞倉位</span></td><td>估值正常化，繼續持有</td></tr>
+      <tr><td>本益比升至≥22x（~HK$700+）</td><td><span class="tag tag-yellow">減至8-10%</span></td><td>樂觀情景達標，鎖定部分利潤</td></tr>
+      <tr><td>回撤≥20%（從成本價）</td><td><span class="tag tag-yellow">啟動復盤</span></td><td>檢查基本面是否惡化</td></tr>
+      <tr><td>AI變現連續2季超預期</td><td><span class="tag tag-green">加倉2-3%</span></td><td>成長性重估驅動</td></tr>
+      <tr><td>美國制裁實體清單</td><td><span class="tag tag-red">立即清倉</span></td><td>極端尾部風險</td></tr>
+    </table>
+
+    <h3>拼多多 — 再平衡條件</h3>
+    <table>
+      <tr><th>情境</th><th>操作</th><th>說明</th></tr>
+      <tr><td>股價漲至$120+</td><td><span class="tag tag-yellow">減至基準倉位</span></td><td>PE~13x，估值修復基本完成</td></tr>
+      <tr><td>股價跌至$50-60</td><td><span class="tag tag-green">加碼至上限</span></td><td>本益比約 5 至 6 倍，淨現金佔比超過 70%，極度低估</td></tr>
+      <tr><td>Temu盈利超預期</td><td><span class="tag tag-green">加倉至上限</span></td><td>第二成長曲線確認</td></tr>
+      <tr><td>國內盈利持續下滑</td><td><span class="tag tag-red">減倉</span></td><td>核心業務惡化，需重審論文</td></tr>
+      <tr><td>PE修復至20x+</td><td><span class="tag tag-yellow">減至半倉</span></td><td>估值已充分反映價值</td></tr>
+    </table>
+
+    <h3>阿里巴巴 — 再平衡條件</h3>
+    <table>
+      <tr><th>情境</th><th>操作</th><th>說明</th></tr>
+      <tr><td>營業費用／營收從27%降至<20%（连续2季）</td><td><span class="tag tag-green">加碼至10%</span></td><td>管理層證明瞭成本控制能力</td></tr>
+      <tr><td>自由現金流由負轉正</td><td><span class="tag tag-green">加倉至12%</span></td><td>基本面拐點確認</td></tr>
+      <tr><td>股價跌至$60以下（PB<0.15）</td><td><span class="tag tag-yellow">小量加倉（<3%）</span></td><td>極端低估，但需控制風險暴露</td></tr>
+      <tr><td>淘天GMV增速連續2季>5%</td><td><span class="tag tag-green">加倉2-3%</span></td><td>核心電商企穩訊號</td></tr>
+      <tr><td>淨現金進一步消耗至<¥200亿</td><td><span class="tag tag-red">減倉至零</span></td><td>資產負債表安全邊際消失</td></tr>
+      <tr><td>回購恢復至¥500億+/年</td><td><span class="tag tag-green">加碼至10%+</span></td><td>管理層利益與股東一致</td></tr>
+      <tr><td>大文娛／非核心資產繼續拖累</td><td><span class="tag tag-red">減倉至<5%</span></td><td>管理層策略執行能力存疑</td></tr>
+    </table>
+
+    <div class="alert-box alert-red">
+      <strong>🚨 阿里最關鍵的兩個觀察指標：</strong><br>
+      ① <strong>營業費用／營收比率</strong>：目前27.2%，必須降至<20%。这是管理层成本控制能力的终极测试。<br>
+      ② <strong>自由現金流方向</strong>：目前為 -¥498.5億，必須轉正。若 12 個月內無法轉正，阿里的「淨現金」（¥569億）將在 2 年內耗盡。</div>
+  </div>
+
+  <!-- 各公司投资论文与催化剂 -->
+  <div class="card">
+    <h2>📜 六、各公司投資論文與催化劑監控</h2>
+
+    <table>
+      <tr><th>維度</th><th>騰訊</th><th>拼多多</th><th>阿里巴巴</th></tr>
+      <tr>
+        <td><strong>投資論文</strong></td>
+        <td>微信生態壁壘不可替代 + AI 變現加速 + 千億回購推升每股價值</td>
+        <td>國內自由現金流印鈔機 + 淨現金50%市值安全邊際 + Temu免費看漲期權</td>
+        <td>PB約0.22 極端低估困境反轉。需SG&A回歸＋FCF轉正</td>
+      </tr>
+      <tr>
+        <td><strong>催化劑</strong></td>
+        <td>①混元大模型商業化超預期<br>②影音號廣告增量<br>③遊戲版號常態化+爆款<br>④美聯準降息推升中概股</td>
+        <td>①Temu首次盈利<br>②國內利潤持續超預期<br>③回購力度加大<br>④納入港股通／指數</td>
+        <td>①SG&A大幅下降<br>②自由現金流轉正<br>③阿里雲 AI 收入超預期<br>④分拆／剝離非核心資產</td>
+      </tr>
+      <tr>
+        <td><strong>核心風險</strong></td>
+        <td>宏觀疲軟＋監管回潮＋AI投入回報週期長</td>
+        <td>Temu 持續燒錢＋地緣政治（TikTok 模式風險）</td>
+        <td>價值陷阱（SG&A降不下來）＋競爭加劇＋淨現金耗盡</td>
+      </tr>
+      <tr>
+        <td><strong>論文失效訊號</strong></td>
+        <td>微信MAU連續下降2季</td>
+        <td>國內業務營業利益率<15%</td>
+        <td>銷售及管理費用連續4季在20%以上</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 综合建议 -->
+  <div class="card">
+    <h2>💡 七、綜合建議</h2>
+
+    <div class="verdict-box">
+      <div class="big">騰訊核心持有 + 拼多多價值底倉 + 阿里巴巴困境小倉</div>
+      <div class="small">平衡型建議倉位：騰訊 12-15% ｜ 拼多多 10-12% ｜ 阿里巴巴 5-8%</div>
+    </div>
+
+    <h3>操作路線圖</h3>
+    <div style="background:#f8f9fb;border:1px solid #e8ecf1;border-radius:8px;padding:16px;font-family:monospace;font-size:.85rem;line-height:2;white-space:pre;overflow-x:auto;margin:12px 0;">三公司組合管理路線圖（未來12個月）：
+
+騰訊 (PE~15x) ──→ 持有為主，逢低（PE&lt;12x）加倉至20%
+     ├─ AI變現訊號明確 → 不受PE限制繼續持有
+     └─ PE升至22x+ → 減倉至8-10%
+
+拼多多 (PE~9x) ──→ 耐心持有，利用波動加倉
+     ├─ Temu盈利確認 → 加倉至上限20%
+     └─ 估值修復至PE 15x+ → 減至半倉
+
+阿里巴巴 (PE~15x, FCF負數) ──→ 小倉觀察，等待拐點
+     ├─ SG&A/營收降至&lt;20% + FCF轉正 → 加倉至10-12%
+     └─ 12個月無改善 → 減倉至零（避免價值陷阱）</div>
+
+    <h3>再平衡紀律</h3>
+    <table>
+      <tr><th>觸發類型</th><th>頻率/條件</th><th>行動</th></tr>
+      <tr><td>⏰ 半年度檢查</td><td>每6個月</td><td>審視三家公司的投資論點是否仍然成立</td></tr>
+      <tr><td>💰 價格觸發</td><td>單隻股票漲跌>50%</td><td>重新評估該公司的風險報酬比</td></tr>
+      <tr><td>📢 事件觸發</td><td>財報公佈後</td><td>根據營業費用（阿里）／Temu（拼多多）／AI 變現（騰訊）等關鍵指標調整</td></tr>
+      <tr><td>🌍 宏觀觸發</td><td>重大政策／地緣變化</td><td>整體降低中概／中國網路敞口</td></tr>
+    </table>
+
+    <div class="alert-box alert-green" style="margin-top:16px;">
+      <strong>最終建議：</strong><br><br>
+      ① <strong>騰訊是組合的基石</strong>— 在三個標的中確定性最高，建議作為最大倉位（12-15%），長期持有。<br>
+      ② <strong>拼多多是賠率引擎</strong>— 極低估值（PE~9x）＋高成長（收入+50%+）＋淨現金安全邊際，提供超額報酬潛力。以較低確定性換取高賠率。<br>
+      ③ <strong>阿里巴巴是小倉位困境對賭</strong>PB 約 0.22 的極端低估值得小倉參與，但必須嚴格監控 FCF 和 SG&A 兩個關鍵指標。如果 12 個月看不到改善，果斷退出。<br>
+      ④ <strong>三者合計不超過40%</strong>— 中國網際網路的宏觀相關性高，必須用非中國資產（美國科技、A股消費、美債）分散風險。<br>
+      ⑤ <strong>不要因為阿里「看起來便宜」就給它大倉位</strong>低PB不等於好投資，尤其是在盈利能力和FCF都在惡化的時候。等基本面改善後再加倉，遠比在下跌中「抄底」安全。</div>
+  </div>
+
+  <!-- 补充材料 -->
+  <div class="card">
+    <h2>📎 八、補充材料</h2>
+    <p>詳見<a href="阿里vs腾讯vs拼多多-三维对比.md" style="color:#8B0000;text-decoration:none;font-weight:500;">阿里vs騰訊vs拼多多-三維對比.md</a>— 包含更詳細的三公司對比資料與情景分析。</p>
+    <p style="margin-top:8px;">參考文件：</p>
+    <ul style="font-size:.85rem;color:#555;padding-left:20px;">
+      <li>拼多多組合管理建議（2026/07/05）</li>
+      <li>騰訊組合管理分析（2026/07/07）</li>
+      <li>阿里巴巴商業模式拆解（2026/07/07）</li>
+      <li>阿里巴巴FY2026年報數據彙總（2026/07/07）</li>
+    </ul>
+  </div>
+
+  <div style="font-size:.8rem;color:#95a5a6;text-align:center;margin-top:12px;">*本分析基於假設持倉，僅供研究參考，不構成投資建議。實際配置需結合個人情況。*</div>
+
+</div>
+<div class="footer">AI-Berkshire ｜ 中國網路三公司組合管理建議 ｜ 2026/07/07</div>
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>簡</span><span class="full"><span>簡體中文</span></span></a><a class="lang hant active" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>去劣篩選結果 — 拼多多 (PDD) | 七條硬指標</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans SC', -apple-system, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+        .header {
+            background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%);
+            color: #fff;
+            padding: 50px 0 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .header .subtitle {
+            font-size: 16px;
+            font-weight: 300;
+            opacity: 0.85;
+        }
+        .header .meta {
+            margin-top: 14px;
+            font-size: 13px;
+            opacity: 0.7;
+        }
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 30px 24px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            padding: 32px 36px;
+            margin-bottom: 28px;
+        }
+        .card h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1A4B8C;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #1A4B8C;
+            display: inline-block;
+        }
+        .card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 20px 0 10px;
+        }
+        .card p, .card ul {
+            margin-bottom: 12px;
+            color: #444;
+        }
+        .card ul { padding-left: 22px; }
+        .card li { margin-bottom: 6px; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        thead th {
+            background: #1A4B8C;
+            color: #fff;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        thead th:first-child { border-radius: 6px 0 0 0; }
+        thead th:last-child { border-radius: 0 6px 0 0; }
+        tbody td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e8ecf1;
+            vertical-align: top;
+        }
+        tbody tr:nth-child(even) { background: #f8faff; }
+        tbody tr:hover { background: #eef4ff; }
+
+        .badge {
+            display: inline-block;
+            background: #1A4B8C;
+            color: #fff;
+            font-size: 12px;
+            padding: 2px 12px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        .badge.green { background: #27ae60; }
+        .badge.yellow { background: #f39c12; }
+        .badge.red { background: #e74c3c; }
+
+        .result-banner {
+            background: linear-gradient(135deg, #27ae60 0%, #1e8a4d 100%);
+            color: #fff;
+            padding: 24px 32px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .result-banner .big {
+            font-size: 36px;
+            font-weight: 900;
+        }
+        .result-banner .small {
+            font-size: 15px;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
+
+        .indicator-card {
+            border: 1px solid #e0e6ed;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .indicator-card .num {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #1A4B8C;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .indicator-card .num.pass { background: #27ae60; }
+        .indicator-card .content { flex: 1; }
+        .indicator-card .content .title {
+            font-weight: 600;
+            font-size: 15px;
+        }
+        .indicator-card .content .detail {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .quote {
+            background: #f0f4f8;
+            border-left: 4px solid #1A4B8C;
+            padding: 16px 20px;
+            margin: 16px 0;
+            border-radius: 0 8px 8px 0;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .exemption-table td:first-child { font-weight: 500; }
+
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: #999;
+            font-size: 13px;
+            border-top: 1px solid #e8ecf1;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 640px) {
+            .card { padding: 20px 18px; }
+            .header h1 { font-size: 22px; }
+            table { font-size: 13px; }
+            thead th, tbody td { padding: 8px 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>去劣篩選結果 — 七條硬指標</h1>
+    <div class="subtitle">拼多多控股有限公司（PDD，NASDAQ）</div>
+    <div class="meta">篩選日期：2026/07/05 | 上市時間：2018年7月（約8年）</div>
+</div>
+
+<div class="container">
+
+    <!-- 概要 -->
+    <div class="card">
+        <h2>📋 公司概要</h2>
+        <table>
+            <tbody>
+                <tr><td style="width:140px;font-weight:600;">公司名稱</td><td>拼多多控股有限公司（PDD Holdings Inc.）</td></tr>
+                <tr><td style="font-weight:600;">股票代碼</td><td>PDD (NASDAQ)</td></tr>
+                <tr><td style="font-weight:600;">上市時間</td><td>2018年7月（約8年）</td></tr>
+                <tr><td style="font-weight:600;">篩選日期</td><td>2026/07/05</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 结果横幅 -->
+    <div class="result-banner">
+        <div class="big">🎯 7 / 7 全部通過</div>
+        <div class="small">七項硬指標均未觸及排除線，通過去劣篩選</div>
+    </div>
+
+    <!-- 硬指标逐条展示 -->
+    <div class="card">
+        <h2>🔬 七項硬指標逐條檢驗</h2>
+
+        <div class="indicator-card">
+            <div class="num pass">①</div>
+            <div class="content">
+                <div class="title">10年平均ROE<span style="color:#e74c3c;">&lt; 8%</span></div>
+                <div class="detail">PDD資料：<strong>~22%</strong>（推算近8年均值）<br>注意：拼多多2018年才上市，早期虧損拉低均值。近3年均值30.5%，遠超閾值</div>
+            </div>
+            <span class="badge green">✅ 通過</span>
+        </div>
+
+        <div class="indicator-card">
+            <div class="num pass">②</div>
+            <div class="content">
+                <div class="title">5年累計自由現金流<span style="color:#e74c3c;">為負</span></div>
+                <div class="detail">PDD 資料：<strong>2021-2025累計FCF約3,936億CNY</strong><br>連續5年自由現金流為正且快速成長</div>
+            </div>
+            <span class="badge green">✅ 通過</span>
+        </div>
+
+        <div class="indicator-card">
+            <div class="num pass">③</div>
+            <div class="content">
+                <div class="title">利息保障倍數<span style="color:#e74c3c;">&lt; 2倍</span></div>
+                <div class="detail">PDD 資料：<strong>不適用（幾乎零有息負債）</strong><br>息稅前利潤 931億CNY，利息支出約等於0，覆蓋倍數無限大</div>
+            </div>
+            <span class="badge green">✅ 通過</span>
+        </div>
+
+        <div class="indicator-card">
+            <div class="num pass">④</div>
+            <div class="content">
+                <div class="title">長期毛利率<span style="color:#e74c3c;">&lt; 15%</span></div>
+                <div class="detail">PDD 資料：<strong>~62%（近5年均值）</strong><br>即使Temu拉低毛利率，仍在56%以上</div>
+            </div>
+            <span class="badge green">✅ 通過</span>
+        </div>
+
+        <div class="indicator-card">
+            <div class="num pass">⑤</div>
+            <div class="content">
+                <div class="title">營業現金流／稅後淨利<span style="color:#e74c3c;">&lt; 0.7</span></div>
+                <div class="detail">PDD資料：<strong>~1.09（近5年均值）</strong><br>利潤品質極高，自由現金流 > 稅後淨利</div>
+            </div>
+            <span class="badge green">✅ 通過</span>
+        </div>
+
+        <div class="indicator-card">
+            <div class="num pass">⑥</div>
+            <div class="content">
+                <div class="title">長期淨利率<span style="color:#e74c3c;">&lt; 5%</span></div>
+                <div class="detail">PDD 資料：<strong>~22%（近5年均值）</strong><br>2021年後持續獲利且利潤率極高</div>
+            </div>
+            <span class="badge green">✅ 通過</span>
+        </div>
+
+        <div class="indicator-card">
+            <div class="num pass">⑦</div>
+            <div class="content">
+                <div class="title">5年總股本膨脹<span style="color:#e74c3c;">&gt; 20%</span></div>
+                <div class="detail">PDD資料：<strong>~11.6%（2021-2025）</strong><br>主要來自員工股權激勵稀釋，幅度可控</div>
+            </div>
+            <span class="badge green">✅ 通過</span>
+        </div>
+    </div>
+
+    <!-- 豁免检查 -->
+    <div class="card">
+        <h2>🔄 豁免檢查</h2>
+        <table>
+            <thead>
+                <tr><th>豁免條款</th><th>是否需觸發</th><th>理由</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>豁免A：策略投入期</td><td><span class="badge green">否</span></td><td>ROE遠超8%，無需豁免</td></tr>
+                <tr><td>豁免B：主動低利潤率</td><td><span class="badge green">否</span></td><td>淨利率22.6%，遠超5%</td></tr>
+                <tr><td>豁免C：高週轉薄利</td><td><span class="badge green">否</span></td><td>毛利率56.3%，遠超15%</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 核心结论 -->
+    <div class="card">
+        <h2>📌 核心結論</h2>
+        <div class="quote">
+            <strong>拼多多無任何硬指標觸及排除線，7條全通過。</strong>這是典型的「一流公司」——高 ROE、強 FCF、高利潤品質、零負債壓力。</div>
+        <p style="text-align:center;font-weight:700;color:#27ae60;font-size:17px;margin-top:14px;">
+            ✅ <strong>透過剔除劣質標的篩選 → 值得深入研究。</strong>
+        </p>
+    </div>
+
+    <!-- 局限性声明 -->
+    <div class="card">
+        <h2>⚠️ 侷限性聲明</h2>
+        <p>去劣篩選通過 ≠ 確定好。仍需進一步研究：</p>
+        <ul>
+            <li>商業模式可持續性（國內增長放緩後，Temu能否接棒）</li>
+            <li>管理層深度（黃崢退後後的組織能力）</li>
+            <li>當前估值是否合理（已完成——PE~9x，極端低估）</li>
+            <li>競爭格局（抖音電商的侵蝕速度）</li>
+        </ul>
+    </div>
+
+    <div class="footer">資料來源：stockanalysis.com、macrotrends.net &nbsp;|&nbsp; 報告生成：2026/07/05</div>
+
+</div>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>簡</span><span class="full"><span>簡體中文</span></span></a><a class="lang hant active" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buffett Checklist - Alibaba (BABA)</title>
+<style>
+  /* === PDD 标准 CSS 模板 v2.0 === */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f4f6f9;
+    color: #1a1a2e;
+    padding: 40px 20px;
+  }
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 24px 24px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 16px 16px 0 0;
+    color: #fff;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .header .sub {
+    font-size: 14px;
+    opacity: .75;
+    margin-top: 4px;
+  }
+  .header .ticker {
+    display: inline-block;
+    background: rgba(255,255,255,.12);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  .summary-ribbon {
+    display: flex;
+    justify-content: space-around;
+    background: #fff;
+    border-left: 1px solid #e8ecf1;
+    border-right: 1px solid #e8ecf1;
+    padding: 18px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .summary-ribbon .stat {
+    text-align: center;
+    min-width: 80px;
+  }
+  .summary-ribbon .stat .val { font-size: 20px; font-weight: 700; color: #1a1a2e; }
+  .summary-ribbon .stat .lbl { font-size: 11px; color: #888; margin-top: 2px; }
+  .verdict-banner {
+    background: #fff;
+    border-left: 1px solid #e8ecf1;
+    border-right: 1px solid #e8ecf1;
+    padding: 20px 24px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .verdict-banner .pass { color: #22c55e; }
+  .verdict-banner .warn { color: #f59e0b; }
+  .verdict-banner .fail { color: #ef4444; }
+  .card {
+    background: #fff;
+    border: 1px solid #e8ecf1;
+    border-top: none;
+    padding: 28px 32px;
+  }
+  .card:last-child { border-radius: 0 0 16px 16px; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f0f2f5;
+  }
+  .card-header .step { 
+    width: 36px; height: 36px; border-radius: 50%; 
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px; color: #fff; flex-shrink: 0;
+  }
+  .card-header .step.pass { background: #22c55e; }
+  .card-header .step.warn { background: #f59e0b; }
+  .card-header .step.fail { background: #ef4444; }
+  .card-header .title { font-size: 18px; font-weight: 700; }
+  .card-header .badge {
+    margin-left: auto;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .badge.pass { background: #dcfce7; color: #166534; }
+  .badge.warn { background: #fef3c7; color: #92400e; }
+  .badge.fail { background: #fee2e2; color: #991b1b; }
+  .card-body { font-size: 14.5px; line-height: 1.75; color: #334155; }
+  .card-body p { margin-bottom: 10px; }
+  .card-body ul { margin: 8px 0 12px 24px; }
+  .card-body li { margin-bottom: 5px; }
+  .card-body strong { color: #1e293b; }
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .data-grid .item {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .data-grid .item .num { font-size: 17px; font-weight: 700; color: #1a1a2e; }
+  .data-grid .item .desc { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+  .roi-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  .roi-table th {
+    background: #f1f5f9;
+    padding: 8px 10px;
+    text-align: center;
+    font-weight: 600;
+    color: #475569;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .roi-table td {
+    padding: 8px 10px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .roi-table tr:last-child td { border-bottom: none; }
+  .roi-table .good { color: #22c55e; font-weight: 600; }
+  .roi-table .ok   { color: #f59e0b; font-weight: 600; }
+  .roi-table .bad  { color: #ef4444; font-weight: 600; }
+  .footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  @media (max-width: 640px) {
+    .header h1 { font-size: 22px; }
+    .card { padding: 20px 16px; }
+    .summary-ribbon { gap: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ======== HEADER ======== -->
+<div class="header">
+  <h1>🧾 Buffett's Six Gates Before Buying · Quick Screen</h1>
+  <div class="sub">Alibaba Group Holding Ltd &nbsp;·&nbsp; Alibaba Group Holding Ltd</div>
+  <div class="ticker">BABA (NYSE) &nbsp;·&nbsp; 9988 (HKEX)</div>
+  <div style="margin-top:14px;font-size:13px;opacity:.6;">Research date: 2026-07-07 &nbsp;|&nbsp; Share price: $98.40 &nbsp;|&nbsp; Market cap: ~USD 224.6 billion</div>
+</div>
+
+<!-- ======== KEY STATS RIBBON ======== -->
+<div class="summary-ribbon">
+  <div class="stat"><div class="val">15.35</div><div class="lbl">PE (TTM)</div></div>
+  <div class="stat"><div class="val">15.03</div><div class="lbl">Forward PE</div></div>
+  <div class="stat"><div class="val">0.22</div><div class="lbl">PB</div></div>
+  <div class="stat"><div class="val">$98.40</div><div class="lbl">Share price</div></div>
+  <div class="stat"><div class="val">$91.99-192.67</div><div class="lbl">52-week range</div></div>
+  <div class="stat"><div class="val">🟢 Strong Buy</div><div class="lbl">Analyst consensus</div></div>
+</div>
+
+<!-- ======== OVERALL VERDICT ======== -->
+<div class="verdict-banner">
+  <span class="warn">⚠️ Overall verdict: Conditional pass (3 ✅ / 3 ⚠️ / 0 ❌)</span><br>
+  <span style="font-size:14px;font-weight:400;color:#64748b;">Valuation is cheap enough, but profitability is declining, FCF has turned negative and management signals are muddled — the decision requires combining this with the "circle of competence" test in Gate 7</span>
+</div>
+
+<!-- ======== GATE 1 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step pass">①</div>
+    <div class="title">Understandable — the essence of the business</div>
+    <div class="badge pass">✅ Passed</div>
+  </div>
+  <div class="card-body">
+    <p><strong>Core view: Alibaba's core business logic is not hard to grasp.</strong></p>
+    <p>In plain terms, Alibaba is a company that "helps Chinese businesses do business, helps Chinese factories sell to the world, and sells cloud computing services." Its revenue comes from three parts:</p>
+    <ul>
+      <li><strong>🛒 China e-commerce (Taotian Group)</strong>— Taobao + Tmall + 1688 account for ~65% of revenue. The model is "rent collection": merchants pay advertising fees, transaction commissions and store fees. This is Alibaba's breadbasket, but Pinduoduo and Douyin are raiding it.</li>
+      <li><strong>☁️ Cloud computing (Alibaba Cloud)</strong>— About 12% of revenue. Sells compute and data services, No. 1 in China (market share ~34%), but growth is slowing and it is still in a price war with Huawei Cloud and Tencent Cloud.</li>
+      <li><strong>🌍 International e-commerce (Lazada/AliExpress/Trendyol)</strong>— About 12% of revenue. Southeast Asia, Turkey and Latin America: burning cash for growth, not yet meaningfully profitable.</li>
+    </ul>
+    <p><strong>Buffett's perspective:</strong>Alibaba is not like Apple (which consumers can see and touch), but it is essentially "commercial infrastructure"—the same kind of thing Berkshire bought<strong>railroads and utilities</strong>There are similarities: both are pipelines of economic operation. The difference is that Alibaba's pipelines are both physical (Cainiao logistics) and digital (Alibaba Cloud plus payments).</p>
+    <p><strong>The complicated part:</strong>Alibaba also owns Ele.me, Amap, the digital media and entertainment unit (Youku/Alibaba Pictures), Freshippo, Intime Retail… a pile of "side businesses." If these cannot be cleanly separated out, valuation becomes difficult. The good news is that Alibaba is "returning to its core" and gradually divesting non-core assets.</p>
+    <p><strong>Conclusion:</strong>The core business (e-commerce + cloud) is understandable, but part of the "hard-to-understand odds and ends" needs to be ignored. ✅</p>
+  </div>
+</div>
+
+<!-- ======== GATE 2 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step warn">②</div>
+    <div class="title">Moat — competitive barriers</div>
+    <div class="badge warn">⚠️ To be examined</div>
+  </div>
+  <div class="card-body">
+    <p><strong>Core call: the moat remains, but its walls are getting lower.</strong></p>
+    <p><strong>The part that remains solid:</strong></p>
+    <ul>
+      <li><strong>🕸️ Network effects (the widest part):</strong>Taobao + Tmall have ~1 billion annual active buyers and millions of merchants—a massive two-sided market. Merchants come for the buyers, buyers come for the selection, creating a flywheel. Pinduoduo and Douyin have not yet broken this flywheel; they have only captured incremental growth.</li>
+      <li><strong>🏢 Merchant ecosystem/infrastructure:</strong>Merchants have invested substantial resources in Alibaba's ecosystem (storefront design, data tools, customer-service teams, Cainiao logistics integration). Switching costs are high; opening a Pinduoduo store is no substitute.</li>
+      <li><strong>☁️ Cloud computing's first-mover advantage:</strong>Although Alibaba Cloud's growth has slowed, its domestic IaaS+PaaS market share remains close to 34%, far above second-place Huawei Cloud (~19%). The switching cost for enterprise customers migrating cloud providers is extremely high.</li>
+      <li><strong>📦 Cainiao logistics network:</strong>Although it does not fully own them, the delivery network controlled by Cainiao is a moat for e-commerce fulfillment. JD.com has its own in-house logistics, but Cainiao covers a broader merchant base.</li>
+    </ul>
+    <p><strong>Where the city wall is thinning:</strong></p>
+    <ul>
+      <li><strong>🔻 PDD's asymmetric attack:</strong>Having started in lower-tier markets, Pinduoduo now attacks Tmall's core base (branded goods) directly. Pinduoduo's "low price" mindshare is too strong, forcing Alibaba to follow with a price war at the cost of its profits.</li>
+      <li><strong>📱 Douyin/Kuaishou interest-based e-commerce:</strong>Livestream e-commerce is cannibalizing traditional shelf-based e-commerce. In 2025, Douyin e-commerce GMV approached RMB 3.5 trillion; though only ~40% of Taobao Tmall's, its growth rate is 3x Taobao's.</li>
+      <li><strong>☁️ Cloud computing price war:</strong>Alibaba Cloud cut prices sharply several times in 2024-2025, with some core products down 55%. This is direct evidence of intensifying market competition.</li>
+      <li><strong>The "crack" in the moat:</strong>Alibaba's historical moat, built on first-mover advantage, is being eroded by more aggressive competitors (PDD) and more algorithm-savvy competitors (Douyin) as the mobile internet dividend fades.</li>
+    </ul>
+    <p><strong>Conclusion: The moat remains (wide but not deep), yet competitive pressure has clearly intensified. Close attention to market-share shifts is warranted. Measured against Buffett's "wide and deep" moat standard, Alibaba currently rates only "above average." ⚠️</strong></p>
+  </div>
+</div>
+
+<!-- ======== GATE 3 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step warn">③</div>
+    <div class="title">ROE history — shareholder return efficiency</div>
+    <div class="badge warn">⚠️ Critical</div>
+  </div>
+  <div class="card-body">
+    <p><strong>Core call: ROE fluctuates around 10%, below Buffett's 15%+ threshold.</strong></p>
+    <p>Net profit attributable to parent ROE over the past 5 years (net profit attributable to parent / parent equity at period end):</p>
+    <table class="roi-table">
+      <thead>
+        <tr>
+          <th>Fiscal year</th><th>Net profit attributable to parent (RMB billion)</th><th>End-period equity (estimated, RMB billion)</th><th>ROE</th><th>Year-on-year change</th><th>Determination</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>FY2022</td><td>619.59</td><td>9,256</td><td>6.7%</td><td>-58.8%</td><td class="bad">❌ Poor</td>
+        </tr>
+        <tr>
+          <td>FY2023</td><td>725.09</td><td>9,680</td><td>7.5%</td><td>+17.0%</td><td class="bad">❌ Poor</td>
+        </tr>
+        <tr>
+          <td>FY2024</td><td>797.41</td><td>10,058</td><td>7.9%</td><td>+10.0%</td><td class="ok">⚠️ Below consensus</td>
+        </tr>
+        <tr>
+          <td>FY2025</td><td>1,294.70</td><td>10,468</td><td>12.4%</td><td>+62.4%</td><td class="ok">⚠️ Close to passing</td>
+        </tr>
+        <tr>
+          <td>FY2026</td><td>1,059.04</td><td>10,241</td><td>10.3%</td><td>-18.2%</td><td class="ok">⚠️ Below consensus</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>⚠️ Important note:</strong>Alibaba's ROE is<strong>Large net cash position</strong>Dragging it down. At the end of FY2024 it held nearly RMB 200 billion in net cash (cash minus liabilities), and that money sits on the balance sheet earning low returns. If excess cash is excluded,<strong>Adjusted ROE is approximately 12-16%</strong>, barely clearing Buffett's threshold.</p>
+    <p><strong>One key deterioration signal:</strong>FY2026 operating margin plunged from 14.14% to 4.90%, and SG&A expenses surged from ~RMB 160 billion to ~RMB 278.1 billion. This means that Alibaba is<strong>Burning cash in a defensive battle</strong>(competing against PDD and Douyin), which is negative for shareholder return efficiency.</p>
+    <p><strong>Buffett criteria:</strong>The old man likes companies with a long-term ROE above 15% and stable. Alibaba's five-year average is ~9%, and with the margin collapse in FY2026,<strong>ROE criterion not yet met.</strong></p>
+  </div>
+</div>
+
+<!-- ======== GATE 4 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step warn">④</div>
+    <div class="title">Management integrity — capital allocation and governance</div>
+    <div class="badge warn">⚠️ Mixed signals</div>
+  </div>
+  <div class="card-body">
+    <p><strong>Core view: management is sincere but its competence is questioned, and its capital allocation record is mixed.</strong></p>
+    <p><strong>✅ Doing the right things:</strong></p>
+    <ul>
+      <li><strong>Large-scale buyback:</strong>FY2024 buybacks were RMB 88.7 billion (about USD 12.2 billion), and FY2025 buybacks were RMB 86.7 billion. Management did honor its commitment to "buy back when undervalued." But FY2026 plunged to RMB 7.6 billion (-91%); the official reason is that cash is needed to invest in AI infrastructure—understandable, but disappointing to shareholders.</li>
+      <li><strong>Initiating dividend:</strong>It began paying dividends for the first time in FY2024, distributing RMB 33.7 billion in FY2026 (+16% YoY). This is uncommon among internet companies and reflects a shareholder-return mindset.</li>
+      <li><strong>Organizational split (1 into 6):</strong>The "1+6+N" organizational restructuring announced in 2023 sought to make each business unit operate independently and be responsible for its own profits and losses. The direction was right, but execution has been slow.</li>
+      <li><strong>Cutting non-core:</strong>Gradually exit non-core retail assets (Intime, Sun Art, etc.) and return to the main track of e-commerce + cloud + AI.</li>
+    </ul>
+    <p><strong>⚠️ Things done wrong / in doubt:</strong></p>
+    <ul>
+      <li><strong>FY2026 margin collapse:</strong>SG&A exploded from ~RMB 166 billion in FY2025 to RMB 278.1 billion (+68%), while revenue grew only 2.7%. This shows management is "buying growth" to grab market share—exactly the "burn cash for scale" that Buffett detests.</li>
+      <li><strong>Capital allocation priorities:</strong>Net cash plunged from RMB 197.4 billion to RMB 56.9 billion (-71%), while CapEx surged to RMB 126.1 billion (+90% YoY). A massive amount of money went into AI infrastructure buildout. The direction is right (AI is the future), but the timing and pace are debatable—investing at scale while competition intensifies puts heavy pressure on near-term profit.</li>
+      <li><strong>Frequent management turnover:</strong>The CEO changed 3 times between 2019 and 2023 (Daniel Zhang → Wu Yongming → Wu Yongming concurrently CEO). Alibaba Cloud's CEO also changed in 2025. Senior-management turmoil undermines long-term strategy execution.</li>
+      <li><strong>Political/regulatory risk treatment:</strong>Ant Group's IPO was halted (2020), an antitrust fine of RMB 18.2 billion (2021), and the "choose one of two" rectification—although these were largely macro factors, Alibaba's management was clearly not forward-looking enough in its communication with regulators.</li>
+    </ul>
+    <p><strong>Wu Yongming (CEO)'s style:</strong>With a technical background (founder of Alibaba Cloud), he set out a clear "user first, AI-driven" strategy upon taking office. He drove a series of organizational slimming measures in 2024-2025, showing he saw the problems. But the profit collapse in FY2026 raises doubts about his execution.</p>
+    <p><strong>Conclusion: management are not "liars," but frankly—the capital allocation record is mixed. They got some things right (buybacks, dividends, focus on the core), and made some big mistakes (margin discipline broke down, cash burn ran too fast). ⚠️</strong></p>
+  </div>
+</div>
+
+<!-- ======== GATE 5 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step pass">⑤</div>
+    <div class="title">Valuation is reasonable — cheap is the hard truth</div>
+    <div class="badge pass">✅ Passed</div>
+  </div>
+  <div class="card-body">
+    <p><strong>Core view: Alibaba's valuation is unquestionably at a historic low.</strong></p>
+    <div class="data-grid">
+      <div class="item"><div class="num">15.35x</div><div class="desc">PE (TTM)</div></div>
+      <div class="item"><div class="num">15.03x</div><div class="desc">Forward PE</div></div>
+      <div class="item"><div class="num">0.22x</div><div class="desc">PB (below book value)</div></div>
+      <div class="item"><div class="num">0.47x</div><div class="desc">P/S</div></div>
+      <div class="item"><div class="num">3.4%</div><div class="desc">Dividend yield (estimated)</div></div>
+      <div class="item"><div class="num">$191.33</div><div class="desc">Analyst target price (+94%)</div></div>
+    </div>
+    <p><strong>Peer comparison (Chinese internet peers, PE TTM):</strong></p>
+    <ul>
+      <li>Tencent (0700.HK): ~22x — 30% discount to Alibaba</li>
+      <li>PDD: ~9x — premium to Alibaba, but PDD profit growth is faster</li>
+      <li>JD: ~12x — Alibaba slightly more expensive than JD</li>
+      <li>Meituan (3690.HK): ~25x — 40% discount to Alibaba</li>
+      <li>Amazon (AMZN): ~35x — Alibaba trades at a 56% discount</li>
+    </ul>
+    <p><strong>Why it is cheap (what is the market worried about?):</strong></p>
+    <ul>
+      <li>📉 Profit decline (FY2026 -18.2%) — the market sees this as no one-off</li>
+      <li>⚔️ Intensifying competition (PDD/Douyin keep eroding share) — the market has priced in that "Alibaba is no longer the king of Chinese e-commerce"</li>
+      <li>Chinese ADRs' systemic discount — geopolitics, audit risk, capital controls</li>
+      <li>🔄 Uncertain AI returns — RMB 126.1 billion CapEX poured into AI, when will it pay off?</li>
+    </ul>
+    <p><strong>But from Buffett's perspective:</strong></p>
+    <p>A 15x PE is by no means expensive for a company still earning over RMB 100 billion a year. A 0.22x PB means you pay $1 for $4.5 of net assets — an opportunity rarely seen even across Buffett's career. Even assuming zero profit growth over the next five years, buying at 15x PE still offers ~6.7% annualized return (=1/15). Add buybacks (though reduced in FY2026), and intrinsic value per share for long-term holders is still growing.</p>
+    <p><strong>Conclusion: it passes the valuation test without question ✅. The question is whether Mr. Market is right (Alibaba's moat really is eroding) or wrong (the market is overly pessimistic). That requires the sixth gate to judge.</strong></p>
+  </div>
+</div>
+
+<!-- ======== GATE 6 ======== -->
+<div class="card">
+  <div class="card-header">
+    <div class="step warn">⑥</div>
+    <div class="title">Margin of safety — room for error</div>
+    <div class="badge warn">⚠️ Has a margin of safety but not a thick enough one</div>
+  </div>
+  <div class="card-body">
+    <p><strong>Core call: a margin of safety exists (share price near its 52-week low + PB below book), but the FY2026 results expose the risk that "profits are more fragile than they appear."</strong></p>
+    <p><strong>🛡️ Sources of margin of safety:</strong></p>
+    <ul>
+      <li><strong>Below-book trading:</strong>PB 0.22x. Even under liquidation (an extreme assumption), shareholders could theoretically recover book value of ~$441/share; the current share price of $98.40 means the market is pricing in a "heavy discount." Alibaba holds substantial realizable assets on its balance sheet (equity stakes, real estate, data centers).</li>
+      <li><strong>Value of non-core assets:</strong>Alibaba's stakes in Ant Group (~33%), Cainiao (~64%), Alibaba Health, Alibaba Pictures and other listed/unlisted equity are conservatively worth USD 80-120 billion. Strip these out, and the core e-commerce plus cloud business trades at an actual PE of perhaps only 10-12x.</li>
+      <li><strong>Buyback support:</strong>Although buybacks fall sharply in FY2026, the board still has USD 31 billion of unused buyback authorization (dual-listed in the US and Hong Kong). Management can step in to support the stock at any time.</li>
+      <li><strong>Cash flow fundamentals:</strong>Even if FY2026 FCF turns negative, operating cash flow still reaches RMB 76.2 billion. Negative FCF stems mainly from surging CapEx (AI infrastructure). If a downturn forces management to scale back investment, FCF could quickly turn positive.</li>
+    </ul>
+    <p><strong>⚠️ Risk points to the margin of safety:</strong></p>
+    <ul>
+      <li><strong>Margins may deteriorate further:</strong>If the price war between PDD and Douyin persists, Alibaba may need to keep burning cash. The 68% surge in FY2026 SG&A may only be the beginning. If the operating margin keeps sliding from 4.9% to 2-3%, the PE will rapidly inflate to 20x+.</li>
+      <li><strong>Negative FCF is unsustainable:</strong>Free cash flow of negative RMB 49.8 billion is a red flag. Buffett's "margin of safety" concept rests on a company's ability to sustain itself. If Alibaba posts negative FCF for 2-3 consecutive years, it must either cut spending, halt buybacks/dividends, or issue debt/equity—none of which is good for shareholders.</li>
+      <li><strong>Net cash burn too fast:</strong>Net cash plunged from RMB 197.4 billion at the end of FY2025 to RMB 56.9 billion (-71%). At this pace, it could turn to net debt by the end of FY2027. Balance-sheet flexibility is diminishing.</li>
+      <li><strong>Systemic risk for China concept stocks:</strong>A PB of 0.22x already prices in the extreme risk of delisting or expropriation. This "double discount" may be an opportunity for value investors, or it may be a value trap.</li>
+    </ul>
+    <p><strong>Buffett's margin of safety calculation (rough):</strong></p>
+    <ul>
+      <li><strong>Conservative scenario (profit keeps declining 10% a year):</strong>Cumulative profit of about RMB 250 billion over the next 3 years, current market cap ~RMB 1.6 trillion. ~15x PE, moderate margin of safety.</li>
+      <li><strong>Bull case (margin recovery + incremental cloud/AI contribution):</strong>Cumulative profit over the next 3 years of about RMB 400 billion; the current market cap implies payback in roughly 4 years. A wide margin of safety.</li>
+      <li><strong>Extreme scenario (uncontrolled competition + halved profit):</strong>Profit falls to RMB 50 billion a year, pushing PE to 32x. The margin of safety is breached.</li>
+    </ul>
+    <p><strong>Conclusion: there is a margin of safety, but not "thick" enough for Buffett to buy with confidence.</strong>Low valuation offers downside protection, but deteriorating FY2026 financials make the upside uncertain. Alibaba looks more like a "distressed turnaround" than a classic Buffett-style buy of "a great company facing temporary trouble." ⚠️</p>
+  </div>
+</div>
+
+<!-- ======== SUMMARY TABLE ======== -->
+<div class="card" style="border-radius:0 0 16px 16px;border-top:2px solid #e8ecf1;">
+  <div class="card-header">
+    <div class="step pass">📊</div>
+    <div class="title">Six-gate composite assessment summary table</div>
+    <div class="badge pass">Summary</div>
+  </div>
+  <div class="card-body">
+    <table class="roi-table">
+      <thead>
+        <tr>
+          <th style="width:120px;">Checkpoint</th>
+          <th style="width:100px;">Determination</th>
+          <th>Brief rationale</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>① Understandable</strong></td>
+          <td><span class="good">✅ Passed</span></td>
+          <td>E-commerce plus cloud core business is clear; non-core assets can be disregarded</td>
+        </tr>
+        <tr>
+          <td><strong>② Moat</strong></td>
+          <td><span class="ok">⚠️ Critical</span></td>
+          <td>Network effects and infrastructure switching costs remain, but PDD/Douyin are eroding them</td>
+        </tr>
+        <tr>
+          <td><strong>③ Historical ROE</strong></td>
+          <td><span class="ok">⚠️ Critical</span></td>
+          <td>Average ~9%, ~12-16% excluding excess cash, not yet stably reaching 15%+</td>
+        </tr>
+        <tr>
+          <td><strong>④ Management integrity</strong></td>
+          <td><span class="ok">⚠️ Critical</span></td>
+          <td>Buyback/dividend commitment is solid, but the margin collapse and rapid cash burn are concerning</td>
+        </tr>
+        <tr>
+          <td><strong>⑤ Reasonable valuation</strong></td>
+          <td><span class="good">✅ Passed</span></td>
+          <td>15x PE + 0.22x PB, historically low, dividend yield 3.4%</td>
+        </tr>
+        <tr>
+          <td><strong>⑥ Margin of safety</strong></td>
+          <td><span class="ok">⚠️ Critical</span></td>
+          <td>The low share price offers downside protection, but negative FCF and margin compression erode the margin of safety</td>
+        </tr>
+        <tr style="background:#f8fafc;font-weight:700;">
+          <td><strong>Overall</strong></td>
+          <td><span class="ok">⚠️ Conditional approval</span></td>
+          <td>3 checks passed + 3 borderline = wait for a clearer signal before pulling the trigger</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:16px;padding:12px 16px;background:#fef3c7;border-radius:8px;font-size:13px;">
+      <strong>💡 Recommended action:</strong>Alibaba currently falls into the "good price but not a good company" range (cheap valuation but deteriorating fundamentals). Under a Buffett-style approach, it is recommended for inclusion in<strong>Watchlist</strong>Wait for at least one of the following signals before acting: (1) SG&A expense ratio begins to decline (competition easing); (2) FCF turns positive; (3) buybacks recover to FY2025 levels. Current position recommendation: no more than the following share of the portfolio:<strong>3-5%</strong>。
+    </p>
+  </div>
+</div>
+
+<div class="footer">This report is compiled from public financial data for research reference only and does not constitute investment advice.<br>Data as of: 2026-07-07 &nbsp;|&nbsp; Generated by: Hermes Agent investment-checklist</div>
+
+</div>
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

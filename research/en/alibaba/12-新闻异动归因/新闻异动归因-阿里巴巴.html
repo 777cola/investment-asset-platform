@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News Pulse — Alibaba Move Attribution | BABA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f5f7fa; color: #1a2332; line-height: 1.8;
+    padding: 0;
+  }
+  .hero {
+    background: linear-gradient(135deg, #1A4B8C 0%, #2a6bc8 100%);
+    color: #fff; padding: 64px 24px 48px; text-align: center;
+  }
+  .hero h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: 2px; }
+  .hero .subtitle { font-size: 1rem; font-weight: 300; margin-top: 8px; opacity: .85; }
+  .hero .meta { margin-top: 16px; font-size: .85rem; opacity: .7; }
+  .container { max-width: 880px; margin: 0 auto; padding: 32px 20px 64px; }
+  .card {
+    background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    padding: 28px 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 1.3rem; font-weight: 700; color: #1A4B8C;
+    border-left: 4px solid #1A4B8C; padding-left: 14px; margin-bottom: 18px;
+  }
+  .card h3 { font-size: 1rem; font-weight: 600; color: #2c3e50; margin: 16px 0 8px; }
+  .card h4 { font-size: .9rem; font-weight: 600; color: #2c3e50; margin: 12px 0 6px; }
+  .card p, .card ul, .card ol { margin-bottom: 12px; color: #444; }
+  .card ul, .card ol { padding-left: 22px; }
+  .card li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: .85rem; margin: 12px 0; }
+  th { background: #eef3fa; color: #1A4B8C; font-weight: 600; padding: 10px 8px; text-align: center; border: 1px solid #dce4ed; }
+  td { padding: 10px 8px; text-align: center; border: 1px solid #e8edf3; }
+  tr:nth-child(even) { background: #f9fbfd; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: .75rem; font-weight: 600; }
+  .tag-red { background: #fee; color: #c0392b; }
+  .tag-yellow { background: #fff3e0; color: #e67e22; }
+  .tag-green { background: #e8f5e9; color: #27ae60; }
+  .tag-check { background: #e3f2fd; color: #1565c0; }
+  .tag-gray { background: #f0f0f0; color: #666; }
+  .quote {
+    background: #eef3fa; border-left: 4px solid #1A4B8C;
+    padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 16px 0;
+    font-style: italic; color: #2c3e50;
+  }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0 8px 28px; position: relative; }
+  .checklist li::before { content: '☐'; position: absolute; left: 0; font-size: 1rem; }
+  .info-gap { background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px; padding: 16px; margin-top: 16px; font-size: .85rem; color: #795548; }
+  .timeline-item {
+    display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid #eef2f7;
+  }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-date {
+    min-width: 80px; font-weight: 700; color: #1A4B8C; font-size: .85rem;
+  }
+  .timeline-content { flex: 1; }
+  .timeline-content .headline { font-weight: 600; font-size: .9rem; }
+  .timeline-content .source { font-size: .78rem; color: #7f8c9b; margin-top: 2px; }
+  .timeline-content .analysis { font-size: .82rem; color: #555; margin-top: 4px; }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 16px 0; }
+  .stat-item { background: #f8f9fb; border-radius: 8px; padding: 14px 16px; text-align: center; }
+  .stat-item .num { font-size: 22px; font-weight: 700; color: #1A4B8C; }
+  .stat-item .label { font-size: 12px; color: #555; margin-top: 2px; }
+  .nav { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 24px; border-bottom: 1px solid #e8ecf1; padding-bottom: 0; }
+  .nav a { display: inline-block; padding: 10px 14px; text-decoration: none; color: #666; font-size: .8rem; font-weight: 500; border-bottom: 2px solid transparent; transition: all 0.2s; }
+  .nav a:hover, .nav a.active { color: #1A4B8C; border-bottom-color: #1A4B8C; }
+  .summary-box { background: linear-gradient(135deg, #0D2E5A, #1A4B8C); color: #fff; border-radius: 12px; padding: 20px 24px; margin: 16px 0; }
+  .summary-box h3 { color: #fff; font-size: .95rem; margin-bottom: 8px; }
+  .summary-box ul { list-style: none; padding: 0; }
+  .summary-box li { padding: 4px 0; font-size: .82rem; color: rgba(255,255,255,0.9); }
+  .card-inset { background: #f8f9fb; border: 1px solid #e8ecf1; border-radius: 10px; padding: 16px 20px; margin-bottom: 14px; }
+  .footer { text-align: center; font-size: .8rem; color: #95a5a6; padding: 32px 20px; border-top: 1px solid #e8edf3; }
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.6rem; }
+    .container { padding: 16px 12px 48px; }
+    .card { padding: 20px 16px; }
+    .timeline-item { flex-direction: column; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>📰 News Pulse — Alibaba move attribution</h1>
+  <div class="subtitle">Recon time · 2026/07/07 | Current share price $98.40</div>
+  <div class="meta">52-week range $91.99–$192.67 | -49% from high | PE 15.35 | Information availability Grade A</div>
+</div>
+<div class="container">
+
+  <!-- 导航 -->
+  <div class="nav">
+    <a href="#s1" class="active">One-line attribution</a><a href="#s2">Key events</a><a href="#s3">Attribution analysis</a><a href="#s4">Share price correlation</a><a href="#s5">Nature assessment</a><a href="#s6">Action recommendation</a>
+  </div>
+
+  <!-- 一句话归因 -->
+  <div class="card" id="s1">
+    <h2>🔍 One-line attribution</h2>
+    <div class="quote">Alibaba's current share price of $98.40 (down 49% from its 52-week high of $192.67) reflects the market's<strong>FY2026 earnings shock (operating margin 14.14%→4.90%), sharply scaled-back buyback (RMB 86.7 billion→7.6 billion), competitive pressure from Pinduoduo, and the systemic discount on China ADRs</strong>multiple layers of pessimistic pricing. The single largest shock came with the release of the FY2026 annual report in May 2026 — SG&A surged 47.7%, operating profit collapsed, and the stock, after a sharp one-day selloff, kept probing lows in the $92-$105 range.</div>
+  </div>
+
+  <!-- 关键事件时间线 -->
+  <div class="card" id="s2">
+    <h2>📅 Timeline of key events, 2025–2026</h2>
+
+    <h3>📌 FY2026 earnings shock (2026/5/13) — core event</h3>
+    <div class="timeline-item">
+      <div class="timeline-date">2026/05/13</div>
+      <div class="timeline-content">
+        <div class="headline">FY2026 annual report released: operating margin plunges to 4.90%, shares crater</div>
+        <div class="source">Source: BABA official IR | Weight:<span class="tag tag-red">🔴 High</span></div>
+        <div class="analysis">Alibaba released its FY2026 annual report for the year ended March 2026. Revenue was RMB 1.02 trillion (+2.74%), but operating profit plunged from RMB 140.9 billion in FY2025 to RMB 50.2 billion (-64.4%), with the operating margin collapsing from 14.14% to 4.90%. SG&A expenses surged from RMB 188.3 billion to RMB 278.1 billion (+47.7%), mainly due to the consolidation of Sun Art Retail and organizational expansion. Free cash flow turned negative for the first time (-RMB 49.9 billion). The stock fell from ~$115 to a range of ~$92-$105 within 1-2 weeks after the earnings release and has not recovered since.</div>
+      </div>
+    </div>
+
+    <h3>📌 Sharp cut in buybacks (FY2026)</h3>
+    <div class="timeline-item">
+      <div class="timeline-date">FY2026</div>
+      <div class="timeline-content">
+        <div class="headline">Buybacks plunged from RMB 86.7 billion in FY2025 to RMB 7.6 billion (-91%)</div>
+        <div class="source">Source: BABA IR | Weight:<span class="tag tag-red">🔴 High</span></div>
+        <div class="analysis">Alibaba repurchased about RMB 86.7 billion (roughly USD 12 billion) in FY2025, with single-quarter buybacks in Q1-Q2 2025 each exceeding RMB 20 billion. But in FY2026 it repurchased only RMB 7.6 billion for the full year, a 91% decline. Management gave no clear explanation on the earnings call, and the market widely interpreted it as cash flow pressure (FCF turned negative) and capital expenditure (RMB 126.1 billion) taking priority over buybacks. Buybacks had been the stock's most core support mechanism; after the sharp reduction, the share price lost a key support.</div>
+      </div>
+    </div>
+
+    <h3>📌 Organizational restructuring (2023–2024)</h3>
+    <div class="timeline-item">
+      <div class="timeline-date">2023/03</div>
+      <div class="timeline-content">
+        <div class="headline">"1+6+N" spin-off reform launched</div>
+        <div class="source">Source: official announcement | Weight:<span class="tag tag-yellow">🟡 Medium</span></div>
+        <div class="analysis">Zhang Yong announced the split of Alibaba Group into 1 holding company + 6 business groups + N subsidiaries, with each business able to raise capital and list independently. The market was bullish in the short term (the stock briefly rebounded to ~$110), but subsequent IPO progress was slow and market sentiment cooled.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2024</div>
+      <div class="timeline-content">
+        <div class="headline">Strategic shift: from spin-off to integration, back to three segments</div>
+        <div class="source">Source: official announcement | Weight:<span class="tag tag-yellow">🟡 Medium</span></div>
+        <div class="analysis">After Cai Chongxin and Wu Yongming took over, they shifted direction: halting the Cainiao IPO, withdrawing the Hema IPO, and consolidating into three core segments: "e-commerce + cloud computing + AI." This 180-degree reversal of the spin-off strategy reflects management's correction of an overly complex organizational structure, but it adds near-term uncertainty.</div>
+      </div>
+    </div>
+
+    <h3>📌 PDD Holdings' market cap overtakes Alibaba (end of 2023)</h3>
+    <div class="timeline-item">
+      <div class="timeline-date">2023/11/29</div>
+      <div class="timeline-content">
+        <div class="headline">Pinduoduo's market cap surpasses Alibaba's for the first time</div>
+        <div class="source">Source: public market data | Weight:<span class="tag tag-yellow">🟡 Medium</span></div>
+        <div class="analysis">Pinduoduo's market cap briefly overtook Alibaba's intraday, making it the most valuable e-commerce company in China. Jack Ma responded in an internal post: "Alibaba will change, Alibaba will transform." The event symbolizes a major shift in the e-commerce landscape — Pinduoduo's "low-price strategy + Temu globalization" model commands a higher market premium. To this day, Pinduoduo trades at a PE of ~9x (cheap but slowing growth) versus Alibaba at ~15x (cloud/AI premium).</div>
+      </div>
+    </div>
+
+    <h3>📌 Jack Ma developments (2023–2026)</h3>
+    <div class="timeline-item">
+      <div class="timeline-date">2023/06</div>
+      <div class="timeline-content">
+        <div class="headline">Jack Ma returns to China and holds internal meeting: "Alibaba will change"</div>
+        <div class="source">Source: media report | Weight:<span class="tag tag-yellow">🟡 Mid</span></div>
+        <div class="analysis">After returning to China from an overseas trip, Jack Ma held an internal meeting at Alibaba Cloud headquarters and set out three directions: return to Taobao, return to users, return to the internet. Market sentiment got a short-term lift (the stock price rebounded slightly), but the long-term downtrend was not reversed. From 2024 to 2026, Ma's public appearances remained rare, and the market had limited confidence in his influence.</div>
+      </div>
+    </div>
+
+    <h3>China ADR Regulation and Antitrust Aftermath</h3>
+    <div class="timeline-item">
+      <div class="timeline-date">2021–2026</div>
+      <div class="timeline-content">
+        <div class="headline">Antitrust penalty of RMB 18.2 billion (2021) + PCAOB audit standoff</div>
+        <div class="source">Source: Reuters, official filings | Weight:<span class="tag tag-green">🟢 Sustained</span></div>
+        <div class="analysis">In April 2021, Alibaba was fined RMB 18.2 billion for "choose one of two" practices (the largest antitrust penalty in history). Four years on, the impact has largely been absorbed, but changes in the regulatory framework (the platform economy shifting from "strong regulation" to "normalized regulation") still intermittently affect investor sentiment. The PCAOB audit working papers issue has repeatedly resurfaced amid China-US tensions; risk eased after an agreement was reached in late 2022, but it has not been fully eliminated in 2025-2026.</div>
+      </div>
+    </div>
+
+    <h3>📌 Alibaba Cloud price cuts + AI large models (2024–2026)</h3>
+    <div class="timeline-item">
+      <div class="timeline-date">2024–2026</div>
+      <div class="timeline-content">
+        <div class="headline">Alibaba Cloud cuts prices repeatedly; Qwen continues to iterate</div>
+        <div class="source">Source: Alibaba Cloud official | Weight:<span class="tag tag-check">🔵 China – Watch</span></div>
+        <div class="analysis">In 2024, Alibaba Cloud launched the cloud computing price war (cutting prices of core products by 20-55%), with price cuts continuing through 2025-2026. Tongyi Qianwen released the Qwen2.5/Qwen3 series, maintaining competitiveness in the open-source large model space. Alibaba Cloud's AI narrative is one of the few positive premium factors in the current valuation, but the pressure of the price-cutting strategy on cloud business margins still warrants attention.</div>
+      </div>
+    </div>
+
+    <h3>📌 Free cash flow turns negative + capex expansion</h3>
+    <div class="timeline-item">
+      <div class="timeline-date">FY2026</div>
+      <div class="timeline-content">
+        <div class="headline">FCF turned negative for the first time (-RMB 49.9 billion), CapEx rose to RMB 126.1 billion</div>
+        <div class="source">Source: BABA IR | Weight:<span class="tag tag-red">🔴 High</span></div>
+        <div class="analysis">Alibaba's FY2026 capital expenditure surged to RMB 126.1 billion from RMB 86 billion in FY2025 (+46.6%), driven mainly by AI infrastructure investment and the consolidation of Sun Art Retail. Free cash flow swung from +RMB 77.5 billion to -RMB 49.9 billion. This is the first negative FCF since its 2014 listing, and the market is highly sensitive to this signal—it means the company must borrow or draw down cash to fund investment, constraining its capacity for buybacks and dividends.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 异动归因分析 -->
+  <div class="card" id="s3">
+    <h2>📊 Attribution analysis of unusual price action</h2>
+
+    <div class="summary-box">
+      <h3>🎯 Full picture of the decline attribution</h3>
+      <ul>
+        <li><strong>$192.67 → $98.40 (-49%)</strong>| Alibaba's stock price halves</li>
+        <li>FY2026 earnings blow-up (operating margin collapse) -15% to -20% — the single largest shock</li>
+        <li>Buyback sharply reduced (RMB 86.7 billion -> RMB 7.6 billion) -10% to -15% — loss of core support</li>
+        <li>Pinduoduo competition/e-commerce landscape — -8% to -12% — market-share anxiety</li>
+        <li>China ADR systemic discount — -8% to -12% — continued China-US tensions</li>
+        <li>Free cash flow turns negative — -5% to -8% — signal of deteriorating financial quality</li>
+      </ul>
+    </div>
+
+    <h3 style="margin-top:20px;">📊 Multi-factor attribution matrix</h3>
+    <table>
+      <tr><th>Attribution category</th><th>Specific factors</th><th>Magnitude of impact</th><th>Confidence level</th><th>Durability</th></tr>
+      <tr>
+        <td><strong>Earnings blow-up</strong></td>
+        <td>FY2026 operating margin 14.14%→4.90%, SG&A +47.7%</td>
+        <td><span class="tag tag-red">-15%~-20%</span></td>
+        <td><span class="tag tag-green">Very high</span></td>
+        <td>Priced in, but confidence erosion persists</td>
+      </tr>
+      <tr>
+        <td><strong>Buyback reduction</strong></td>
+        <td>FY2025 buybacks RMB 86.7 billion → FY2026 just RMB 7.6 billion (-91%)</td>
+        <td><span class="tag tag-red">-10%~-15%</span></td>
+        <td><span class="tag tag-green">High</span></td>
+        <td>Persistent (negative FCF limits buyback capacity)</td>
+      </tr>
+      <tr>
+        <td><strong>Competitive landscape</strong></td>
+        <td>Pinduoduo's low-price competition + Douyin e-commerce expansion</td>
+        <td><span class="tag tag-red">-8%~-12%</span></td>
+        <td><span class="tag tag-yellow">Mid</span></td>
+        <td>Sustained over the long term</td>
+      </tr>
+      <tr>
+        <td><strong>China ADR discount</strong></td>
+        <td>US-China relations/PCAOB/geopolitics</td>
+        <td><span class="tag tag-yellow">-8%~-12%</span></td>
+        <td><span class="tag tag-yellow">Mid</span></td>
+        <td>Persistent</td>
+      </tr>
+      <tr>
+        <td><strong>FCF turns negative</strong></td>
+        <td>Free cash flow swung from +RMB 77.5 billion to -RMB 49.9 billion</td>
+        <td><span class="tag tag-yellow">-5%~-8%</span></td>
+        <td><span class="tag tag-green">High</span></td>
+        <td>To improve or deteriorate in FY2027</td>
+      </tr>
+      <tr>
+        <td><strong>Organizational changes</strong></td>
+        <td>The "1+6+N" 180-degree turn from spin-off to integration</td>
+        <td><span class="tag tag-yellow">-3%~-5%</span></td>
+        <td><span class="tag tag-yellow">Mid-to-low</span></td>
+        <td>Already priced in</td>
+      </tr>
+      <tr>
+        <td><strong>Alibaba Cloud AI concept</strong></td>
+        <td>Qwen plus cloud price cuts — positive but margin-dilutive</td>
+        <td><span class="tag tag-green">+3%~+5%</span></td>
+        <td><span class="tag tag-yellow">Mid</span></td>
+        <td>Long-term positive but near-term uncertain</td>
+      </tr>
+      <tr>
+        <td><strong>Antitrust fallout</strong></td>
+        <td>The RMB 18.2 billion penalty in 2021 came more than four years ago</td>
+        <td><span class="tag tag-check">Already priced in</span></td>
+        <td><span class="tag tag-green">High</span></td>
+        <td>Concluded</td>
+      </tr>
+    </table>
+
+    <div class="quote">
+      <strong>Key findings:</strong>The single largest shock came from the FY2026 results (2026/5/13), where the collapse in operating margin validated market concerns that Alibaba was "growing revenue without growing profit." Combined with the sharp cutback in buybacks (removing the floor of support), the stock lost both pillars and fell to the $92-$105 range. The Alibaba Cloud AI narrative is currently the only positive premium factor, but it is not yet enough to offset the negative shock of deteriorating operating profit.</div>
+  </div>
+
+  <!-- 股价与新闻关联 -->
+  <div class="card" id="s4">
+    <h2>📈 Share price vs. news correlation analysis</h2>
+    <p>Alibaba share price performance versus key events, 2023 to July 2026:</p>
+
+    <table>
+      <tr><th>Time period</th><th>Share price range</th><th>Key drivers</th></tr>
+      <tr><td>January–March 2023 (1.0)</td><td>~$85–105</td><td>Post-COVID reopening in China plus expectations of relaxed platform-economy regulation drive a rebound in the share price from the bottom</td></tr>
+      <tr><td>March 2023</td><td>~$95–110</td><td>"1+6+N" spin-off plan announced; market assigns premium to organizational reform</td></tr>
+      <tr><td>June 6.0–August 2023</td><td>~$90–100</td><td>Jack Ma returns to China and addresses staff, but weak macro backdrop caps rebound</td></tr>
+      <tr><td>November 2023</td><td>~$80–90</td><td><strong>Pinduoduo's market cap overtakes Alibaba's</strong>, the market is reassessing the competitive landscape, and sentiment is weak</td></tr>
+      <tr><td>H1 2024</td><td>~$70–85</td><td>China deflationary pressure plus broad China ADR slump push Alibaba shares toward 52-week low</td></tr>
+      <tr><td>H2 2024</td><td>~$85–120</td><td>China stimulus + Alibaba Cloud AI theme + buyback push drive gradual share price recovery</td></tr>
+      <tr><td>H1 2025</td><td>~$120–145</td><td>Large-scale buybacks (about RMB 3 billion per day) plus a warming Alibaba Cloud AI narrative push the stock above $140</td></tr>
+      <tr><td>H2 2025</td><td>~$130–190</td><td><strong>Shares hit a 52-week high of $192.67</strong>, driven by the AI rally in China concept stocks and buybacks, with the market expecting a favorable FY2026 report</td></tr>
+      <tr><td>January–April 2026</td><td>~$115–140</td><td>AI concept fades and macro worries return, sending the stock down from its high</td></tr>
+      <tr><td><strong>2026/05/13</strong></td><td><strong>~$92–105</strong></td><td><strong>FY2026 earnings blowup: operating margin collapses and buyback shrinks, stock plunges over 15% in a single week</strong></td></tr>
+      <tr><td>May 5–July 2026</td><td>~$92–105</td><td>Range-bound at lows, lacking catalysts, market awaits FY2027 Q1 results (expected in August)</td></tr>
+    </table>
+
+    <div class="quote">
+      <strong>Key findings:</strong>Alibaba's share price has been through a full cycle: "policy easing → spin-off reform → buyback-driven → AI narrative → earnings blow-up." The FY2026 results mark the most important turning point of 2025–2026. While buybacks were strong (RMB 86.7 billion in FY2025), the stock traded in the USD 130–193 range; after buybacks shrank, the stock lost its core support, the deterioration in operating profit was laid bare, and the price collapsed back to USD 92–105.</div>
+
+    <h3>📊 Changes in key valuation metrics</h3>
+    <table>
+      <tr><th>Indicator</th><th>2025 high</th><th>Current (July 2026)</th><th>Change</th></tr>
+      <tr><td>Share price</td><td>$192.67</td><td>$98.40</td><td><span class="tag tag-red">-49%</span></td></tr>
+      <tr><td>PE (TTM)</td><td>~26x</td><td>15.35x</td><td><span class="tag tag-yellow">Compressed 41%</span></td></tr>
+      <tr><td>PB</td><td>~0.50</td><td>~0.22</td><td><span class="tag tag-red">On the brink of below book value</span></td></tr>
+      <tr><td>Quarterly buyback cadence</td><td>~RMB 20 billion/quarter</td><td>~RMB 1.9 billion/quarter</td><td><span class="tag tag-red">-91%</span></td></tr>
+      <tr><td>FCF</td><td>+RMB 77.5 billion/year</td><td>-RMB 49.9 billion/year</td><td><span class="tag tag-red">Turns negative</span></td></tr>
+    </table>
+  </div>
+
+  <!-- 性质判断 -->
+  <div class="card" id="s5">
+    <h2>🏷️ Nature assessment</h2>
+    <p>Current view:<strong style="color:#1A4B8C;">Value events + ongoing pricing adjustments + structural change</strong></p>
+
+    <p style="margin-top:8px;font-size:.9rem;color:#555;">
+      ☑ <strong>Value event</strong>(Real fundamental change) — FY2026 earnings: operating margin collapse + buyback reduction<br>
+      ☑ <strong>Ongoing pricing adjustments</strong>— The market is repricing the new Alibaba on "no more high growth + no more large-scale buybacks"<br>
+      ☑ <strong>Structural change</strong>— Buyback capacity constrained as FCF turns negative; management's ability to support the share price weakens<br>☐ Sentiment/technical fluctuation (normal fluctuation)<br>☐ True cause unclear</p>
+
+    <div class="card-inset" style="margin-top:16px;">
+      <h4 style="margin-bottom:6px;">Three key judgments</h4>
+      <p style="font-size:.85rem;">
+        <strong>1️⃣ The FY2026 results are a milestone event for the "valuation reset"</strong><br>Alibaba has shifted from a "profit improvement + large-scale buyback" narrative to "margin pressure + constrained buybacks." The market's ~26x PE for Alibaba in 2025 rested on two premises: continued profit improvement and buyback support. Both premises were broken simultaneously in FY2026.</p>
+      <p style="font-size:.85rem;margin-top:8px;">
+        <strong>2️⃣ The core issue is the fair valuation of the "new Alibaba"</strong><br>What PE should Alibaba trade at without large-scale buybacks? If FY2027 operating margin recovers to 8-10% and e-commerce growth improves, a fair PE of 12-15x implies $80-110. If margins keep declining, below $80 is not out of the question.</p>
+      <p style="font-size:.85rem;margin-top:8px;">
+        <strong>3️⃣ Alibaba Cloud AI is the last positive story</strong><br>If Alibaba Cloud can hold its position as China's number one public cloud and break through in monetizing AI large models, a re-rating of the cloud business could offset downside in the e-commerce valuation. But the cloud business's current price-cutting strategy is squeezing margins.</p>
+    </div>
+  </div>
+
+  <!-- 行动建议 -->
+  <div class="card" id="s6">
+    <h2>🎯 Action recommendations</h2>
+    <table>
+      <tr><th>Action</th><th>Recommendation</th><th>Rationale</th></tr>
+      <tr><td>Trigger thesis review</td><td><span class="tag tag-yellow">⚠️ Strongly recommend re-examining</span></td><td>The FY2026 results shook the two core pillars of the buy thesis (profitability + buybacks)</td></tr>
+      <tr><td>Trigger in-depth financial report review</td><td><span class="tag tag-green">❌ Completed</span></td><td>Existing financial report deep-dive report</td></tr>
+      <tr><td>Triggers management review</td><td><span class="tag tag-yellow">⚠️ Recommend review</span></td><td>Management's explanation for the buyback reduction and negative FCF is inadequate</td></tr>
+      <tr><td>Triggers a review of industry analysis</td><td><span class="tag tag-yellow">⚠️ Reassessment recommended</span></td><td>Monitor the evolving competitive landscape between Pinduoduo and Douyin</td></tr>
+      <tr><td>Portfolio rebalancing moves</td><td><span class="tag tag-yellow">⏸ Watch</span></td><td>PB of 0.22 is extremely undervalued, but negative FCF requires waiting for FY2027 Q1 validation</td></tr>
+      <tr><td>Observe only</td><td><span class="tag tag-check">✅ Suitable</span></td><td>Wait for FY2027 Q1 results to confirm the earnings recovery trend and signals of buyback resumption</td></tr>
+    </table>
+
+    <div class="info-gap" style="margin-top:16px;">
+      <strong>Key signal to watch:</strong>
+      <ul style="margin-top:6px; padding-left:16px;">
+        <li><strong>FY2027 Q1 results (expected August 2026)</strong>— Watch: ① whether operating margin recovers ② whether SG&A is controlled ③ whether buybacks resume ④ whether FCF trends toward improvement</li>
+        <li><strong>Alibaba Cloud's AI commercialization progress</strong>— Qwen API call volume, cloud revenue growth, AI-driven lift in advertising CPM</li>
+        <li><strong>Pinduoduo Q2 earnings (expected August)</strong>— Verify the overall competitive landscape of the e-commerce industry</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 情景分析 -->
+  <div class="card">
+    <h2>📊 Scenario analysis for the next 6-12 months</h2>
+
+    <div class="card-inset" style="border-left:4px solid #2E8B57">
+      <h3 style="color:#2E8B57;">📈 Bull case: $130-$170 (20% probability)</h3>
+      <p style="margin:6px 0;font-size:.82rem;color:#555;">Trigger conditions (multiple must occur simultaneously)</p>
+      <ul style="padding-left:18px;font-size:.82rem;">
+        <li>FY2027 Q1 results beat expectations: operating margin recovers to 8%+, SG&A growth slows markedly</li>
+        <li>Management announced the resumption of large-scale buybacks (e.g., over RMB 50 billion annually)</li>
+        <li>Alibaba Cloud AI business sees a hit commercialization case</li>
+        <li>China-US relations see a temporary easing</li>
+      </ul>
+      <p style="margin-top:6px"><strong>Target valuation: PE 18-20x (+30% to +70% vs. current)</strong></p>
+    </div>
+
+    <div class="card-inset" style="border-left:4px solid #D4880F">
+      <h3 style="color:#D4880F;">➡️ Sideways range: $85-$115 (55% probability)</h3>
+      <p style="margin:6px 0;font-size:.82rem;color:#555;">Base case</p>
+      <ul style="padding-left:18px;font-size:.82rem;">
+        <li>FY2027 operating margin improves modestly within the 5-7% range, but does not rebound sharply</li>
+        <li>Buybacks remain low (RMB 5–10 billion per quarter), insufficient to provide a strong floor</li>
+        <li>The overall environment for China concept stocks remains unchanged</li>
+        <li>Alibaba Cloud's AI narrative underpins the valuation floor but does not trigger a breakout</li>
+      </ul>
+      <p style="margin-top:6px"><strong>Core range: $90-$110 (corresponding to PE 12-15x)</strong></p>
+    </div>
+
+    <div class="card-inset" style="border-left:4px solid #D44A4A">
+      <h3 style="color:#D44A4A;">📉 Downside scenario: $60-$85 (25% probability)</h3>
+      <p style="margin:6px 0;font-size:.82rem;color:#555;">Trigger conditions</p>
+      <ul style="padding-left:18px;font-size:.82rem;">
+        <li>FY2027 H1 results deteriorate further: operating margin below 4%, FCF stays negative</li>
+        <li>Fully abandon buybacks/reduce dividends</li>
+        <li>Pinduoduo/Douyin e-commerce accelerate erosion of Alibaba's market share</li>
+        <li>China's macro picture keeps deteriorating</li>
+        <li>Escalating US-China decoupling</li>
+      </ul>
+      <p style="margin-top:6px"><strong>Key support: $85 → $70 → $60 (2015 IPO price $68)</strong></p>
+    </div>
+  </div>
+
+  <!-- 跟踪清单 -->
+  <div class="card">
+    <h2>📋 Tracking checklist for the next 30 days</h2>
+    <ul class="checklist">
+      <li>FY2027 Q1 earnings release date announcement (expected mid-August) — the most important investment event of 2026</li>
+      <li>Alibaba Cloud pricing moves: further cuts ahead? Impact on cloud margin</li>
+      <li>Buyback data tracker: has the monthly announced buyback volume recovered?</li>
+      <li>Pinduoduo Q2 earnings (monitor in parallel to verify the competitive landscape of the industry)</li>
+      <li>China-US relations / PCAOB-related developments</li>
+      <li>China macro consumption data (leading indicator for Alibaba's core e-commerce GMV)</li>
+      <li>Qwen large model iteration information</li>
+    </ul>
+  </div>
+
+  <!-- 信息缺口声明 -->
+  <div class="card">
+    <h2>⚠️ Information gap statement</h2>
+    <div class="info-gap">Based on public financial data and media reports. The available information supports the following judgments:<ul style="margin-top:8px; padding-left:16px;">
+        <li><strong>Given:</strong>FY2026 financials are complete, and the attribution for the operating profit collapse is clear (SG&A +47.7%)</li>
+        <li><strong>Given:</strong>Buyback sharply scaled back as confirmed (RMB 86.7 billion → RMB 7.6 billion)</li>
+        <li><strong>Given:</strong>Position thesis and industry analysis have been cross-validated</li>
+        <li><strong>To be added:</strong>FY2027 Q1 operating data (whether the margin improvement guided by management materialized)</li>
+        <li><strong>To be added:</strong>Management's detailed explanation of the buyback strategy (FY2026 call transcript lacks depth)</li>
+        <li><strong>To be added:</strong>Alibaba Cloud Qwen's commercialization revenue and profit data</li>
+        <li><strong>To be added:</strong>Breakdown of the specific impact of consolidated businesses including Sun Art Retail</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 补充材料 -->
+  <div class="card">
+    <h2>📎 Supplementary material</h2>
+    <p>See details<a href="阿里巴巴大事时间线.md" style="color:#1A4B8C;text-decoration:none;font-weight:500;">Alibaba Major Events Timeline.md</a></p>
+    <p style="margin-top:8px;font-size:.85rem;color:#666;">Data sources: BABA IR, StockAnalysis, Macrotrends, Reuters, Bloomberg, public media reports</p>
+  </div>
+
+</div>
+<div class="footer">AI-Berkshire | Alibaba (BABA) Investment Research | 2026/07/07</div>
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

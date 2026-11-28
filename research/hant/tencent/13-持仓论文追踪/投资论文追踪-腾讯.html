@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>投資論文追蹤 — 騰訊控股 (00700.HK)</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f7fa; color: #333; line-height: 1.8; font-size: 15px; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 50px 0 40px; text-align: center; }
+.header h1 { font-size: 28px; font-weight: 900; letter-spacing: 1px; margin-bottom: 8px; }
+.header .subtitle { font-size: 16px; font-weight: 300; opacity: 0.85; }
+.header .meta { margin-top: 14px; font-size: 13px; opacity: 0.7; }
+.header .meta-bar { margin-top: 16px; font-size: 13px; opacity: 0.85; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.header .meta-bar .item { display: inline-flex; align-items: center; gap: 4px; }
+.header .meta-bar .label { opacity: 0.7; }
+.container { max-width: 920px; margin: 0 auto; padding: 30px 24px; }
+.card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 32px 36px; margin-bottom: 28px; }
+.card h2 { font-size: 22px; font-weight: 700; color: #1A4B8C; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid #1A4B8C; display: inline-block; }
+.card h3 { font-size: 17px; font-weight: 600; color: #2c3e50; margin: 20px 0 10px; }
+.card p, .card ul, .card ol { margin-bottom: 12px; color: #444; }
+.card ul, .card ol { padding-left: 22px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+thead th { background: #1A4B8C; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
+thead th:first-child { border-radius: 6px 0 0 0; }
+thead th:last-child { border-radius: 0 6px 0 0; }
+tbody td { padding: 10px 12px; border-bottom: 1px solid #e8ecf1; }
+tbody tr:nth-child(even) { background: #f8f9fb; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; }
+
+/* File-specific extras */
+.weight-badge { display: inline-block; background: #1A4B8C; color: #fff; border-radius: 20px; padding: 3px 12px; font-size: 13px; font-weight: 600; }
+.verdict { display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; }
+.verdict.pass { background: #e8f5e9; color: #27ae60; }
+.verdict.hold { background: #fff8e1; color: #f57f17; }
+.verdict.fail { background: #ffebee; color: #c62828; }
+.verdict.improve { background: #e3f2fd; color: #1565c0; }
+.metrics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin: 16px 0; }
+.metric-card { background: #f8f9fb; border-radius: 8px; padding: 16px; text-align: center; border: 1px solid #e8ecf1; }
+.metric-card .value { font-size: 18px; font-weight: 700; color: #1A4B8C; }
+.metric-card .label { font-size: 12px; color: #999; margin-top: 4px; }
+.metric-card .trend { font-size: 12px; margin-top: 2px; }
+.trend.up { color: #27ae60; }
+.trend.down { color: #c62828; }
+.trend.stable { color: #999; }
+.risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+.risk-item { background: #f8f9fb; border-radius: 8px; padding: 16px; border-left: 4px solid; font-size: 14px; }
+.risk-item.high { border-color: #c62828; }
+.risk-item.medium { border-color: #f57f17; }
+.risk-item.low { border-color: #27ae60; }
+.risk-item .risk-label { font-weight: 600; color: #333; }
+.risk-item .risk-desc { color: #666; margin-top: 4px; font-size: 13px; }
+.risk-tag { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 12px; font-weight: 600; }
+.risk-tag.high { background: #ffebee; color: #c62828; }
+.risk-tag.medium { background: #fff8e1; color: #f57f17; }
+.risk-tag.low { background: #e8f5e9; color: #27ae60; }
+.drift-row { padding: 14px 0; border-bottom: 1px solid #e8ecf1; display: grid; grid-template-columns: 1fr 2fr 2fr 70px; gap: 12px; align-items: start; font-size: 14px; }
+.drift-row:last-child { border-bottom: none; }
+.drift-row .drift-label { font-weight: 600; }
+.drift-row .drift-old { color: #999; }
+.drift-row .drift-new { color: #333; }
+.drift-badge { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 13px; font-weight: 600; text-align: center; }
+.drift-badge.positive { background: #e8f5e9; color: #27ae60; }
+.drift-badge.negative { background: #ffebee; color: #c62828; }
+.drift-badge.neutral { background: #f1f5f9; color: #999; }
+.conclusion-box { background: #eef3fc; border: 2px solid #1A4B8C; border-radius: 10px; padding: 28px; margin: 16px 0; }
+.conclusion-box h3 { color: #1A4B8C; font-size: 18px; margin-bottom: 12px; }
+.score-ring { display: inline-flex; align-items: center; justify-content: center; width: 80px; height: 80px; border-radius: 50%; font-size: 24px; font-weight: 700; color: #fff; background: #1A4B8C; flex-shrink: 0; }
+.score-row { display: flex; align-items: center; gap: 20px; padding: 10px 0; }
+.score-row .score-info { flex: 1; }
+.score-row .score-title { font-weight: 600; }
+.score-row .score-desc { font-size: 13px; color: #666; }
+.prob-low { color: #27ae60; font-weight: 600; }
+.prob-medium { color: #f57f17; font-weight: 600; }
+.prob-high { color: #c62828; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>📋 投資論文追蹤</h1>
+<div class="subtitle">騰訊控股 · 00700.HK / TCEHY</div>
+<div class="meta-bar">
+<span class="item"><span class="label">追蹤日期</span> 2026-07-07</span>
+<span class="item"><span class="label">股價</span> HK$463.60 / US$57.73</span>
+<span class="item"><span class="label">市值</span>HK$4.22萬億元</span>
+<span class="item"><span class="label">PE(TTM)</span> 15.19x</span>
+<span class="item"><span class="label">Forward PE</span> 12.87x</span>
+</div>
+</div>
+
+<div class="container">
+
+<!-- Section 1: Buy Thesis -->
+<div class="card">
+<h2>一、持倉買入論文（核心邏輯）</h2>
+<table>
+<thead>
+<tr>
+<th style="width:40px">#</th>
+<th>買入論點</th>
+<th style="width:80px">權重</th>
+<th>建立部位理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="font-weight:700;color:#1A4B8C;">①</td>
+<td><strong>中國網際網路基礎設施壟斷</strong><br><span style="font-size:13px;color:#999;">微信13億MAU · 社交+支付+小程式生態</span></td>
+<td><span class="weight-badge">35%</span></td>
+<td style="font-size:13px;">護城河評估為「極寬」，網路效應＋轉換成本全球頂級</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#1A4B8C;">②</td>
+<td><strong>全球遊戲領導者</strong><br><span style="font-size:13px;color:#999;">自研+投資+發行 · 版號恢復+出海</span></td>
+<td><span class="weight-badge">25%</span></td>
+<td style="font-size:13px;">全球最大遊戲公司，最強變現引擎＋現金牛業務</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#1A4B8C;">③</td>
+<td><strong>卓越盈利品質與資本配置</strong><br><span style="font-size:13px;color:#999;">毛利率56%+ · FCF／收入28%+ · 理性管理層</span></td>
+<td><span class="weight-badge">25%</span></td>
+<td style="font-size:13px;">巴菲特式「好生意」標準：高ROE＋真現金＋理性管家</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#1A4B8C;">④</td>
+<td><strong>新成長引擎蓄勢</strong><br><span style="font-size:13px;color:#999;">視頻號廣告 · 混元AI · 騰訊雲</span></td>
+<td><span class="weight-badge">15%</span></td>
+<td style="font-size:13px;">低成本期權價值——即使部分兌現也能顯著增厚估值</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- Section 2: Thesis Evaluation -->
+<div class="card">
+<h2>二、逐篇論文評估</h2>
+
+<h3>論文①：中國網際網路基礎設施壟斷</h3>
+<p style="font-size:14px;color:#666;background:#f8f9fb;padding:10px 14px;border-radius:8px;margin-bottom:14px;">微信是中國數位生活的基礎設施，13億MAU構成極深的護城河。社交關係鏈鎖定＋小程式生態＋微信支付，使用者轉換成本幾乎無限高。</p>
+
+<div style="margin-bottom:14px;">
+<span class="verdict pass">✅ 論文仍然成立 · 護城河加強</span>
+</div>
+
+<div class="metrics-grid">
+<div class="metric-card"><div class="value">13.5億+</div><div class="label">微信MAU</div><div class="trend up">↑ 持續增長</div></div>
+<div class="metric-card"><div class="value">6億+</div><div class="label">小程式日活</div><div class="trend up">↑ 生態擴大</div></div>
+<div class="metric-card"><div class="value">5億+</div><div class="label">視頻號DAU</div><div class="trend up">↑ 超預期</div></div>
+<div class="metric-card"><div class="value">4000億元</div><div class="label">視頻號電商 GMV</div><div class="trend up">↑ 爆發增長</div></div>
+</div>
+
+<div style="margin:12px 0;">
+<span style="font-weight:600;color:#27ae60;">新增正向訊號：</span>
+<span style="font-size:14px;">微信搜一搜DAU破2億 · 視頻號電商GMV 4000億 · 混元AI接入微信生態</span>
+</div>
+<div style="margin:12px 0;">
+<span style="font-weight:600;color:#c62828;">新增風險：</span>
+<span style="font-size:14px;">字節跳動用戶時長競爭 · 資料安全法限制 · AI 社交範式衝擊（目前有限）</span>
+</div>
+
+<hr style="border:none;border-top:1px solid #e8ecf1;margin:24px 0;">
+
+<h3>論文②：全球遊戲領導者</h3>
+<p style="font-size:14px;color:#666;background:#f8f9fb;padding:10px 14px;border-radius:8px;margin-bottom:14px;">全球最大遊戲公司，自研+投資+發行完整能力。版號恢復+海外擴張雙重驅動。</p>
+
+<div style="margin-bottom:14px;">
+<span class="verdict hold">⚠️ 基本成立 · 需修正預期</span>
+</div>
+
+<div class="metrics-grid">
+<div class="metric-card"><div class="value">全球#1</div><div class="label">遊戲收入排名</div><div class="trend stable">→ 領先穩定</div></div>
+<div class="metric-card"><div class="value">+8%</div><div class="label">國內遊戲增長</div><div class="trend stable">→ 穩健但低於預期</div></div>
+<div class="metric-card"><div class="value">~30%</div><div class="label">海外收入佔比</div><div class="trend up">↑ 提升中</div></div>
+<div class="metric-card"><div class="value">200億+</div><div class="label">DNF手遊首年流水</div><div class="trend up">↑ 超預期爆款</div></div>
+</div>
+
+<div style="margin:12px 0;">
+<span style="font-weight:600;color:#27ae60;">新增正向訊號：</span>
+<span style="font-size:14px;">DNF手遊首年流水200億元 · Valorant主機版上線 · 小遊戲年流水500億元</span>
+</div>
+<div style="margin:12px 0;">
+<span style="font-weight:600;color:#c62828;">新增風險：</span>
+<span style="font-size:14px;">國內存量競爭 · 米哈遊崛起 · 微軟收購動視暴雪 · AI+遊戲追趕</span>
+</div>
+
+<div style="background:#fff8e1;padding:12px 16px;border-radius:8px;font-size:14px;margin-top:10px;">
+<strong>📌 修正建議：</strong>從「遊戲高成長引擎」下調為「遊戲穩健現金牛」；權重從25%→20%</div>
+
+<hr style="border:none;border-top:1px solid #e8ecf1;margin:24px 0;">
+
+<h3>論文③：卓越盈利品質與資本配置</h3>
+<p style="font-size:14px;color:#666;background:#f8f9fb;padding:10px 14px;border-radius:8px;margin-bottom:14px;">毛利率從43%提升到56%+，自由現金流轉化率近100%，ROE 20%+。管理層理性：回購+減持+分紅提升。</p>
+
+<div style="margin-bottom:14px;">
+<span class="verdict improve">✅ 仍然成立 · 比建倉時更強</span>
+</div>
+
+<div class="metrics-grid">
+<div class="metric-card"><div class="value">56.3%</div><div class="label">毛利率</div><div class="trend up">↑ 歷史高位</div></div>
+<div class="metric-card"><div class="value">30.6%</div><div class="label">淨利率</div><div class="trend up">↑ 持續提升</div></div>
+<div class="metric-card"><div class="value">28.7%</div><div class="label">自由現金流／收入</div><div class="trend up">↑ 維持高位</div></div>
+<div class="metric-card"><div class="value">20.51%</div><div class="label">ROE</div><div class="trend up">↑ 小幅提升</div></div>
+</div>
+
+<div class="metrics-grid">
+<div class="metric-card"><div class="value">¥4.76</div><div class="label">每股股利（分紅）</div><div class="trend up">↑ +40%</div></div>
+<div class="metric-card"><div class="value">1000億+</div><div class="label">年度回購(HK$)</div><div class="trend up">↑ 加碼</div></div>
+<div class="metric-card"><div class="value">3000億元以上</div><div class="label">減持回籠（HK$）</div><div class="trend up">↑ 高位套現</div></div>
+<div class="metric-card"><div class="value">US$132億</div><div class="label">淨現金</div><div class="trend up">↑ 財務穩健</div></div>
+</div>
+
+<div style="margin:12px 0;">
+<span style="font-weight:600;color:#c62828;">新增風險：</span>
+<span style="font-size:14px;">CAPEX+30%（AI算力）可能拉低短期ROIC · 減持美股可能錯失上漲 · 回購持續性依賴股價</span>
+</div>
+
+<hr style="border:none;border-top:1px solid #e8ecf1;margin:24px 0;">
+
+<h3>論文④：新增長引擎蓄勢</h3>
+<p style="font-size:14px;color:#666;background:#f8f9fb;padding:10px 14px;border-radius:8px;margin-bottom:14px;">影片號廣告變現、混元AI、騰訊雲構成第二／三增長曲線。</p>
+
+<div style="margin-bottom:14px;">
+<span class="verdict improve">✅ 大致成立 · 各引擎進度參差</span>
+</div>
+
+<h4 style="color:#1A4B8C;margin:16px 0 8px;font-size:15px;">🔷 影音號廣告貨幣化<span class="verdict pass">超預期</span></h4>
+<table>
+<thead>
+<tr><th>指標</th><th>原始預期</th><th>當前狀態</th><th>評估</th></tr>
+</thead>
+<tbody>
+<tr><td>DAU</td><td>約3億元</td><td>5億+</td><td style="color:#27ae60;">✅ 超出預期</td></tr>
+<tr><td>單用戶時長</td><td>約35分鐘</td><td>約50分鐘</td><td style="color:#27ae60;">✅ 超預期</td></tr>
+<tr><td>廣告收入</td><td>~200億元/年</td><td>約500億元/年</td><td style="color:#27ae60;">✅ 超預期</td></tr>
+<tr><td>電商 GMV</td><td>~1000億元/年</td><td>~4000億元/年</td><td style="color:#27ae60;">✅ 超出預期</td></tr>
+</tbody>
+</table>
+
+<h4 style="color:#1A4B8C;margin:16px 0 8px;font-size:15px;">🔷 混元AI<span class="verdict hold">符合預期·尚未獨立</span></h4>
+<p style="font-size:14px;">國內第一梯隊大模型，商業化收入約50億（2025），仍在早期。AI助手＋搜尋＋客服＋創作穩步落地，但C端爆款尚未出現。</p>
+
+<h4 style="color:#1A4B8C;margin:16px 0 8px;font-size:15px;">🔷 騰訊雲<span class="verdict improve">優於預期盈利</span></h4>
+<p style="font-size:14px;">同比+15-20%，已實現盈利（超預期）。市場份額進入前三，得益於AI需求拉動和聚焦高質量收入。</p>
+</div>
+
+<!-- Section 3: Risk Matrix -->
+<div class="card">
+<h2>三、風險矩陣更新</h2>
+
+<h3 style="color:#666;font-size:15px;margin-bottom:12px;">原有風險追蹤</h3>
+<table style="margin-bottom:20px;">
+<thead>
+<tr><th>風險因素</th><th>原始評級</th><th>當前評級</th><th>變化</th><th>說明</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>監管（反壟斷／資料安全／版號）</td>
+<td><span class="risk-tag high">高</span></td>
+<td><span class="risk-tag medium">中</span></td>
+<td style="color:#27ae60;">↓ 減輕</td>
+<td style="font-size:13px;">監管高峯已過，版號常態化發放</td>
+</tr>
+<tr>
+<td>競爭（字節跳動時長競爭）</td>
+<td><span class="risk-tag medium">中</span></td>
+<td><span class="risk-tag medium">中</span></td>
+<td style="color:#999;">→ 持平</td>
+<td style="font-size:13px;">視頻號已有效防禦，但抖音仍在增長</td>
+</tr>
+<tr>
+<td>中美地緣政治</td>
+<td><span class="risk-tag medium">中</span></td>
+<td><span class="risk-tag medium">中</span></td>
+<td style="color:#999;">→ 持平</td>
+<td style="font-size:13px;">不確定性持續，騰訊已大幅減持美國投資</td>
+</tr>
+<tr>
+<td>增長放緩</td>
+<td><span class="risk-tag medium">中</span></td>
+<td><span class="risk-tag medium">中</span></td>
+<td style="color:#999;">→ 持平</td>
+<td style="font-size:13px;">收入增速穩定在10-15%，符合預期</td>
+</tr>
+</tbody>
+</table>
+
+<h3 style="color:#666;font-size:15px;margin-bottom:12px;">新增風險</h3>
+<div class="risk-grid">
+<div class="risk-item medium">
+<div class="risk-label">AI 競爭衝擊</div>
+<div class="risk-desc">字節豆包／百度文心 AI 競爭；Meta／OpenAI 全球化衝擊</div>
+<div class="risk-tag medium">中</div>
+</div>
+<div class="risk-item low">
+<div class="risk-label">資本支出上升拉低ROIC</div>
+<div class="risk-desc">AI 算力投入 CAPEX+30%，短期稀釋 ROIC</div>
+<div class="risk-tag low">低至中</div>
+</div>
+<div class="risk-item low">
+<div class="risk-label">投資組合價值縮水</div>
+<div class="risk-desc">剩餘投資市值波動；但敞口已大幅降低</div>
+<div class="risk-tag low">低</div>
+</div>
+<div class="risk-item low">
+<div class="risk-label">廣告市場景氣度</div>
+<div class="risk-desc">宏觀經濟走弱影響廣告收入</div>
+<div class="risk-tag low">低</div>
+</div>
+</div>
+</div>
+
+<!-- Section 4: Thesis Drift -->
+<div class="card">
+<h2>四、論文漂移檢測</h2>
+
+<div style="background:#f8f9fb;padding:14px;border-radius:8px;margin-bottom:16px;font-size:14px;">
+<strong>漂移檢測目的：</strong>比較原始建倉邏輯與當前判斷之間的變化，辨識正向／負向漂移及其幅度。</div>
+
+<div class="drift-row" style="font-weight:600;color:#666;padding-bottom:10px;border-bottom:2px solid #e8ecf1;">
+<div>論文</div>
+<div>上次判斷（建倉時）</div>
+<div>當前判斷（2026-07-07）</div>
+<div style="text-align:center;">漂移</div>
+</div>
+<div class="drift-row">
+<div class="drift-label">① 基礎設施</div>
+<div class="drift-old">護城河極寬，但抖音侵蝕、監管風險高</div>
+<div class="drift-new">護城河加強（視頻號＋搜尋＋AI 生態），監管壓力減輕</div>
+<div style="text-align:center;"><span class="drift-badge positive">+15%</span></div>
+</div>
+<div class="drift-row">
+<div class="drift-label">② 遊戲領導者</div>
+<div class="drift-old">高成長引擎，版號恢復推動雙位數成長</div>
+<div class="drift-new">增長趨於穩健（~8-10%），海外非爆發式</div>
+<div style="text-align:center;"><span class="drift-badge negative">-15%</span></div>
+</div>
+<div class="drift-row">
+<div class="drift-label">③ 盈利與配置</div>
+<div class="drift-old">盈利品質優秀且改善中，管理層理性</div>
+<div class="drift-new">符合並超出預期，資本配置行為優於原始判斷</div>
+<div style="text-align:center;"><span class="drift-badge positive">+20%</span></div>
+</div>
+<div class="drift-row">
+<div class="drift-label">④ 新增長引擎</div>
+<div class="drift-old">視頻號／AI／雲是增量期權，尚未兌現</div>
+<div class="drift-new">視頻號大幅超預期兌現，AI和雲穩步推進</div>
+<div style="text-align:center;"><span class="drift-badge positive">+25%</span></div>
+</div>
+
+<div style="background:#e8f5e9;padding:14px 18px;border-radius:8px;margin-top:16px;">
+<strong style="color:#27ae60;">綜合淨漂移：正向漂移（+11% 加權）</strong><br>
+<span style="font-size:14px;">管理層執行力超預期 + 視頻號兌現 + 監管改善 → 正向；遊戲增長預期下調 → 唯一負向</span>
+</div>
+</div>
+
+<!-- Section 5: Conclusion -->
+<div class="card">
+<h2>五、持倉合理性結論</h2>
+
+<div class="conclusion-box">
+<h3>✅ 持倉仍然合理，投資論點整體保持成立</h3>
+<p style="font-size:14px;">騰訊的4條買入論文中間有3條（①基礎設施壟斷、③盈利品質與資本配置、④新增長引擎）在當前比建倉時<strong>更強</strong>或<strong>符合預期</strong>；唯一需要修正的是②遊戲增長預期（從「高增長」→「穩健增長」）。綜合來看，論文淨漂移為正向，持倉邏輯比建倉時更有支撐。</p>
+</div>
+
+<div class="score-row">
+<div class="score-ring">83</div>
+<div class="score-info">
+<div class="score-title">持倉合理性綜合評分 /100</div>
+<div class="score-desc">論文完整度 88 · 論文穩定性 85 · 風險可控性 80 · 機會成本 75</div>
+</div>
+</div>
+
+<h3 style="margin:20px 0 12px;font-size:16px;">觸發重新評估的條件</h3>
+<table>
+<thead>
+<tr><th>觸發條件</th><th>機率</th><th>對論文影響</th></tr>
+</thead>
+<tbody>
+<tr><td>微信 MAU 連續 2 季下降</td><td><span class="prob-low">極低 &lt;5%</span></td><td>論文①證偽→減倉</td></tr>
+<tr><td>遊戲收入連續4季度同比下滑</td><td><span class="prob-low">低 10-15%</span></td><td>論文②否證→降權重</td></tr>
+<tr><td>管理層停止回購／大幅削減分紅</td><td><span class="prob-low">極低 &lt;5%</span></td><td>論文③被削弱</td></tr>
+<tr><td>混元AI被證明落後第二梯隊</td><td><span class="prob-medium">中 20-30%</span></td><td>論文④部分削弱</td></tr>
+<tr><td>全面禁止遊戲／社交平臺營運</td><td><span class="prob-low">極低 &lt;1%</span></td><td>全部論文證偽</td></tr>
+</tbody>
+</table>
+
+<h3 style="margin:20px 0 12px;font-size:16px;">後續跟蹤重點</h3>
+<div class="risk-grid">
+<div style="background:#f8f9fb;border-radius:8px;padding:16px;border:1px solid #e8ecf1;">
+<strong style="color:#1A4B8C;">每季度</strong>
+<p style="font-size:13px;margin-top:4px;">微信MAU · 視頻號DAU · 廣告收入增速 · 回購進度</p>
+</div>
+<div style="background:#f8f9fb;border-radius:8px;padding:16px;border:1px solid #e8ecf1;">
+<strong style="color:#1A4B8C;">每半年</strong>
+<p style="font-size:13px;margin-top:4px;">AI 投入回報 · 遊戲產品線 · 海外收入佔比</p>
+</div>
+</div>
+</div>
+
+<!-- Section 6: Drift Supplementary -->
+<div class="card">
+<h2>附錄：漂移對估值的影響</h2>
+<table style="margin-bottom:16px;">
+<thead>
+<tr><th>論文漂移</th><th>對PE中樞影響</th><th>幅度</th></tr>
+</thead>
+<tbody>
+<tr><td>① 基礎設施壟斷加強</td><td>提升PE（護城河溢價）</td><td style="color:#27ae60;">+2~3x</td></tr>
+<tr><td>② 遊戲增長預期下調</td><td>降低PE（成長溢價減少）</td><td style="color:#c62828;">-1~2x</td></tr>
+<tr><td>③ 盈利品質超預期</td><td>提升PE（品質溢價）</td><td style="color:#27ae60;">+2~3x</td></tr>
+<tr><td>④ 視頻號超預期兌現</td><td>提升PE（新增業務價值）</td><td style="color:#27ae60;">+1~2x</td></tr>
+</tbody>
+</table>
+
+<div style="background:#eef3fc;padding:16px 20px;border-radius:8px;border-left:4px solid #1A4B8C;">
+<strong style="color:#1A4B8C;">關鍵洞察</strong>
+<p style="font-size:14px;margin-top:6px;">當前 PE 15.19x 不僅低於歷史中位數 28x，也低於經漂移修正後之合理 PE 區間（20-24x）。論文綜合淨漂移為正，估值中樞實際應上升而非下降。當前低 PE 之主因係外部因素（中概股折價、市場情緒、地緣政治），而非基本面變差。若市場最終認可論文漂移之正面價值，估值修復空間可達<strong>30-50%</strong>。</p>
+</div>
+</div>
+
+<div class="footer">
+<p>報告生成日期：2026-07-07 | 資料來源：公司財報、公開市場資料、行業報告</p>
+<p>本報告僅供研究參考，不構成投資建議。投資有風險，入市需謹慎。</p>
+</div>
+
+</div>
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>簡</span><span class="full"><span>簡體中文</span></span></a><a class="lang hant active" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

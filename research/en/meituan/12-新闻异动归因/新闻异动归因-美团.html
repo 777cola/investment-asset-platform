@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News Move Attribution — Meituan (3690.HK)</title>
+<style>
+/* PDD 标准 CSS 模板 v2.0 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f7fa; color: #333; line-height: 1.8; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 50px 0 40px; text-align: center; }
+.header h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+.header .subtitle { font-size: 16px; opacity: 0.9; margin-bottom: 6px; }
+.header .meta { font-size: 13px; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 30px 24px; }
+.card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 32px 36px; margin-bottom: 24px; }
+.card h2 { font-size: 22px; color: #1A4B8C; border-bottom: 3px solid #1A4B8C; padding-bottom: 10px; margin-bottom: 20px; }
+.card h3 { font-size: 18px; color: #1A4B8C; margin: 20px 0 10px; }
+.card h4 { font-size: 15px; color: #555; margin: 15px 0 8px; }
+.card p, .card li { font-size: 14px; line-height: 1.8; color: #444; margin-bottom: 10px; }
+.card ul, .card ol { padding-left: 20px; margin-bottom: 15px; }
+.card table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 15px 0; border-radius: 8px; overflow: hidden; }
+.card table thead th { background: #1A4B8C; color: #fff; padding: 12px 14px; font-size: 13px; font-weight: 500; text-align: left; }
+.card table thead th:first-child { border-radius: 6px 0 0 0; }
+.card table thead th:last-child { border-radius: 0 6px 0 0; }
+.card table tbody td { padding: 10px 14px; font-size: 13px; border-bottom: 1px solid #e8ecf1; }
+.card table tbody tr:nth-child(even) { background: #f8f9fb; }
+.card table tbody tr:hover { background: #eef1f7; }
+.card .badge-green { display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 2px 10px; border-radius: 4px; font-size: 12px; font-weight: 500; }
+.card .badge-yellow { display: inline-block; background: #fff8e1; color: #f57f17; padding: 2px 10px; border-radius: 4px; font-size: 12px; font-weight: 500; }
+.card .badge-blue { display: inline-block; background: #e3f2fd; color: #1565c0; padding: 2px 10px; border-radius: 4px; font-size: 12px; font-weight: 500; }
+.card .badge-red { display: inline-block; background: #ffebee; color: #c62828; padding: 2px 10px; border-radius: 4px; font-size: 12px; font-weight: 500; }
+.card .badge-purple { display: inline-block; background: #f3e5f5; color: #7b1fa2; padding: 2px 10px; border-radius: 4px; font-size: 12px; font-weight: 500; }
+.card .insight-box { background: #eef5ff; border-left: 4px solid #1A4B8C; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+.card .warn-box { background: #fff8e1; border-left: 4px solid #f39c12; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+.card .alert-box { background: #fdecea; border-left: 4px solid #e74c3c; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+.card .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0; }
+.card .kpi-item { background: #f8f9fb; border-radius: 8px; padding: 14px; text-align: center; }
+.card .kpi-item .kpi-label { font-size: 12px; color: #888; margin-bottom: 4px; }
+.card .kpi-item .kpi-value { font-size: 20px; font-weight: 700; }
+.card .kpi-item .kpi-change { font-size: 11px; }
+.card .value-up { color: #27ae60; font-weight: 600; }
+.card .value-down { color: #e74c3c; font-weight: 600; }
+.card .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; margin: 0 4px 4px 0; }
+.card .tag-news { background: #e3f2fd; color: #1565c0; }
+.card .tag-reg { background: #fff8e1; color: #f57f17; }
+.card .tag-comp { background: #fce4ec; color: #c62828; }
+.card .tag-fin { background: #e8f5e9; color: #2e7d32; }
+.card .tag-tech { background: #f3e5f5; color: #7b1fa2; }
+.footer { text-align: center; color: #999; font-size: 0.8rem; padding: 30px 24px; }
+.timeline-event { display: flex; gap: 16px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #eee; }
+.timeline-date { flex-shrink: 0; width: 90px; text-align: center; }
+.timeline-date .date-num { font-size: 24px; font-weight: 700; color: #1A4B8C; line-height: 1.2; }
+.timeline-date .date-month { font-size: 12px; color: #888; }
+.timeline-content { flex: 1; }
+.timeline-content .event-title { font-size: 15px; font-weight: 600; color: #333; margin-bottom: 4px; }
+.timeline-content .event-desc { font-size: 13px; color: #666; }
+.timeline-content .event-impact { font-size: 12px; color: #c62828; margin-top: 4px; font-weight: 500; }
+.impact-meter { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+.impact-meter .meter-label { font-size: 12px; color: #888; width: 50px; }
+.impact-meter .meter-bar { flex: 1; height: 6px; background: #ecf0f1; border-radius: 3px; overflow: hidden; }
+.impact-meter .meter-fill { height: 100%; border-radius: 3px; }
+.impact-meter .meter-fill.high { background: #e74c3c; width: 85%; }
+.impact-meter .meter-fill.med-high { background: #e67e22; width: 65%; }
+.impact-meter .meter-fill.medium { background: #f39c12; width: 45%; }
+.impact-meter .meter-fill.low { background: #95a5a6; width: 25%; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📰 News-driven move attribution analysis</h1>
+  <div class="subtitle">Meituan (3690.HK / MPNGY) — Local Life Services / Tech Retail</div>
+  <div class="meta">Research date: 2026-07-07 | Share price then: HKD 78.35 | 52-week high: HKD 136.10 → current decline: -42%</div>
+</div>
+
+<div class="container">
+
+<!-- ===== 1. 执行摘要 ===== -->
+<div class="card">
+  <h2>I. Executive Summary</h2>
+  <p>Meituan's share price has fallen from its 2025 high of HKD 136.10 to the current HKD 78.35, a decline of 42%, far exceeding the pullback in the Hang Seng Tech Index over the same period. This report systematically reviews the major events affecting Meituan's share price in 2025-2026, from<strong>Regulatory policy, competitive landscape, shareholder behavior, technological innovation, fundamental changes</strong>Assess the share-price impact weight of each event across five attribution dimensions.</p>
+  <div class="insight-box">
+    <p><strong>Core attribution conclusion:</strong></p>
+    <p>▸ <strong>Largest drawdown driver (~35-40%)</strong>: Tencent stake reduction + subsidy war eroding profit expectations + worsening competitive landscape (entry of Douyin/JD.com)</p>
+    <p>▸ <strong>Moderate decline driver (~25-30%)</strong>: Regulatory fine of RMB 746 million (read as a market signal), growth slowdown concerns, broad-market valuation compression</p>
+    <p>▸ <strong>Positive supports (offsetting a ~15-20% decline)</strong>:LongCat-2.0 model released, 2024 annual results profit above consensus, buyback plan</p>
+    <p>▸ <strong>Sentiment amplification (~10-15%)</strong>Expectations of a macroeconomic downturn, shrinking Hong Kong market liquidity, and broad pressure on the China concept stock sector</p>
+  </div>
+</div>
+
+<!-- ===== 2. 股价走势全景 ===== -->
+<div class="card">
+  <h2>II. Full picture of the share-price trajectory: from HKD 136 to HKD 78</h2>
+  
+  <h3>2.1 Key price levels</h3>
+  <table>
+    <thead>
+      <tr><th>Time</th><th>Share price (HKD)</th><th>Key events</th><th>Stage performance</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Q1 2025 (high/low)</td><td>~125-136</td><td>2024 annual report profit far above consensus, AI narrative heats up</td><td>52-week high range</td></tr>
+      <tr><td>April-June 2025</td><td>~100-120</td><td>Tencent stake-reduction rumors intensify, subsidy war escalates, Douyin local-services penetration accelerates</td><td><span class="value-down">▼ -15%</span></td></tr>
+      <tr><td>July-September 2025</td><td>~85-105</td><td>Regulatory fine of RMB 746 million; LongCat-2.0 rally fades after launch; competitive narrative dominates</td><td><span class="value-down">▼ -18%</span></td></tr>
+      <tr><td>October-December 2025</td><td>~72-88</td><td>Expect slower growth for full-year 2025, weak Hong Kong market liquidity, and a selloff in the tech sector</td><td><span class="value-down">▼ -10%</span></td></tr>
+      <tr><td>Q1 2026</td><td>~66-78</td><td>Rising market concerns over subsidy-war profitability push the sector to a bottom</td><td><span class="value-down">▼ -8%</span></td></tr>
+      <tr><td>April-June 2026</td><td>~63-80</td><td>Slowly rebounded after hitting a 52-week low of HKD 63.65</td><td><span class="value-up">▲ +5%</span></td></tr>
+      <tr><td><strong>2026-07-07</strong></td><td><strong>HKD 78.35</strong></td><td>Surged 4.54% on the day, yet still 42% below its 52-week high</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warn-box">
+    <p><strong>Price action characteristics:</strong>The decline was "staircase-like" rather than a "one-off crash," with each stage triggered by a different negative factor, and the cumulative overlap led to a 42% deep correction. Unlike the policy-driven "sharp fall" of 2021-2022, the current decline reflects the market's view on the industry landscape and earnings sustainability<strong>Structural concerns</strong>。</p>
+  </div>
+</div>
+
+<!-- ===== 3. 五大归因维度 ===== -->
+<div class="card">
+  <h2>III. Deep dive into five attribution dimensions</h2>
+  
+  <!-- 3.1 -->
+  <h3>3.1 Policy and regulatory dimension — fines and reading the signals</h3>
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Penalty / impact</th><th>Share price impact assessment</th><th>Weight</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Merchant qualification review violation fines</td>
+        <td>RMB 746 million (approx. USD 102 million)</td>
+        <td>Direct financial impact is minimal (less than 2% of 2024 net profit), but the market reads it as<strong>Regulatory normalization signal</strong>, suggesting regulators have not eased compliance requirements on the platform economy</td>
+        <td><span class="badge-yellow">Medium</span></td>
+      </tr>
+      <tr>
+        <td>Antitrust "exclusive dealing" fallout</td>
+        <td>Ongoing compliance remediation</td>
+        <td>Fully priced in, but rivals (Douyin/JD) are using the open ecosystem to accelerate erosion</td>
+        <td><span class="badge-yellow">Medium</span></td>
+      </tr>
+      <tr>
+        <td>Delivery rider social security/labor protection</td>
+        <td>Potential future costs</td>
+        <td>Expectations of long-term structural cost pressure; full implementation could raise delivery costs by 15-20%, weighing on valuation</td>
+        <td><span class="badge-red">High</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>Attribution conclusion:</strong>The regulatory dimension contributed a total of about<strong>10-15%</strong>The downside pressure on the share price hinges on a correction to the market's "end of the regulatory cycle" narrative—not that regulation will return, but that the market has realized what the platform economy faces is<strong>Persistent, structural compliance costs</strong>rather than a one-off shock.</p>
+
+  <!-- 3.2 -->
+  <h3>3.2 Competitive landscape dimension — subsidy war and multi-front battle</h3>
+  <div class="alert-box">
+    <p><strong>Competitive attribution weight: 35-40% — the largest stock price drag factor</strong></p>
+  </div>
+  <table>
+    <thead>
+      <tr><th>Competitor</th><th>Direction of attack</th><th>Direct impact on Meituan</th><th>Assessment</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Douyin</strong></td>
+        <td>In-store/dine-in and in-store comprehensive services (group-buy vouchers + livestreaming)</td>
+        <td>In-store GMV market share rose from ~15% in 2023 to ~25-30% in 2025; in-store margins under pressure as subsidy spending rose sharply</td>
+        <td><span class="badge-red">High</span></td>
+      </tr>
+      <tr>
+        <td><strong>JD.com (instant retail)</strong></td>
+        <td>JD Daojia + JD Miaosong + JD Maicai</td>
+        <td>Meituan Instashopping faces direct competition as JD.com leverages its supply-chain edge to squeeze Meituan in instant delivery for supermarkets and 3C products.</td>
+        <td><span class="badge-red">High</span></td>
+      </tr>
+      <tr>
+        <td><strong>Ele.me (Alibaba)</strong></td>
+        <td>Food delivery + instant retail</td>
+        <td>Prolonged battle, but with Ele.me scaling back investment, food delivery share holds steady at ~30%</td>
+        <td><span class="badge-yellow">Moderate</span></td>
+      </tr>
+      <tr>
+        <td><strong>Pinduoduo / Kuaishou</strong></td>
+        <td>Potential instant retail</td>
+        <td>The threat is still early-stage, but if Pinduoduo pushes into local delivery it would upend the competitive landscape</td>
+        <td><span class="badge-blue">Low to mid</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Direct financial impact of the subsidy war: Meituan's 2024 SG&A expenses reached USD 10,391 million, up 8.2% year on year, a substantial portion of which went toward countering Douyin's subsidy competition. The market fears Meituan is stuck in a "subsidy quagmire" — cede share without subsidies, sacrifice profit with them. Whether the 2024 net margin of 10.6% can hold is in serious doubt.</p>
+
+  <!-- 3.3 -->
+  <h3>3.3 Shareholder behavior dimension — Tencent's stake reduction and the confidence crisis</h3>
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Time</th><th>Details</th><th>Share price impact</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tencent trims its stake in Meituan</td>
+        <td>Between 2024 and 2025</td>
+        <td>Tencent continues in-specie distribution/reduction of its Meituan stake, cutting its shareholding from 17% to about 1-2%</td>
+        <td><span class="badge-red">Extremely high</span></td>
+      </tr>
+      <tr>
+        <td>Distribution shares sold off in the secondary market</td>
+        <td>Multiple times</td>
+        <td>Tencent distributed its Meituan shares to Tencent shareholders as a dividend; many retail shareholders chose to sell immediately, creating persistent selling pressure.</td>
+        <td><span class="badge-red">High</span></td>
+      </tr>
+      <tr>
+        <td>Confidence vacuum after major shareholder exit</td>
+        <td>Persistent</td>
+        <td>After Tencent exited as a strategic shareholder, the market lost a "long-term holding anchor," and institutions are reassessing Meituan's strategic value.</td>
+        <td><span class="badge-yellow">Medium</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="warn-box">
+    <p><strong>Attribution assessment:</strong>The market underestimates the share-price impact of Tencent's stake reduction in Meituan. The effect is not just technical selling pressure—the deeper shock lies in<strong>Tencent's exit changed how the market prices Meituan's strategic value</strong>During Tencent's shareholding period, Meituan gained WeChat traffic access, payment ecosystem support, and a valuation premium from "big-tech backing." After losing this anchor, Meituan's positioning in the capital markets was downgraded from "core Tencent-affiliated asset" to "independent platform company," and this re-rating of its valuation logic contributed roughly<strong>10-15%</strong>valuation contraction.</p>
+  </div>
+
+  <!-- 3.4 -->
+  <h3>3.4 Technological innovation dimension — LongCat-2.0 large model</h3>
+  <p>Meituan released the LongCat-2.0 large model in 2025 and announced it would be open-sourced, a major strategic move in AI.</p>
+  <table>
+    <thead>
+      <tr><th>Dimension</th><th>Valuation</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Technical significance</td><td>LongCat-2.0 achieves industry-leading Chinese comprehension and multimodal capabilities, demonstrating Meituan's capacity to invest in AI infrastructure</td></tr>
+      <tr><td>Commercial applications</td><td>AI-powered smart delivery dispatch (route optimization + ETA prediction), personalized recommendations, merchant digital tools, intelligent customer service</td></tr>
+      <tr><td>Open-source strategy</td><td>Open-sourcing helps attract a developer ecosystem and lowers the cost of building technical reputation, but it is hard to monetize directly.</td></tr>
+      <tr><td>Market reaction</td><td>The initial launch triggered a short-term gain of about 5-8%, but the stock subsequently pulled back — the market believes the AI upside is fully priced in and that large-model investment will increase capital expenditure.</td></tr>
+      <tr><td><strong>Net share price impact</strong></td><td><span class="badge-blue">Short-term positive (roughly 5-8% rebound), but already priced in</span></td></tr>
+    </tbody>
+  </table>
+  <p><strong>Attribution assessment:</strong>LongCat-2.0 is a positive signal on the technology front, but the market's core concerns about Meituan—competition and margins—are unchanged by the model launch. The AI narrative can provide trading-level support, but it is not enough to reverse the structural downtrend.</p>
+
+  <!-- 3.5 -->
+  <h3>3.5 Fundamentals and Earnings Volatility — From Outburst to Slowdown</h3>
+  <table>
+    <thead>
+      <tr><th>Metric</th><th>2023</th><th>2024</th><th>2025 (estimated)</th><th>Trend assessment</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Revenue growth</td><td>+19.6%</td><td>+20.1%</td><td>~+10-12%</td><td><span class="value-down">Growth halved</span></td></tr>
+      <tr><td>Net profit (USD million)</td><td>$1,958</td><td>$4,981</td><td>~USD 3,500-4,000 (market estimate)</td><td><span class="value-down">It may decline year on year</span></td></tr>
+      <tr><td>Net margin</td><td>5.0%</td><td>10.6%</td><td>~7-8%</td><td><span class="value-down">Subsidy war erodes</span></td></tr>
+      <tr><td>Free cash flow (USD million)</td><td>$4,796</td><td>$6,544</td><td>~USD 5,000-5,500 (estimated)</td><td><span class="value-down">Contraction trend</span></td></tr>
+    </tbody>
+  </table>
+  <div class="warn-box">
+    <p><strong>Key conflict:</strong>The explosive net profit growth in 2024 (USD 4,981M, +154% YoY) was the core driver behind the market pushing Meituan to HKD 136 in early 2025. But the market subsequently discovered:</p>
+    <p>① The high profit in 2024 partly stemmed from a one-off dividend: a lull in the subsidy war and cost optimization</p>
+    <p>② After Douyin and JD.com upgraded subsidies in 2025, Meituan was forced to match, putting margin under pressure</p>
+    <p>③ Revenue growth decelerates to around 10%, and the market narrative shifts from a "growth plus profit double beat" to "slowing growth plus profit contraction"</p>
+  </div>
+</div>
+
+<!-- ===== 4. 重大事件股价冲击量化 ===== -->
+<div class="card">
+  <h2>IV. Quantitative assessment of share-price impact from major events</h2>
+  <table>
+    <thead>
+      <tr><th style="width:28px">#</th><th style="width:200px">Event</th><th style="width:70px">Type</th><th style="width:70px">Direction</th><th style="width:60px">Magnitude of impact</th><th>Attribution weight</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td><td>Subsidy war escalates (Douyin and JD.com enter the fray)</td>
+        <td><span class="tag tag-comp">Competition</span></td>
+        <td><span class="value-down">Bearish</span></td>
+        <td>▼ 15-20%</td>
+        <td><span class="badge-red">Very high</span></td>
+      </tr>
+      <tr>
+        <td>2</td><td>Tencent continues to trim its stake and distribute shares</td>
+        <td><span class="tag tag-fin">Shareholders</span></td>
+        <td><span class="value-down">Bearish</span></td>
+        <td>▼ 10-15%</td>
+        <td><span class="badge-red">High</span></td>
+      </tr>
+      <tr>
+        <td>3</td><td>Revenue growth decelerates (20%→10%)</td>
+        <td><span class="tag tag-fin">Fundamentals</span></td>
+        <td><span class="value-down">Bearish</span></td>
+        <td>▼ 8-12%</td>
+        <td><span class="badge-red">High</span></td>
+      </tr>
+      <tr>
+        <td>4</td><td>Regulatory fine of RMB 746 million (merchant qualifications)</td>
+        <td><span class="tag tag-reg">Regulation</span></td>
+        <td><span class="value-down">Negative</span></td>
+        <td>▼ 5-8%</td>
+        <td><span class="badge-yellow">Mid</span></td>
+      </tr>
+      <tr>
+        <td>5</td><td>Rider social-security cost expectations</td>
+        <td><span class="tag tag-reg">Regulation</span></td>
+        <td><span class="value-down">Bearish</span></td>
+        <td>▼ 3-5%</td>
+        <td><span class="badge-yellow">The middle</span></td>
+      </tr>
+      <tr>
+        <td>6</td><td>Hong Kong tech sector pulls back across the board</td>
+        <td><span class="tag tag-news">Macro</span></td>
+        <td><span class="value-down">Bearish</span></td>
+        <td>▼ 5-8%</td>
+        <td><span class="badge-yellow">Mid</span></td>
+      </tr>
+      <tr>
+        <td>7</td><td>LongCat-2.0 large model released</td>
+        <td><span class="tag tag-tech">Technology</span></td>
+        <td><span class="value-up">Positive</span></td>
+        <td>▲ 5-8%</td>
+        <td><span class="badge-blue">Mid-to-low</span></td>
+      </tr>
+      <tr>
+        <td>8</td><td>2024 annual report earnings above the consensus of +154%</td>
+        <td><span class="tag tag-fin">Fundamentals</span></td>
+        <td><span class="value-up">Positive</span></td>
+        <td>▲ 5-10%</td>
+        <td><span class="badge-blue">Mid</span></td>
+      </tr>
+      <tr>
+        <td>9</td><td>Company share repurchase plan</td>
+        <td><span class="tag tag-fin">Shareholders</span></td>
+        <td><span class="value-up">Positive</span></td>
+        <td>▲ 3-5%</td>
+        <td><span class="badge-blue">Low</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight-box">
+    <p><strong>Cumulative net effect estimate:</strong></p>
+    <p>Total negative factors: approx.<span class="value-down">-46~-68%</span>(Stacking effect)</p>
+    <p>Total positive factors: approx.<span class="value-up">+13~+23%</span>(partially offset)</p>
+    <p>Since the positive catalysts clustered in the same period (2024 annual report release, Q1-2025Q2) and overlapped, their actual offsetting effect was approximately<strong>+15-20%</strong>。</p>
+    <p><strong>Actual decline: 42% (HKD 136.10 → HKD 78.35)</strong></p>
+    <p><strong>Explanatory power: ~85-90%</strong>— These events effectively explain most of the decline in the share price from its 52-week high to the current level, with the remaining 5-10% attributable to non-linear amplification from market sentiment/liquidity.</p>
+  </div>
+</div>
+
+<!-- ===== 5. 事件传导路径 ===== -->
+<div class="card">
+  <h2>V. Analysis of key attribution transmission paths</h2>
+
+  <h3>Path A: competition → profit → valuation contraction (dominant path)</h3>
+  <div class="insight-box">
+    <p>Douyin's in-store penetration + JD.com's instant retail → Meituan forced into a subsidy war → SG&A expenses rise (already up 8.2% YoY in 2024) → market cuts 2025/2026 margin forecasts → PE de-rating → share price falls</p>
+    <p><strong>Estimated contribution: -18% to -22% (about 40-50% of the total decline)</strong></p>
+  </div>
+
+  <h3>Path B: Major shareholder exit → valuation logic reset</h3>
+  <div class="insight-box">
+    <p>Tencent reduction/distribution → persistent technical selling pressure + loss of strategic shareholder endorsement → market reprices Meituan as a "standalone platform" → valuation center shifts lower (from "Tencent-affiliation premium" back to industry average)</p>
+    <p><strong>Estimated contribution: -10% to -15% (about 20-25% of the total decline)</strong></p>
+  </div>
+
+  <h3>Path C: Regulatory normalization → uncertainty discount</h3>
+  <div class="insight-box">
+    <p>RMB 746 million fine + rider social-security debate + data-security compliance → market expectations of a "full regulatory easing" unmet → uncertainty discount persists → investors demand a higher risk premium</p>
+    <p><strong>Estimated contribution: -5% to -8% (about 10-15% of the total decline)</strong></p>
+  </div>
+
+  <h3>Path D: growth decelerates → growth-stock re-rating</h3>
+  <div class="insight-box">
+    <p>Revenue growth slows from 20% to ~10% → the market shifts from "buying growth" to "assessing value" → PS multiple compresses from ~2x to ~1.3x → the growth-stock premium fades</p>
+    <p><strong>Estimated contribution: -5% to -8% (about 10-15% of the total decline)</strong></p>
+  </div>
+</div>
+
+<!-- ===== 6. 当前估值隐含的市场预期 ===== -->
+<div class="card">
+  <h2>VI. Market expectations implied by current valuation</h2>
+  <p>At HKD 78.35, the market's key pricing assumptions:</p>
+  <table>
+    <thead>
+      <tr><th>Indicator</th><th>Current value</th><th>Implied market expectations</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>PS（TTM）</strong></td><td>~1.3x</td><td>The market no longer views Meituan as a high-growth platform and assigns it a valuation multiple close to that of traditional retail.</td></tr>
+      <tr><td><strong>PE (based on 2024)</strong></td><td>~12-15x</td><td>The implied market expectation is that 2025/2026 net profit will be significantly below the 2024 level</td></tr>
+      <tr><td><strong>FCF Yield</strong></td><td>~10.6%</td><td>If FCF is sustainable, the current valuation offers a margin of safety; but the market questions FCF sustainability</td></tr>
+      <tr><td><strong>Market cap/cash</strong></td><td>$62B / $26B cash</td><td>Excluding net cash, the core business is valued at only ~$36B, roughly 7-8x 2024 net profit</td></tr>
+    </tbody>
+  </table>
+  <div class="insight-box">
+    <p><strong>The core contradiction in market pricing:</strong>The current valuation already reflects a considerable degree of pessimistic expectation—if Meituan can hold its share in the competitive landscape and sustain a net margin of ~7-8%, the current price offers a margin of safety. But if the subsidy war escalates further, or if Douyin achieves a decisive breakthrough in the in-store segment, the current valuation still has downside.</p>
+  </div>
+</div>
+
+<!-- ===== 7. 展望与关键观察点 ===== -->
+<div class="card">
+  <h2>VII. Outlook: key variables that could reverse the trend</h2>
+  <table>
+    <thead>
+      <tr><th>Scenarios</th><th>Trigger conditions</th><th>Target price range</th><th>Probability</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Optimistic scenario</strong></td>
+        <td>Subsidy war easing (Douyin scaling back spending), FY2025 profit above consensus, buyback accelerating, LongCat-2.0 commercialization landing</td>
+        <td>HKD 100-130</td>
+        <td><span class="badge-yellow">~20-25%</span></td>
+      </tr>
+      <tr>
+        <td><strong>Base case</strong></td>
+        <td>Stable competitive landscape, revenue growth of 8-12%, net margin of 7-8%, major shareholder selling completed</td>
+        <td>HKD 75-100</td>
+        <td><span class="badge-blue">~45-50%</span></td>
+      </tr>
+      <tr>
+        <td><strong>Pessimistic scenario</strong></td>
+        <td>Subsidy war intensifies, margins fall below 5%, Douyin's in-store market share tops 40%, revenue growth slides further</td>
+        <td>HKD 50-70</td>
+        <td><span class="badge-red">~25-30%</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Key metrics to watch (12-month window)</h3>
+  <ol>
+    <li><strong>SG&A expense ratio trend</strong>: H2 2025 data will test whether the subsidy war is easing at the margin</li>
+    <li><strong>In-store business GTV and commission rate</strong>Has Douyin local life hit its penetration ceiling?</li>
+    <li><strong>Pace of Tencent's stake reductions</strong>: Has the position been fully liquidated, and has the selling pressure been absorbed?</li>
+    <li><strong>Food delivery order growth</strong>: Are there signs that competitors are eroding the core business?</li>
+    <li><strong>Buyback intensity</strong>Is the company actively using its cash reserves for large-scale buybacks to support its share price?</li>
+    <li><strong>LongCat-2.0 commercialization</strong>: Is there a quantifiable AI revenue contribution?</li>
+  </ol>
+</div>
+
+<!-- ===== 8. 今日异动分析 ===== -->
+<div class="card">
+  <h2>VIII. Intraday move analysis for 7 July 2026</h2>
+  <table>
+    <thead>
+      <tr><th>Indicator</th><th>Numerical value</th><th>Interpretation</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Daily gain</td><td><span class="value-up">+4.54%（+HKD 3.40）</span></td><td>The magnitude is large, constituting a significant abnormal move</td></tr>
+      <tr><td>Open / High / Low</td><td>HKD 75.45 / 81.65 / 75.10</td><td>Amplitude reached 8.7%, with fierce bull-bear contention</td></tr>
+      <tr><td>Closing price</td><td>HKD 78.35</td><td>Closed in the upper-middle of the day's range, with buyers in control</td></tr>
+    </tbody>
+  </table>
+  <p>Same-day moves may be attributed to:</p>
+  <ol>
+    <li><strong>Oversold rebound:</strong>Technical rebound after consecutive declines (bottoming out and recovering from the 52-week low of HKD 63.65)</li>
+    <li><strong>Sector linkage:</strong>The spillover effect from the broader recovery in China concept stocks/Hang Seng Tech</li>
+    <li><strong>Narrative shift expectations:</strong>The market is awaiting 2025 annual report data, with some bottom-fishing capital positioning early on the "easing competition" thesis</li>
+  </ol>
+  <p>A single-day move is not enough to signal a trend reversal; it needs to be confirmed by subsequent price-volume behavior.</p>
+</div>
+
+<!-- ===== 9. 附录 ===== -->
+<div class="card">
+  <h2>📎 Appendix: Attribution Methodology</h2>
+  <p><strong>Attribution methodology:</strong>This report uses event-driven attribution to identify, one by one, the major events affecting Meituan's share price in 2025-2026, and combines changes in the company's fundamentals with shifts in the industry environment to assess the contribution of each factor to the share-price decline.</p>
+  <p><strong>Data limitations:</strong></p>
+  <ul>
+    <li>Some events (such as the exact dates and tranches of Tencent's stake reductions) require checking HKEX disclosure of interests data</li>
+    <li>Interaction effects among factors (e.g., worsening competition and Tencent's stake reduction amplify each other) are handled in this article as range estimates</li>
+    <li>The full 2025 annual report has not yet been disclosed; some data are based on public quarterly reports and market estimates</li>
+    <li>Attribution weights are qualitative plus semi-quantitative assessments and do not constitute a precise quantitative attribution model.</li>
+  </ul>
+  <p><strong>Update plan:</strong>Once the 2025 annual report is disclosed, this report will be updated quantitatively to incorporate actual financial data and revise the attribution weights.</p>
+</div>
+
+</div>
+
+<div class="footer">
+  <p>News-driven move attribution analysis · Meituan (3690.HK / MPNGY)</p>
+  <p>Research date: 2026-07-07 · Data sources: MacroTrends, Google Finance, Stock Analysis, public news</p>
+  <p>Report No.: MT-12-20260707</p>
+</div>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

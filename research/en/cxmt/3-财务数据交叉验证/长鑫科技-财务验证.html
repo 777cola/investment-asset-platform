@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChangXin Memory Technologies (CXMT) — Financial Data Cross-Validation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 1.5rem; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.data-table th { background: #1A4B8C; color: #fff; padding: 0.65rem 0.8rem; text-align: center; font-weight: 500; }
+.data-table td { padding: 0.6rem 0.8rem; text-align: center; border-bottom: 1px solid #f0f0f0; }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: #f0f5ff; }
+.data-table .left { text-align: left; }
+.data-table .right { text-align: right; }
+.note-box { background: #fff; border-radius: 8px; padding: 1.2rem 1.5rem; border: 1px solid #e8edf5; margin-bottom: 1.5rem; font-size: 0.9rem; }
+.note-box.warning { border-left: 4px solid #e6a817; background: #fffcf0; }
+.note-box.info { border-left: 4px solid #1A4B8C; background: #f0f5ff; }
+.note-box.success { border-left: 4px solid #1a7a1a; background: #f0fff0; }
+.note-box .label { font-weight: 600; display: block; margin-bottom: 0.3rem; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.separator { border: none; border-top: 1px solid #dce3ed; margin: 2rem 0; }
+@media (max-width: 640px) {
+  .data-table { font-size: 0.78rem; }
+  .data-table th, .data-table td { padding: 0.5rem 0.4rem; }
+  .header h1 { font-size: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Cross-validation of CXMT financial data</h1>
+  <div class="subtitle">Prospectus data · single-source verification · IPO offer price confirmed by two sources</div>
+  <div class="meta">Data as of 2026/07/19 &nbsp;·&nbsp; Sources: 36Kr / Phoenix Weekly / Reuters</div>
+</div>
+
+<div class="container">
+
+  <!-- 注意 -->
+  <div class="note-box info">
+    <span class="label">⚠️ Data note</span>
+    <p>ChangXin Technology is unlisted, and its financial data comes mainly from its prospectus (reproduced by 36Kr/Phoenix Weekly), with no other comparable independent third-party data source available for full two-source cross-validation.</p>
+  </div>
+
+  <!-- 一、利润表关键数据 -->
+  <div class="section">
+    <div class="section-title">📊 Key income statement data</div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Indicator</th>
+          <th>2023</th>
+          <th>2024</th>
+          <th>2025</th>
+          <th>Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Net profit attributable to shareholders</td>
+          <td><span class="badge badge-red">-RMB 19.23 billion</span></td>
+          <td><span class="badge badge-red">-USD 9.051 billion</span></td>
+          <td><span class="badge badge-green">+7.14 billion</span></td>
+          <td>Prospectus (cited by 36Kr)</td>
+        </tr>
+        <tr>
+          <td>Blended gross margin</td>
+          <td><span class="badge badge-red">-1.93%</span></td>
+          <td>Rising</td>
+          <td><span class="badge badge-green">40.99%</span></td>
+          <td>Prospectus</td>
+        </tr>
+        <tr>
+          <td>2026H1 net profit forecast</td>
+          <td>—</td>
+          <td>—</td>
+          <td><span class="badge badge-green">RMB 50–57 billion</span></td>
+          <td>Prospectus / company announcement</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 数据一致性验证 -->
+  <div class="section">
+    <div class="section-title">✅ Data consistency check</div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Checklist</th>
+          <th>Source A (36Kr / Phoenix Weekly)</th>
+          <th>Source B (Wikipedia citing Reuters)</th>
+          <th>Difference</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="left">2025 net profit attributable to parent</td>
+          <td>+RMB 7.14 billion</td>
+          <td>— (no specific figure provided)</td>
+          <td>Single source</td>
+        </tr>
+        <tr>
+          <td class="left">Post-issuance market cap</td>
+          <td>RMB 579.19 billion</td>
+          <td>—</td>
+          <td>Subject to the prospectus</td>
+        </tr>
+        <tr>
+          <td class="left">Issue price</td>
+          <td>RMB 8.66/share</td>
+          <td>RMB 8.66/share (36Kr + Reuters consensus)</td>
+          <td><span class="badge badge-green">✅ In line</span></td>
+        </tr>
+        <tr>
+          <td class="left">2026 Q1 revenue</td>
+          <td>RMB 50.8 billion</td>
+          <td>—</td>
+          <td>Single source</td>
+        </tr>
+        <tr>
+          <td class="left">2026 H1 net profit forecast</td>
+          <td>RMB 50–57 billion</td>
+          <td>—</td>
+          <td>Single source</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note-box success">
+      <span class="label">Validation conclusion</span>
+      <p>Since CXMT is not yet publicly traded, most financial data other than the IPO offer price comes from a single source (the prospectus, republished in full by 36Kr). Although there is no second independent source, the prospectus carries legal force and is therefore highly reliable.</p>
+    </div>
+  </div>
+
+  <hr class="separator">
+
+  <!-- 二、IPO关键数据验证 -->
+  <div class="section">
+    <div class="section-title">🏦 IPO key data validation</div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Checklist</th>
+          <th>Data</th>
+          <th>Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="left">Issue price</td>
+          <td><strong>RMB 8.66</strong></td>
+          <td>36Kr + Reuters</td>
+        </tr>
+        <tr>
+          <td class="left">Total share capital after issuance</td>
+          <td>~66.858 billion shares (derived from market cap / issue price)</td>
+          <td>Calculated value</td>
+        </tr>
+        <tr>
+          <td class="left">Post-issuance market cap</td>
+          <td><strong>RMB 579.19 billion</strong></td>
+          <td>36Kr</td>
+        </tr>
+        <tr>
+          <td class="left">Maximum offering size (including greenshoe)</td>
+          <td>RMB 66.6 billion</td>
+          <td>36Kr</td>
+        </tr>
+        <tr>
+          <td class="left">Strategic placement amount</td>
+          <td>RMB 14.44 billion (1.667 billion shares)</td>
+          <td>36Kr</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note-box warning">
+      <span class="label">⚠️ Note</span>
+      <p>Total share capital and market cap figures are estimates; refer to the prospectus for precise data.</p>
+    </div>
+  </div>
+
+  <hr class="separator">
+
+  <!-- 三、估值交叉验证 -->
+  <div class="section">
+    <div class="section-title">📈 Valuation cross-check</div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Methodology</th>
+          <th>CXMT</th>
+          <th>SK hynix</th>
+          <th>Micron</th>
+          <th>Comparability adjustment note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Market cap</td>
+          <td><strong>~USD 80 billion</strong></td>
+          <td>~USD 120 billion</td>
+          <td>~USD 150 billion</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>PS (2025)</td>
+          <td><strong>~8x</strong>(estimated from revenue of ~RMB 72 billion)</td>
+          <td>~3.5x</td>
+          <td>~5x</td>
+          <td>CXMT grows fast but remains small in scale, justifying a high PS</td>
+        </tr>
+        <tr>
+          <td>PE (2025)</td>
+          <td><strong>308x</strong></td>
+          <td>—</td>
+          <td>—</td>
+          <td>Barely turned profitable in 2025; PE is meaningless</td>
+        </tr>
+        <tr>
+          <td>PE（2026E）</td>
+          <td><strong>~20-30x</strong></td>
+          <td>~10-15x</td>
+          <td>~15-20x</td>
+          <td>PE falls rapidly after the 2026 earnings surge</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="footer">Data sources: multiple 36Kr reports · Phoenix Weekly · Reuters · company market caps</div>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

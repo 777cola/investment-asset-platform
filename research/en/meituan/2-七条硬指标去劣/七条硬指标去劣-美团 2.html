@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seven hard metrics to weed out the weak — Meituan (3690.HK)</title>
+<style>
+/* PDD 标准 CSS 模板 v2.0 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f7fa; color: #333; line-height: 1.8; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 50px 0 40px; text-align: center; }
+.header h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+.header .subtitle { font-size: 16px; opacity: 0.9; margin-bottom: 6px; }
+.header .meta { font-size: 13px; opacity: 0.7; }
+.container { max-width: 920px; margin: 0 auto; padding: 30px 24px; }
+.card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 32px 36px; margin-bottom: 24px; }
+.card h2 { font-size: 22px; color: #1A4B8C; border-bottom: 3px solid #1A4B8C; padding-bottom: 10px; margin-bottom: 20px; }
+.card h3 { font-size: 18px; color: #1A4B8C; margin: 20px 0 10px; }
+.card h4 { font-size: 15px; color: #555; margin: 15px 0 8px; }
+.card p, .card li { font-size: 14px; line-height: 1.8; color: #444; margin-bottom: 10px; }
+.card ul, .card ol { padding-left: 20px; margin-bottom: 15px; }
+.card table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 15px 0; border-radius: 8px; overflow: hidden; }
+.card table thead th { background: #1A4B8C; color: #fff; padding: 12px 14px; font-size: 13px; font-weight: 500; text-align: left; }
+.card table thead th:first-child { border-radius: 6px 0 0 0; }
+.card table thead th:last-child { border-radius: 0 6px 0 0; }
+.card table tbody td { padding: 10px 14px; font-size: 13px; border-bottom: 1px solid #e8ecf1; }
+.card table tbody tr:nth-child(even) { background: #f8f9fb; }
+.card table tbody tr:hover { background: #eef1f7; }
+.card .badge-green { display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 2px 10px; border-radius: 4px; font-size: 12px; font-weight: 500; }
+.card .badge-yellow { display: inline-block; background: #fff8e1; color: #f57f17; padding: 2px 10px; border-radius: 4px; font-size: 12px; font-weight: 500; }
+.card .badge-blue { display: inline-block; background: #e3f2fd; color: #1565c0; padding: 2px 10px; border-radius: 4px; font-size: 12px; font-weight: 500; }
+.card .badge-red { display: inline-block; background: #ffebee; color: #c62828; padding: 2px 10px; border-radius: 4px; font-size: 12px; font-weight: 500; }
+.footer { text-align: center; color: #999; font-size: 0.8rem; padding: 30px 24px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Seven hard metrics to weed out the weak</h1>
+  <div class="subtitle">Meituan (3690.HK / MPNGY) — Local Life Services / Tech Retail</div>
+  <div class="meta">Research date: 2026-07-07 | Data sources: MacroTrends, Google Finance, Stock Analysis</div>
+</div>
+
+<div class="container">
+
+<!-- ===== 总体结论摘要 ===== -->
+<div class="card">
+  <h2>📋 Overall assessment summary</h2>
+  <table>
+    <thead>
+      <tr><th style="width:30px">#</th><th style="width:150px">Metric</th><th style="width:80px">Determination</th><th>Brief description</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td><td>ROE (5-year average >15%)</td>
+        <td><span class="badge-red">FAIL</span></td>
+        <td>Four-year average ROE of about 2.2%, dragged down by consecutive losses in 2021-2022. However, ROE reached 21.7% in 2024, a marked improvement, with the average pulled down only by the loss-making years.</td>
+      </tr>
+      <tr>
+        <td>2</td><td>Gross margin (>40%)</td>
+        <td><span class="badge-red">FAIL</span></td>
+        <td>Gross margin was 38.4% in 2024, below the 40% threshold. But the margin has improved steadily (from 23.7% in 2021 to 38.4% in 2024), leaving it just short of the target.</td>
+      </tr>
+      <tr>
+        <td>3</td><td>Free cash flow (consistently positive)</td>
+        <td><span class="badge-green">PASS</span></td>
+        <td>Free cash flow has been positive for three consecutive years since 2022, reaching USD 6,544 million in 2024, with an FCF/revenue ratio of 13.9%, reflecting strong cash generation</td>
+      </tr>
+      <tr>
+        <td>4</td><td>Capex intensity (asset-light)</td>
+        <td><span class="badge-green">PASS</span></td>
+        <td>CapEx/revenue just 2.4%-3.0%, a typical asset-light platform model</td>
+      </tr>
+      <tr>
+        <td>5</td><td>Debt level (interest-bearing debt/net profit)<3年）</td>
+        <td><span class="badge-green">PASS</span></td>
+        <td>Interest-bearing debt USD 5,887 million, 2024 net profit USD 4,981 million, a ratio of 1.18 years; plus net cash of USD 20,235 million, making the financial position extremely safe</td>
+      </tr>
+      <tr>
+        <td>6</td><td>Revenue growth sustainability (consecutive growth)</td>
+        <td><span class="badge-green">PASS</span></td>
+        <td>Revenue grew for four consecutive years (17.7%→19.6%→20.1%), with growth accelerating step by step. First three quarters of 2025: +9.4%, slower but still growing</td>
+      </tr>
+      <tr>
+        <td>7</td><td>Moat stability</td>
+        <td><span class="badge-yellow">WARN</span></td>
+        <td>The local-services duopoly remains solid, but cross-sector competition from Alibaba, JD.com and Douyin keeps subsidy pressure elevated</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:15px;"><strong>Overall assessment:</strong><span class="badge-yellow">4 PASS / 2 FAIL / 1 WARN</span>— Meituan performs strongly on cash flow, capital structure and revenue growth; ROE and gross margin fall short due to historical loss years / still being in the ramp-up phase, but the direction of improvement is clear. The moat faces competitive pressure but has not been visibly eroded.</p>
+</div>
+
+<!-- ===== 1. ROE ===== -->
+<div class="card">
+  <h2>1️⃣ ROE (return on equity) —<span class="badge-red">FAIL</span></h2>
+  <h3>Criterion: 5-year average > 15%</h3>
+
+  <h4>Calculation of shareholders' equity (USD million)</h4>
+  <table>
+    <thead><tr><th>Year</th><th>Total assets</th><th>Total liabilities</th><th>Shareholders' equity</th><th>Net profit</th><th>ROE</th></tr></thead>
+    <tbody>
+      <tr><td>2024</td><td>$45,118</td><td>$20,901</td><td>$24,217</td><td>$4,981</td><td><strong>21.7%</strong></td></tr>
+      <tr><td>2023</td><td>$41,405</td><td>$19,739</td><td>$21,666</td><td>$1,958</td><td><strong>9.6%</strong></td></tr>
+      <tr><td>2022</td><td>$36,330</td><td>$17,058</td><td>$19,272</td><td>-$993</td><td><strong>-5.1%</strong></td></tr>
+      <tr><td>2021</td><td>$37,301</td><td>$17,700</td><td>$19,601</td><td>-$3,648</td><td><strong>-17.5%*</strong></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px;color:#888;">*2021 ROE is calculated on estimated 2020 equity of approximately USD 22,000 million; detailed 2020 data are missing.</p>
+
+  <h4>Analysis</h4>
+  <ul>
+    <li><strong>4-year average ROE: approximately 2.2%</strong>(-17.5% + -5.1% + 9.6% + 21.7%) / 4, well below the 15% threshold</li>
+    <li><strong>Key question:</strong>Only 4 years of data are available (2020 is missing), and heavy losses in 2021 and 2022 drag down the average. Looking at 2023-2024 alone, the average is 15.7%, just meeting the threshold</li>
+    <li><strong>Positive signals:</strong>ROE rebounded sharply from -5.1% in 2022 to 21.7% in 2024, reflecting the release of scale effects in the core food delivery business and the post-pandemic recovery of in-store, hotel and travel</li>
+    <li><strong>DuPont decomposition perspective:</strong>Net margin moved from -3.0% in 2022 to 10.6% in 2024, asset turnover was about 1.0x (USD 46,959 million / average total assets of ~USD 43,262 million), and the equity multiplier was about 1.88x; the earnings improvement came mainly from margin recovery</li>
+  </ul>
+
+  <h4>Conclusion</h4>
+  <p>ROE metric<strong>Did not pass</strong>. Historical losses drag the 5-year average far below 15%. But these are "past losses" rather than "current fundamental problems" — ROE already broke above 20% in 2024, and if the trend continues, the 3-year average ROE should meet the threshold. Recommend relaxing to a forward 3-year average test.</p>
+</div>
+
+<!-- ===== 2. 毛利率 ===== -->
+<div class="card">
+  <h2>2️⃣ Gross margin —<span class="badge-red">FAIL</span></h2>
+  <h3>Criterion: gross margin > 40%</h3>
+
+  <table>
+    <thead><tr><th>Year</th><th>Operating revenue (USD million)</th><th>Cost of revenue (USD million)</th><th>Gross profit (USD million)</th><th>Gross margin</th></tr></thead>
+    <tbody>
+      <tr><td>2024</td><td>$46,959</td><td>$28,906</td><td>$18,053</td><td><strong>38.4%</strong></td></tr>
+      <tr><td>2023</td><td>$39,104</td><td>$25,371</td><td>$13,733</td><td><strong>35.1%</strong></td></tr>
+      <tr><td>2022</td><td>$32,685</td><td>$23,509</td><td>$9,176</td><td><strong>28.1%</strong></td></tr>
+      <tr><td>2021</td><td>$27,765</td><td>$21,181</td><td>$6,583</td><td><strong>23.7%</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h4>Analysis</h4>
+  <ul>
+    <li><strong>Trend:</strong>Gross margin climbed steadily from 23.7% in 2021 to 38.4% in 2024, up 14.7 percentage points over four years, a strikingly clear improving trend</li>
+    <li><strong>Distance to the 40% threshold:</strong>Just 1.6 percentage points short, and marginal improvement alone is enough to hit the target. If the pace of improvement holds in 2025, gross margin will most likely break above 40%</li>
+    <li><strong>Improvement drivers:</strong>Food-delivery economies of scale (lower delivery cost per order), a higher share of high-margin in-store hotel and travel business, and the maturation of high-margin new businesses such as Meituan Instashopping</li>
+    <li><strong>Industry comparison:</strong>As local-life platforms, benchmark gross margins against peers — Meituan's gross margin sits mid-range among internet platforms, below SaaS/advertising models but above pure e-commerce</li>
+  </ul>
+
+  <h4>Conclusion</h4>
+  <p>Gross margin<strong>Did not pass</strong>40% hard threshold. But it has steadily improved from 23.7% to 38.4%, with a positive trend slope and just 1.6 percentage points from the target. This is a "nearly there" inflection-point state, not a deterioration in fundamentals.</p>
+</div>
+
+<!-- ===== 3. 自由现金流 ===== -->
+<div class="card">
+  <h2>3️⃣ Free cash flow —<span class="badge-green">PASS</span></h2>
+  <h3>Criterion: consistently positive free cash flow (most recent 3 years)</h3>
+
+  <table>
+    <thead><tr><th>Year</th><th>Operating cash flow (USD million)</th><th>Capital expenditure (USD million)</th><th>Free cash flow (USD million)</th><th>FCF/revenue</th></tr></thead>
+    <tbody>
+      <tr><td>2024</td><td>$7,949</td><td>-$1,405</td><td><strong>$6,544</strong></td><td>13.9%</td></tr>
+      <tr><td>2023</td><td>$5,726</td><td>-$930</td><td><strong>$4,796</strong></td><td>12.3%</td></tr>
+      <tr><td>2022</td><td>$1,696</td><td>-$791</td><td><strong>$905</strong></td><td>2.8%</td></tr>
+      <tr><td>2021</td><td>-$622</td><td>-$1,380</td><td><strong>-$2,002</strong></td><td>-7.2%</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Analysis</h4>
+  <ul>
+    <li><strong>Positive FCF for 3 consecutive years:</strong>Operating cash flow turned positive in 2022 and has grown steadily since, with FCF reaching USD 6.544 billion in 2024—striking cash generation</li>
+    <li><strong>FCF growth:</strong>2022 to 2023: +430%; 2023 to 2024: +36.4%; in 2024 FCF even exceeded net profit (USD 4,981M), reflecting the cash "excess" generated by non-cash charges such as depreciation and amortization</li>
+    <li><strong>FCF Yield：</strong>Current market cap is about USD 62 billion, FCF yield about 10.6%, attractive to value investors</li>
+    <li><strong>Cash conversion rate:</strong>2024 FCF/net profit ratio = 131%, indicating solid earnings quality (net profit fully converted into cash, and then some)</li>
+  </ul>
+
+  <h4>Conclusion</h4>
+  <p><strong>Passed with strength.</strong>Meituan has achieved solid positive free cash flow, and it is growing rapidly. This is one of the highest-quality metrics.</p>
+</div>
+
+<!-- ===== 4. 资本开支强度 ===== -->
+<div class="card">
+  <h2>4️⃣ Capex intensity —<span class="badge-green">PASS</span></h2>
+  <h3>Criteria: asset-light model (CapEx/revenue< 10%）</h3>
+
+  <table>
+    <thead><tr><th>Year</th><th>Capital expenditure (USD million)</th><th>Operating revenue (USD million)</th><th>CapEx/revenue</th></tr></thead>
+    <tbody>
+      <tr><td>2024</td><td>$1,405</td><td>$46,959</td><td><strong>3.0%</strong></td></tr>
+      <tr><td>2023</td><td>$930</td><td>$39,104</td><td><strong>2.4%</strong></td></tr>
+      <tr><td>2022</td><td>$791</td><td>$32,685</td><td><strong>2.4%</strong></td></tr>
+      <tr><td>2021</td><td>$1,380</td><td>$27,765</td><td><strong>5.0%</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h4>Analysis</h4>
+  <ul>
+    <li><strong>An extremely asset-light model:</strong>Average CapEx/revenue is only 3.2%, far below the 10% asset-light/asset-heavy threshold</li>
+    <li><strong>Economic characteristics:</strong>Meituan runs a classic two-sided platform model; its core assets are IT systems, brand and user relationships, not plants and equipment.</li>
+    <li><strong>Fixed asset structure:</strong>In 2024, fixed assets were USD 4,206 million, only 9.3% of total assets; even including operating assets such as rider equipment, the overall asset base remains asset-light</li>
+    <li><strong>Capital efficiency:</strong>Each USD 1 of capital expenditure supports about USD 33 of revenue (2024), an extremely high efficiency</li>
+    <li><strong>CapEx was elevated in 2021:</strong>Related to investment during the expansion phase of community group buying (Meituan Select), which has returned to normal as the business was restructured</li>
+  </ul>
+
+  <h4>Conclusion</h4>
+  <p><strong>Passed with strength.</strong>Meituan runs a classic asset-light platform model with low capex needs, where incremental revenue requires minimal marginal capital investment.</p>
+</div>
+
+<!-- ===== 5. 负债水平 ===== -->
+<div class="card">
+  <h2>5️⃣ Debt level —<span class="badge-green">PASS</span></h2>
+  <h3>Criterion: years to repay interest-bearing debt< 3年净利润（有息负债/净利润 < 3）</h3>
+
+  <table>
+    <thead><tr><th>Year</th><th>Long-term interest-bearing debt (USD million)</th><th>Net profit (USD million)</th><th>Repayment period</th><th>Cash and equivalents (USD million)</th><th>Net cash position</th></tr></thead>
+    <tbody>
+      <tr><td>2024</td><td>$5,887</td><td>$4,981</td><td><strong>1.18 years</strong></td><td>$26,122</td><td><span class="badge-green">Net cash USD 20,235 million</span></td></tr>
+      <tr><td>2023</td><td>$5,485</td><td>$1,958</td><td><strong>2.80 years</strong></td><td>$23,249</td><td><span class="badge-green">Net cash USD 17,764 million</span></td></tr>
+      <tr><td>2022</td><td>$5,700</td><td>-$993</td><td>N/A (loss)</td><td>$18,818</td><td><span class="badge-green">Net cash USD 13,118 million</span></td></tr>
+      <tr><td>2021</td><td>$7,068</td><td>-$3,648</td><td>N/A (loss)</td><td>$20,161</td><td><span class="badge-green">Net cash USD 13,093M</span></td></tr>
+    </tbody>
+  </table>
+
+  <h4>Analysis</h4>
+  <ul>
+    <li><strong>Very low financial risk:</strong>Even under the most conservative 2024 figures, interest-bearing debt could be repaid with just 1.18 years of net profit</li>
+    <li><strong>Net cash position:</strong>Cash and equivalents of $26.1B far exceed long-term debt of $5.9B, with net cash of $20.2B. Even including all liabilities, current assets of $29.2B fully cover total liabilities of $20.9B</li>
+    <li><strong>Healthy debt structure:</strong>Most long-term debt consists of low-interest convertible bonds, with no short-term repayment pressure</li>
+    <li><strong>Interest coverage:</strong>Even on a rough assumption of 3-5% debt interest, annual interest of about $180-300M is covered 17-28x by operating profit of $5,125M</li>
+  </ul>
+
+  <h4>Conclusion</h4>
+  <p><strong>Passed with strength.</strong>Meituan's balance sheet is exceptionally healthy, in a net cash position with minimal interest-bearing debt pressure. Even under a scenario of declining future profitability, the company retains ample financial buffer.</p>
+</div>
+
+<!-- ===== 6. 营收增长 ===== -->
+<div class="card">
+  <h2>6️⃣ Revenue growth sustainability —<span class="badge-green">PASS</span></h2>
+  <h3>Criterion: revenue grew for several consecutive years</h3>
+
+  <table>
+    <thead><tr><th>Year</th><th>Operating revenue (USD million)</th><th>Year-on-year growth rate</th><th>Growth status</th></tr></thead>
+    <tbody>
+      <tr><td>2024</td><td>$46,959</td><td><strong>+20.1%</strong></td><td><span class="badge-green">Growth</span></td></tr>
+      <tr><td>2023</td><td>$39,104</td><td><strong>+19.6%</strong></td><td><span class="badge-green">Growth</span></td></tr>
+      <tr><td>2022</td><td>$32,685</td><td><strong>+17.7%</strong></td><td><span class="badge-green">Growth</span></td></tr>
+      <tr><td>2021</td><td>$27,765</td><td><strong>+56%*</strong></td><td><span class="badge-green">Growth</span></td></tr>
+      <tr><td>First three quarters of 2025</td><td>$37,925</td><td><strong>+9.4%</strong></td><td><span class="badge-blue">Slowing growth</span></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px;color:#888;">*2021 growth based on estimated 2020 revenue of approximately USD 17,800M.</p>
+
+  <h4>Quarterly trend</h4>
+  <table>
+    <thead><tr><th>Quarter</th><th>Revenue (USD million)</th><th>Month-on-month</th></tr></thead>
+    <tbody>
+      <tr><td>2025 Q3</td><td>$13,340</td><td>+5.1%</td></tr>
+      <tr><td>2025 Q2</td><td>$12,692</td><td>+6.7%</td></tr>
+      <tr><td>2025 Q1</td><td>$11,893</td><td>+16.2% (YoY)</td></tr>
+      <tr><td>2024 Q4</td><td>$12,300</td><td>-5.8% (QoQ vs. Q3)</td></tr>
+      <tr><td>2024 Q3</td><td>$13,063</td><td>+15.0%</td></tr>
+      <tr><td>2024 Q2</td><td>$11,359</td><td>+11.0%</td></tr>
+      <tr><td>2024 Q1</td><td>$10,237</td><td>+26.5% (YoY)</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Analysis</h4>
+  <ul>
+    <li><strong>Consecutive growth validated:</strong>From 2021 to 2024, Meituan's revenue grew for four consecutive years, with a compound annual growth rate (CAGR) of about 19%</li>
+    <li><strong>Growth trend:</strong>2021 (rapid growth on a high base) → stable at 17-20% in 2022-2024 → slowing to 9.4% in 2025</li>
+    <li><strong>Reasons for the slowdown:</strong>① Core food-delivery market penetration is nearing saturation; ② macroeconomic pressure weighs on consumer spending; ③ intensifying competition diverts part of the incremental growth</li>
+    <li><strong>A new growth engine:</strong>Meituan Instashopping (instant retail), in-store hotel and travel (cross-selling), overseas expansion (Keeta pilots in Hong Kong and the Middle East)</li>
+  </ul>
+
+  <h4>Conclusion</h4>
+  <p><strong>Approved.</strong>Revenue has grown for several consecutive years; growth slowed markedly in 2025 but remained positive. Growth quality warrants attention: whether the 2025 slowdown persists and whether new businesses can take over as drivers. Under the "eliminate the weak" framework, however, the continuous-growth condition is met.</p>
+</div>
+
+<!-- ===== 7. 护城河 ===== -->
+<div class="card">
+  <h2>7️⃣ Moat stability —<span class="badge-yellow">WARN (Monitor)</span></h2>
+  <h3>Criteria: whether the competitive advantage is stable / whether it faces erosion risk</h3>
+
+  <h4>Sources of moat</h4>
+  <table>
+    <thead><tr><th>Moat dimension</th><th>Intensity assessment</th><th>Explanation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Network effects (two-sided)</td>
+        <td><span class="badge-green">Strong</span></td>
+        <td>With 6.7 million merchants and 680 million users, the platform forms a powerful two-sided network: more users lead to more merchants, which improves the experience, which in turn strengthens user loyalty.</td>
+      </tr>
+      <tr>
+        <td>Scale advantage (delivery network)</td>
+        <td><span class="badge-green">Strong</span></td>
+        <td>An instant delivery network underpinned by tens of millions of orders a day — rivals cannot replicate its cost and coverage density in the short term</td>
+      </tr>
+      <tr>
+        <td>Brand mindshare</td>
+        <td><span class="badge-blue">Mid</span></td>
+        <td>"Meituan for food, drink and fun" has taken hold in users' minds, but crossover competition from content platforms such as Douyin is diverting user attention</td>
+      </tr>
+      <tr>
+        <td>Data moat</td>
+        <td><span class="badge-blue">Mid</span></td>
+        <td>Massive consumer behavior data is used to optimize recommendation and delivery efficiency, but the barrier effect of the data advantage is weakening</td>
+      </tr>
+      <tr>
+        <td>Switching costs</td>
+        <td><span class="badge-yellow">Weak to moderate</span></td>
+        <td>C-end users face low multi-platform switching costs, and loyalty is sustained mainly by subsidies and convenience; for B-end merchants, multi-platform presence is the norm</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Competitive landscape</h4>
+  <ul>
+    <li><strong>Food delivery market:</strong>Meituan (~65-70% share) vs Ele.me (~25-30%), a stable duopoly for several years. But in 2024-2025, JD.com, Douyin and others stepped up investment in instant retail/food delivery, and subsidy pressure returned</li>
+    <li><strong>In-store/hotel and travel:</strong>Douyin's in-store group-buying has grown rapidly since 2023 and now poses real competition to Meituan's in-store business; part of Meituan's 8.2% year-on-year rise in SG&A expenses in 2024 is related to this.</li>
+    <li><strong>Instant retail:</strong>Meituan Instashopping vs JD Miaosong vs Alibaba Ele.me + Tmall Supermarket: competition in instant retail escalates, but Meituan's delivery network advantage is clear</li>
+  </ul>
+
+  <h4>Risks and opportunities</h4>
+  <ul>
+    <li><strong>Erosion risk:</strong>Douyin's in-store group buying is growing fast (on content and traffic advantages), while JD.com and Alibaba have entered instant retail (on supply-chain advantages); a subsidy war could compress margins</li>
+    <li><strong>Reinforcing factors:</strong>① The instant delivery network's capacity-density barrier is extremely high; ② users already equate food delivery with Meituan; ③ merchant-side SaaS (Meituan Shouyin/Kaidianbao) raises B-end stickiness</li>
+  </ul>
+
+  <h4>Conclusion</h4>
+  <p><strong>The moat is broadly stable but warrants attention.</strong>The network effects and delivery-scale advantages of the core food delivery business remain a strong moat, but the in-store business faces mounting competitive pressure from Douyin, and instant retail has entered a multi-front battle. The moat has not been visibly eroded, but long-term competitive intensity is rising.</p>
+</div>
+
+<!-- ===== 综合评估 ===== -->
+<div class="card">
+  <h2>📊 Overall assessment and recommendation</h2>
+
+  <h3>Seven hard-metric scorecard</h3>
+  <table>
+    <thead><tr><th>Indicator</th><th>Results</th><th>Weight impact</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td>① ROE</td><td><span class="badge-red">FAIL</span></td><td>High</td><td>Historical losses drag down the average, but the 2024 threshold has been met. Recommend monitoring the 3-year average going forward</td></tr>
+      <tr><td>② Gross margin</td><td><span class="badge-red">FAIL</span></td><td>Mid</td><td>38.4% vs the 40% threshold, a 1.6pct gap with a continuously improving trend, expected to meet the threshold in 2025-2026</td></tr>
+      <tr><td>③ Free cash flow</td><td><span class="badge-green">PASS</span></td><td>High</td><td>Strong, 2024 FCF USD 6.5 billion, FCF yield 10.6%</td></tr>
+      <tr><td>④ Capex intensity</td><td><span class="badge-green">PASS</span></td><td>Mid</td><td>Asset-light model, CapEx/revenue only 3%</td></tr>
+      <tr><td>⑤ Debt level</td><td><span class="badge-green">PASS</span></td><td>High</td><td>Net cash of USD 20.2 billion; financial position highly secure</td></tr>
+      <tr><td>⑥ Revenue growth</td><td><span class="badge-green">PASS</span></td><td>High</td><td>Grew for 4 consecutive years, but growth slowed to 9.4% in 2025</td></tr>
+      <tr><td>⑦ Moat</td><td><span class="badge-yellow">WARN</span></td><td>High</td><td>Core moat intact, but intensifying competition bears close monitoring</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Overall judgment under the eliminate-the-weak framework</h3>
+  <p><strong>Seven hard metrics: 4 PASS / 2 FAIL / 1 WARN</strong></p>
+  <p>Meituan is<strong>Free cash flow, capital efficiency, debt safety, revenue growth</strong>It performs well on four dimensions and passes with high quality. ROE and gross margin fall short because the company only turned profitable in the past two years and gross margin is still climbing, but both trends are clearly improving. The moat is on amber alert as industry competition intensifies.</p>
+
+  <h3>Watch for signals</h3>
+  <ul>
+    <li><strong>⚠️ Can gross margin break above 40%:</strong>The 2025 financial report is the key data point to watch. If it breaks through, one FAIL is removed.</li>
+    <li><strong>⚠️ Can ROE stay above 20%:</strong>Only 3 consecutive years of ROE>15% can prove that profitability is sustainable.</li>
+    <li><strong>⚠️ Whether revenue growth slows further:</strong>A growth rate of 9.4% is still excellent among consumer goods companies, but may be on the low side for a technology platform.</li>
+    <li><strong>⚠️ The extent of Douyin competition's erosion of profit margins:</strong>Watch SG&A expense ratio changes</li>
+  </ul>
+
+  <h3>Qualitative assessment</h3>
+  <p>Meituan is<strong>"Dawn before the dark" companies</strong>— It went through a period of massive losses in 2021-2022 (regulatory crackdown + cash burn in community group buying + pandemic lockdowns), then achieved a fundamental profit turnaround in 2023-2024. A conventional "past 5-year average" screening standard would eliminate it; but from a "current + forward-looking" perspective, its fundamental quality is high.</p>
+  <p>Recommendation:<strong>Keep on watchlist</strong>Focus on whether full-year 2025 gross margin can exceed 40% and whether ROE can hold above 15%. Both FAIL metrics have clear roadmaps to move from "FAIL" to "PASS" within the next 1-2 years.</p>
+</div>
+
+<div class="footer">
+  <p>This report was automatically generated by Hermes Agent | Data as of 2026-07-07 | Not investment advice</p>
+  <p>Data sources: MacroTrends, Google Finance, Stock Analysis</p>
+</div>
+
+</div>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

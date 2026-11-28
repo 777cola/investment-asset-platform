@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>投資組合管理建議 — 美團 | 3690.HK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f5f7fa; color: #1a2332; line-height: 1.8;
+    padding: 0;
+  }
+  .hero {
+    background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%)
+    color: #fff; padding: 64px 24px 48px; text-align: center;
+  }
+  .hero h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: 2px; }
+  .hero .subtitle { font-size: 1rem; font-weight: 300; margin-top: 8px; opacity: .85; }
+  .hero .quote { margin-top: 20px; font-size: .85rem; font-style: italic; opacity: .8; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .container { max-width: 920px; margin: 0 auto; padding: 32px 20px 64px; }
+  .card {
+    background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    padding: 28px 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 1.3rem; font-weight: 700; color: #008C4A;
+    border-left: 4px solid #008C4A; padding-left: 14px; margin-bottom: 18px;
+  }
+  .card h3 { font-size: 1rem; font-weight: 600; color: #2c3e50; margin: 16px 0 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: .85rem; margin: 12px 0; }
+  th { background: #e8f5e9; color: #008C4A; font-weight: 600; padding: 10px 8px; text-align: center; border: 1px solid #dce4ed; }
+  td { padding: 10px 8px; text-align: center; border: 1px solid #e8edf3; }
+  tr:nth-child(even) { background: #f9fbfd; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: .75rem; font-weight: 600; }
+  .tag-green { background: #e8f5e9; color: #27ae60; }
+  .tag-yellow { background: #fff3e0; color: #e67e22; }
+  .tag-red { background: #fee; color: #c0392b; }
+  .tag-blue { background: #e3f2fd; color: #1976d2; }
+  .tag-gray { background: #f0f0f0; color: #666; }
+  .tag-meituan { background: #e8f5e9; color: #008C4A; }
+  .role-box { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+  .role-item { flex: 1; min-width: 180px; background: #f9fbfd; border-radius: 8px; padding: 16px; text-align: center; }
+  .role-item .role-label { font-size: .8rem; color: #7f8c8d; }
+  .role-item .role-value { font-size: 1.2rem; font-weight: 700; margin-top: 4px; }
+  .alert-box { border-radius: 8px; padding: 16px; margin: 8px 0; font-size: .85rem; }
+  .alert-red { background: #fee; border-left: 4px solid #c0392b; }
+  .alert-yellow { background: #fff3e0; border-left: 4px solid #e67e22; }
+  .alert-green { background: #e8f5e9; border-left: 4px solid #27ae60; }
+  .alert-blue { background: #e3f2fd; border-left: 4px solid #1976d2; }
+  .summary-box {
+    background: linear-gradient(135deg, #e8f5e9, #f0faf3);
+    border: 2px solid #008C4A; border-radius: 12px;
+    padding: 24px; text-align: center;
+  }
+  .summary-box .big { font-size: 1.3rem; font-weight: 700; color: #008C4A; }
+  .summary-box .small { font-size: .85rem; color: #555; margin-top: 8px; }
+  .verdict-box {
+    background: linear-gradient(135deg, #e3f2fd, #e8f5e9);
+    border: 2px solid #1976d2; border-radius: 12px;
+    padding: 24px; text-align: center;
+  }
+  .verdict-box .big { font-size: 1.5rem; font-weight: 900; color: #1976d2; }
+  .verdict-box .small { font-size: .85rem; color: #555; margin-top: 8px; }
+  .compare-grid { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+  .compare-item { flex: 1; min-width: 240px; border-radius: 10px; padding: 18px; }
+  .compare-item h4 { font-size: .95rem; font-weight: 700; margin-bottom: 8px; }
+  .compare-item ul { list-style: none; padding: 0; font-size: .8rem; }
+  .compare-item ul li { padding: 4px 0; border-bottom: 1px solid rgba(0,0,0,.05); }
+  .compare-item ul li:last-child { border-bottom: none; }
+  .compare-tencent { background: #e3f2fd; border: 2px solid #1976d2; }
+  .compare-pdd { background: #e8f5e9; border: 2px solid #27ae60; }
+  .compare-baba { background: #fce4e4; border: 2px solid #c0392b; }
+  .compare-meituan { background: #e8f5e9; border: 2px solid #008C4A; }
+  .progress-bar-bg { background: #eee; border-radius: 8px; height: 24px; overflow: hidden; margin: 6px 0; }
+  .progress-bar { height: 100%; border-radius: 8px; color: #fff; font-size: .75rem; font-weight: 600; line-height: 24px; padding-left: 8px; }
+  .footer { text-align: center; font-size: .8rem; color: #95a5a6; padding: 32px 20px; border-top: 1px solid #e8edf3; }
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.5rem; }
+    .container { padding: 16px 12px 48px; }
+    .card { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>📊 投資組合管理建議 — 美團 (3690.HK)</h1>
+  <div class="subtitle">本地生活服務平臺 ｜ 偵察日期 2026/07/07 ｜ 股價 HKD 78.35</div>
+  <div class="quote">「價格是你付出的，價值是你得到的。」— 巴菲特<br>「好的企業往往在某個時刻會遇到一個偉大的問題。這創造出一生中只有一次的機會。」— 查理·芒格</div>
+</div>
+<div class="container">
+
+  <!-- 一、组合角色定位 -->
+  <div class="card">
+    <h2>🎯 一、美團的組合角色定位</h2>
+    <div class="role-box">
+      <div class="role-item">
+        <div class="role-label">核心持倉</div>
+        <div class="role-value"><span class="tag tag-green">✅ 適合</span></div>
+        <div style="font-size:.75rem;color:#666;margin-top:4px;">自由現金流印鈔機＋成長＋淨現金</div>
+      </div>
+      <div class="role-item">
+        <div class="role-label">衛星持倉</div>
+        <div class="role-value"><span class="tag tag-green">✅ 也適合</span></div>
+        <div style="font-size:.75rem;color:#666;margin-top:4px;">擔心競爭加劇時</div>
+      </div>
+      <div class="role-item">
+        <div class="role-label">交易倉位</div>
+        <div class="role-value"><span class="tag tag-red">❌ 不適合</span></div>
+        <div style="font-size:.75rem;color:#666;margin-top:4px;">高波動＋價值釋放需時間</div>
+      </div>
+    </div>
+
+    <h3>美團 vs 其他中國互聯網公司 — 組合角色對比</h3>
+    <table>
+      <tr><th>公司</th><th>組合角色</th><th>核心邏輯</th><th>組合定位</th></tr>
+      <tr>
+        <td><strong>騰訊 (0700.HK)</strong></td>
+        <td><span class="tag tag-blue">🏛️ 核心持有</span></td>
+        <td>社交壁壘不可替代，千億回購推升每股價值</td>
+        <td>壓艙石</td>
+      </tr>
+      <tr>
+        <td><strong>美團 (3690.HK)</strong></td>
+        <td><span class="tag tag-meituan">🚀 成長核心</span></td>
+        <td>本地生活基礎設施，自由現金流高速成長＋低滲透率</td>
+        <td>成長引擎</td>
+      </tr>
+      <tr>
+        <td><strong>拼多多 (PDD)</strong></td>
+        <td><span class="tag tag-green">🎯 深度價值＋期權</span></td>
+        <td>極低本益比＋淨現金安全邊際＋Temu看漲期權</td>
+        <td>賠率引擎</td>
+      </tr>
+      <tr>
+        <td><strong>阿里巴巴 (BABA)</strong></td>
+        <td><span class="tag tag-red">🔄 困境反轉型</span></td>
+        <td>PB約0.22極端低估，但自由現金流轉負需基本面修復</td>
+        <td>困境對賭</td>
+      </tr>
+    </table>
+
+    <div class="alert-box alert-blue">
+      <strong>美團的核心組合價值：</strong>在「騰訊-拼多多-阿里」三公司框架中，美團的加入填補了<strong>「高成長＋高自由現金流＋合理估值」</strong>的空白。騰訊確定性最高但增速低（~10%），拼多多賠率高但 Temu 不確定，阿里困境待反轉。美團提供的是——<strong>20%+ 增速 + 10.6% 自由現金流殖利率 + 淨現金 $20B</strong>——這三者的組合在中國網際網路中獨一無二。</div>
+  </div>
+
+  <!-- 二、如果已持有美团：仓位调整建议 -->
+  <div class="card">
+    <h2>📈 二、如果已持有美團：倉位調整建議</h2>
+
+    <div class="summary-box">
+      <div class="big">當前建議：持有／小幅加倉</div>
+      <div class="small">股價從52週高點 HKD 136.10 回落約 42%，估值回到合理偏低區間</div>
+    </div>
+
+    <h3>當前持倉評估</h3>
+    <table>
+      <tr><th>指標</th><th>資料</th><th>評級</th></tr>
+      <tr><td>當前股價</td><td>HKD 78.35</td><td><span class="tag tag-green">從高點回落42%</span></td></tr>
+      <tr><td>PE (TTM)</td><td>~12-15x</td><td><span class="tag tag-green">歷史低位區間</span></td></tr>
+      <tr><td>PS (TTM)</td><td>~1.3x</td><td><span class="tag tag-green">科技平臺中偏低</span></td></tr>
+      <tr><td>FCF Yield</td><td>~10.6%</td><td><span class="tag tag-green">優秀</span></td></tr>
+      <tr><td>淨現金狀態</td><td>$20.2B（現金$26B > 負債$5.9B）</td><td><span class="tag tag-green">極強資產負債表</span></td></tr>
+      <tr><td>營收增速（2024）</td><td>+20.1%</td><td><span class="tag tag-green">雙位數成長</span></td></tr>
+      <tr><td>營收增速（2025 前 3Q）</td><td>~+9.4%</td><td><span class="tag tag-yellow">增速放緩需關注</span></td></tr>
+      <tr><td>競爭壓力</td><td>阿里、京東入局即時配送</td><td><span class="tag tag-yellow">中等風險</span></td></tr>
+    </table>
+
+    <h3>建議倉位調整方案</h3>
+    <table>
+      <tr><th>投資者類型</th><th>建議倉位</th><th>調整方向</th><th>理由</th></tr>
+      <tr><td>🟢 保守型</td><td><strong>5-8%</strong></td><td><span class="tag tag-green">持有／小幅加倉</span></td><td>認可本地生活商業模式但規避競爭不確定性</td></tr>
+      <tr><td>🟡 平衡型</td><td><strong>8-12%</strong></td><td><span class="tag tag-green">持有／加倉2-3%</span></td><td>估值合理偏低，自由現金流強勁提供安全邊際</td></tr>
+      <tr><td>🔴 進取型</td><td><strong>12-15%</strong></td><td><span class="tag tag-green">加碼至上限</span></td><td>看好本地生活滲透率提升＋美團執行能力</td></tr>
+    </table>
+
+    <div class="alert-box alert-green">
+      <strong>核心判斷：</strong>從52週高點的HKD 136跌至HKD 78，市場定價的核心擔憂是①增速放緩（20%→9.4%）②競爭加劇（阿里/京東入局）。但美團當前FCF Yield已達10.6%，PS僅1.3x——這意味著即使增速繼續放緩至10%以下，當前估值也已經充分反映了悲觀預期。對持有者來說，<strong>現在不是賣出的時候，而是應該考慮是否加倉。</strong>
+    </div>
+  </div>
+
+  <!-- 三、如果未持有：建仓价格区间 -->
+  <div class="card">
+    <h2>💰 三、如果未持有美團：建倉建議</h2>
+
+    <h3>估值區間與對應策略</h3>
+    <table>
+      <tr><th>價格區間</th><th>PE區間（估）</th><th>FCF Yield</th><th>建議操作</th><th>說明</th></tr>
+      <tr><td><strong>HKD 60-70</strong></td><td>~9-11x</td><td>~13-15%</td><td><span class="tag tag-green">🔵 積極建倉</span></td><td>極端低估區間。淨現金／市值比>35%，基本面安全邊際極厚</td></tr>
+      <tr><td><strong>HKD 70-80</strong></td><td>~11-12x</td><td>~10-13%</td><td><span class="tag tag-green">🟢 分批建倉</span></td><td>目前價格區間（HKD 78.35）。FCF Yield >10% 的優質買入點</td></tr>
+      <tr><td><strong>HKD 80-100</strong></td><td>~12-15x</td><td>~8-10%</td><td><span class="tag tag-yellow">🟡 小量建倉</span></td><td>估值合理偏低區間。建議小倉位建立觀察</td></tr>
+      <tr><td><strong>HKD 100-120</strong></td><td>~15-18x</td><td>~6-8%</td><td><span class="tag tag-yellow">⏸️ 觀望</span></td><td>估值正常化區間。等待回調再介入</td></tr>
+      <tr><td><strong>HKD 120+</strong></td><td>>18x</td><td><6%</td><td><span class="tag tag-red">🔴 等待</span></td><td>估值偏高，安全邊際不足，不適合新建倉</td></tr>
+    </table>
+
+    <h3>建議建倉策略</h3>
+    <div style="background:#f8f9fb;border:1px solid #e8ecf1;border-radius:8px;padding:16px;font-family:monospace;font-size:.85rem;line-height:2;white-space:pre;overflow-x:auto;margin:12px 0;">美團建倉路線圖：
+
+當前價格 HKD 78.35 ──→ 處於【分批建倉】區間
+    策略：分3-4批，每下跌5-8%加一批
+
+    第一批 (HKD 78)：建立 40% 目標倉位
+    第二批 (HKD 72)：加至 70% 目標倉位
+    第三批 (HKD 66)：加至 100% 目標倉位
+    第四批 (HKD 60)：超配至上限（如果基本面未惡化）
+
+    ⚠️ 如果股價未跌到第二批就直接上漲超過HKD 90
+       則停止建倉，以已有倉位持有觀察</div>
+
+    <div class="alert-box alert-yellow">
+      <strong>建倉邏輯：</strong>以目前 HKD 78.35 買入，你支付的是<strong>本地生活增速放緩＋競爭加劇</strong>的悲觀價格，得到的是<strong>一臺自由現金流 65 億美元以上、淨現金 200 億美元以上、仍在雙位數增長的印鈔機</strong>。即使增速降至8-10%，10%+的FCF Yield意味著你的收益率已經跑贏絕大多數固定收益資產。</div>
+
+    <h3>關鍵建倉信號</h3>
+    <table>
+      <tr><th>訊號類型</th><th>正面訊號（加碼）</th><th>負面訊號（暫緩）</th></tr>
+      <tr><td>📊 業績</td><td>2025Q4營收增速回升至12%+</td><td>增速跌破8%</td></tr>
+      <tr><td>💼 競爭</td><td>阿里／京東即時配送擴張放緩</td><td>阿里／京東搶下逾10%外送市佔</td></tr>
+      <tr><td>💰 利潤</td><td>營業利益率穩定或提升</td><td>補貼戰導致利潤率明顯下滑</td></tr>
+      <tr><td>🔄 回購</td><td>美團啟動大規模回購</td><td>股份持續稀釋</td></tr>
+    </table>
+  </div>
+
+  <!-- 四、仓位上限建议 -->
+  <div class="card">
+    <h2>🎯 四、倉位上限建議（基於風險承受能力）</h2>
+
+    <h3>硬性約束框架</h3>
+    <table>
+      <tr><th>約束層級</th><th>上限</th><th>說明</th></tr>
+      <tr><td>美團單隻股票</td><td><strong>≤ 15%</strong></td><td>即使極度看好，仍保留「萬一錯了」的餘地。競爭格局變化快。</td></tr>
+      <tr><td>本地生活／消費互聯網合計</td><td><strong>≤ 30%</strong></td><td>美團+美團的行業相關公司（如阿里本地生活業務關聯）</td></tr>
+      <tr><td>中概股（含港股通）合計</td><td><strong>≤ 50%</strong></td><td>下市風險、資本管制、資訊不對稱等特殊風險</td></tr>
+      <tr><td>單一行業暴露</td><td><strong>≤ 40%</strong></td><td>電商＋本地生活＋廣告高度關聯</td></tr>
+    </table>
+
+    <h3>按投資人類型的倉位上限</h3>
+    <table>
+      <tr><th>投資者類型</th><th>美團上限</th><th>中國網路合計上限</th><th>總組閤中概上限</th></tr>
+      <tr><td>🟢 保守型</td><td><strong>8%</strong></td><td><strong>20%</strong></td><td><strong>30%</strong></td></tr>
+      <tr><td>🟡 平衡型</td><td><strong>12%</strong></td><td><strong>30%</strong></td><td><strong>40%</strong></td></tr>
+      <tr><td>🔴 進取型</td><td><strong>15%</strong></td><td><strong>40%</strong></td><td><strong>50%</strong></td></tr>
+    </table>
+
+    <div class="alert-box alert-red">
+      <strong>🚨 重要風險提示：</strong>美團的外送／社區團購業務受宏觀經濟和消費信心影響大。如果中國消費持續疲軟，美團收入增速和利潤率都會承壓。即使用最樂觀的假設，美團的倉位也不建議超過總組合的<strong>15%</strong>。
+    </div>
+  </div>
+
+  <!-- 五、与腾讯、拼多多、阿里协同分析 -->
+  <div class="card">
+    <h2>🔗 五、與騰訊、拼多多、阿里巴巴的協同分析</h2>
+
+    <h3>四公司組合角色矩陣</h3>
+    <table>
+      <tr><th>公司</th><th>組合角色</th><th>與美團相關性</th><th>協同效應</th><th>分散化效果</th></tr>
+      <tr>
+        <td><strong>騰訊 (0700.HK)</strong></td>
+        <td><span class="tag tag-blue">🏛️ 核心持有</span></td>
+        <td><span class="tag tag-yellow">中高（約 0.6）</span></td>
+        <td>✅ 騰訊是美團第一大股東（~17%），微信為美團提供流量入口</td>
+        <td>⚠️ 有限（同一股東＋同受中概宏觀影響）</td>
+      </tr>
+      <tr>
+        <td><strong>拼多多 (PDD)</strong></td>
+        <td><span class="tag tag-green">🎯 深度價值＋期權</span></td>
+        <td><span class="tag tag-yellow">中等（約0.5）</span></td>
+        <td>✅ 美團到店 vs PDD 本地生活——競爭關係但市場側重不同</td>
+        <td>✅ 部分分散（不同細分賽道）</td>
+      </tr>
+      <tr>
+        <td><strong>阿里巴巴 (BABA)</strong></td>
+        <td><span class="tag tag-red">🔄 困境反轉型</span></td>
+        <td><span class="tag tag-red">中等偏高（~0.55-0.65）</span></td>
+        <td>⚠️ 餓了麼vs美團外賣的直接競爭關係，阿里入局即時配送</td>
+        <td>⚠️ 分散化有限（同一行業競爭對手）</td>
+      </tr>
+    </table>
+
+    <h3>四公司組合配置建議（含美團）</h3>
+    <table>
+      <tr><th>投資者類型</th><th>騰訊</th><th>美團</th><th>拼多多</th><th>阿里巴巴</th><th>中國網路合計</th></tr>
+      <tr><td>🟢 保守型</td><td>8-10%</td><td>5-8%</td><td>3-5%</td><td>2-3%</td><td><strong>18-26%</strong></td></tr>
+      <tr><td>🟡 平衡型</td><td>10-12%</td><td>8-12%</td><td>8-10%</td><td>3-5%</td><td><strong>29-39%</strong></td></tr>
+      <tr><td>🔴 進取型</td><td>12-15%</td><td>12-15%</td><td>10-12%</td><td>5-8%</td><td><strong>39-50%</strong></td></tr>
+    </table>
+
+    <div class="alert-box alert-blue">
+      <strong>美團加入後的組合變化：</strong><br>
+      ① <strong>增加成長性</strong>：美團的加入提升了整個組合的收入增速中樞（從~10%到~12-15%）<br>
+      ② <strong>降低估值中樞</strong>：美團的 PS 約 1.3 倍，整體拉低了四家公司的估值平均水準<br>
+      ③ <strong>增加本地生活曝險</strong>：與阿里有正向競爭暴露風險（兩者都做本地生活）<br>
+      ④ <strong>補充自由現金流殖利率</strong>：美團 FCF Yield 10.6%，在四家公司中僅次於拼多多<br>
+      <strong style="color:#c0392b;">→ 四公司框架中，美團替代了一部分拼多多和阿里倉位的功能，建議適當降低後兩者來容納美團</strong>
+    </div>
+
+    <h3>調整建議：如果加入美團，如何調整現有持倉</h3>
+    <table>
+      <tr><th>原持倉</th><th>調整方向</th><th>邏輯</th></tr>
+      <tr><td>騰訊</td><td><span class="tag tag-yellow">略微降低（-1~2%）</span></td><td>兩者股東關係與宏觀相關性高，適當平衡</td></tr>
+      <tr><td>拼多多</td><td><span class="tag tag-yellow">略微降低（-2~3%）</span></td><td>美團提供成長性替代，降低對單一高波動標的依賴</td></tr>
+      <tr><td>阿里巴巴</td><td><span class="tag tag-yellow">考慮降低（-1~2%）</span></td><td>美團與阿里本地生活直接競爭，不宜同時高配</td></tr>
+      <tr><td><strong>美團（新加入）</strong></td><td><span class="tag tag-green">新增8-12%</span></td><td>填補「高成長＋FCF＋合理估值」空白</td></tr>
+    </table>
+  </div>
+
+  <!-- 六、集中度风险提示 -->
+  <div class="card">
+    <h2>⚠️ 六、集中度風險提示</h2>
+
+    <h3>美團特有風險</h3>
+    <table>
+      <tr><th>風險類別</th><th>風險描述</th><th>影響程度</th><th>應對措施</th></tr>
+      <tr>
+        <td>🏢 <strong>競爭加劇</strong></td>
+        <td>阿里巴巴（餓了麼＋高德）、京東（達達＋秒送）大舉進軍即時配送，補貼戰可能拖累利潤</td>
+        <td><span class="tag tag-red">高</span></td>
+        <td>關注外送市場份額變化，若美團份額跌破50%需重新評估</td>
+      </tr>
+      <tr>
+        <td>📉 <strong>成長放緩</strong></td>
+        <td>營收增速從2024年20.1%降至2025年前3Q的9.4%，本地生活滲透率接近天花板</td>
+        <td><span class="tag tag-yellow">中高</span></td>
+        <td>觀察閃購／到店／海外等新增長點是否接棒</td>
+      </tr>
+      <tr>
+        <td>📊 <strong>利潤波動</strong></td>
+        <td>2022年虧$993M到2024年賺$4,981M，高彈性背後是補貼戰的潛在風險</td>
+        <td><span class="tag tag-yellow">中</span></td>
+        <td>關注營業利益率趨勢，跌破8%需警惕補貼戰升級</td>
+      </tr>
+      <tr>
+        <td>🏛️ <strong>監管政策</strong></td>
+        <td>外送騎手社保、平臺佣金管制等政策風險持續存在</td>
+        <td><span class="tag tag-yellow">中</span></td>
+        <td>關注政策變化，上海/北京等地試點騎手社保影響可控</td>
+      </tr>
+      <tr>
+        <td>🌍 <strong>中概股宏觀</strong></td>
+        <td>中美關係、港股流動性、聯準會利率週期影響</td>
+        <td><span class="tag tag-yellow">中</span></td>
+        <td>控制整體中概倉位上限，配置非中概資產對沖</td>
+      </tr>
+      <tr>
+        <td>⌛ <strong>EPS負值異常</strong></td>
+        <td>Google Finance 顯示 EPS 為 -HKD 7.64，可能反映 2025 年某一季度虧損</td>
+        <td><span class="tag tag-yellow">需關注</span></td>
+        <td>待2025年報披露後核實，當前不影響投資論文</td>
+      </tr>
+    </table>
+
+    <h3>集中度管理矩陣</h3>
+    <table>
+      <tr><th>情境</th><th>美團持倉</th><th>騰訊持倉</th><th>拼多多倉位</th><th>阿里持倉</th><th>中國網路</th></tr>
+      <tr><td>✅ 正常情景</td><td>10%</td><td>12%</td><td>10%</td><td>5%</td><td><strong>37%</strong></td></tr>
+      <tr><td>⚠️ 美團跌至 HKD 60</td><td>升至約13%</td><td>不變</td><td>不變</td><td>不變</td><td><strong>~40%</strong></td></tr>
+      <tr><td>🚨 中概股集體下跌30%</td><td>升至約 14%</td><td>升至約14%</td><td>升至約12%</td><td>升至約6%</td><td><strong>~46% ⚠️可能超限</strong></td></tr>
+      <tr><td>🔴 極端情況（中概腰斬）</td><td>升至約17%</td><td>升至約17%</td><td>升至約14%</td><td>升至約7%</td><td><strong>~55% 🔴</strong></td></tr>
+    </table>
+
+    <div class="alert-box alert-red">
+      <strong>🚨 極端情景下的操作紀律：</strong><br>當中概股整體下跌導致中國網路合計倉位被動超過<strong>40%</strong>（平衡型）時，不應機械賣出——應檢查每檔股票的投資論文是否仍然成立。<br><br>① 如果論文仍成立（業務基本面未惡化），可以容忍超過上限，直到論文被證偽<br>② 若論文被削弱（如競爭惡化導致阿里份額大跌），立即減倉至上限以內<br>③ 任何時候，美團單一股票的被動倉位超過<strong>18%</strong>，必須減至15%以內<br>④ 同時，利用其他資產（美債、A股消費、美股科技）的對沖效應降低組合波動</div>
+  </div>
+
+  <!-- 七、不同情景下的仓位管理方案 -->
+  <div class="card">
+    <h2>🔄 七、不同情景下的倉位管理方案</h2>
+
+    <h3>三情境模型（基於 HKD 78.35 當前價）</h3>
+
+    <div class="compare-grid">
+      <div class="compare-item" style="background:#e8f5e9;border:2px solid #27ae60;">
+        <h4>🟢 樂觀情景（機率 20%）</h4>
+        <ul>
+          <li><strong>觸發條件：</strong>閃購／海外業務爆發式成長；競爭格局穩定；消費復甦</li>
+          <li><strong>目標股價：</strong>HKD 120-140</li>
+          <li><strong>上行空間：</strong>+53~+79%</li>
+          <li><strong>倉位管理：</strong>持有至上限，在PE約18倍（約HKD 120）時考慮減倉</li>
+        </ul>
+      </div>
+      <div class="compare-item" style="background:#fff3e0;border:2px solid #e67e22;">
+        <h4>🟡 基準情景（機率 55%）</h4>
+        <ul>
+          <li><strong>觸發條件：</strong>營收增速維持8-12%；競爭格局穩定但補貼持續；利潤緩慢改善</li>
+          <li><strong>目標股價：</strong>HKD 85-110</li>
+          <li><strong>上行空間：</strong>+8~+40%</li>
+          <li><strong>倉位管理：</strong>維持基準倉位8-12%，利用波動做小量波段</li>
+        </ul>
+      </div>
+      <div class="compare-item" style="background:#fee;border:2px solid #c0392b;">
+        <h4>🔴 悲觀情景（機率 25%）</h4>
+        <ul>
+          <li><strong>觸發條件：</strong>補貼戰升級利潤率大跌；增速跌破5%；消費持續疲軟</li>
+          <li><strong>目標股價：</strong>HKD 50-65</li>
+          <li><strong>下行空間：</strong>-17~-36%</li>
+          <li><strong>倉位管理：</strong>跌至HKD 65以下加倉（極端低估），但若基本面惡化則減倉</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>貝氏加權預期回報</h3>
+    <table>
+      <tr><th>情境</th><th>機率</th><th>預期回報</th><th>加權貢獻</th></tr>
+      <tr><td>🟢 樂觀</td><td>20%</td><td>+53~+79%</td><td>+10.6~+15.8%</td></tr>
+      <tr><td>🟡 基準</td><td>55%</td><td>+8~+40%</td><td>+4.4~+22.0%</td></tr>
+      <tr><td>🔴 悲觀</td><td>25%</td><td>-17~-36%</td><td>-4.3~-9.0%</td></tr>
+      <tr><td><strong>貝氏加權</strong></td><td><strong>100%</strong></td><td></td><td><strong>+10.7~+28.8%</strong></td></tr>
+    </table>
+
+    <h3>動態倉位調整規則</h3>
+    <table>
+      <tr><th>觸發條件</th><th>操作</th><th>倉位目標</th><th>時間框架</th></tr>
+      <tr><td>📊 <strong>業績超預期</strong>（營收增速>15%+利潤率提升）</td><td><span class="tag tag-green">加倉</span></td><td>12-15%</td><td>1-2個季度</td></tr>
+      <tr><td>📊 <strong>業績符合預期</strong>（營收8-12%，利潤率穩定）</td><td><span class="tag tag-yellow">維持</span></td><td>8-12%</td><td>持有</td></tr>
+      <tr><td>📊 <strong>業績低於預期</strong>（營收<8%或利润率明显下滑）</td><td><span class="tag tag-yellow">減至基準以下</span></td><td>5-8%</td><td>立即</td></tr>
+      <tr><td>🏢 <strong>競爭明顯惡化</strong>（阿里／京東外送市佔>15%）</td><td><span class="tag tag-red">大幅減倉</span></td><td>3-5%</td><td>1個月內</td></tr>
+      <tr><td>💰 <strong>股價漲至HKD 120+</strong></td><td><span class="tag tag-yellow">減倉一半</span></td><td>4-6%</td><td>分批</td></tr>
+      <tr><td>💰 <strong>股價跌至 HKD 60-65</strong></td><td><span class="tag tag-green">加倉</span></td><td>10-15%</td><td>分批</td></tr>
+      <tr><td>🔄 <strong>美團啟動大規模回購</strong>（年回購>$5B）</td><td><span class="tag tag-green">加倉2-3%</span></td><td>上限+3%</td><td>公告後</td></tr>
+      <tr><td>🏛️ <strong>重大監管變化</strong>（反壟斷／騎手社保重大政策）</td><td><span class="tag tag-yellow">暫時減倉</span></td><td>5-8%</td><td>政策明朗後</td></tr>
+      <tr><td>🌍 <strong>中概股下市風險升溫</strong></td><td><span class="tag tag-red">大幅減倉</span></td><td>3-5%或清倉</td><td>立即</td></tr>
+    </table>
+
+    <h3>壓力測試：初始倉位10%的情景分析</h3>
+    <table>
+      <tr><th>美團股價</th><th>持倉價值變化</th><th>組合總價值變化</th><th>組閤中美團佔比</th><th>建議行動</th></tr>
+      <tr><td>HKD 140</td><td>+78.7%</td><td>+7.9%</td><td>~16.5%</td><td>減倉至基準（HKD 120以上行動）</td></tr>
+      <tr><td>HKD 120</td><td>+53.2%</td><td>+5.3%</td><td>~14.5%</td><td>考慮減倉一半</td></tr>
+      <tr><td>HKD 100</td><td>+27.6%</td><td>+2.8%</td><td>~12.2%</td><td>無需行動</td></tr>
+      <tr><td>HKD 78.35（當前）</td><td>0%</td><td>0%</td><td>10.0%</td><td>基準倉位</td></tr>
+      <tr><td>HKD 65</td><td>-17.0%</td><td>-1.7%</td><td>~8.7%</td><td>考慮加倉（極端低估）</td></tr>
+      <tr><td>HKD 50</td><td>-36.2%</td><td>-3.6%</td><td>~7.0%</td><td>評估是否加倉或停損</td></tr>
+    </table>
+
+    <div class="alert-box alert-yellow">
+      <strong>再平衡紀律：</strong><br>
+      ① <strong>⏰ 半年度檢查</strong>每6個月審視美團的投資論文是否仍然成立<br>
+      ② <strong>💰 價格觸發</strong>：單一股票漲跌超過50%時重新評估風險報酬比<br>
+      ③ <strong>📢 事件觸發</strong>：每次財報公佈後檢查①營收增速 ②營業利益率 ③競爭格局變化<br>
+      ④ <strong>🌍 宏觀觸發</strong>：中美關係重大變化、中概政策突變時整體降低敞口</div>
+  </div>
+
+  <!-- 八、总结 -->
+  <div class="card">
+    <h2>📝 八、總結</h2>
+
+    <div class="summary-box">
+      <div class="big">美團 = 高成長+高自由現金流+合理估值</div>
+      <div class="small">在騰訊（確定性最高）、拼多多（賠率最高）、阿里（困境反轉）的組合框架中，<br>美團填補了「成長引擎」的角色——以約 20% 的增速和約 10.6% 的自由現金流收益率提供組合增長動力。</div>
+    </div>
+
+    <h3>核心結論</h3>
+    <div style="background:#f8f9fb;border:1px solid #e8ecf1;border-radius:8px;padding:16px;font-family:monospace;font-size:.85rem;line-height:2;white-space:pre;overflow-x:auto;margin:12px 0;">美團組合管理核心結論：
+
+1️⃣ 【如果已持有】當前HKD 78.35從52週高點回落42%，FCF Yield 10.6%提供充足安全邊際
+   → 持有為主，逢低（HKD 65-70）加倉至上限
+
+2️⃣ 【如果未持有】當前HKD 78.35處於分批建倉區間
+   → 分3-4批建倉，每下跌5-8%加一批
+
+3️⃣ 【倉位上限】保守型5-8%｜平衡型8-12%｜進取型12-15%
+   → 單隻上限15%是硬約束
+
+4️⃣ 【與騰訊PDD阿里協同】美團填補「成長引擎」空白
+   → 加入美團後，適度降低拼多多和阿里倉位
+
+5️⃣ 【集中度風險】中國互聯網四公司合計不超過40%
+   → 美團與阿里本地生活有正向競爭暴露風險
+
+6️⃣ 【情景加權回報】貝葉斯預期回報+10.7~+28.8%
+   → 在悲觀情景（25%概率）下最大下行-36%，但FCF Yield提供安全邊際</div>
+
+    <h3>對標比較：美團 vs 主要中國互聯網公司</h3>
+    <table>
+      <tr><th>維度</th><th>美團</th><th>騰訊</th><th>拼多多</th><th>阿里巴巴</th></tr>
+      <tr><td><strong>成長性</strong></td><td><span class="tag tag-green">★★★★★</span><br>20%→9%但仍在成長</td><td><span class="tag tag-yellow">★★★☆☆</span><br>約 10% 穩健成長</td><td><span class="tag tag-green">★★★★★</span><br>~50% 高成長</td><td><span class="tag tag-red">★★☆☆☆</span><br>約3%停滯</td></tr>
+      <tr><td><strong>自由現金流品質</strong></td><td><span class="tag tag-green">★★★★★</span><br>$65億+，佔營收14%</td><td><span class="tag tag-green">★★★★★</span><br>2,305億元</td><td><span class="tag tag-green">★★★★★</span><br>1,000億元以上</td><td><span class="tag tag-red">★☆☆☆☆</span><br>轉負</td></tr>
+      <tr><td><strong>估值吸引力</strong></td><td><span class="tag tag-green">★★★★☆</span><br>PE~12-15x, PS~1.3x</td><td><span class="tag tag-green">★★★★☆</span><br>PE~15x歷史低位</td><td><span class="tag tag-green">★★★★★</span><br>PE~9x 極度低估</td><td><span class="tag tag-yellow">★★★☆☆</span><br>PB約0.22倍但不算便宜</td></tr>
+      <tr><td><strong>護城河</strong></td><td><span class="tag tag-green">★★★★☆</span><br>外送網路效應＋商戶綁定</td><td><span class="tag tag-blue">★★★★★</span><br>微信生態無可取代</td><td><span class="tag tag-green">★★★★☆</span><br>低價心智＋下沉市場主導力</td><td><span class="tag tag-yellow">★★★☆☆</span><br>市佔率被侵蝕</td></tr>
+      <tr><td><strong>管理層</strong></td><td><span class="tag tag-green">★★★★☆</span><br>王興穩定領導+執行力強</td><td><span class="tag tag-green">★★★★☆</span><br>小馬哥穩定</td><td><span class="tag tag-green">★★★★☆</span><br>黃崢聚焦＋極簡組織</td><td><span class="tag tag-yellow">★★★☆☆</span><br>更迭中</td></tr>
+      <tr><td><strong>股東回報</strong></td><td><span class="tag tag-yellow">★★☆☆☆</span><br>不派息，無回購</td><td><span class="tag tag-blue">★★★★★</span><br>千億回購</td><td><span class="tag tag-yellow">★★☆☆☆</span><br>極少</td><td><span class="tag tag-yellow">★★☆☆☆</span><br>回購大降91%</td></tr>
+      <tr><td><strong>組合角色</strong></td><td><span class="tag tag-meituan">🚀 成長核心</span></td><td><span class="tag tag-blue">🏛️ 核心持有</span></td><td><span class="tag tag-green">🎯 深度價值＋期權</span></td><td><span class="tag tag-red">🔄 困境反轉型</span></td></tr>
+    </table>
+
+    <div class="alert-box alert-green" style="margin-top:16px;">
+      <strong>最終建議：</strong><br><br>
+      ① <strong>美團是組閤中的「成長引擎」</strong>在騰訊（確定性）+ 拼多多（賠率）+ 阿里（困境反轉）四公司框架中，美團提供了最高增速+最強勁自由現金流的組合。建議平衡型投資者配置<strong>8-12%</strong>倉位。<br><br>
+      ② <strong>當前價格 HKD 78.35 具備安全邊際</strong>— FCF Yield 10.6%意味著即使零成長，投資回報也已優於多數資產。從52週高點42%的回撤已經充分反映了悲觀預期。<br><br>
+      ③ <strong>主要風險是競爭加劇和增速放緩</strong>阿里、京東入局即時配送是真實威脅，但目前看美團的外送網路效應（騎手密度+商戶覆蓋+配送時效）短期難以被超越。<br><br>
+      ④ <strong>持有者不應恐慌賣出</strong>在 FCF Yield 10.6%、PS 1.3x、淨現金 $20B 的背景下，繼續看空的理由（競爭＋增速放緩）已經被市場充分定價。現在賣出是在悲觀情緒的底部交出籌碼。<br><br>
+      ⑤ <strong>未持有者可分批建倉</strong>— 在HKD 65-80區間分3-4批建倉，每批下跌5-8%加倉一次，是最穩妥的入場策略。</div>
+  </div>
+
+  <div style="font-size:.8rem;color:#95a5a6;text-align:center;margin-top:12px;">*本分析基於假設持倉，僅供研究參考，不構成投資建議。實際配置需結合個人風險承受能力和投資目標。*</div>
+
+</div>
+<div class="footer">AI-Berkshire ｜ 美團 (3690.HK / MPNGY) 組合管理建議 ｜ 2026/07/07</div>
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>簡</span><span class="full"><span>簡體中文</span></span></a><a class="lang hant active" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

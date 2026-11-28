@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Three-stage earnings team interpretation — Meituan (3690.HK)</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #f5f7fa; color: #333; line-height: 1.8; }
+
+/* Header */
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #0d284f 100%); color: #fff; padding: 50px 0 40px; text-align: center; }
+.header h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+.header .subtitle { font-size: 16px; opacity: 0.9; margin-bottom: 6px; }
+.header .meta { font-size: 13px; opacity: 0.7; }
+.header .phase-badges { margin-top: 20px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.header .phase-badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); padding: 6px 18px; border-radius: 20px; font-size: 13px; color: rgba(255,255,255,0.9); }
+.header .phase-badge strong { color: #fff; }
+
+/* Container */
+.container { max-width: 960px; margin: 0 auto; padding: 30px 24px; }
+
+/* Phase Navigation */
+.phase-nav { display: flex; gap: 12px; margin-bottom: 30px; flex-wrap: wrap; }
+.phase-nav-item { flex: 1; min-width: 180px; background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 16px 20px; cursor: pointer; transition: all 0.2s; border: 2px solid transparent; }
+.phase-nav-item:hover { border-color: #1A4B8C; transform: translateY(-2px); }
+.phase-nav-item.active { border-color: #1A4B8C; background: #f0f4f8; }
+.phase-nav-item .phase-label { font-size: 11px; color: #1A4B8C; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.phase-nav-item .phase-title { font-size: 15px; font-weight: 600; margin-top: 4px; color: #222; }
+.phase-nav-item .phase-desc { font-size: 12px; color: #888; margin-top: 4px; }
+
+/* Card */
+.card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 32px 36px; margin-bottom: 24px; display: none; }
+.card.active { display: block; }
+.card h2 { font-size: 22px; color: #1A4B8C; border-bottom: 3px solid #1A4B8C; padding-bottom: 10px; margin-bottom: 20px; }
+.card h3 { font-size: 18px; color: #1A4B8C; margin: 24px 0 12px; }
+.card h4 { font-size: 15px; color: #2c3e50; margin: 18px 0 8px; }
+.card h5 { font-size: 14px; color: #444; margin: 14px 0 6px; }
+
+/* Master sub-navigation */
+.master-tabs { display: flex; gap: 2px; margin-bottom: 20px; flex-wrap: wrap; background: #f0f4f8; border-radius: 8px; overflow: hidden; }
+.master-tab { padding: 10px 20px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; background: transparent; color: #666; border: none; }
+.master-tab:hover { background: rgba(26,75,140,0.08); color: #1A4B8C; }
+.master-tab.active { background: #1A4B8C; color: #fff; }
+.master-content { display: none; }
+.master-content.active { display: block; }
+
+/* Tables */
+.card table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 15px 0; border-radius: 8px; overflow: hidden; font-size: 13px; }
+.card table thead th { background: #1A4B8C; color: #fff; padding: 10px 12px; font-size: 12px; }
+.card table tbody td { padding: 9px 12px; border-bottom: 1px solid #e8ecf1; }
+.card table tbody tr:nth-child(even) { background: #f8f9fb; }
+.card table tbody tr:hover { background: #eef3f8; }
+
+/* Tags & Badges */
+.master-tag { display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; margin-right: 4px; }
+.master-buffett { background: #e3f2fd; color: #1565c0; }
+.master-munger { background: #fce4ec; color: #c62828; }
+.master-duan { background: #e8f5e9; color: #2e7d32; }
+.master-lilu { background: #fff3e0; color: #e65100; }
+
+.badge-green { display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 2px 10px; border-radius: 4px; font-size: 12px; font-weight: 500; }
+.badge-yellow { display: inline-block; background: #fff8e1; color: #f57f17; padding: 2px 10px; border-radius: 4px; font-size: 12px; font-weight: 500; }
+.badge-blue { display: inline-block; background: #e3f2fd; color: #1565c0; padding: 2px 10px; border-radius: 4px; font-size: 12px; font-weight: 500; }
+.badge-red { display: inline-block; background: #fce4ec; color: #c62828; padding: 2px 10px; border-radius: 4px; font-size: 12px; font-weight: 500; }
+
+/* Boxes */
+.summary-box { background: #f0f4f8; border-left: 4px solid #1A4B8C; padding: 16px 20px; border-radius: 6px; margin: 15px 0; }
+.quote-box { background: #f9f9f9; border-left: 3px solid #1A4B8C; padding: 10px 16px; margin: 10px 0; font-style: italic; color: #555; font-size: 14px; }
+.warning-box { background: #fff8e1; border-left: 4px solid #f57f17; padding: 14px 18px; border-radius: 6px; margin: 15px 0; }
+.success-box { background: #e8f5e9; border-left: 4px solid #2e7d32; padding: 14px 18px; border-radius: 6px; margin: 15px 0; }
+
+/* Lists */
+.card ul, .card ol { margin: 10px 0 10px 24px; }
+.card li { margin-bottom: 6px; font-size: 14px; }
+
+/* Footer */
+.footer { text-align: center; color: #999; font-size: 0.8rem; padding: 30px 24px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container { padding: 16px 12px; }
+  .card { padding: 20px 16px; }
+  .header h1 { font-size: 24px; }
+  .phase-nav-item { min-width: 100%; }
+  .master-tab { padding: 8px 12px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Three-stage team interpretation of financial reports</h1>
+  <div class="subtitle">Meituan (3690.HK / MPNGY) — In-Depth Analysis of the 2024 Earnings Turnaround</div>
+  <div class="meta">Research date: 2026-07-07 | Data coverage: 2021–2024 annual reports + first three quarters of 2025 | Market cap: ~USD 62 billion</div>
+  <div class="phase-badges">
+    <span class="phase-badge"><strong>Phase one</strong>· 4 in-depth master analyses</span>
+    <span class="phase-badge"><strong>Phase two</strong>· 1 synthesis of views</span>
+    <span class="phase-badge"><strong>Phase 3</strong>· 1 edited and polished version</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ====== 三阶段导航 ====== -->
+<div class="phase-nav">
+  <div class="phase-nav-item active" onclick="switchPhase('phase1')">
+    <div class="phase-label">Phase one</div>
+    <div class="phase-title">Masterclass Close Read</div>
+    <div class="phase-desc">Duan Yongping · Buffett · Munger · Li Lu</div>
+  </div>
+  <div class="phase-nav-item" onclick="switchPhase('phase2')">
+    <div class="phase-label">Phase two</div>
+    <div class="phase-title">Synthesis of Views</div>
+    <div class="phase-desc">Consensus · Divergence · Core Debates</div>
+  </div>
+  <div class="phase-nav-item" onclick="switchPhase('phase3')">
+    <div class="phase-label">Phase three</div>
+    <div class="phase-title">Edited and polished version</div>
+    <div class="phase-desc">~2,200-word publishable article</div>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- 阶段一：大师精读 -->
+<!-- ============================================================== -->
+<div class="card active" id="phase1">
+  <h2>📖 Stage 1 · Four masterclasses in close reading</h2>
+
+  <!-- 子导航 -->
+  <div class="master-tabs">
+    <button class="master-tab active" onclick="switchMaster(event, 'duan')"><span class="master-tag master-duan">Duan Yongping</span>Is Meituan making money?</button>
+    <button class="master-tab" onclick="switchMaster(event, 'buffett')"><span class="master-tag master-buffett">Buffett</span>FCF and ROE test</button>
+    <button class="master-tab" onclick="switchMaster(event, 'munger')"><span class="master-tag master-munger">Munger</span>Scale-effect inflection point</button>
+    <button class="master-tab" onclick="switchMaster(event, 'lilu')"><span class="master-tag master-lilu">Li Lu</span>Modernizing consumer services</button>
+  </div>
+
+  <!-- ===== 段永平 ===== -->
+  <div class="master-content active" id="content-duan">
+    <h3>Duan Yongping's lens: Is Meituan making money? How to read the 2024 net profit turnaround</h3>
+
+    <h4>I. Core question: is Meituan actually profitable?</h4>
+    <p>Duan Yongping never judges whether a company has made money by looking at the net profit figure alone. He asks three questions:<strong>What is the source of the profit? Is it sustainable? Is this business worth that profit?</strong></p>
+    <p>Meituan's net profit reached USD 4,981M in 2024, swinging from a loss in 2022 to nearly USD 5 billion in 2024—a "great reversal" that looks inspiring. But Duan Yongping would take it apart first—not looking at the story, but at the data.</p>
+
+    <h4>II. Profit breakdown</h4>
+    <table>
+      <thead><tr><th>Project (USD million)</th><th>2024</th><th>Share</th></tr></thead>
+      <tbody>
+        <tr><td>Operating profit</td><td>$5,125</td><td>97.0%</td></tr>
+        <tr><td>Non-operating income</td><td>$159</td><td>3.0%</td></tr>
+        <tr><td><strong>Pre-tax profit</strong></td><td><strong>$5,284</strong></td><td><strong>100%</strong></td></tr>
+        <tr><td>Net profit</td><td>$4,981</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <div class="success-box">✅ Key finding: operating profit accounts for 97%, with minimal non-recurring gains. This money was "earned" by Meituan, not "calculated."</div>
+
+    <h4>III. What is "good" and "not good enough" about the business model</h4>
+    <p><strong>The good part:</strong>High-frequency essential demand (daily opens far exceed e-commerce apps), two-sided network effects (riders → faster delivery → more users → more orders), strong cash flow (USD 6.5 billion FCF).</p>
+    <p><strong>The parts that fall short:</strong>Model skews asset-heavy (1.1 million riders are a heavy fixed cost), pricing power is weak (users are price-sensitive), and the subsidy war never really ended (SG&A of USD 10.4 billion is still growing).</p>
+    <div class="quote-box">"If revenue growth falls to 5-8% and gross margin stops expanding, can net profit still grow?" — a Duan Yongping-style follow-up question</div>
+
+    <h4>IV. Duan Yongping's judgment</h4>
+    <div class="summary-box">"Meituan is a good company, but not a good business like Apple. Its profitability is unlocking, cash flow is strong, and valuation is reasonable—but the business model has inherent weaknesses (high fixed costs, weak pricing power, intense competition). This is not a position for a heavy allocation, but it is worth watching."</div>
+  </div>
+
+  <!-- ===== 巴菲特 ===== -->
+  <div class="master-content" id="content-buffett">
+    <h3>Buffett's lens: how much FCF and ROE are dressed up, and whether the moat is wide or narrow</h3>
+
+    <h4>I. Deep FCF Test: The Quality of USD 6.5 Billion</h4>
+    <table>
+      <thead><tr><th>Project (USD million)</th><th>2022</th><th>2023</th><th>2024</th></tr></thead>
+      <tbody>
+        <tr><td>Net profit</td><td>-$993</td><td>$1,958</td><td>$4,981</td></tr>
+        <tr><td>Operating cash flow</td><td>$1,696</td><td>$5,726</td><td>$7,949</td></tr>
+        <tr><td>Capital expenditure</td><td>-$791</td><td>-$930</td><td>-$1,405</td></tr>
+        <tr><td><strong>Free cash flow</strong></td><td><strong>$905</strong></td><td><strong>$4,796</strong></td><td><strong>$6,544</strong></td></tr>
+        <tr><td>FCF/revenue</td><td>2.8%</td><td>12.3%</td><td><strong>13.9%</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="success-box">✅ FCF/net profit 1.31x (2024), so earnings quality is very high. Capex/revenue just 3.0%, ample evidence of an asset-light model.</div>
+
+    <h4>II. Deep Dive into ROE</h4>
+    <table>
+      <thead><tr><th>Year</th><th>Net margin</th><th>Asset turnover ratio</th><th>Equity multiplier</th><th>ROE</th></tr></thead>
+      <tbody>
+        <tr><td>2022</td><td>-3.0%</td><td>0.90x</td><td>~1.88x</td><td>-5.1%</td></tr>
+        <tr><td>2023</td><td>5.0%</td><td>0.95x</td><td>~1.92x</td><td>9.1%</td></tr>
+        <tr><td><strong>2024</strong></td><td><strong>10.6%</strong></td><td><strong>1.04x</strong></td><td><strong>~1.86x</strong></td><td><strong>20.6%</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="success-box">✅ The ROE improvement is real and verifiable, driven by both net margin and turnover gains rather than financial leverage. The case for "window dressing" is weak.</div>
+
+    <h4>III. Comprehensive Moat Rating</h4>
+    <table>
+      <thead><tr><th>Dimension</th><th>Intensity</th><th>Rating</th></tr></thead>
+      <tbody>
+        <tr><td>Network effects</td><td>Wide</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>Economies of scale</td><td>Relatively wide</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>Cost advantage</td><td>Relatively wide</td><td>⭐⭐⭐</td></tr>
+        <tr><td>Brand</td><td>Moderate</td><td>⭐⭐</td></tr>
+        <tr><td><strong>Switching costs</strong></td><td><strong>Narrow</strong></td><td><strong>⭐⭐</strong></td></tr>
+        <tr><td><strong>Comprehensive</strong></td><td><strong>Moderately wide</strong></td><td><strong>⭐⭐⭐</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="warning-box">⚠️ "Switching costs are low, and the competitive moat is not as deep as Coca-Cola's, Apple's or GEICO's." — Buffett</div>
+
+    <h4>IV. Margin of Safety Estimate</h4>
+    <p>Zero-growth model: sustainable FCF USD 5,500 million ÷ 10% + net cash USD 20,200 million =<strong>$75,200M</strong></p>
+    <p>Current market cap USD 62,000M →<strong>Margin of safety 21.3%</strong></p>
+    <div class="summary-box">"Good but not a great margin of safety. Most likely fair value range: USD 75-95 billion."</div>
+  </div>
+
+  <!-- ===== 芒格 ===== -->
+  <div class="master-content" id="content-munger">
+    <h3>Munger's lens: has scale effect reached an inflection point? Can competitors catch up?</h3>
+
+    <h4>I. Four years of evidence for scale effects</h4>
+    <table>
+      <thead><tr><th>Year</th><th>Revenue growth</th><th>Cost growth rate</th><th>Gross margin</th></tr></thead>
+      <tbody>
+        <tr><td>2022</td><td>+17.7%</td><td>+11.0%</td><td>28.1%</td></tr>
+        <tr><td>2023</td><td>+19.6%</td><td>+7.9%</td><td>35.1%</td></tr>
+        <tr><td>2024</td><td>+20.1%</td><td>+13.9%</td><td>38.4%</td></tr>
+        <tr><td><strong>4-year cumulative</strong></td><td><strong>+69.1%</strong></td><td><strong>+36.5%</strong></td><td><strong>+14.7pp</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="success-box">✅ "Revenue grew 69% over 4 years while costs rose just 36.5%—a textbook case of economies of scale." — Munger</div>
+
+    <h4>II. Assessing the Turning Point</h4>
+    <p>Slope of FCF/revenue: up 9.5pp from 2022 to 2023 (surge phase), up only 1.6pp from 2023 to 2024 (slowdown).</p>
+    <div class="summary-box">"The first-stage inflection point (from loss to profit) has been reached. The second-stage inflection point (sustained margin expansion to the international benchmark level of 15%+) has not yet arrived."</div>
+
+    <h4>III. Can competitors catch up?</h4>
+    <table>
+      <thead><tr><th>Competitor</th><th>Scale disadvantage</th><th>Assessment</th></tr></thead>
+      <tbody>
+        <tr><td>Ele.me</td><td>Order volume is only ~30% of Meituan's</td><td>"In an industry that burns cash on a massive scale, the second-place player has no future"</td></tr>
+        <tr><td>Douyin local life services</td><td>Building a delivery system from scratch</td><td>"Traffic is not a delivery network"</td></tr>
+        <tr><td>JD instant retail</td><td>Instant delivery density far below Meituan's</td><td>"One-hour delivery and 30-minute delivery are two different businesses"</td></tr>
+      </tbody>
+    </table>
+    <p>Munger's "multi-level thinking": Meituan's real moat is not user scale, but<strong>Data network (algorithm optimization) + merchant stickiness network (operational tools)</strong>— This is "a machine that keeps accelerating; latecomers are always one lap behind."</p>
+
+    <div class="warning-box">⚠️ "If a competitor has unlimited capital (Alibaba, ByteDance), they can buy market share through subsidies—they don't necessarily need to win, only to make sure Meituan can't win."</div>
+  </div>
+
+  <!-- ===== 李录 ===== -->
+  <div class="master-content" id="content-lilu">
+    <h3>Li Lu's perspective: Modernizing China's consumer services sector — where Meituan stands</h3>
+
+    <h4>I. Li Lu's core framework</h4>
+    <p>From<strong>Civilization, Modernization, Value Investing and China</strong>Starting out, Li Lu focuses on three propositions:</p>
+    <ol>
+      <li><strong>Theory of stages of economic development:</strong>Once GDP per capita exceeds $10,000, the share of services consumption rises systematically.</li>
+      <li><strong>Infrastructure attributes:</strong>Platform companies at the "water, electricity and gas" level have the most enduring moats.</li>
+      <li><strong>Friends of Time:</strong>On the right track, time and compounding will side with long-term investors.</li>
+    </ol>
+
+    <h4>II. Room for modernization of service consumption</h4>
+    <table>
+      <thead><tr><th>Comparison dimension</th><th>China</th><th>United States</th></tr></thead>
+      <tbody>
+        <tr><td>Share of services consumption in household consumption</td><td>~43%</td><td>~68%</td></tr>
+        <tr><td>Local life services online penetration rate</td><td>~20%</td><td>~35%</td></tr>
+        <tr><td>Physical goods e-commerce vs services e-commerce</td><td>Highly mature</td><td>Still in the early stages of expansion</td></tr>
+      </tbody>
+    </table>
+    <div class="quote-box">"Modernization of China's consumer services industry has only just begun. Meituan is one of the most important pieces of infrastructure in this process." — Li Lu</div>
+
+    <h4>III. From "construction phase" to "harvest phase"</h4>
+    <table>
+      <thead><tr><th>Stage</th><th>Characteristics</th><th>Time</th></tr></thead>
+      <tbody>
+        <tr><td>Foundation-building phase</td><td>Burn cash to build networks, grab users and set up systems</td><td>Before 2020</td></tr>
+        <tr><td>Scale validation period</td><td>Validate unit economics</td><td>2021-2023</td></tr>
+        <tr><td style="background:#e8f5e9;"><strong>Profit release phase ✅</strong></td><td>Scale effects delivered, ample FCF</td><td><strong>2024 +</strong></td></tr>
+      </tbody>
+    </table>
+
+    <h4>IV. Li Lu's judgment</h4>
+    <div class="summary-box">"Meituan is one of the most certain beneficiaries of the modernization of China's consumer services industry. The current valuation of 12x PE does not fully reflect its structural growth potential over the next decade. This is not a cyclical story—it is the narrative of an era."</div>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- 阶段二：观点合成 -->
+<!-- ============================================================== -->
+<div class="card" id="phase2">
+  <h2>🔗 Phase 2 · View synthesis: consensus, divergence and core debate among the four masters</h2>
+
+  <h3>I. Four major consensuses</h3>
+
+  <div class="success-box">
+    <strong>Consensus ①: Meituan is an excellent company</strong><br>All four masters recognize the quality of Meituan's business model, the capability of its management, and the authenticity of its financial data. Not one of them said "no".</div>
+  <div class="success-box">
+    <strong>Consensus ②: The earnings turnaround is real, not "window dressing"</strong><br>Operating profit accounts for 97% of the total, FCF far exceeds net profit, and ROE stems from operational improvement rather than leverage—the "quality" of earnings is exceptionally high.</div>
+  <div class="success-box">
+    <strong>Consensus ③: The moat exists, but it is not impregnable</strong><br>Scale effects, network effects and data accumulation are real barriers, but no one considers a moat "sacred."</div>
+  <div class="success-box">
+    <strong>Consensus ④: Current valuation is reasonably low</strong><br>PE ~12x, FCF yield ~10.6%, PS ~1.3x, net cash/market cap 32.6% — all four masters agree the valuation offers a margin of safety.</div>
+
+  <h3>II. Key disagreements</h3>
+
+  <table>
+    <thead><tr><th>Points of divergence</th><th>Duan Yongping</th><th>Buffett</th><th>Munger</th><th>Li Lu</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Business model</strong></td>
+        <td class="badge-yellow">Not good enough</td>
+        <td class="badge-blue">Above average</td>
+        <td class="badge-green">Good enough</td>
+        <td class="badge-green">Very good.</td>
+      </tr>
+      <tr>
+        <td><strong>Competitive landscape</strong></td>
+        <td class="badge-yellow">Biggest concern</td>
+        <td class="badge-yellow">Requires ongoing attention</td>
+        <td class="badge-green">Defense is not hard</td>
+        <td class="badge-green">Defense is not hard</td>
+      </tr>
+      <tr>
+        <td><strong>Slowing growth</strong></td>
+        <td class="badge-red">Key focus</td>
+        <td class="badge-yellow">Key items to track</td>
+        <td class="badge-green">Normalization</td>
+        <td class="badge-green">Completely normal</td>
+      </tr>
+      <tr>
+        <td><strong>Overseas expansion</strong></td>
+        <td class="badge-red">Unfavorable</td>
+        <td class="badge-yellow">Cautious</td>
+        <td class="badge-yellow">Question</td>
+        <td class="badge-blue">Watch but acknowledge</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>III. Core points of contention</h3>
+
+  <div class="warning-box">
+    <strong>Core controversy 1: How low are Meituan's switching costs, really?</strong><br>If switching costs really are low (users chase subsidies), Meituan would need to keep burning cash—Duan Yongping and Buffett's concerns hold.<br>If switching costs are underestimated (user habits, data lock-in, delivery experience), Munger and Li Lu's optimistic judgment is correct.<br>⏳ Test criterion: whether Meituan's DAU falls significantly after it cuts subsidies.</div>
+
+  <div class="warning-box">
+    <strong>Second key debate: is the profit release "one-off" or "sustained"?</strong><br>Can the net margin of 10.6% rise to 15%+? Can the gross margin of 38.4% break through 40%? With revenue growth slowing to 8%, can net profit still grow 20%+?<br>⏳ Test criteria: full-year 2025 results and 2026 guidance.</div>
+
+  <div class="warning-box">
+    <strong>Core controversy 3: Is Meituan a "cyclical stock" or a "growth stock"?</strong><br>Cyclical stocks → PE fluctuates between 10-15x; growth stocks → PE can expand to 20-25x.<br>⏳ Test criteria: margin trajectory and revenue growth over the next 12-24 months.</div>
+
+  <h3>IV. Composite View Matrix</h3>
+  <table>
+    <thead><tr><th>Dimension</th><th>Duan Yongping</th><th>Buffett</th><th>Munger</th><th>Li Lu</th></tr></thead>
+    <tbody>
+      <tr><td>Overall stance</td><td>Neutral to positive</td><td>Cautiously positive</td><td>Moderately positive</td><td>Positive</td></tr>
+      <tr><td>Recommended position</td><td>1-3%</td><td>3-5%</td><td>5-8%</td><td>5-10%</td></tr>
+      <tr><td>Holding period</td><td>3-5 years</td><td>5-7 years</td><td>3-5 years</td><td>10 years+</td></tr>
+    </tbody>
+  </table>
+  <div class="summary-box"><strong>Key finding: none of the four masters recommends selling or avoiding Meituan. The disagreement is over position size and holding period, not a binary "buy or don't buy" choice.</strong></div>
+</div>
+
+<!-- ============================================================== -->
+<!-- 阶段三：编辑润色版 -->
+<!-- ============================================================== -->
+<div class="card" id="phase3">
+  <h2>📝 Stage 3 · Edit and polish for publication</h2>
+
+  <h3>Meituan Earnings In-Depth: The 2024 Profit Reversal Through the Lens of Four Masters</h3>
+  <p style="color:#888;font-size:13px;margin-bottom:20px;">Edit and polish for publishable version · approx. 2,200 words</p>
+
+  <p>In 2024, Meituan delivered a striking set of results: net profit swung from a loss of USD 990 million in 2022 and a profit of USD 1.96 billion in 2023,<strong>Jumped to USD 4.98 billion</strong>— Completed a profit turnaround of nearly RMB 10 billion within two years. Meanwhile, free cash flow reached USD 6.54 billion, and cash reserves piled up to USD 26.1 billion.</p>
+
+  <p>This set of numbers raises a central question:<strong>Is Meituan's profit real? Is it sustainable?</strong></p>
+
+  <p>We examine this proposition from the perspectives of four value-investing masters—Buffett, Munger, Duan Yongping and Li Lu.</p>
+
+  <h4>I. The Authenticity of Earnings: Unanimous Confirmation from Four Masters</h4>
+  <p>Four independent analyses yielded one<strong>Highly consistent conclusion</strong>: Meituan's "great reversal" is real.</p>
+  <p>Three tests gauge earnings quality: source, cash and sustainability.</p>
+  <p><strong>① Source</strong>: Of Meituan's 2024 net profit of USD 4.98 billion, operating profit accounted for 97%. No one-off asset sales, no accounting adjustments, no non-recurring gains.</p>
+  <p><strong>② Cash</strong>: Operating cash flow of USD 7.95 billion far exceeds net profit. For every USD 1 of profit, USD 1.6 of cash was actually collected—earnings of exceptionally high quality.</p>
+  <p><strong>③ Sustainability</strong>: ROE jumped from -5.1% in 2022 to 20.6%, driven by dual improvement in net margin and asset turnover, not by leverage.</p>
+  <div class="quote-box">"Meituan earns real cash, not accounting profits." — Duan Yongping's lens</div>
+
+  <h4>II. Scale effects: Munger's "textbook case"</h4>
+  <p>Over the past four years,<strong>Revenue grew 69% while costs rose only 36.5%</strong>. Every extra $1 of revenue costs only $0.53 to earn.</p>
+  <p>R&D expense fell from USD 3.08 billion to USD 2.93 billion (an absolute decline), and the SG&A expense ratio dropped from 27.5% to 22.1%. Fixed costs were diluted, and the marginal cost of reusing the technology platform approached zero.</p>
+  <p>Munger would call it<strong>"A textbook case of scale effect"</strong>— the kind of "gets easier as it scales" business he likes best.</p>
+  <div class="warning-box">But Munger also noted: the "first-stage inflection point" of scale effects (from loss to profit) has been reached, but the "second-stage inflection point" (margin sustainably rising to 15%+) has yet to arrive. In 2024, FCF/revenue rose only 1.6pp (vs a 9.5pp rise in 2023).</div>
+
+  <h4>III. Moat Debate: Concerns of Buffett and Duan Yongping</h4>
+  <p>Buffett rates Meituan's moat as "moderately wide": network effects and economies of scale are strong (⭐⭐⭐⭐), but<strong>Switching costs are weak (⭐⭐)</strong>。</p>
+  <p>Core question: how high are switching costs for users and merchants? Answer:<strong>Almost zero for users</strong>. Use Meituan today, Ele.me tomorrow, Douyin the day after—whichever is cheaper. Users are defined by "subsidy dependence" rather than "brand loyalty."</p>
+  <div class="quote-box">"A good business doesn't require you to guard against competitors every day. Apple doesn't worry about users leaving, Moutai doesn't worry about distributors defecting. Meituan needs continuous subsidies to maintain scale—that is not the hallmark of a good business." — Duan Yongping</div>
+
+  <h4>IV. Consumption modernization: Li Lu's grand narrative</h4>
+  <p>Services consumption accounts for about 43% of household consumption expenditure in China, far below 68% in the US. This gap means that<strong>Structural growth potential of a trillion-dollar market</strong>。</p>
+  <p>Meituan plays the role of "infrastructure for service e-commerce" — its "30-minute living circle" meets urban consumers' 1-2 immediate needs per day, an order of magnitude more frequent than physical-goods e-commerce.</p>
+  <p>USD 26.1 billion in cash, USD 6.54 billion in free cash flow, net cash position — Meituan's financial base gives it the capacity to keep investing over a 10-year-plus horizon.</p>
+  <div class="quote-box">"This is not a cycle story—it is the narrative of an era." — Li Lu</div>
+
+  <h4>V. The Core Divergence Among the Four Masters</h4>
+  <table>
+    <thead><tr><th>Disagreement</th><th>Duan Yongping / Buffett</th><th>Munger / Li Lu</th></tr></thead>
+    <tbody>
+      <tr><td>Business model</td><td>Moderate — weak pricing power, high fixed costs</td><td>Excellent — scale effects proven, strong infrastructure attributes</td></tr>
+      <tr><td>Competitive landscape</td><td>Risk — low switching costs, users follow subsidies</td><td>Controllable — data flywheel + delivery density form the deeper moat</td></tr>
+      <tr><td>Slowing growth</td><td>Signal — Q3 at only +2.1% warrants caution</td><td>Normal — 10% growth on a USD 50 billion+ base is enough</td></tr>
+    </tbody>
+  </table>
+
+  <h4>VI. Overall assessment</h4>
+  <p>Four masters<strong>No one recommends selling or avoiding Meituan</strong>The disagreement lies in positioning and duration:</p>
+  <table>
+    <thead><tr><th>Master</th><th>Stance</th><th>Recommended position</th><th>Vision</th></tr></thead>
+    <tbody>
+      <tr><td>Munger</td><td>✅ Buy</td><td>5-8%</td><td>3-5 years</td></tr>
+      <tr><td>Li Lu</td><td>✅ Buy</td><td>5-10%</td><td>10 years+</td></tr>
+      <tr><td>Buffett</td><td>⚠️ Buy with position control</td><td>3-5%</td><td>5-7 years</td></tr>
+      <tr><td>Duan Yongping</td><td>⏳ Watch</td><td>1-3%</td><td>3-5 years</td></tr>
+    </tbody>
+  </table>
+  <p>Currently trading at about 12x PE, roughly 10.6% FCF yield, and net cash at 32.6% of market cap — this<strong>Valuation offers a considerable margin of safety</strong>。</p>
+  <div class="summary-box">
+    <strong>Investor recommendation:</strong>Meituan is a real, financially healthy, excellent company on the right track. It may not be the ultimate "hold for life" target (switching costs are its Achilles' heel), but at the current valuation it offers asymmetric risk-reward: net cash cushions the downside, while profit release and valuation repair provide twin upside.<br><br>
+    <strong>Track key indicators:</strong>① Whether full-year 2025 revenue growth can hold at 8%; ② whether SG&A expenses begin to decline; ③ changes in Meituan's user retention rate after it cuts subsidies.</div>
+</div>
+
+<div class="footer">
+  <p>Three-stage earnings team analysis · Meituan (3690.HK / MPNGY)</p>
+  <p>Research date: 2026-07-07 | Data sources: MacroTrends, Google Finance, Stock Analysis</p>
+  <p>Disclaimer: The above analysis is an inferential analysis based on the publicly available investment philosophies and methodologies of four investment masters. It does not represent their actual holdings or investment decisions.</p>
+</div>
+
+</div>
+
+<script>
+function switchPhase(phaseId) {
+  // Switch cards
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+  document.getElementById(phaseId).classList.add('active');
+  // Switch nav items
+  document.querySelectorAll('.phase-nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelector(`.phase-nav-item[onclick*="${phaseId}"]`).classList.add('active');
+}
+
+function switchMaster(event, masterId) {
+  // Find parent card
+  var card = event.target.closest('.card');
+  card.querySelectorAll('.master-content').forEach(c => c.classList.remove('active'));
+  card.querySelectorAll('.master-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('content-' + masterId).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

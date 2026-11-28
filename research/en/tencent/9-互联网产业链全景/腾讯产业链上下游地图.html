@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tencent industry chain upstream and downstream map</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f7fa; color: #333; line-height: 1.8; font-size: 15px; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 50px 0 40px; text-align: center; }
+.header h1 { font-size: 28px; font-weight: 900; letter-spacing: 1px; margin-bottom: 8px; }
+.header .subtitle { font-size: 16px; font-weight: 300; opacity: 0.85; }
+.container { max-width: 1000px; margin: 0 auto; padding: 30px 24px; }
+.card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 32px 36px; margin-bottom: 28px; }
+.card h2 { font-size: 22px; font-weight: 700; color: #1A4B8C; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid #1A4B8C; display: inline-block; }
+.card h3 { font-size: 17px; font-weight: 600; color: #2c3e50; margin: 20px 0 10px; }
+.card p { margin-bottom: 12px; color: #444; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+thead th { background: #1A4B8C; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
+thead th:first-child { border-radius: 6px 0 0 0; }
+thead th:last-child { border-radius: 0 6px 0 0; }
+tbody td { padding: 10px 12px; border-bottom: 1px solid #e8ecf1; }
+tbody tr:nth-child(even) { background: #f8f9fb; }
+.table-wrap { overflow-x: auto; margin: 16px 0; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; }
+
+/* Chain Flow Visual */
+.chain-flow { display: flex; align-items: stretch; gap: 20px; margin: 30px 0; }
+.chain-col { flex: 1; border-radius: 12px; padding: 20px; min-height: 300px; }
+.chain-col.upstream { background: #E8F5E9; border: 2px solid #2E8B57; }
+.chain-col.midstream { background: #E3F0FA; border: 2px solid #1A4B8C; }
+.chain-col.downstream { background: #FFEBEE; border: 2px solid #C0392B; }
+.chain-col h3 { font-size: 16px; text-align: center; padding: 8px; border-radius: 6px; color: white; margin: -20px -20px 16px -20px; padding: 12px; }
+.chain-col.upstream h3 { background: #2E8B57; }
+.chain-col.midstream h3 { background: #1A4B8C; }
+.chain-col.downstream h3 { background: #C0392B; }
+.chain-item { background: white; border-radius: 8px; padding: 12px 14px; margin: 10px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); font-size: 13px; }
+.chain-item .title { font-weight: 600; color: #0F2D52; }
+.chain-item .desc { color: #666; font-size: 12px; margin-top: 2px; }
+.chain-item .risk { display: inline-block; font-size: 11px; padding: 1px 8px; border-radius: 10px; margin-top: 4px; }
+.risk.high { background: #FFCDD2; color: #C62828; }
+.risk.med { background: #FFECB3; color: #F57F17; }
+.risk.low { background: #C8E6C9; color: #2E7D32; }
+.arrow-row { display: flex; align-items: center; justify-content: center; gap: 10px; margin: -10px 0 10px; font-size: 24px; color: #666; }
+
+/* Legend */
+.legend { display: flex; gap: 20px; justify-content: center; margin: 20px 0 30px; flex-wrap: wrap; }
+.legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.legend-dot { width: 14px; height: 14px; border-radius: 50%; }
+
+/* Investment Cards */
+.invest-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin: 16px 0; }
+.invest-card { background: #f8f9fb; border: 1px solid #e8ecf1; border-radius: 8px; padding: 14px; }
+.invest-card .company { font-weight: 600; color: #1A4B8C; }
+.invest-card .stake { font-size: 12px; color: #666; }
+.invest-card .value { font-size: 13px; color: #0F2D52; margin-top: 4px; }
+
+.highlight-box { background: #E8F0FE; padding: 14px 18px; border-radius: 8px; margin-top: 12px; font-size: 13px; }
+
+@media (max-width: 768px) {
+  .chain-flow { flex-direction: column; }
+  .invest-grid { grid-template-columns: repeat(2, 1fr); }
+  .card { padding: 20px 16px; }
+  .header h1 { font-size: 22px; }
+  .header { padding: 30px 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🗺️ Tencent industry-chain map: upstream and downstream</h1>
+  <div class="subtitle">Tencent Industry Chain Map · 2026</div>
+</div>
+
+<div class="container">
+
+<!-- Legend -->
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#2E8B57"></div>Upstream suppliers</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#1A4B8C"></div>Tencent's core platforms</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#C0392B"></div>Downstream customers/users</div>
+</div>
+
+<!-- Main Chain -->
+<div class="chain-flow">
+  <!-- Upstream -->
+  <div class="chain-col upstream">
+    <h3>⬆ Upstream (suppliers)</h3>
+    <div class="chain-item">
+      <div class="title">💻 Chips & GPU</div>
+      <div class="desc">NVIDIA H100/B200 · Huawei Ascend · AMD MI series</div>
+      <span class="risk high">🔴 High dependence</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">🎮 Game engines</div>
+      <div class="desc">Unreal Engine (Epic) · Unity · in-house engine</div>
+      <span class="risk med">🟡 Already invested 40% in Epic</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">🌐 CDN & bandwidth</div>
+      <div class="desc">Tencent self-built CDN · China Telecom · China Mobile · Akamai</div>
+      <span class="risk low">🟢 Controllable</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">🏢 Data centers</div>
+      <div class="desc">Self-built data centers (Guizhou/Shanghai/Shenzhen) · GDS · VNET</div>
+      <span class="risk low">🟢 Controllable</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">Content creators/MCNs</div>
+      <div class="desc">Video Account creator · Official Account author · MCN agency</div>
+      <span class="risk med">🟡 Traffic revenue sharing</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">🔧 Third-party developers</div>
+      <div class="desc">Mini program developers (8 million+) · Mini game developers</div>
+      <span class="risk low">Ecosystem dependence</span>
+    </div>
+  </div>
+
+  <!-- Midstream -->
+  <div class="chain-col midstream">
+    <h3>Tencent core platforms</h3>
+    <div class="chain-item" style="border-left: 3px solid #E8A838;">
+      <div class="title">💬 WeChat (core foundation)</div>
+      <div class="desc">MAU ~1.35 billion · Super app · Messaging + payments + mini programs + Channels</div>
+    </div>
+    <div class="chain-item" style="border-left: 3px solid #9C27B0;">
+      <div class="title">🕹️ Gaming business</div>
+      <div class="desc">TiMi/Photon/Morefun/Aurora · Honor of Kings/PUBG Mobile/League of Legends/PUBG Mobile</div>
+    </div>
+    <div class="chain-item" style="border-left: 3px solid #009688;">
+      <div class="title">💳 WeChat Pay</div>
+      <div class="desc">~4.5 billion transactions per day · ~40% share of mobile payments</div>
+    </div>
+    <div class="chain-item" style="border-left: 3px solid #FF5722;">
+      <div class="title">☁️ Tencent Cloud</div>
+      <div class="desc">No. 2 in China · gaming cloud/audio-video cloud/AI cloud</div>
+    </div>
+    <div class="chain-item" style="border-left: 3px solid #3F51B5;">
+      <div class="title">📢 Advertising platform</div>
+      <div class="desc">WeChat Channels ads (RMB 85 billion) · Moments · Official Accounts · Mini Programs</div>
+    </div>
+    <div class="chain-item" style="border-left: 3px solid #795548;">
+      <div class="title">🏦 Fintech</div>
+      <div class="desc">WeBank · Licaitong · Insurance Brokerage</div>
+    </div>
+    <div class="chain-item" style="border-left: 3px solid #607D8B;">
+      <div class="title">📱 QQ & Other</div>
+      <div class="desc">MAU ~550 million · QQ Music · Tencent Video · Tencent Meeting</div>
+    </div>
+    <div class="chain-item" style="border-left: 3px solid #E8A838;">
+      <div class="title">💰 Investment ecosystem</div>
+      <div class="desc">400+ companies · Epic (40%) · Supercell (84%) · Riot (100%)</div>
+    </div>
+  </div>
+
+  <!-- Downstream -->
+  <div class="chain-col downstream">
+    <h3>⬇ Downstream (customers/users)</h3>
+    <div class="chain-item">
+      <div class="title">👥 C-end consumers</div>
+      <div class="desc">~1.35 billion WeChat users · messaging/payments/content/shopping</div>
+      <span class="risk low">🟢 Highly sticky</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">🏢 B2B enterprises</div>
+      <div class="desc">~15 million WeCom users · Tencent Cloud customers</div>
+      <span class="risk low">🟢 Large growth headroom</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">📣 Advertisers</div>
+      <div class="desc">Million-scale advertisers · brand + performance advertising</div>
+      <span class="risk med">🟡 Facing ByteDance competition</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">🎮 Gamers</div>
+      <div class="desc">~680 million players in China · ~1 billion globally</div>
+      <span class="risk med">🟡 Fierce competition</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">🌍 Overseas Users</div>
+      <div class="desc">PUBGM global · Supercell · VALORANT</div>
+      <span class="risk med">🟡 Geopolitical risk</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">🏛️ Government and enterprise clients</div>
+      <div class="desc">Government cloud · Financial cloud · Smart city</div>
+      <span class="risk low">🟢 Strategic markets</span>
+    </div>
+  </div>
+</div>
+
+<!-- Arrow -->
+<div class="arrow-row">
+  <span style="color:#2E8B57">⬆ Upstream → Midstream</span>
+  <span>⬆⬇</span>
+  <span style="color:#1A4B8C">⏺ Fund flows/data flows</span>
+  <span>⬆⬇</span>
+  <span style="color:#C0392B">⬇ Midstream → Downstream</span>
+</div>
+
+<!-- Key Dependencies -->
+<div class="card">
+  <h2>🔗 Key upstream dependencies and risk matrix</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Category</th><th>Degree of reliance</th><th>Risk level</th><th>Response strategy</th><th>Alternative</th></tr></thead>
+      <tbody>
+        <tr><td>High-end GPU chips</td><td>Extremely high</td><td style="color:#C62828">🔴 High</td><td>Advance stockpiling (6–12 months of inventory)</td><td>Huawei Ascend 910B/C</td></tr>
+        <tr><td>Game engines (Unreal)</td><td>High</td><td style="color:#F57F17">🟡 Medium</td><td>Holds 40% of Epic Games</td><td>Unity + in-house engine</td></tr>
+        <tr><td>Data center hardware</td><td>The middle</td><td style="color:#2E7D32">🟢 Low</td><td>Domestic servers (Inspur/Huawei)</td><td>Multi-vendor strategy</td></tr>
+        <tr><td>CDN/bandwidth</td><td>Mid</td><td style="color:#2E7D32">🟢 Low</td><td>Self-built CDN (covering 80%+)</td><td>Hybrid cloud + edge nodes</td></tr>
+        <tr><td>Operating system</td><td>Low</td><td style="color:#2E7D32">🟢 Low</td><td>Tencent's in-house Linux distribution</td><td>Domestic operating systems</td></tr>
+        <tr><td>Content/MCN</td><td>Mid</td><td style="color:#F57F17">🟡 China</td><td>Creator incentives + traffic revenue sharing</td><td>AI-generated content</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Revenue Cycle -->
+<div class="card">
+  <h2>💰 Where Tencent's Revenue Goes</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Revenue sources</th><th>2025 revenue (RMB 100 million)</th><th>Share</th><th>Main costs</th><th>Net margin</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Gaming/value-added services</strong></td><td>~3,200</td><td>~49%</td><td>R&D + publishing + revenue sharing</td><td>~35%</td></tr>
+        <tr><td><strong>Fintech/payments</strong></td><td>~2,100</td><td>~32%</td><td>Clearing + bank channels + risk control</td><td>~30%</td></tr>
+        <tr><td><strong>Advertising</strong></td><td>~1,200</td><td>~18%</td><td>Traffic cost + sales</td><td>~40%</td></tr>
+        <tr><td><strong>Cloud computing/enterprise services</strong></td><td>~1,280</td><td>~10%</td><td>Servers + bandwidth + R&D</td><td>~5% (improving)</td></tr>
+        <tr><td><strong>Other (investment/copyright)</strong></td><td>~500</td><td>~8%</td><td>Investment impairment + amortization</td><td>Volatility</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="highlight-box">
+    <strong>Note:</strong>There is cross-subsidization across businesses — the high margins of gaming and advertising support long-term investment in cloud computing and the investment portfolio.</div>
+</div>
+
+<!-- Investment Map -->
+<div class="card">
+  <h2>🏢 Tencent's core investment portfolio</h2>
+  <div class="invest-grid">
+    <div class="invest-card"><div class="company">Epic Games</div><div class="stake">~40% stake</div><div class="value">Investment amount ~USD 4.5 billion</div></div>
+    <div class="invest-card"><div class="company">Riot Games</div><div class="stake">100% shareholding</div><div class="value">Acquisition of ~USD 400 million</div></div>
+    <div class="invest-card"><div class="company">Supercell</div><div class="stake">~84% shareholding</div><div class="value">Acquisition of ~USD 10.2 billion</div></div>
+    <div class="invest-card"><div class="company">Activision Blizzard (Activision)</div><div class="stake">~5% stake</div><div class="value">~USD 3 billion</div></div>
+    <div class="invest-card"><div class="company">Ubisoft</div><div class="stake">~10% stake</div><div class="value">~USD 500 million</div></div>
+    <div class="invest-card"><div class="company">Sea Limited</div><div class="stake">~12% stake</div><div class="value">~USD 2 billion</div></div>
+    <div class="invest-card"><div class="company">Snap (Snapchat)</div><div class="stake">~10% stake</div><div class="value">~USD 3 billion</div></div>
+    <div class="invest-card"><div class="company">Meituan</div><div class="stake">Gradually reduce the stake</div><div class="value">From 17% to ~5%</div></div>
+    <div class="invest-card"><div class="company">Pinduoduo</div><div class="stake">Gradually reduce holdings</div><div class="value">Original 5%</div></div>
+    <div class="invest-card"><div class="company">Kuaishou</div><div class="stake">Gradually reduce holdings</div><div class="value">From 17% to ~5%</div></div>
+    <div class="invest-card"><div class="company">Bilibili</div><div class="stake">Gradually reduce the stake</div><div class="value">Original 12%</div></div>
+    <div class="invest-card"><div class="company">Spotify</div><div class="stake">~7% stake</div><div class="value">Music segment</div></div>
+  </div>
+</div>
+
+<!-- Ecosystem Dependency -->
+<div class="card">
+  <h2>🔄 Tencent ecosystem dependency analysis</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Ecosystem participants</th><th>Volume</th><th>Dependence on Tencent</th><th>Tencent's reliance on it</th></tr></thead>
+      <tbody>
+        <tr><td>WeChat users</td><td>~1.35 billion</td><td>High (social-graph lock-in)</td><td>Very high (core assets)</td></tr>
+        <tr><td>Mini program developers</td><td>~8 million</td><td>High (traffic customer acquisition)</td><td>China (rich ecosystem)</td></tr>
+        <tr><td>Mini-game developers</td><td>~1 million</td><td>Very high (platform-exclusive)</td><td>Mid-high (content supply)</td></tr>
+        <tr><td>WeChat account creator</td><td>~5 million</td><td>High (traffic + revenue)</td><td>China (content ecosystem)</td></tr>
+        <tr><td>WeChat Channels creators</td><td>~2 million</td><td>China (multi-platform distribution)</td><td>China (short-video competition)</td></tr>
+        <tr><td>WeCom customers</td><td>~15 million</td><td>High (SaaS bundling)</td><td>High (B2B strategy)</td></tr>
+        <tr><td>WeChat Pay merchants</td><td>~50 million</td><td>High (payment channel)</td><td>High (fee income)</td></tr>
+        <tr><td>Tencent Cloud customers</td><td>~2 million</td><td>Mid-to-low</td><td>Medium-high (cloud growth)</td></tr>
+        <tr><td>Advertisers</td><td>~1 million</td><td>Medium (multi-platform placement)</td><td>High (advertising revenue)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Competitive Landscape -->
+<div class="card">
+  <h2>⚔️ Competitive landscape overview</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Track</th><th>Tencent</th><th>Main competitors</th><th>Competitive landscape</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Social</strong></td><td>WeChat (1.35 billion) + QQ (550 million)</td><td>Douyin (800 million) · Xiaohongshu (300 million)</td><td><span style="color:#C62828">Fierce</span></td></tr>
+        <tr><td><strong>Gaming</strong></td><td>~50% domestic · No. 1 globally</td><td>NetEase (18%) · miHoYo (8%)</td><td><span style="color:#F57F17">Controllable</span></td></tr>
+        <tr><td><strong>Payments</strong></td><td>WeChat Pay (~40%)</td><td>Alipay (~55%)</td><td><span style="color:#F57F17">Stable duopoly</span></td></tr>
+        <tr><td><strong>Cloud computing</strong></td><td>Tencent Cloud (~16%)</td><td>Alibaba Cloud (34%) · Huawei Cloud (19%)</td><td><span style="color:#C62828">Fierce</span></td></tr>
+        <tr><td><strong>Advertising</strong></td><td>Tencent advertising (~17.5%)</td><td>ByteDance (~42%) · Alibaba (~15%)</td><td><span style="color:#C62828">Fierce</span></td></tr>
+        <tr><td><strong>Short video</strong></td><td>WeChat Channels (DAU 500 million+)</td><td>Douyin (DAU ~700 million) · Kuaishou (DAU ~300 million)</td><td><span style="color:#C62828">Catching up</span></td></tr>
+        <tr><td><strong>AI large models</strong></td><td>Hunyuan large model</td><td>ByteDance Doubao · Alibaba Tongyi · Baidu ERNIE · DeepSeek</td><td><span style="color:#F57F17">Catching up</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Geographic Distribution -->
+<div class="card">
+  <h2>🌍 Geographic footprint and business reach</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Region</th><th>Core positioning</th><th>Main business</th></tr></thead>
+      <tbody>
+        <tr><td><strong>China (core market)</strong></td><td>Main base · ~85% of revenue</td><td>WeChat/QQ · Gaming · Payments · Cloud · Advertising</td></tr>
+        <tr><td><strong>Southeast Asia</strong></td><td>The first stop for games going global</td><td>PUBGM · Garena partnership · Tencent Cloud global expansion</td></tr>
+        <tr><td><strong>North America/Europe</strong></td><td>Investment + IP acquisition</td><td>Epic · Riot · Supercell · Ubisoft</td></tr>
+        <tr><td><strong>Japan and South Korea</strong></td><td>Anime-style game market</td><td>Co-issued · Investment</td></tr>
+        <tr><td><strong>Middle East / Latin America</strong></td><td>Emerging markets</td><td>Gaming publishing · payment exploration</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  <p>Tencent Value-Chain Map · AI Berkshire 2026</p>
+  <p>Data sources: company filings · industry research · public data</p>
+</div>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

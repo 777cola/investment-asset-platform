@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adverse-selection screen results — PDD | Seven hard metrics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans SC', -apple-system, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+        .header {
+            background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%);
+            color: #fff;
+            padding: 50px 0 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .header .subtitle {
+            font-size: 16px;
+            font-weight: 300;
+            opacity: 0.85;
+        }
+        .header .meta {
+            margin-top: 14px;
+            font-size: 13px;
+            opacity: 0.7;
+        }
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 30px 24px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            padding: 32px 36px;
+            margin-bottom: 28px;
+        }
+        .card h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1A4B8C;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #1A4B8C;
+            display: inline-block;
+        }
+        .card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 20px 0 10px;
+        }
+        .card p, .card ul {
+            margin-bottom: 12px;
+            color: #444;
+        }
+        .card ul { padding-left: 22px; }
+        .card li { margin-bottom: 6px; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        thead th {
+            background: #1A4B8C;
+            color: #fff;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        thead th:first-child { border-radius: 6px 0 0 0; }
+        thead th:last-child { border-radius: 0 6px 0 0; }
+        tbody td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e8ecf1;
+            vertical-align: top;
+        }
+        tbody tr:nth-child(even) { background: #f8faff; }
+        tbody tr:hover { background: #eef4ff; }
+
+        .badge {
+            display: inline-block;
+            background: #1A4B8C;
+            color: #fff;
+            font-size: 12px;
+            padding: 2px 12px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        .badge.green { background: #27ae60; }
+        .badge.yellow { background: #f39c12; }
+        .badge.red { background: #e74c3c; }
+
+        .result-banner {
+            background: linear-gradient(135deg, #27ae60 0%, #1e8a4d 100%);
+            color: #fff;
+            padding: 24px 32px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .result-banner .big {
+            font-size: 36px;
+            font-weight: 900;
+        }
+        .result-banner .small {
+            font-size: 15px;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
+
+        .indicator-card {
+            border: 1px solid #e0e6ed;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .indicator-card .num {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #1A4B8C;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .indicator-card .num.pass { background: #27ae60; }
+        .indicator-card .content { flex: 1; }
+        .indicator-card .content .title {
+            font-weight: 600;
+            font-size: 15px;
+        }
+        .indicator-card .content .detail {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .quote {
+            background: #f0f4f8;
+            border-left: 4px solid #1A4B8C;
+            padding: 16px 20px;
+            margin: 16px 0;
+            border-radius: 0 8px 8px 0;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .exemption-table td:first-child { font-weight: 500; }
+
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: #999;
+            font-size: 13px;
+            border-top: 1px solid #e8ecf1;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 640px) {
+            .card { padding: 20px 18px; }
+            .header h1 { font-size: 22px; }
+            table { font-size: 13px; }
+            thead th, tbody td { padding: 8px 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Screening out the weak — seven hard metrics</h1>
+    <div class="subtitle">PDD Holdings Inc. (PDD, NASDAQ)</div>
+    <div class="meta">Screening date: 2026/07/05 | Listing date: July 2018 (about 8 years)</div>
+</div>
+
+<div class="container">
+
+    <!-- 概要 -->
+    <div class="card">
+        <h2>📋 Company Overview</h2>
+        <table>
+            <tbody>
+                <tr><td style="width:140px;font-weight:600;">Company name</td><td>PDD Holdings Inc.</td></tr>
+                <tr><td style="font-weight:600;">Stock ticker</td><td>PDD (NASDAQ)</td></tr>
+                <tr><td style="font-weight:600;">Listing date</td><td>July 2018 (about 8 years)</td></tr>
+                <tr><td style="font-weight:600;">Screening date</td><td>2026/07/05</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 结果横幅 -->
+    <div class="result-banner">
+        <div class="big">🎯 7 / 7 all passed</div>
+        <div class="small">None of the seven hard metrics breached the exclusion threshold, passing the negative screen</div>
+    </div>
+
+    <!-- 硬指标逐条展示 -->
+    <div class="card">
+        <h2>🔬 Seven hard metrics, tested one by one</h2>
+
+        <div class="indicator-card">
+            <div class="num pass">①</div>
+            <div class="content">
+                <div class="title">10-year average ROE<span style="color:#e74c3c;">&lt; 8%</span></div>
+                <div class="detail">PDD data:<strong>~22%</strong>(estimated 8-year average)<br>Note: Pinduoduo only listed in 2018, and early losses dragged down the average. The 3-year average is 30.5%, far above the threshold</div>
+            </div>
+            <span class="badge green">✅ Passed</span>
+        </div>
+
+        <div class="indicator-card">
+            <div class="num pass">②</div>
+            <div class="content">
+                <div class="title">5-year cumulative FCF<span style="color:#e74c3c;">Negative</span></div>
+                <div class="detail">PDD data:<strong>Cumulative FCF for 2021-2025 is approximately CNY 393.6 billion</strong><br>Five consecutive years of positive and rapidly growing FCF</div>
+            </div>
+            <span class="badge green">✅ Passed</span>
+        </div>
+
+        <div class="indicator-card">
+            <div class="num pass">③</div>
+            <div class="content">
+                <div class="title">Interest coverage ratio<span style="color:#e74c3c;">< 2x</span></div>
+                <div class="detail">PDD data:<strong>N/A (almost zero interest-bearing debt)</strong><br>EBIT CNY 93.1 billion vs interest expense ≈0, coverage ratio ∞</div>
+            </div>
+            <span class="badge green">✅ Passed</span>
+        </div>
+
+        <div class="indicator-card">
+            <div class="num pass">④</div>
+            <div class="content">
+                <div class="title">Long-term gross margin<span style="color:#e74c3c;">&lt; 15%</span></div>
+                <div class="detail">PDD data:<strong>~62% (5-year average)</strong><br>Even if Temu drags down the gross margin, it remains above 56%</div>
+            </div>
+            <span class="badge green">✅ Passed</span>
+        </div>
+
+        <div class="indicator-card">
+            <div class="num pass">⑤</div>
+            <div class="content">
+                <div class="title">Operating cash flow/net profit<span style="color:#e74c3c;">&lt; 0.7</span></div>
+                <div class="detail">PDD data:<strong>~1.09 (5-year average)</strong><br>Very high earnings quality, FCF > net profit</div>
+            </div>
+            <span class="badge green">✅ Passed</span>
+        </div>
+
+        <div class="indicator-card">
+            <div class="num pass">⑥</div>
+            <div class="content">
+                <div class="title">Long-term net margin<span style="color:#e74c3c;">&lt; 5%</span></div>
+                <div class="detail">PDD data:<strong>~22% (5-year average)</strong><br>Sustained profitability with extremely high margins since 2021</div>
+            </div>
+            <span class="badge green">✅ Passed</span>
+        </div>
+
+        <div class="indicator-card">
+            <div class="num pass">⑦</div>
+            <div class="content">
+                <div class="title">5-year total share count dilution<span style="color:#e74c3c;">&gt; 20%</span></div>
+                <div class="detail">PDD data:<strong>~11.6%（2021-2025）</strong><br>Mainly from employee equity incentive dilution, magnitude manageable</div>
+            </div>
+            <span class="badge green">✅ Passed</span>
+        </div>
+    </div>
+
+    <!-- 豁免检查 -->
+    <div class="card">
+        <h2>🔄 Exemption check</h2>
+        <table>
+            <thead>
+                <tr><th>Exemption clause</th><th>Does it need to be triggered?</th><th>Rationale</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Exemption A: Strategic investment period</td><td><span class="badge green">No</span></td><td>ROE far exceeds 8%, no exemption needed</td></tr>
+                <tr><td>Exemption B: deliberately low margins</td><td><span class="badge green">No</span></td><td>Net margin 22.6%, far above 5%</td></tr>
+                <tr><td>Exemption C: high turnover, thin margins</td><td><span class="badge green">No</span></td><td>Gross margin 56.3%, far above the 15%</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 核心结论 -->
+    <div class="card">
+        <h2>📌 Key takeaways</h2>
+        <div class="quote">
+            <strong>Pinduoduo triggers none of the hard-metric exclusion lines; all 7 criteria pass.</strong>This is a classic "first-rate company"—high ROE, strong FCF, high earnings quality, zero debt pressure.</div>
+        <p style="text-align:center;font-weight:700;color:#27ae60;font-size:17px;margin-top:14px;">
+            ✅ <strong>Passes the negative screen → warrants deeper research.</strong>
+        </p>
+    </div>
+
+    <!-- 局限性声明 -->
+    <div class="card">
+        <h2>⚠️ Limitations statement</h2>
+        <p>Passing the negative screen does not equal a confirmed good pick. Further research is still needed:</p>
+        <ul>
+            <li>Business model sustainability (can Temu take over after domestic growth slows)</li>
+            <li>Management depth (organizational capability after Colin Huang's retreat)</li>
+            <li>Is the current valuation reasonable (completed — PE ~9x, extremely undervalued)</li>
+            <li>Competitive landscape (the pace of Douyin e-commerce's encroachment)</li>
+        </ul>
+    </div>
+
+    <div class="footer">Data source: stockanalysis.com, macrotrends.net &nbsp;|&nbsp; Report generated: 2026/07/05</div>
+
+</div>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

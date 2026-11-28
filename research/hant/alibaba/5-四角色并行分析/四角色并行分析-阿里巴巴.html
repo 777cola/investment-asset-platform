@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>阿里巴巴 — 四角色並行分析報告 2026-07-07</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f7fa; color: #333; line-height: 1.8; font-size: 15px; }
+.header { background: linear-gradient(135deg, #FF6A00 0%, #EE2C2C 100%); color: #fff; padding: 50px 0 40px; text-align: center; }
+.header h1 { font-size: 28px; font-weight: 900; letter-spacing: 1px; margin-bottom: 8px; }
+.header .subtitle { font-size: 16px; font-weight: 300; opacity: 0.85; }
+.header .meta { margin-top: 14px; font-size: 13px; opacity: 0.7; }
+.header .price { font-size: 18px; margin-top: 12px; }
+.header .price span { background: rgba(255,255,255,0.15); padding: 4px 14px; border-radius: 20px; font-size: 15px; }
+.container { max-width: 920px; margin: 0 auto; padding: 30px 24px; }
+.card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 32px 36px; margin-bottom: 28px; }
+.card h2 { font-size: 22px; font-weight: 700; color: #EE2C2C; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid #EE2C2C; display: inline-block; }
+.card h3 { font-size: 17px; font-weight: 600; color: #2c3e50; margin: 20px 0 10px; }
+.card p, .card ul, .card ol { margin-bottom: 12px; color: #444; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+thead th { background: #EE2C2C; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
+thead th:first-child { border-radius: 6px 0 0 0; }
+thead th:last-child { border-radius: 0 6px 0 0; }
+tbody td { padding: 10px 12px; border-bottom: 1px solid #e8ecf1; }
+tbody tr:nth-child(even) { background: #f8f9fb; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; }
+
+/* Tabs */
+.tabs { display: flex; gap: 4px; margin-bottom: 0; overflow-x: auto; }
+.tab { padding: 12px 20px; background: #e2e8f0; border: none; cursor: pointer; font-size: 14px; font-weight: 600; border-radius: 8px 8px 0 0; color: #4a5568; transition: all 0.2s; white-space: nowrap; }
+.tab:hover { background: #cbd5e0; }
+.tab.active { background: #fff; color: #EE2C2C; border-bottom: 3px solid #EE2C2C; }
+
+/* Tab content */
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* Role header inside cards */
+.role-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding: 16px 20px; background: linear-gradient(135deg, #fff5f5, #ffe0e0); border-radius: 8px; }
+.role-icon { font-size: 32px; }
+.role-info h2 { margin: 0 !important; border-bottom: none !important; display: block !important; font-size: 20px !important; color: #EE2C2C !important; }
+.role-info .role-desc { font-size: 14px; color: #718096; }
+
+/* Typography inside cards */
+.card h1 { font-size: 24px; color: #EE2C2C; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+.card h4 { font-size: 15px; color: #4a5568; margin: 16px 0 8px; }
+.card p { line-height: 1.8; margin-bottom: 12px; font-size: 15px; color: #444; }
+.card hr { border: none; border-top: 1px solid #e2e8f0; margin: 24px 0; }
+.card blockquote { background: #fff5f5; border-left: 4px solid #EE2C2C; padding: 12px 20px; margin: 16px 0; border-radius: 0 6px 6px 0; font-style: italic; color: #9b2c2c; font-size: 15px; line-height: 1.7; }
+.card li { line-height: 1.8; margin-left: 20px; font-size: 15px; color: #444; }
+.card br { display: block; margin: 4px 0; }
+.card .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+.card .tag-green { background: #c6f6d5; color: #276749; }
+.card .tag-yellow { background: #fefcbf; color: #975a16; }
+.card .tag-red { background: #fed7d7; color: #9b2c2c; }
+.card tbody tr:hover { background: #fff5f5; }
+
+@media (max-width: 768px) { 
+    .container { padding: 15px 12px; }
+    .header { padding: 30px 20px 28px; }
+    .header h1 { font-size: 20px; }
+    .card { padding: 20px 18px; }
+    .tab { padding: 8px 12px; font-size: 12px; }
+    table { font-size: 12px; }
+    thead th, tbody td { padding: 6px 8px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>📊 阿里巴巴 — 四角色並行分析報告</h1>
+    <div class="subtitle">段永平 · 巴菲特 · 蒙格 · 李錄 | 四位大師視角深度剖析</div>
+    <div class="price">阿里巴巴 (BABA.NYSE)<span>~$25.00 | PE 15.35x | PB 0.22x</span></div>
+    <div class="meta">報告日期：2026年7月7日 | 市值：~$225B | 資料來源：阿里巴巴FY2026年報</div>
+</div>
+
+<div class="container">
+
+    <div class="tabs">
+        <button class="tab active" onclick="switchTab(event, 'tab1')">📋 彙總報告</button>
+        <button class="tab" onclick="switchTab(event, 'tab2')">🎯 段永平·商業分析</button>
+        <button class="tab" onclick="switchTab(event, 'tab3')">📊 巴菲特·財務分析</button>
+        <button class="tab" onclick="switchTab(event, 'tab4')">🧠 蒙格·行業研究</button>
+        <button class="tab" onclick="switchTab(event, 'tab5')">⚠️ 李錄·風險評估</button>
+    </div>
+
+    <div id="tab1" class="tab-content active">
+        <div class="card">
+            <h1>阿里巴巴 — 四角色並行分析彙總報告</h1>
+            <br>
+            <p><b>報告日期：2026年7月7日</b></p>
+            <p><b>分析標的：阿里巴巴（BABA.NYSE）</b></p>
+            <p><b>當前股價：~$25.00</b></p>
+            <p><b>總市值：約 $225B</b></p>
+            <br>
+            <hr>
+            <br>
+            <h2>一、四角色核心觀點速覽</h2>
+            <br>
+            <table><tr><th>角色</th><th>投資視角</th><th>核心判斷</th><th>投資建議</th></tr><tr><td>🎯 <b>段永平（商業分析）</b></td><td>生意模式第一</td><td>「中上好生意」——阿里雲優秀，電商承壓</td><td>小倉位關注，等待變數明朗</td></tr><tr><td>📊 <b>巴菲特（財務分析）</b></td><td>財務健康＋估值</td><td>自由現金流為負是致命傷，回購驟減是紅旗</td><td>不急於買入</td></tr><tr><td>🧠 <b>蒙格（行業研究）</b></td><td>競爭格局＋逆向思考</td><td>電商護城河變窄，雲端運算護城河變寬</td><td>觀望為主，最好等拆分</td></tr><tr><td>⚠️ <b>李錄（風險評估）</b></td><td>安全邊際＋確定性</td><td>確定性5/10，安全邊際約31%</td><td>小倉位試探，設停損</td></tr></table>
+            <br>
+            <h3>共識與分歧</h3>
+            <br>
+            <p><b>共識（4/4一致）：</b></p>
+            <li>✅ 阿里雲是好生意——中國第一、高黏性、AI需求拉動</li>
+            <li>✅ 當前估值表面很便宜——PE 15x，PB 0.22</li>
+            <li>✅ 電商競爭是核心問題——拼多多和抖音的威脅</li>
+            <li>✅ 回購驟減是負面訊號——從¥866億驟降至¥76億</li>
+            <li>✅ 不適合重倉配置——不超過組合5%</li>
+            <br>
+            <p><b>分歧：</b></p>
+            <li>⚡ 建倉時機：段永平「可小倉位開始」 vs 巴菲特「不急於買入」</li>
+            <li>⚡ 營業費用暴增：段永平「競爭代價」 vs 巴菲特／李錄「重大警示」</li>
+            <li>⚡ PB 0.22：段永平／蒙格「便宜」對上巴菲特「價值陷阱嫌疑」</li>
+            <br>
+            <hr>
+            <br>
+            <h2>二、綜合評估矩陣</h2>
+            <br>
+            <h3>評分體系（1-10分）</h3>
+            <br>
+            <table><tr><th>評估維度</th><th>段永平</th><th>巴菲特</th><th>蒙格</th><th>李錄</th><th>平均</th></tr><tr><td>商業模式</td><td>7.0</td><td>6.0</td><td>6.5</td><td>6.0</td><td><b>6.4</b></td></tr><tr><td>護城河</td><td>6.5</td><td>6.0</td><td>6.0</td><td>5.5</td><td><b>6.0</b></td></tr><tr><td>財務健康</td><td>—</td><td>5.0</td><td>—</td><td>5.5</td><td><b>5.3</b></td></tr><tr><td>成長性</td><td>6.0</td><td>5.5</td><td>6.5</td><td>5.5</td><td><b>5.9</b></td></tr><tr><td>估值吸引</td><td>7.0</td><td>6.0</td><td>7.0</td><td>6.5</td><td><b>6.6</b></td></tr><tr><td>風險控制</td><td>—</td><td>—</td><td>—</td><td>5.0</td><td><b>5.0</b></td></tr><tr><td><b>綜合評分</b></td><td><b>6.6</b></td><td><b>5.7</b></td><td><b>6.5</b></td><td><b>5.7</b></td><td><b>6.1</b></td></tr></table>
+            <br>
+            <h3>關鍵結論</h3>
+            <br>
+            <p>阿里巴巴是一個<b>高關注度＋低確定性</b>的標的。四位分析師綜合評分6.1/10，顯著低於騰訊（8.5/10）。主要扣分點在財務健康（5.3）、護城河變化方向不確定（6.0）和風險控制（5.0）。</p>
+            <br>
+            <hr>
+            <br>
+            <h2>三、核心問題診斷</h2>
+            <br>
+            <h3>問題一：電商競爭是否致命？</h3>
+            <p>阿里從70%+份額降至35-40%，且仍在被蠶食。當前SG&A暴增表明阿里在「防守性支出」上被迫大量投入。如果份額繼續下滑到25%以下，阿里的電商盈利模式可能從根本上被破壞。</p>
+            <br>
+            <h3>問題二：負FCF是暫時性還是結構性？</h3>
+            <p>¥1260億的資本支出中有很大部分用於雲端運算AI基建。如果這些投入最終產生高回報，今天的負自由現金流是「投資性虧損」。但如果資本支出只是無差別「撒胡椒麵」，則是價值毀滅。</p>
+            <br>
+            <h3>問題三：PB 0.22 是「便宜」還是「價值陷阱」？</h3>
+            <p>PB 0.22 意味著市場認為阿里的資產只值帳面價值的 22%。如果阿里能恢復盈利成長，這是極度低估；如果競爭持續惡化導致利潤進一步下降，今天的「便宜」會在明天變得更便宜。</p>
+            <br>
+            <hr>
+            <br>
+            <h2>四、核心資料一覽</h2>
+            <br>
+            <h3>財務數據（百萬人民幣）</h3>
+            <br>
+            <table><tr><th>指標</th><th>FY2026</th><th>同比</th><th>趨勢</th></tr><tr><td>營收</td><td>1,023,670</td><td>+2.74%</td><td>↗ 低速成長</td></tr><tr><td>歸母淨利</td><td>105,904</td><td>-18.2%</td><td>↘ 顯著下滑</td></tr><tr><td>毛利率</td><td>~40%</td><td>穩定</td><td>→</td></tr><tr><td>營業利益率</td><td>4.90%</td><td>大幅下降</td><td>↘ 警示</td></tr><tr><td>FCF</td><td>-49,850</td><td>轉負</td><td>↘ 重大警示</td></tr><tr><td>回購</td><td>7,638</td><td>-91.2%</td><td>↘ 停止</td></tr></table>
+            <br>
+            <h3>估值與資產負債表</h3>
+            <br>
+            <table><tr><th>指標</th><th>當前值</th><th>說明</th></tr><tr><td>PE(TTM)</td><td>15.35x</td><td>與騰訊幾乎相同</td></tr><tr><td>PB</td><td>0.22x</td><td>遠低於騰訊2.95x</td></tr><tr><td>淨現金</td><td>¥56,898百萬</td><td>較薄，不似騰訊充裕</td></tr><tr><td>有息負債</td><td>259,996百萬元</td><td>淨現金遠不能覆蓋</td></tr><tr><td>每股帳面價值</td><td>¥441.23</td><td>股價僅為帳面22%</td></tr></table>
+            <br>
+            <hr>
+            <br>
+            <h2>五、投資建議彙總</h2>
+            <br>
+            <h3>建倉策略</h3>
+            <br>
+            <table><tr><th>投資者類型</th><th>建議倉位</th><th>建倉節奏</th><th>持有期</th></tr><tr><td>長期價值型</td><td>2-5%</td><td>目前以小倉位開始，不急於加倉</td><td>5年+</td></tr><tr><td>穩健收益型</td><td>0-3%</td><td>等待自由現金流轉正與銷售及管理費用下降</td><td>3-5年</td></tr><tr><td>積極成長型</td><td>3-8%</td><td>逢低分批建倉，密切關注</td><td>3年+</td></tr><tr><td>保守觀望型</td><td>0%</td><td>確定性不足，不建議參與</td><td>觀望</td></tr></table>
+            <br>
+            <h3>加倉／減倉訊號</h3>
+            <br>
+            <p><b>加倉：</b>自由現金流轉正 / 銷售及管理費用連續下降2個季度 / 管理層重啟大規模回購 / 阿里雲增長>25% YoY</p>
+            <br>
+            <p><b>減倉：</b>股價跌破$15 / 自由現金流連續4季度為負 / 電商份額跌破30% / 中概退市風險實質性升級</p>
+            <br>
+            <hr>
+            <br>
+            <h2>六、結論</h2>
+            <br>
+            <blockquote><b>阿里巴巴是一個「高關注度＋低確定性」的標的。四位分析師從不同角度得出相似的結論：阿里有優質資產（阿里雲），但也面臨結構性挑戰（電商競爭、負自由現金流、SG&A失控）。當前PE 15x和PB 0.22的估值確實低迷，但如果公司盈利繼續惡化，這些低估值可能只是「價值陷阱」的前奏。核心建議：關注，但不急於重倉。</b></blockquote>
+            <br>
+            <h3>核心決策矩陣</h3>
+            <br>
+            <table><tr><th>是否應該投資阿里？</th><th>四位分析師投票</th></tr><tr><td>🟢 應該買入</td><td>0/4</td></tr><tr><td>🟡 可小倉位關注</td><td>3/4（段永平、蒙格、李錄）</td></tr><tr><td>🔴 不建議買入</td><td>1/4（巴菲特）</td></tr></table>
+            <br>
+            <hr>
+            <br>
+            <p>*免責聲明：本報告僅供投資研究參考，不構成任何投資建議。投資有風險，入市需謹慎。*</p>
+            <br>
+        </div>
+    </div>
+
+    <div id="tab2" class="tab-content">
+        <div class="card">
+            <div class="role-header">
+                <div class="role-icon">🎯</div>
+                <div class="role-info">
+                    <h2>商業分析 — 段永平視角</h2>
+                    <div class="role-desc">「好生意 + 好價格 + 好時機」| 聚焦商業模式本質與護城河</div>
+                </div>
+            </div>
+            <h1>阿里巴巴商業分析報告 — 段永平視角</h1>
+            <br>
+            <h2>一、底層商業邏輯：阿里巴巴到底是什麼生意？</h2>
+            <br>
+            <p>阿里巴巴本質上是一家<b>電商基建 + 雲端運算 + 數位消費</b>的複合型公司。與京東和拼多多不同，阿里不只是一家零售商，而是中國數位經濟的基礎設施搭建者——淘寶/天貓是商品交易的底層平臺，阿里雲是算力的底層平臺，菜鳥是物流的底層平臺。</p>
+            <br>
+            <p><b>段永平會問的第一個問題：這個生意「本分」嗎？</b></p>
+            <br>
+            <p>阿里以「讓天下沒有難做的生意」為使命，本質是做<b>連接</b>和<b>賦能</b>——連接商家和消費者，賦能中小企業做生意。這個定位本身是「本分」的。</p>
+            <br>
+            <p>但近年來，阿里在戰略上有些「不本分」：</p>
+            <li>盲目擴張：從電商到文娛（優酷/大麥）、到新零售（盒馬/銀泰）、到本地生活（餓了麼/口碑）——很多領域未建立起可持續的競爭優勢</li>
+            <li>管理層動盪：從馬雲退隱到張勇交棒到吳泳銘／蔡崇信回歸，3年內換3次核心管理層</li>
+            <li>組織架構反覆折騰：從「中臺戰略」到「1+6+N」拆分再到「AI驅動」——說明戰略方向還沒完全想清楚</li>
+            <br>
+            <hr>
+            <br>
+            <h2>二、護城河分析（競爭優勢的可持續性）</h2>
+            <br>
+            <h3>核心護城河</h3>
+            <br>
+            <table><tr><th>維度</th><th>分析</th><th>評級</th></tr><tr><td><b>網路效應</b></td><td>淘寶／天貓連接千萬商家＋9億消費者——雙邊網路效應極強</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td><b>轉換成本</b></td><td>商家在淘寶累積的店鋪／粉絲／評價／信用體系無法遷移到其他平臺</td><td>⭐⭐⭐⭐</td></tr><tr><td><b>資料飛輪</b></td><td>海量交易資料→推薦演算法優化→使用者體驗提升→更多交易→更多資料</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td><b>雲端運算護城河</b></td><td>阿里雲是中國第一、亞太第一——企業客戶上雲後很難遷移</td><td>⭐⭐⭐⭐</td></tr><tr><td><b>物流護城河</b></td><td>菜鳥+通達系建構了覆蓋全國的電商物流網路</td><td>⭐⭐⭐</td></tr><tr><td><b>支付護城河</b></td><td>支付寶是獨立於阿里的金融基礎設施（註：屬於螞蟻集團）</td><td>⭐⭐⭐⭐⭐</td></tr></table>
+            <br>
+            <h3>段永平式提問：如果我有1000億，能複製一個淘寶嗎？</h3>
+            <br>
+            <p>答案：很難，但不是不可能。抖音用<b>興趣推薦演算法</b>繞開了淘寶的商品搜尋貨架模式，拼多多用<b>社交拼團＋極致低價</b>搶下了低線市場。這說明淘寶的護城河並非不可攻破——至少沒有微信那麼穩固。</p>
+            <br>
+            <p><b>阿里雲纔是真正的「好生意」</b>：客戶上了雲之後，遷移成本極高，年化續費率超過90%。這有點像水電煤——一旦用上就很難換。</p>
+            <br>
+            <hr>
+            <br>
+            <h2>三、成長性分析——阿里巴巴還能長多大？</h2>
+            <br>
+            <table><tr><th>業務</th><th>狀態</th><th>成長空間</th><th>確定性</th></tr><tr><td><b>電商（淘天集團）</b></td><td>成熟期，增速放緩（~3% YoY）</td><td>中低——接近天花板</td><td>中</td></tr><tr><td><b>雲端運算（阿里雲）</b></td><td>重回成長（AI需求拉動）</td><td>高——AI算力需求爆發</td><td>中高</td></tr><tr><td><b>國際電商</b></td><td>高成長但虧損</td><td>高——東南亞+中東+歐洲</td><td>中</td></tr><tr><td><b>本地生活</b></td><td>減虧中</td><td>中——面臨美團競爭</td><td>中低</td></tr><tr><td><b>菜鳥物流</b></td><td>穩定成長</td><td>中——受益電商大盤</td><td>中</td></tr></table>
+            <br>
+            <p><b>段永平強調的「看懂」原則：</b></p>
+            <br>
+            <p><b>看得懂的增長：</b>阿里雲受益於 AI 算力需求爆發——這是確定的行業趨勢。</p>
+            <br>
+            <p><b>需要觀察的增長：</b>「AI驅動」戰略到底能帶來多少實質收入？淘天集團能否重拾增長？</p>
+            <br>
+            <hr>
+            <br>
+            <h2>四、商業模式本質：品質評估</h2>
+            <br>
+            <table><tr><th>維度</th><th>評級</th><th>說明</th></tr><tr><td>毛利率</td><td>⭐⭐⭐</td><td>約 40%，低於騰訊（56%）和茅臺（90%+）</td></tr><tr><td>現金轉化率</td><td>⭐⭐</td><td>自由現金流為負（-498億），資本支出高達1260億</td></tr><tr><td>競爭格局</td><td>⭐⭐⭐</td><td>電商三強鼎立，阿里已不是唯一霸主</td></tr><tr><td>管理層穩定性</td><td>⭐⭐</td><td>3年3換核心管理層</td></tr><tr><td>長期確定性</td><td>⭐⭐⭐</td><td>阿里雲有確定性，電商確定性在下降</td></tr></table>
+            <br>
+            <p><b>段永平的關鍵問題：這是一個「睡得著覺」的生意嗎？</b></p>
+            <br>
+            <p>對於阿里的電商業務——<b>現在有點睡不著。</b>拼多多和抖音虎視眈眈，阿里在低價競爭中被動應戰。</p>
+            <br>
+            <p>對於阿里雲——<b>可以睡得著。</b>雲端運算是一門高黏著度、高續約率、持續成長的生意。</p>
+            <br>
+            <hr>
+            <br>
+            <h2>五、估值判斷——段永平的買賣邏輯</h2>
+            <br>
+            <h3>當前估值水準</h3>
+            <li><b>PE(TTM): 15.35x</b>— 看似不貴</li>
+            <li><b>PB: ~0.22</b>— 股價遠低於每股淨資產¥441.23</li>
+            <li><b>自由現金流為負</b>— 重大警示訊號</li>
+            <br>
+            <h3>段永平的視角觀點</h3>
+            <br>
+            <p><b>好生意？</b>阿里是一家有好生意（阿里雲＋支付生態），但也有不好生意（低利潤電商＋燒錢業務）的混合體。整體上算「中上好生意」。</p>
+            <br>
+            <p><b>好價格？</b>PB 0.22 意味著市場認為阿里的資產只值帳面價值的 22%——極度悲觀。但考慮到大量的投資減值、商譽風險和不斷惡化的競爭格局，悲觀也許有道理。</p>
+            <br>
+            <p><b>我的判斷：</b>阿里現在處於「便宜但不確定」的階段。PB 0.22確實出現了極端低估的訊號，但公司的核心問題還沒有根本性解決。這更像是一個「等待變數明朗化」的標的。</p>
+            <br>
+            <hr>
+            <br>
+            <h2>六、核心風險</h2>
+            <br>
+            <li><b>電商競爭惡化</b>：拼多多和抖音持續蠶食阿里份額</li>
+            <li><b>銷售及管理費用暴增</b>：競爭加劇的直接體現</li>
+            <li><b>回購銳減</b>：從¥866億到¥76億——管理層自己也開始「捂緊錢袋子」</li>
+            <li><b>自由現金流為負</b>：公司在消耗現金</li>
+            <li><b>管理層不確定性</b>：頻繁換帥反映戰略迷茫</li>
+            <br>
+            <hr>
+            <br>
+            <h2>七、最終判斷</h2>
+            <br>
+            <blockquote><b>阿里是我「看得懂一部分」的生意。阿里雲這門生意我很喜歡——高黏性、高續費、確定性高。但電商這門生意越來越難做——競爭格局從「一超」變成了「三強」，而且阿里還不是最強的一方。PB 0.22確實誘人，但生意本身如果出了問題，帳面資產的價值是需要打折扣的。對於阿里，我傾向於先把它放在觀察名單上——等管理層穩定下來、競爭格局明朗化再做決定。</b></blockquote>
+            <br>
+            <p>——段永平風格結論</p>
+            <br>
+            <p>*報告日期：2026年7月7日*</p>
+            <br>
+        </div>
+    </div>
+
+    <div id="tab3" class="tab-content">
+        <div class="card">
+            <div class="role-header">
+                <div class="role-icon">📊</div>
+                <div class="role-info">
+                    <h2>財務分析 — 巴菲特視角</h2>
+                    <div class="role-desc">「自由現金流是一切的根源」 | 聚焦財務健康、盈利品質與資本配置</div>
+                </div>
+            </div>
+            <h1>阿里巴巴財務分析報告 — 巴菲特視角</h1>
+            <br>
+            <h2>一、財務健康度——阿里巴巴「身體」有多好？</h2>
+            <br>
+            <h3>盈利能力全景</h3>
+            <br>
+            <table><tr><th>指標</th><th>FY2026</th><th>同比變化</th><th>趨勢</th></tr><tr><td>營收（百萬）</td><td>1,023,670</td><td>+2.74%</td><td>↗ 低度成長</td></tr><tr><td>歸母淨利（百萬）</td><td>105,904</td><td>-18.2%</td><td>↘ 顯著下滑</td></tr><tr><td>毛利率</td><td>~40%</td><td>穩定</td><td>→</td></tr><tr><td>營業利益率</td><td>4.90%</td><td>大幅惡化</td><td>↘ 營業費用暴增</td></tr><tr><td>自由現金流（百萬）</td><td>-49,850</td><td>轉負</td><td>↘ 重大警示</td></tr><tr><td>回購（百萬）</td><td>7,638</td><td>-91.2%</td><td>↘ 停止</td></tr></table>
+            <br>
+            <h3>巴菲特會關注的關鍵指標</h3>
+            <br>
+            <p><b>1. 營收增速僅2.74%</b></p>
+            <p>對一家本益比 15 倍的公司來說，營收增速不到 3% 是一個危險訊號。巴菲特偏好那些具有強勁內生增長的公司。</p>
+            <br>
+            <p><b>2. 稅後淨利下滑18.2%</b></p>
+            <p>在營收仍為正成長的情況下稅後淨利大幅下滑——SG&A暴增是主因。這反映了阿里在競爭壓力下被迫加大銷售投入，是一種「防守性支出」。</p>
+            <br>
+            <p><b>3. 營業利益率僅4.90%</b></p>
+            <p>對一家曾經營業利益率穩定在 20%+ 的公司來說，4.90% 幾乎是在懸崖邊。如果競爭繼續惡化，阿里將面臨「賺辛苦錢」甚至「不賺錢」的窘境。</p>
+            <br>
+            <p><b>4. PB 0.22——市場在說什麼？</b></p>
+            <p>市場認為阿里的大量資產價值被高估（商譽、投資、固定資產）；市場預期阿里未來的盈利將持續惡化。巴菲特會問：<b>「市場是對的嗎？」</b></p>
+            <br>
+            <hr>
+            <br>
+            <h2>二、自由現金流——巴菲特的「股東回報引擎」</h2>
+            <br>
+            <p>巴菲特說：「自由現金流是一切的根源。」</p>
+            <br>
+            <table><tr><th>指標</th><th>FY2026</th></tr><tr><td>營業現金流</td><td>待詳細審計</td></tr><tr><td>資本支出（CapEx）</td><td>¥126,063百萬</td></tr><tr><td>自由現金流（FCF）</td><td><b>-49,850百萬元</b></td></tr><tr><td>自由現金流／稅後淨利比</td><td><b>負值（嚴重警示）</b></td></tr></table>
+            <br>
+            <p><b>巴菲特會怎麼說？</b></p>
+            <br>
+            <p>「負自由現金流意味著公司在消耗股東價值來維持營運。」</p>
+            <br>
+            <p>阿里已經是一家年營收約1萬億的成熟公司，營收增速僅2.74%，在這種情況下出現負FCF，只能說明：</p>
+            <li>資本支出過高（¥1260億）——雲端運算AI基建投入龐大，但回報尚未體現</li>
+            <li>營業現金流的成長不足以支撐資本支出——競爭壓縮了營業利益</li>
+            <br>
+            <p><b>巴菲特式提問：</b>「如果阿里連續5年自由現金流為負，它還值現在這個價嗎？」淨現金僅¥569億，如果每年燒¥500億，現金只能撐1年多。</p>
+            <br>
+            <hr>
+            <br>
+            <h2>三、資產負債表——阿里的「安全邊際」</h2>
+            <br>
+            <table><tr><th>專案</th><th>數值（百萬）</th></tr><tr><td>淨現金</td><td>¥56,898</td></tr><tr><td>有息負債</td><td>¥259,996</td></tr><tr><td>每股帳面價值</td><td>¥441.23</td></tr><tr><td>PB</td><td>~0.22</td></tr></table>
+            <br>
+            <h3>巴菲特的分析框架</h3>
+            <br>
+            <p><b>1. 淨現金僅569億——遠低於有息負債2600億</b></p>
+            <p>阿里並不像騰訊那樣擁有充沛的淨現金。雖然PB很低，但公司的財務狀況並非表面看起來那麼穩健。</p>
+            <br>
+            <p><b>2. PB 0.22——極度低估還是價值陷阱？</b></p>
+            <p>阿里大量資產是商譽（從併購而來）和長期投資（已大幅減值），真正硬資產佔比不高。在清算時商譽和投資的價值要打很大折扣。</p>
+            <br>
+            <hr>
+            <br>
+            <h2>四、資本配置分析——巴菲特最關注的維度</h2>
+            <br>
+            <h3>回購策略——從「激進的買家」到「突然退縮」</h3>
+            <br>
+            <table><tr><th>財年</th><th>回購金額（百萬）</th></tr><tr><td>FY2025</td><td>86,662</td></tr><tr><td>FY2026</td><td><b>7,638（-91.2%）</b></td></tr></table>
+            <br>
+            <p>回購從¥866億驟降至¥76億——<b>這是一個非常糟糕的訊號。</b>如果管理層在FY2025花¥866億回購，然後在FY2026突然將回購削減90%+，這傳遞了最強的負面信號。</p>
+            <br>
+            <p><b>巴菲特的擔憂：</b>一家公司的管理層在最高層應該做什麼——把資本配置到最高回報的地方。阿里現在所有業務線都在要錢，但沒有一條線能產生豐厚的自由現金流。這是最讓我擔憂的。</p>
+            <br>
+            <hr>
+            <br>
+            <h2>五、盈利品質分析</h2>
+            <br>
+            <table><tr><th>正面因素</th><th>警訊</th></tr><tr><td>營收仍為正成長（+2.74%）</td><td>稅後淨利下滑18.2%</td></tr><tr><td>毛利率穩定在~40%</td><td>營業費用大幅膨脹</td></tr><tr><td>阿里雲增長穩健（~20%+）</td><td>營業利益率僅4.90%</td></tr><tr><td>全球品牌認知度極高</td><td>自由現金流為負</td></tr></table>
+            <br>
+            <p>阿里的盈利品質正在惡化。核心問題不是「利潤虛增」，而是「盈利的可持續性存疑」。</p>
+            <br>
+            <hr>
+            <br>
+            <h2>六、估值——按巴菲特的「棒球理論」</h2>
+            <br>
+            <table><tr><th>估值指標</th><th>阿里</th><th>中概互聯均值</th><th>折溢價</th></tr><tr><td>PE(TTM)</td><td>15.35x</td><td>~25x</td><td><b>-39%</b></td></tr><tr><td>PB</td><td>0.22x</td><td>>1x</td><td>—</td></tr><tr><td>P/FCF</td><td>負值</td><td>—</td><td>無法比較</td></tr></table>
+            <br>
+            <p><b>巴菲特會怎麼說？</b>「看起來非常便宜——便宜到讓人懷疑是不是價值陷阱。」</p>
+            <br>
+            <p><b>巴菲特的「棒球理論」應用：</b>目前不是「完美的揮棒機會」。巴菲特會傾向於等待——等待自由現金流轉正、管理層用真金白銀加大回購、競爭格局出現穩定跡象。</p>
+            <br>
+            <hr>
+            <br>
+            <h2>七、總評結論</h2>
+            <br>
+            <table><tr><th>維度</th><th>評級</th><th>說明</th></tr><tr><td>盈利能力</td><td>⭐⭐</td><td>稅後淨利下滑18.2%，營業利益率僅4.90%</td></tr><tr><td>現金流</td><td>⭐</td><td>自由現金流為負，重大警訊</td></tr><tr><td>資產負債表</td><td>⭐⭐⭐</td><td>PB 0.22看似便宜，但淨現金不高</td></tr><tr><td>資本配置</td><td>⭐⭐</td><td>FY2025天價回購後FY2026突然停止——非常可疑</td></tr><tr><td>盈利品質</td><td>⭐⭐⭐</td><td>盈利可持續性存疑</td></tr><tr><td>估值</td><td>⭐⭐⭐</td><td>PE 15x看似便宜，但「便宜」的理由可能成立</td></tr></table>
+            <br>
+            <blockquote><b>阿里的問題不在於它現在的價格是否便宜——顯然從表面看它很便宜。真正的問題是：這個「便宜」是暫時的，還是結構性的？如果電商競爭導致阿里利潤率永久性下降，那麼今天的PE可能不是15x，而是30x（因為利潤會繼續縮水）。這是我需要看清楚的問題，而目前我還沒完全看明白。</b></blockquote>
+            <br>
+            <p>巴菲特風格結論</p>
+            <br>
+            <p>*報告日期：2026年7月7日*</p>
+            <br>
+        </div>
+    </div>
+
+    <div id="tab4" class="tab-content">
+        <div class="card">
+            <div class="role-header">
+                <div class="role-icon">🧠</div>
+                <div class="role-info">
+                    <h2>行業研究 — 蒙格視角</h2>
+                    <div class="role-desc">「反過來想，總是反過來想」| 聚焦競爭格局、行業趨勢與逆向思考</div>
+                </div>
+            </div>
+            <h1>阿里巴巴行業研究報告 — 查理·芒格視角</h1>
+            <br>
+            <h2>一、行業格局：中國電商的「三強演義」</h2>
+            <br>
+            <h3>電商領域格局變化（2015-2026）</h3>
+            <br>
+            <table><tr><th>時期</th><th>阿里市佔</th><th>格局</th><th>芒格式解讀</th></tr><tr><td>2015-2018</td><td>70%+</td><td>阿里一超多強</td><td>壟斷利潤階段——好生意</td></tr><tr><td>2018-2021</td><td>55-65%</td><td>拼多多崛起分食</td><td>競爭加劇——阿里仍佔優</td></tr><tr><td>2021-2024</td><td>40-50%</td><td>抖音電商爆發</td><td>三足鼎立——好生意變成難生意</td></tr><tr><td>2024-2026</td><td>35-40%</td><td>拼多多反超或持平阿里</td><td>從王者變成「之一」</td></tr></table>
+            <br>
+            <h3>芒格會思考的第一個問題：為什麼阿里的護城河在變窄？</h3>
+            <br>
+            <p><b>答案：因為電商的「基礎設施層」和「應用層」被分離了。</b></p>
+            <br>
+            <p>過去，阿里同時控制著電商的「基礎設施」（商品搜尋、信用體系、支付、物流）和「應用層」（買賣雙方交易）。但行動網路的發展讓這兩層解耦了：</p>
+            <li><b>抖音</b>用內容推薦繞過阿里的商品搜尋基礎設施</li>
+            <li><b>拼多多</b>以社交拼團加上極致低價，繞過阿里巴巴的品牌商資源</li>
+            <li><b>微信小程式</b>讓商家可以直接觸達消費者</li>
+            <br>
+            <p><b>芒格會說：當一個行業的「解耦」發生時，原有的護城河會加速乾涸。</b></p>
+            <br>
+            <h3>阿里雲——被低估的第二張王牌</h3>
+            <br>
+            <table><tr><th>維度</th><th>阿里雲</th><th>競爭地位</th></tr><tr><td>市場份額</td><td>中國第一（~34%），亞太第一</td><td>穩固</td></tr><tr><td>客戶黏性</td><td>年化續費率90%+</td><td>極高</td></tr><tr><td>成長動能</td><td>AI 算力需求爆發</td><td>強勁</td></tr></table>
+            <br>
+            <p><b>芒格的逆向思維：</b>如果阿里雲獨立拆分，價值是多少？假設阿里雲營收約 1200 億元，PS 5x = ¥6000 億元 ≈ US$82B。而阿里整體市值僅約 $225B。這意味著：<b>阿里雲的價值可能佔了阿里總市值的36%——市場幾乎免費送掉了電商、物流、國際等所有其他業務。</b></p>
+            <br>
+            <hr>
+            <br>
+            <h2>二、競爭態勢深度分析</h2>
+            <br>
+            <h3>電商三強對比</h3>
+            <br>
+            <table><tr><th>維度</th><th>阿里（淘天）</th><th>拼多多</th><th>抖音電商</th></tr><tr><td>模式</td><td>貨架電商</td><td>社交拼團＋極致低價</td><td>興趣推薦電商</td></tr><tr><td>GMV規模</td><td>約8萬億元</td><td>約5萬億元以上</td><td>~3萬億元以上</td></tr><tr><td>核心優勢</td><td>品類最全、品牌商資源</td><td>價格最低、拼團裂變</td><td>推薦演算法、內容驅動</td></tr><tr><td>核心劣勢</td><td>流量成本高、價格不佔優</td><td>客單價低、品牌信任弱</td><td>售後體驗、回購弱</td></tr><tr><td>盈利能力</td><td>可盈利（下滑中）</td><td>高盈利</td><td>盈利中</td></tr><tr><td>增長趨勢</td><td>低度成長／停滯</td><td>中速成長</td><td>高速成長</td></tr></table>
+            <br>
+            <p><b>芒格的「反過來想」：</b>拼多多和抖音切走的是阿里最甜的蛋糕（高利潤品類：服裝、美妝、快消），留給阿里的是「防禦性品類」（家電、3C、日用品）。當你的對手總能在你的高利潤區獲利，而你只能守土防禦——這不是一個好生意。</p>
+            <br>
+            <hr>
+            <br>
+            <h2>三、逆向思考——芒格的「20個問題」</h2>
+            <br>
+            <h3>問題1：阿里最大的風險被市場充分定價了嗎？</h3>
+            <p>市場已經定價了很大一部分（PB 0.22、PE 15x），但有些風險可能還沒被充分定價：AI 投入回報不確定、螞蟻上市遙遙無期、中概退市風險。</p>
+            <br>
+            <h3>問題2：市場沒定價什麼？被低估的資產</h3>
+            <li><b>阿里雲</b>——按 PS 5x 估值，價值約 $82B</li>
+            <li><b>螞蟻集團</b>——即使打5折，阿里持股價值約US$30-50B</li>
+            <li><b>國際電商</b>——東南亞+中東+歐洲佈局可能被低估</li>
+            <li><b>菜鳥物流</b>——獨立IPO估值曾達~2000億人民幣</li>
+            <br>
+            <p><b>芒格式提問：</b>如果把阿里拆成5家公司，市場估值總和是否會高於現在的$225B？很可能答案是<b>會</b>——這暗示了「負的控股折扣」。</p>
+            <br>
+            <h3>問題3：阿里會消失嗎？</h3>
+            <p><b>短期（3年）：</b>不會。阿里仍有最強的商品供應鏈、最大的品牌商資源。</p>
+            <p><b>中期（5-10年）：</b>可能被邊緣化。電商份額可能從35%降到20%以下。</p>
+            <p><b>長期（10年+）：</b>阿里雲如果獨立出來，可能成為千億美元級公司。</p>
+            <br>
+            <hr>
+            <br>
+            <h2>四、未來3-5年關鍵變數</h2>
+            <br>
+            <table><tr><th>變數</th><th>影響</th><th>機率</th></tr><tr><td>阿里雲 AI 需求持續高增長</td><td>重大正面</td><td>高</td></tr><tr><td>電商競爭格局穩定</td><td>重大正面</td><td>中低</td></tr><tr><td>管理層釋放清晰戰略</td><td>正面</td><td>中</td></tr><tr><td>螞蟻集團重啟IPO</td><td>重大正面</td><td>低</td></tr><tr><td>回購恢復更高規模</td><td>正面</td><td>中低</td></tr><tr><td>營業費用下降</td><td>正面</td><td>中</td></tr><tr><td>消費持續低迷</td><td>負面</td><td>中</td></tr><tr><td>中概股下市風險再現</td><td>負面</td><td>中低</td></tr></table>
+            <br>
+            <hr>
+            <br>
+            <h2>五、芒格的最終判斷</h2>
+            <br>
+            <blockquote><b>阿里巴巴的情況很複雜。它不是一個簡單的「好生意或壞生意」的判斷——它既有好生意（阿里雲、支付生態），也有正在變差的生意（電商）。當一家公司同時包含應當買入的和應當賣出的業務時，最理性的做法是：不買這家公司，而是隻買你想要的那部分。但這在阿里的案例中做不到——你必須買下整個包裹。這讓我不舒服。</b></blockquote>
+            <br>
+            <h3>買入前三個問題</h3>
+            <li>❓ <b>看得懂？</b>→ 看得懂一部分，但不是全部</li>
+            <li>❌ <b>有護城河？</b>→ 電商在變窄，雲端運算在變寬——淨效果不確定</li>
+            <li>✅ <b>價格合理？</b>→ PB 0.22 確實便宜，但需判斷是否為價值陷阱</li>
+            <br>
+            <blockquote><b>兩個半「是」→只能算「值得跟蹤」的標的。不是最令人信服的機會，但也不是應該完全忽略的。</b></blockquote>
+            <br>
+            <p>芒格風格結論</p>
+            <br>
+            <p>*報告日期：2026年7月7日*</p>
+            <br>
+        </div>
+    </div>
+
+    <div id="tab5" class="tab-content">
+        <div class="card">
+            <div class="role-header">
+                <div class="role-icon">⚠️</div>
+                <div class="role-info">
+                    <h2>風險評估 — 李錄視角</h2>
+                    <div class="role-desc">「安全邊際是一切投資的基石」 | 聚焦風險矩陣、情景分析與安全邊際</div>
+                </div>
+            </div>
+            <h1>阿里巴巴風險評估報告 — 李錄視角</h1>
+            <br>
+            <h2>一、風險全景矩陣</h2>
+            <br>
+            <p>李錄的投資哲學核心是「確定性優先」——先問「會虧多少錢」和「確定性有多高」。</p>
+            <br>
+            <table><tr><th>風險類別</th><th>風險等級</th><th>機率</th><th>影響</th></tr><tr><td>電商競爭惡化</td><td>🔴 高</td><td>高</td><td>大</td></tr><tr><td>營業費用失控</td><td>🔴 高</td><td>中高</td><td>大</td></tr><tr><td>負自由現金流</td><td>🔴 高</td><td>高</td><td>中大</td></tr><tr><td>中概股下市</td><td>🟡 中</td><td>低中</td><td>極大</td></tr><tr><td>監管政策風險</td><td>🟡 中</td><td>中</td><td>中大</td></tr><tr><td>管理層動盪</td><td>🟡 中</td><td>中</td><td>中</td></tr><tr><td>AI 投入回報不確定</td><td>🟡 中</td><td>中</td><td>中</td></tr><tr><td>螞蟻集團價值歸零</td><td>🟡 中</td><td>低</td><td>中大</td></tr></table>
+            <br>
+            <hr>
+            <br>
+            <h2>二、頂級風險深度分析</h2>
+            <br>
+            <h3>風險1：電商競爭惡化（🔴 高）</h3>
+            <p><b>現狀：</b>阿里從70%+份額降至35-40%。拼多多在低價領域優勢幾乎不可動搖，抖音在內容電商持續高成長。</p>
+            <p><b>最佳情況：</b>三方達到「納許均衡」——各自守著自己最擅長的領域。</p>
+            <p><b>最差情況：</b>阿里份額持續下滑至20-25%，電商業務變成「低利潤＋低成長」的公用事業。</p>
+            <br>
+            <h3>風險2：SG&A失控（🔴 高）</h3>
+            <p>SFY2026 銷售及管理費用暴增，導致營業利益率從歷史 20%+ 驟降至 4.90%。如果是為了防止既有客戶流失而增加投入（阿里目前的情況更接近後者），那麼這就是「割肉補瘡」。</p>
+            <br>
+            <h3>風險3：負自由現金流（🔴 高）</h3>
+            <p>FCF = -¥49,850百萬（CapEx ¥126,063百萬）。一家年營收~1萬億的成熟公司出現負自由現金流，是一個非常危險的訊號。如果每年燒¥500億，淨現金¥569億只能撐1年多。</p>
+            <br>
+            <h3>風險4：中概股退市風險（🟡 中）</h3>
+            <p>PCAOB 審計檢查在 2022-2023 年取得進展，但 2026 年中美關係不確定性增加。退市風險不等於公司風險——但會嚴重影響股價和流動性。</p>
+            <br>
+            <h3>風險5：管理層動盪（🟡 中）</h3>
+            <p>3年3換核心管理層。頻繁換帥說明阿里還沒找到「後馬雲時代」的穩定治理結構。</p>
+            <br>
+            <hr>
+            <br>
+            <h2>三、情境分析</h2>
+            <br>
+            <table><tr><th>情境</th><th>機率</th><th>條件</th><th>結果（股價）</th><th>年化報酬</th></tr><tr><td><b>樂觀</b></td><td>20%</td><td>競爭格局穩定，SG&A大降，阿里雲高增長</td><td>~$55（+120%）</td><td>~30%</td></tr><tr><td><b>基準</b></td><td>50%</td><td>電商緩慢被侵蝕但可控，阿里雲穩健增長</td><td>~$30-35（+33-55%）</td><td>~10-15%</td></tr><tr><td><b>悲觀</b></td><td>25%</td><td>電商份額大幅下滑，SG&A持續高企</td><td>~$15-19（-15%到+5%）</td><td>-5%到+2%</td></tr><tr><td><b>極端</b></td><td>5%</td><td>下市＋電商崩潰＋管理層失控</td><td>~$4-7（-70%）</td><td>深度虧損</td></tr></table>
+            <br>
+            <hr>
+            <br>
+            <h2>四、安全邊際計算</h2>
+            <br>
+            <h3>方法1：清算價值法（最保守）</h3>
+            <p>淨現金（打3折）：¥200億 + 阿里雲（PS 4x）：¥4000億 + 電商（EBITDA 6x）：¥4800億 = ~US$120B</p>
+            <p>目前市值：約 2,250 億美元 →<b>安全邊際：負值（-87%）——不安全</b></p>
+            <br>
+            <h3>方法2：正常化盈利法（中等保守）</h3>
+            <p>假設正常化淨利：¥1200億，PE 18x = ¥21600億 ≈ US$296B</p>
+            <p>目前市值：約 US$225B →<b>安全邊際：31%——可接受</b></p>
+            <br>
+            <h3>方法3：分拆價值法（最樂觀）</h3>
+            <p>阿里雲$82B + 螞蟻持股$30-50B + 電商$164B + 其他$30B = $306-326B</p>
+            <p>目前市值：約 $225B →<b>安全邊際：36-45%——有吸引力</b></p>
+            <br>
+            <hr>
+            <br>
+            <h2>五、確定性評估</h2>
+            <br>
+            <table><tr><th>確定性維度</th><th>評分（1-10）</th></tr><tr><td>阿里雲增長確定性</td><td>7/10</td></tr><tr><td>電商競爭力確定性</td><td>4/10</td></tr><tr><td>管理層戰略確定性</td><td>3/10</td></tr><tr><td>現金流穩定性</td><td>5/10</td></tr><tr><td>監管環境確定性</td><td>5/10</td></tr><tr><td><b>綜合確定性評分</b></td><td><b>5/10（中等偏低）</b></td></tr></table>
+            <br>
+            <p><b>李錄的確定性原則：</b>只有當確定性≥7/10時，才適合作為核心持倉。確定性在4-6/10之間，只適合作為「觀察倉位」（≤3-5%）。</p>
+            <br>
+            <hr>
+            <br>
+            <h2>六、總結與投資建議</h2>
+            <br>
+            <table><tr><th>總風險等級</th><td>🟡 中等偏高</td></tr><tr><th>核心風險</th><td>電商競爭惡化、SG&A失控、負FCF</td></tr><tr><th>最大下行風險</th><td>-70%（極端情景）</td></tr><tr><th>基準下行風險</th><td>-15%到+5%</td></tr><tr><th>安全邊際</th><td>31%（正常化盈利法）</td></tr><tr><th>確定性</th><td>5/10</td></tr></table>
+            <br>
+            <blockquote><b>阿里巴巴是一個「低確定性＋中等安全邊際」的標的。它的風險更多來自競爭結構和戰略執行，而不是估值泡沫。李錄最核心的原則是：沒有足夠確定性的時候，再便宜也不能重倉。阿里當前的股價 $25 似乎很便宜——但如果在 5 年後它變成了 $15，今天的「便宜」就不存在了。我需要看到更清晰的確定性信號——自由現金流轉正、SG&A 下降、競爭格局穩定——才會把它納入核心持倉。</b></blockquote>
+            <br>
+            <h3>投資建議</h3>
+            <br>
+            <p><b>倉位建議：</b></p>
+            <li>核心持倉（>10%）：❌ 不推薦——確定性不夠</li>
+            <li>輔助倉位（3-5%）：可小倉位建倉 ✅ 但需嚴格監控</li>
+            <li>觀察倉位（<3%）：✅ 适合当前阶段</li>
+            <br>
+            <p><b>建倉策略：</b></p>
+            <li>首次建倉：$22-25（當前區間），不超過總倉位2%</li>
+            <li>加倉條件：自由現金流轉正 / 銷售及管理費用連續下降2季度 / 管理層發布清晰3年戰略</li>
+            <li>止損條件：股價跌破$15 / 自由現金流連續4季度為負</li>
+            <br>
+            <p>——李錄風格結論</p>
+            <br>
+            <p>*報告日期：2026年7月7日*</p>
+            <br>
+        </div>
+    </div>
+
+</div>
+
+<div class="footer">
+    <p>© 2026 Team Lead — 四角色並行分析（段永平 · 巴菲特 · 蒙格 · 李錄）</p>
+    <p>免責聲明：本報告僅供投資研究參考，不構成任何投資建議。投資有風險，入市需謹慎。</p>
+</div>
+
+<script>
+function switchTab(event, tabId) {
+    // Hide all tab contents
+    document.querySelectorAll('.tab-content').forEach(function(el) {
+        el.classList.remove('active');
+    });
+    // Deactivate all tabs
+    document.querySelectorAll('.tab').forEach(function(el) {
+        el.classList.remove('active');
+    });
+    // Show selected tab content
+    document.getElementById(tabId).classList.add('active');
+    // Activate clicked tab
+    event.currentTarget.classList.add('active');
+}
+</script>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>簡</span><span class="full"><span>簡體中文</span></span></a><a class="lang hant active" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

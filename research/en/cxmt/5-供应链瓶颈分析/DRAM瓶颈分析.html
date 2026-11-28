@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>China DRAM Supply Chain Bottleneck Analysis — ChangXin Memory Technologies Perspective</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a2e;
+    --muted: #555;
+    --border: #d0d5dd;
+    --accent: #1a56db;
+    --accent-light: #eef2ff;
+    --bg-table-alt: #f8f9fc;
+    --tag-green: #059669;
+    --tag-red: #dc2626;
+    --tag-orange: #d97706;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    background: #f2f4f8;
+    color: var(--text);
+    line-height: 1.7;
+    padding: 2rem 1rem;
+  }
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  /* ---- Cover / Header ---- */
+  .report-header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+  }
+  .report-header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .report-header .meta {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-top: 0.25rem;
+  }
+  .report-header .meta strong { color: #cbd5e1; }
+  /* ---- Section ---- */
+  .section {
+    background: var(--bg);
+    border-radius: 10px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow);
+  }
+  .section h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent);
+    border-left: 4px solid var(--accent);
+    padding-left: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .section h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #374151;
+    margin: 1rem 0 0.5rem;
+  }
+  .section h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #4b5563;
+    margin: 0.75rem 0 0.25rem;
+  }
+  .section p { margin-bottom: 0.6rem; }
+  .section ul, .section ol { padding-left: 1.5rem; margin-bottom: 0.6rem; }
+  .section li { margin-bottom: 0.2rem; }
+  /* ---- Confirmation table (超级趋势) ---- */
+  .confirm-table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.9rem; }
+  .confirm-table th, .confirm-table td { border: 1px solid var(--border); padding: 0.5rem 0.75rem; text-align: center; vertical-align: middle; }
+  .confirm-table th { background: var(--accent-light); color: var(--accent); font-weight: 600; }
+  .confirm-table td:first-child { font-weight: 500; white-space: nowrap; }
+  .confirm-table .tag-yes { display: inline-block; background: #d1fae5; color: var(--tag-green); font-size: 0.8rem; font-weight: 600; padding: 1px 8px; border-radius: 4px; }
+  /* ---- Bottleneck tables ---- */
+  .bottleneck-table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.88rem; }
+  .bottleneck-table th, .bottleneck-table td { border: 1px solid var(--border); padding: 0.5rem 0.7rem; text-align: left; vertical-align: top; }
+  .bottleneck-table th { background: var(--accent-light); color: var(--accent); font-weight: 600; text-align: center; }
+  .bottleneck-table td:nth-child(1),
+  .bottleneck-table td:nth-child(2) { text-align: center; white-space: nowrap; }
+  .bottleneck-table tr:nth-child(even) { background: var(--bg-table-alt); }
+  /* ---- Investment table ---- */
+  .invest-table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.88rem; }
+  .invest-table th, .invest-table td { border: 1px solid var(--border); padding: 0.5rem 0.7rem; text-align: center; vertical-align: middle; }
+  .invest-table th { background: var(--accent-light); color: var(--accent); font-weight: 600; }
+  .invest-table tr:nth-child(even) { background: var(--bg-table-alt); }
+  .star { color: #f59e0b; letter-spacing: 1px; }
+  /* ---- Code block (supply chain tree) ---- */
+  .tree-block {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    font-family: "SF Mono", "Menlo", "Monaco", "Consolas", "Liberation Mono", monospace;
+    font-size: 0.82rem;
+    line-height: 1.65;
+    white-space: pre;
+    overflow-x: auto;
+    margin: 0.5rem 0;
+    color: #1e293b;
+  }
+  /* ---- Path analysis ---- */
+  .path-item { margin: 0.4rem 0; font-size: 0.92rem; }
+  .path-item .icon-yes { color: var(--tag-green); margin-right: 0.3rem; }
+  .path-item .icon-no  { color: var(--tag-red); margin-right: 0.3rem; }
+  .path-item .icon-warn { color: var(--tag-orange); margin-right: 0.3rem; }
+  /* ---- Tags ---- */
+  .tag-s { display: inline-block; background: #fef2f2; color: var(--tag-red); font-size: 0.75rem; font-weight: 700; padding: 1px 10px; border-radius: 4px; margin-right: 4px; }
+  .tag-a { display: inline-block; background: #fffbeb; color: var(--tag-orange); font-size: 0.75rem; font-weight: 700; padding: 1px 10px; border-radius: 4px; margin-right: 4px; }
+  .tag-b { display: inline-block; background: #eef2ff; color: var(--accent); font-size: 0.75rem; font-weight: 700; padding: 1px 10px; border-radius: 4px; margin-right: 4px; }
+  /* ---- Separator ---- */
+  .section hr { border: none; border-top: 1px solid var(--border); margin: 1rem 0; }
+  /* ---- Data source ---- */
+  .data-source { font-size: 0.82rem; color: var(--muted); margin-top: 0.75rem; text-align: right; border-top: 1px solid var(--border); padding-top: 0.6rem; }
+  /* ---- Notes / caution ---- */
+  .note-box {
+    background: #fef9c3;
+    border-left: 4px solid var(--tag-orange);
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+  .key-finding {
+    background: var(--accent-light);
+    border-left: 4px solid var(--accent);
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+  @media (max-width: 640px) {
+    body { padding: 1rem 0.5rem; }
+    .report-header { padding: 1.5rem 1rem; }
+    .report-header h1 { font-size: 1.3rem; }
+    .section { padding: 1.25rem 1rem; }
+    .bottleneck-table { font-size: 0.82rem; }
+    .bottleneck-table th, .bottleneck-table td { padding: 0.35rem 0.4rem; }
+    .confirm-table { font-size: 0.82rem; }
+    .confirm-table th, .confirm-table td { padding: 0.35rem 0.4rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ==================== HEADER ==================== -->
+<div class="report-header">
+  <h1>China DRAM Supply Chain Bottleneck Analysis</h1>
+  <div class="meta">A view from ChangXin Technology ·<strong>Analysis date:</strong>2026-07-19</div>
+</div>
+
+<!-- ==================== 一、超级趋势确认 ==================== -->
+<div class="section">
+  <h2>I. Super-trend confirmed: AI and localization as twin drivers</h2>
+  <table class="confirm-table">
+    <thead><tr><th>Standard</th><th>Verify</th></tr></thead>
+    <tbody>
+      <tr><td>Durability (3-5 years)</td><td><span class="tag-yes">✅</span>Sustained growth in AI inference demand + rising China semiconductor self-sufficiency</td></tr>
+      <tr><td>Physical (requires hardware buildout)</td><td><span class="tag-yes">✅</span>Fab construction, equipment procurement and capacity ramp-up are all physical investments</td></tr>
+      <tr><td>Scale (Capex > USD 50 billion/year)</td><td><span class="tag-yes">✅</span>Combined annual capex at Samsung/SK hynix/Micron exceeds USD 60 billion + China equipment purchases</td></tr>
+      <tr><td>Acceleration (demand > supply)</td><td><span class="tag-yes">✅</span>DRAM supply-demand is expected to remain tight through 2025-2027 (HBM consumes substantial capacity)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== 二、供应链物理拆解 ==================== -->
+<div class="section">
+  <h2>II. Physical breakdown of the DRAM supply chain</h2>
+  <div class="tree-block">Layer 0 (end devices): AI servers / PCs / smartphones / automobiles / data centers
+Layer 1 (core): DRAM chips (DDR4/DDR5/LPDDR/HBM)
+Layer 2 (key scan area):
+  ├─ Silicon wafers (300mm polished wafers/epitaxial wafers)
+  ├─ Photoresist (ArF/KrF)
+  ├─ Specialty gases (high-purity NF3/WF6/Xe)
+  ├─ CMP slurry/pads
+  ├─ Targets (high-purity metals)
+  ├─ Photomasks/masks
+  └─ Advanced packaging substrates
+Layer 3 (upstream equipment):
+  ├─ EUV lithography machines ←<strong>Biggest bottleneck</strong>├─ DUV lithography (ArFi)
+  ├─ Etch equipment (dielectric/conductor)
+  ├─ Thin-film deposition (ALD/CVD/PVD)
+  ├─ Ion implantation
+  ├─ Inspection/metrology equipment (KLA critical)
+  └─ CMP equipment
+Layer 4 (infrastructure):
+  ├─ Cleanroom construction
+  ├─ Power supply (fabs are extremely power-hungry)
+  ├─ Ultrapure water systems
+  └─ Technical talent (DRAM R&D engineers extremely scarce)</div>
+</div>
+
+<!-- ==================== 三、瓶颈识别 ==================== -->
+<div class="section">
+  <h2>III. Bottleneck identification</h2>
+
+  <h3>S-tier bottleneck (single point of failure level)</h3>
+  <table class="bottleneck-table">
+    <thead><tr><th>#</th><th>Segment</th><th>Reasons</th><th>Impact on CXMT</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag-s">S</span></td><td><strong>EUV lithography machines</strong></td><td>Only ASML can produce it globally, and US export controls prohibit selling it to China</td><td>Cannot enter the 1α nm class; the long-term technology gap cannot be closed</td></tr>
+      <tr><td><span class="tag-s">S</span></td><td><strong>DRAM talent</strong></td><td>Fewer than 5,000 engineers worldwide have DRAM mass-production experience, and Samsung/SK hynix/Micron have locked them up</td><td>Technological breakthroughs depend on talent; CXMT faces litigation risk from former Samsung employees</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Tier A bottleneck (severely constrained)</h3>
+  <table class="bottleneck-table">
+    <thead><tr><th>#</th><th>Segment</th><th>Reasons</th><th>Impact on CXMT</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag-a">A</span></td><td><strong>Advanced photoresist</strong></td><td>Japan's JSR, TOK and Shin-Etsu monopolize ArF photoresist; domestic substitutes fall short on purity</td><td>Constraints on advanced-node yield improvement</td></tr>
+      <tr><td><span class="tag-a">A</span></td><td><strong>Inspection and metrology equipment</strong></td><td>KLA holds a >70% share of the DRAM inspection market, subject to export controls</td><td>Affects mass-production yield control and process tuning</td></tr>
+      <tr><td><span class="tag-a">A</span></td><td><strong>HBM packaging</strong></td><td>SK hynix leads CXMT by 2-3 years; the TSV+MR-MUF technology bar is extremely high</td><td>Missed the core incremental market of this AI cycle</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Tier B bottleneck (under pressure but manageable)</h3>
+  <table class="bottleneck-table">
+    <thead><tr><th>#</th><th>Segment</th><th>Reason</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag-b">B</span></td><td><strong>300mm silicon wafers</strong></td><td>Shin-Etsu/SUMCO hold a global share of &gt;50%; China's National Silicon Industry Group has not yet reached mass-production scale</td></tr>
+      <tr><td><span class="tag-b">B</span></td><td><strong>CMP equipment</strong></td><td>AMAT remains necessary for advanced nodes despite Huahai Qingke's supply capability</td></tr>
+      <tr><td><span class="tag-b">B</span></td><td><strong>IC substrate</strong></td><td>Japan's Ibiden and Taiwan's Unimicron lead, with China's Shennan Circuits catching up</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== 四、国产替代路径分析 ==================== -->
+<div class="section">
+  <h2>IV. Analysis of China's DRAM domestic substitution path</h2>
+
+  <h3>Path A (normal path, current state)</h3>
+  <p>DUV ArFi + multiple patterning → closing in on ~1α nm (expected 2027-2028)</p>
+  <div class="path-item"><span class="icon-yes">✅</span>No EUV needed</div>
+  <div class="path-item"><span class="icon-no">❌</span>High process complexity, low yield, high cost</div>
+  <div class="path-item"><span class="icon-no">❌</span>Investment per 10,000 wafers of capacity is 30-50% higher than the EUV approach</div>
+
+  <h3>Path B (sanctions escalation path)</h3>
+  <p>If added to the Entity List, DUV supply would also be cut off:</p>
+  <div class="path-item"><span class="icon-no">❌</span>DUV is also restricted → no capacity expansion at the 17nm node</div>
+  <div class="path-item"><span class="icon-no">❌</span>Existing fabs are difficult to maintain (spare parts supply cut off)</div>
+  <div class="path-item"><span class="icon-warn">⚠️</span>It can only rely on second-hand equipment, reverse engineering and domestic substitute equipment; technological iteration has essentially stalled.</div>
+
+  <h3>Path C (breakthrough path)</h3>
+  <p>Domestic EUV achieves a breakthrough (expected after 2030):</p>
+  <div class="path-item"><span class="icon-yes">✅</span>The technology gap can be closed</div>
+  <div class="path-item"><span class="icon-warn">⚠️</span>The time window is too long (4+ years); by then the three giants will have moved to more advanced nodes</div>
+</div>
+
+<!-- ==================== 五、与德明利联动 ==================== -->
+<div class="section">
+  <h2>V. Linkage with Demingli (001309.SZ)</h2>
+
+  <div class="key-finding"><strong>Key findings:</strong>Although Demingli focuses on NAND flash modules, it still:</div>
+
+  <ol>
+    <li><strong>DRAM module business</strong>: If CXMT's DRAM capacity continues to expand, Demingli can purchase CXMT DRAM dies as a downstream module maker</li>
+    <li><strong>Complementary supply chains</strong>: ChangXin Memory Technologies supplies DRAM dies (upstream); Demingli turns them into memory modules (midstream)</li>
+    <li><strong>Domestic substitution chain</strong>: CXMT DRAM + Demingli modules = a complete domestic storage solution</li>
+    <li><strong>Competitive dynamics</strong>: Demingli's competitors Longsys and Biwin are also CXMT customers; CXMT does not take sides</li>
+  </ol>
+
+  <div class="note-box">
+    <strong>But note:</strong>Demingli's current business is mainly NAND (flash memory), with a limited share of DRAM modules. The direct pull-through effect of ChangXin Memory Technologies' capacity expansion on Demingli may be overstated.</div>
+</div>
+
+<!-- ==================== 六、投资机会总结 ==================== -->
+<div class="section">
+  <h2>VI. Summary of investment opportunities</h2>
+
+  <table class="invest-table">
+    <thead><tr><th>Ranking</th><th>Bottleneck segments</th><th>Investment target</th><th>Signal strength</th><th>Valuation</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>DRAM manufacturing</td><td>ChangXin Technology (STAR Market IPO in progress)</td><td class="star">★★★★</td><td>Elevated (308x PE)</td></tr>
+      <tr><td>2</td><td>Etching equipment</td><td>AMEC (688012.SH)</td><td class="star">★★★★</td><td>Reasonable</td></tr>
+      <tr><td>3</td><td>Thin-film deposition equipment</td><td>NAURA Technology (002371.SZ)</td><td class="star">★★★★</td><td>Reasonably expensive</td></tr>
+      <tr><td>4</td><td>CMP equipment</td><td>Hwatsing Technology (688120.SH)</td><td class="star">★★★</td><td>On the expensive side</td></tr>
+      <tr><td>5</td><td>Test equipment</td><td>Accotest (688200.SH)</td><td class="star">★★★</td><td>Reasonable</td></tr>
+      <tr><td>6</td><td>Memory modules</td><td>Demingli (001309.SZ)</td><td class="star">★★★</td><td>To be analyzed</td></tr>
+    </tbody>
+  </table>
+
+  <div class="data-source">Data sources: 36Kr, Wikipedia, Omdia, Semianalysis, company filings</div>
+</div>
+
+</div>
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

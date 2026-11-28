@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7-Earnings Deep Dive — Pinduoduo FY2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, 'Helvetica Neue', sans-serif;
+    background: #f4f6f9;
+    color: #1a1a2e;
+    line-height: 1.8;
+    font-weight: 400;
+  }
+  .header {
+    background: linear-gradient(135deg, #1A4B8C 0%, #2a6cb8 100%);
+    color: #fff;
+    padding: 48px 0 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #e74c3c, #c0392b, #e74c3c);
+  }
+  .header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(4px);
+    padding: 4px 18px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+  }
+  .header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+  }
+  .header .subtitle {
+    font-size: 1rem;
+    opacity: 0.85;
+    font-weight: 300;
+  }
+  .header .meta {
+    margin-top: 18px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    padding: 32px;
+    margin-bottom: 28px;
+    border: 1px solid #eaeef3;
+  }
+  .card h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #1A4B8C;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e8edf4;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h2 .num {
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    width: 32px; height: 32px;
+    background: #1A4B8C;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 18px 0 10px;
+  }
+  .card p { margin-bottom: 12px; color: #333; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 18px;
+    font-size: 0.9rem;
+  }
+  th {
+    background: #1A4B8C;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child  { border-radius: 0 6px 0 0; }
+  td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #e8edf4;
+    text-align: center;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f7f9fc; }
+  .hl-green  { color: #27ae60; font-weight: 600; }
+  .hl-red    { color: #e74c3c; font-weight: 600; }
+  .hl-amber  { color: #e67e22; font-weight: 600; }
+  .hl-blue   { color: #1A4B8C; font-weight: 600; }
+  blockquote {
+    background: #f0f4fa;
+    border-left: 4px solid #1A4B8C;
+    padding: 14px 20px;
+    margin: 16px 0;
+    border-radius: 0 6px 6px 0;
+    color: #1a2a3a;
+    font-style: italic;
+    font-size: 0.92rem;
+  }
+  blockquote strong { color: #1A4B8C; font-style: normal; }
+  /* Signal boxes */
+  .signal-normal { background: #eafaf1; border-left: 4px solid #27ae60; padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 6px 0; font-size: 0.9rem; }
+  .signal-warn  { background: #fef9e7; border-left: 4px solid #e67e22; padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 6px 0; font-size: 0.9rem; }
+  .signal-alert { background: #fde8e8; border-left: 4px solid #e74c3c; padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 6px 0; font-size: 0.9rem; }
+  /* KPI boxes */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .kpi-box {
+    background: #f7f9fc;
+    border: 1px solid #e0e6ed;
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+  }
+  .kpi-box .num {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1A4B8C;
+  }
+  .kpi-box .label {
+    font-size: 0.75rem;
+    color: #7f8c9b;
+    margin-top: 4px;
+  }
+  .kpi-box .change {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+  .change-up   { color: #e74c3c; } /* red for financial decline */
+  .change-down { color: #27ae60; }
+  /* Change highlight */
+  .bad-up   { display:inline-block; background:#eafaf1; color:#27ae60; padding:1px 8px; border-radius:4px; font-weight:600; font-size:0.85rem; }
+  .bad-down { display:inline-block; background:#fde8e8; color:#e74c3c; padding:1px 8px; border-radius:4px; font-weight:600; font-size:0.85rem; }
+  .bad-mid  { display:inline-block; background:#fef9e7; color:#e67e22; padding:1px 8px; border-radius:4px; font-weight:600; font-size:0.85rem; }
+  .footer {
+    text-align: center;
+    padding: 24px 0;
+    color: #95a5b4;
+    font-size: 0.8rem;
+    border-top: 1px solid #e0e6ed;
+    margin-top: 12px;
+  }
+  @media (max-width: 640px) {
+    .header h1 { font-size: 1.4rem; }
+    .card { padding: 20px; }
+    table { font-size: 0.78rem; }
+    th, td { padding: 6px 8px; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="badge">📈 Earnings Deep Dive</div>
+  <h1>Pinduoduo FY2025 Annual Financial Analysis</h1>
+  <p class="subtitle">Use numbers as a mirror to test the investment thesis</p>
+  <div class="meta">
+    <span>📅 Reporting period: FY2025 (ended 12/31/2025)</span>
+    <span>📊 Data source: SEC filings</span>
+    <span>📋 Data availability:<strong style="color:#f6b26b;">Grade A</strong></span>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- ===== 一、核心数据速览 ===== -->
+<div class="card">
+  <h2><span class="num">Part One</span>Key data at a glance</h2>
+
+  <div class="kpi-grid">
+    <div class="kpi-box">
+      <div class="num">RMB 431.85 billion</div>
+      <div class="label">Total revenue CNY</div>
+      <div class="change change-up">⬆ +9.7% YoY</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">56.28%</div>
+      <div class="label">Gross margin</div>
+      <div class="change change-up">⬇ -4.64pp YoY</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">RMB 97.84 billion</div>
+      <div class="label">Net profit CNY</div>
+      <div class="change change-up">⬇ -13.0% YoY</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">RMB 105.79 billion</div>
+      <div class="label">Free cash flow CNY</div>
+      <div class="change change-up">⬇ -12.5% YoY</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">RMB 416.93 billion</div>
+      <div class="label">Net cash CNY</div>
+      <div class="change change-down">⬆ +29.9% YoY</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">1.08x</div>
+      <div class="label">FCF / net profit</div>
+      <div class="change change-down">→ Stable</div>
+    </div>
+  </div>
+
+  <table>
+    <tr><th>Indicator</th><th>FY2025</th><th>FY2024</th><th>YoY change</th><th>Judgment</th></tr>
+    <tr><td>Total revenue (RMB billion)</td><td>4,318.5</td><td>3,938.4</td><td><span class="hl-amber">+9.7%</span></td><td><span class="bad-mid">⚠️ Growth hits a record low</span></td></tr>
+    <tr><td>Gross margin</td><td>56.28%</td><td>60.92%</td><td><span class="hl-red">-4.64pp</span></td><td><span class="bad-down">🔴 Continued decline</span></td></tr>
+    <tr><td>Operating profit (RMB billion)</td><td>931.0</td><td>1,084.2</td><td><span class="hl-red">-14.1%</span></td><td><span class="bad-down">🔴 First decline</span></td></tr>
+    <tr><td>Net profit (RMB 100 million)</td><td>978.4</td><td>1,124.4</td><td><span class="hl-red">-13.0%</span></td><td><span class="bad-down">🔴 First decline</span></td></tr>
+    <tr><td>Operating cash flow (RMB 100 million)</td><td>1,069.4</td><td>1,219.3</td><td><span class="hl-amber">-12.3%</span></td><td><span class="bad-mid">⚠️ Slightly lower but still elevated</span></td></tr>
+    <tr><td>Free cash flow (RMB 100 million)</td><td>1,057.9</td><td>1,209.6</td><td><span class="hl-amber">-12.5%</span></td><td><span class="bad-mid">⚠️</span></td></tr>
+    <tr><td>FCF/net profit</td><td>1.08x</td><td>1.08x</td><td>Stable</td><td><span class="bad-up">✅ Good profit quality</span></td></tr>
+    <tr style="background:#eafaf1;"><td><strong>Net cash (RMB billion)</strong></td><td><strong>4,169.3</strong></td><td><strong>3,209.5</strong></td><td><strong><span class="hl-green">+29.9%</span></strong></td><td><span class="bad-up">✅ Cash keeps accumulating</span></td></tr>
+  </table>
+
+  <p style="font-size:1rem; font-weight:600; margin-top:12px; padding:12px; background:#f0f4fa; border-radius:6px;">One-line summary: revenue growth slowed to single digits and profit fell for the first time—but FCF still exceeded RMB 100 billion, and cash continued to pile up.</p>
+</div>
+
+<!-- ===== 二、本期最重要的3个变化 ===== -->
+<div class="card">
+  <h2><span class="num">Two</span>The 3 most important changes this period</h2>
+
+  <h3>Change 1: Growth engine stalls — from +59% to +9.7%</h3>
+  <p>FY2024 still had 59% revenue growth; by FY2025 only 9.7% remained. China's domestic e-commerce market is saturated, and Pinduoduo's user penetration has peaked.</p>
+  <div class="signal-warn">
+    <strong>Impact</strong>: The market has already completed its downward revision of Pinduoduo's growth expectations—the PE has fallen from over 30x in the past to 9x now, already pricing in a "zero growth" expectation.</div>
+
+  <h3>Change 2: The "structural decline" in gross margin</h3>
+  <p>Gross margin fell from 75.9% (2022) to 56.3% (2025), a drop of nearly 20 percentage points over four years. But this is<strong>Structural</strong>Rather than<strong>Deteriorating operations</strong>—Because the low-margin Temu business accounts for a growing share, it "drags down" the overall gross margin.</p>
+  <div class="signal-normal">
+    <strong>Key distinction</strong>：<br>• Gross margin at the domestic main site remains very high (estimated ~70%+)<br>• Temu's gross margin is low (estimated ~30-40%, under the fully managed model)<br>• The decline in blended gross margin is a "mix effect," not a "loss of pricing power"</div>
+
+  <h3>Change 3: Net profit falls for the first time, but FCF remains strong</h3>
+  <p>Net profit fell from RMB 112.4 billion to RMB 97.8 billion (-13%), but FCF/net profit = 1.08x, indicating:</p>
+  <ul style="padding-left:20px; margin:10px 0; line-height:2;">
+    <li>The profit decline is real (not an accounting adjustment)</li>
+    <li>But earnings quality remains high—every dollar of profit converted into cash collected.</li>
+    <li>The decline was mainly due to slowing revenue growth and investment in Temu.</li>
+  </ul>
+</div>
+
+<!-- ===== 三、管理层语气与承诺追踪 ===== -->
+<div class="card">
+  <h2><span class="num">Three</span>Management tone and commitment tracking</h2>
+  <p>Pinduoduo management's style in earnings reports and calls has consistently been<strong>Low-key, direct, no overpromising</strong>：</p>
+  <table>
+    <tr><th>Commitment</th><th>Delivered</th><th>Rating</th></tr>
+    <tr><td>"will continue to invest in agriculture"</td><td><span class="hl-green">✅ Continued progress</span></td><td>Deliver on promises</td></tr>
+    <tr><td>"Temu is in an early investment phase"</td><td><span class="hl-green">✅ Stated as fact</span></td><td>No exaggeration</td></tr>
+    <tr><td>"will optimize shareholder returns"</td><td><span class="hl-amber">⚠️ Small-scale buyback has begun</span></td><td>Not forceful enough</td></tr>
+  </table>
+  <p><strong>Management tone</strong>Pragmatic, conservative, no noise. That is a plus in a high-uncertainty environment—at least it does not give the market false expectations.</p>
+</div>
+
+<!-- ===== 四、附注中的隐藏信息 ===== -->
+<div class="card">
+  <h2><span class="num">Four</span>Hidden information in the notes</h2>
+
+  <h3>4.1 Share-based compensation (SBC)</h3>
+  <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr);">
+    <div class="kpi-box">
+      <div class="num">RMB 7.937 billion</div>
+      <div class="label">SBC (CNY)</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">8.1%</div>
+      <div class="label">Share of net profit</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">Controllable</div>
+      <div class="label">Judgment</div>
+    </div>
+  </div>
+  <div class="signal-normal">Within a manageable scope, Pinduoduo runs a "small team plus high pay" model.</div>
+
+  <h3>4.2 Investment income</h3>
+  <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr);">
+    <div class="kpi-box">
+      <div class="num">RMB 25.58 billion</div>
+      <div class="label">Interest income (CNY)</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">21%</div>
+      <div class="label">As a share of pre-tax profit</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">⚠️ Passive income</div>
+      <div class="label">Risk factors</div>
+    </div>
+  </div>
+  <div class="signal-warn"><strong>Focus</strong>: Interest income accounts for a high share of profit (21%), meaning a considerable portion of profit comes from passive returns on cash—if interest rates fall, this portion of profit will be squeezed.</div>
+
+  <h3>4.3 Effective tax rate</h3>
+  <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr);">
+    <div class="kpi-box">
+      <div class="num">18.19%</div>
+      <div class="label">FY2025 effective tax rate</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">15.27%</div>
+      <div class="label">FY2024 effective tax rate</div>
+    </div>
+    <div class="kpi-box">
+      <div class="num">+2.92pp</div>
+      <div class="label">Year-on-year change</div>
+    </div>
+  </div>
+  <div class="signal-alert">Higher tax rates eroded some profit. Watch whether the rise becomes a trend.</div>
+</div>
+
+<!-- ===== 五、异常信号检测 ===== -->
+<div class="card">
+  <h2><span class="num">Five</span>Anomaly signal detection</h2>
+  <table>
+    <tr><th>Checklist</th><th>Results</th><th>Explanation</th></tr>
+    <tr><td><strong style="color:#e74c3c;">⚠️ Caution:</strong>Receivables growth > revenue growth</td><td><span class="hl-green">✅ Normal</span></td><td>Accounts receivable RMB 5,109 million vs revenue RMB 431,846 million, a minimal share</td></tr>
+    <tr><td><strong style="color:#e74c3c;">⚠️ Caution:</strong>Inventory growth > revenue growth</td><td><span class="hl-green">✅ Normal</span></td><td>The platform model has no inventory problem</td></tr>
+    <tr><td><strong style="color:#e74c3c;">⚠️ Caution:</strong>Operating cash flow &lt; net profit</td><td><span class="hl-green">✅ Normal</span></td><td>FCF/net profit = 1.08x, very healthy</td></tr>
+    <tr><td><strong style="color:#e74c3c;">⚠️ Caution:</strong>Capex spike</td><td><span class="hl-green">✅ Normal</span></td><td>CapEx only RMB 1.145 billion, 0.27% of revenue</td></tr>
+    <tr><td><strong style="color:#e74c3c;">⚠️ Caution:</strong>Rising share of non-recurring gains</td><td><span class="hl-green">✅ Normal</span></td><td>Stable profit structure</td></tr>
+  </table>
+  <div class="signal-normal" style="margin-top:12px;">
+    <strong>No clear financial anomaly signals identified.</strong>Pinduoduo's financials are clean and simple, with no complex financial instruments or hidden debt.</div>
+</div>
+
+<!-- ===== 六、与投资论文的关系 ===== -->
+<div class="card">
+  <h2><span class="num">Six</span>Relationship to the investment thesis</h2>
+  <table>
+    <tr><th>Key points of the paper</th><th>Earnings validation</th><th>Impact</th></tr>
+    <tr><td>A great business (king of efficiency)</td><td><span class="hl-green">✅ Confirmation</span></td><td>Operating efficiency remains industry-leading</td></tr>
+    <tr><td>Low-valuation margin of safety</td><td><span class="hl-green">✅ Confirmed</span></td><td>PE ~9x, net cash/market cap 50%+</td></tr>
+    <tr><td>Temu option value</td><td><span class="hl-amber">⚠️ To be verified</span></td><td>Temu remains in its investment phase; its financials are not disclosed separately</td></tr>
+    <tr><td>Excellent management</td><td><span class="hl-green">✅ Confirmed</span></td><td>Execution steady, no negatives</td></tr>
+  </table>
+</div>
+
+<!-- ===== 七、结论 ===== -->
+<div class="card" style="background:#f0f4fa; border:1px solid #d0d8e3;">
+  <h2><span class="num">Seven</span>Conclusion</h2>
+
+  <p style="font-size:1.05rem; margin-bottom:16px;">Is this earnings report "below expectations or in line"—in reality, no one holds high growth expectations for Pinduoduo anymore.</p>
+
+  <div style="display:flex; align-items:center; gap:12px; background:#fff; padding:16px; border-radius:8px; margin-bottom:16px; border-left:4px solid #f1c40f;">
+    <span style="font-size:1.5rem;">🟡</span>
+    <div>
+      <strong>Impact on the investment thesis: minimal</strong><br>
+      <span style="font-size:0.9rem; color:#555;">The core thesis remains intact; only the slowdown is persisting.</span>
+    </div>
+  </div>
+
+  <h3>The next catalyst to watch</h3>
+  <ol style="padding-left:20px; margin:10px 0; line-height:2.2;">
+    <li><strong>FY2026Q1/Q2</strong>— Has revenue growth stabilised</li>
+    <li><strong>Temu</strong>— Whether independent financial data is disclosed (or at least the loss trend is given)</li>
+    <li><strong>Share buyback</strong>— Will management step up buybacks?</li>
+  </ol>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:16px;">
+    <div style="background:#eafaf1; border-radius:8px; padding:16px; text-align:center;">
+      <div style="font-size:0.8rem; color:#7f8c9b;">If you already hold</div>
+      <div style="font-size:1.1rem; font-weight:700; color:#27ae60;">✅ Hold</div>
+      <div style="font-size:0.78rem; color:#555;">Undervaluation is not a reason to sell</div>
+    </div>
+    <div style="background:#fef9e7; border-radius:8px; padding:16px; text-align:center;">
+      <div style="font-size:0.8rem; color:#7f8c9b;">Conditions for adding to the position</div>
+      <div style="font-size:1.1rem; font-weight:700; color:#e67e22;">⏳ Waiting</div>
+      <div style="font-size:0.78rem; color:#555;">Temu trend clearer; share price may be falling on non-fundamental factors</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Report generated: 2026/07/05<br>Data source: stockanalysis.com/stocks/pdd/financials/</div>
+
+</div>
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

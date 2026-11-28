@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>騰訊產業鏈上下游地圖</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f7fa; color: #333; line-height: 1.8; font-size: 15px; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 50px 0 40px; text-align: center; }
+.header h1 { font-size: 28px; font-weight: 900; letter-spacing: 1px; margin-bottom: 8px; }
+.header .subtitle { font-size: 16px; font-weight: 300; opacity: 0.85; }
+.container { max-width: 1000px; margin: 0 auto; padding: 30px 24px; }
+.card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 32px 36px; margin-bottom: 28px; }
+.card h2 { font-size: 22px; font-weight: 700; color: #1A4B8C; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid #1A4B8C; display: inline-block; }
+.card h3 { font-size: 17px; font-weight: 600; color: #2c3e50; margin: 20px 0 10px; }
+.card p { margin-bottom: 12px; color: #444; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+thead th { background: #1A4B8C; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
+thead th:first-child { border-radius: 6px 0 0 0; }
+thead th:last-child { border-radius: 0 6px 0 0; }
+tbody td { padding: 10px 12px; border-bottom: 1px solid #e8ecf1; }
+tbody tr:nth-child(even) { background: #f8f9fb; }
+.table-wrap { overflow-x: auto; margin: 16px 0; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; }
+
+/* Chain Flow Visual */
+.chain-flow { display: flex; align-items: stretch; gap: 20px; margin: 30px 0; }
+.chain-col { flex: 1; border-radius: 12px; padding: 20px; min-height: 300px; }
+.chain-col.upstream { background: #E8F5E9; border: 2px solid #2E8B57; }
+.chain-col.midstream { background: #E3F0FA; border: 2px solid #1A4B8C; }
+.chain-col.downstream { background: #FFEBEE; border: 2px solid #C0392B; }
+.chain-col h3 { font-size: 16px; text-align: center; padding: 8px; border-radius: 6px; color: white; margin: -20px -20px 16px -20px; padding: 12px; }
+.chain-col.upstream h3 { background: #2E8B57; }
+.chain-col.midstream h3 { background: #1A4B8C; }
+.chain-col.downstream h3 { background: #C0392B; }
+.chain-item { background: white; border-radius: 8px; padding: 12px 14px; margin: 10px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); font-size: 13px; }
+.chain-item .title { font-weight: 600; color: #0F2D52; }
+.chain-item .desc { color: #666; font-size: 12px; margin-top: 2px; }
+.chain-item .risk { display: inline-block; font-size: 11px; padding: 1px 8px; border-radius: 10px; margin-top: 4px; }
+.risk.high { background: #FFCDD2; color: #C62828; }
+.risk.med { background: #FFECB3; color: #F57F17; }
+.risk.low { background: #C8E6C9; color: #2E7D32; }
+.arrow-row { display: flex; align-items: center; justify-content: center; gap: 10px; margin: -10px 0 10px; font-size: 24px; color: #666; }
+
+/* Legend */
+.legend { display: flex; gap: 20px; justify-content: center; margin: 20px 0 30px; flex-wrap: wrap; }
+.legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.legend-dot { width: 14px; height: 14px; border-radius: 50%; }
+
+/* Investment Cards */
+.invest-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin: 16px 0; }
+.invest-card { background: #f8f9fb; border: 1px solid #e8ecf1; border-radius: 8px; padding: 14px; }
+.invest-card .company { font-weight: 600; color: #1A4B8C; }
+.invest-card .stake { font-size: 12px; color: #666; }
+.invest-card .value { font-size: 13px; color: #0F2D52; margin-top: 4px; }
+
+.highlight-box { background: #E8F0FE; padding: 14px 18px; border-radius: 8px; margin-top: 12px; font-size: 13px; }
+
+@media (max-width: 768px) {
+  .chain-flow { flex-direction: column; }
+  .invest-grid { grid-template-columns: repeat(2, 1fr); }
+  .card { padding: 20px 16px; }
+  .header h1 { font-size: 22px; }
+  .header { padding: 30px 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🗺️ 騰訊產業鏈上下游地圖</h1>
+  <div class="subtitle">Tencent Industry Chain Map · 2026</div>
+</div>
+
+<div class="container">
+
+<!-- Legend -->
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#2E8B57"></div>上游供應商</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#1A4B8C"></div>騰訊核心平臺</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#C0392B"></div>下游客戶／使用者</div>
+</div>
+
+<!-- Main Chain -->
+<div class="chain-flow">
+  <!-- Upstream -->
+  <div class="chain-col upstream">
+    <h3>⬆ 上游（供應商）</h3>
+    <div class="chain-item">
+      <div class="title">💻 晶片 & GPU</div>
+      <div class="desc">NVIDIA H100/B200 · 華為昇騰 · AMD MI 系列</div>
+      <span class="risk high">🔴 依賴度高</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">🎮 遊戲引擎</div>
+      <div class="desc">虛幻引擎（Epic）· Unity · 自研引擎</div>
+      <span class="risk med">🟡 已投資Epic 40%</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">🌐 CDN 與頻寬</div>
+      <div class="desc">騰訊自建CDN · 中國電信 · 中國移動 · Akamai</div>
+      <span class="risk low">🟢 可控</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">🏢 資料中心</div>
+      <div class="desc">自建資料中心（貴州/上海/深圳）· 萬國數據 · 世紀互聯</div>
+      <span class="risk low">🟢 可控</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">🎬 內容創作者/MCN</div>
+      <div class="desc">視頻號創作者 · 公眾號作者 · MCN機構</div>
+      <span class="risk med">🟡 流量分成</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">🔧 第三方開發者</div>
+      <div class="desc">小程式開發者（800萬+）· 小遊戲開發者</div>
+      <span class="risk low">🟢 生態依附</span>
+    </div>
+  </div>
+
+  <!-- Midstream -->
+  <div class="chain-col midstream">
+    <h3>⏺ 騰訊核心平臺</h3>
+    <div class="chain-item" style="border-left: 3px solid #E8A838;">
+      <div class="title">💬 微信（核心基礎）</div>
+      <div class="desc">MAU 約13.5億 · 超級App · 通訊+支付+小程式+視頻號</div>
+    </div>
+    <div class="chain-item" style="border-left: 3px solid #9C27B0;">
+      <div class="title">🕹️ 遊戲業務</div>
+      <div class="desc">天美/光子/魔方/北極光 · 王者/和平精英/LOL/PUBGM</div>
+    </div>
+    <div class="chain-item" style="border-left: 3px solid #009688;">
+      <div class="title">💳 微信支付</div>
+      <div class="desc">日均約45億筆 · 行動支付約40%市佔</div>
+    </div>
+    <div class="chain-item" style="border-left: 3px solid #FF5722;">
+      <div class="title">☁️ 騰訊雲</div>
+      <div class="desc">國內第二 · 遊戲雲／音視訊雲／AI 雲</div>
+    </div>
+    <div class="chain-item" style="border-left: 3px solid #3F51B5;">
+      <div class="title">📢 廣告平臺</div>
+      <div class="desc">視頻號廣告(¥850億) · 朋友圈 · 公眾號 · 小程式</div>
+    </div>
+    <div class="chain-item" style="border-left: 3px solid #795548;">
+      <div class="title">🏦 金融科技</div>
+      <div class="desc">微眾銀行 · 理財通 · 保險經紀</div>
+    </div>
+    <div class="chain-item" style="border-left: 3px solid #607D8B;">
+      <div class="title">📱 QQ 與其他</div>
+      <div class="desc">MAU 約5.5億 · QQ音樂 · 騰訊視頻 · 騰訊會議</div>
+    </div>
+    <div class="chain-item" style="border-left: 3px solid #E8A838;">
+      <div class="title">💰 投資生態</div>
+      <div class="desc">400+ 家公司 · Epic（40%）· Supercell（84%）· Riot（100%）</div>
+    </div>
+  </div>
+
+  <!-- Downstream -->
+  <div class="chain-col downstream">
+    <h3>⬇ 下游（客戶／使用者）</h3>
+    <div class="chain-item">
+      <div class="title">👥 C 端消費者</div>
+      <div class="desc">~13.5億微信用戶 · 通訊/支付/內容/購物</div>
+      <span class="risk low">🟢 黏性極強</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">🏢 B 端企業</div>
+      <div class="desc">~1,500萬企業微信用戶 · 騰訊雲客戶</div>
+      <span class="risk low">🟢 成長空間大</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">📣 廣告主</div>
+      <div class="desc">百萬級廣告主 · 品牌+效果廣告</div>
+      <span class="risk med">🟡 面臨字節競爭</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">🎮 遊戲玩家</div>
+      <div class="desc">國內約6.8億玩家 · 全球約10億</div>
+      <span class="risk med">🟡 競爭激烈</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">🌍 出海用戶</div>
+      <div class="desc">PUBGM全球 · Supercell · VALORANT</div>
+      <span class="risk med">🟡 地緣風險</span>
+    </div>
+    <div class="chain-item">
+      <div class="title">🏛️ 政企客戶</div>
+      <div class="desc">政務雲 · 金融雲 · 智慧城市</div>
+      <span class="risk low">🟢 戰略市場</span>
+    </div>
+  </div>
+</div>
+
+<!-- Arrow -->
+<div class="arrow-row">
+  <span style="color:#2E8B57">⬆ 上游→中游</span>
+  <span>⬆⬇</span>
+  <span style="color:#1A4B8C">⏺ 資金流／資料流</span>
+  <span>⬆⬇</span>
+  <span style="color:#C0392B">⬇ 中游→下游</span>
+</div>
+
+<!-- Key Dependencies -->
+<div class="card">
+  <h2>🔗 關鍵上游依賴與風險矩陣</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>類別</th><th>依賴程度</th><th>風險等級</th><th>應對策略</th><th>替代方案</th></tr></thead>
+      <tbody>
+        <tr><td>高階 GPU 晶片</td><td>極高</td><td style="color:#C62828">🔴 高</td><td>提前備貨（6-12月庫存）</td><td>華為昇騰910B/C</td></tr>
+        <tr><td>遊戲引擎（Unreal）</td><td>高</td><td style="color:#F57F17">🟡 中</td><td>持股 Epic Games 40%</td><td>Unity + 自研引擎</td></tr>
+        <tr><td>資料中心硬體</td><td>中</td><td style="color:#2E7D32">🟢 低</td><td>國產伺服器（浪潮/華為）</td><td>多供應商策略</td></tr>
+        <tr><td>CDN／頻寬</td><td>中</td><td style="color:#2E7D32">🟢 低</td><td>自建CDN（覆蓋80%+）</td><td>混合雲＋邊緣節點</td></tr>
+        <tr><td>作業系統</td><td>低</td><td style="color:#2E7D32">🟢 低</td><td>騰訊自研 Linux 發行版</td><td>國產作業系統</td></tr>
+        <tr><td>內容／MCN</td><td>中</td><td style="color:#F57F17">🟡 中</td><td>創作者激勵＋流量分成</td><td>AI 生成內容</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Revenue Cycle -->
+<div class="card">
+  <h2>💰 騰訊收入流向分析</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>收入來源</th><th>2025年收入（億元）</th><th>佔比</th><th>主要成本</th><th>淨利率</th></tr></thead>
+      <tbody>
+        <tr><td><strong>遊戲／增值服務</strong></td><td>~3,200</td><td>~49%</td><td>研發+發行+分成</td><td>~35%</td></tr>
+        <tr><td><strong>金融科技／支付</strong></td><td>~2,100</td><td>~32%</td><td>清算＋銀行通道＋風控</td><td>~30%</td></tr>
+        <tr><td><strong>廣告</strong></td><td>~1,200</td><td>~18%</td><td>流量成本＋銷售</td><td>~40%</td></tr>
+        <tr><td><strong>雲端運算／企業服務</strong></td><td>~1,280</td><td>~10%</td><td>伺服器＋頻寬＋研發</td><td>~5%（改善中）</td></tr>
+        <tr><td><strong>其他（投資／版權）</strong></td><td>~500</td><td>~8%</td><td>投資減值＋攤銷</td><td>波動</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="highlight-box">
+    <strong>註：</strong>各業務之間存在交叉補貼——遊戲和廣告的高利潤支撐了雲端運算的長期投入與投資佈局。</div>
+</div>
+
+<!-- Investment Map -->
+<div class="card">
+  <h2>🏢 騰訊核心投資佈局</h2>
+  <div class="invest-grid">
+    <div class="invest-card"><div class="company">Epic Games</div><div class="stake">持股 ~40%</div><div class="value">投資額約45億美元</div></div>
+    <div class="invest-card"><div class="company">Riot Games</div><div class="stake">持股 100%</div><div class="value">收購約4億美元</div></div>
+    <div class="invest-card"><div class="company">Supercell</div><div class="stake">持股約 84%</div><div class="value">收購約102億美元</div></div>
+    <div class="invest-card"><div class="company">動視暴雪（Activision）</div><div class="stake">持股約 5%</div><div class="value">約 30 億元</div></div>
+    <div class="invest-card"><div class="company">育碧 (Ubisoft)</div><div class="stake">持股約 10%</div><div class="value">約 5 億元</div></div>
+    <div class="invest-card"><div class="company">Sea Limited</div><div class="stake">持股約 12%</div><div class="value">約 20 億元</div></div>
+    <div class="invest-card"><div class="company">Snap (Snapchat)</div><div class="stake">持股約 10%</div><div class="value">約 30 億元</div></div>
+    <div class="invest-card"><div class="company">美團</div><div class="stake">逐步減持</div><div class="value">原17%→約5%</div></div>
+    <div class="invest-card"><div class="company">拼多多</div><div class="stake">逐步減持</div><div class="value">原5%</div></div>
+    <div class="invest-card"><div class="company">快手</div><div class="stake">逐步減持</div><div class="value">原17%→約5%</div></div>
+    <div class="invest-card"><div class="company">B站</div><div class="stake">逐步減持</div><div class="value">原12%</div></div>
+    <div class="invest-card"><div class="company">Spotify</div><div class="stake">持股 ~7%</div><div class="value">音樂佈局</div></div>
+  </div>
+</div>
+
+<!-- Ecosystem Dependency -->
+<div class="card">
+  <h2>🔄 騰訊生態依賴性分析</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>生態參與者</th><th>數量</th><th>對騰訊依賴度</th><th>騰訊對其依賴</th></tr></thead>
+      <tbody>
+        <tr><td>微信使用者</td><td>約13.5億</td><td>高（社交關係鎖定）</td><td>極高（核心資產）</td></tr>
+        <tr><td>小程式開發者</td><td>~800萬</td><td>高（流量獲客）</td><td>中（豐富生態）</td></tr>
+        <tr><td>小遊戲開發者</td><td>~100萬</td><td>極高（平臺獨佔）</td><td>中高（內容供給）</td></tr>
+        <tr><td>公眾號創作者</td><td>~500萬</td><td>高（流量＋收入）</td><td>中（內容生態）</td></tr>
+        <tr><td>視頻號創作者</td><td>~200萬</td><td>中（多平臺分發）</td><td>中（短影音競爭）</td></tr>
+        <tr><td>企業微信客戶</td><td>~1,500萬</td><td>高（SaaS綁定）</td><td>高（B 端策略）</td></tr>
+        <tr><td>微信支付商戶</td><td>約5,000萬</td><td>高（支付通道）</td><td>高（手續費收入）</td></tr>
+        <tr><td>騰訊雲客戶</td><td>~200萬</td><td>中低</td><td>中高（雲端成長）</td></tr>
+        <tr><td>廣告主</td><td>~100萬</td><td>中（多平臺投放）</td><td>高（廣告收入）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Competitive Landscape -->
+<div class="card">
+  <h2>⚔️ 競爭格局全景</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>賽道</th><th>騰訊</th><th>主要競爭對手</th><th>競爭態勢</th></tr></thead>
+      <tbody>
+        <tr><td><strong>社交</strong></td><td>微信（13.5億）＋ QQ（5.5億）</td><td>抖音（8億）· 小紅書（3億）</td><td><span style="color:#C62828">激烈</span></td></tr>
+        <tr><td><strong>遊戲</strong></td><td>國內約 50% · 全球第一</td><td>網易(18%) · 米哈遊(8%)</td><td><span style="color:#F57F17">可控</span></td></tr>
+        <tr><td><strong>支付</strong></td><td>微信支付（約 40%）</td><td>支付寶（約55%）</td><td><span style="color:#F57F17">雙寡頭穩定</span></td></tr>
+        <tr><td><strong>雲端運算</strong></td><td>騰訊雲（約16%）</td><td>阿里雲（34%）· 華為雲（19%）</td><td><span style="color:#C62828">激烈</span></td></tr>
+        <tr><td><strong>廣告</strong></td><td>騰訊廣告（約17.5%）</td><td>字節跳動(~42%) · 阿里(~15%)</td><td><span style="color:#C62828">激烈</span></td></tr>
+        <tr><td><strong>短影音</strong></td><td>視頻號（DAU 5億+）</td><td>抖音（DAU 約 7 億）· 快手（DAU 約 3 億）</td><td><span style="color:#C62828">追趕中</span></td></tr>
+        <tr><td><strong>AI大模型</strong></td><td>混元大模型</td><td>字節豆包 · 阿里通義 · 百度文心 · DeepSeek</td><td><span style="color:#F57F17">追趕中</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Geographic Distribution -->
+<div class="card">
+  <h2>🌍 地理分佈與業務輻射</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>地區</th><th>核心定位</th><th>主要業務</th></tr></thead>
+      <tbody>
+        <tr><td><strong>中國（核心市場）</strong></td><td>大本營 · 收入~85%</td><td>微信／QQ · 遊戲 · 支付 · 雲端 · 廣告</td></tr>
+        <tr><td><strong>東南亞</strong></td><td>遊戲出海第一站</td><td>PUBGM · Garena 合作 · 騰訊雲出海</td></tr>
+        <tr><td><strong>北美／歐洲</strong></td><td>投資＋IP取得</td><td>Epic · Riot · Supercell · 育碧</td></tr>
+        <tr><td><strong>日本與韓國</strong></td><td>二次元遊戲市場</td><td>合作發行 · 投資</td></tr>
+        <tr><td><strong>中東／拉美</strong></td><td>新興市場</td><td>遊戲發行 · 支付探索</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  <p>騰訊產業鏈上下游地圖 · AI Berkshire 2026</p>
+  <p>資料來源：公司財報 · 行業研究 · 公開資料</p>
+</div>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>簡</span><span class="full"><span>簡體中文</span></span></a><a class="lang hant active" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

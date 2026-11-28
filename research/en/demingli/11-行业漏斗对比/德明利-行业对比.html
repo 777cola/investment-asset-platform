@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demingli (001309.SZ) — Industry funnel comparison</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #2a5fa0 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+td, th { padding: 0.6rem 0.75rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+th { color: #666; font-weight: 600; background: #f9fafc; }
+tr:hover { background: #f5f8fc; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #fde8e8; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.highlight { background: #fff8e6; border-left: 4px solid #f0a500; padding: 1rem 1.2rem; border-radius: 0 8px 8px 0; margin: 1rem 0; font-size: 0.9rem; color: #333; }
+.highlight strong { color: #1A4B8C; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.info-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.info-box p { margin-bottom: 0.5rem; font-size: 0.9rem; color: #333; }
+.info-box p:last-child { margin-bottom: 0; }
+.info-box .label { color: #1A4B8C; font-weight: 600; }
+
+/* Funnel / 漏斗样式 */
+.funnel-container { display: flex; flex-direction: column; align-items: center; gap: 0; margin: 1.5rem 0; }
+.funnel-row { display: flex; justify-content: center; gap: 0.5rem; width: 100%; }
+.funnel-tier { display: flex; flex-direction: column; align-items: center; padding: 1rem; border-radius: 8px; text-align: center; transition: transform 0.2s; }
+.funnel-tier:hover { transform: scale(1.03); }
+.funnel-tier .company-name { font-weight: 700; font-size: 1rem; margin-bottom: 0.2rem; }
+.funnel-tier .company-score { font-size: 1.5rem; font-weight: 700; font-family: 'Instrument Sans', monospace; }
+.funnel-tier .company-detail { font-size: 0.75rem; opacity: 0.8; }
+.funnel-tier.pass { background: #e6f7e6; border: 2px solid #1a7a1a; color: #1a7a1a; }
+.funnel-tier.caution { background: #fff8e6; border: 2px solid #9a7a1a; color: #9a7a1a; }
+.funnel-tier.fail { background: #fde8e8; border: 2px solid #c00; color: #c00; }
+
+/* 公司卡片 */
+.company-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.company-card { background: #fff; border-radius: 8px; padding: 1.2rem; border: 1px solid #e8edf5; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.company-card h3 { font-size: 1rem; color: #1A4B8C; margin-bottom: 0.5rem; }
+.company-card .stock { font-family: 'Instrument Sans', monospace; font-size: 0.8rem; color: #999; }
+.company-card .desc { font-size: 0.85rem; color: #555; margin-top: 0.3rem; }
+.company-card .tag { display: inline-block; background: #e6f0ff; color: #1a4b8c; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.7rem; margin-top: 0.4rem; }
+
+/* 评分条 */
+.score-bar-wrap { display: flex; align-items: center; gap: 0.5rem; }
+.score-bar-bg { flex: 1; height: 8px; background: #e8edf5; border-radius: 4px; overflow: hidden; }
+.score-bar-fill { height: 100%; border-radius: 4px; }
+.score-bar-label { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; min-width: 2.2rem; text-align: right; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Demingli (001309.SZ) — Industry funnel comparison</h1>
+  <div class="subtitle">Demingli vs Longsys vs Biwin Storage vs Netac Technology · Cross-company comparison of the memory module industry</div>
+  <div class="meta">Research date 2026/07/19 &nbsp;·&nbsp; Category: 11-Industry Funnel Comparison</div>
+</div>
+
+<div class="container">
+
+  <!-- 公司概览 -->
+  <div class="section">
+    <div class="section-title">🏢 Comparable companies overview</div>
+    <div class="company-cards">
+      <div class="company-card">
+        <h3>Demingli</h3>
+        <div class="stock">001309.SZ | Market cap ~RMB 121.7 billion</div>
+        <div class="desc">Memory modules plus in-house controller design. 2026Q1 earnings surged (net profit RMB 3.346 billion), but operating cash flow was negative and inventory accounted for 66%.</div>
+        <span class="tag">Proprietary controller</span>
+        <span class="tag">High elasticity</span>
+        <span class="tag" style="background:#fde8e8;color:#c00;">High risk</span>
+      </div>
+      <div class="company-card">
+        <h3>Longsys</h3>
+        <div class="stock">301308.SZ | Market cap ~RMB 40 billion</div>
+        <div class="desc">China's leading storage module maker, with deep ties to SK hynix. It targets consumer and enterprise SSDs, with large revenue but low gross margins.</div>
+        <span class="tag">Module leader</span>
+        <span class="tag">SK hynix partnership</span>
+        <span class="tag" style="background:#e6f7e6;color:#1a7a1a;">Scale advantage</span>
+      </div>
+      <div class="company-card">
+        <h3>Biwin Storage</h3>
+        <div class="stock">688525.SZ | Market cap ~RMB 20 billion</div>
+        <div class="desc">Embedded storage (eMMC/UFS) plus SSD modules. Focused on consumer electronics and industrial control, small in scale but growing fast.</div>
+        <span class="tag">Embedded storage</span>
+        <span class="tag" style="background:#fff8e6;color:#9a7a1a;">Smaller scale</span>
+      </div>
+      <div class="company-card">
+        <h3>Netac Technology</h3>
+        <div class="stock">300042.SZ | Market cap ~RMB 8 billion</div>
+        <div class="desc">Established storage brand (USB drives/SSDs/memory cards). High brand recognition but weak growth; has shifted from modules to brand operations.</div>
+        <span class="tag">Brand operations</span>
+        <span class="tag" style="background:#fde8e8;color:#c00;">Growth slowdown</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 核心财务对比 -->
+  <div class="section">
+    <div class="section-title">📊 Core financial metrics comparison (full-year 2025 / Q1 2026)</div>
+    <div style="overflow-x: auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>Indicator</th>
+            <th>Demingli<br><span style="font-weight:400;font-size:0.75rem;color:#999;">001309</span></th>
+            <th>Longsys<br><span style="font-weight:400;font-size:0.75rem;color:#999;">301308</span></th>
+            <th>Biwin Storage<br><span style="font-weight:400;font-size:0.75rem;color:#999;">688525</span></th>
+            <th>Longke Technology<br><span style="font-weight:400;font-size:0.75rem;color:#999;">300042</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>2025 revenue</strong></td>
+            <td>RMB 10.79 billion</td>
+            <td>~RMB 18 billion</td>
+            <td>~RMB 5 billion</td>
+            <td>~RMB 3 billion</td>
+          </tr>
+          <tr>
+            <td><strong>2025 net profit</strong></td>
+            <td>+688 million</td>
+            <td>~RMB 800 million</td>
+            <td>~250 million</td>
+            <td>~RMB 100 million</td>
+          </tr>
+          <tr>
+            <td><strong>2026Q1 revenue</strong></td>
+            <td><strong>RMB 7.567 billion</strong></td>
+            <td>~RMB 5.5 billion</td>
+            <td>~RMB 2 billion</td>
+            <td>~RMB 800 million</td>
+          </tr>
+          <tr>
+            <td><strong>2026Q1 net profit</strong></td>
+            <td><strong style="color:#1a7a1a;">+3.346 billion</strong></td>
+            <td>~RMB 0.8 billion</td>
+            <td>~RMB 300 million</td>
+            <td>~RMB 80 million</td>
+          </tr>
+          <tr>
+            <td><strong>Gross margin (2025)</strong></td>
+            <td>14.8%</td>
+            <td>~15%</td>
+            <td>~18%</td>
+            <td>~12%</td>
+          </tr>
+          <tr>
+            <td><strong>Gross margin (2026Q1)</strong></td>
+            <td><span class="badge badge-green">57.4%</span></td>
+            <td>~30%</td>
+            <td>~35%</td>
+            <td>~15%</td>
+          </tr>
+          <tr>
+            <td><strong>Net margin (2026Q1)</strong></td>
+            <td><span class="badge badge-green">44.2%</span></td>
+            <td>~15%</td>
+            <td>~15%</td>
+            <td>~10%</td>
+          </tr>
+          <tr>
+            <td><strong>Operating cash flow (2025)</strong></td>
+            <td><span class="badge badge-red">-2.241 billion</span></td>
+            <td>~+RMB 500 million</td>
+            <td>~-RMB 200 million</td>
+            <td>~+RMB 50 million</td>
+          </tr>
+          <tr>
+            <td><strong>Inventory/total assets</strong></td>
+            <td><span class="badge badge-red">RMB 12.19 billion / RMB 18.38 billion<br>= 66.3%</span></td>
+            <td>~50%</td>
+            <td>~55%</td>
+            <td>~35%</td>
+          </tr>
+          <tr>
+            <td><strong>Debt-to-asset ratio</strong></td>
+            <td><span class="badge badge-yellow">64%</span></td>
+            <td>~55%</td>
+            <td>~60%</td>
+            <td>~30%</td>
+          </tr>
+          <tr>
+            <td><strong>R&D expense ratio</strong></td>
+            <td>~2.5%</td>
+            <td>~3.5%</td>
+            <td>~5%</td>
+            <td>~2%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="highlight" style="margin-top:0.8rem;">
+      <strong>Key findings:</strong>Demingli's 2026Q1 gross margin (57.4%) and net margin (44.2%) far exceed peers, yet operating cash flow remains negative and inventory accounts for as much as 66% — earnings quality is questionable, with possible paper-profit froth from "stockpiling to ride price hikes".</div>
+  </div>
+
+  <!-- 业务模式对比 -->
+  <div class="section">
+    <div class="section-title">🔬 Business model comparison</div>
+    <div style="overflow-x: auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Demingli</th>
+            <th>Longsys</th>
+            <th>Biwin Storage</th>
+            <th>Longke Technology</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Core business</strong></td>
+            <td>NAND modules +<span class="badge badge-green">Proprietary controller</span></td>
+            <td>DRAM/NAND modules</td>
+            <td>Embedded eMMC + UFS + SSD</td>
+            <td>Branded USB drives/SSDs/memory cards</td>
+          </tr>
+          <tr>
+            <td><strong>Upstream partnerships</strong></td>
+            <td>Multi-source procurement (Samsung/SK hynix/Micron)</td>
+            <td><span class="badge badge-blue">Deeply tied to SK hynix</span></td>
+            <td>Multi-source procurement</td>
+            <td>Multi-sourcing</td>
+          </tr>
+          <tr>
+            <td><strong>Downstream customers</strong></td>
+            <td>Phone OEMs/PC OEMs/channels</td>
+            <td>Mobile phones/PCs/data centers/channels</td>
+            <td>Consumer electronics / industrial control</td>
+            <td>End consumers/channels</td>
+          </tr>
+          <tr>
+            <td><strong>Technological barriers</strong></td>
+            <td><span class="badge badge-green">Controller design (intermediate)</span></td>
+            <td>Module design + packaging (low)</td>
+            <td>Embedded packaging (moderate)</td>
+            <td>Brand + channel (low)</td>
+          </tr>
+          <tr>
+            <td><strong>Growth drivers</strong></td>
+            <td>NAND price hikes + stockpiling arbitrage</td>
+            <td>Capacity ramp-up + customer expansion</td>
+            <td>Rising penetration of embedded storage</td>
+            <td>Brand premium + channel</td>
+          </tr>
+          <tr>
+            <td><strong>Cyclical sensitivity</strong></td>
+            <td><span class="badge badge-red">Very high (inventory 66%)</span></td>
+            <td><span class="badge badge-yellow">High</span></td>
+            <td><span class="badge badge-yellow">High</span></td>
+            <td><span class="badge badge-blue">Moderate (asset-light)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Industry ranking</strong></td>
+            <td>Second-tier module makers (highest valuation)</td>
+            <td><span class="badge badge-green">Leading domestic module maker</span></td>
+            <td>Second-tier module makers</td>
+            <td>Legacy brands (share declining)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 估值对比 -->
+  <div class="section">
+    <div class="section-title">💰 Valuation comparison</div>
+    <div style="overflow-x: auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>Valuation metrics</th>
+            <th>Demingli</th>
+            <th>Longsys</th>
+            <th>Biwin Storage</th>
+            <th>Longke Technology</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Total market cap</strong></td>
+            <td><strong>~RMB 121.7 billion</strong></td>
+            <td>~RMB 40 billion</td>
+            <td>~RMB 20 billion</td>
+            <td>~RMB 8 billion</td>
+          </tr>
+          <tr>
+            <td><strong>PE(TTM)</strong></td>
+            <td><span class="badge badge-yellow">~29.7x</span></td>
+            <td>~25x</td>
+            <td>~40x</td>
+            <td>~80x</td>
+          </tr>
+          <tr>
+            <td><strong>Dynamic PE (2026E)</strong></td>
+            <td><span class="badge badge-green">~9x<br><small>(assuming sustainability)</small></span></td>
+            <td>~15x</td>
+            <td>~20x</td>
+            <td>~60x</td>
+          </tr>
+          <tr>
+            <td><strong>Price-to-book ratio (PB)</strong></td>
+            <td><span class="badge badge-red">18.37x</span></td>
+            <td>~6x</td>
+            <td>~8x</td>
+            <td>~5x</td>
+          </tr>
+          <tr>
+            <td><strong>Revenue growth (2025 to 2026Q1)</strong></td>
+            <td><span class="badge badge-green">+380%（YoY）</span></td>
+            <td>~+100%</td>
+            <td>~+120%</td>
+            <td>~+50%</td>
+          </tr>
+          <tr>
+            <td><strong>PEG (based on 2026E)</strong></td>
+            <td><span class="badge badge-green">~0.1x</span></td>
+            <td>~0.3x</td>
+            <td>~0.4x</td>
+            <td>~2x</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="highlight">
+      <strong>Valuation conclusion:</strong>Demingli's dynamic PE looks the lowest (~9x), but that rests on the profit surge in 2026Q1.<strong>If NAND prices fall back, profit could plunge 90%+, pushing the PE up to 100x+.</strong>Netac Technology has the highest PE but the most stable business and the lowest inventory. Longsys is relatively reasonably valued, but its scale advantage is not obvious.</div>
+  </div>
+
+  <!-- 漏斗过滤表 -->
+  <div class="section">
+    <div class="section-title">🔍 Industry funnel screening (best to worst)</div>
+    <div style="overflow-x: auto;">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:28px;">#</th>
+            <th>Filter criteria</th>
+            <th>Demingli</th>
+            <th>Longsys</th>
+            <th>Biwin Storage</th>
+            <th>Longke Technology</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align:center;">1</td>
+            <td><strong>Inventory risk</strong><br><span style="font-size:0.75rem;color:#999;">Is the inventory share manageable?</span></td>
+            <td><span class="badge badge-red">❌ 66%</span></td>
+            <td><span class="badge badge-yellow">⚠ ~50%</span></td>
+            <td><span class="badge badge-yellow">⚠ ~55%</span></td>
+            <td><span class="badge badge-green">✅ ~35%</span></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">2</td>
+            <td><strong>Cash flow quality</strong><br><span style="font-size:0.75rem;color:#999;">Is operating cash flow positive?</span></td>
+            <td><span class="badge badge-red">❌ -RMB 2.24 billion</span></td>
+            <td><span class="badge badge-green">✅ ~+RMB 500 million</span></td>
+            <td><span class="badge badge-red">❌ -RMB 200 million</span></td>
+            <td><span class="badge badge-green">✅ ~+RMB 50 million</span></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">3</td>
+            <td><strong>Gross margin stability</strong><br><span style="font-size:0.75rem;color:#999;">Is it sustainable</span></td>
+            <td><span class="badge badge-red">❌ Sharp volatility<br>14.8%→57.4%</span></td>
+            <td><span class="badge badge-yellow">⚠ Average</span></td>
+            <td><span class="badge badge-yellow">⚠ Average</span></td>
+            <td><span class="badge badge-green">✅ Stable at ~12-15%</span></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">4</td>
+            <td><strong>Technical barriers</strong><br><span style="font-size:0.75rem;color:#999;">Does it have a moat?</span></td>
+            <td><span class="badge badge-green">✅ Proprietary controller</span></td>
+            <td><span class="badge badge-yellow">⚠ Module design</span></td>
+            <td><span class="badge badge-yellow">⚠ Embedded packaging</span></td>
+            <td><span class="badge badge-red">❌ No brand moat</span></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">5</td>
+            <td><strong>Valuation reasonableness</strong><br><span style="font-size:0.75rem;color:#999;">Is the PB/PE reasonable?</span></td>
+            <td><span class="badge badge-red">❌ PB 18x is extremely expensive</span></td>
+            <td><span class="badge badge-yellow">⚠ PB 6x, moderate</span></td>
+            <td><span class="badge badge-yellow">⚠ PB of 8x is on the high side</span></td>
+            <td><span class="badge badge-yellow">⚠ PE 80x is extremely expensive</span></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">6</td>
+            <td><strong>Scale and market share</strong><br><span style="font-size:0.75rem;color:#999;">Industry position</span></td>
+            <td><span class="badge badge-blue">○ Second tier (highest valuation)</span></td>
+            <td><span class="badge badge-green">✅ Module leader</span></td>
+            <td><span class="badge badge-blue">○ Second-tier</span></td>
+            <td><span class="badge badge-red">❌ Share decline</span></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">7</td>
+            <td><strong>Cyclical risk exposure</strong><br><span style="font-size:0.75rem;color:#999;">Resilience in a downturn</span></td>
+            <td><span class="badge badge-red">❌ Very high (inventory 66%+ and liabilities 64%)</span></td>
+            <td><span class="badge badge-yellow">⚠ High (55% debt)</span></td>
+            <td><span class="badge badge-red">❌ High (60% debt)</span></td>
+            <td><span class="badge badge-green">✅ Low (30% debt)</span></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">8</td>
+            <td><strong>Profit quality</strong><br><span style="font-size:0.75rem;color:#999;">Profit-to-cash conversion</span></td>
+            <td><span class="badge badge-red">❌ Severe mismatch</span></td>
+            <td><span class="badge badge-yellow">⚠ Partial match</span></td>
+            <td><span class="badge badge-red">❌ Mismatch</span></td>
+            <td><span class="badge badge-green">✅ Good match</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 综合评分 -->
+  <div class="section">
+    <div class="section-title">📈 Composite score (out of 40)</div>
+    <div style="overflow-x: auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>The company</th>
+            <th style="text-align:center;">Inventory risk<br><small>/5</small></th>
+            <th style="text-align:center;">Cash flow<br><small>/5</small></th>
+            <th style="text-align:center;">Gross margin<br><small>/5</small></th>
+            <th style="text-align:center;">Technical barriers<br><small>/5</small></th>
+            <th style="text-align:center;">Valuation<br><small>/5</small></th>
+            <th style="text-align:center;">Scale<br><small>/5</small></th>
+            <th style="text-align:center;">Counter-cyclical<br><small>/5</small></th>
+            <th style="text-align:center;">Profit quality<br><small>/5</small></th>
+            <th style="text-align:center;">Total score<br><small>/40</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Demingli</strong></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">2</span></td>
+            <td style="text-align:center;"><span class="badge badge-green">4</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">3</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><strong style="font-size:1.2rem;color:#c00;">14</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Longsys</strong></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">3</span></td>
+            <td style="text-align:center;"><span class="badge badge-green">4</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">3</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">2</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">3</span></td>
+            <td style="text-align:center;"><span class="badge badge-green">4</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">2</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">3</span></td>
+            <td style="text-align:center;"><strong style="font-size:1.2rem;color:#9a7a1a;">24</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Biwin Storage</strong></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">2</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">3</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">3</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">2</span></td>
+            <td style="text-align:center;"><span class="badge badge-yellow">2</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><strong style="font-size:1.2rem;color:#9a7a1a;">15</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Longke Technology</strong></td>
+            <td style="text-align:center;"><span class="badge badge-green">4</span></td>
+            <td style="text-align:center;"><span class="badge badge-green">4</span></td>
+            <td style="text-align:center;"><span class="badge badge-green">4</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><span class="badge badge-red">1</span></td>
+            <td style="text-align:center;"><span class="badge badge-green">5</span></td>
+            <td style="text-align:center;"><span class="badge badge-green">4</span></td>
+            <td style="text-align:center;"><strong style="font-size:1.2rem;color:#1a7a1a;">24</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 漏斗可视化 -->
+  <div class="section">
+    <div class="section-title">🔽 Industry funnel visualization</div>
+    <div class="highlight">The following funnel filters step by step—each layer eliminates companies that fail to meet the criteria, to see which ones best withstand scrutiny across multiple dimensions.</div>
+
+    <div class="funnel-container">
+
+      <!-- Tier 1: 存货风险 -->
+      <div class="funnel-row">
+        <div class="funnel-tier fail" style="width:90%;">
+          <div class="company-name">Tier 1 · Inventory risk</div>
+          <div style="font-size:0.8rem;">Inventory share >60% → eliminate</div>
+          <div style="display:flex;gap:1rem;margin-top:0.5rem;flex-wrap:wrap;justify-content:center;">
+            <span style="color:#c00;">✗ Demingli 66%</span>
+            <span style="color:#9a7a1a;">⚠ Longsys ~50%</span>
+            <span style="color:#9a7a1a;">⚠ BIWIN ~55%</span>
+            <span style="color:#1a7a1a;">✓ Netac ~35%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 2: 现金流 -->
+      <div class="funnel-row">
+        <div class="funnel-tier fail" style="width:75%;">
+          <div class="company-name">Tier 2 · Operating cash flow</div>
+          <div style="font-size:0.8rem;">Negative operating cash flow → screen out</div>
+          <div style="display:flex;gap:1rem;margin-top:0.5rem;flex-wrap:wrap;justify-content:center;">
+            <span style="color:#c00;">✗ Demingli -RMB 2.24 billion</span>
+            <span style="color:#1a7a1a;">✓ Longsys ~+RMB 500 million</span>
+            <span style="color:#c00;">✗ Biwin -RMB 200 million</span>
+            <span style="color:#1a7a1a;">✓ Netac ~+RMB 50 million</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 3: 毛利率稳定 -->
+      <div class="funnel-row">
+        <div class="funnel-tier caution" style="width:60%;">
+          <div class="company-name">Layer 3 · Gross margin sustainability</div>
+          <div style="font-size:0.8rem;">Sharp gross margin swings → questionable</div>
+          <div style="display:flex;gap:1rem;margin-top:0.5rem;flex-wrap:wrap;justify-content:center;">
+            <span style="color:#9a7a1a;">⚠ Demingli 14.8%↔57.4%</span>
+            <span style="color:#1a7a1a;">✓ Longsys relatively stable</span>
+            <span style="color:#9a7a1a;">⚠ BIWIN Moderate volatility</span>
+            <span style="color:#1a7a1a;">✓ Netac stable at ~12-15%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 4: 技术壁垒 -->
+      <div class="funnel-row">
+        <div class="funnel-tier pass" style="width:50%;">
+          <div class="company-name">Tier 4 · Technical barriers</div>
+          <div style="font-size:0.8rem;">Proprietary controller/core technology → positive</div>
+          <div style="display:flex;gap:1rem;margin-top:0.5rem;flex-wrap:wrap;justify-content:center;">
+            <span style="color:#1a7a1a;">✓ Demingli in-house controller</span>
+            <span style="color:#9a7a1a;">⚠ Longsys module design</span>
+            <span style="color:#9a7a1a;">⚠ BIWIN embedded packaging</span>
+            <span style="color:#c00;">✗ Netac no brand moat</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 5: 抗周期 -->
+      <div class="funnel-row">
+        <div class="funnel-tier caution" style="width:40%;">
+          <div class="company-name">Layer 5 · Cycle resistance</div>
+          <div style="font-size:0.8rem;">High inventory + high debt → high vulnerability</div>
+          <div style="display:flex;gap:1rem;margin-top:0.5rem;flex-wrap:wrap;justify-content:center;">
+            <span style="color:#c00;">✗ Demingli 66% inventory + 64% debt</span>
+            <span style="color:#9a7a1a;">⚠ Longsys 50% inventory + 55% debt</span>
+            <span style="color:#9a7a1a;">⚠ Biwin: 55% inventory + 60% debt</span>
+            <span style="color:#1a7a1a;">✓ Netac 35% inventory + 30% debt</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 最终幸存者 -->
+      <div class="funnel-row">
+        <div class="funnel-tier caution" style="width:30%;">
+          <div class="company-name">🏆 Final assessment</div>
+          <div style="display:flex;gap:0.8rem;margin-top:0.5rem;flex-wrap:wrap;justify-content:center;font-size:0.85rem;">
+            <span style="background:#e6f0ff;padding:0.2rem 0.6rem;border-radius:4px;"><strong>Longsys</strong>24 points — best overall</span>
+            <span style="background:#fde8e8;padding:0.2rem 0.6rem;border-radius:4px;"><strong>Demingli</strong>14 points — highest risk</span>
+            <span style="background:#fff8e6;padding:0.2rem 0.6rem;border-radius:4px;"><strong>Netac</strong>24 points — safe but lacking growth</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 投资启示 -->
+  <div class="section">
+    <div class="section-title">💡 Investment implications</div>
+    <div class="highlight">
+      <strong>1. Demingli is a "leveraged cyclical bet"</strong>— Looks like the lowest PE, but is in fact the highest risk. Profit depends on NAND price increases plus inventory stockpiling; once the cycle reverses, profit collapses faster than peers. PB of 18x shows the market has already fully priced in the "optimistic scenario".<br><br>
+      <strong>2. Longsys offers "moderate risk plus scale advantage"</strong>— Module leader, deeply tied to SK hynix, positive operating cash flow. Weaknesses: low gross margin, limited technical barriers. Less upside leverage than Demingli in a memory bull market, but more resilient in a bear market.<br><br>
+      <strong>3. Biwin Storage is a "high-beta small cap"</strong>— The embedded storage segment has a structural growth story (IoT/industrial control), but operating cash flow is also negative, and it is small in scale with poor liquidity.<br><br>
+      <strong>4. Netac Technology is a defensive play</strong>— Lightest assets (inventory 35%), lowest liabilities (30%), stable cash flow, but a shrinking business and an extremely high PE—essentially a "value trap."<br><br>
+      <strong>Conclusion:</strong>The memory module industry currently sits at a cyclical high.<strong style="color:#c00;">Demingli has the worst risk-reward ratio</strong>(The market has already priced in a perfect scenario). If forced to choose,<strong style="color:#1a7a1a;">Longsys</strong>It is the most balanced choice among the four—but are there better memory investment targets? (e.g., holding Samsung/SK hynix directly, or waiting for the cycle bottom before entering)</div>
+  </div>
+
+</div>
+
+<div class="footer">Data sources: Tonghuashun F10 · TrendForce · Omdia · company annual/interim reports &nbsp;|&nbsp; Research date 2026/07/19</div>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

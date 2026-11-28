@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meituan (3690.HK) Four-Role Parallel Analysis Report | 2026-07-07</title>
+<style>
+/* ===== PDD Standard CSS Template ===== */
+:root {
+  --bg: #fdfdfd;
+  --text: #1a1a2e;
+  --accent: #2563eb;
+  --accent-light: #dbeafe;
+  --accent-dark: #1e40af;
+  --border: #e2e8f0;
+  --card: #ffffff;
+  --green: #059669;
+  --green-bg: #d1fae5;
+  --red: #dc2626;
+  --red-bg: #fee2e2;
+  --amber: #d97706;
+  --amber-bg: #fef3c7;
+  --gray: #6b7280;
+  --gray-bg: #f3f4f6;
+  --sidebar-width: 280px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+/* ===== Navigation Sidebar ===== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--card);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  z-index: 100;
+  padding: 24px 0;
+}
+
+.sidebar-header {
+  padding: 0 20px 20px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+
+.sidebar-header h2 {
+  font-size: 16px;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.sidebar-header .date {
+  font-size: 12px;
+  color: var(--gray);
+}
+
+.sidebar-nav { list-style: none; }
+
+.sidebar-nav li a {
+  display: block;
+  padding: 10px 20px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  border-left: 3px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.sidebar-nav li a:hover,
+.sidebar-nav li a.active {
+  background: var(--accent-light);
+  border-left-color: var(--accent);
+  color: var(--accent-dark);
+  font-weight: 600;
+}
+
+.sidebar-nav .section-label {
+  padding: 12px 20px 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--gray);
+  font-weight: 700;
+}
+
+/* ===== Main Content ===== */
+.main {
+  margin-left: var(--sidebar-width);
+  padding: 40px 48px;
+  max-width: 960px;
+}
+
+/* ===== Typography ===== */
+h1 { font-size: 28px; margin: 0 0 8px; color: var(--accent-dark); line-height: 1.3; }
+h2 { font-size: 22px; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); color: var(--accent-dark); }
+h3 { font-size: 18px; margin: 28px 0 12px; color: #374151; }
+h4 { font-size: 16px; margin: 20px 0 8px; color: #4b5563; }
+
+p { margin: 0 0 16px; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===== Hero Section ===== */
+.hero {
+  background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
+  color: white;
+  padding: 48px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+}
+
+.hero h1 { color: white; font-size: 32px; margin-bottom: 8px; border: none; padding: 0; }
+.hero .subtitle { font-size: 16px; opacity: 0.9; margin-bottom: 16px; }
+.hero .meta { font-size: 13px; opacity: 0.75; }
+.hero .meta span { margin-right: 20px; }
+
+/* ===== Quick Stats ===== */
+.quick-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+
+.stat-card .value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+.stat-card .value.green { color: var(--green); }
+.stat-card .value.amber { color: var(--amber); }
+.stat-card .value.red { color: var(--red); }
+
+.stat-card .label {
+  font-size: 12px;
+  color: var(--gray);
+  margin-top: 4px;
+}
+
+/* ===== Tables ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 24px;
+  font-size: 14px;
+}
+
+thead th {
+  background: var(--accent);
+  color: white;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+tbody td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+tbody tr:hover { background: #f8fafc; }
+tbody tr:nth-child(even) { background: #fafbfc; }
+tbody tr:nth-child(even):hover { background: #f1f5f9; }
+
+/* ===== Alert / Info Boxes ===== */
+.info-box {
+  background: var(--accent-light);
+  border-left: 4px solid var(--accent);
+  padding: 14px 18px;
+  border-radius: 0 6px 6px 0;
+  margin: 16px 0 24px;
+  font-size: 14px;
+}
+
+.info-box.warning {
+  background: var(--amber-bg);
+  border-left-color: var(--amber);
+}
+
+.info-box.danger {
+  background: var(--red-bg);
+  border-left-color: var(--red);
+}
+
+.info-box.success {
+  background: var(--green-bg);
+  border-left-color: var(--green);
+}
+
+/* ===== Blockquote ===== */
+blockquote {
+  background: var(--gray-bg);
+  border-left: 4px solid var(--gray);
+  padding: 14px 20px;
+  margin: 16px 0 24px;
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+  color: #374151;
+  font-size: 14px;
+}
+
+blockquote strong { color: var(--accent-dark); }
+
+/* ===== Tag / Badge ===== */
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tag.green { background: var(--green-bg); color: var(--green); }
+.tag.red { background: var(--red-bg); color: var(--red); }
+.tag.amber { background: var(--amber-bg); color: var(--amber); }
+.tag.blue { background: var(--accent-light); color: var(--accent-dark); }
+
+/* ===== Section Cards ===== */
+.section-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 32px;
+}
+
+.section-card h2:first-child { margin-top: 0; }
+
+.role-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--border);
+}
+
+.role-emoji {
+  font-size: 36px;
+  line-height: 1;
+}
+
+.role-info h3 {
+  margin: 0;
+  font-size: 20px;
+  color: var(--accent-dark);
+}
+
+.role-info .role-desc {
+  font-size: 13px;
+  color: var(--gray);
+}
+
+/* ===== Comparison Grid ===== */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0 24px;
+}
+
+@media (max-width: 768px) {
+  .comparison-grid { grid-template-columns: 1fr; }
+}
+
+.comparison-item {
+  background: var(--gray-bg);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.comparison-item h4 {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+
+/* ===== Risk Matrix ===== */
+.risk-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr 1.5fr 1fr;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  align-items: center;
+}
+
+.risk-row.header {
+  font-weight: 700;
+  background: var(--gray-bg);
+  border-radius: 6px 6px 0 0;
+}
+
+/* ===== Rating ===== */
+.rating-box {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.rating-box.buy { background: var(--green-bg); color: var(--green); }
+.rating-box.hold { background: var(--amber-bg); color: var(--amber); }
+.rating-box.watch { background: var(--accent-light); color: var(--accent-dark); }
+
+/* ===== Star Rating ===== */
+.stars { color: var(--amber); letter-spacing: 2px; font-size: 14px; }
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .sidebar { display: none; }
+  .main { margin-left: 0; padding: 24px 16px; }
+  .hero { padding: 28px 20px; }
+  .quick-stats { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Sidebar ===== -->
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <h2>Meituan: Four-Role Analysis</h2>
+    <div class="date">2026-07-07</div>
+  </div>
+  <ul class="sidebar-nav">
+    <li><a href="#summary">📊 Team Lead summary</a></li>
+    <li class="section-label">Four-role analysis report</li>
+    <li><a href="#analyst-1">🔍 Business analyst</a></li>
+    <li><a href="#analyst-2">📈 Financial analyst</a></li>
+    <li><a href="#analyst-3">🏭 Industry analyst</a></li>
+    <li><a href="#analyst-4">⚠️ Risk assessor</a></li>
+    <li class="section-label">Key data</li>
+    <li><a href="#financials">📋 Core financial data</a></li>
+    <li><a href="#valuation">💰 Valuation scenarios</a></li>
+    <li><a href="#monitor">📌 Key monitoring indicators</a></li>
+  </ul>
+</nav>
+
+<!-- ===== Main Content ===== -->
+<div class="main">
+
+<!-- Hero -->
+<div class="hero">
+  <h1>Meituan (3690.HK / MPNGY)</h1>
+  <div class="subtitle">Four-role parallel analysis report — business analyst, financial analyst, industry researcher, risk assessor</div>
+  <div class="meta">
+    <span>📅 2026-07-07</span>
+    <span>💰 HKD 78.35</span>
+    <span>🏢 Market cap ~USD 62 billion</span>
+    <span>📊 PE ~12.4x</span>
+  </div>
+</div>
+
+<!-- Quick Stats -->
+<div class="quick-stats">
+  <div class="stat-card">
+    <div class="value green">$46.9B</div>
+    <div class="label">2024 revenue</div>
+  </div>
+  <div class="stat-card">
+    <div class="value green">$6.5B</div>
+    <div class="label">2024 free cash flow</div>
+  </div>
+  <div class="stat-card">
+    <div class="value green">10.6%</div>
+    <div class="label">FCF Yield</div>
+  </div>
+  <div class="stat-card">
+    <div class="value amber">10%</div>
+    <div class="label">2025E revenue growth</div>
+  </div>
+  <div class="stat-card">
+    <div class="value green">$26.1B</div>
+    <div class="label">Cash reserves</div>
+  </div>
+  <div class="stat-card">
+    <div class="value green">20.6%</div>
+    <div class="label">ROE (2024)</div>
+  </div>
+</div>
+
+<!-- ===== 1. Team Lead 汇总 ===== -->
+<div class="section-card" id="summary">
+  <h2>📊 Team Lead Summary Report</h2>
+
+  <!-- Consensus Table -->
+  <h3>Summary of key conclusions by role</h3>
+  <table>
+    <thead><tr><th>Role</th><th>Core conclusion</th><th>Stance</th><th>Confidence level</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Business analyst (Duan Yongping)</strong></td><td>Its business model is "instant retail infrastructure," with a very deep moat, but profitability has yet to be fully unlocked.</td><td><span class="tag green">🟢 Bullish</span></td><td>Medium-high</td></tr>
+      <tr><td><strong>Financial analyst (Buffett)</strong></td><td>Clean and reliable financials, reasonable valuation at 12x PE and 10.6% FCF yield, revenue slowing but profit accelerating</td><td><span class="tag green">🟢 Worth watching</span></td><td>High</td></tr>
+      <tr><td><strong>Industry analyst (Munger)</strong></td><td>Meituan holds a quasi-monopoly in local life services, and its scale effect is shifting from "burning cash for scale" to "scale for profit"</td><td><span class="tag green">🟢 Bullish</span></td><td>High</td></tr>
+      <tr><td><strong>Risk assessor (Li Lu)</strong></td><td>Risks are clear and quantifiable; the biggest is "Wang Xing dependency," while regulatory risk is fading</td><td><span class="tag amber">🟡 Medium-low risk</span></td><td>Mid-to-high</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Financial highlights at a glance</h3>
+  <table>
+    <thead><tr><th>Indicator</th><th>2024</th><th>2023</th><th>Trend of change</th></tr></thead>
+    <tbody>
+      <tr><td>Revenue</td><td>$46,959M</td><td>$39,104M</td><td><span class="tag green">+20.1%</span></td></tr>
+      <tr><td>Net profit</td><td>$4,981M</td><td>$1,958M</td><td><span class="tag green">+154%</span></td></tr>
+      <tr><td>Operating cash flow</td><td>$7,949M</td><td>$5,726M</td><td><span class="tag green">+38.8%</span></td></tr>
+      <tr><td>Free cash flow</td><td>$6,544M</td><td>$4,796M</td><td><span class="tag green">+36.5%</span></td></tr>
+      <tr><td>Gross margin</td><td>38.4%</td><td>35.1%</td><td><span class="tag green">+3.3pp</span></td></tr>
+      <tr><td>Net margin</td><td>10.6%</td><td>5.0%</td><td><span class="tag green">+5.6pp</span></td></tr>
+      <tr><td>ROE</td><td>~20.6%</td><td>~9.0%</td><td><span class="tag green">+11.6pp</span></td></tr>
+      <tr><td>PE (TTM)</td><td colspan="2">~12.4x</td><td><span class="tag blue">Moderately undervalued</span></td></tr>
+      <tr><td>FCF Yield</td><td colspan="2">10.6%</td><td><span class="tag green">Attractive</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Investment thesis summary</h3>
+
+  <div class="info-box success">
+    <strong>🟢 Bull case (6/10)</strong><br><br>
+    1. <strong>Earnings inflection confirmed</strong>: 2024 net profit USD 5 billion, FCF USD 6.5 billion — high earnings quality (cash flow far exceeds net profit)<br>
+    2. <strong>Valuation reasonably low</strong>: PE 12x, FCF yield 10.6%, PS 1.3x — low among tech platforms<br>
+    3. <strong>Net cash position</strong>$26B cash &gt; $5.9B debt, high margin of safety<br>
+    4. <strong>Solid industry position</strong>: Food delivery 65-70% market share; no competitor can pose a systemic threat<br>
+    5. <strong>Significant room for profit release</strong>: Net margin of 10.6% remains far below Alibaba (20%+) and Pinduoduo (25%+)<br>
+    6. <strong>Scale effects turning positive</strong>: FCF/revenue rose from 2.8% (2022) to 12.3% (2023) to 13.9% (2024), improving steadily</div>
+
+  <div class="info-box danger">
+    <strong>🔴 Bear case (4/10)</strong><br><br>
+    1. <strong>Revenue growth slows</strong>: from 20% to below 10%, growth ceiling approaching<br>
+    2. <strong>Competitive pressure persists</strong>: Douyin local group buying, JD Daojia, Ele.me and many other rivals are dividing up the incremental growth<br>
+    3. <strong>Rising regulatory costs</strong>: Potential costs from rider social insurance and pricing controls could erode 10-15% of profit<br>
+    4. <strong>Key person risk</strong>: Wang Xing is strategically indispensable, with no clear succession plan</div>
+
+  <h3>Team Lead overall investment recommendation</h3>
+  <p><span class="rating-box buy">🔵 Overweight</span>Attractive at current levels for portfolio allocation</p>
+
+  <blockquote>
+    <strong>Core investment thesis (in 3 sentences)</strong><br><br>
+    1. <strong>China's largest instant retail infrastructure</strong>High-frequency essential demand + network effects + scale barriers: a deep moat<br>
+    2. <strong>Earnings release has only just begun</strong>: Net margin of 10.6% still has 1x room to improve, and FCF will keep improving with economies of scale<br>
+    3. <strong>Valuation does not reflect true value</strong>: PE 12x, FCF yield 10.6% — the market's discount may be excessive</blockquote>
+
+  <div class="info-box warning">
+    <strong>The biggest risk: not competition, not regulation, but "time"</strong>The market may need 2-3 years to fully recognize Meituan's profitability and the depth of its moat. During the transition from "slowing revenue growth" to "full profit release," the share price may remain volatile.</div>
+</div>
+
+<!-- ===== 2. 商业分析师 ===== -->
+<div class="section-card" id="analyst-1">
+  <div class="role-header">
+    <div class="role-emoji">🔍</div>
+    <div class="role-info">
+      <h3>Business analyst report</h3>
+      <div class="role-desc">Duan Yongping's lens — business model · core competitiveness · pricing power</div>
+    </div>
+  </div>
+
+  <h3>Meituan's core competitiveness</h3>
+
+  <h4>1. Flywheel effect of high-frequency consumption</h4>
+  <p>Food delivery is a classic high-frequency, low-margin business. Meituan handles about 70 million orders per day, making it China's largest on-demand delivery network. High-frequency delivery demand brings a huge user base and high daily app-open frequency, which naturally converts into a traffic source for higher-margin businesses such as in-store services, travel and hotel booking, and flash shopping.<strong>This is not simple "traffic monetization" but "service as channel"—every delivery is a chance to reach the user.</strong></p>
+
+  <h4>2. Scale barriers in instant-delivery infrastructure</h4>
+  <p>Meituan has about 1 million active riders covering 2,800 counties and districts nationwide. This delivery network cannot be replicated in the short term with capital alone: dispatch algorithms (AI optimized across hundreds of millions of orders), network density (per-order fulfillment cost falls as density rises), and merchant coverage (about 13 million active merchants). This forms a virtuous cycle: more merchants → more choices → more users → more orders → better delivery efficiency.</p>
+
+  <h4>3. The "China uniqueness" of the local services ecosystem</h4>
+  <p>No competitor in China matches Meituan's full-scenario coverage across food delivery, in-store services, travel and hospitality, instant retail and community group buying.</p>
+
+  <h3>The essence of the business model</h3>
+  <p>The answer is<strong>Both, but at its core it is "retail infrastructure driven by high-frequency services"</strong>Meituan's food delivery business matches users with restaurants, but delivery fulfillment is an asset-heavy operation. Meituan Instashopping (30-minute delivery) is expanding its categories from food to supermarkets, pharmacies, daily necessities and electronics. In essence, this is<strong>A retail platform built on an instant-delivery network as infrastructure</strong>, similar to Amazon's FBA system, but focused on "30-minute delivery" rather than "next-day delivery".</p>
+
+  <h4>Meituan vs Costco</h4>
+  <div class="comparison-grid">
+    <div class="comparison-item">
+      <h4>Meituan</h4>
+      <ul style="margin-left:16px;font-size:13px;">
+        <li>Customer acquisition: high-frequency services drive traffic, free to use</li>
+        <li>Profit: commission + advertising + delivery fees</li>
+        <li>Supply chain: local merchant network, asset-light</li>
+        <li>Moat: network effects + scale effects</li>
+      </ul>
+    </div>
+    <div class="comparison-item">
+      <h4>Costco</h4>
+      <ul style="margin-left:16px;font-size:13px;">
+        <li>Customer acquisition: membership fees locked in upfront</li>
+        <li>Profit: membership fees + product markups</li>
+        <li>Supply chain: self-built warehousing, asset-heavy</li>
+        <li>Moat: supply-chain efficiency + member stickiness</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Pricing power assessment</h3>
+  <table>
+    <thead><tr><th>Subject of pricing</th><th>Intensity</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td>For merchants (commission rate)</td><td><span class="tag green">Moderately strong</span></td><td>High dependence on small and medium merchants; large brands have pricing power</td></tr>
+      <tr><td>To users (delivery fees + membership)</td><td><span class="tag green">Moderately strong</span></td><td>High switching costs make changing platforms uneconomical</td></tr>
+      <tr><td>Competitive rivalry (barriers)</td><td><span class="tag amber">Moderate</span></td><td>Douyin exerts some pressure, but the mindshare is different</td></tr>
+    </tbody>
+  </table>
+
+  <blockquote>
+    <strong>Duan Yongping-style summary:</strong>"My core approach to buying companies is to look at their business model and corporate culture. Meituan's business model is good—high-frequency essential demand, network effects, scale barriers. But it is still in the 'capture the market' phase, and profitability has not been fully released. If Wang Xing can deliver profitability while staying good to consumers—that would be a good business."</blockquote>
+</div>
+
+<!-- ===== 3. 财务分析师 ===== -->
+<div class="section-card" id="analyst-2">
+  <div class="role-header">
+    <div class="role-emoji">📈</div>
+    <div class="role-info">
+      <h3>Financial Analyst Report</h3>
+      <div class="role-desc">Buffett lens — ROE · FCF · PB/PE · net cash · revenue growth</div>
+    </div>
+  </div>
+
+  <div class="info-box success">
+    <strong>✅ Reliable financial data</strong>— Listed in Hong Kong with Big Four audit; 2024 net profit USD 4,981M vs operating cash flow USD 7,949M, with cash flow far exceeding profit; accounts receivable only USD 369M (0.8% of revenue), top-tier quality among China concept stocks.</div>
+
+  <h3>ROE assessment</h3>
+  <table>
+    <thead><tr><th>Year</th><th>Net profit</th><th>Shareholders' equity</th><th>ROE</th></tr></thead>
+    <tbody>
+      <tr><td>2024</td><td>$4,981M</td><td>~$24,217M</td><td><span class="tag green">~20.6%</span></td></tr>
+      <tr><td>2023</td><td>$1,958M</td><td>~$21,666M</td><td><span class="tag green">~9.0%</span></td></tr>
+      <tr><td>2022</td><td>-$993M</td><td>~$19,272M</td><td><span class="tag red">Negative value</span></td></tr>
+      <tr><td>2021</td><td>-$3,648M</td><td>~$19,601M</td><td><span class="tag red">Negative value</span></td></tr>
+    </tbody>
+  </table>
+  <p><strong>Buffett criteria:</strong>ROE &gt; 15% + low leverage = excellent business. 2024 ROE was about 20.6%; on a tangible-asset basis (excluding goodwill of $4.2B) ROE is higher (about 26%). Trend view: sustainable in the 15-20% range, meeting the "good business" threshold.</p>
+
+  <h3>FCF analysis (the metric Buffett values most)</h3>
+  <table>
+    <thead><tr><th>Year</th><th>Operating cash flow</th><th>Capital expenditure</th><th>Free cash flow</th><th>FCF/revenue</th></tr></thead>
+    <tbody>
+      <tr><td>2024</td><td>$7,949M</td><td>$1,405M</td><td><strong>$6,544M</strong></td><td>13.9%</td></tr>
+      <tr><td>2023</td><td>$5,726M</td><td>$930M</td><td><strong>$4,796M</strong></td><td>12.3%</td></tr>
+      <tr><td>2022</td><td>$1,696M</td><td>$791M</td><td><strong>$905M</strong></td><td>2.8%</td></tr>
+      <tr><td>2021</td><td>-$622M</td><td>$1,380M</td><td><strong>-$2,002M</strong></td><td>-7.2%</td></tr>
+    </tbody>
+  </table>
+  <p><strong>FCF trajectory:</strong>-$2B → $0.9B → $4.8B → $6.5B. This is the classic "heavy upfront investment → mid-cycle inflection → late-stage free cash flow release" pattern.<strong>FCF Yield：</strong>10.6% — by Buffett's standard, anything above 8-10% is worth considering; this is quite attractive.</p>
+
+  <h3>Net cash position</h3>
+  <table>
+    <thead><tr><th>Project</th><th>Amount</th></tr></thead>
+    <tbody>
+      <tr><td>Cash and cash equivalents</td><td>$26,122M</td></tr>
+      <tr><td>Long-term debt</td><td>$5,887M</td></tr>
+      <tr><td>Current liabilities (including operating liabilities)</td><td>$15,014M</td></tr>
+      <tr><td><strong>Net cash (cash minus financial debt)</strong></td><td><strong>$20,235M</strong></td></tr>
+    </tbody>
+  </table>
+  <p>Net cash equals 8-33% of the USD 62 billion market cap, implying an even lower valuation for the business itself. But Meituan currently pays no dividend and does not buy back stock at scale—a flaw for a Buffett-style "cash cow" investment thesis.</p>
+
+  <h3>Revenue growth slows</h3>
+  <div class="info-box warning">
+    <strong>From 20% to 10% — a red flag?</strong><br>Buffett-style analysis: look at the base effect—at a $47B scale, a 10% growth rate produces an absolute increment ($4.7B) higher than 2021's 17% growth on $27.8B ($4.7B). Earnings growth &gt; revenue growth is what matters—in 2024, revenue +20%, net profit +154%, FCF +36%. Revenue decelerates while profit accelerates—the mark of a good business.</div>
+
+  <blockquote>
+    <strong>Buffett-style summary:</strong>"The best businesses are those where $1 invested today produces far more than $1 in the future. Meituan spent 8 years losing money and investing, and starting in 2024 it has finally entered a payback period. $6.5B in free cash flow, $26B in cash reserves, 20% ROE—these numbers are real. The only thing that gives me pause is that Wang Xing has not yet shown a willingness to return cash to shareholders. I will keep watching."</blockquote>
+</div>
+
+<!-- ===== 4. 行业研究员 ===== -->
+<div class="section-card" id="analyst-3">
+  <div class="role-header">
+    <div class="role-emoji">🏭</div>
+    <div class="role-info">
+      <h3>Industry analyst report</h3>
+      <div class="role-desc">Munger's lens — industry structure · competitive dynamics · scale effects · four major rivals</div>
+    </div>
+  </div>
+
+  <h3>China's local life services market landscape</h3>
+  <table>
+    <thead><tr><th>Market segment</th><th>Size (RMB)</th><th>Growth rate</th><th>Meituan's market share</th><th>Main competitors</th></tr></thead>
+    <tbody>
+      <tr><td>Food delivery</td><td>~RMB 1.2 trillion</td><td>12-15%</td><td><span class="tag green">65-70%</span></td><td>Ele.me (30%), Douyin (3-5%)</td></tr>
+      <tr><td>In-store/dine-in</td><td>~RMB 800 billion</td><td>18-22%</td><td><span class="tag amber">~50%</span></td><td>Douyin (25%), Dianping (20%+)</td></tr>
+      <tr><td>Instant retail (flash sales)</td><td>~RMB 500 billion</td><td>35-40%</td><td><span class="tag amber">~40%</span></td><td>JD Daojia (25%), Ele.me (20%)</td></tr>
+      <tr><td>Travel</td><td>~RMB 600 billion</td><td>15-20%</td><td>20-25%</td><td>Ctrip (50%+), Fliggy (15%)</td></tr>
+      <tr><td>Community group buying</td><td>~RMB 200 billion</td><td>5-10%</td><td>30-35%</td><td>Duoduo Maicai (35%), Xingsheng Youxuan (15%)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>In-depth analysis of the four major competitors</h3>
+
+  <h4>1. Alibaba local services (Ele.me + Amap + Koubei)</h4>
+  <blockquote>"Alibaba's investment in Ele.me is 'incompetent capital allocation'. It spent USD 9.5 billion on the acquisition and burned over RMB 10 billion in subsidies, only for market share to fall from 40% to 30%. This shows that:<strong>Capital accumulation without core competitiveness is waste.</strong>"</blockquote>
+  <p><span class="tag green">Threat level: ⭐⭐</span>Persistent losses, no structural competitive advantage</p>
+
+  <h4>2. JD Daojia (Dada)</h4>
+  <blockquote>JD.com Daojia is a business "with a clear positioning but a low ceiling." Instant retail is a 30-minute delivery business, while JD.com's core brand is next-day delivery—two entirely different consumer mindsets. JD.com Daojia's scale is only one-tenth of Meituan's, and its delivery network density is an order of magnitude lower.<strong>Second place never makes money.</strong>"</blockquote>
+  <p><span class="tag amber">Threat level: ⭐⭐⭐</span>Focused on instant retail, with some differentiation</p>
+
+  <h4>3. Douyin local life services</h4>
+  <blockquote>Douyin's approach to local life services is "traffic monetization thinking," fundamentally different from service-fulfillment thinking. Douyin's problem is:<strong>Without a delivery network, there is no moat.</strong>Short-video ROI is falling and traffic costs are rising. Douyin is "goods seeking people"; Meituan is "people seeking goods" — the two models cannot substitute for each other.</blockquote>
+  <p><span class="tag amber">Threat level: ⭐⭐⭐⭐</span>The threat in the in-store segment is real, but it has a ceiling</p>
+
+  <h4>4. Ele.me</h4>
+  <blockquote>The problem with Ele.me is not a matter of money. Alibaba has already invested over RMB 100 billion, yet its market share is still falling. This shows that Ele.me has<strong>Structural competitive disadvantage</strong>: Meituan was built by an independent startup team, while Ele.me was acquired—two completely different DNAs.</blockquote>
+  <p><span class="tag green">Threat level: ⭐⭐</span>"Zombie competitors" — alive but not a threat</p>
+
+  <h3>Has the scale effect reached a turning point?</h3>
+  <div class="info-box success">
+    <strong>Munger-style synthesis:</strong>The "sweet spot" of scale effects still has 3-5 years of runway. Meituan's scale effects are now shifting from "delivery cost decline" to "profit release." In 2024, FCF rose from $4.8B to $6.5B, driven not by a revenue surge (+20%) but by margin expansion (net margin from 5% to 10.6%).<strong>This indicates that the scale effect is shifting from "burning cash for scale" to "trading scale for profit".</strong>
+  </div>
+</div>
+
+<!-- ===== 5. 风险评估师 ===== -->
+<div class="section-card" id="analyst-4">
+  <div class="role-header">
+    <div class="role-emoji">⚠️</div>
+    <div class="role-info">
+      <h3>Risk Assessor Report</h3>
+      <div class="role-desc">Li Lu's lens — regulation · competition · overseas · technology · key people</div>
+    </div>
+  </div>
+
+  <h3>Risk 1: Regulatory risk</h3>
+  <div class="info-box warning">
+    <strong>Probability: medium-high | Impact: medium to high</strong><br>The peak of the 2021 regulatory storm has passed, and the current policy environment has eased markedly. Remaining risks are mainly: rider social insurance costs (if 100% social insurance is mandated, an additional RMB 20-30 billion per year) and food delivery pricing controls. The probability of another antitrust fine is low.</div>
+  <blockquote><strong>A Li Lu-style judgment:</strong>The period of greatest regulatory risk (2021-2023) is over. Meituan's biggest regulatory risk now is not "crackdown" but "cost" — rider social insurance and possible pricing controls will erode margins, but will not destroy the business model.</blockquote>
+
+  <h3>Risk 2: Competitive subsidy war</h3>
+  <div class="info-box amber">
+    <strong>Probability: Medium | Impact: Medium to High</strong><br>Probability of an all-out subsidy war: 15% (very high impact); probability of a localized subsidy war: 50% (medium impact); probability of subsidy cooling: 35% (low impact).</div>
+  <blockquote><strong>Li Lu-style judgment:</strong>"The subsidy war is Meituan's biggest short-term risk, but not a long-term one. Meituan's cash reserves are more than twice those of its competitors, its per-order unit economics are already profitable, while Ele.me still loses RMB 5-8 per order. Those burning cash can never catch up with those making money."</blockquote>
+
+  <h3>Risk 3: Uncertainty over overseas expansion</h3>
+  <div class="info-box green">
+    <strong>Probability: High (expansion decision) | Impact: Low to medium</strong><br>Keeta's pilots in Hong Kong and the Middle East are tiny in scale (under 1% of total revenue), so the near-term impact is limited.</div>
+  <blockquote><strong>A Li Lu-style judgment:</strong>"I would rather invest in a company that penetrates the Chinese market deeply and thoroughly than in one that wastes resources on overseas experiments. If Wang Xing decides to push aggressively overseas, I will reassess."</blockquote>
+
+  <h3>Risk 4: Technology substitution risk</h3>
+  <div class="info-box green">
+    <strong>Probability: Low | Impact: Medium</strong><br>Advances in AI and drone delivery benefit Meituan, which has already built a presence there, but pose a threat if rivals are first to cut costs sharply.</div>
+
+  <h3>Risk 5: Key-person risk</h3>
+  <div class="info-box danger">
+    <strong>Probability: low to medium | Impact: very high</strong><br>Wang Xing holds about 10% of shares but 60% of voting rights, with no clear succession plan. If Wang Xing were to leave for any reason, the stock could plunge 30-50%!</div>
+  <blockquote><strong>A Li Lu-style judgment:</strong>"This is my biggest concern. Meituan is far too dependent on Wang Xing. Alibaba found Daniel Zhang after Jack Ma stepped back, and JD.com has been trying decentralized management since the Liu Qiangdong incident. Meituan has no such 'spare tire.' If anything happens to Wang Xing, the investment thesis for Meituan would be severely undermined."</blockquote>
+
+  <h3>Comprehensive Risk Assessment Matrix</h3>
+  <div>
+    <div class="risk-row header"><span>Risk category</span><span>Probability</span><span>Financial impact</span><span>Hedgeability</span><span>Rating</span></div>
+    <div class="risk-row"><span>Regulatory risk</span><span><span class="tag amber">Mid-to-high</span></span><span>Mid</span><span>Low (uncontrollable)</span><span><span class="tag amber">🟡 Watch</span></span></div>
+    <div class="risk-row"><span>Competitive subsidy war</span><span><span class="tag amber">The middle</span></span><span>Mid-to-high</span><span>Mid</span><span><span class="tag amber">🟡 Watch</span></span></div>
+    <div class="risk-row"><span>Overseas expansion</span><span><span class="tag amber">High</span></span><span>Low-to-mid</span><span>High</span><span><span class="tag green">🟢 Controllable</span></span></div>
+    <div class="risk-row"><span>Technology substitution</span><span><span class="tag green">Low</span></span><span>The middle</span><span>Mid</span><span><span class="tag green">🟢 Controllable</span></span></div>
+    <div class="risk-row"><span>Key person risk</span><span><span class="tag amber">Low-to-mid</span></span><span>Very high</span><span>Low</span><span><span class="tag red">🟠 Caution</span></span></div>
+  </div>
+
+  <blockquote style="margin-top:24px;">
+    <strong>Li Lu-style final verdict:</strong>"I would assign Meituan an overall risk rating of 'moderately low.' For a company generating USD 6.5 billion in annual free cash flow, holding USD 26 billion in cash reserves, and dominating a trillion-dollar market, this risk-reward ratio is worth watching. But my advice is: do not buy in a panic during regulatory storms or competitive scares, and do not rush to sell on rumors about Wang Xing's health—make decisions with data, not emotions."</blockquote>
+</div>
+
+<!-- ===== 6. 核心数据：估值情景 ===== -->
+<div class="section-card" id="valuation">
+  <h2>💰 Valuation scenario analysis</h2>
+  <table>
+    <thead><tr><th>Scenario</th><th>Assumptions</th><th>Fair market value</th><th>Potential return</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag red">Conservative</span></td><td>FCF growth slows to 5%, PE 10x</td><td>~USD 50-55 billion</td><td><span class="tag red">-10~-20%</span></td></tr>
+      <tr><td><span class="tag green">Benchmark</span></td><td>FCF growth 10-15%, PE 15x</td><td>~USD 75–85 billion</td><td><span class="tag green">+20~+35%</span></td></tr>
+      <tr><td><span class="tag green">Optimistic</span></td><td>Flash sales/advertising drive margin expansion, PE 20x</td><td>~USD 110–130 billion</td><td><span class="tag green">+80~+110%</span></td></tr>
+    </tbody>
+  </table>
+  <div class="info-box success">
+    <strong>Base case (50% probability):</strong>Meituan can sustain 10-15% FCF growth over the next 3 years, with FCF yield gradually compressing from 10.6% to 6-7% (corresponding to 15x PE), implying a market cap of USD 75-85 billion and 20-35% upside from the current USD 62 billion.</div>
+</div>
+
+<!-- ===== 7. 关键监测指标 ===== -->
+<div class="section-card" id="monitor">
+  <h2>📌 Key monitoring indicators</h2>
+  <p>The following metrics will determine whether Meituan's investment thesis holds:</p>
+  <ol style="margin-left:20px;margin-bottom:16px;">
+    <li><strong>2025 full-year revenue growth</strong>: If it holds at 8-12%, growth slows but remains manageable; if it falls below 5%, the growth narrative needs reassessment</li>
+    <li><strong>FCF/revenue ratio</strong>: If it keeps rising (toward 15-18%), it proves economies of scale are materializing; if it falls, competitive pressure is intensifying</li>
+    <li><strong>Management capital allocation</strong>Will it launch a buyback? Will it pay a dividend? That will determine whether the market grants it a "mature platform" valuation premium</li>
+    <li><strong>Douyin local life GTV growth rate</strong>: If Douyin's in-store GTV growth stays above 50%, Meituan's in-store business will come under pressure</li>
+    <li><strong>Overseas expansion scale</strong>: If Keeta's investment budget exceeds USD 1 billion per year, the ROE impact needs reassessment</li>
+  </ol>
+
+  <h3>Conditions for adding to positions</h3>
+  <div class="info-box success">Recommend modestly increasing positions under the following conditions:<br>① 2025 FCF confirmed &gt;$7B (i.e., YoY growth &gt;7%)<br>② Management announces first buyback/dividend plan<br>③ Share price pulls back to HKD 65-70 (prior support level)</div>
+
+  <h3>Reassessing the conditions</h3>
+  <div class="info-box danger">Reassess if any of the following conditions is triggered:<br>① Douyin local-life GTV doubles, overtaking Meituan's in-store revenue<br>② Ele.me receives stronger capital backing<br>③ Wang Xing leaves for personal reasons</div>
+</div>
+
+<!-- ===== Footer ===== -->
+<div style="margin:48px 0 24px;padding:24px 0 0;border-top:2px solid var(--border);text-align:center;color:var(--gray);font-size:13px;">
+  <p><strong>Meituan (3690.HK / MPNGY) Four-Role Parallel Analysis Report</strong></p>
+  <p>Research date: 2026-07-07 | Current share price: HKD 78.35 | Market cap: ~USD 62 billion</p>
+  <p>Analytical framework: four-role parallel analysis (Duan Yongping / Buffett / Munger / Li Lu)</p>
+  <p style="margin-top:8px;font-size:12px;opacity:0.7;">This report is for reference only and does not constitute investment advice. Investing carries risk; exercise caution when entering the market.</p>
+</div>
+
+</div>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

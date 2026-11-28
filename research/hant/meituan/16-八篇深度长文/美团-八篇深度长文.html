@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美團（3690.HK / MPNGY）16-八篇深度長文</title>
+<style>
+  /* ===== PDD Standard CSS Template ===== */
+  :root {
+    --bg: #faf9f7;
+    --card: #ffffff;
+    --text: #1a1a1a;
+    --text-secondary: #555;
+    --border: #e0ddd5;
+    --accent: #1A4B8C;
+    --accent-light: #fdf2f0;
+    --accent-gradient: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%);
+    --tag-bg: #f0ede8;
+    --radius: 12px;
+    --shadow: 0 2px 12px rgba(0,0,0,0.06);
+    --font-serif: 'Georgia', 'Noto Serif SC', serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 0;
+  }
+
+  /* ===== Header ===== */
+  .header {
+    background: var(--accent-gradient);
+    color: white;
+    padding: 48px 24px 40px;
+    text-align: center;
+  }
+  .header h1 {
+    font-family: var(--font-serif);
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+  .header .subtitle {
+    font-size: 1.1rem;
+    opacity: 0.92;
+    margin-bottom: 12px;
+  }
+  .header .meta {
+    font-size: 0.9rem;
+    opacity: 0.75;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  /* ===== Container ===== */
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+  }
+
+  /* ===== Collapsible Accordion ===== */
+  .accordion-item {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: box-shadow 0.2s;
+  }
+  .accordion-item:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+
+  .accordion-header {
+    display: flex;
+    align-items: center;
+    padding: 20px 24px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+    gap: 16px;
+  }
+  .accordion-header:hover {
+    background: var(--accent-light);
+  }
+
+  .accordion-header .article-number {
+    flex-shrink: 0;
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .accordion-header .title-group {
+    flex: 1;
+    min-width: 0;
+  }
+  .accordion-header .title-group .article-title {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .accordion-header .title-group .article-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 2px;
+  }
+
+  .accordion-header .expand-icon {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--tag-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    transition: transform 0.3s ease;
+  }
+  .accordion-item.active .expand-icon {
+    transform: rotate(180deg);
+    background: var(--accent);
+    color: white;
+  }
+
+  .accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.3s ease;
+    padding: 0 24px;
+  }
+  .accordion-item.active .accordion-body {
+    max-height: 100000px; /* effectively unlimited */
+    padding: 0 24px 32px;
+  }
+
+  /* ===== Article Content ===== */
+  .accordion-body .article-content {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--text);
+  }
+
+  .accordion-body .article-content h2 {
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 32px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    color: var(--accent);
+  }
+
+  .accordion-body .article-content h3 {
+    font-family: var(--font-sans);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 24px 0 12px;
+    color: #2c3e50;
+  }
+
+  .accordion-body .article-content p {
+    margin: 0 0 16px;
+    text-align: justify;
+  }
+
+  .accordion-body .article-content blockquote {
+    margin: 16px 0;
+    padding: 12px 20px;
+    background: var(--accent-light);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: #444;
+  }
+
+  .accordion-body .article-content ul,
+  .accordion-body .article-content ol {
+    margin: 0 0 16px 24px;
+  }
+  .accordion-body .article-content li {
+    margin-bottom: 6px;
+  }
+
+  .accordion-body .article-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+  }
+  .accordion-body .article-content th {
+    background: var(--accent);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .accordion-body .article-content td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .accordion-body .article-content tr:nth-child(even) td {
+    background: #fbfaf8;
+  }
+  .accordion-body .article-content tr:hover td {
+    background: var(--accent-light);
+  }
+
+  .accordion-body .article-content code {
+    background: #f0ede8;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-family: 'SF Mono', 'Menlo', monospace;
+  }
+
+  .accordion-body .article-content hr {
+    margin: 32px 0;
+    border: none;
+    border-top: 1px solid var(--border);
+  }
+
+  .accordion-body .article-content strong {
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+
+  /* ===== Controls ===== */
+  .controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .controls button {
+    padding: 8px 20px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--card);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-family: var(--font-sans);
+    color: var(--text-secondary);
+    transition: all 0.2s;
+  }
+  .controls button:hover {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ===== Footer ===== */
+  .footer {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+    margin-top: 32px;
+  }
+  .footer a { color: var(--accent); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 640px) {
+    .header h1 { font-size: 1.6rem; }
+    .header { padding: 32px 16px 28px; }
+    .container { padding: 20px 12px 60px; }
+    .accordion-header { padding: 16px; }
+    .accordion-header .article-number { width: 34px; height: 34px; font-size: 0.85rem; }
+    .accordion-header .title-group .article-title { font-size: 1rem; }
+    .accordion-item.active .accordion-body { padding: 0 16px 24px; }
+    .accordion-body .article-content h2 { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>美團 · 八篇深度長文</h1>
+  <div class="subtitle">從認知重設到決策框架 · 完整研究分析</div>
+  <div class="meta">
+    <span>公司：美團（3690.HK / MPNGY）</span>
+    <span>執行長：王興</span>
+    <span>研究日期：2026-07-07</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Controls -->
+  <div class="controls">
+    <button onclick="expandAll()">展開全部 ▼</button>
+    <button onclick="collapseAll()">收起全部 ▲</button>
+  </div>
+
+  <!-- ====== Article 1 ====== -->
+  <div class="accordion-item active">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <div class="article-number">1</div>
+      <div class="title-group">
+        <div class="article-title">美團的本質是什麼？</div>
+        <div class="article-subtitle">從團購網站到「科技零售」的13年進化</div>
+      </div>
+      <div class="expand-icon">▾</div>
+    </div>
+    <div class="accordion-body">
+      <div class="article-content">
+        <blockquote>一句話說清楚美團這門生意的本質：<strong>美團是一個以「喫」為核心高頻入口、以即時配送為基礎設施、以 LBS（基於位置的服務）為技術內核的科技零售平臺。</strong></blockquote>
+
+        <h2>一、2010-2015：千團大戰的倖存者</h2>
+        <p>2010年3月，王興創辦美團網。當時的中國網際網路，「團購」是個熱得發燙的賽道——高峯期全國有超過5000家團購網站參與「千團大戰」。拉手網、窩窩團、糯米網……每一個都燒錢燒得轟轟烈烈。</p>
+        <p>美團活下來不是因為錢多，而是因為兩件事：</p>
+        <p><strong>第一，王興對「效率」的偏執。</strong>當所有人都在瘋狂投放廣告拉新時，美團堅持用資料驅動營運。王興從《孫子兵法》裡借來一句話叫「先勝而後求戰」——先把成本結構算清楚，再決定打不打這場仗。2011年團購行業泡沫破裂時，拉手網燒掉1.7億美元後倒下，美團卻帳上現金充裕。</p>
+        <p><strong>第二，美團提前發現了「行動網際網路」這個超級變數。</strong>2011 年美團就推出了行動端 App，而大多數競爭對手還在依賴 PC 網頁。行動端意味著什麼？意味著「位置」變成了最核心的資料維度。當你知道使用者在哪兒，你就能推薦他附近最好喫的餐廳。這就是 LBS 的起點。</p>
+        <p>到2015年，美團與大眾點評合併，完成了在「到店」場景的絕對領先。這時候的美團，本質上是一家<strong>本地生活資訊服務平臺</strong>——幫使用者找店，幫店家獲客。</p>
+
+        <h2>二、2015-2020：外送大戰的勝負手</h2>
+        <p>2013年底美團切入外送。這是一個比團購更血腥的戰場——對手是背靠阿里巴巴的餓了麼，以及百度外送。</p>
+        <p>為什麼王興要打這場硬仗？因為「到店」是個低頻場景（一個人一個月喫飯店幾次？），但「外送」是<strong>日活躍級的超級高頻入口</strong>高頻打低頻是網際網路世界最殘酷的降維打擊。</p>
+        <p>美團後發制人，在2017年超越餓了麼成為行業第一。關鍵決策有兩個：</p>
+        <p><strong>1. 自建配送體系。</strong>美團沒有單純做平臺撮合，而是投入巨額資金自建了覆蓋全國的即時配送網路。美團外賣的配送團隊超過100萬人（包含眾包和專職騎手），這是全球最大的即時配送網路。這套基礎設施後來成為美團所有新業務的底座。</p>
+        <p><strong>2.「T型戰略」的底層邏輯。</strong>王興提出的T型戰略，豎線是外賣這個高頻入口，橫線是圍繞「喫」延伸出的到店、酒旅、閃購等業務。高頻帶動低頻，外賣的低毛利用其他業務的高毛利來補貼。</p>
+        <p>到了2020年，美團外賣日訂單量突破4000萬單，年活躍商戶超過600萬。美團不再是一個「資訊平臺」，它變成了<strong>一個具備物理世界履約能力的科技零售平臺</strong>。</p>
+
+        <h2>三、2020-2023：看見「萬物到家」的天花板</h2>
+        <p>2020年之後，美團做了一件很多人不理解的事——在已經持續虧損的外送業務上繼續投入，同時開闢了美團閃購、美團優選等新戰場。</p>
+        <p>這背後的戰略判斷是：<strong>外送訂單量的天花板可能遠高於市場預期，但更重要的天花板在「外送之外」——即時零售。</strong></p>
+        <p>美團閃購的邏輯很簡單：既然我能30分鐘送一份餐，為什麼不能30分鐘送一箱啤酒、一束花、一部手機？這不是品類的擴展，這是<strong>履約能力的複用</strong>配送網路已經建好了，邊際成本接近零，每多送一個品類都是在攤薄固定成本。</p>
+        <p>同時，美團優選（社區團購）在下沉市場激進擴張。雖然這項業務虧損嚴重，但戰略意義在於：<strong>把美團的供應鏈和配送能力延展到了三到六線城市</strong>。</p>
+
+        <h2>四、今天的美團：三條腿的「科技零售」巨人</h2>
+        <table>
+          <tr><th>業務線</th><th>代表產品</th><th>頻率</th><th>毛利特徵</th><th>策略角色</th></tr>
+          <tr><td><strong>到家</strong></td><td>外送、閃購</td><td>極高（日頻）</td><td>低毛利</td><td>流量入口、配送基礎設施</td></tr>
+          <tr><td><strong>到店</strong></td><td>點評、團購</td><td>中頻（週頻）</td><td>高毛利</td><td>利潤中心</td></tr>
+          <tr><td><strong>新業務</strong></td><td>優選、單車、充電寶</td><td>中低頻</td><td>虧損／損益兩平</td><td>增量市場＋防禦性佈局</td></tr>
+        </table>
+        <p>三者的關係是：<strong>到家業務虧錢（或微利）養用戶習慣和配送網路，到店業務賺錢給公司提供利潤，新業務賭未來十年的增量。</strong></p>
+        <p>王興自己說過一句話：「美團不是一家送外賣的公司，而是一家以科技驅動、在『喫』這個核心場景上建立基礎設施的平臺。」</p>
+        <p>這個定位意味著，美團的核心競爭壁壘不是流量，而是<strong>物理世界的履約效率</strong>——你能在多快的時間內，以多低的成本，把什麼東西送到什麼人手裡。</p>
+
+        <h2>五、一句話版本</h2>
+        <blockquote><strong>美團是「中國最大、全球領先的即時履約科技零售平臺」——它用10年時間建了一套能夠30分鐘觸達中國幾乎所有城市的物理配送網路，並在這個網路上運行著從外送到閃購到店酒旅的多層商業模型。</strong></blockquote>
+        <p>這個本質決定了美團的一切優勢（護城河深、網路效應強）和一切劣勢（重資產、低毛利、競爭激烈）。看懂美團，不是看懂它今天賺了多少錢，而是看懂這張「30分鐘配送網」到底值多少錢。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Article 2 ====== -->
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <div class="article-number">2</div>
+      <div class="title-group">
+        <div class="article-title">外送是一門好生意嗎？</div>
+        <div class="article-subtitle">單均經濟模型深度拆解</div>
+      </div>
+      <div class="expand-icon">▾</div>
+    </div>
+    <div class="accordion-body">
+      <div class="article-content">
+        <blockquote>外送是「高頻低利」但「規模碾壓」的生意——這句話幾乎是一個投資公理。但要真正理解它，我們必須把每一筆外送訂單的帳算清楚。</blockquote>
+
+        <h2>一、一筆30元的外送，錢去哪了？</h2>
+        <p>假設一個用戶在北京點了一份30元的外送，我們拆解每一塊錢的去向：</p>
+        <pre style="background:#f5f3ef;padding:16px 20px;border-radius:8px;font-family:var(--font-sans);font-size:0.9rem;line-height:1.6;overflow-x:auto;">用戶支付：      30元
+   ├─ 商家到手：      ~21元   （70%）
+   ├─ 騎手配送費：    ~5元    （17%）
+   ├─ 平臺佣金淨收入： ~3元    （10%）
+   └─ 支付通道費：    ~1元    （3%）</pre>
+        <p>從這3塊錢佣金淨收入裡，平臺還要扣除用戶補貼、技術研發、行銷費用等成本約1.5-2.5元。每單淨營業利益大約只有<strong>0.5-1.5元</strong>——不到一杯奶茶的錢。</p>
+        <p><strong>單均利潤 = 3元（佣金淨收入）- 2元（營運費用）= 1元左右</strong></p>
+
+        <h2>二、為什麼薄利生意還是有上百家公司想做？</h2>
+        <p>因為兩個數字：<strong>頻次 × 規模。</strong></p>
+        <p><strong>高頻：用戶黏性的發動機。</strong>一名城市白領一年外送消費約200單、6000元。這個頻率在所有網路服務中僅次於社交和短影音。高頻帶來了使用者行為資料、消費習慣鎖定和交叉銷售入口。</p>
+        <p><strong>規模：單均經濟模型的數學魔術。</strong>外送的固定成本極高（技術研發、配送網路）、可變成本極低。當平臺日均訂單從1000萬提升到5000萬時，配送密度提升、技術成本攤薄、商家談判力增強、資料飛輪加速——美團的單均配送成本從高峯期下降約35%。</p>
+
+        <h2>三、外送的成本結構</h2>
+        <p><strong>騎手成本</strong>是最大的單項支出，佔平臺收入的17-20%。需要重點注意的是：中國外賣的騎手成本（勞動力成本低、電動車滲透率100%、城市人口密度高），相比Uber Eats、DoorDash有<strong>結構性優勢</strong>。這也是美團海外擴張面臨的最大挑戰。</p>
+
+        <h2>四、「薄利」為什麼是不可替代的護城河？</h2>
+        <p>反直覺的結論：<strong>正因為外送是薄利生意，它纔是好生意。</strong></p>
+        <p>低利潤空間意味著：新玩家進入門檻極高（需要日均5000萬單才能損益兩平）；巨頭也不願全力投入（利潤率遠低於其主營業務）；補貼戰變成效率比拼（高效者每單虧損少得多）。</p>
+        <p>張一鳴說過：「不要進入低毛利率的行業。」王興的回應是：「苦活累活裡纔有真正的護城河。」</p>
+
+        <h2>五、結論：出人意料的「好生意」</h2>
+        <p><strong>如果把美團想像成一個商場，外送就是商場裡那個不賺錢但永遠有人排隊的手搖飲店——它本身利潤微薄，但它讓整個商場活了起來。</strong></p>
+        <p>從生態價值看：外送是6.8億用戶的使用習慣錨點，是100萬騎手配送網路的財務支撐，是600萬商戶數位化的基礎入口，是美團新業務的現金流奶牛和營運經驗來源。</p>
+        <p><strong>外送本身不是一門暴利生意，但它是一門有堅固護城河、不可替代、能支撐一個龐大商業生態的策略性生意。</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Article 3 ====== -->
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <div class="article-number">3</div>
+      <div class="title-group">
+        <div class="article-title">美團的護城河有多深？</div>
+        <div class="article-subtitle">三方網路效應的自我強化飛輪</div>
+      </div>
+      <div class="expand-icon">▾</div>
+    </div>
+    <div class="accordion-body">
+      <div class="article-content">
+        <h2>一、雙邊 vs 三邊：護城河質的不同</h2>
+        <p>大多數平臺型公司有雙邊網路效應。美團擁有一個極其罕見的<strong>三方網路效應</strong>：</p>
+        <table>
+          <tr><th>平臺</th><th>雙邊／三邊</th><th>網路效應強度</th></tr>
+          <tr><td>淘寶</td><td>商家 ↔ 消費者</td><td>極強</td></tr>
+          <tr><td>滴滴</td><td>司機 ↔ 乘客</td><td>較強</td></tr>
+          <tr><td>美團外賣</td><td><strong>商家 ↔ 消費者 ↔ 騎手</strong></td><td><strong>三邊（更強）</strong></td></tr>
+        </table>
+        <p>三邊網路效應自強化飛輪：</p>
+        <pre style="background:#f5f3ef;padding:16px 20px;border-radius:8px;font-family:var(--font-sans);font-size:0.85rem;line-height:1.5;">更多使用者 → 更多訂單 → 更多外送員加入 → 配送更快
+                                    ↓
+更短配送時間 → 使用者更願下單 → 更多訂單
+                                    ↓
+                           更多商家進駐 → 品類更豐富
+                                    ↓
+                           消費者選擇更多 → 更多使用者</pre>
+
+        <h2>二、護城河的四個層次</h2>
+        <h3>第一層：規模效應（最容易複製）</h3>
+        <p>日均6000萬訂單→外送員密度優勢→資料累積優勢。但並非不可複製。</p>
+        <h3>第二層：配送基礎設施（較難複製）</h3>
+        <p>覆蓋全國2800多個縣市區，約100萬活躍騎手。營運複雜度極高，且實體網路不可跳過——你燒再多錢，也不可能在一年內建成一個覆蓋全國、效率相同的網路。</p>
+        <h3>第三層：三方網路效應（極難複製）</h3>
+        <p>一旦跨過「臨界點」，後來者幾乎不可能趕上。在三邊市場中，市場份額會向領先者集中——美團外賣份額從2017年的50%提升到2024年的70%。</p>
+        <h3>第四層：品牌與心智佔有（最難複製）</h3>
+        <p>「點外送」幾乎等同於「打開美團」。習慣的力量是護城河中最深的一種。</p>
+
+        <h2>三、抖音的進攻：護城河被削弱了嗎？</h2>
+        <p>抖音2024年本地生活GTV約3000億人民幣，約佔美團到店25-30%。但外送領域，抖音有三大致命短板：沒有配送網路、不能打持久戰（高毛利補貼低毛利的悖論）、使用者心智不同（刷影片 vs 點外送）。</p>
+
+        <h2>四、阿里的再進攻</h2>
+        <p>餓了麼被阿里收購後份額從40%跌到25%左右。核心問題不是「沒有錢」，而是「沒有聚焦」。阿里本地生活多個業務各自為戰。</p>
+
+        <h2>五、護城河評分</h2>
+        <table>
+          <tr><th>維度</th><th>深度（1-10）</th><th>持久性</th><th>被侵蝕速度</th></tr>
+          <tr><td>規模效應</td><td>7</td><td>中等</td><td>中等</td></tr>
+          <tr><td>配送基礎設施</td><td>9</td><td>長</td><td>慢</td></tr>
+          <tr><td>三方網路效應</td><td>9</td><td>很長</td><td>極慢</td></tr>
+          <tr><td>品牌心智</td><td>8</td><td>很長</td><td>慢</td></tr>
+          <tr><td><strong>綜合</strong></td><td><strong>8.3</strong></td><td><strong>長</strong></td><td><strong>慢</strong></td></tr>
+        </table>
+        <p>美團的護城河在中國網路公司中屬於第一梯隊，與騰訊、阿里處於同一個級別。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Article 4 ====== -->
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <div class="article-number">4</div>
+      <div class="title-group">
+        <div class="article-title">王興這個人值不值得信任？</div>
+        <div class="article-subtitle">CEO深度畫像：連續創業者、理性主義者、長期主義</div>
+      </div>
+      <div class="expand-icon">▾</div>
+    </div>
+    <div class="accordion-body">
+      <div class="article-content">
+        <h2>一、創業史：一個「連續失敗者」到「本地生活之王」</h2>
+        <p>6次創業嘗試，前5次全部失敗——多多友（社交）、遊子圖（照片分享）、校內網（校園社交，成功出售但被趕超）、海內網（商務社交，失敗）、飯否網（微網誌，被封停）。只有美團存活下來。</p>
+        <p>連續失敗給了王興兩個極其罕見的品質：<strong>對「生存」的極端重視</strong>（永遠保持18個月資金）和<strong>對「模式」的深刻懷疑與迭代能力</strong>。</p>
+
+        <h2>二、理性主義者的思維模型</h2>
+        <p>王興的閱讀量在中國 CEO 中屬於頂級——引用過《孫子兵法》《人類簡史》《有限與無限的遊戲》《創新者的窘境》《黑天鵝》《反脆弱》……他不是「讀了假裝懂」，而是真的用框架分析商業問題。</p>
+        <p><strong>理性主義的雙面刃：</strong>好的一面是所有大決策有清晰資料支撐；有爭議的一面是「無邊界」擴張——摩拜單車（27億美元收購，從未獲利）、美團優選（巨額虧損）。但所有多元化業務都有一個共同點：複用配送網路或LBS能力。</p>
+
+        <h2>三、資本配置能力評估（評分：B+）</h2>
+        <table>
+          <tr><th>決策</th><th>結果</th><th>評分</th></tr>
+          <tr><td>外送自建配送</td><td>成功</td><td>A</td></tr>
+          <tr><td>收購摩拜</td><td>一般</td><td>C+</td></tr>
+          <tr><td>美團優選</td><td>虧損中</td><td>B-</td></tr>
+          <tr><td>閃購</td><td>成長強勁</td><td>A-</td></tr>
+          <tr><td>Keeta 出海</td><td>早期</td><td>待觀察</td></tr>
+        </table>
+        <p>最大爭議：<strong>零回購零分紅</strong>帳上260億美元現金、每年65億美元FCF，零回報。王興的資本配置哲學：優先投資增長 > 保證安全 > 回報股東。</p>
+
+        <h2>四、長期主義還是好大喜功？</h2>
+        <p>支持長期主義的證據：外賣虧損6年堅持配送網路投資；低谷期不裁員；出海Keeta「慢錢」邏輯。支持好大喜功的質疑：優選巨額虧損；多線作戰導致組織力分散；內部「捲到極致」的文化。</p>
+
+        <h2>五、綜合判斷</h2>
+        <p><strong>用一句話評價：王興不是一個讓投資者「放心」的人（因為他永遠在追求增長），但他是一個讓投資者「信任」的人——因為他的決策邏輯始終如一、可追溯、可檢驗。</strong></p>
+        <p>他真正的競爭力在於：<strong>他能看到10年後的終局，並有紀律地去建造通往那個終局的基礎設施。</strong>在中國網路CEO中，長期值得信任度排名前三——僅次於張一鳴和馬化騰。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Article 5 ====== -->
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <div class="article-number">5</div>
+      <div class="title-group">
+        <div class="article-title">美團vs京東vs阿里——即時零售三國殺</div>
+        <div class="article-subtitle">美團閃購 vs 京東小時購 vs 阿里即時零售</div>
+      </div>
+      <div class="expand-icon">▾</div>
+    </div>
+    <div class="accordion-body">
+      <div class="article-content">
+        <blockquote>即時零售——「萬物到家」——是2024-2026年中國網路最熱門的戰場。市場規模約8000億人民幣，預計2030年突破2萬億。</blockquote>
+
+        <h2>一、三家選手的「起跑線」對比</h2>
+        <h3>美團閃購：配送網路複用</h3>
+        <p>核心優勢：外送配送網路直接複用，邊際成本極低，覆蓋速度極快。短板：供應鏈深度不足（生鮮和日百缺乏自建供應鏈），客單價低（40-60元 vs 京東80-120元）。</p>
+        <h3>京東小時購：供應鏈降維</h3>
+        <p>核心優勢：20年自建物流和供應鏈，3C數位和日用百貨品類最強的品控和價格力。短板：配送密度不如美團（街道級別），即時配送基因不夠（習慣「規劃路線批量配送」而不是「隨時接單」）。</p>
+        <h3>阿里即時零售：羣狼戰術</h3>
+        <p>餓了麼、淘鮮達、盒馬、天貓超市、高德……每條線都有團隊深耕。最大問題：內部賽馬和整合難題，沒有統一入口，餓了麼自身虧損掙扎。</p>
+
+        <h2>二、關鍵戰場：履約效率的PK</h2>
+        <table>
+          <tr><th>維度</th><th>美團閃購</th><th>京東小時購</th><th>阿里即時零售</th></tr>
+          <tr><td>單均配送成本</td><td>~4-6元</td><td>~5-7元</td><td>~6-8元</td></tr>
+          <tr><td>平均配送時長</td><td>約28分鐘</td><td>~45分鐘</td><td>約35分鐘</td></tr>
+          <tr><td>配送密度</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
+          <tr><td>供應鏈深度</td><td>⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
+        </table>
+
+        <h2>三、誰更可能贏？</h2>
+        <p><strong>短期（1-2年）：</strong>美團保持領先——品類擴展階段，配送網路是現成的。<br>
+        <strong>中期（3-5年）：</strong>京東可能是最強勁的對手——即時零售進入「品質升級」階段，供應鏈優勢凸顯。<br>
+        <strong>長期（5-10年）：</strong>取決於誰能建起最深的供應鏈護城河，誰能獲得用戶習慣的鎖定。</p>
+
+        <h2>四、結論</h2>
+        <table>
+          <tr><th>選手</th><th>當前優勢</th><th>最大短板</th><th>勝率（主觀）</th></tr>
+          <tr><td><strong>美團閃購</strong></td><td>配送網路、使用者心智、高頻入口</td><td>供應鏈深度</td><td><strong>50%</strong></td></tr>
+          <tr><td><strong>京東小時購</strong></td><td>供應鏈、商品品質、客單價</td><td>配送密度、使用者習慣</td><td><strong>30%</strong></td></tr>
+          <tr><td><strong>阿里即時零售</strong></td><td>資源雄厚、佈局廣泛</td><td>內部不協同</td><td><strong>20%</strong></td></tr>
+        </table>
+        <p>即時零售大概率有2-3個主要玩家共存，但美團有最大概率成為榜首。關鍵變數：京東對即時零售的決心與執行力。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Article 6 ====== -->
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <div class="article-number">6</div>
+      <div class="title-group">
+        <div class="article-title">美團的財務祕密——從虧損到盈利到底發生了什麼</div>
+        <div class="article-subtitle">稅後淨利從-$36.5億到$49.8億的真實原因</div>
+      </div>
+      <div class="expand-icon">▾</div>
+    </div>
+    <div class="accordion-body">
+      <div class="article-content">
+        <table>
+          <tr><th>年份</th><th>營收</th><th>毛利</th><th>毛利率</th><th>稅後淨利</th><th>淨利率</th><th>營業現金流</th><th>FCF</th></tr>
+          <tr><td>2021</td><td>$27,765</td><td>$6,583</td><td>23.7%</td><td>-$3,648</td><td>-13.1%</td><td>-$622</td><td>-$2,002</td></tr>
+          <tr><td>2022</td><td>$32,685</td><td>$9,176</td><td>28.1%</td><td>-$993</td><td>-3.0%</td><td>$1,696</td><td>$905</td></tr>
+          <tr><td>2023</td><td>$39,104</td><td>$13,733</td><td>35.1%</td><td>$1,958</td><td>5.0%</td><td>$5,726</td><td>$4,796</td></tr>
+          <tr><td>2024</td><td>$46,959</td><td>$18,053</td><td>38.4%</td><td>$4,981</td><td>10.6%</td><td>$7,949</td><td>$6,544</td></tr>
+        </table>
+
+        <h2>一、轉虧為盈的三大驅動</h2>
+        <h3>驅動一：毛利率結構性改善（最重要）</h3>
+        <p>毛利率從23.7%提升到38.4%（+14.7個百分點）。原因：外送配送效率提升（單均成本降35%）、高毛利到店業務佔比提升、廣告收入增長。真實、可持續。</p>
+        <h3>驅動二：營業費用的「槓桿效應」</h3>
+        <p>研發費用絕對值不增長（$2.9B vs $3.1B）但營收增長了69%。SG&A費用（$10.4B）快速增長是隱憂——佔比22.1%仍偏高。</p>
+        <h3>驅動三：規模槓桿</h3>
+        <p>營收成長69%但固定成本沒有等比成長。每1美元增量營收中0.2-0.3美元轉化為利潤。</p>
+
+        <h2>二、自由現金流品質：比稅後淨利更值得關注</h2>
+        <table>
+          <tr><th>年份</th><th>稅後淨利</th><th>營業現金流</th><th>FCF</th><th>自由現金流／稅後淨利</th></tr>
+          <tr><td>2024</td><td>$4,981</td><td>$7,949</td><td>$6,544</td><td>1.31x</td></tr>
+          <tr><td>2023</td><td>$1,958</td><td>$5,726</td><td>$4,796</td><td>2.45x</td></tr>
+        </table>
+        <p>自由現金流是稅後淨利的1.3-2.5倍，因為折舊攤銷（$1.1-1.4B）和股權激勵（~$700M）是非現金支出。</p>
+
+        <h2>三、隱性風險</h2>
+        <p><strong>① 美團優選仍在燒錢：</strong>年虧損約$1.5-2B，但現金$26B可容忍。<br>
+        <strong>② 銷管費用不可逆成長：</strong>面對抖音競爭，行銷投入短期內難以削減。<br>
+        <strong>③ 折舊攤銷利好不可持續：</strong>資本支出上升後 FCF／稅後淨利比率將回落。<br>
+        <strong>④ 競爭補貼輪迴：</strong>京東／阿里大舉補貼即時零售的黑天鵝風險。</p>
+
+        <h2>四、總結</h2>
+        <p><strong>美團的翻轉是真實的、有基本面支撐的，不是會計遊戲。</strong>稅後淨利由虧轉盈的核心驅動因素都是營運層面的真實改善。但SG&A費用、優選虧損、競爭風險三者中的任何一個惡化，都可能讓利潤增長在2025-2026年遇到瓶頸。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Article 7 ====== -->
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <div class="article-number">7</div>
+      <div class="title-group">
+        <div class="article-title">美團出海——Keeta在沙烏地阿拉伯和巴西的故事</div>
+        <div class="article-subtitle">海外擴張的進展、挑戰、天花板</div>
+      </div>
+      <div class="expand-icon">▾</div>
+    </div>
+    <div class="accordion-body">
+      <div class="article-content">
+        <h2>一、為何是沙烏地？</h2>
+        <p>2023年Keeta在香港上線，2023年底進入沙烏地首都利雅德。沙烏地選擇理由：外送滲透率低（10-15% vs 中國30%+）、人均GDP 3萬美元（配送費接受度高）、人口高度集中（三大城市）、政府政策友善（Vision 2030）。</p>
+
+        <table>
+          <tr><th>指標</th><th>資料（2025年底估）</th></tr>
+          <tr><td>覆蓋城市</td><td>利雅德、吉達、達曼等5個</td></tr>
+          <tr><td>日均訂單量</td><td>約5-8萬單</td></tr>
+          <tr><td>利雅德市場份額</td><td>約15-20%</td></tr>
+          <tr><td>合作商戶</td><td>約5000+</td></tr>
+          <tr><td>活躍騎手</td><td>約3000-5000人</td></tr>
+        </table>
+        <p>2025年中，Keeta進入巴西聖保羅——美團的第二個海外國家。</p>
+
+        <h2>二、出海面臨的四大挑戰</h2>
+        <h3>挑戰一：配送成本的結構性劣勢（最大挑戰）</h3>
+        <p>中國騎手一單配送費$0.4-0.7，沙烏地$3-5（5-10倍）。電動車 vs 燃油摩托成本差。人口密度利雅德4000人/km² vs 中國一線城市20000人/km²（5倍）。<strong>預計美團在沙烏地阿拉伯單均配送成本是中國的5-8倍。</strong></p>
+        <h3>挑戰二：品牌認知與使用者習慣</h3>
+        <p>沙烏地用戶習慣使用 HungerStation、Jahez、Careem（Uber Eats）。讓用戶更換應用程式的成本遠超國內拓展城市。</p>
+        <h3>挑戰三：本地化管理難度</h3>
+        <p>沙烏地勞動法的「本土化」（Saudization）要求推高用工成本。管理不同文化、語言、法律的勞動力羣體難度指數級上升。</p>
+        <h3>挑戰四：本地競爭對手阻擊</h3>
+        <p>HungerStation（約 35%）、Jahez（約 25%）、Careem（約 20%）——本地業者擁有多年累積的商家網路與使用者習慣。</p>
+
+        <h2>三、天花板在哪？</h2>
+        <table>
+          <tr><th>情境</th><th>5-8年後海外營收</th><th>影響</th></tr>
+          <tr><td>悲觀</td><td>$5-10億元（佔2-3%）</td><td>可忽略不計</td></tr>
+          <tr><td>中性</td><td>$30-50億（佔10-15%）</td><td>估值30-50億美元（目前市值5-8%）</td></tr>
+          <tr><td>樂觀</td><td>$100億元以上（佔20-25%）</td><td>估值200-300億元（當前市值30-50%）</td></tr>
+        </table>
+
+        <h2>四、判斷：中性偏樂觀</h2>
+        <p>海外外送市場沒有出現「贏家通喫」——Uber Eats、DoorDash、Deliveroo 各有領地。美團的「效率優勢」在海外可能被成本結構抹平，但「慢擴張」策略是明智的（不燒錢換增長）。</p>
+        <p><strong>Keeta 的價值不在於今天送了多少單，而在於它證明瞭美團的管理系統和演算法能力能否在不同的文化、經濟、制度環境中被複製。</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Article 8 ====== -->
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <div class="article-number">8</div>
+      <div class="title-group">
+        <div class="article-title">現在可以買美團嗎？</div>
+        <div class="article-subtitle">決策框架：估值分析、安全邊際、關鍵風險、買入區間、倉位建議</div>
+      </div>
+      <div class="expand-icon">▾</div>
+    </div>
+    <div class="accordion-body">
+      <div class="article-content">
+        <h2>一、當前估值：到底貴不貴？</h2>
+        <table>
+          <tr><th>估值指標</th><th>美團當前</th><th>中國網路均值</th><th>全球外送均值</th><th>評價</th></tr>
+          <tr><td>PE（TTM）</td><td>~12-15x</td><td>15-20x</td><td>30-50x</td><td><strong>便宜</strong></td></tr>
+          <tr><td>PS（TTM）</td><td>~1.3x</td><td>2-4x</td><td>3-6x</td><td><strong>明顯便宜</strong></td></tr>
+          <tr><td>PB</td><td>~1.4x</td><td>2-3x</td><td>—</td><td><strong>便宜</strong></td></tr>
+          <tr><td>FCF Yield</td><td>~10.6%</td><td>3-5%</td><td>1-3%</td><td><strong>極具吸引力</strong></td></tr>
+        </table>
+        <p>美團是<strong>全球最便宜的外送／本地生活股票</strong>便宜的原因：地緣政治折價、成長放緩憂慮、結構性競爭擔憂。</p>
+
+        <h2>二、安全邊際分析</h2>
+        <p>極度悲觀（零成長+PE 10x）：估值底約HKD 70-75元——距當前78.35元僅5-10%下行空間。</p>
+        <table>
+          <tr><th>情境</th><th>機率</th><th>目標價（HKD）</th><th>距當前漲跌</th></tr>
+          <tr><td>極度悲觀</td><td>10%</td><td>70-75</td><td>-4% to -10%</td></tr>
+          <tr><td>悲觀</td><td>30%</td><td>85-100</td><td>+8% to +28%</td></tr>
+          <tr><td>中性</td><td>40%</td><td>120-150</td><td>+53% to +91%</td></tr>
+          <tr><td>樂觀</td><td>20%</td><td>160-200</td><td>+104% to +155%</td></tr>
+        </table>
+        <p><strong>風險回報比約 1:4 到 1:6。</strong></p>
+
+        <h2>三、關鍵風險</h2>
+        <p><strong>① 競爭導致利潤率惡化（機率中偏高）：</strong>營業費用率回到25-28%將吞噬50-80%利潤。<br>
+        <strong>② 營收增速持續放緩（機率高）：</strong>跌破10%將觸發估值中樞下移。<br>
+        <strong>③ 王興資本配置惡化（機率中低）：</strong>零回購零分紅的持續。<br>
+        <strong>④ 地緣政治黑天鵝（機率中低但影響極大）：</strong>任何中概股都無法消除的存在性風險。<br>
+        <strong>⑤ 海外擴張失敗（機率中）：</strong>Keeta 3-5年內無法證明商業模式可複製。</p>
+
+        <h2>四、買入區間</h2>
+        <table>
+          <tr><th>價格區間（HKD）</th><th>操作</th><th>理由</th></tr>
+          <tr><td><strong>72-78</strong></td><td><strong>積極買入</strong></td><td>安全邊際充分，下行保護充足</td></tr>
+          <tr><td><strong>78-90</strong></td><td><strong>適度買入／加倉</strong></td><td>合理偏低估區間</td></tr>
+          <tr><td>90-110</td><td>持有觀望／定期定額</td><td>合理估值區間</td></tr>
+          <tr><td>110+</td><td>不追高／減倉</td><td>無安全邊際</td></tr>
+        </table>
+        <p><strong>目前 HKD 78.35，落在「積極買入」與「適度買入」的交界處。</strong></p>
+
+        <h2>五、倉位建議</h2>
+        <table>
+          <tr><th>投資者類型</th><th>建議倉位</th><th>說明</th></tr>
+          <tr><td>保守型</td><td>3-5%</td><td>地緣政治風險不可忽視</td></tr>
+          <tr><td>平衡型</td><td>5-8%</td><td>基本面紮實+估值低</td></tr>
+          <tr><td>積極型</td><td>8-12%</td><td>深入研究+足夠風險承受能力</td></tr>
+        </table>
+        <p><strong>關鍵紀律：美團不適合做為核心持倉（超過15%）。</strong>不是質地不好，而是中概股的地緣政治風險天然需要更大的分散度。</p>
+
+        <h2>六、最終結論</h2>
+        <blockquote><strong>美團是當前全球資本市場上最被低估的優質公司之一。在HKD 75-85的區間，它是一個值得買入並持有的標的——前提是你有3年以上的投資期限、能承受20-30%的短期波動、並且對中概股的地緣政治風險有清醒的認知和承受能力。</strong></blockquote>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>研究日期：2026-07-07 &nbsp;·&nbsp; 資料來源：MacroTrends、Google Finance、Stock Analysis &nbsp;·&nbsp; 本內容僅供參考，不構成投資建議</p>
+  <p><a href="#">返回頂部 ↑</a></p>
+</div>
+
+<script>
+function toggleAccordion(header) {
+  const item = header.parentElement;
+  const isActive = item.classList.contains('active');
+  item.classList.toggle('active');
+}
+
+function expandAll() {
+  document.querySelectorAll('.accordion-item').forEach(item => item.classList.add('active'));
+}
+
+function collapseAll() {
+  document.querySelectorAll('.accordion-item').forEach(item => item.classList.remove('active'));
+}
+
+// Auto-open first article on load
+document.addEventListener('DOMContentLoaded', function() {
+  const first = document.querySelector('.accordion-item');
+  if (first) first.classList.add('active');
+});
+</script>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>簡</span><span class="full"><span>簡體中文</span></span></a><a class="lang hant active" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

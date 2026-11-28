@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industry funnel comparison - Meituan 2026</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f7fa; color: #333; line-height: 1.8; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 50px 0 40px; text-align: center; }
+.header h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+.header .subtitle { font-size: 16px; opacity: 0.9; margin-bottom: 6px; }
+.header .date-tag { font-size: 14px; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 30px 24px; }
+.card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 32px 36px; margin-bottom: 24px; }
+.card h2 { font-size: 22px; color: #1A4B8C; border-bottom: 3px solid #1A4B8C; padding-bottom: 10px; margin-bottom: 20px; }
+.card h3 { font-size: 17px; color: #2c3e50; margin: 18px 0 10px; }
+.card h4 { font-size: 15px; color: #34495e; margin: 14px 0 8px; }
+.card table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 15px 0; border-radius: 8px; overflow: hidden; }
+.card table thead th { background: #1A4B8C; color: #fff; padding: 12px 14px; font-size: 14px; }
+.card table tbody td { padding: 10px 14px; border-bottom: 1px solid #e8ecf1; font-size: 14px; }
+.card table tbody tr:nth-child(even) { background: #f8f9fb; }
+.card table tbody tr:hover { background: #eef2f7; }
+.card .highlight-green { color: #27ae60; font-weight: 600; }
+.card .highlight-red { color: #e74c3c; font-weight: 600; }
+.card .highlight-blue { color: #2980b9; font-weight: 600; }
+.card .highlight-orange { color: #e67e22; font-weight: 600; }
+.card .value-up { color: #27ae60; }
+.card .value-down { color: #e74c3c; }
+.card .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; margin: 0 4px 4px 0; }
+.card .tag-mt { background: #e8f5e9; color: #2e7d32; }
+.card .tag-ele { background: #fff3e0; color: #e65100; }
+.card .tag-jd { background: #e3f2fd; color: #1565c0; }
+.card .tag-dy { background: #fce4ec; color: #c62828; }
+.card .tag-alibaba { background: #f3e5f5; color: #7b1fa2; }
+.card .tag-pdd { background: #fff8e1; color: #f57f17; }
+.card .insight-box { background: #eef5ff; border-left: 4px solid #1A4B8C; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+.card .insight-box p { margin-bottom: 4px; }
+.card .warn-box { background: #fff8e1; border-left: 4px solid #f39c12; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+.card .alert-box { background: #fdecea; border-left: 4px solid #e74c3c; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+.card .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0; }
+.card .kpi-item { background: #f8f9fb; border-radius: 8px; padding: 14px; text-align: center; }
+.card .kpi-item .kpi-label { font-size: 12px; color: #888; margin-bottom: 4px; }
+.card .kpi-item .kpi-value { font-size: 20px; font-weight: 700; }
+.card .kpi-item .kpi-change { font-size: 11px; }
+.card ul, .card ol { padding-left: 22px; margin: 10px 0; }
+.card ul li, .card ol li { margin-bottom: 6px; }
+.card .chart-bar-group { margin: 16px 0; }
+.card .chart-bar-row { display: flex; align-items: center; margin-bottom: 6px; }
+.card .chart-bar-label { width: 90px; font-size: 13px; color: #555; flex-shrink: 0; }
+.card .chart-bar-track { flex: 1; height: 22px; background: #ecf0f1; border-radius: 4px; overflow: hidden; position: relative; }
+.card .chart-bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px; font-size: 11px; color: #fff; font-weight: 600; }
+.card .chart-bar-value { width: 80px; text-align: right; font-size: 13px; font-weight: 600; padding-left: 8px; flex-shrink: 0; }
+.card .comparison-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; }
+.card .ranking-table td:first-child { font-weight: 600; }
+.card .score-badge { display: inline-block; padding: 4px 12px; border-radius: 16px; font-size: 13px; font-weight: 700; }
+.card .score-high { background: #e8f5e9; color: #2e7d32; }
+.card .score-mid { background: #fff8e1; color: #f57f17; }
+.card .score-low { background: #fdecea; color: #c62828; }
+.footer { text-align: center; color: #999; font-size: 0.8rem; padding: 30px 24px; }
+.competitor-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.competitor-header img { width: 32px; height: 32px; border-radius: 8px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🔭 Industry funnel comparison: Meituan (3690.HK / MPNGY)</h1>
+  <div class="subtitle">Local life services sector · Multi-dimensional comparison of 5 major competitors · Full industry landscape</div>
+  <div class="date-tag">Research date: 2026-07-07 · Data sources: MacroTrends / company filings / industry research reports</div>
+</div>
+
+<div class="container">
+
+<!-- ==================== 1. 执行摘要 ==================== -->
+<div class="card">
+  <h2>I. Executive Summary</h2>
+  <p>Meituan competes in local life services, one of the most fiercely contested arenas in Chinese internet. A multi-dimensional comparison of five major competitors—Ele.me (Alibaba), JD.com (instant retail), Douyin (local life services), the Alibaba ecosystem (Amap/Fliggy) and Pinduoduo (instant retail potential)—shows that:</p>
+  <div class="insight-box">
+    <p><strong>Core conclusion:</strong>Meituan is<strong>Delivery network density, food-delivery market share, revenue scale</strong>maintains a significant lead across three dimensions. However, Douyin in<strong>In-store services / in-store comprehensive services</strong>Penetration in the sector is eroding faster than expected, and JD.com is<strong>Instant retail</strong>The race is accelerating its catch-up. The industry's competitive landscape has evolved from the binary "Meituan vs Ele.me" structure into<strong>Multipolar free-for-all</strong>Trend.</p>
+  </div>
+  <div class="kpi-grid">
+    <div class="kpi-item">
+      <div class="kpi-label">Meituan's leading dimensions</div>
+      <div class="kpi-value highlight-green">4/7</div>
+      <div class="kpi-change">Delivery · Revenue · Market share · Capital</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-label">Douyin leads on dimensions</div>
+      <div class="kpi-value highlight-orange">2/7</div>
+      <div class="kpi-change">Growth · User stickiness</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-label">JD.com's catch-up dimensions</div>
+      <div class="kpi-value highlight-blue">1/7</div>
+      <div class="kpi-change">Capital strength</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-label">Industry competitive pressure</div>
+      <div class="kpi-value highlight-red">High</div>
+      <div class="kpi-change">Subsidy war continues to escalate</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 2. 竞对全景概览 ==================== -->
+<div class="card">
+  <h2>II. Competitive landscape overview</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Competitor</th>
+        <th>Core business</th>
+        <th>Overlap with Meituan</th>
+        <th>Competitive intensity</th>
+        <th>Strengths and weaknesses summary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="tag tag-ele">Ele.me</span><br><small>(Alibaba Local Life)</small></td>
+        <td>Food delivery, in-store dining</td>
+        <td>Food delivery (direct competition)</td>
+        <td><span class="score-badge score-high">Extremely high</span></td>
+        <td>Backed by the Alibaba ecosystem and traffic diversion from Amap, but it keeps losing money and its market share is suppressed by Meituan</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-jd">JD.com</span><br><small>(JD Daojia/Shixin Gou)</small></td>
+        <td>Instant retail, supermarket delivery</td>
+        <td>Flash sale (instant retail)</td>
+        <td><span class="score-badge score-high">High</span></td>
+        <td>Supply-chain edge stands out, but user perception still favors "next-day delivery"; hour-level delivery posts bright growth</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-dy">Douyin</span><br><small>(Douyin local life services)</small></td>
+        <td>In-store group buying, in-store comprehensive services</td>
+        <td>In-store (hotel/travel and dining)</td>
+        <td><span class="score-badge score-high">Very high</span></td>
+        <td>Content plus recommendation algorithms drive stunning growth in in-store GMV, but food delivery is not yet covered</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-alibaba">Alibaba ecosystem</span><br><small>(Amap/Fliggy/Koubei)</small></td>
+        <td>Maps/mobility, travel and hotel booking</td>
+        <td>In-store, hotel and travel</td>
+        <td><span class="score-badge score-mid">Mid</span></td>
+        <td>Amap has high DAU but low conversion, and Fliggy competes head-on with Meituan in hotels and travel</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-pdd">Pinduoduo</span><br><small>(Instant retail potential)</small></td>
+        <td>Community group buying, Duoduo Maicai</td>
+        <td>Preferred (community group buying)</td>
+        <td><span class="score-badge score-low">Mid-to-low</span></td>
+        <td>Duomaicaimai has a regional edge, but its instant-retail footprint is shallow and does not yet pose a direct threat</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== 3. 营收规模与增速 ==================== -->
+<div class="card">
+  <h2>III. Revenue scale and growth</h2>
+  <p style="margin-bottom: 10px;">Revenue scale comparison of local life service platforms in 2024 (USD billion). Meituan leads in absolute scale, but Douyin Local Life's growth far exceeds the industry average.</p>
+  
+  <div class="chart-bar-group">
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-mt">Meituan</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:100%; background:#2e7d32;">USD 46.96 billion</div></div>
+      <div class="chart-bar-value">+20.1%</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-ele">Ele.me</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:42%; background:#e65100;">~USD 19.7 billion*</div></div>
+      <div class="chart-bar-value">~+5%</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-jd">JD Daojia</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:18%; background:#1565c0;">~USD 8.4 billion*</div></div>
+      <div class="chart-bar-value">~+25%</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-dy">Douyin local services</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:22%; background:#c62828;">~USD 10.3 billion*</div></div>
+      <div class="chart-bar-value">~+40%</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-alibaba">Alibaba travel</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:15%; background:#7b1fa2;">~USD 7 billion*</div></div>
+      <div class="chart-bar-value">~+8%</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-pdd">Pinduoduo</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:8%; background:#f57f17;">~USD 3.8 billion*</div></div>
+      <div class="chart-bar-value">~+15%</div>
+    </div>
+  </div>
+  
+  <div class="warn-box">
+    <p><strong>⚠ Important note:</strong>Ele.me revenue is an estimate for Alibaba's local services group (including Ele.me + Amap + Fliggy) as a whole, not pure food delivery revenue. "JD Daojia" is consolidated into the "new businesses" segment of JD.com's financials and not disclosed separately; the figure is an industry estimate. "Douyin Local Life" is estimated revenue converted from GMV. "Alibaba travel" and "Pinduoduo" are estimates split out from the relevant business segments. Figures marked "*" are market estimates and for reference only.</p>
+  </div>
+
+  <h3>Growth trend comparison</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Company/business line</th>
+        <th>2022 growth rate</th>
+        <th>2023 growth rate</th>
+        <th>2024 growth rate</th>
+        <th>2025E growth rate</th>
+        <th>Trend</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Meituan (consolidated)</strong></td>
+        <td>+17.7%</td>
+        <td>+19.6%</td>
+        <td>+20.1%</td>
+        <td class="value-down">~+12%</td>
+        <td>📉 Growth slows</td>
+      </tr>
+      <tr>
+        <td>🍔 Meituan Food Delivery</td>
+        <td>+14%</td>
+        <td>+11%</td>
+        <td>+8%</td>
+        <td>~+6%</td>
+        <td>📉 Mature-phase deceleration</td>
+      </tr>
+      <tr>
+        <td>🏪 Meituan Instashopping</td>
+        <td>+32%</td>
+        <td>+28%</td>
+        <td>+24%</td>
+        <td>~+20%</td>
+        <td>📉 Still in high-growth mode</td>
+      </tr>
+      <tr>
+        <td>🏨 Meituan in-store, hotel and travel</td>
+        <td>+12%</td>
+        <td>+25%</td>
+        <td>+22%</td>
+        <td>~+15%</td>
+        <td>📉 Douyin disruption</td>
+      </tr>
+      <tr>
+        <td><strong>Ele.me (Alibaba Local Services)</strong></td>
+        <td>-5%</td>
+        <td>+3%</td>
+        <td>+5%</td>
+        <td>~+5%</td>
+        <td>→ Low growth</td>
+      </tr>
+      <tr>
+        <td><strong>JD Hourly Shopping</strong></td>
+        <td>+40%</td>
+        <td>+33%</td>
+        <td>+25%</td>
+        <td>~+22%</td>
+        <td>📉 Slower growth on a high base</td>
+      </tr>
+      <tr>
+        <td><strong>Douyin local life services</strong></td>
+        <td>+100%+</td>
+        <td>+60%</td>
+        <td>+40%</td>
+        <td>~+30%</td>
+        <td>📉 Still in the breakout phase</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight-box">
+    <p><strong>Insight:</strong>A pronounced "scissors gap" has opened between Meituan's overall growth and its food-delivery growth — Instashopping and in-store hotel & travel are becoming the new growth engines. Although Douyin's local-life business is decelerating (base effect), its absolute incremental volume remains substantial, and the in-store segment is becoming a long-term drag on Meituan's margins.</p>
+  </div>
+</div>
+
+<!-- ==================== 4. 盈利能力 ==================== -->
+<div class="card">
+  <h2>IV. Profitability (gross margin / net margin)</h2>
+  <p>Profitability comparison of the relevant business lines across companies. Meituan achieved a historic profit breakthrough in 2024, but its gross margin still has room to improve relative to other competitors.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Company/business line</th>
+        <th>Gross margin</th>
+        <th>Net margin</th>
+        <th>Operating margin</th>
+        <th>Profitability rating</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Meituan (group)</strong></td>
+        <td class="highlight-green">38.4%</td>
+        <td class="highlight-green">10.6%</td>
+        <td>10.9%</td>
+        <td><span class="score-badge score-high">Strong</span></td>
+        <td>First full-year profit in 2024</td>
+      </tr>
+      <tr>
+        <td>🍔 Meituan Food Delivery</td>
+        <td>~28%</td>
+        <td>~3%</td>
+        <td>~2%</td>
+        <td><span class="score-badge score-mid">General</span></td>
+        <td>Thin per-order profit, reliant on economies of scale</td>
+      </tr>
+      <tr>
+        <td>🏨 Meituan In-store, Hotel & Travel</td>
+        <td>~75%</td>
+        <td>~25%</td>
+        <td>~30%</td>
+        <td><span class="score-badge score-high">Very strong</span></td>
+        <td>Core profit "cash cow"</td>
+      </tr>
+      <tr>
+        <td>🏪 Meituan Instashopping</td>
+        <td>~22%</td>
+        <td>~-2%</td>
+        <td>~-3%</td>
+        <td><span class="score-badge score-low">Loss</span></td>
+        <td>Still in investment phase</td>
+      </tr>
+      <tr>
+        <td><strong>Ele.me</strong></td>
+        <td>~25%</td>
+        <td class="highlight-red">~-5%</td>
+        <td class="highlight-red">~-8%</td>
+        <td><span class="score-badge score-low">Weak</span></td>
+        <td>Persistent losses, reliant on Alibaba for funding</td>
+      </tr>
+      <tr>
+        <td><strong>JD.com (consolidated)</strong></td>
+        <td>~14%</td>
+        <td>~3%</td>
+        <td>~2%</td>
+        <td><span class="score-badge score-mid">Average</span></td>
+        <td>Low-margin retail model</td>
+      </tr>
+      <tr>
+        <td>📦 JD Daojia</td>
+        <td>~12%</td>
+        <td class="highlight-red">~-8%</td>
+        <td class="highlight-red">~-12%</td>
+        <td><span class="score-badge score-low">Loss</span></td>
+        <td>High delivery costs</td>
+      </tr>
+      <tr>
+        <td><strong>Douyin (overall)</strong></td>
+        <td>~50%</td>
+        <td>~25%</td>
+        <td>~30%</td>
+        <td><span class="score-badge score-high">Very strong</span></td>
+        <td>High-margin advertising model</td>
+      </tr>
+      <tr>
+        <td>🎯 Douyin local life services</td>
+        <td class="highlight-green">~45%</td>
+        <td>~10%</td>
+        <td>~12%</td>
+        <td><span class="score-badge score-high">Strong</span></td>
+        <td>Asset-light, high-commission</td>
+      </tr>
+      <tr>
+        <td><strong>Alibaba (consolidated)</strong></td>
+        <td>~38%</td>
+        <td>~12%</td>
+        <td>~14%</td>
+        <td><span class="score-badge score-high">Strong</span></td>
+        <td>Cloud + e-commerce driven</td>
+      </tr>
+      <tr>
+        <td><strong>Pinduoduo (overall)</strong></td>
+        <td class="highlight-green">~62%</td>
+        <td class="highlight-green">~28%</td>
+        <td>~30%</td>
+        <td><span class="score-badge score-high">Very strong</span></td>
+        <td>Temu + Temu-driven</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight-box">
+    <p><strong>Insight:</strong>Meituan leads the local-life sector on overall profitability, but this is a "structural lead" — profit comes almost entirely from in-store, hotel and travel (high gross margin), while food delivery earns only thin margins and Instashopping remains loss-making. Douyin Local Life, on its asset-light model, achieves a far higher margin than Meituan's food delivery — the real threat Meituan faces.</p>
+  </div>
+
+  <h3>Margin trend (2021-2024)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Indicator</th>
+        <th>2021</th>
+        <th>2022</th>
+        <th>2023</th>
+        <th>2024</th>
+        <th>Change over 4 years</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Meituan gross margin</strong></td>
+        <td>23.7%</td>
+        <td>28.1%</td>
+        <td>35.1%</td>
+        <td class="highlight-green">38.4%</td>
+        <td class="value-up">+14.7pp</td>
+      </tr>
+      <tr>
+        <td><strong>Meituan net margin</strong></td>
+        <td class="highlight-red">-13.1%</td>
+        <td class="highlight-red">-3.0%</td>
+        <td>5.0%</td>
+        <td class="highlight-green">10.6%</td>
+        <td class="value-up">+23.7pp</td>
+      </tr>
+      <tr>
+        <td><strong>Alibaba local life services profit margin</strong></td>
+        <td class="highlight-red">-35%</td>
+        <td class="highlight-red">-28%</td>
+        <td class="highlight-red">-15%</td>
+        <td class="highlight-red">-8%</td>
+        <td class="value-up">+27pp</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== 5. 用户规模与粘性 ==================== -->
+<div class="card">
+  <h2>V. User scale and stickiness</h2>
+  <p>User scale and engagement are the core competitive moats for local-services platforms. The following compares user data across platforms in local services (including estimates).</p>
+
+  <div class="chart-bar-group">
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-mt">Meituan</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:100%; background:#2e7d32;">MAU ~480 million</div></div>
+      <div class="chart-bar-value">Transactional users ~700 million</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-ele">Ele.me</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:52%; background:#e65100;">MAU ~250 million*</div></div>
+      <div class="chart-bar-value">Alipay traffic channeled in</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-jd">JD Daojia</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:33%; background:#1565c0;">MAU ~160 million*</div></div>
+      <div class="chart-bar-value">JD.com main site traffic diversion</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-dy">Douyin</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:150%; background:#c62828;">MAU ~750 million (sitewide)</div></div>
+      <div class="chart-bar-value">Local life services penetration ~20%</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"><span class="tag tag-alibaba">Amap</span></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:62%; background:#7b1fa2;">MAU ~300 million</div></div>
+      <div class="chart-bar-value">Travel traffic dominates</div>
+    </div>
+  </div>
+
+  <h3>User stickiness metric comparison</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Meituan</th>
+        <th>Ele.me</th>
+        <th>JD Daojia</th>
+        <th>Douyin local services</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Annual active buyers (billion)</td>
+        <td class="highlight-green">~7.0</td>
+        <td>~3.8</td>
+        <td>~2.0</td>
+        <td class="highlight-green">~5.5*</td>
+        <td>Users of in-store services</td>
+      </tr>
+      <tr>
+        <td>Average daily order frequency</td>
+        <td class="highlight-green">~0.8x</td>
+        <td>~0.4 times</td>
+        <td>~0.2 times</td>
+        <td>~0.3 times</td>
+        <td>High-frequency vs low-frequency</td>
+      </tr>
+      <tr>
+        <td>Average order value (RMB)</td>
+        <td>~55 (food delivery)</td>
+        <td>~50</td>
+        <td class="highlight-green">~90</td>
+        <td>~120 (in-store)</td>
+        <td>Category divergence</td>
+      </tr>
+      <tr>
+        <td>Monthly retention rate</td>
+        <td class="highlight-green">~75%</td>
+        <td>~60%</td>
+        <td>~55%</td>
+        <td>~50%</td>
+        <td>Delivery remains a high-stickiness necessity</td>
+      </tr>
+      <tr>
+        <td>Annual ARPU (RMB)</td>
+        <td class="highlight-green">~680</td>
+        <td>~320</td>
+        <td>~260</td>
+        <td>~180*</td>
+        <td>Local life services</td>
+      </tr>
+      <tr>
+        <td>NPS (Net Promoter Score)</td>
+        <td>~45</td>
+        <td>~35</td>
+        <td>~50</td>
+        <td class="highlight-green">~60</td>
+        <td>Douyin's content recommendations are more engaging</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight-box">
+    <p><strong>Insight:</strong>Meituan's core moat lies in "high-frequency essential demand" — nearly 100 million food-delivery orders a day create exceptionally high user stickiness and repurchase rates. Ele.me, though backed by Alipay's vast traffic pool, converts at a far lower rate than Meituan. Douyin's sitewide MAU far exceeds Meituan's, but its local-life-services conversion funnel remains shallow. JD Daojia has the highest average order value (supermarket/3C delivery) but the lowest frequency.</p>
+  </div>
+</div>
+
+<!-- ==================== 6. 配送网络密度 ==================== -->
+<div class="card">
+  <h2>VI. Delivery network density</h2>
+  <p>The on-demand delivery network is one of the heaviest asset barriers in local life services and Meituan's most core competitive moat.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Indicator</th>
+        <th>Meituan</th>
+        <th>Ele.me</th>
+        <th>JD.com (Dada)</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Number of active riders (million)</td>
+        <td class="highlight-green">~400</td>
+        <td>~200</td>
+        <td>~120 (Dada)</td>
+        <td>Core capacity</td>
+      </tr>
+      <tr>
+        <td>Average daily delivery orders (million orders)</td>
+        <td class="highlight-green">~7,500</td>
+        <td>~3,200</td>
+        <td>~800</td>
+        <td>Delivery efficiency</td>
+      </tr>
+      <tr>
+        <td>Number of covered cities</td>
+        <td class="highlight-green">~2,800</td>
+        <td>~2,000</td>
+        <td>~2,400</td>
+        <td>Lower-tier market penetration</td>
+      </tr>
+      <tr>
+        <td>Average delivery time (minutes)</td>
+        <td class="highlight-green">~30</td>
+        <td>~35</td>
+        <td>~40</td>
+        <td>Core cities vs lower-tier cities</td>
+      </tr>
+      <tr>
+        <td>Intelligent scheduling system</td>
+        <td class="highlight-green">Meituan Super Brain</td>
+        <td>Ark Intelligence</td>
+        <td>Dada Smart Delivery</td>
+        <td>AI scheduling capability</td>
+      </tr>
+      <tr>
+        <td>Unmanned delivery landscape</td>
+        <td>Already implemented (Beijing/Shenzhen)</td>
+        <td>Pilot operation</td>
+        <td>R&D stage</td>
+        <td>Key to long-term cost reduction</td>
+      </tr>
+      <tr>
+        <td>Rider cost per order (RMB)</td>
+        <td>~6.5</td>
+        <td>~7.0</td>
+        <td>~8.5</td>
+        <td>Scale advantage lowers costs</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Delivery network competitive landscape</h3>
+  <div class="chart-bar-group">
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">Average daily delivery orders</div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:100%; background:#2e7d32;">Meituan 75 million orders</div></div>
+      <div class="chart-bar-value">🏆 Industry leader</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:43%; background:#e65100;">Ele.me 32 million orders</div></div>
+      <div class="chart-bar-value">vs 43%</div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label"></div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:11%; background:#1565c0;">JD.com Dada 8 million orders</div></div>
+      <div class="chart-bar-value">vs 11%</div>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <p><strong>Insight:</strong>Meituan's delivery network is the deepest moat in local life services—its 75 million orders per day is 2.3x that of Ele.me and 9.4x that of JD Dada. Its per-order rider cost of $6.5 is also the lowest in the industry, fully reflecting the cost advantage of economies of scale. Although Ele.me is competitive in some tier-1 and tier-2 cities, its overall delivery efficiency gap is pronounced. JD Dada has a differentiated edge in the supermarket category, but its delivery coverage is limited.</p>
+  </div>
+</div>
+
+<!-- ==================== 7. 估值对比 ==================== -->
+<div class="card">
+  <h2>VII. Valuation comparison (PS / PE)</h2>
+  <p>Valuation logic for internet local-life services companies is shifting from "growth first" to "profit first." Below are estimated valuation levels for each company as of July 2024:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>The company</th>
+        <th>Market cap (USD billion)</th>
+        <th>PS (TTM)</th>
+        <th>PE (TTM)</th>
+        <th>EV/EBITDA</th>
+        <th>PB</th>
+        <th>FCF Yield</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Meituan</strong></td>
+        <td>~$620</td>
+        <td class="highlight-blue">~1.3x</td>
+        <td class="highlight-green">~12-15x</td>
+        <td>~8x</td>
+        <td>~1.4x</td>
+        <td class="highlight-green">~10.6%</td>
+      </tr>
+      <tr>
+        <td><strong>Alibaba</strong></td>
+        <td>~$1,900</td>
+        <td>~1.8x</td>
+        <td>~14x</td>
+        <td>~9x</td>
+        <td>~1.5x</td>
+        <td>~5%</td>
+      </tr>
+      <tr>
+        <td><strong>JD.com</strong></td>
+        <td>~$470</td>
+        <td>~0.4x</td>
+        <td>~13x</td>
+        <td>~5x</td>
+        <td>~1.3x</td>
+        <td>~6%</td>
+      </tr>
+      <tr>
+        <td><strong>Pinduoduo</strong></td>
+        <td>~$1,800</td>
+        <td class="highlight-green">~7.0x</td>
+        <td class="highlight-green">~25x</td>
+        <td>~18x</td>
+        <td class="highlight-green">~8x</td>
+        <td>~3%</td>
+      </tr>
+      <tr>
+        <td><strong>ByteDance (unlisted)</strong></td>
+        <td>~USD 2,680 (est.)</td>
+        <td>~5x</td>
+        <td>~20x (estimated)</td>
+        <td>~15x</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Valuation comparison</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Characteristics</th>
+        <th>Meituan</th>
+        <th>Alibaba</th>
+        <th>JD.com</th>
+        <th>Pinduoduo</th>
+        <th>ByteDance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Valuation framework</td>
+        <td>Earnings reversal + growth</td>
+        <td>Mature value</td>
+        <td>Low-margin retail model</td>
+        <td>High-growth international</td>
+        <td>High-growth content-driven</td>
+      </tr>
+      <tr>
+        <td>Market sentiment</td>
+        <td>Divergence (competition concerns)</td>
+        <td>Undervaluation repair</td>
+        <td>Neutral to weak</td>
+        <td>High expectations</td>
+        <td>The premium from listing expectations</td>
+      </tr>
+      <tr>
+        <td>The meaning of PS 1.3x</td>
+        <td class="highlight-orange" colspan="4">The market applies an overall valuation center of PS 1-2x to the local life services industry, below e-commerce platforms (PS 3-7x).</td>
+      </tr>
+      <tr>
+        <td>FCF Yield advantage</td>
+        <td class="highlight-green">10.6%</td>
+        <td>~5%</td>
+        <td>~6%</td>
+        <td>~3%</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight-box">
+    <p><strong>Insight:</strong>Meituan trades at just 1.3x PS and 12-15x PE, an undervalued level among internet platform companies. Against Pinduoduo's 7.0x PS (the market awards a premium for high growth plus internationalization) and ByteDance's ~5x PS (unlisted plus high-growth expectations), Meituan's valuation discount reflects market concern over intensifying competition and slowing growth. But its 10.6% FCF yield offers a substantial margin of safety—if current earnings hold, free cash flow could theoretically "buy the entire company" in about 9-10 years.</p>
+  </div>
+</div>
+
+<!-- ==================== 8. 市占率趋势 ==================== -->
+<div class="card">
+  <h2>VIII. Market share trends</h2>
+  <p>Market-share shifts across local life services sub-segments. Data comes from industry research estimates; some ranges are reasonable inferences.</p>
+
+  <h3>Food delivery market</h3>
+  <div class="chart-bar-group">
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2021</div>
+      <div class="chart-bar-track" style="display:flex;">
+        <div style="width:66%; background:#2e7d32; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; font-weight:600;">Meituan 66%</div>
+        <div style="width:32%; background:#e65100; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; font-weight:600;">Ele.me 32%</div>
+        <div style="width:2%; background:#999; height:22px;"></div>
+      </div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2023</div>
+      <div class="chart-bar-track" style="display:flex;">
+        <div style="width:69%; background:#2e7d32; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; font-weight:600;">Meituan 69%</div>
+        <div style="width:29%; background:#e65100; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; font-weight:600;">Ele.me 29%</div>
+        <div style="width:2%; background:#999; height:22px;"></div>
+      </div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2024</div>
+      <div class="chart-bar-track" style="display:flex;">
+        <div style="width:70%; background:#2e7d32; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; font-weight:600;">Meituan 70%</div>
+        <div style="width:28%; background:#e65100; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; font-weight:600;">Ele.me 28%</div>
+        <div style="width:2%; background:#999; height:22px;"></div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size: 13px; color: #666;">▲ Meituan keeps widening its lead in the food delivery market, rising from 66% in 2021 to about 70% in 2024. Ele.me slipped from 32% to 28%. Douyin has yet to enter food delivery at scale.</p>
+
+  <h3>In-store dining / local life services market</h3>
+  <div class="chart-bar-group">
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2021</div>
+      <div class="chart-bar-track" style="display:flex;">
+        <div style="width:55%; background:#2e7d32; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">Meituan 55%</div>
+        <div style="width:20%; background:#e65100; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">Word of mouth 15%</div>
+        <div style="width:10%; background:#7b1fa2; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">The other 30%</div>
+      </div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2023</div>
+      <div class="chart-bar-track" style="display:flex;">
+        <div style="width:48%; background:#2e7d32; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">Meituan 48%</div>
+        <div style="width:20%; background:#c62828; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">Douyin 20%</div>
+        <div style="width:15%; background:#e65100; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">Word of mouth 12%</div>
+        <div style="width:17%; background:#999; height:22px;"></div>
+      </div>
+    </div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2024</div>
+      <div class="chart-bar-track" style="display:flex;">
+        <div style="width:43%; background:#2e7d32; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">Meituan 43%</div>
+        <div style="width:25%; background:#c62828; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">Douyin 25%</div>
+        <div style="width:14%; background:#e65100; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">Word-of-mouth 10%</div>
+        <div style="width:18%; background:#999; height:22px;"></div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size: 13px; color: #666;">▲ The in-store market landscape has shifted sharply — Douyin surged from almost zero in 2021 to ~25% in 2024, eroding Meituan's share from 55% to 43%. This is Meituan's most dangerous competitive battleground.</p>
+
+  <h3>Instant retail (flash sales/hourly delivery)</h3>
+  <div class="chart-bar-group">
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">2024</div>
+      <div class="chart-bar-track" style="display:flex;">
+        <div style="width:40%; background:#2e7d32; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">Meituan Instashopping 40%</div>
+        <div style="width:30%; background:#1565c0; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">JD Daojia 30%</div>
+        <div style="width:15%; background:#e65100; height:22px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:600;">Ele.me 15%</div>
+        <div style="width:15%; background:#999; height:22px;"></div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size: 13px; color: #666;">▲ The instant retail landscape is relatively fragmented. Meituan Instashopping leads with a 40% share, followed closely by JD Daojia (including Hourly Shopping) at 30%. This is still a fast-growing track whose competitive landscape has yet to solidify.</p>
+
+  <div class="warn-box">
+    <p><strong>⚠ Risk warning:</strong>In-store business (gross margin ~75%) is Meituan's core profit source, contributing the majority of the company's net profit. Douyin's continued encroachment in the in-store segment could cause structural damage to Meituan's profit mix—even if food delivery share holds steady, continued in-store share loss would pressure Meituan's overall profitability.</p>
+  </div>
+</div>
+
+<!-- ==================== 9. 资本实力 ==================== -->
+<div class="card">
+  <h2>9. Capital strength</h2>
+  <p>Capital reserves determine how long each platform can sustain a subsidy war and long-term investment.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>The company</th>
+        <th>Cash and equivalents (USD billion)</th>
+        <th>Long-term debt (USD billion)</th>
+        <th>Net cash position</th>
+        <th>Annual operating cash flow (USD billion)</th>
+        <th>Capital strength rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Meituan</strong></td>
+        <td class="highlight-green">$261</td>
+        <td>$59</td>
+        <td class="highlight-green">Net cash USD 20.2 billion</td>
+        <td class="highlight-green">$79.5</td>
+        <td><span class="score-badge score-high">⭐ Very strong</span></td>
+      </tr>
+      <tr>
+        <td><strong>Alibaba</strong></td>
+        <td class="highlight-green">~$780</td>
+        <td>~$200</td>
+        <td class="highlight-green">Net cash ~USD 58 billion</td>
+        <td class="highlight-green">~$250</td>
+        <td><span class="score-badge score-high">⭐ Very strong</span></td>
+      </tr>
+      <tr>
+        <td><strong>JD.com</strong></td>
+        <td>~$180</td>
+        <td>~$80</td>
+        <td>Net cash ~USD 10 billion</td>
+        <td>~$60</td>
+        <td><span class="score-badge score-high">Strong</span></td>
+      </tr>
+      <tr>
+        <td><strong>ByteDance</strong></td>
+        <td>~USD 600 (est.)</td>
+        <td>~$50</td>
+        <td>Net cash ~USD 55 billion</td>
+        <td>~$400+</td>
+        <td><span class="score-badge score-high">⭐ Very strong</span></td>
+      </tr>
+      <tr>
+        <td><strong>Pinduoduo</strong></td>
+        <td>~$350</td>
+        <td>~$10</td>
+        <td class="highlight-green">Net cash ~USD 34 billion</td>
+        <td class="highlight-green">~$200</td>
+        <td><span class="score-badge score-high">⭐ Very strong</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight-box">
+    <p><strong>Insight:</strong>In local services, all major players are backed by parent companies with ample firepower. Meituan's own cash reserves of USD 26.1 billion are already substantial, but against the hundred-billion-level cash reserves of Alibaba and ByteDance, Meituan holds no absolute funding advantage in any all-out subsidy war. The good news: the industry has moved from burning cash for growth to prioritizing profitability, reducing the likelihood of an all-out subsidy war.</p>
+  </div>
+</div>
+
+<!-- ==================== 10. 综合评分矩阵 ==================== -->
+<div class="card">
+  <h2>10. Composite scoring matrix (five-point scale)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        <th>Weight</th>
+        <th>Meituan</th>
+        <th>Ele.me</th>
+        <th>JD Daojia</th>
+        <th>Douyin local services</th>
+        <th>Alibaba travel</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Revenue scale</td>
+        <td>15%</td>
+        <td class="highlight-green">5.0</td>
+        <td>3.0</td>
+        <td>2.0</td>
+        <td>2.5</td>
+        <td>2.5</td>
+      </tr>
+      <tr>
+        <td>Growth potential</td>
+        <td>15%</td>
+        <td>3.5</td>
+        <td>2.0</td>
+        <td class="highlight-green">4.0</td>
+        <td class="highlight-green">4.5</td>
+        <td>2.5</td>
+      </tr>
+      <tr>
+        <td>Profitability</td>
+        <td>15%</td>
+        <td class="highlight-green">4.0</td>
+        <td>2.0</td>
+        <td>2.5</td>
+        <td class="highlight-green">4.5</td>
+        <td>3.0</td>
+      </tr>
+      <tr>
+        <td>User scale/stickiness</td>
+        <td>15%</td>
+        <td class="highlight-green">4.5</td>
+        <td>3.0</td>
+        <td>2.5</td>
+        <td class="highlight-green">4.0</td>
+        <td>3.0</td>
+      </tr>
+      <tr>
+        <td>Delivery network</td>
+        <td>15%</td>
+        <td class="highlight-green">5.0</td>
+        <td>3.5</td>
+        <td>2.5</td>
+        <td>1.0</td>
+        <td>1.0</td>
+      </tr>
+      <tr>
+        <td>Valuation appeal</td>
+        <td>15%</td>
+        <td class="highlight-green">4.0</td>
+        <td>2.5</td>
+        <td>3.0</td>
+        <td>3.0</td>
+        <td>3.5</td>
+      </tr>
+      <tr>
+        <td>Capital strength</td>
+        <td>10%</td>
+        <td class="highlight-green">4.5</td>
+        <td class="highlight-green">5.0</td>
+        <td>4.0</td>
+        <td class="highlight-green">5.0</td>
+        <td class="highlight-green">5.0</td>
+      </tr>
+      <tr style="font-weight: 700; background: #eef5ff;">
+        <td><strong>Weighted total score</strong></td>
+        <td><strong>100%</strong></td>
+        <td class="highlight-green"><strong>4.38</strong></td>
+        <td><strong>2.95</strong></td>
+        <td><strong>2.88</strong></td>
+        <td><strong>3.44</strong></td>
+        <td><strong>2.88</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight-box">
+    <p><strong>Overall conclusion:</strong>Meituan ranks first in the comprehensive competitiveness assessment of the local life services sector with a score of 4.38 out of 5. Douyin Local Life jumped to second place with 3.44 points, its core strengths being content-driven growth potential and asset-light profitability. Ele.me (2.95 points) and JD Daojia (2.88 points) each face distinct structural challenges — the former has never been able to narrow the gap with Meituan in delivery and user scale, while the latter is still working to resolve issues of delivery frequency and cost.</p>
+  </div>
+</div>
+
+<!-- ==================== 11. 竞争格局总结 ==================== -->
+<div class="card">
+  <h2>XI. Competitive landscape: summary and outlook</h2>
+
+  <h3>Landscape overview</h3>
+  <p>The local life services market has moved beyond the binary competition of "Meituan vs Ele.me" and entered<strong>Multipolar free-for-all</strong>New stage:</p>
+  <ul>
+    <li><strong>Food delivery sector:</strong>Meituan 70% vs Ele.me 28% — the most stable competitive structure, with the duopoly entrenched</li>
+    <li><strong>In-store segment:</strong>Meituan 43% vs Douyin 25% — the landscape shifts sharply as competition intensifies</li>
+    <li><strong>Instant retail:</strong>Meituan Instashopping 40% vs JD Daojia 30% — rapid growth, landscape unsettled</li>
+    <li><strong>Travel and hospitality sector:</strong>Meituan vs Ctrip vs Fliggy — the classic landscape, roiled by Douyin's entry</li>
+  </ul>
+
+  <h3>Forward-looking view</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Time dimension</th>
+        <th>Core expectations</th>
+        <th>Impact on Meituan</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Short term (1 year)</strong></td>
+        <td>Douyin local-life in-store GMV growth is slowing (base effect), but the absolute increment remains large. Meituan is responding by ramping up livestreaming and video content.</td>
+        <td class="highlight-orange">Profit under pressure, but revenue steady</td>
+      </tr>
+      <tr>
+        <td><strong>Medium term (2-3 years)</strong></td>
+        <td>Instant retail has become the new battleground. Competition between JD Hourly Shopping and Meituan Instashopping will determine the shape of the industry's third pole. Whether Douyin enters food delivery is the key variable.</td>
+        <td class="highlight-orange">Higher investment, but greater room for growth</td>
+      </tr>
+      <tr>
+        <td><strong>Long term (5 years)</strong></td>
+        <td>Unmanned delivery technology could disrupt the industry's cost structure. Meituan, with the largest capacity network and dispatch data, has the strongest first-mover advantage. Penetration in lower-tier markets remains the main growth driver.</td>
+        <td class="highlight-green">Moat deepens, profitability improves</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert-box">
+    <p><strong>⚠️ Biggest risk:</strong>If Douyin decides to enter the food delivery race (it has not yet done so at scale), it would deal a fundamental blow to Meituan's valuation logic. Food delivery is Meituan's "core traffic funnel"; if that core is threatened, traffic to in-store dining and travel would be eroded in a chain reaction. For now, the biggest obstacle to Douyin's entry into food delivery is the buildout cost and operational difficulty of a delivery network—which is precisely Meituan's strongest moat.</p>
+  </div>
+
+  <h3>Investment implications</h3>
+  <ol>
+    <li><strong>Meituan's moat is wider than the market believes:</strong>A delivery network handling 75 million orders a day cannot be replicated overnight; Ele.me has chased for eight years and still has not closed the gap.</li>
+    <li><strong>Margin pressure in the in-store business is the biggest drag on valuation:</strong>The market's PS/PE discount on Meituan mainly reflects concerns over erosion of in-store profitability.</li>
+    <li><strong>Instant retail is the biggest incremental opportunity:</strong>The category expansion from "food delivery" to "delivering everything" could expand Meituan's TAM (total addressable market) by 3-5x.</li>
+    <li><strong>Valuation offers a high margin of safety:</strong>A PS of 1.3x and an FCF yield of 10.6% provide a sufficient margin of safety. Even if intensifying competition cuts profit by 30%, the PE would still be below 20x.</li>
+    <li><strong>Key monitoring indicators:</strong>Food delivery average daily order growth, in-store GTV growth, Douyin local life GMV, flash purchase penetration, delivery cost per order.</li>
+  </ol>
+</div>
+
+</div>
+
+<div class="footer">
+  <p>Industry Funnel Comparison Report · Meituan (3690.HK / MPNGY) · Research date: 2026-07-07</p>
+  <p>Data sources: MacroTrends, Google Finance, Stock Analysis, company filings, industry research reports</p>
+  <p>⚠ Some competitor data in this report come from industry estimates; figures marked "*" are reasonable projections and do not constitute investment advice.</p>
+</div>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>騰訊估值敏感度分析</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f7fa; color: #333; line-height: 1.8; font-size: 15px; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 50px 0 40px; text-align: center; }
+.header h1 { font-size: 28px; font-weight: 900; letter-spacing: 1px; margin-bottom: 8px; }
+.header .subtitle { font-size: 16px; font-weight: 300; opacity: 0.85; }
+.header .meta { margin-top: 14px; font-size: 13px; opacity: 0.7; }
+.container { max-width: 920px; margin: 0 auto; padding: 30px 24px; }
+.card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 32px 36px; margin-bottom: 28px; }
+.card h2 { font-size: 22px; font-weight: 700; color: #1A4B8C; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid #1A4B8C; display: inline-block; }
+.card h3 { font-size: 17px; font-weight: 600; color: #2c3e50; margin: 20px 0 10px; }
+.card p, .card ul, .card ol { margin-bottom: 12px; color: #444; }
+.card ul, .card ol { padding-left: 22px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+thead th { background: #1A4B8C; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 14px; }
+thead th:first-child { border-radius: 6px 0 0 0; }
+thead th:last-child { border-radius: 0 6px 0 0; }
+tbody td { padding: 10px 12px; border-bottom: 1px solid #e8ecf1; }
+tbody tr:nth-child(even) { background: #f8f9fb; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; }
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>騰訊估值敏感度分析</h1>
+<div class="subtitle">多情境模擬 × 關鍵變數敏感度 × 估值區間測算</div>
+<div class="meta">2026-07-07</div>
+</div>
+
+<div class="container">
+
+<div class="card">
+<h2>一、DCF 估值敏感度矩陣</h2>
+<p>不同 FCF 成長率和 WACC 假設下，騰訊每股內在價值（HK$）的變化。基期 FCF=2156億¥，永續成長率3%。</p>
+
+<h3>核心自由現金流增長（不含投資組合）</h3>
+<p><strong>假設：</strong>僅計算核心業務自由現金流，不含淨現金和投資組合價值。</p>
+<table>
+<thead>
+<tr><th>FCF增速 \ ↓ WACC</th><th>3%</th><th>5%</th><th>8%</th><th>10%</th><th>12%</th><th>15%</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>8%</strong></td><td>536</td><td>642</td><td>810</td><td>912</td><td>1030</td><td>1220</td></tr>
+<tr><td><strong>9%</strong></td><td>478</td><td>570</td><td>712</td><td>798</td><td>896</td><td>1052</td></tr>
+<tr><td><strong>10%</strong></td><td>430</td><td>510</td><td>630</td><td>703</td><td>785</td><td>915</td></tr>
+<tr><td><strong>11%</strong></td><td>390</td><td>460</td><td>562</td><td>624</td><td>694</td><td>802</td></tr>
+<tr><td><strong>12%</strong></td><td>356</td><td>417</td><td>506</td><td>558</td><td>618</td><td>710</td></tr>
+</tbody>
+</table>
+<p>目前股價 HK$463.6，在 WACC=10%、FCF 增速>=8% 時即被低估。基準假設（WACC 10%、增速10%）對應約 HK$703。</p>
+
+<h3>含淨現金+投資組合</h3>
+<p><strong>假設：</strong>核心業務價值 + 淨現金949億¥ + 投資組合估值7000-15000億¥。</p>
+<table>
+<thead>
+<tr><th>投資組合 \ 核心增速</th><th>保守（5%）<br>+7000億元</th><th>保守（5%）<br>+10000億元</th><th>基準（10%）<br>+10000億元</th><th>樂觀（15%）<br>+15000億元</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>WACC 9%</strong></td><td>664</td><td>726</td><td>954</td><td>1240</td></tr>
+<tr><td><strong>WACC 10%</strong></td><td>594</td><td>651</td><td>844</td><td>1082</td></tr>
+<tr><td><strong>WACC 11%</strong></td><td>536</td><td>588</td><td>752</td><td>953</td></tr>
+<tr><td><strong>WACC 12%</strong></td><td>488</td><td>534</td><td>674</td><td>847</td></tr>
+</tbody>
+</table>
+<p>所有WACC<=10%的情景均显示HK$463.6被低估。基准情景（10%,10%,+10000亿）对应~HK$844，低估幅度+82%。</p>
+</div>
+
+<div class="card">
+<h2>二、PE估值敏感度矩陣</h2>
+
+<h3>全球可比估值對比</h3>
+<table>
+<thead>
+<tr><th>公司</th><th>PE(TTM)</th><th>Forward PE</th><th>FCF Yield</th><th>ROE</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>騰訊</strong></td><td><strong>15.2x</strong></td><td><strong>12.9x</strong></td><td><strong>6.0%</strong></td><td><strong>20.5%</strong></td></tr>
+<tr><td>Meta</td><td>24.5x</td><td>20.1x</td><td>3.2%</td><td>32%</td></tr>
+<tr><td>Google</td><td>21.3x</td><td>19.0x</td><td>3.8%</td><td>28%</td></tr>
+<tr><td>Amazon</td><td>35.0x</td><td>28.0x</td><td>2.1%</td><td>19%</td></tr>
+<tr><td>NetEase</td><td>15.8x</td><td>14.5x</td><td>4.8%</td><td>26%</td></tr>
+</tbody>
+</table>
+<p>騰訊本益比相對 Meta／Google 折價 24-38%，主要由中國風險溢價（20-30%）、成長品質差異（5-10%）、流動性折價（3-5%）驅動。</p>
+
+<h3>不同PE倍數下的對應股價</h3>
+<table>
+<thead>
+<tr><th>PE</th><th>10x</th><th>12x</th><th>14x</th><th>15x</th><th>16x</th><th>18x</th><th>20x</th><th>22x</th><th>24x</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>EPS HK$36</strong></td><td>360</td><td>432</td><td>504</td><td>540</td><td>576</td><td>648</td><td>720</td><td>792</td><td>864</td></tr>
+<tr><td><strong>EPS HK$38</strong></td><td>380</td><td>456</td><td>532</td><td>570</td><td>608</td><td>684</td><td>760</td><td>836</td><td>912</td></tr>
+<tr><td><strong>EPS HK$40</strong></td><td>400</td><td>480</td><td>560</td><td>600</td><td>640</td><td>720</td><td>800</td><td>880</td><td>960</td></tr>
+</tbody>
+</table>
+<p>當前 HK$463.6 對應約 12.87x Forward PE。僅當 PE<12x或EPS<HK$34时当前价格才被高估。</p>
+</div>
+
+<div class="card">
+<h2>三、關鍵變數敏感度分析</h2>
+
+<h3>各業務增速對股價的影響</h3>
+<table>
+<thead>
+<tr><th>業務</th><th>佔比</th><th>加速+5%影響</th><th>減速 -5% 影響</th></tr>
+</thead>
+<tbody>
+<tr><td>遊戲</td><td>~30%</td><td>+~12%</td><td>-~10%</td></tr>
+<tr><td>廣告（視頻號）</td><td>~18%</td><td>+~8%</td><td>-~6%</td></tr>
+<tr><td>金融科技</td><td>~22%</td><td>+~7%</td><td>-~6%</td></tr>
+<tr><td>企業服務／雲</td><td>~10%</td><td>+~3%</td><td>-~2%</td></tr>
+<tr><td>投資組合價值±20%</td><td>—</td><td>+~8%</td><td>-~8%</td></tr>
+</tbody>
+</table>
+
+<h3>外部變數敏感度</h3>
+<table>
+<thead>
+<tr><th>變數</th><th>變化幅度</th><th>對估值影響</th></tr>
+</thead>
+<tbody>
+<tr><td>中國GDP增速</td><td>±1%</td><td>±~5%</td></tr>
+<tr><td>10年期公債殖利率</td><td>±0.5%</td><td>∓~8%</td></tr>
+<tr><td>遊戲版號政策</td><td>緊縮／寬鬆</td><td>±~10%</td></tr>
+<tr><td>中國科技監管指數</td><td>±1σ</td><td>±~15%</td></tr>
+<tr><td>人民幣／美元匯率</td><td>±5%</td><td>±~3%</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="card">
+<h2>四、六情境機率加權估值</h2>
+<table>
+<thead>
+<tr><th>情境</th><th>核心假設</th><th>PE區間</th><th>股價</th><th>機率</th></tr>
+</thead>
+<tbody>
+<tr><td>極端悲觀</td><td>監管極度收緊＋地緣衝突＋收入降速至3%</td><td>8-10x</td><td>270-340</td><td>5%</td></tr>
+<tr><td>悲觀</td><td>增長放緩至5%+監管壓力+競爭加劇</td><td>10-13x</td><td>350-460</td><td>20%</td></tr>
+<tr><td>保守</td><td>年複合增長率 5-7%，自由現金流／收入維持 25%+</td><td>14-16x</td><td>500-580</td><td>25%</td></tr>
+<tr><td>基準</td><td>年複合增長率 8-10%，毛利率持續改善至 58%+</td><td>16-20x</td><td>580-720</td><td>35%</td></tr>
+<tr><td>樂觀</td><td>AI成功變現＋視頻號爆發＋遊戲超級週期</td><td>18-22x</td><td>650-800</td><td>12%</td></tr>
+<tr><td>極端樂觀</td><td>AI改變社交形態+全球遊戲統治+雲端獲利</td><td>22-28x</td><td>800-1000</td><td>3%</td></tr>
+<tr><td><strong>機率加權均值</strong></td><td>—</td><td>—</td><td><strong>~HK$573</strong></td><td><strong>100%</strong></td></tr>
+</tbody>
+</table>
+<p>機率加權估值HK$~573，較當前HK$463.6有<strong>+24%</strong>上漲空間。即使在悲觀情景（20%概率），股價也在當前價格附近。</p>
+
+<h3>不同持有期的預期回報</h3>
+<table>
+<thead>
+<tr><th>持有期</th><th>保守(+5%)</th><th>基準(+10%)</th><th>樂觀（+15%）</th><th>含回購</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>1年</strong></td><td>~487</td><td>~510</td><td>~533</td><td>+5~15%</td></tr>
+<tr><td><strong>3年</strong></td><td>~536</td><td>~617</td><td>~705</td><td>+16~52%</td></tr>
+<tr><td><strong>5年</strong></td><td>~592</td><td>~746</td><td>~932</td><td>+28~101%</td></tr>
+<tr><td><strong>10年</strong></td><td>~755</td><td>~1202</td><td>~1874</td><td>+63~304%</td></tr>
+</tbody>
+</table>
+<p>5年持有期：基準情景預期年化報酬約10-12%（含回購）。10年持有期：基準情景預期年化約10%。</p>
+</div>
+
+<div class="card">
+<h2>五、最大回撤與風險管理</h2>
+<table>
+<thead>
+<tr><th>風險事件</th><th>最大回撤</th><th>持續</th><th>恢復</th></tr>
+</thead>
+<tbody>
+<tr><td>2021-2022監管風暴</td><td>-60%</td><td>約18個月</td><td>~24個月</td></tr>
+<tr><td>2022 遊戲版號暫停</td><td>-25%</td><td>~6個月</td><td>~3個月</td></tr>
+<tr><td>2024中概股退市恐慌</td><td>-15%</td><td>約 2 個月</td><td>~1個月</td></tr>
+<tr><td>宏觀經濟下行</td><td>-35%</td><td>約12個月</td><td>約18個月</td></tr>
+</tbody>
+</table>
+
+<p><strong>重要的風險管理提示</strong><br>所有歷史回撤最終都被收復，但恢復時間從3個月到3年不等。騰訊股價曾在2022年跌至HK$188（前復權），對應PE約10x。極端情況下當前PE 15x仍有繼續下跌風險。</p>
+<p><strong>建議：</strong><br>(1) 不使用槓桿<br>(2) 持有期至少3-5年<br>(3) 分批建倉降低平均成本<br>(4) 對極端下跌（-30%或更多）有心理準備</p>
+</div>
+
+</div>
+
+<div class="footer">
+<p>報告日期：2026-07-07 | 模型：DCF + 可比估值 + PB-ROE + Sum of Parts + 敏感度分析</p>
+<p>資料來源：公司財報、公開市場資料 | Hermes Agent &mdash; Nous Research</p>
+</div>
+
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>簡</span><span class="full"><span>簡體中文</span></span></a><a class="lang hant active" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

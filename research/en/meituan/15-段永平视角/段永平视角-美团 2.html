@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duan Yongping's lens — Meituan | 3690.HK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f5f7fa; color: #1a2332; line-height: 1.8;
+    padding: 0;
+  }
+  .header {
+    background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%);
+    color: #fff; padding: 50px 24px 40px; text-align: center;
+  }
+  .header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: 2px; }
+  .header .subtitle { font-size: 1rem; font-weight: 300; opacity: .85; margin-top: 6px; }
+  .header .meta { margin-top: 14px; font-size: .82rem; opacity: .7; }
+  .header .meta span { display: inline-block; margin: 4px 6px; padding: 2px 12px; background: rgba(255,255,255,.12); border-radius: 10px; }
+  .container { max-width: 920px; margin: 0 auto; padding: 30px 24px; }
+  .card {
+    background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 32px 36px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 1.25rem; font-weight: 700; color: #1A4B8C;
+    border-bottom: 3px solid #1A4B8C; padding-bottom: 10px; margin-bottom: 18px;
+  }
+  .card h3 {
+    font-size: 1.05rem; font-weight: 600; color: #2c3e50; margin: 20px 0 8px;
+  }
+  .qa-block {
+    background: #f9fbfd; border-left: 4px solid #1A4B8C;
+    border-radius: 0 8px 8px 0; padding: 20px 24px; margin-bottom: 18px;
+  }
+  .qa-block .question { font-weight: 700; font-size: 1rem; color: #1A4B8C; margin-bottom: 6px; }
+  .qa-block .answer { font-size: .92rem; line-height: 1.9; color: #444; }
+  .qa-block .answer strong { color: #c0392b; }
+  .tag {
+    display: inline-block; padding: 2px 10px; border-radius: 12px;
+    font-size: .75rem; font-weight: 600; margin-right: 4px;
+  }
+  .tag-green { background: #e8f5e9; color: #27ae60; }
+  .tag-yellow { background: #fff3e0; color: #e67e22; }
+  .tag-red { background: #fee; color: #c0392b; }
+  .tag-blue { background: #e3f2fd; color: #1565c0; }
+  .score-grid { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+  .score-item { flex: 1; min-width: 120px; text-align: center; background: #f9fbfd; border-radius: 8px; padding: 16px 10px; }
+  .score-item .label { font-size: .78rem; color: #7f8c8d; }
+  .score-item .value { font-size: 1.3rem; font-weight: 700; margin-top: 4px; }
+  .score-item .desc { font-size: .72rem; color: #555; margin-top: 4px; }
+  .divider { border: none; border-top: 1px solid #e8edf3; margin: 24px 0; }
+  .quote-box {
+    background: linear-gradient(135deg, #eef3fa, #e3f2fd);
+    border: 2px solid #1A4B8C; border-radius: 12px;
+    padding: 24px; text-align: center; margin: 16px 0;
+  }
+  .quote-box .text { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; line-height: 1.8; }
+  .quote-box .source { font-size: .8rem; color: #555; margin-top: 6px; }
+  .insight-box {
+    background: #f0f4fa; border-left: 4px solid #e67e22; padding: 16px 20px;
+    margin: 16px 0; border-radius: 0 8px 8px 0; font-size: .9rem; color: #444;
+  }
+  .insight-box strong { color: #1A4B8C; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: .85rem; }
+  thead th { background: #1A4B8C; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+  thead th:first-child { border-radius: 6px 0 0 0; }
+  thead th:last-child { border-radius: 0 6px 0 0; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid #e8ecf1; }
+  tbody tr:nth-child(even) { background: #f8f9fb; }
+  .final-verdict {
+    background: linear-gradient(135deg, #1A4B8C, #153b6e);
+    color: #fff; border-radius: 12px; padding: 28px 32px; margin: 16px 0;
+  }
+  .final-verdict .title { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; color: #ffd966; }
+  .final-verdict .content { font-size: .95rem; line-height: 1.9; }
+  .final-verdict .content strong { color: #ffd966; }
+  .final-verdict .content .no { color: #ff9999; }
+  .final-verdict .content .yes { color: #7dff7d; }
+  .footer { text-align: center; font-size: .8rem; color: #95a5a6; padding: 30px 24px; border-top: 1px solid #e8edf3; }
+  @media (max-width: 600px) {
+    .header h1 { font-size: 1.5rem; }
+    .card { padding: 20px 16px; }
+    .container { padding: 20px 12px; }
+    .score-item { min-width: 100px; }
+  }
+  .timeline { position: relative; padding-left: 24px; margin: 16px 0; }
+  .timeline::before { content: ''; position: absolute; left: 6px; top: 0; bottom: 0; width: 2px; background: #1A4B8C; opacity: .3; }
+  .timeline-item { position: relative; margin-bottom: 16px; }
+  .timeline-item::before { content: '●'; position: absolute; left: -22px; top: 2px; color: #1A4B8C; font-size: 12px; }
+  .timeline-item .date { font-size: .78rem; color: #7f8c8d; }
+  .timeline-item .text { font-size: .88rem; }
+  .verdict-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: .88rem; }
+  .verdict-table td { padding: 10px 12px; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+  .verdict-table td:first-child { font-weight: 600; width: 130px; color: #1A4B8C; }
+  .verdict-table tr:last-child td { border-bottom: none; }
+  .highlight { background: #fff8e1; padding: 2px 6px; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Duan Yongping's lens · Meituan</h1>
+  <div class="subtitle">Buying a stock is buying a company; buying a company is buying its people.</div>
+  <div class="meta">
+    <span>3690.HK / MPNGY</span>
+    <span>Research date: 2026-07-07</span>
+    <span>Share price: HKD 78.35</span>
+    <span>Market cap: HKD 483.8 billion (~USD 62 billion)</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ============ 引言 ============ -->
+<div class="card">
+  <h2>📌 Preface: Duan Yongping and Meituan — six years of watching from the sidelines</h2>
+
+  <p>In October 2019, someone asked Duan Yongping what he thought of Meituan. He said:<strong>Wang Xing is an interesting character. Unfortunately, I have not yet dealt with him directly.</strong></p>
+
+  <p>In 2020, he began to follow Meituan, saying "Wang Xing seems pretty impressive, able to face problems rationally." But he also said—<strong>"I don't understand Meituan, I don't know whether the share price is high or low, and I've never bought it."</strong></p>
+
+  <p>At the end of 2023, when someone argued that Douyin had breached Meituan's moat, he did not push back.</p>
+
+  <p>By 2026, Meituan's share price has fallen 83% from its 2021 peak of HKD 460 to HKD 78. JD.com burned RMB 100 billion on food delivery to grab market share, Alibaba's Taobao Shangou burst onto the scene mid-race, and Douyin is expanding aggressively in in-store services. Meituan swung to a massive loss of RMB 23.4 billion in 2025, plunging into the red from a profit of RMB 35.8 billion in 2024.</p>
+
+  <p>Duan Yongping still hasn't bought.</p>
+
+  <p>In this report, I use Duan Yongping's way of thinking—the three sayings he often repeats—to reason through why he did not buy, and how he would view Meituan if he were looking at it today.</p>
+
+  <div class="quote-box">
+    <div class="text">"Buying a stock is buying a company, and buying a company is buying its people. Good business + good price + good management = time to buy."</div>
+    <div class="source">— Duan Yongping (Da Dao Wu Xing Wo You Xing)</div>
+  </div>
+</div>
+
+<!-- ============ 一、买公司就是买人：王兴这个人 ============ -->
+<div class="card">
+  <h2>I. Buying a company means buying its people: is Wang Xing trustworthy?</h2>
+
+  <div class="qa-block">
+    <div class="question">🎯 How does Duan Yongping view founders?</div>
+    <div class="answer">Duan Yongping's criteria for choosing a CEO:<strong>① Integrity and honesty ② Rationality ③ Long-termism ④ Decide within one's circle of competence</strong>He said: "Good management does the right things, then does things right." He also said that if he does not like or trust the founder, he will not touch the business no matter how good it is. That is "buying a company is buying its people."</div>
+  </div>
+
+  <h3>Wang Xing's track record — the resilience of a serial entrepreneur</h3>
+
+  <p>Wang Xing is the archetype of the Tsinghua graduate who dropped out in the US and returned home to start a business. Xiaonei (sold), Fanfou (shut down), Meituan (built into a success). Three ventures, the first two both "failed", yet each time he learned from them and got back on his feet.</p>
+
+  <p>Duan Yongping would appreciate this "unkillable" trait. He went through plenty of setbacks himself before founding BBK. Someone who has weathered failure and gotten back on their feet is usually more reliable than someone who has only known smooth sailing.</p>
+
+  <h3>Duan Yongping's actual assessment of Wang Xing</h3>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="date">2019-10-05</div>
+      <div class="text">"Wang Xing is an interesting character." — starting to take notice, but no research yet</div>
+    </div>
+    <div class="timeline-item">
+      <div class="date">2020-09-10</div>
+      <div class="text">"Wang Xing is impressive, able to face problems rationally! Starting to pay serious attention to Meituan!" — impression improved</div>
+    </div>
+    <div class="timeline-item">
+      <div class="date">2020-10-09</div>
+      <div class="text">"Though I quite like Wang Xing, I don't understand the auto industry." — Admiration is admiration; investing is investing</div>
+    </div>
+    <div class="timeline-item">
+      <div class="date">2020-10-10</div>
+      <div class="text">"I haven't invested in Meituan, and I don't currently plan to." — Staying on the sidelines</div>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <strong>A Duan Yongping-style reading:</strong>His assessment of Wang Xing is at the "quite likes him" level, not the "greatly admires him" level. Compare his assessments of Ding Lei, Pony Ma and Colin Huang—he called Ding Lei "really impressive," Pony Ma "very formidable" and Colin Huang "wise"—Wang Xing sits in the second tier of Duan Yongping's "favorability" ranking.</div>
+
+  <h3>Deduction: Meituan Select — lessons from RMB 70 billion in tuition</h3>
+
+  <p>Meituan Select accumulated losses of more than RMB 70 billion from 2021 to 2025. In June 2025 it shut down across most of the country, retaining only Guangdong and Zhejiang. This was a massive strategic misstep.</p>
+
+  <p>How would Duan Yongping see it? He would say:<strong>"This is the wrong thing to have done."</strong></p>
+
+  <p>Community group buying is essentially a business of burning cash to buy scale, with no differentiation and no moat, and Pinduoduo, Alibaba and Meituan are all pouring money into it. Duan Yongping would certainly ask:<strong>"What makes you think you can win? What is your competitive advantage?"</strong>If Wang Xing cannot give a clear, persuasive answer, then the decision is "doing the wrong thing"—and in Duan Yongping's framework, that is the most serious demerit for management.</p>
+
+  <div class="qa-block">
+    <div class="question">🤔 The question Duan Yongping would ask Wang Xing</div>
+    <div class="answer">
+      <p style="margin-bottom:6px;"><strong>① "What was your original purpose in starting Meituan? Or was it just about scaling up?"</strong></p>
+      <p style="margin-bottom:6px;"><strong>② "Meituan Select lost RMB 70 billion — what did you learn? If you had another chance, would you do it again?"</strong></p>
+      <p style="margin-bottom:6px;"><strong>③ "JD.com and Alibaba are both burning cash to grab your market. What's your plan? Keep burning or cede ground?"</strong></p>
+      <p><strong>④ "Is the overseas expansion (Keeta) a direction they genuinely understand, or is it because the domestic market is too cutthroat?"</strong></p>
+    </div>
+  </div>
+
+  <h3>Bonus: the ability to face problems rationally</h3>
+
+  <p>Duan Yongping once said, "Wang Xing is quite impressive—he can face problems rationally." This matters. When Meituan was hit by the pandemic in 2020, Wang Xing responded rationally—no panic, no reckless investing, just a focus on the core business. In 2025, facing competition from JD.com and Alibaba, Wang Xing's response was to ramp up subsidies to defend market share while decisively shutting down Meituan Select to stem losses.</p>
+
+  <p>Able to shut it down after a RMB 70 billion loss — not every CEO has that decisiveness. Duan Yongping would approve of the quality of "admitting mistakes and cutting losses in time."</p>
+
+  <div class="score-grid">
+    <div class="score-item">
+      <div class="label">Integrity</div>
+      <div class="value" style="color:#27ae60;">★★★★☆</div>
+      <div class="desc">No obvious integrity issues</div>
+    </div>
+    <div class="score-item">
+      <div class="label">Rational decision-making</div>
+      <div class="value" style="color:#e67e22;">★★★☆☆</div>
+      <div class="desc">Choosing the best is a major mistake</div>
+    </div>
+    <div class="score-item">
+      <div class="label">Long-termism</div>
+      <div class="value" style="color:#e67e22;">★★★☆☆</div>
+      <div class="desc">Near-term competitive pressure is high</div>
+    </div>
+    <div class="score-item">
+      <div class="label">Circle-of-competence awareness</div>
+      <div class="value" style="color:#c0392b;">★★☆☆☆</div>
+      <div class="desc">Selected and standing out</div>
+    </div>
+  </div>
+
+  <p style="font-weight:600; color:#1A4B8C;">Overall assessment: Wang Xing is a good CEO, but Duan Yongping's trust in him is not "unconditional." Meituan's strategic misstep (Meituan Select) and the intense competition it currently faces make it hard for Duan Yongping to conclude that "I can fully trust this management team."</p>
+</div>
+
+<!-- ============ 二、生意模式 ============ -->
+<div class="card">
+  <h2>II. Meituan's Business Model — How Would Duan Yongping Understand It?</h2>
+
+  <div class="qa-block">
+    <div class="question">🎯 Duan Yongping's three criteria for defining a "good business"</div>
+    <div class="answer">
+      <p><strong>① Strong moat —</strong>"What others cannot do, or cannot do as well as you."</p>
+      <p><strong>② Pricing power —</strong>"You can raise prices without losing customers"</p>
+      <p><strong>③ Strong user stickiness —</strong>"Users can't do without you"</p>
+    </div>
+  </div>
+
+  <h3>What business is Meituan in? The one-sentence version</h3>
+
+  <p><strong>Meituan = a local life services platform that uses high-frequency food delivery as its traffic gateway and its on-demand delivery network as infrastructure.</strong></p>
+
+  <p>Duan Yongping would break this into two layers:<strong>Delivery infrastructure + platform monetization model</strong>。</p>
+
+  <p>Delivery infrastructure is grinding work—capital-intensive, complex to manage (3.36 million riders), and low-margin. But once built, it does confer scale advantages.</p>
+
+  <p>The platform monetization model is the logic of a "good business" — once traffic arrives, it is monetized through in-store services, travel and hospitality, advertising and instant shopping, with very low marginal costs.</p>
+
+  <div class="insight-box">
+    <strong>Duan Yongping-style intuition:</strong>"If you break Meituan down—the delivery network is a 'cost center' and the platform business is a 'profit center.' The problem is that what competitors want to take is not your delivery network but your platform profit. If your profit center is taken away, the delivery network becomes a 'public utility'—you are still doing the hard work, but someone else is making the money."</div>
+
+  <h3>Moat analysis: Duan Yongping's four questions</h3>
+
+  <table>
+    <thead>
+      <tr><th>Dimension</th><th>Duan Yongping's judgment</th><th>Rating</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Network effects</strong></td>
+        <td>A three-sided network does exist (merchants → users → riders), but it is<strong>"local", not "global"</strong>Shanghai's high density means nothing to Beijing users. And Douyin bypassed your delivery network, building its own network in the in-store business.</td>
+        <td><span class="tag tag-yellow">★★★☆☆</span></td>
+      </tr>
+      <tr>
+        <td><strong>Switching costs</strong></td>
+        <td><strong>Very low.</strong>This is the most fatal issue. Users go wherever the subsidies are biggest. Merchants operating on multiple platforms is the norm. Duan Yongping once said: "Only when users cannot do without you do you have a true moat." Meituan does not belong in that category.</td>
+        <td><span class="tag tag-red">★★☆☆☆</span></td>
+      </tr>
+      <tr>
+        <td><strong>Scale effects</strong></td>
+        <td><strong>Delivery density is a real advantage.</strong>Meituan averages 3.36 million riders a month, peaks at 150 million orders a day, and delivers in 34 minutes on average. But JD and Alibaba are building their own, and the scale gap is narrowing.</td>
+        <td><span class="tag tag-green">★★★★☆</span></td>
+      </tr>
+      <tr>
+        <td><strong>Brand mindshare</strong></td>
+        <td>The "food delivery = Meituan" mindset persists but is eroding. "Cheap food delivery = compare across platforms" is taking its place. Douyin has already established a new mindset: "group buying for in-store = Douyin."</td>
+        <td><span class="tag tag-yellow">★★★☆☆</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="quote-box">
+    <div class="text">Meituan's moat is not "wide and deep" but "wide and shallow" — it covers broad ground, yet on no single dimension is it impregnable. The intensity of competition in 2025 has already proven that this moat can be filled in by large capital.</div>
+    <div class="source">— The core thesis of this piece, in Duan Yongping's idiom</div>
+  </div>
+
+  <h3>The core question: does Meituan have pricing power?</h3>
+
+  <p>The one thing Duan Yongping cares about most:<strong>Can this business raise prices?</strong></p>
+
+  <p>Apple can raise prices (iPhone users won't switch to Android just because it costs USD 200 more). Moutai can raise prices (Moutai drinkers won't switch to Wuliangye just because it costs RMB 200 more). Tencent can raise prices (QQ memberships, game skins).</p>
+
+  <p>What about Meituan?</p>
+
+  <p><strong>No.</strong>The 2025 data has already proven it:</p>
+
+  <ul style="padding-left: 20px; margin: 12px 0; line-height: 2;">
+    <li>• JD.com enters food delivery with "zero commission", forcing Meituan to ramp up subsidies</li>
+    <li>• Delivery service revenue fell 2% year on year — not a price increase, but a price cut</li>
+    <li>• Blended merchant take rate of 15%–18% is already close to the upper limit the restaurant industry can bear</li>
+    <li>• The restaurant industry's average net margin is only 5%-10%, leaving merchants no room to raise prices</li>
+  </ul>
+
+  <div class="insight-box">
+    <strong>Duan Yongping-style conclusion:</strong>"A business without pricing power is not a good business, no matter how big it is. Meituan's problem now is that it isn't that it doesn't want to raise prices—it can't. If it does, users run to JD.com, to Ele.me, to Taobao Shangou. In this kind of business you earn hard money, not easy money."</div>
+
+  <h3>A massive loss of RMB 23.4 billion in 2025 — what went wrong?</h3>
+
+  <table>
+    <thead>
+      <tr><th>Item</th><th>2024</th><th>Trend shift</th><th>What would Duan Yongping think?</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Operating revenue</td><td>$46,959M</td><td>+20.1% → approx. +9% (2025 slowdown)</td>
+        <td>"Growth halved, competition is a drag"</td>
+      </tr>
+      <tr>
+        <td>Net profit</td><td>$4,981M</td><td>Swing to loss (2025 net loss USD 3.2 billion)</td>
+        <td><strong>"A loss of RMB 60 billion in one year is no small sum"</strong></td>
+      </tr>
+      <tr>
+        <td>SG&A expenses</td><td>$10,391M</td>
+        <td>Marketing spend burns more cash in 2025</td>
+        <td><strong>"A subsidy war hurts everyone; it is not a competitive moat"</strong></td>
+      </tr>
+      <tr>
+        <td>Free cash flow</td><td>$6,544M</td>
+        <td>Free cash flow likely turned negative for most of 2025</td>
+        <td>"Burning cash is unsustainable"</td>
+      </tr>
+      <tr>
+        <td>Cash reserves</td><td>$26,122M</td>
+        <td>Net cash position</td>
+        <td>"Plenty of cash is good news, but it is not a moat"</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Duan Yongping has consistently stressed<strong>"You cannot lose money to grab market share."</strong>. When he ran Bubugao, he said:<strong>"You cannot win the competition by fighting a price war; a price war only makes you lose more slowly."</strong>In 2025, Meituan was locked in a contest of who can lose more—JD.com put up RMB 100 billion, Alibaba also placed a heavy bet, and Meituan had no choice but to follow. But in Duan Yongping's view, this is not the state a good business model should be in.</p>
+</div>
+
+<!-- ============ 三、10年后 ============ -->
+<div class="card">
+  <h2>3. What will Meituan most likely still be doing in 10 years?</h2>
+
+  <p>When Duan Yongping looks at a company, his favorite question is:<strong>"What is this company most likely still doing 10 years from now?"</strong></p>
+
+  <p>The subtext of this statement: if you cannot clearly picture what a company will look like in 10 years, you never truly understood the business.</p>
+
+  <div class="qa-block">
+    <div class="question">🔮 What Meituan will most likely still be doing 10 years from now (2036)</div>
+    <div class="answer">
+      <p><strong>✅ Food delivery — definitely still here.</strong>This is social infrastructure. Chinese people cannot go back to the era of cooking for themselves. The frequency will only rise, not fall. But by then, food delivery may be unmanned (drones, autonomous vehicles), and the competitive landscape may have stabilized.</p>
+      <p style="margin-top:8px;"><strong>✅ Instant retail — most likely still there.</strong>The "everything to the doorstep" trend is irreversible. 30-minute delivery will become a basic service like water, electricity and gas. But competition in this market will intensify—JD.com, Alibaba and even Douyin will all take part.</p>
+      <p style="margin-top:8px;"><strong>⚠️ In-store/hotel & travel — probably still there, but Douyin may have taken a big bite out of share.</strong>Content-driven consumption decisions (Douyin seeding → in-store spending) are replacing the search-driven model (Meituan search → find a store → spend).</p>
+      <p style="margin-top:8px;"><strong>❌ Community group buying — most likely gone.</strong>Meituan Select has shut down most of its regions; this direction has been proven unviable.</p>
+      <p style="margin-top:8px;"><strong>❓ Overseas (Keeta) — hard to call.</strong>Chinese internet companies' overseas expansion has a far higher failure rate than success rate. Success would be a surprise, but it falls outside the range of judgments within their circle of competence.</p>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <strong>A Duan Yongping-style 10-year judgment:</strong>Ten years from now, Meituan's core asset—its instant delivery network—will certainly still be there, and it may well be a more valuable asset. The question is whether Meituan alone will operate this network, or whether it becomes a "shared network"—used by Alibaba, by JD.com, and by Douyin too. If the latter, Meituan becomes a "delivery company," and its valuation logic changes completely.<br><br>A "delivery company" valuation and a "platform company" valuation can differ by 3-5x. Duan Yongping would wait until that answer is clear before deciding.</div>
+
+  <div class="score-grid">
+    <div class="score-item">
+      <div class="label">10-year certainty</div>
+      <div class="value" style="color:#e67e22;">70%</div>
+      <div class="desc">Delivery network confirmed to exist</div>
+    </div>
+    <div class="score-item">
+      <div class="label">10-year profit margin</div>
+      <div class="value" style="color:#e67e22;">50%</div>
+      <div class="desc">Competitive landscape uncertain</div>
+    </div>
+    <div class="score-item">
+      <div class="label">10-year differentiation</div>
+      <div class="value" style="color:#c0392b;">40%</div>
+      <div class="desc">"Unwilling to do" is not "unable to do"</div>
+    </div>
+    <div class="score-item">
+      <div class="label">Circle of competence fit</div>
+      <div class="value" style="color:#e67e22;">55%</div>
+      <div class="desc">Understandable but not thorough</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 四、三大核心拷问 ============ -->
+<div class="card">
+  <h2>IV. Duan Yongping's three core questions for Meituan</h2>
+
+  <div class="qa-block">
+    <div class="question">🔴 Question one: Is this a "good business" or just a "big business"?</div>
+    <div class="answer">
+      <p>Duan Yongping has repeatedly stressed:<strong>"A good business is not necessarily a big business. But a big business is not necessarily a good business."</strong></p>
+      <p>Meituan is unquestionably a "big business" — annual revenue of nearly RMB 500 billion, coverage of 2,800+ cities nationwide, and nearly 700 million annual active users. But is it a "good business"?</p>
+      <p>The standard for a good business is:<strong>High profit margin + high return on capital + low capital intensity.</strong>Meituan's net margin was 10.6% in 2024 and turned negative outright in 2025. Return on invested capital (ROIC) keeps falling under competitive pressure. More importantly, it must keep committing large amounts of capital to defend its competitive position—not the asset-light model Duan Yongping favors.</p>
+      <p><strong>Conclusion: Meituan is a big business, but not a good business as Duan Yongping defines it.</strong></p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <div class="question">🔴 Question two: Did Wang Xing do "the right thing"?</div>
+    <div class="answer">
+      <p>Duan Yongping's core philosophy in running a business is<strong>"Do the right things, and do things right"</strong>。</p>
+      <p>Meituan Select — spending RMB 70 billion to build a community group-buying business with no moat that survives on subsidies — is that "the right thing to do"? Duan Yongping would say no. Because community group-buying is at heart about burning cash to buy scale, a business model with no differentiation that creates no real long-term value.</p>
+      <p>JD and Alibaba burn cash to grab market share—Meituan is forced to fight back—and this too is not "the right thing to do," but rather "the wrong thing to do" (burning cash at a loss to grab market share) forced on it by rivals.</p>
+      <p><strong>Conclusion: Wang Xing is doing many "right things" (instant retail, overseas expansion), but he has also done "wrong things" (Youxuan lost RMB 70 billion over 7 years). Duan Yongping needs more evidence of "doing the right things" before he feels reassured.</strong></p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <div class="question">🔴 Question three: Does this business have a "margin of safety"?</div>
+    <div class="answer">
+      <p>Duan Yongping said:<strong>"When the price is right, a good business is worth buying."</strong></p>
+      <p>Meituan now trades at HKD 78.35, down 83% from its high of 460. PS is about 1.3x, PB about 1.4x, and FCF yield reached an striking 10.6% in 2024. These numbers look cheap.</p>
+      <p>But here is the problem—<strong>In 2025, Meituan is loss-making</strong>. If the 2025 loss carries into 2026, then the current PE is negative and FCF is also negative. You could call it a "value trap" — it looks cheap, but it is actually destroying value.</p>
+      <p>When Duan Yongping bought Tencent, Tencent was already buying back stock and profits were recovering. When he bought Apple, Apple's ecosystem was already rock solid. When he bought Moutai, Moutai was still raising prices. Meituan's "margin of safety" rests on the assumption that "the competition will end within 1-2 years" — an assumption Duan Yongping would not accept.</p>
+      <p><strong>Conclusion: If the competitive landscape holds, today's price is low but offers no margin of safety—because profits are disappearing.</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 五、投资决策 ============ -->
+<div class="card">
+  <h2>V. Would Duan Yongping Buy Meituan? A Point-by-Point Review of the Investment Decision Framework</h2>
+
+  <table class="verdict-table">
+    <tr>
+      <td><strong>A business you can understand?</strong></td>
+      <td>
+        <span class="tag tag-yellow">50%</span><br>Meituan's business logic is not complicated. Duan Yongping would certainly "understand" food delivery, in-store services and travel and hotel bookings. What he cannot understand is—<strong>When will this competition end? What will the landscape look like afterward? Can Meituan still restore a net margin of 10%+?</strong>If the market is still a three-way standoff with low margins three years from now, Meituan is not a good business. That uncertainty turns "understandable" into "only half-understood."</td>
+    </tr>
+    <tr>
+      <td><strong>A good price?</strong></td>
+      <td>
+        <span class="tag tag-yellow">50%</span><br>PS 1.3x and PB 1.4x look cheap in absolute terms. But given a 2025 loss of RMB 23.4 billion and likely continued losses in 2026, the current "cheapness" rests on past (2024) profits. Duan Yongping looks at "discounted future cash flows" when buying, not "past PE." If the company doesn't make money over the next 2-3 years, the current price isn't actually cheap.</td>
+    </tr>
+    <tr>
+      <td><strong>Good management?</strong></td>
+      <td>
+        <span class="tag tag-yellow">65%</span><br>Wang Xing is a capable founder, and Duan Yongping has publicly said he "quite likes Wang Xing." But Meituan Select's RMB 70 billion loss is a major blemish. When Duan Yongping buys a company, he needs to "trust the management for 10 years." Wang Xing's misjudgment on Meituan Select will affect Duan Yongping's long-term confidence in him.</td>
+    </tr>
+    <tr>
+      <td><strong>Duan Yongping's circle of competence?</strong></td>
+      <td>
+        <span class="tag tag-red">40%</span><br>This is the most critical point. The area Duan Yongping knows best is:<strong>Consumer electronics (Apple, OPPO/vivo affiliates), internet social (Tencent), premium consumer goods (Moutai), e-commerce (Pinduoduo, Alibaba)</strong>. Local life services plus food delivery—he has never publicly claimed to have done in-depth research on these.<br><br>He said plainly on Xueqiu: "I don't understand Meituan, I don't know whether the stock price is high or low, and I've never bought it." Duan Yongping would never buy a company he "doesn't understand"—no matter how cheap the price.</td>
+    </tr>
+  </table>
+
+  <div class="final-verdict">
+    <div class="title">⚖️ Final verdict: Would Duan Yongping buy Meituan?</div>
+    <div class="content">
+      <p><strong>Short term (within 1 year): will not buy.</strong> <span class="no">❌</span></p>
+      <p style="padding-left:16px; margin-bottom:10px;">The competitive landscape is too chaotic, the profit trend is downward, and it falls outside my circle of competence. Duan Yongping would not make a move at this point.</p>
+
+      <p><strong>Medium term (1-3 years): may pay attention.</strong> <span class="tag tag-yellow">Wait and see</span></p>
+      <p style="padding-left:16px; margin-bottom:10px;">If JD.com and Alibaba's subsidy war begins to contract, the competitive landscape stabilizes, and Meituan returns to profit, Duan Yongping may revisit his research. But he would first need to "understand" the business—including meeting Wang Xing in person and studying in depth how deep the delivery network's moat really is.</p>
+
+      <p><strong>Long term (3-5 years): possible, but with conditions.</strong> <span class="tag tag-yellow">It depends on the competitive landscape.</span></p>
+      <p style="padding-left:16px; margin-bottom:10px;">If Meituan can still hold a 60%+ food-delivery market share after the competition ends, restore its net margin to 8%-10%, keep free cash flow stable at above USD 5 billion, and see its PS ratio fall back below 1.5x—if all these conditions are met, Duan Yongping might add it to his "buyable" list. But he would most likely take only a "small position" rather than build a heavy position as he did with Tencent.</p>
+
+      <p style="margin-top:12px; padding-top:12px; border-top:1px solid rgba(255,255,255,.2);">
+        <strong>Duan Yongping would most likely say:</strong><br>
+        <span style="font-size:1rem; line-height:1.8;">"Meituan is a good company, but not a good company at a good price. Or rather, this price may be a good price, but I can't see clearly what the next three years will look like.<br><br>Wang Xing is a decent CEO, but Meituan's business is too "grinding" — competitors are everywhere, and anyone can step in and pick a fight. With a business like this, there is no rush to look at it until the fighting is over.<br><br>I have said before, "don't do what you don't understand." I still "don't understand" Meituan, so I don't do it.</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 六、附：段永平式投资框架对美团的评分卡 ============ -->
+<div class="card">
+  <h2>VI. Duan Yongping-Style Investment Framework · Meituan Scorecard</h2>
+
+  <div class="score-grid">
+    <div class="score-item">
+      <div class="label">Business model</div>
+      <div class="value" style="color:#e67e22;">6/10</div>
+      <div class="desc">Good platform, fierce competition</div>
+    </div>
+    <div class="score-item">
+      <div class="label">Moat depth</div>
+      <div class="value" style="color:#e67e22;">5/10</div>
+      <div class="desc">Broad but shallow, and can be filled in</div>
+    </div>
+    <div class="score-item">
+      <div class="label">Pricing power</div>
+      <div class="value" style="color:#c0392b;">3/10</div>
+      <div class="desc">Almost none, and declining</div>
+    </div>
+    <div class="score-item">
+      <div class="label">Management quality</div>
+      <div class="value" style="color:#e67e22;">6/10</div>
+      <div class="desc">Wang Xing is good but flawed</div>
+    </div>
+    <div class="score-item">
+      <div class="label">Price appeal</div>
+      <div class="value" style="color:#e67e22;">6/10</div>
+      <div class="desc">Absolute price is low, but profits are disappearing</div>
+    </div>
+    <div class="score-item">
+      <div class="label">Circle of competence fit</div>
+      <div class="value" style="color:#c0392b;">3/10</div>
+      <div class="desc">Outside the circle of competence</div>
+    </div>
+  </div>
+
+  <table style="margin-top: 20px;">
+    <thead>
+      <tr><th style="width:40%;">Duan Yongping quotes</th><th>Applications on Meituan</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>"Buying a stock is buying a company, and buying a company is buying its people."</td>
+        <td>Wang Xing deserves attention, but the RMB 70 billion Youxuan loss is a mark against him</td>
+      </tr>
+      <tr>
+        <td>"A good business model is one that others cannot replicate, or cannot do as well as you even if they try."</td>
+        <td>Delivery networks are something "others are unwilling to do" rather than "unable to do" — and JD.com is doing it</td>
+      </tr>
+      <tr>
+        <td>"A business without pricing power is not a good business, no matter how big it is."</td>
+        <td>Meituan cannot raise prices — that is the biggest problem</td>
+      </tr>
+      <tr>
+        <td>"What is this company most likely still doing 10 years from now?"</td>
+        <td>Delivery is a given, but the profit level is an unknown.</td>
+      </tr>
+      <tr>
+        <td>"Don't invest in what you don't understand"</td>
+        <td>Duan Yongping has said plainly, "I don't understand Meituan" — that alone is enough.</td>
+      </tr>
+      <tr>
+        <td>"Do the right things, and do things right"</td>
+        <td>Food delivery was right; the RMB 70 billion for Youxuan was wrong</td>
+      </tr>
+      <tr>
+        <td>"A good business is worth buying when the price is right"</td>
+        <td>But the premise is a "good business" — Meituan currently is not</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============ 七、风险提示 ============ -->
+<div class="card">
+  <h2>⚠️ Risk warning and important notes</h2>
+  <p style="font-size:.88rem; color:#555; line-height:2;">
+    1. <strong>This report is a deductive analysis from the "Duan Yongping perspective"</strong>, and does not represent Duan Yongping's actual views. As of July 2026, Duan Yongping (Da Dao Wu Xing Wo You Xing) had not publicly stated that he bought Meituan.<br>
+    2. <strong>All analysis is based on public data and Duan Yongping's public statements on Xueqiu.</strong>and does not constitute investment advice.<br>
+    3. <strong>Duan Yongping's investment framework emphasizes "circle of competence"</strong>This article's reasoning rests on the assumption that Meituan currently falls outside Duan Yongping's circle of competence. If Duan Yongping studies Meituan in depth in the future, his judgment may change.<br>
+    4. <strong>Investment carries risk; exercise caution when entering the market.</strong>The author does not hold Meituan shares and does not recommend any buy or sell action.<br>5. Data sources include: MacroTrends, Google Finance, Meituan financial reports, and Duan Yongping's Xueqiu posts (user 1247347556).</p>
+</div>
+
+<div class="footer">
+  <p>Research date: 2026-07-07 | Data as of: July 7, 2026</p>
+  <p>This article is part of the "Duan Yongping Perspective" research series | For study and research use only</p>
+  <p style="margin-top:4px;">AI-Berkshire Research · Value Investing Research Framework</p>
+</div>
+
+</div>
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a><a class="lang hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en active" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>段永平視角 — 美團 | 3690.HK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f5f7fa; color: #1a2332; line-height: 1.8;
+    padding: 0;
+  }
+  .header {
+    background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%);
+    color: #fff; padding: 50px 24px 40px; text-align: center;
+  }
+  .header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: 2px; }
+  .header .subtitle { font-size: 1rem; font-weight: 300; opacity: .85; margin-top: 6px; }
+  .header .meta { margin-top: 14px; font-size: .82rem; opacity: .7; }
+  .header .meta span { display: inline-block; margin: 4px 6px; padding: 2px 12px; background: rgba(255,255,255,.12); border-radius: 10px; }
+  .container { max-width: 920px; margin: 0 auto; padding: 30px 24px; }
+  .card {
+    background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 32px 36px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 1.25rem; font-weight: 700; color: #1A4B8C;
+    border-bottom: 3px solid #1A4B8C; padding-bottom: 10px; margin-bottom: 18px;
+  }
+  .card h3 {
+    font-size: 1.05rem; font-weight: 600; color: #2c3e50; margin: 20px 0 8px;
+  }
+  .qa-block {
+    background: #f9fbfd; border-left: 4px solid #1A4B8C;
+    border-radius: 0 8px 8px 0; padding: 20px 24px; margin-bottom: 18px;
+  }
+  .qa-block .question { font-weight: 700; font-size: 1rem; color: #1A4B8C; margin-bottom: 6px; }
+  .qa-block .answer { font-size: .92rem; line-height: 1.9; color: #444; }
+  .qa-block .answer strong { color: #c0392b; }
+  .tag {
+    display: inline-block; padding: 2px 10px; border-radius: 12px;
+    font-size: .75rem; font-weight: 600; margin-right: 4px;
+  }
+  .tag-green { background: #e8f5e9; color: #27ae60; }
+  .tag-yellow { background: #fff3e0; color: #e67e22; }
+  .tag-red { background: #fee; color: #c0392b; }
+  .tag-blue { background: #e3f2fd; color: #1565c0; }
+  .score-grid { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+  .score-item { flex: 1; min-width: 120px; text-align: center; background: #f9fbfd; border-radius: 8px; padding: 16px 10px; }
+  .score-item .label { font-size: .78rem; color: #7f8c8d; }
+  .score-item .value { font-size: 1.3rem; font-weight: 700; margin-top: 4px; }
+  .score-item .desc { font-size: .72rem; color: #555; margin-top: 4px; }
+  .divider { border: none; border-top: 1px solid #e8edf3; margin: 24px 0; }
+  .quote-box {
+    background: linear-gradient(135deg, #eef3fa, #e3f2fd);
+    border: 2px solid #1A4B8C; border-radius: 12px;
+    padding: 24px; text-align: center; margin: 16px 0;
+  }
+  .quote-box .text { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; line-height: 1.8; }
+  .quote-box .source { font-size: .8rem; color: #555; margin-top: 6px; }
+  .insight-box {
+    background: #f0f4fa; border-left: 4px solid #e67e22; padding: 16px 20px;
+    margin: 16px 0; border-radius: 0 8px 8px 0; font-size: .9rem; color: #444;
+  }
+  .insight-box strong { color: #1A4B8C; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: .85rem; }
+  thead th { background: #1A4B8C; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+  thead th:first-child { border-radius: 6px 0 0 0; }
+  thead th:last-child { border-radius: 0 6px 0 0; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid #e8ecf1; }
+  tbody tr:nth-child(even) { background: #f8f9fb; }
+  .final-verdict {
+    background: linear-gradient(135deg, #1A4B8C, #153b6e);
+    color: #fff; border-radius: 12px; padding: 28px 32px; margin: 16px 0;
+  }
+  .final-verdict .title { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; color: #ffd966; }
+  .final-verdict .content { font-size: .95rem; line-height: 1.9; }
+  .final-verdict .content strong { color: #ffd966; }
+  .final-verdict .content .no { color: #ff9999; }
+  .final-verdict .content .yes { color: #7dff7d; }
+  .footer { text-align: center; font-size: .8rem; color: #95a5a6; padding: 30px 24px; border-top: 1px solid #e8edf3; }
+  @media (max-width: 600px) {
+    .header h1 { font-size: 1.5rem; }
+    .card { padding: 20px 16px; }
+    .container { padding: 20px 12px; }
+    .score-item { min-width: 100px; }
+  }
+  .timeline { position: relative; padding-left: 24px; margin: 16px 0; }
+  .timeline::before { content: ''; position: absolute; left: 6px; top: 0; bottom: 0; width: 2px; background: #1A4B8C; opacity: .3; }
+  .timeline-item { position: relative; margin-bottom: 16px; }
+  .timeline-item::before { content: '●'; position: absolute; left: -22px; top: 2px; color: #1A4B8C; font-size: 12px; }
+  .timeline-item .date { font-size: .78rem; color: #7f8c8d; }
+  .timeline-item .text { font-size: .88rem; }
+  .verdict-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: .88rem; }
+  .verdict-table td { padding: 10px 12px; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+  .verdict-table td:first-child { font-weight: 600; width: 130px; color: #1A4B8C; }
+  .verdict-table tr:last-child td { border-bottom: none; }
+  .highlight { background: #fff8e1; padding: 2px 6px; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>段永平視角 · 美團</h1>
+  <div class="subtitle">買股票就是買公司，買公司就是買人</div>
+  <div class="meta">
+    <span>3690.HK / MPNGY</span>
+    <span>研究日期：2026-07-07</span>
+    <span>股價：HKD 78.35</span>
+    <span>市值：HKD 4,838億（~$620億）</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ============ 引言 ============ -->
+<div class="card">
+  <h2>📌 寫在前面：段永平與美團，一段六年的觀望</h2>
+
+  <p>2019年10月，有人問段永平怎麼看美團。他說了一句：<strong>王興這個人挺有意思，遺憾的是我目前還沒直接和他打過交道。</strong></p>
+
+  <p>2020年，他開始關注美團，說「感覺王興蠻厲害的，能夠理性面對問題」。但他同時又說——<strong>「我不瞭解美團，不知道股價高低，也沒買過。」</strong></p>
+
+  <p>2023年底，當有人談起抖音衝擊了美團的護城河，他沒有反駁。</p>
+
+  <p>到2026年的今天，美團股價從2021年的高點460港元跌到78港元，跌了83%。京東外賣燒了1000億搶市場，阿里淘寶閃購半路殺出，抖音在到店業務瘋狂擴張。美團2025年巨虧234億，從2024年盈利358億直接掉進坑裡。</p>
+
+  <p>段永平依然沒買。</p>
+
+  <p>這篇報告，我用段永平的思維方式——他常說的那三句話——來推演他為什麼沒買，以及他如果今天來看美團，會怎麼看。</p>
+
+  <div class="quote-box">
+    <div class="text">買股票就是買公司，買公司就是買人。好生意 + 好價錢 + 好管理層 = 可以買了。</div>
+    <div class="source">—— 段永平（大道無形我有型）</div>
+  </div>
+</div>
+
+<!-- ============ 一、买公司就是买人：王兴这个人 ============ -->
+<div class="card">
+  <h2>一、買公司就是買人：王興值不值得信任？</h2>
+
+  <div class="qa-block">
+    <div class="question">🎯 段永平怎麼看創辦人？</div>
+    <div class="answer">段永平選 CEO 的標準：<strong>①誠信正直 ②理性 ③長期主義 ④在能力圈內做決策</strong>他說過：「好的管理層就是做對的事情，然後把事情做對。」他也說過，如果創辦人不喜歡、不信任，再好的生意他也不碰。這就是「買公司就是買人」。</div>
+  </div>
+
+  <h3>王興的履歷——連續創業者的韌性</h3>
+
+  <p>王興是清華畢業、美國輟學回國創業的典型。校內網（賣了）、飯否（被關了）、美團（做成了）。三段創業經歷，前兩次都「失敗」了，但每次都能從中學習、爬起來。</p>
+
+  <p>段永平會喜歡這種「打不死」的特質。他自己做步步高之前也經歷了不少波折。一個經歷過失敗還能重新站起來的人，通常比一帆風順的人更可靠。</p>
+
+  <h3>段永平對王興的真實評價</h3>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="date">2019-10-05</div>
+      <div class="text">「王興這個人挺有意思。」——開始留意，但還沒研究</div>
+    </div>
+    <div class="timeline-item">
+      <div class="date">2020-09-10</div>
+      <div class="text">「感覺王興蠻厲害的，能夠理性面對問題！開始認真關注美團！」——印象上升</div>
+    </div>
+    <div class="timeline-item">
+      <div class="date">2020-10-09</div>
+      <div class="text">「雖然我蠻喜歡王興的，但對汽車行業我不懂。」——欣賞歸欣賞，投資歸投資</div>
+    </div>
+    <div class="timeline-item">
+      <div class="date">2020-10-10</div>
+      <div class="text">「我沒投美團，目前也沒打算投。」——持續觀望</div>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <strong>段永平式解讀：</strong>他對王興的評價是「蠻喜歡」的級別，不是「非常欣賞」的級別。對比他對丁磊、馬化騰、黃崢的評價——他說丁磊「很牛」、馬化騰「很厲害」、黃崢「有智慧」——王興在段永平的「好感度」排名裡屬於第二梯隊。</div>
+
+  <h3>扣分項：美團優選——700億學費的教訓</h3>
+
+  <p>美團優選從2021年到2025年累計虧損超過700億元人民幣。2025年6月全國大部分關停，僅保留廣東、浙江。這是一次巨大的策略失誤。</p>
+
+  <p>段永平會怎麼看？他會說：<strong>「這是做了錯的事情。」</strong></p>
+
+  <p>社區團購本質上是燒錢換規模的生意，沒有差異化，沒有護城河，拼多多、阿里、美團都在往裡砸錢。段永平一定會問：<strong>「你憑什麼覺得你能贏？你的競爭優勢是什麼？」</strong>如果王興說不出一個清晰、有說服力的答案，那這個決策就是「做了錯的事情」——而這在段永平的框架裡，是管理層最嚴重的扣分項。</p>
+
+  <div class="qa-block">
+    <div class="question">🤔 段永平會問王興的問題</div>
+    <div class="answer">
+      <p style="margin-bottom:6px;"><strong>① 「你創辦美團的初衷是什麼？還是說只是為了做大？」</strong></p>
+      <p style="margin-bottom:6px;"><strong>② 「美團優選虧了700億元，你學到了什麼？如果再給你一次機會，還會做嗎？」</strong></p>
+      <p style="margin-bottom:6px;"><strong>③「京東和阿里都在燒錢搶你的市場，你打算怎麼辦？繼續燒還是讓？」</strong></p>
+      <p><strong>④ 「海外擴張（Keeta）這個方向，是真的看懂了，還是因為國內太內捲了？」</strong></p>
+    </div>
+  </div>
+
+  <h3>加分項：理性面對問題的能力</h3>
+
+  <p>段永平說過「王興蠻厲害的，能夠理性面對問題」。這一點很重要。2020年美團受到疫情衝擊時，王興的應對是理性的——沒有慌亂，沒有亂投資，而是聚焦核心業務。2025年面對京東和阿里的競爭，王興的應對是加碼補貼守住份額，同時果斷關停美團優選止損。</p>
+
+  <p>能在700億虧損後關停——這種果斷，不是每個CEO都有的。段永平會認可「承認錯誤並及時止損」的品質。</p>
+
+  <div class="score-grid">
+    <div class="score-item">
+      <div class="label">誠信正直</div>
+      <div class="value" style="color:#27ae60;">★★★★☆</div>
+      <div class="desc">無明顯誠信污點</div>
+    </div>
+    <div class="score-item">
+      <div class="label">理性決策</div>
+      <div class="value" style="color:#e67e22;">★★★☆☆</div>
+      <div class="desc">優選是重大失誤</div>
+    </div>
+    <div class="score-item">
+      <div class="label">長期主義</div>
+      <div class="value" style="color:#e67e22;">★★★☆☆</div>
+      <div class="desc">短期競爭壓力大</div>
+    </div>
+    <div class="score-item">
+      <div class="label">能力圈意識</div>
+      <div class="value" style="color:#c0392b;">★★☆☆☆</div>
+      <div class="desc">優選出圈了</div>
+    </div>
+  </div>
+
+  <p style="font-weight:600; color:#1A4B8C;">綜合評估：王興是個不錯的CEO，但段永平對他的信任不是「無條件」的。美團的戰略失誤（優選）和當前正面臨的激烈競爭，讓段永平很難做出「這個管理層我可以完全放心」的判斷。</p>
+</div>
+
+<!-- ============ 二、生意模式 ============ -->
+<div class="card">
+  <h2>二、美團的生意模式——段永平會怎麼理解？</h2>
+
+  <div class="qa-block">
+    <div class="question">🎯 段永平定義「好生意」的三大標準</div>
+    <div class="answer">
+      <p><strong>① 有強大的護城河——</strong>別人做不了，或者做了也沒你做得好</p>
+      <p><strong>② 有定價權——</strong>「你能漲價，客戶不會跑」</p>
+      <p><strong>③ 有使用者黏性——</strong>使用者離不開你</p>
+    </div>
+  </div>
+
+  <h3>美團是什麼生意？一句話版</h3>
+
+  <p><strong>美團＝以高頻外賣為流量入口、以即時配送網路為基礎設施的本地生活服務平臺。</strong></p>
+
+  <p>段永平會拆成兩層看：<strong>配送基礎設施 + 平臺變現模式</strong>。</p>
+
+  <p>配送基礎設施是「苦活累活」——投入重、管理複雜（336萬騎手）、利潤率低。但一旦建成了，確實有規模優勢。</p>
+
+  <p>平臺變現模式是「好生意」的邏輯——流量進來以後，透過到店、酒旅、廣告、閃購來變現，邊際成本很低。</p>
+
+  <div class="insight-box">
+    <strong>段永平式直覺：</strong>如果你把美團拆開來看——配送網路是「成本中心」，平臺業務是「利潤中心」。問題在於，競爭者要搶的不是你的配送網路，而是你的平臺利潤。如果你的利潤中心被搶走了，配送網路就成了一個「公共設施」——你還在幹苦活，但錢被別人賺了。</div>
+
+  <h3>護城河分析：段永平的四大拷問</h3>
+
+  <table>
+    <thead>
+      <tr><th>維度</th><th>段永平的判斷</th><th>評分</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>網路效應</strong></td>
+        <td>三邊網路確實存在（商家→使用者→騎手），但它是<strong>「局部」的，不是「全局」的</strong>上海的高密度對北京使用者沒有意義。而且抖音繞過了你的配送網路，在到店業務建立了自己的網路。</td>
+        <td><span class="tag tag-yellow">★★★☆☆</span></td>
+      </tr>
+      <tr>
+        <td><strong>轉換成本</strong></td>
+        <td><strong>極低。</strong>這是最致命的。用戶「哪家補貼多用哪家」。商家多平臺經營是常態。段永平說過：「用戶離不開你，纔是真正的護城河。」美團不屬於這一類。</td>
+        <td><span class="tag tag-red">★★☆☆☆</span></td>
+      </tr>
+      <tr>
+        <td><strong>規模效應</strong></td>
+        <td><strong>配送密度是真實優勢。</strong>美團月均336萬名騎手，日峯值1.5億單，平均34分鐘送達。但京東和阿里也在建，規模差距在縮小。</td>
+        <td><span class="tag tag-green">★★★★☆</span></td>
+      </tr>
+      <tr>
+        <td><strong>品牌心智</strong></td>
+        <td>「外送＝美團」的心智仍在，但正被侵蝕。「便宜外送＝各平臺比價」正在取代。抖音已經建立「團購到店＝抖音」的新心智。</td>
+        <td><span class="tag tag-yellow">★★★☆☆</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="quote-box">
+    <div class="text">美團的護城河不是「寬且深」的，而是「寬但淺」的——它覆蓋面廣，但在每個維度都不是堅不可摧的。2025年的競爭烈度已經證明，這條護城河可以被大資本填平。</div>
+    <div class="source">—— 本文核心判斷，段永平式的語言</div>
+  </div>
+
+  <h3>最核心的問題：美團有沒有定價權？</h3>
+
+  <p>段永平最在意的一件事：<strong>這個生意能不能漲價？</strong></p>
+
+  <p>蘋果能漲價（iPhone 用戶不會因為貴 200 美元就換安卓）。茅臺能漲價（喝茅臺的人不會因為貴了 200 塊就改喝五糧液）。騰訊能漲價（QQ 會員、遊戲皮膚）。</p>
+
+  <p>美團呢？</p>
+
+  <p><strong>不能。</strong>2025年的資料已經證明瞭：</p>
+
+  <ul style="padding-left: 20px; margin: 12px 0; line-height: 2;">
+    <li>• 京東外賣「零佣金」入場，美團被迫加大補貼</li>
+    <li>• 配送服務收入同比下降2%——不是在漲價，是在降價</li>
+    <li>• 商家綜合費率15%~18%，已經接近餐飲業承受上限</li>
+    <li>• 餐飲行業平均淨利率僅5%~10%，商家已經沒有漲價空間</li>
+  </ul>
+
+  <div class="insight-box">
+    <strong>段永平式結論：</strong>沒有定價權的生意，再大也不是好生意。美團現在的問題是——它不是不想漲，是漲不了。漲了用戶就跑京東、跑餓了麼、跑淘寶閃購。這種生意，賺的是辛苦錢，不是躺賺錢。</div>
+
+  <h3>2025年巨虧234億——出了什麼問題？</h3>
+
+  <table>
+    <thead>
+      <tr><th>科目</th><th>2024年</th><th>趨勢變化</th><th>段永平會怎麼想</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>營業收入</td><td>$46,959M</td><td>+20.1%→約+9%（2025放緩）</td>
+        <td>增速掉了一半，競爭在拖累</td>
+      </tr>
+      <tr>
+        <td>稅後淨利</td><td>$4,981M</td><td>轉虧（2025 稅後淨損 $3.2B）</td>
+        <td><strong>一年虧損600億，不是小數目</strong></td>
+      </tr>
+      <tr>
+        <td>銷售及管理費用</td><td>$10,391M</td>
+        <td>2025年行銷戰燒錢更多</td>
+        <td><strong>「補貼戰是互相傷害，不是競爭壁壘」</strong></td>
+      </tr>
+      <tr>
+        <td>自由現金流</td><td>$6,544M</td>
+        <td>2025年多半自由現金流轉負</td>
+        <td>「燒錢不可持續」</td>
+      </tr>
+      <tr>
+        <td>現金儲備</td><td>$26,122M</td>
+        <td>淨現金狀態</td>
+        <td>「現金多是好消息，但不是護城河」</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>段永平一直強調<strong>「不能虧錢去搶市場」</strong>。他經營步步高的時候就說過：<strong>「你不可能靠打價格戰贏得競爭，價格戰只能讓你輸得更慢。」</strong>美團2025年就是在打一場「誰更能虧」的比賽——京東拿出1000億元，阿里也押了重注，美團不得不跟。但在段永平看來，這不是一個好的商業模式應有的狀態。</p>
+</div>
+
+<!-- ============ 三、10年后 ============ -->
+<div class="card">
+  <h2>三、10年後美團大概率還在做什麼？</h2>
+
+  <p>段永平看一家公司，最喜歡問：<strong>10年後這家公司大概率還在做什麼？</strong></p>
+
+  <p>這句話的潛臺詞是：如果你不能清晰地描繪一家公司10年後的樣子，說明你根本沒看懂這個生意。</p>
+
+  <div class="qa-block">
+    <div class="question">🔮 美團10年後（2036年）大概率還在做的事</div>
+    <div class="answer">
+      <p><strong>✅ 外送配送——肯定還在。</strong>這是社會基礎設施。中國人不可能回到自己做飯的時代。頻率只會更高不會更低。但那個時候的外送配送可能是無人配送（無人機、無人車），競爭格局可能已經穩定。</p>
+      <p style="margin-top:8px;"><strong>✅ 即時零售——大概率還在。</strong>「萬物到家」的趨勢不可逆。30分鐘送到家會成為像水電煤一樣的基礎服務。但這個市場的競爭會更激烈——京東、阿里、甚至抖音都會參與。</p>
+      <p style="margin-top:8px;"><strong>⚠️ 到店／酒旅——可能還在，但市佔可能被抖音喫掉很多。</strong>內容驅動的消費決策（抖音種草→到店消費）正在替代搜尋驅動（美團搜尋→找店→消費）的模式。</p>
+      <p style="margin-top:8px;"><strong>❌ 社區團購——大概率不在了。</strong>美團優選已經關停大部分區域，這個方向已被證明不成立。</p>
+      <p style="margin-top:8px;"><strong>❓ 海外（Keeta）——說不準。</strong>中國網路公司出海的失敗率遠高於成功率。如果成了是驚喜，但超出能力圈的判斷範圍。</p>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <strong>段永平式的10年尺度判斷：</strong>10 年後美團的核心資產——即時配送網路——一定還在，而且可能是更值錢的資產。但問題是，這個網路是隻有美團在營運，還是變成了一個「共享網路」——阿里用、京東也用、抖音也用？如果是後者，那美團就變成了一家「配送公司」，估值邏輯就完全不同了。<br><br>一家「配送公司」的估值，和一家「平臺型公司」的估值，可能是3-5倍的差距。段永平會等這個答案清晰了再做決定。</div>
+
+  <div class="score-grid">
+    <div class="score-item">
+      <div class="label">10年確定性</div>
+      <div class="value" style="color:#e67e22;">70%</div>
+      <div class="desc">配送網路確定存在</div>
+    </div>
+    <div class="score-item">
+      <div class="label">10年利潤率</div>
+      <div class="value" style="color:#e67e22;">50%</div>
+      <div class="desc">競爭格局不確定</div>
+    </div>
+    <div class="score-item">
+      <div class="label">10年差異化</div>
+      <div class="value" style="color:#c0392b;">40%</div>
+      <div class="desc">「不願做」非「做不了」</div>
+    </div>
+    <div class="score-item">
+      <div class="label">能力圈匹配</div>
+      <div class="value" style="color:#e67e22;">55%</div>
+      <div class="desc">看得懂但不透徹</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 四、三大核心拷问 ============ -->
+<div class="card">
+  <h2>四、段永平對美團的三大核心拷問</h2>
+
+  <div class="qa-block">
+    <div class="question">🔴 拷問一：這到底是門「好生意」還是「大生意」？</div>
+    <div class="answer">
+      <p>段永平反覆強調：<strong>好的生意不一定是大的生意。但大的生意，不一定是好生意。</strong></p>
+      <p>美團無疑是「大生意」——年收入接近5000億人民幣，覆蓋全國2800+城市，年活躍用戶近7億。但它是「好生意」嗎？</p>
+      <p>好生意的標準是：<strong>高利潤率 + 高資本回報率 + 低資本投入。</strong>美團2024年淨利潤率10.6%，2025年直接轉負。資本回報率（ROIC）受競爭影響持續下降。更重要的是，它需要持續投入大量資本以維護競爭地位——這不是段永平喜歡的輕資產模式。</p>
+      <p><strong>結論：美團是大生意，但不是段永平定義的好生意。</strong></p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <div class="question">🔴 拷問二：王興做了「對的事情」嗎？</div>
+    <div class="answer">
+      <p>段永平經營企業時最核心的理念就是<strong>做對的事情，把事情做對</strong>。</p>
+      <p>美團優選——花700億去做一個沒有護城河、靠補貼維持的社區團購——這是「對的事情」嗎？段永平會說不是。因為社區團購的本質是燒錢換規模，沒有差異化的商業模式，不創造真正的長期價值。</p>
+      <p>京東阿里燒錢搶市場——美團被迫迎戰——這也不是「對的事情」，而是被對手逼著「做錯的事情」（燒錢虧本搶市場）。</p>
+      <p><strong>結論：王興在做很多「對的事情」（即時零售、海外擴張），但也做了「錯的事情」（優選7年700億虧損）。段永平需要看到更多「做對的事情」的證據，才會放心。</strong></p>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <div class="question">🔴 拷問三：這個生意有「安全邊際」嗎？</div>
+    <div class="answer">
+      <p>段永平說：<strong>價格合適的時候，好的生意是可以買的。</strong></p>
+      <p>美團現在 HKD 78.35，從高點 460 跌了 83%。PS 約 1.3x，PB 約 1.4x，FCF yield 在 2024 年達到驚人的 10.6%。這些數字看起來很便宜。</p>
+      <p>但問題是——<strong>2025年美團在虧損</strong>如果2025年的虧損延續到2026年，那現在的PE是負的，FCF也是負的。你可以說它是「價值陷阱」——看起來很便宜，但實際上在價值毀滅。</p>
+      <p>段永平買騰訊的時候，騰訊已經在回購了，利潤也在恢復。他買蘋果的時候，蘋果的生態系統已經穩如泰山。他買茅臺的時候，茅臺還在漲價。美團的「安全邊際」是建立在「競爭會在1-2年內結束」的假設之上的——這是段永平不會接受的假設。</p>
+      <p><strong>結論：如果競爭格局不變，現在的價格雖然低，但沒有安全邊際——因為利潤在消失。</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 五、投资决策 ============ -->
+<div class="card">
+  <h2>五、段永平會買美團嗎？——投資決策框架的逐項審查</h2>
+
+  <table class="verdict-table">
+    <tr>
+      <td><strong>看得懂的生意？</strong></td>
+      <td>
+        <span class="tag tag-yellow">50%</span><br>美團的生意邏輯並不複雜，段永平肯定「看得懂」外送配送、到店、酒旅這些業務。但他看不懂的是——<strong>這場競爭什麼時候結束？結束後的格局是什麼樣的？美團還能不能恢復10%+的淨利率？</strong>如果三年後還是三足鼎立、低利潤率的格局，那美團就不是一門好生意。這種不確定性的存在，讓「看得懂」變成了「似懂非懂」。</td>
+    </tr>
+    <tr>
+      <td><strong>好價錢？</strong></td>
+      <td>
+        <span class="tag tag-yellow">50%</span><br>PS 1.3x、PB 1.4x 在絕對數字上看起來便宜。但考慮到 2025 年虧損 234 億人民幣，2026 年可能繼續虧損，當前的「便宜」是建立在過去（2024 年）的利潤之上的。段永平買東西的時候看的是「未來的現金流折現」，不是「過去的 PE」。如果未來 2-3 年不賺錢，那現在的價格其實並不便宜。</td>
+    </tr>
+    <tr>
+      <td><strong>好的管理層？</strong></td>
+      <td>
+        <span class="tag tag-yellow">65%</span><br>王興是個有能力的創辦人，段永平也公開表示過「蠻喜歡王興」。但美團優選700億虧損是一個重大瑕疵。段永平買一個公司的時候，是要「信任這個管理層10年」的。王興在優選這件事上的判斷失誤，會影響段永平對他的長期信心。</td>
+    </tr>
+    <tr>
+      <td><strong>段永平的能力圈？</strong></td>
+      <td>
+        <span class="tag tag-red">40%</span><br>這是最關鍵的。段永平最熟悉的領域是：<strong>消費電子（蘋果、OPPO/vivo 的關聯）、網路社交（騰訊）、高端消費品（茅臺）、電商（拼多多、阿里巴巴）</strong>。本地生活服務＋外送配送，他從未公開表示過有深入的研究。<br><br>他在雪球上直接說過：「我不瞭解美團，不知道股價高低，也沒買過。」對於一個「不瞭解」的公司，段永平是絕對不會買的——無論價格多便宜。</td>
+    </tr>
+  </table>
+
+  <div class="final-verdict">
+    <div class="title">⚖️ 最終結論：段永平會買美團嗎？</div>
+    <div class="content">
+      <p><strong>短期（1年內）：不會買。</strong> <span class="no">❌</span></p>
+      <p style="padding-left:16px; margin-bottom:10px;">競爭格局太混亂，利潤趨勢向下，不在能力圈內。段永平不會在這個時間點出手。</p>
+
+      <p><strong>中期（1-3年）：可能會關注。</strong> <span class="tag tag-yellow">觀望中</span></p>
+      <p style="padding-left:16px; margin-bottom:10px;">如果京東和阿里的補貼戰開始收縮，競爭格局趨於穩定，美團恢復盈利，段永平可能會重新研究。但他需要先「搞懂」這個生意——包括親自見王興、深入研究配送網路的護城河有多深。</p>
+
+      <p><strong>長期（3-5年）：有可能，但有條件。</strong> <span class="tag tag-yellow">取決於格局</span></p>
+      <p style="padding-left:16px; margin-bottom:10px;">如果競爭結束後美團仍能保持60%+的外送市場份額，淨利率恢復到8%-10%，自由現金流穩定在50億+美元，PS回到1.5x以下——這些條件都滿足的話，段永平可能會把它加入「可以買的」列表。但他大概率只會用「小倉位」參與，不會像騰訊那樣重倉。</p>
+
+      <p style="margin-top:12px; padding-top:12px; border-top:1px solid rgba(255,255,255,.2);">
+        <strong>段永平大概率會說：</strong><br>
+        <span style="font-size:1rem; line-height:1.8;">美團是個好公司，但不是個好價錢的好公司。或者說，這個價錢可能是好價錢，但我看不清未來3年會怎樣。<br><br>王興是個不錯的CEO，但美團的生意太「苦」了——到處都是競爭對手，誰都能進來打一仗。這種生意，等打完了再看也不遲。<br><br>我以前說過，「不懂不做」。美團我現在還「不懂」，所以我不做。</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 六、附：段永平式投资框架对美团的评分卡 ============ -->
+<div class="card">
+  <h2>六、段永平式投資框架 · 美團評分卡</h2>
+
+  <div class="score-grid">
+    <div class="score-item">
+      <div class="label">商業模式</div>
+      <div class="value" style="color:#e67e22;">6/10</div>
+      <div class="desc">平臺不錯，競爭激烈</div>
+    </div>
+    <div class="score-item">
+      <div class="label">護城河深度</div>
+      <div class="value" style="color:#e67e22;">5/10</div>
+      <div class="desc">寬但淺，可被填平</div>
+    </div>
+    <div class="score-item">
+      <div class="label">定價權</div>
+      <div class="value" style="color:#c0392b;">3/10</div>
+      <div class="desc">幾乎沒有，在下降</div>
+    </div>
+    <div class="score-item">
+      <div class="label">管理層質量</div>
+      <div class="value" style="color:#e67e22;">6/10</div>
+      <div class="desc">王興不錯但有瑕疵</div>
+    </div>
+    <div class="score-item">
+      <div class="label">價格吸引力</div>
+      <div class="value" style="color:#e67e22;">6/10</div>
+      <div class="desc">絕對價格低，但利潤在消失</div>
+    </div>
+    <div class="score-item">
+      <div class="label">能力圈匹配</div>
+      <div class="value" style="color:#c0392b;">3/10</div>
+      <div class="desc">不在能力圈內</div>
+    </div>
+  </div>
+
+  <table style="margin-top: 20px;">
+    <thead>
+      <tr><th style="width:40%;">段永平名言</th><th>在美團上的應用</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>買股票就是買公司，買公司就是買人</td>
+        <td>王興值得關注，但700億優選虧損是扣分項</td>
+      </tr>
+      <tr>
+        <td>好的商業模式就是別人做不了，或者做了也沒你做得好</td>
+        <td>配送網路是「別人不願做」而非「做不了」，京東正在做</td>
+      </tr>
+      <tr>
+        <td>沒有定價權的生意，再大也不是好生意</td>
+        <td>美團不能漲價，這是最大的問題</td>
+      </tr>
+      <tr>
+        <td>「10 年後這家公司大概率還在做什麼？」</td>
+        <td>配送肯定在，但利潤水準是未知數</td>
+      </tr>
+      <tr>
+        <td>「不懂不做」</td>
+        <td>段永平明確說過「我不瞭解美團」——僅這一條就夠了</td>
+      </tr>
+      <tr>
+        <td>做對的事情，把事情做對</td>
+        <td>外送是對的，優選700億是錯的</td>
+      </tr>
+      <tr>
+        <td>價格合適的時候，好的生意是可以買的</td>
+        <td>但前提是「好的生意」——美團目前不是</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============ 七、风险提示 ============ -->
+<div class="card">
+  <h2>⚠️ 風險提示與重要說明</h2>
+  <p style="font-size:.88rem; color:#555; line-height:2;">
+    1. <strong>本報告是「段永平視角」的推演分析</strong>，不代表段永平本人的實際觀點。段永平（大道無形我有型）截至2026年7月未公開表示買入美團。<br>
+    2. <strong>所有分析基於公開數據和段永平在雪球上的公開發言</strong>不構成投資建議。<br>
+    3. <strong>段永平的投資框架強調「能力圈」</strong>本文推演的基礎是假設美團目前不在段永平的能力圈內。如果段永平未來深入研究美團，他的判斷可能會改變。<br>
+    4. <strong>投資有風險，入市需謹慎。</strong>本文作者不持有美團股票，不推薦任何買入或賣出操作。<br>5. 資料來源包括：MacroTrends、Google Finance、美團財報、段永平雪球發言（用戶1247347556）。</p>
+</div>
+
+<div class="footer">
+  <p>研究日期：2026-07-07 | 資料截止：2026年7月7日</p>
+  <p>本文為「段永平視角」系列研究的一部分 | 僅供學習研究使用</p>
+  <p style="margin-top:4px;">AI-Berkshire Research · 價值投資研究框架</p>
+</div>
+
+</div>
+<style>
+.lang-switch{position:fixed;top:12px;right:16px;z-index:9999;display:flex;gap:2px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:14px;padding:3px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:#5b6b85;font-size:12px;line-height:1;white-space:nowrap;overflow:hidden}
+.lang-switch a.active{background:#1A4B8C;color:#fff;font-weight:600}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s ease;margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style><div class="lang-switch"><a class="lang zh" href="/research/index.html"><span>簡</span><span class="full"><span>簡體中文</span></span></a><a class="lang hant active" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a><a class="lang en" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a></div></body>
+</html>
