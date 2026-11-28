@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>财务分析（巴菲特视角） — 阿斯麦</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>财务分析（巴菲特视角） — 阿斯麦</h1>
+  <div class="subtitle">毛利率是真的，净利率有水分，现金流最诚实</div>
+  <div class="meta">研究日期 2026/10/16 &nbsp;·&nbsp; 股价 $1,641.52（-0.96%） &nbsp;·&nbsp; 市值 约 6,240 亿美元（约 5,380 亿欧元） &nbsp;·&nbsp; PE(TTM) 约 41 倍</div>
+</div>
+<div class="container">
+<a class="back" href="../00-阿斯麦研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>三个数字定性：毛利率 57.5% 是结构性抬升，可信；净利率 42.5% 含 5 亿欧元一次性收益，不可持续；现金一个季度增加 51.5 亿欧元、同期还回购了 41 亿，这才是这家公司最硬的地方。看阿斯麦要用毛利率和现金流，不要用净利率。</p></div><table class="dt"><caption>三张表的关键读数（2026Q3，百万欧元）</caption><thead><tr><th>项目</th><th>数值</th><th>同比/环比</th><th>读数</th></tr></thead><tbody><tr><td>净销售额</td><td>11,662</td><td>+55.2% / +25.0%</td><td>指引高位</td></tr><tr><td>毛利（计算）</td><td>6,706</td><td>毛利率 57.5%</td><td>高于指引上限</td></tr><tr><td>净利润</td><td>4,960</td><td>+133.4%</td><td>含约 500 一次性</td></tr><tr><td>经营现金流（反推）</td><td>约 8,000 以上</td><td>—</td><td>现金净增 5,153</td></tr><tr><td>资本开支</td><td>未单独披露</td><td>—</td><td>扩产期</td></tr><tr><td>回购</td><td>约 4,100</td><td>—</td><td>单季</td></tr><tr><td>现金及短期投资</td><td>12,735</td><td>Q2 末 7,582</td><td>+5,153</td></tr></tbody></table><div class="section"><div class="section-title">利润表：毛利率是这条财报里最值钱的部分</div><p class='txt'>57.5% 的毛利率，比 Q2 的 54.0% 高 3.5 个百分点，比 55%–57% 的指引上限还高。三个原因：装机服务占比提升、EUV 与浸润式 DUV 的产品组合改善、出货量带来的固定成本摊薄。第一条是结构性的，后两条是周期性的。</p><p class='txt'>分辨方法很简单：看下季度。Q4 指引毛利率约 57%，如果能守住，说明 57% 是新的平台而不是峰值。<b>毛利率上台阶比收入创新高重要得多</b>——收入是客户的资本开支给的，毛利率是自己的定价权挣的。</p></div><div class="section"><div class="section-title">净利率：42.5% 这个数不要当真</div><p class='txt'>净利 49.60 亿、同比 +133.4%，听着吓人。拆开看：约 5 亿欧元来自 Mistral AI 股权重估，是账面收益；剔除后 44.6 亿，同比仍增长约 110%，依然极强，但没到“翻倍”的程度。</p><p class='txt'>净利率 42.5% 不可能长期维持。2025Q3 是 28.3%，2026 全年大概在 32%–34%（粗算：全年净利约 145 亿欧元 ÷ 445 亿收入）。投资这类公司，用净利率做预测一定会高估——它受税率、汇兑、股权重估影响太大。</p></div><div class="section"><div class="section-title">现金流与资产负债表：这才是巴菲特会看的地方</div><p class='txt'>Q3 现金及短期投资从 75.82 亿增加到 127.35 亿欧元，单季增加 51.5 亿，<b>而同期还花了 41 亿欧元回购</b>。两项相加，意味着单季经营现金流在 80 亿欧元以上（反推）。这个数字超过了当季净利润，来源是客户预收款——订单制的好处在这里体现得最清楚：客户先给钱，公司后交货。</p><p class='txt'>资产负债表是净现金状态，有息负债以低息欧元债为主，利息覆盖 50 倍以上。这种结构在设备行业里罕见：应用材料、泛林、东京电子都做不到这么干净的负债表。</p></div><div class="section"><div class="section-title">资本配置：回购是这届管理层最正确的动作</div><p class='txt'>Q3 单季回购 41 亿欧元，股本从 2021 年的约 4.17 亿股压到约 3.84 亿股，五年减了 8%。同期还在发股权激励，说明回购规模远大于稀释。中期股息 1.88 欧元/股，全年股息预计 7 欧元上下——按现价算股息率不到 0.5%，可以忽略。</p><p class='txt'>这是典型的“把现金还给股东、但不假装自己是高股息股”的做法。巴菲特会认可：<b>在没有足够高回报的并购标的时，回购是唯一诚实的资本配置。</b>唯一的疑问是回购价位——1,600 美元以上的回购，是不是在为自己的股价捧场，2027 年才知道。</p></div><div class="summary-box"><h3>结论</h3><p>财务质量：A。毛利率结构性抬升、现金流超过净利润、净现金、股本在缩。唯一要打折的是净利率和净利增速，两者都被一次性收益美化过。用 2026 年 32%–34% 的净利率做估值，比用 42.5% 靠谱得多。</p></div>
+</div>
+<div class="footer">阿斯麦 (ASML) 投资研究报告集 · 2026/10/16</div>
+</body>
+</html>

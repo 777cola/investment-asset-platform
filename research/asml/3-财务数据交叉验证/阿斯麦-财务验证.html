@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>财务验证 — 阿斯麦</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>财务验证 — 阿斯麦</h1>
+  <div class="subtitle">阿斯麦 (ASML) | 3-财务数据交叉验证</div>
+  <div class="meta">研究日期 2026/10/16 &nbsp;·&nbsp; 股价 $1,641.52（-0.96%） &nbsp;·&nbsp; 市值 约 6,240 亿美元（约 5,380 亿欧元） &nbsp;·&nbsp; PE(TTM) 约 41 倍</div>
+</div>
+<div class="container">
+<a class="back" href="../00-阿斯麦研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断：数字都站得住，要小心的是“口径”不是“真假”</h3><p class='txt'>八个关键数字做了双源核对：净销售额、毛利率、装机管理收入、市值、PE 全部对得上，偏差在 0.1% 以内。两处需要处理的是口径——净利润 49.60 亿欧元含约 5 亿欧元 Mistral AI 股权重估（媒体有的写 44.6 亿，不是错，是剔除后）；中国大陆占比 23% 与“全年约 20%”也不是矛盾，一个是单季实际、一个是全年指引。<b>结论：这份财报可以用，但引用时必须带口径。</b></p></div><table class="dt"><caption>关键数据双源对照（2026Q3，百万欧元）</caption><thead><tr><th>指标</th><th>来源 A</th><th>来源 B</th><th>偏差</th><th>处理</th></tr></thead><tbody><tr><td>净销售额</td><td>财报 11,662</td><td>AWP/Alliance News 116.6 亿</td><td>0.03%</td><td>采用 11,662</td></tr><tr><td>毛利率</td><td>财报 57.5%</td><td>中文媒体 57.5%（个别写 57.4%）</td><td>0.1pct</td><td>采用 57.5%</td></tr><tr><td>净利润</td><td>财报 4,960</td><td>媒体 49.6 亿 / 另有 44.6 亿（剔除一次性）</td><td>10.7%（口径差）</td><td>采用 4,960，全文标注一次性</td></tr><tr><td>装机管理收入</td><td>财报 3,289</td><td>电话会 32.9 亿</td><td>0.03%</td><td>采用 3,289</td></tr><tr><td>EUV 系统销售额</td><td>智通财经约 41 亿（同比 +94%）</td><td>财报未单列该分项</td><td>单源</td><td>标注“单源，媒体口径”</td></tr><tr><td>中国大陆占净系统销售</td><td>财报 23%（单季）</td><td>中文媒体 20%（全年指引）</td><td>3pct（口径差）</td><td>两个数都保留，分开表述</td></tr><tr><td>市值</td><td>股价×股本：1,641.52×3.80 亿 = 6,238 亿美元</td><td>5,380 亿欧元×1.16 = 6,241 亿美元</td><td>0.05%</td><td>采用“约 6,240 亿美元”</td></tr><tr><td>PE(TTM)</td><td>6,240 ÷ TTM 净利 152 亿 ≈ 41 倍</td><td>剔除一次性后 ≈ 43 倍</td><td>5%</td><td>主口径 41 倍，脚注 43 倍</td></tr></tbody></table><div class="section"><div class="section-title">第一处口径差：净利润的 5 亿欧元</div><p class='txt'>49.60 亿欧元里有约 5 亿欧元来自 Mistral AI 股权重估——阿斯麦 2025 年 9 月以 13 亿欧元入股这家法国模型公司，持股约 11%，2026 年三季度该公司估值上调，按权益法确认了这笔账面收益。<b>它不产生一分钱现金，也不该进经营性利润。</b></p><p class='txt'>剔除后净利润约 44.6 亿欧元，仍高于市场预期的 41.65 亿欧元，超预期幅度约 7%。所以两件事同时成立：财报是真的好，但 133.4% 的净利增速里有一部分是“估值重估”，不是“卖机器赚的”。本报告集所有涉及净利的表述都带这个注脚。</p></div><div class="section"><div class="section-title">第二处口径差：中国 23% 还是 20%</div><p class='txt'>23% 是 2026Q3 单季中国大陆占净系统销售的比例，20% 是公司对 2026 全年的指引。这两个数不冲突，但放在一起容易被误读成“占比要下滑”。实际路径是 Q1 19%、Q2 14%、Q3 23%——先降后升，全年落在 20% 附近。</p><p class='txt'>为什么 Q2 只有 14%：出口管制收紧后，部分中国客户的许可证审批延后，订单交付被推迟到三季度。为什么 Q3 回到 23%：被推迟的 DUV 订单集中交付。<b>这是交付节奏，不是需求变化。</b>判断中国需求要看订单而不是单季收入，而订单额本季没有单独披露，这是数据缺口，必须承认。</p></div><div class="section"><div class="section-title">第三处：市值与 PE 的算法要说清</div><p class='txt'>市值 6,240 亿美元是用 1,641.52 美元 × 约 3.80 亿股算的，股本是回购后的口径（2021 年约 4.17 亿股）。用欧元口径交叉验证：5,380 亿欧元 × 1.16 = 6,241 亿美元，两条路差 0.05%，可以互证。</p><p class='txt'>PE 的分母要小心。TTM 净利约 152 亿美元（6,240 ÷ 41 反推），这里面包含 Q3 的 5 亿欧元一次性收益。剔除后 TTM 净利约 146 亿美元，PE 约 43 倍。<b>行业惯例是用剔除一次性后的数字，但市场报价用的是报表净利</b>——所以报告里主口径写 41 倍（与行情软件一致），分析时用 43 倍（更保守）。</p></div><div class="section"><div class="section-title">最终采用口径</div><p class='txt'>还有一个容易被忽略的核对项：每股收益。财报给 12.93 欧元，用净利 4,960 ÷ 12.93 反推股本约 3.84 亿股，与回购后的股本口径一致，说明 EPS 用的是当期加权平均数，没有用年末数。这一点对估值很重要——用 3.80 亿股算市值会略微低估，用 3.84 亿股更接近实际。</p><p class='txt'>收入、毛利率、装机管理收入、EPS（12.93 欧元）全部采用公司财报原值。净利润采用报表值 4,960 并逐处标注一次性。EUV 分项收入 41 亿欧元为单源（媒体），仅在讨论结构时使用，不作为估值输入。中国大陆占比同时保留 23%（Q3 实际）与 20%（全年指引）。</p><p class='txt'>估值输入：2026 年 EPS 约 38 欧元、2027 年 EPS 46 欧元（中性情景）、股本 3.84 亿股、汇率 1.16。2026 年 EPS 为反推值（现价 1,415 欧元 ÷ 37 倍），已标注。凡推算值在正文均写明“粗算/反推”，不与披露值混用。</p></div><div class="summary-box"><h3>结论</h3><p>八个数字，零个数据错误，两个口径需要说明（净利含 5 亿欧元重估、中国 23% 是单季）。这份财报的质量很高，可以放心作为估值基础。真正的数据缺口只有一个：净订单额未披露，而它才是 2027–2028 年收入的先行指标。</p></div>
+</div>
+<div class="footer">阿斯麦 (ASML) 投资研究报告集 · 2026/10/16</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣筛选 — 中际旭创</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>去劣筛选 — 中际旭创</h1>
+  <div class="subtitle">中际旭创 (300308) | 2-七条硬指标去劣</div>
+  <div class="meta">研究日期 2026/09/18 &nbsp;·&nbsp; 股价 ¥925.24（+3.40%） &nbsp;·&nbsp; 市值 约 1.09 万亿元 &nbsp;·&nbsp; PE(TTM) 约 53.3x</div>
+</div>
+<div class="container">
+<a class="back" href="../00-中际旭创研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>七条硬指标过了五条，卡在股本稀释和单期现金流上。<b>毛利率 46.4%、净利率 32.7%，这两条是全场最漂亮的读数；10 年平均 ROE 约 14%，也过线。</b>真正难看的是第七条：总股本从 2021 年的 8.00 亿股增到 2026 年 9 月的 11.78 亿股，五年 +47%，扩产靠融资不靠内生现金。第五条是“曾经满分、现在零分”——2025 年净现比 101%，2026H1 只剩 13%。这不是一家烂公司，是一家好公司露出了周期底牌。</p></div><table class="dt"><caption>七条硬指标（截至 2026 年半年报）</caption><thead><tr><th>指标</th><th>公司数值</th><th>门槛</th><th>判定</th></tr></thead><tbody><tr><td>① 10 年平均 ROE</td><td>约 14%（粗算，2017 年并表苏州旭创后逐年均值）</td><td>≥8%</td><td>通过</td></tr><tr><td>② 5 年累计自由现金流</td><td>2024–2025 两年 FCF +84.3 亿元（经营现金流 140.61 亿元 − 资本开支 56.26 亿元）</td><td>不为负</td><td>通过</td></tr><tr><td>③ 利息覆盖（EBIT/利息）</td><td>净利息收入为正，有息负债极低（2025 年末资产负债率 30.18%）</td><td>≥2 倍</td><td>通过</td></tr><tr><td>④ 长期毛利率</td><td>46.4%（2026H1）、42.04%（2025）、33.80%（2024）、32.99%（2023）</td><td>≥15%</td><td>通过</td></tr><tr><td>⑤ 经营现金流/净利润（5 年均值）</td><td>均值约 0.85；2025 年 1.01、2024 年 0.61、2026H1 0.13</td><td>≥0.7</td><td>边界（单期失守）</td></tr><tr><td>⑥ 长期净利率</td><td>32.7%（2026H1）、30.28%（2025，含少数股东口径）、22.51%（2024）</td><td>≥5%</td><td>通过</td></tr><tr><td>⑦ 5 年总股本膨胀</td><td>8.00 亿股（2021）→ 11.78 亿股（2026/09），+47%</td><td>≤20%</td><td>未通过</td></tr></tbody></table><div class="note">口径：①为粗算值（未逐笔核 10 年 ROE 序列）；②用 2024、2025 两年可核对数据代替 5 年，方向性判断不变；⑤2026H1 = 18.00/136.51 = 13.2%；⑦含 2026 年 7 月 H 股 6,268 万股与历年定增、股权激励。数据来源：2025 年年度报告、2026 年半年度报告、2026/09/18 行情。</div><div class="section"><div class="section-title">最重要的两条：定价权与抗风险</div><p class='txt'>第④条和第⑥条是这套筛子真正想筛的东西。<b>毛利率 46.4% 意味着这门生意有定价权，净利率 32.7% 意味着收入掉三成也不会亏钱。</b>把时间拉长看更清楚：2023 年毛利率 32.99%，2024 年 33.80%，2025 年 42.04%，2026H1 46.4%。三年抬了 13 个百分点，抬的是产品速率，不是成本控制。</p><p class='txt'>这两条过得很干脆，也解释了为什么底稿的判断是“好公司、坏价格”而不是“回避”。去劣筛子筛不出好价格，只能筛出“值不值得往下看”，这家公司显然值得。</p></div><div class="section"><div class="section-title">现金流那条：2025 年是满分，2026H1 是零分</div><p class='txt'>第⑤条最值得盯。2025 年经营现金流 108.96 亿元、净利 107.97 亿元，<b>净现比 1.01，完美</b>；同比还增了 244.31%，公司自己的解释是高速产品回款加快、上年高强度资本开支后投资支出放缓。到了 2026H1，经营现金流 18.00 亿元、净利 136.51 亿元，净现比 13.2%，同比降 44.1%。</p><p class='txt'>两个季度之间发生了什么？存货从 126.81 亿元加到 198.26 亿元（+56.3%），应收从 62.77 亿元加到 150.01 亿元（+138.98%），另外长期应付款增加约 41.6 亿元、用于锁定一年以上的关键物料。<b>这是主动备料，不是收不到钱。</b>但“主动”两个字只在需求兑现时才成立；一旦下游拉货放缓，198 亿元存货就是减值预备队。所以判“边界”而不是“通过”，也不判“不通过”。</p></div><div class="section"><div class="section-title">股本那条：五年 +47%，扩产靠融资</div><p class='txt'>第⑦条是唯一干脆不过的。2021 年 11 月定增后总股本 8.00 亿股，2026 年 6 月 30 日 11.15 亿股，2026 年 9 月 1 日 11.78 亿股。<b>五年 +47%，其中 2026 年 7 月 30 日 H 股上市一次性加了 6,268 万股（含超额配售），募资约 534 亿港元。</b></p><p class='txt'>这条不过的含义要说准：不是管理层在乱发股票，而是<b>这门生意的扩张速度超过了自身造血速度</b>。半年收入翻近两倍，靠的是提前两年铺产能、提前半年锁物料，这些钱只能来自融资和应付款。股东权益被摊薄 47%，换来的是全球 23% 的份额和 46% 的毛利率——账算得过来，但不符合“不稀释也能长大”的一流公司标准。</p></div><div class="section"><div class="section-title">这些不过致不致命</div><p class='txt'>不致命，但要定价。<b>第⑦条（稀释）是结构性的，会一直存在；第⑤条（现金流）是周期性的，取决于备料何时变成收入。</b>两条都指向同一件事：这家公司的增长是“借钱买增长”，不是“用利润滚增长”。</p><p class='txt'>所以七条筛子的结论只能到这一步：<b>它够格进深度研究的名单，不够格进“闭眼买”的名单。</b>接下来要看的不是指标，是价格——46% 的毛利率配 20 倍 PE 是好生意，配 53 倍 PE 是一张周期彩票。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>结论：七条过五条，一条边界，一条不过。</b>不过的两条（股本稀释、单期现金流）都不影响它是不是好公司，只影响它值多少钱。<b>操作上维持“观察，等回调”：700 元以下再谈，同时用三季报净现比做二次确认——回到 50% 以上，说明备料正在变现；继续低于 30%，说明库存开始堆在渠道里。</b></p></div>
+</div>
+<div class="footer">中际旭创 (300308) 投资研究报告集 · 2026/09/18</div>
+</body>
+</html>

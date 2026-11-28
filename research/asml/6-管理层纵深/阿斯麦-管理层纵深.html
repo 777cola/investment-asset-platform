@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理层纵深 — 阿斯麦</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>管理层纵深 — 阿斯麦</h1>
+  <div class="subtitle">阿斯麦 (ASML) | 6-管理层纵深</div>
+  <div class="meta">研究日期 2026/10/16 &nbsp;·&nbsp; 股价 $1,641.52（-0.96%） &nbsp;·&nbsp; 市值 约 6,240 亿美元（约 5,380 亿欧元） &nbsp;·&nbsp; PE(TTM) 约 41 倍</div>
+</div>
+<div class="container">
+<a class="back" href="../00-阿斯麦研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断：把垄断优势变成现金的三年</h3><p class='txt'>傅恪礼 2024 年 4 月接任，两年半做对了三件事：锁产能、推价值定价、大额回购。资本配置记录干净——不做大并购，钱用来回购和分红，唯一一笔“非主业”投资是 2025 年 13 亿欧元入股 Mistral AI。治理是荷兰两轨制，监事会独立。真正的隐忧不是诚信，是技术领导权的交接：范登布林克这一代工程师退休后，公司从“工程师驱动”变成“经理人驱动”。</p></div><table class="dt"><caption>关键人物（2026 年 10 月）</caption><thead><tr><th>姓名</th><th>职务</th><th>持股</th><th>薪酬</th><th>履历要点</th></tr></thead><tbody><tr><td>傅恪礼 Christophe Fouquet</td><td>CEO / 总裁（2024/4 起）</td><td>未取得逐人披露</td><td>结构与总额见年报</td><td>法国籍，2008 年加入，此前负责 EUV 与应用业务</td></tr><tr><td>罗杰·达森 Roger Dassen</td><td>CFO（2018 起）</td><td>未取得逐人披露</td><td>同上</td><td>前德勤全球副 CEO，财务与税务背景</td></tr><tr><td>范登布林克 Martin van den Brink</td><td>总裁/CTO（2024 年退休）</td><td>—</td><td>—</td><td>1984 年入职，EUV 路线的主要推动者</td></tr><tr><td>温彼得 Peter Wennink</td><td>CEO（2013–2024）</td><td>—</td><td>—</td><td>1999 年任 CFO，任内市值增长逾十倍</td></tr><tr><td>监事会</td><td>荷兰两轨制，独立于管理层</td><td>—</td><td>—</td><td>不设管理层兼任，重大事项需监事会批准</td></tr></tbody></table><table class="dt"><caption>资本配置记录（2013–2026）</caption><thead><tr><th>时间</th><th>动作</th><th>金额</th><th>评价</th></tr></thead><tbody><tr><td>2013</td><td>收购 Cymer（光源）</td><td>约 25 亿美元</td><td>垂直整合的关键一步，锁定光源</td></tr><tr><td>2016</td><td>收购 HMI（电子束检测）</td><td>约 30 亿美元</td><td>补量测短板，与 KLA 竞争</td></tr><tr><td>2016</td><td>入股蔡司 SMT</td><td>24.9% 股权 + 研发资助</td><td>锁死独家光学供应，最划算的一笔</td></tr><tr><td>2020</td><td>收购 Berliner Glas</td><td>约 11 亿欧元</td><td>光学与晶圆夹持件自制</td></tr><tr><td>2025/9</td><td>入股 Mistral AI</td><td>13 亿欧元（约 11%）</td><td>非主业，Q3 已产生 5 亿欧元重估收益</td></tr><tr><td>2022–2026</td><td>回购</td><td>累计逾 100 亿欧元（粗算）</td><td>股本从 4.17 亿股降至 3.84 亿股</td></tr><tr><td>2026Q3</td><td>单季回购 + 中期股息</td><td>41 亿欧元 + 1.88 欧元/股</td><td>现金仍增加 51.5 亿</td></tr></tbody></table><div class="section"><div class="section-title">权力结构：一次平稳但意味深长的交接</div><p class='txt'>2024 年 4 月，温彼得退休，傅恪礼接任 CEO，同时范登布林克卸任总裁/CTO。两个人一起退，意味着阿斯麦结束了长达十年的“双首长制”——一个管生意、一个管技术。傅恪礼是法国人，2008 年从应用材料过来，做过 EUV 业务负责人，是“懂技术但更像经营者”的那一类。</p><p class='txt'>这次交接的含义：公司从“工程师主导”转向“经理人主导”。对一家靠物理极限吃饭的公司，这是个需要观察的变化——不是坏事，但护城河的一部分（技术直觉）不再由创始人级工程师把守。</p><p class='txt'>权力结构上还有一个细节值得注意：阿斯麦的 CEO 在荷兰式治理里权力不小，重大技术路线由管理层提案、监事会批准，日常几乎不受干预。这套结构在温彼得时代跑得很好，因为它配上了一个强势的 CTO。现在 CTO 的位置空了，决策权集中到 CEO 一个人身上——效率更高，纠错更慢。</p></div><div class="section"><div class="section-title">资本配置：不做大并购，钱都还给股东</div><p class='txt'>这份记录很干净。历史上四笔并购（Cymer、HMI、Berliner Glas、蔡司股权）全部是垂直整合，没有一笔是“买收入”。2020 年之后基本停止并购，现金转向回购和分红。</p><p class='txt'>2026Q3 单季回购 41 亿欧元，配合 1.88 欧元/股的中期股息，同时现金还增加了 51.5 亿——这是“钱多到花不完”的状态。巴菲特会认可这种配置：在没有高回报标的时，回购是唯一诚实的做法。</p><p class='txt'>唯一需要问一句的是 2025 年 9 月那笔 Mistral AI：13 亿欧元买 11%，跟光刻主业没有直接关系。管理层说是“理解 AI 客户需求”，但更像是财务投资。这笔投资 Q3 已经贡献了 5 亿欧元账面收益——好看，但不可持续，也不该算进经营能力。</p><p class='txt'>换个角度也说得通：阿斯麦的客户正在把 AI 当成下一轮需求的核心，管理层想“理解客户在买什么”。13 亿欧元对一家账上 127 亿现金的公司不算大，作为信息费可以接受。但如果这笔投资继续扩大，就该问一句：这是在做光刻，还是在做投资公司。</p></div><div class="section"><div class="section-title">诚信与治理：没有污点，但有一个历史争议</div><p class='txt'>阿斯麦的治理记录在欧股里属于第一梯队：荷兰两轨制、监事会独立、4% 持股披露门槛、审计与薪酬委员会齐全。过去十年没有出现财务重述、关联交易丑闻、管理层内幕交易处罚。</p><p class='txt'>唯一值得记一笔的是 2024 年的“荷兰营商环境”风波：公司公开抱怨埃因霍温的电网、住房、人才签证跟不上扩产，甚至讨论过海外扩张。荷兰政府随后推出约 25 亿欧元的“贝多芬计划”改善基建，把总部留住。<b>这件事说明：一家公司的产能规划可以被一个国家的住房政策卡住。</b></p></div><div class="section"><div class="section-title">接班人：下一个五年最大的不确定性</div><p class='txt'>傅恪礼 2024 年上任，按荷兰公司的惯例任期到 2028 年前后。真正的接班问题不在 CEO，在技术层——范登布林克退休后，EUV 与 High-NA 的技术路线由谁来拍板，外界看不清楚。阿斯麦的技术决策一直是“一个人说了算 + 长期主义”，这种结构效率高但脆弱。</p><p class='txt'>观察指标很具体：2027 年 High-NA 的客户导入如果顺利，说明技术团队接力成功；如果反复推迟，就要怀疑是不是技术判断出了问题。这一条比任何财务指标都重要，因为它决定 2030 年之后的护城河。</p><p class='txt'>另外要盯的是管理层对“价值定价”的表态。这是这届管理层最重要的商业决策，也是唯一一个能从外部验证的判断——2027 年毛利率是验收单。</p></div><div class="section"><div class="section-title">一个容易被忽略的治理细节：监事会里没有客户代表</div><p class='txt'>荷兰的两轨制下，监事会只对股东负责，客户、供应商都不进董事会。这一点对阿斯麦很关键——它的客户同时是它的股东吗？不是。台积电、三星、英特尔都是纯粹的买家，没有一家持股。这意味着公司的决策不会被客户利益绑架，价值定价才能推得下去。</p></div><div class="summary-box"><h3>结论</h3><p>管理层评分 8/10：执行力 A（锁产能、回购、指引说到做到），透明度 B（价值定价不给数字、订单额不单独披露），接班风险 B-（技术领导权交接未见清晰路径）。治理没有硬伤，资本配置没有乱来。给 8 分是因为这三年确实把垄断优势变成了现金，扣 2 分是因为未来五年的技术判断还没被验证。</p></div>
+</div>
+<div class="footer">阿斯麦 (ASML) 投资研究报告集 · 2026/10/16</div>
+</body>
+</html>

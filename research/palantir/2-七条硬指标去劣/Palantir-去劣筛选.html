@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>去劣筛选 — Palantir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>去劣筛选 — Palantir</h1>
+  <div class="subtitle">Palantir (PLTR) | 2-七条硬指标去劣</div>
+  <div class="meta">研究日期 2026/10/05 &nbsp;·&nbsp; 股价 $189.40（+0.34%） &nbsp;·&nbsp; 市值 约 4,560 亿美元 &nbsp;·&nbsp; PS(TTM) 约 74 倍</div>
+</div>
+<div class="container">
+<a class="back" href="../00-Palantir研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>去劣筛选：质量不是问题，价格才是</h3><p class='txt'>七条硬指标，过六条。营业利润率 47%、净利率 55%、营收增速 93%、经营现金流/净利 117%、净现金 92 亿美元——这五条不是压线，是碾压式过线。<b>唯一不过的是股权稀释：股本每年 +2%，股权激励占收入 13.7%。</b></p><p class='txt'>这套筛选的目的是排掉「生意本身不行」的公司。Palantir 在这一步筛不掉，恰恰相反，它是这套指标下的优等生。问题在于七条硬指标里没有一条管价格——<b>一家七条全过的公司，也可以在 74 倍市销率上让投资者亏掉一半。</b>去劣通过，只说明它可以进入估值讨论，不说明可以买。</p></div><table class="dt"><caption>七条硬指标（2026Q2 实际值 / TTM 口径）</caption><thead><tr><th>指标</th><th>公司数值</th><th>门槛</th><th>判定</th></tr></thead><tbody><tr><td>毛利率</td><td>约 80%（Q2 口径）</td><td>≥60%</td><td>通过</td></tr><tr><td>营业利润率</td><td>47.1%（GAAP，9.12 亿 ÷ 19.35 亿）</td><td>≥15%</td><td>通过</td></tr><tr><td>净利率</td><td>54.9%（10.62 亿 ÷ 19.35 亿，含利息收入）</td><td>≥10%</td><td>通过</td></tr><tr><td>营收增速</td><td>+93%（同比，Q2）</td><td>≥10%</td><td>通过</td></tr><tr><td>经营现金流 / 净利</td><td>117%（约 12.4 亿 ÷ 10.62 亿，粗算）</td><td>≥80%</td><td>通过</td></tr><tr><td>净负债 / 营业利润</td><td>净现金 92 亿美元（无实质有息负债）</td><td>≤2 倍</td><td>通过</td></tr><tr><td>股权稀释</td><td>股本每年约 +2%，股权激励占收入 13.7%</td><td>≤1%/年</td><td>不过</td></tr></tbody></table><div class="note">门槛为本报告设定的去劣线，非行业标准。经营现金流按自由现金流 12.20 亿 + 资本开支约 0.2 亿反推（粗算，公司未单列资本开支）；净利率含 92 亿美元现金产生的利息与投资收益，剔除后约 47%；股权稀释按公司披露「股本一年增加约 2%」。</div><div class="section"><div class="section-title">唯一不过的一条：不是不分红，是反向稀释</div><p class='txt'>Palantir 上市以来不分红，也不做实质回购——2023 年授权的 10 亿美元回购额度，执行规模远小于授权。按「股东回报」这条筛它该被剔除，但我把第 7 条设成「股权稀释 ≤1%/年」，因为它的问题比不分红更严重：<b>不是不还钱，是每年向股东再要 2%。</b></p><p class='txt'>Q2 股权激励 2.65 亿美元，占收入 13.7%。年化超过 10 亿美元，相当于把全年自由现金流（Q2 年化 48.8 亿）的五分之一发给员工。科技公司用股票留人是常规操作，13.7% 在同业里属于偏高的一档（成熟 SaaS 通常在 8%–12%）。</p><p class='txt'>这条不过致命吗？<b>单独看不致命，和估值放在一起就致命。</b>74 倍市销率的定价假设是「每股价值每年复合增长 30%」；每年 2% 的稀释把 30% 变成 27.4%。六年下来差 15 个百分点——正好是中性情景和现价之间的那一段。</p></div><div class="section"><div class="section-title">另外六条：不是压线过，是碾压式过线</div><p class='txt'>营业利润率 47% 是这七条里最扎眼的一项。软件行业里，Salesforce 的经营利润率约 20%、Snowflake 仍在亏损边缘、Databricks 未上市但公开口径接近盈亏平衡。<b>Palantir 用一家公司的利润率，做出了整个行业的利润率。</b></p><p class='txt'>净利率 55% 要打个折看：净利 10.62 亿高于营业利润 9.12 亿，差额来自 92 亿美元现金的利息与投资收益。这部分跟着利率走，不可持续。<b>真实的赚钱能力看 47% 的营业利润率，那也是行业顶尖。</b></p><p class='txt'>经营现金流/净利 117%，说明利润是真钱，不是应收账款堆出来的。客户是政府和大型企业，预付和里程碑付款，收现比利润快。净现金 92 亿、几乎没有有息负债，这一条在加息周期里尤其值钱——它不需要靠融资活着。</p><p class='txt'>营收增速 93% 不用多说。要提醒的是可持续性：客户总数只增 24%，增长主要来自老客户加单。这条能跑多久，取决于那 220 份百万美元合同能不能继续升级成千万级。</p></div><div class="section"><div class="section-title">这套结果的含义：筛掉了坏公司，筛不掉坏价格</div><p class='txt'>七条硬指标全是质量指标，没有一条涉及估值。这是它的设计目的——先用十分钟排除掉生意不行的公司，把时间留给值得深看的。Palantir 在这一步的表现是「不用再筛了，直接进深度研究」。</p><p class='txt'>但投资者最容易在这一步犯错：<b>看到七条过六条，就以为找到了好标的。</b>2021 年的思科、2000 年的朗讯、2021 年的 Zoom，去劣筛选时都是优等生。它们的质量问题不在报表里，在价格里。</p><p class='txt'>所以这个模块的结论要写清楚：<b>去劣通过 ≠ 可以买。</b>Palantir 的质量配得上任何一份核心持仓名单，但 74 倍市销率配不上任何一份买入清单。下一步该做的不是建仓，是把它放进观察名单，等价格。</p></div><div class="summary-box"><h3>结论</h3><p>七条过六条，唯一不过的是股权稀释（2%/年、SBC 占收入 13.7%），这条单独看不致命，和 74 倍市销率叠加后是压垮每股回报的最后一根稻草。<b>结论：去劣环节通过，公司质量不构成风险，但本模块不给任何买入授权。</b>若 SBC 占比降到 10% 以下且股本增速降到 1% 以内，这条「不过」可以改判。</p></div>
+</div>
+<div class="footer">Palantir (PLTR) 投资研究报告集 · 2026/10/05</div>
+</body>
+</html>

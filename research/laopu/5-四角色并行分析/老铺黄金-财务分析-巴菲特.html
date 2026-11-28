@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>财务分析（巴菲特视角） — 老铺黄金</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>财务分析（巴菲特视角） — 老铺黄金</h1>
+  <div class="subtitle">报表很漂亮，但漂亮的地方都在存货里</div>
+  <div class="meta">研究日期 2026/10/09 &nbsp;·&nbsp; 股价 HK$337.00（+4.85%） &nbsp;·&nbsp; 市值 约 596 亿港元 &nbsp;·&nbsp; PE(TTM) 约 6.9 倍</div>
+</div>
+<div class="container">
+<a class="back" href="../00-老铺黄金研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>巴菲特读财报的顺序是：先看现金，再看资产质量，最后才看利润。<b>按这个顺序读老铺，结论会反过来：现金刚转正、资产质量在恶化、利润在创新高。</b>三句话里，前两句比第三句重要。</p></div><table class="dt"><caption>五年利润表（亿元人民币）</caption><thead><tr><th>年份</th><th>收入</th><th>同比</th><th>净利</th><th>净利率</th><th>毛利率</th></tr></thead><tbody><tr><td>2022</td><td>12.94</td><td>—</td><td>0.95</td><td>7.3%</td><td>41.9%</td></tr><tr><td>2023</td><td>31.80</td><td>+145.7%</td><td>4.16</td><td>13.1%</td><td>41.9%</td></tr><tr><td>2024</td><td>85.06</td><td>+167.5%</td><td>14.73</td><td>17.3%</td><td>41.2%</td></tr><tr><td>2025</td><td>273.03</td><td>+221.0%</td><td>48.68</td><td>17.8%</td><td>37.6%</td></tr><tr><td>2026H1</td><td>198.08</td><td>+60.3%</td><td>42.67</td><td>21.5%</td><td>41.3%</td></tr></tbody></table><div class="note">2025 年净利为归母净利 48.68 亿元（年内利润 49.0 亿元）；2022–2024 数据取自各年年报；2026H1 为中报口径。净利率按净利/收入计算。</div><div class="section"><div class="section-title">第一眼看现金：从 -68 亿到 +20 亿，方向对了</div><p class='txt'>2025 年经营现金流 <b>-68.48 亿元</b>，2026 上半年 <b>+20.08 亿元</b>。这个转变是这份中报里最实质的改善——过去三年公司靠融资和负债支撑存货扩张，2025 年存货从 40.88 亿元增加到 160.44 亿元，涨幅 290%，钱全压在金料和成品上。</p><p class='txt'>2026 上半年存货只增加 18.5%（160.44 → 190.18 亿元），增速大幅放缓，同时销售回款跟上了，经营现金流才转正。<b>换句话说，这次转正不是赚得更多，是买得更少。</b></p><p class='txt'>但派息 31.85 亿元超过经营现金流 20.08 亿元，差额从账上现金补。巴菲特会立刻问：明年还派得出来吗？如果利润腰斩、存货继续压，75% 的派息率就必须下调。</p></div><div class="section"><div class="section-title">第二眼看资产：190 亿元存货是这门生意的全部风险</div><p class='txt'>存货 190.18 亿元，占总资产的比例是这家公司最关键的单一数字。它有三个身份：</p><p class='txt'><b>上涨时是利润来源。</b>2025 年末低价囤的金料，在 2026 上半年按高价卖出，毛利率因此从 38.1% 升到 41.3%。这部分利润不是当期经营创造的，是库存时间差。</p><p class='txt'><b>下跌时是减值来源。</b>金价从 1 月 5,419 美元跌到 6 月不足 4,000 美元，跌幅 26%。如果按六成原料计算，190 亿元里有 114 亿元是黄金，理论减值压力 20 亿元量级——当然实际会计处理会谨慎得多，因为金饰成品按成本与可变现净值孰低计量，不会一次性打掉。</p><p class='txt'><b>周转时是现金黑洞。</b>271 天周转，比 2025 年末多 55 天。二季度收入只有 23–39.5 亿元，环比跌八成，货卖不动，周转天数自然被拉长。<b>这三个身份，在同一个季度里可以同时成立。</b></p></div><div class="section"><div class="section-title">第三眼看利润：21.5% 的净利率能不能持续</div><p class='txt'>净利率 21.5% 是历史最高。历史上：2022 年 7.3%、2023 年 13.1%、2024 年 17.3%、2025 年 17.8%、2026H1 21.5%。这条曲线很漂亮，但它和收入曲线是同一件事——<b>规模效应摊薄了固定费用。</b></p><p class='txt'>拆开看：2024 年期间费用率 18.2%，2026 上半年大概降到 14%–15%（粗算，租金和人工相对刚性，收入涨 60% 而费用只涨 30% 左右）。收入涨得越快，费用率降得越多，净利率就越高。这是好的经营杠杆，但它有反作用力——<b>Q2 收入跌八成的时候，同一个杠杆会反过来压死利润</b>，这就是为什么 Q2 净利只有 5.1–7.6 亿元、环比跌 80% 以上。</p><p class='txt'>所以 21.5% 不是一个可以外推的数字。它是「收入峰值 + 费用刚性」这两个条件同时成立时的产物，两个条件都在二季度变了。</p></div><div class="section"><div class="section-title">巴菲特的三个追问</div><p class='txt'>第一问：<b>如果金价跌 20%，这家公司还赚钱吗？</b>答案是赚，但赚得少很多。按悲观情景，2027 年净利 45 亿元，净利率回落到 15% 左右。仍然是一门赚钱的生意，不是会亏钱的生意——这一点比大多数周期股好。</p><p class='txt'>第二问：<b>管理层把赚的钱放在了哪里？</b>2026 上半年赚 42.67 亿元，派息 31.85 亿元，剩下 10.82 亿元留在表上，同时存货增加了 29.74 亿元。也就是说，扩张的钱主要不是利润出的，是负债和账上现金出的。这个结构在成长期没问题，在增速掉下来时会变成压力。</p><p class='txt'>第三问：<b>现在的价格给了多少安全边际？</b>按 2027 年中性利润 57 亿元、10 倍 PE 算，合理价 352 港元，现价 337 港元，安全边际 4%。<b>这不叫安全边际，叫没有犯错空间。</b></p></div><div class="summary-box"><h3>结论</h3><p>财务判断：<b>报表质量中等偏上，但利润的可持续性最弱。</b>现金流刚转正、资产质量在恶化、利润率在峰值——三个信号指向同一个方向：这家公司现在赚的是周期的钱，不是能力的钱。财务上唯一的护身符是没有偿债危机、门店全是租赁、随时可以收缩。</p></div>
+</div>
+<div class="footer">老铺黄金 (06181) 投资研究报告集 · 2026/10/09</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>08 决策框架：把「什么价格买」写成一条规则 — Palantir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>08 决策框架：把「什么价格买」写成一条规则 — Palantir</h1>
+  <div class="subtitle">不靠判断，靠纪律</div>
+  <div class="meta">研究日期 2026/10/05 &nbsp;·&nbsp; 股价 $189.40（+0.34%） &nbsp;·&nbsp; 市值 约 4,560 亿美元 &nbsp;·&nbsp; PS(TTM) 约 74 倍</div>
+</div>
+<div class="container">
+<a class="back" href="../00-Palantir研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>这一系列八篇，前七篇都在讲这家公司是什么。这一篇讲一个更实际的问题：<b>面对一家好公司、坏价格，你到底该怎么办？</b></p><p class='txt'>答案不是「等」，是「把等的条件写下来，然后不看盘」。</p></div><div class="section"><div class="section-title">第一步：区分「公司判断」和「价格判断」</div><p class='txt'>这两件事经常被混在一起。公司判断的结论是「好公司」，价格判断的结论是「太贵」。分开之后，动作就很清楚：<b>好公司进观察名单，太贵的价格决定不买。</b></p><p class='txt'>混乱发生在第二步：因为「好公司」而买入，然后用「长期看好」解释「短期亏损」。这是最常见的亏钱路径。<b>好公司可以让你亏钱，只要你付的价够高——可口可乐 1998 年的例子摆在那儿。</b></p></div><div class="section"><div class="section-title">第二步：把买入条件写成可验证的数字</div><p class='txt'>「等便宜一点」不是条件，「PS 30 倍」才是。三个条件，按优先级：</p><ul><li><b>价格：</b>PS(TTM) ≤30 倍，约 80 美元。这是硬条件，不看情绪。</li><li><b>基本面：</b>TCV/收入 ≥1.5 倍（现在是 1.74），美国商业增速 ≥40%。</li><li><b>质量：</b>SBC/收入 ≤10%（现在 13.7%），营业利润率 ≥45%。</li></ul><p class='txt'>价格到了、基本面没坏，才买。<b>价格没到、基本面再好，不买。</b>价格到了、基本面坏了，也不买——那是价值陷阱。</p></div><div class="section"><div class="section-title">第三步：仓位与止损，提前定好</div><p class='txt'>80 美元首仓 3%，55 美元加到 5%（上限）。为什么不一次买满？因为你对「它的增速能维持多久」没有绝对把握，分批是对不确定性的定价。</p><p class='txt'>止损不设价格，设论文。<b>四条论文止损：TCV/收入连续两季 <1.2、美国商业增速连续两季 <40%、营业利润率跌破 40%、美国政府收入连续两季负增长。</b></p><p class='txt'>价格只决定「买不买」，不决定「卖不卖」。<b>买的时候价格是朋友，卖的时候基本面是朋友。</b></p></div><div class="section"><div class="section-title">第四步：更新频率——每季度二十分钟</div><p class='txt'>不需要每天看盘。每季度财报出来，花二十分钟看四个数：收入增速、TCV/收入、营业利润率、SBC 占比。四个数都在区间内，什么都不做。</p><p class='txt'>触发论文止损，动手。触发买入条件，重新做一遍估值。<b>其余时间，不看。</b></p><p class='txt'>这条纪律的价值不在于「看得准」，在于「不被波动带着走」。<b>Palantir 三个月里有三天单日跌超 5%，没有公告——如果你每天看盘，你一定会做点什么，而做的那些事大概率是错的。</b></p></div><div class="section"><div class="section-title">第五步：接受「可能永远等不到」</div><p class='txt'>最难的其实是这一条。一家好公司可能永远不回到 30 倍市销率——如果它一直保持 50% 以上的增速，市场会一直给它高倍数。</p><p class='txt'>那时候怎么办？<b>不怎么办。错过它。</b>你的组合里不需要拥有每一家好公司，只需要拥有那些「价格低于价值」的好公司。</p><p class='txt'>段永平说过类似的话：投资不是考试，不需要每道题都答。你可以只答自己有把握的那几道，其他跳过。<b>跳过 Palantir 不会让你的年化回报从 15% 掉到 14%，但在 74 倍市销率上买它，可能让你的某一年变成 −50%。</b></p></div><div class="summary-box"><h3>结论</h3><p>决策框架的结论：<b>把判断变成规则，把规则写成数字，然后执行。</b>买入条件：PS 30 倍（约 80 美元）+ TCV/收入 ≥1.5 + 美国商业增速 ≥40%。仓位：3% 起、5% 上限。止损：论文四条，不看价格。<b>当前状态：等待，每季度二十分钟。可能永远等不到，接受它。</b></p></div>
+</div>
+<div class="footer">Palantir (PLTR) 投资研究报告集 · 2026/10/05</div>
+</body>
+</html>

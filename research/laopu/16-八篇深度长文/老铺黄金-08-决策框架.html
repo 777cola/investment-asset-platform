@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>决策框架：什么价格买，什么信号卖 — 老铺黄金</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>决策框架：什么价格买，什么信号卖 — 老铺黄金</h1>
+  <div class="subtitle">八篇之八 · 把判断变成可执行的规则</div>
+  <div class="meta">研究日期 2026/10/09 &nbsp;·&nbsp; 股价 HK$337.00（+4.85%） &nbsp;·&nbsp; 市值 约 596 亿港元 &nbsp;·&nbsp; PE(TTM) 约 6.9 倍</div>
+</div>
+<div class="container">
+<a class="back" href="../00-老铺黄金研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>前面七篇讲的是「是什么」，这一篇讲「怎么做」。规则只有四条：<b>什么价格买、什么信号加、什么信号卖、仓位多大。</b>写清楚，是为了在情绪波动时不改主意。</p></div><table class="dt"><caption>决策规则表</caption><thead><tr><th>动作</th><th>触发条件</th><th>价位/仓位</th><th>备注</th></tr></thead><tbody><tr><td>观察</td><td>当前状态</td><td>0%</td><td>中性 352 港元，空间 4%；下行 34%</td></tr><tr><td>试仓</td><td>股价 ≤250 港元且无证伪</td><td>1.5%</td><td>对应 2027 年 45 亿元、9–11 倍</td></tr><tr><td>加仓</td><td>金价横盘一季 + 同店转正</td><td>3%</td><td>买验证后的确定性</td></tr><tr><td>减仓</td><td>股价 ≥500 港元</td><td>减半</td><td>对应 15 倍以上</td></tr><tr><td>清仓</td><td>同店连续两季负增长且扩大</td><td>0%</td><td>逻辑止损，不看成本</td></tr></tbody></table><div class="note">仓位为占股票组合比例，单票上限 5%。价位按 1.7675 亿股、汇率 1:1.092 折算。</div><div class="section"><div class="section-title">一、买入：两种买法，不能混</div><p class='txt'><b>第一种是买便宜。</b>股价跌到 250 港元以下，对应 2027 年悲观利润 45 亿元、9–11 倍 PE，接近资产价值（250 亿–280 亿元人民币）的上沿。这个价格的特点是：即使论文错了一半，跌不到哪去。前提是证伪条件一条都没触发。</p><p class='txt'><b>第二种是买确定性。</b>金价在 4,000–4,300 美元横盘满一个季度、同店转正、存货周转回落到 250 天以内，此时股价可能还在 300–350 港元，也可以买。这个价格的特点是：不便宜，但逻辑被验证过了。</p><p class='txt'><b>两种买法不能混用。</b>最常见亏钱的方式是：用「买便宜」的价格买入，却用「买确定性」的理由持有——跌了就说「长期看好品牌」。</p></div><div class="section"><div class="section-title">二、卖出：用逻辑止损，不用价格止损</div><p class='txt'>周期股的波动太大，价格止损容易被洗出去。2026 年老铺从 350 跌到 288 再反弹到 337，任何时候设 10% 止损都会被扫掉。</p><p class='txt'>所以用逻辑止损。五条证伪条件：① 同店连续两季负增长且降幅扩大；② 存货周转超过 320 天；③ 毛利率跌破 37%；④ 经营现金流重新转负且派息率下调；⑤ 徐高明离任且无明确接班安排。<b>任一触发，清仓，不看成本价。</b></p><p class='txt'>减仓的条件单独设：股价回到 500 港元以上（对应 2027 年中性利润 15 倍以上），或毛利率虽未破 37% 但连续两季下滑。<b>减仓是估值纪律，清仓是逻辑纪律，两件事分开。</b></p></div><div class="section"><div class="section-title">三、只盯三个数</div><p class='txt'>信息太多会让人做错决定。这家公司只需要盯三个数。</p><p class='txt'><b>同店销售增速。</b>总收入会被新店、海外、提价搅乱，同店才是品牌真实需求。2026Q2 已转负，Q3、Q4 决定它是「节奏」还是「结构」。</p><p class='txt'><b>存货周转天数。</b>271 天是警戒线、300 天是红线。它同时反映动销、金价和现金流三件事，是最浓缩的指标。</p><p class='txt'><b>经营现金流。</b>2026 下半年如果重新转负，说明「少买货」的改善已经用完，公司又回到靠负债扩张的老路。</p><p class='txt'>三个数里两个恶化，评级下调；三个都改善，评级上调。<b>除此之外的所有信息——券商报告、管理层讲话、新品发布、门店开张——都是噪音。</b></p></div><div class="section"><div class="section-title">四、仓位：为什么上限只有 5%</div><p class='txt'>单票上限 5%，不是不看好，是波动太大。它的 beta 高（金价单日涨 4%，它涨 4.85%）、流通盘小（公众持股 41.9%）、周期性强（利润能一年腰斩）。<b>这类资产的正确用法是「小仓位 + 长等待」，不是「重仓 + 频繁交易」。</b></p><p class='txt'>组合里的角色也要想清楚：它不是底仓（周期太强），不是对冲（beta 太高），只能是「周期反转期权」——在金价企稳、同店转正、估值 8–10 倍时买 3%，涨到 15 倍以上卖。</p><p class='txt'>最后一句：<b>决策框架的价值不在于让你赚更多，而在于让你在跌 60% 时不慌、在涨 80% 时不贪。</b>老铺这种票，情绪管理比分析能力重要。</p></div><div class="section"><div class="section-title">五、如果错了：三种错误情形与应对</div><p class='txt'>任何框架都要假设自己会错。三种最可能的错误：</p><p class='txt'><b>错误一：金价在 2027 年重回 5,000 美元以上。</b>那时老铺的库存变成巨额浮盈，利润可能重回 80 亿元，股价翻倍。应对：不追。金价不在能力圈内，靠运气赚的钱会靠实力亏回去。错过就错过。</p><p class='txt'><b>错误二：古法金被新品类替代，但它转型成功。</b>比如硬金或彩宝成为主流，老铺靠品牌和位置切进去。应对：看新品收入占比，超过 30% 时重新评估，那时候估值逻辑要从「品类龙头」换成「品牌平台」，倍数可以给到 15 倍。</p><p class='txt'><b>错误三：管理层做了正确的事，但市场不认。</b>比如它主动降价去库存、牺牲一年利润换周转，股价短期再跌 20%。应对：这是加仓机会，不是卖出理由——只要证伪条件没触发。<b>区分「逻辑坏了」和「价格跌了」，是这份框架唯一要守住的东西。</b></p></div><div class="summary-box"><h3>结论</h3><p>决策框架收口：<b>现在 0%，250 港元以下试仓 1.5%，同店转正后加到 3%，500 港元以上减半，五条证伪条件任一触发清仓。</b>规则写死了，剩下的就是等。等待也是仓位——它保护你不被自己的情绪伤害。</p></div>
+</div>
+<div class="footer">老铺黄金 (06181) 投资研究报告集 · 2026/10/09</div>
+</body>
+</html>

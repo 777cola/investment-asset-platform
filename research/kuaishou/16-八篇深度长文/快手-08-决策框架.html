@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>决策框架：四个问题，一张价格表 — 快手</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>决策框架：四个问题，一张价格表 — 快手</h1>
+  <div class="subtitle">把判断变成可执行的动作</div>
+  <div class="meta">研究日期 2026/10/12 &nbsp;·&nbsp; 股价 HK$29.26（-2.79%） &nbsp;·&nbsp; 市值 约 1,267 亿港元 &nbsp;·&nbsp; PE(TTM) 约 10.5 倍</div>
+</div>
+<div class="container">
+<a class="back" href="../00-快手研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>研究到最后，要落到四个问题：<b>这门生意值多少钱、我愿意付多少、什么条件下改变主意、错了怎么办。</b>前两个是估值，后两个是纪律。快手的问题在于：前两个算出来是负期望，后两个还没有触发条件。</p></div><table class="dt"><caption>价格与动作对照表</caption><thead><tr><th>股价区间（港元）</th><th>对应估值</th><th>动作</th><th>仓位上限</th></tr></thead><tbody><tr><td>≥30</td><td>高于中性价值 13% 以上</td><td>不参与</td><td>0%</td></tr><tr><td>26.6–30</td><td>中性价值附近</td><td>观察</td><td>0%</td></tr><tr><td>20–26.6</td><td>2027E 8–10 倍 + 净现金</td><td>可建观察仓（需配合基本面）</td><td>2%</td></tr><tr><td>低于 20</td><td>2027E 7 倍 + 净现金，可灵按 0 计</td><td>期权仓位</td><td>2%</td></tr><tr><td>任意价格 + 广告 ≥8%</td><td>生意修复验证</td><td>标准仓</td><td>4%–5%</td></tr></tbody></table><div class="note">估值为分部估值口径，倍数 7–10 倍；股本 43.3 亿股，人民币兑港元 1:1.092。仓位上限为本框架对单一中概标的的约束。</div><div class="section"><div class="section-title">问题一：这门生意值多少钱</div><p class='txt'>分部估值：主业 2027E 中性净利 90 亿元 × 9 倍 = 810 亿元，加净现金 242.7 亿元 = 1,053 亿元，折 1,150 亿港元，对应 26.6 港元。</p><p class='txt'>可灵在中性情景按 0 计，乐观情景按五折计。为什么中性给 0？因为它的估值来自一级市场，没有公开市场锚，而且不披露损益。<b>无法验证的资产，在保守估值里就是 0。</b></p><p class='txt'>这个估值方法有一个前提：2027 年净利 90 亿元。如果广告继续恶化，这个前提不成立，估值要重算。</p></div><div class="section"><div class="section-title">问题二：我愿意付多少</div><p class='txt'><b>现价 29.26 港元 = 中性价值 + 9%。</b>这 9% 是市场给可灵的期权费，相当于 117 亿港元、180 亿美元投后价的 9%。</p><p class='txt'>我不愿意为这个期权付 9% 的溢价，原因有三：① 期权的标的（可灵）不披露损益，无法估值；② 期权的行权价（下一轮融资估值）可能下修；③ 这个期权已经被单独融资定价过一次，母公司股东拿不到流动性。</p><p class='txt'><b>愿意付的价格是 20 港元——那时候期权是免费的。</b></p></div><div class="section"><div class="section-title">问题三：什么条件下改变主意</div><p class='txt'>三个条件，任一成立就重新评估：</p><p class='txt'><b>① 线上营销连续两个季度同比 ≥8%。</b>这是生意修复的硬证据，比任何管理层表态可靠。</p><p class='txt'><b>② 可灵按可比口径披露收入与盈亏，且年化收入 ≥60 亿元。</b>这是“故事变成生意”的门槛。</p><p class='txt'><b>③ 股价跌破 20 港元。</b>这是价格触发，不需要基本面配合，但仓位上限 2%。</p><p class='txt'>三个条件里，第一个最可能先出现（11 月三季报），第三个随时可能出现，第二个要等到 2027 年。</p></div><div class="section"><div class="section-title">问题四：错了怎么办</div><p class='txt'>如果我看错了——广告回到 8%、可灵跑出来、股价到 46 港元——我的损失是机会成本，不是本金。这个错误可以接受。</p><p class='txt'>如果我买错了——广告转负、可灵估值腰斩、股价到 16 港元——我的损失是 45% 的本金。这个错误不可接受。</p><p class='txt'><b>两个错误的代价不对称，这就是“回避”的全部理由。</b>不是因为我看空，是因为下注的赔率不对。</p></div><div class="section"><div class="section-title">复盘机制：三个月后回看什么</div><p class='txt'>把今天的判断写下来，三个月后逐条核对：① 广告增速是否 ≥6%；② 可灵环比是否继续增长；③ 研发费用率是否超过 13.5%；④ 回购是否继续、均价多少；⑤ 现金类资产是否低于 220 亿元。</p><p class='txt'>五条里如果有三条恶化，说明判断正确；如果有三条改善，说明我错了，要重新研究。</p><p class='txt'><b>复盘的目的不是证明自己对，是尽早发现自己错。</b></p></div><div class="summary-box"><h3>结论</h3><p class='txt'>决策框架的结论：<b>中性价值 26.6 港元、愿意付的价格 20 港元、三个改变主意的条件、两个不对称的错误。</b>四条加在一起，动作只有一个：不买，等。</p></div>
+</div>
+<div class="footer">快手 (01024) 投资研究报告集 · 2026/10/12</div>
+</body>
+</html>

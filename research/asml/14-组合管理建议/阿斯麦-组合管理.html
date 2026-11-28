@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>组合管理 — 阿斯麦</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>组合管理 — 阿斯麦</h1>
+  <div class="subtitle">阿斯麦 (ASML) | 14-组合管理建议</div>
+  <div class="meta">研究日期 2026/10/16 &nbsp;·&nbsp; 股价 $1,641.52（-0.96%） &nbsp;·&nbsp; 市值 约 6,240 亿美元（约 5,380 亿欧元） &nbsp;·&nbsp; PE(TTM) 约 41 倍</div>
+</div>
+<div class="container">
+<a class="back" href="../00-阿斯麦研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断：先想清楚它在组合里干什么</h3><p class='txt'>阿斯麦在组合里的角色是“AI 资本开支的高 beta 表达”——它和费城半导体指数、台积电、应用材料高度同向。这意味着：如果你的组合里已经有英伟达、台积电、AMD，再加阿斯麦不会分散风险，只会放大同一个赌注。<b>仓位纪律：单一持仓上限 6%，与现有半导体持仓合并计算不超过 20%。</b></p></div><table class="dt"><caption>仓位建议（按价格分档）</caption><thead><tr><th>情景</th><th>价格区间</th><th>建议仓位</th><th>理由</th></tr></thead><tbody><tr><td>现价</td><td>1,600 美元以上</td><td>0%</td><td>2027 年 PE 31 倍，中性情景 4% 上行，风险回报不对称</td></tr><tr><td>第一档</td><td>1,300–1,400 美元</td><td>2%</td><td>2027 年 PE 25 倍，赔率转为向下 19%、向上 83%</td></tr><tr><td>第二档</td><td>1,150–1,250 美元</td><td>4%–5%</td><td>2027 年 PE 22 倍，接近 2022 年周期底部估值</td></tr><tr><td>上限</td><td>—</td><td>6%</td><td>出口管制敞口 23%，单一政策风险决定上限</td></tr></tbody></table><table class="dt"><caption>相关性（粗算，近两年周收益）</caption><thead><tr><th>标的</th><th>与阿斯麦相关性</th><th>说明</th></tr></thead><tbody><tr><td>费城半导体指数 SOX</td><td>约 0.85</td><td>几乎是同一个 beta</td></tr><tr><td>台积电 TSM</td><td>约 0.75</td><td>客户关系，同向</td></tr><tr><td>应用材料 AMAT</td><td>约 0.80</td><td>同为设备，客户重叠</td></tr><tr><td>英伟达 NVDA</td><td>约 0.60</td><td>需求同源，但英伟达弹性更大</td></tr><tr><td>纳斯达克 100</td><td>约 0.55</td><td>大盘 beta</td></tr></tbody></table><div class="section"><div class="section-title">它在组合里是什么：不是防守，是进攻</div><p class='txt'>很多人把阿斯麦当“稳健的科技龙头”买，这是误解。它的收入跟着客户资本开支走，而资本开支是半导体链上波动最大的变量。2022 年它跌了 60%，比英伟达跌得还早——因为设备订单是资本开支的先行指标，先反映在设备公司的订单上，再反映在芯片公司的收入上。</p><p class='txt'>所以它的角色是“周期早鸟”：涨得早、跌得早。这个特性对择时有用（订单转负就是减仓信号），对“买了就不管”的人是灾难。</p></div><div class="section"><div class="section-title">加仓/减仓/止损的具体价位</div><p class='txt'>加仓：1,300 美元（2027 年 PE 25 倍）建 2%，1,150 美元（22 倍）加到 4%–5%。这个区间对应 2022 年周期底部的估值水平，是历史上唯一被验证过的“便宜”区间。</p><p class='txt'>减仓：2,380 美元以上（乐观情景）开始减，每涨 10% 减三分之一。理由不是“贵了要跑”，是“乐观情景已经实现，赔率反转”。</p><p class='txt'>止损：不设价格止损，设事件止损——如果连续两个季度毛利率跌破 55%，或者订单同比转负，无条件减半。这类公司用价格止损会被周期洗出去。</p></div><div class="section"><div class="section-title">相关性：别把同一个赌注下三次</div><p class='txt'>它和 SOX 的相关性约 0.85，和台积电 0.75，和应用材料 0.80（粗算）。如果你的组合里已经有英伟达 + 台积电 + 阿斯麦，实际敞口不是三个标的，是一个“AI 资本开支”赌注，三倍杠杆。</p><p class='txt'>纪律：半导体相关持仓合计不超过 20%，其中阿斯麦不超过 6%。如果已经超配，买阿斯麦之前先减别的，不要加法。</p></div><div class="section"><div class="section-title">如果已经持有：怎么管</div><p class='txt'>不加仓、不减仓、设事件止损。理由：生意没有变坏的任何证据，减仓等于赌周期，而周期不可预测；加仓等于在 31 倍 PE 上追加同一个赌注，赔率不划算。</p><p class='txt'>事件止损的具体条件写在 13 号文件夹（论文追踪）里：连续两季毛利率跌破 55%、订单同比转负、中国占比跌破 10%。这三条是“论文被证伪”的信号，不是“股价跌了”的信号。用价格止损会把你在 2022 年那种正常回调里洗出去。</p><p class='txt'>另外一条纪律：如果阿斯麦涨到 2,380 美元（乐观情景），减到 2%–3%。不是因为看空，是因为那时候的赔率已经反转——向上空间被估值吃掉，向下空间被周期放大。</p></div><div class="section"><div class="section-title">再平衡：半年一次的机械动作</div><p class='txt'>规则写死：每半年检查一次权重。如果阿斯麦因为上涨超过组合的 8%，减回 6%；如果因为下跌低于 2% 且论文未变，补回 4%。这个动作不看观点，只看权重——它的作用是防止“赢家变重仓、重仓变风险”。</p><p class='txt'>对这类高 beta 的周期股，再平衡的收益比选时更可靠。2021 年高点买入的人如果机械再平衡，回撤会小一半；2022 年低点不敢买的人，如果有“低于 2% 补回”的规则，会被强制买在底部。</p></div><div class="summary-box"><h3>结论</h3><p>操作结论：现价 0 仓位、只观察。1,300 美元建 2%，1,150 美元加到 5%，上限 6%。不设价格止损，设事件止损（毛利率、订单）。与现有半导体持仓合并计算，总敞口不超过 20%。</p></div>
+</div>
+<div class="footer">阿斯麦 (ASML) 投资研究报告集 · 2026/10/16</div>
+</body>
+</html>

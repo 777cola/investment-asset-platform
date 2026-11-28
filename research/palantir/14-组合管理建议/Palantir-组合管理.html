@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>组合管理 — Palantir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>组合管理 — Palantir</h1>
+  <div class="subtitle">Palantir (PLTR) | 14-组合管理建议</div>
+  <div class="meta">研究日期 2026/10/05 &nbsp;·&nbsp; 股价 $189.40（+0.34%） &nbsp;·&nbsp; 市值 约 4,560 亿美元 &nbsp;·&nbsp; PS(TTM) 约 74 倍</div>
+</div>
+<div class="container">
+<a class="back" href="../00-Palantir研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>组合管理：不给它仓位，就是最好的仓位</h3><p class='txt'>结论先说：<b>0% 仓位。</b>不是因为怕波动，是因为在这个价格上，它的预期回报低于组合里其他任何一笔。</p><p class='txt'>如果已经持有（低成本），减到 2% 以内，理由不是看空，是<b>单一持仓对组合波动的贡献太大</b>——它三个月里有三天单日跌超 5%，没有任何公告。仓位上限、加仓价位、止损方式，下面写清楚。</p></div><table class="dt"><caption>仓位与价格对应</caption><thead><tr><th>情景</th><th>对应股价</th><th>建议仓位</th><th>理由</th></tr></thead><tbody><tr><td>当前（PS 74 倍）</td><td>189 美元</td><td>0%</td><td>中性情景 −37%，赔率反向</td></tr><tr><td>已持仓（低成本）</td><td>—</td><td>≤2%</td><td>减到不影响组合，留观察仓</td></tr><tr><td>PS 40 倍</td><td>约 102 美元</td><td>0–1%</td><td>仍高于中性估值，只做跟踪仓</td></tr><tr><td>PS 30 倍</td><td>约 80 美元</td><td>3%（首仓）</td><td>中性情景附近，赔率转正</td></tr><tr><td>PS 20 倍</td><td>约 55 美元</td><td>5%（上限）</td><td>悲观情景附近，安全边际出现</td></tr></tbody></table><div class="note">PS 对应股价 = TTM 收入 61.62 亿美元 × 目标倍数 ÷ 24.1 亿股（粗算，TTM 收入不随股价变）。仓位为占股票组合的比例，不含现金。</div><div class="section"><div class="section-title">为什么是 0%，而不是「小仓位试试」</div><p class='txt'>很多人会说：既然看好，先买 1% 试试，跌了再加。这套逻辑在便宜的公司上成立，在这里不成立。</p><p class='txt'>理由很简单：<b>1% 的仓位在这个赔率下，赢了赚 0.03%，输了亏 0.37%。</b>上行 3%、下行 37%，1% 仓位贡献的期望值是负的 0.34%。这不是「试试」，这是花钱买一个负期望的彩票，还要占用研究精力。</p><p class='txt'>更实际的理由：组合里的每一个位置都有机会成本。同样的 1%，放在一家 15 倍 PE、增速 15% 的公司上，期望回报是正的。资金不稀缺，好的定价稀缺。</p></div><div class="section"><div class="section-title">如果已经持有：减到 2%，不要一次清</div><p class='txt'>已经持有且成本很低的人，情况不同。卖掉要交税，且可能错过「市场继续疯」的那一段。<b>建议减到 2% 以内，保留观察仓。</b></p><p class='txt'>为什么是 2%？因为它的日波动率。三个月里三天单日跌超 5%，按年化波动 60% 估，2% 仓位对组合波动的贡献约 1.2 个百分点。<b>这个量级是「能承受但不影响睡眠」的上限。</b></p><p class='txt'>不要一次清光的理由：这家公司的基本面还在改善，Q3 有可能再超预期。留 2% 的仓位，是为了在「自己判断错了」的时候不至于完全踏空——这是心理账户，不是估值判断。<b>但上限就是 2%，不能因为涨了而加。</b></p></div><div class="section"><div class="section-title">加仓价位：80 美元和 55 美元是怎么算的</div><p class='txt'>80 美元对应 PS(TTM) 30 倍。为什么是 30 倍？因为这是「中性情景」的起点——2027 年 118 亿美元收入、24 倍市销率，折回今天大约就是这个位置。<b>在 30 倍买，即便倍数继续压缩到 20 倍，你亏的是时间不是本金。</b></p><p class='txt'>55 美元对应 PS 20 倍，接近悲观情景（70 美元对应 16 倍 2027 年收入）。这个位置意味着市场已经放弃了「AI 应用龙头」的叙事，只按「高利润软件公司」定价。<b>到那里，安全边际是真的。</b></p><p class='txt'>要注意这两个数字会随 TTM 收入变化。如果 Q3 收入超预期，TTM 收入上修，同样的倍数对应更高的股价。<b>所以不要记价格，记倍数。</b></p></div><div class="section"><div class="section-title">止损：不设价格止损，设论文止损</div><p class='txt'>对这类高波动股票，价格止损几乎一定会被噪音打掉——三个月里三次无公告的 6% 下跌，任何 15% 的止损线都会被扫。<b>正确的做法是论文止损。</b></p><ul><li>TCV/收入 连续两季 <1.2 倍 → 减半；</li><li>美国商业增速连续两季 <40% → 清仓；</li><li>GAAP 营业利润率跌破 40% → 清仓；</li><li>美国政府收入连续两季负增长 → 减半。</li></ul><p class='txt'>价格只用来决定「买不买」，不用来决定「卖不卖」。这个分工很重要——<b>买的时候价格是你的朋友，卖的时候基本面是你的朋友。</b>把两件事混在一起，就会在最低点卖出好公司。</p></div><div class="section"><div class="section-title">相关性：日度低相关，尾部高相关</div><p class='txt'>用 2026/07/07–10/02 的日收益算，Palantir 与博通的相关系数是 <b>0.25</b>，与 Alphabet 是 <b>0.19</b>（43 个交易日样本）。看起来很低，似乎能分散风险。</p><p class='txt'>但这是错觉。<b>日度低相关不代表尾部低相关。</b>它的风险来源不是「和 AI 硬件同涨同跌」，是「AI 叙事整体退潮时，高倍数资产被一起抛售」。那种日子里，相关性会瞬间跳到 0.8 以上。</p><p class='txt'>所以组合层面的规则要按「叙事敞口」算，不按「相关系数」算：<b>AI 相关持仓（算力、云、应用）合计不超过组合的 25%，其中高倍数（PS>20 倍）的部分不超过 8%。</b>Palantir 属于后者，即便买了 5%，也把这一格用掉了大半。</p></div><div class="summary-box"><h3>结论</h3><p><b>当前 0% 仓位。</b>已持有者减到 ≤2%，不一次清。加仓价位按倍数记：PS 30 倍（约 80 美元）首仓 3%，PS 20 倍（约 55 美元）上限 5%。<b>不设价格止损，设论文止损</b>——TCV/收入跌破 1.2 倍、美国商业增速跌破 40%、营业利润率跌破 40%，三条任何一条触发就动手。相关性按叙事敞口管，不按日度相关系数管。</p></div>
+</div>
+<div class="footer">Palantir (PLTR) 投资研究报告集 · 2026/10/05</div>
+</body>
+</html>
