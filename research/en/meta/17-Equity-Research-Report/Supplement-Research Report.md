@@ -6,7 +6,7 @@
 
 ## Notes
 
-This report is point-in-time research as of November 2, 2026; all data reflect information publicly available on or before that date. Financial data sources: Meta 2026Q3 results (2026/10/21), 2026Q2 results (2026/07/29), 2025Q4 results (2026/01/28); financing details cited from the company announcement of October 26 and Wallstreetcn; industry data cited from Everbright Securities (2026/10/30); share price from batchdata daily bars. 2027–2028 forecasts are assumptions of this report, not company guidance.
+This report is point-in-time research as of November 2, 2026; all data reflect information publicly available on or before that date. Financial data sources: Meta 2026Q3 results (2026/10/21), 2026Q2 results (2026/07/29) and 2025Q4 results (2026/01/28); financing details from the company announcement of October 26 and Wallstreetcn; industry data from Everbright Securities (2026/10/30); share price from batchdata daily bars. The 2027–2028 forecasts are assumptions of this report, not company guidance.
 
 ## Financial summary (USD million, except per-share data)
 
@@ -20,9 +20,9 @@ This report is point-in-time research as of November 2, 2026; all data reflect i
 | Capital expenditure | 34,910 | +85.6% | 140,000 | 160,000 |
 | Free cash flow | -2,120 | Turns negative | Approximately -5,000 | Approximately 5,000 |
 
-> 2026E revenue = 181,708 for the first three quarters + Q4 guidance midpoint of 74,500; 2027E is our own assumption in this report (revenue +15%, capex RMB 160 billion). Adjusted EPS is an estimate, not company guidance.
+> 2026E revenue of 181,708 for the first three quarters plus a Q4 guidance midpoint of 74,500; 2027E is our own assumption in this report (revenue +15%, capex RMB 160 billion). Adjusted EPS is an estimate, not company guidance.
 
-## Earnings Forecasts and Valuation (Assumptions of This Report)
+## Earnings Forecasts and Valuation (Report Assumptions)
 
 | Annual | Revenue (USD billion) | Growth rate | Adjusted EPS (USD) | Current price corresponds to PE |
 |---|---|---|---|---|
@@ -30,7 +30,7 @@ This report is point-in-time research as of November 2, 2026; all data reflect i
 | 2027E | 2,946 | +15.0% | 28 | 22x |
 | 2028E | 3,358 | +14.0% | 32 | 19x |
 
-> 2027 EPS is slightly below 2026, as depreciation begins to be recognized alongside 6% equity dilution; this is a core assumption of this report. 2028 assumes capex peaks and depreciation is absorbed by revenue.
+> 2027 EPS is slightly below 2026 as depreciation begins to be recognised alongside 6% equity dilution — a core assumption of this report. 2028 assumes capex peaks and depreciation is absorbed by revenue.
 
 ## Three-scenario valuation
 
@@ -41,23 +41,23 @@ This report is point-in-time research as of November 2, 2026; all data reflect i
 | Optimistic | USD 33 | 26x | USD 860 | +42% |
 | Neutral (fully diluted) | USD 26.3 | 22x | USD 580 | -4% |
 
-> Target price is on a 12-month basis. The fourth row is added by this report and incorporates 6% dilution from the full USD 95 billion financing; it does not change the neutral target price in the underlying model.
+> Target price is on a 12-month basis. The fourth row, added by this report, incorporates 6% dilution from the full USD 95 billion financing and does not change the neutral target price in the underlying model.
 
 ## Chapter 1 Company Overview
 
-Meta Platforms (NASDAQ: META) was founded in 2004, listed in 2012, and renamed from Facebook in 2021. It operates four apps: Facebook, Instagram, WhatsApp and Messenger, with 3.64 billion daily active users in September 2026. Revenue reached USD 200.97 billion in 2025 and USD 181.71 billion in the first three quarters of 2026. Headcount stands at 66,775, down about 12,000, or roughly 12,000, year on year.
+Meta Platforms (NASDAQ: META) was founded in 2004, listed in 2012 and renamed from Facebook in 2021. It operates four apps — Facebook, Instagram, WhatsApp and Messenger — with 3.64 billion daily active users as of September 2026. Revenue reached USD 200.97 billion in 2025 and USD 181.71 billion in the first three quarters of 2026. Headcount stands at 66,775, down roughly 12,000 YoY.
 
-History: founded in a Harvard dorm room in 2004; listed in May 2012 at USD 38 per share; acquired Instagram for USD 1 billion the same year, WhatsApp for USD 19 billion and Oculus for USD 2 billion in 2014; renamed Meta in October 2021 and announced its metaverse strategy; cut more than 20,000 jobs in 2023, lifting operating margin from 25% to above 40%; launched the personal agent Muse in September 2026.
+History: founded in a Harvard dorm room in 2004; listed in May 2012 at USD 38 per share; acquired Instagram for USD 1 billion the same year, WhatsApp for USD 19 billion and Oculus for USD 2 billion in 2014; renamed Meta in October 2021 alongside the launch of its metaverse strategy; cut more than 20,000 jobs in 2023, lifting operating margin from 25% to above 40%; launched the personal agent Muse in September 2026.
 
 Revenue is highly concentrated: advertising 97.6%, other 1.7%, Reality Labs 0.7%. By geography, North America and Europe contribute about half of revenue; Asia-Pacific has the most users but the lowest ARPU.
 
-Users and monetization: 3.64 billion daily active users and global ARPU of about USD 70 per year; North American ARPU is roughly three times the global average and the main source of profit. Asia-Pacific has the highest user share but the lowest ARPU, offering long-term growth headroom and a near-term drag.
+Users and monetisation: 3.64 billion daily active users and global ARPU of about USD 70 per year; North American ARPU is roughly three times the global average and the main source of profit. Asia-Pacific has the highest user share but the lowest ARPU — long-term growth headroom, near-term drag.
 
 ## Chapter 2 Industry Analysis
 
-Global digital advertising has entered a stock-competition phase. In Q3 2026, Meta advertising revenue was USD 63.06 billion, Google USD 82.01 billion and Amazon USD 19.64 billion, or roughly USD 658.8 billion annualized across the three. Growth rates diverge sharply: Meta +25.9%, Google +10.6%, Amazon +10.9%. The divergence stems from AI acting in opposite directions on ad formats — search is being eroded by summaries, while feeds are being strengthened by recommendations.
+Global digital advertising has entered a share-competition phase. In Q3 2026, Meta advertising revenue was USD 63.06 billion, Google USD 82.01 billion and Amazon USD 19.64 billion — roughly USD 658.8 billion annualized across the three. Growth rates diverge sharply: Meta +25.9%, Google +10.6%, Amazon +10.9%. The divergence stems from AI acting in opposite directions on ad formats — search is being eroded by summaries, while feeds are being strengthened by recommendations.
 
-The capital side of the industry is overheating: the four major cloud players spent a combined USD 207.8 billion in capex in Q3 2026, up +115.5% year on year, with combined free cash flow of -USD 27.31 billion.
+The capital side of the industry is overheating: the four major cloud players spent a combined USD 207.8 billion in capex in Q3 2026, up +115.5% YoY, with combined free cash flow of -USD 27.31 billion.
 
 On share, measured by third-quarter ad revenue, Google accounts for about 50% of the three-way total, Meta about 38% and Amazon about 12%. Incremental share runs the other way: Meta's single-quarter ad increment was about USD 13 billion, exceeding the combined USD 7.9 billion of Google and USD 1.9 billion of Amazon. Look to Google for the stock, Meta for the increment.
 
@@ -67,25 +67,25 @@ Scale forecast: the three combined are at USD 658.8 billion annualized; at an 8%
 
 ## Chapter 3 Business model
 
-Attention wholesale: users use it free, and the platform auctions impressions to advertisers. In 2026Q3 impressions rose 10% and unit price rose 14%, with both volume and price rising for two consecutive quarters. Gross margin 79.3%, with marginal cost near zero.
+Wholesale attention: users consume it free, and the platform auctions impressions to advertisers. In 2026Q3 impressions rose 10% and unit price rose 14%, marking two consecutive quarters of gains in both volume and price. Gross margin was 79.3%, with marginal cost near zero.
 
-The second monetization leg is Muse: the free tier gives about 100 million tokens per week, paid tiers cost USD 20/100 per month, plus a transaction commission. In 40 days since launch it reached 10 million accounts, with daily actives at 25%, but cost per user is about USD 37 per month, so unit economics remain negative.
+Muse is the second monetisation leg: the free tier grants roughly 100 million tokens per week, paid tiers cost USD 20/100 per month plus a transaction commission. It reached 10 million accounts within 40 days of launch, with daily actives at 25%, but cost per user runs at about USD 37 per month, so unit economics remain negative.
 
-Revenue can be broken into a multiplication: daily actives × impressions per user × price per thousand impressions. In 2026Q3 the three factors moved +3%, +7% and +14% respectively (the 10% impression growth is determined by the product of user count and time spent). Unit price is the only factor still accelerating, and it is the core of the margin.
+Revenue decomposes into a product: daily actives × impressions per user × price per thousand impressions. In 2026Q3 the three factors moved +3%, +7% and +14% respectively (the 10% impression growth is the product of user count and time spent). Unit price is the only factor still accelerating, and it sits at the core of the margin.
 
-The cost side is a different curve: compute, depreciation, content moderation. In 2026 this curve steepened, directly pushing gross margin from 82.0% to 79.3%. The fragile point of the business model is not revenue, but the slope of the cost curve.
+Costs follow a different curve: compute, depreciation, content moderation. That curve steepened in 2026, pushing gross margin directly from 82.0% to 79.3%. The fragile point of the business model is not revenue but the slope of the cost curve.
 
-The advertiser base is long-tail: many small and mid-sized merchants, with the top 100 advertisers accounting for a very low share. This means revenue is diversified and resilient to losing any single customer, but it also means high sensitivity to the health of small and mid-sized businesses.
+The advertiser base is long-tail: many small and mid-sized merchants, with the top 100 advertisers accounting for a very low share. Revenue is therefore diversified and resilient to the loss of any single customer, but also highly sensitive to the health of small and mid-sized businesses.
 
-Inventory deserves separate mention. Reels monetization long lagged the feed, and from 2024 the recommendation model narrowed the gap; by 2026 Reels unit price has approached feed levels, one of the structural reasons unit price could rise 14%. In other words, the price increase is not just "selling at a higher price" but also "upgrading cheap inventory into expensive inventory."
+Inventory merits separate mention. Reels monetisation long lagged the feed, and from 2024 the recommendation model narrowed the gap; by 2026 Reels unit price has approached feed levels, one of the structural reasons unit price could rise 14%. In other words, the price increase reflects not just "selling at a higher price" but "upgrading cheap inventory into expensive inventory."
 
 ## Chapter 4 Financial Analysis
 
-Revenue was near-perfect: revenue of RMB 64.60 billion, +26.1%; advertising RMB 63.06 billion, +26.0%. Costs came under pressure: cost of revenue +45.2%, gross margin fell from 82.0% to 79.3%; R&D +32.4%. Profit was distorted by one-off items: a RMB 9.89 billion settlement pushed operating profit down to RMB 12.99 billion (-37%); excluding it, RMB 22.88 billion (+11%).
+Revenue was near-perfect: RMB 64.60 billion, +26.1%, with advertising at RMB 63.06 billion, +26.0%. Costs came under pressure: cost of revenue +45.2%, gross margin down from 82.0% to 79.3%, and R&D +32.4%. Profit was distorted by one-off items: a RMB 9.89 billion settlement pushed operating profit down to RMB 12.99 billion (-37%); excluding it, operating profit was RMB 22.88 billion (+11%).
 
 Cash flow is the only red flag: operating cash flow RMB 32.79 billion, capex RMB 34.91 billion, free cash flow -RMB 2.12 billion. First three quarters capex RMB 83.06 billion, full-year guidance RMB 135–145 billion.
 
-Earnings quality: adjusted operating margin 35%, flat year on year; GAAP 20%, depressed by the settlement charge. ROE roughly 33% (TTM net profit of about RMB 75 billion ÷ equity of about RMB 225 billion), ROIC roughly above 50%, but the denominator is being pushed up fast by capex.
+Earnings quality: adjusted operating margin 35%, flat YoY; GAAP 20%, depressed by the settlement charge. ROE roughly 33% (TTM net profit of about RMB 75 billion ÷ equity of about RMB 225 billion), ROIC roughly above 50%, though the denominator is being pushed up fast by capex.
 
 Debt and liquidity: cash and marketable securities USD 82 billion, interest-bearing debt below cash, plus USD 825 billion of lease and purchase commitments off balance sheet. CDS spreads rose to elevated levels after the results.
 
@@ -95,21 +95,21 @@ Breaking down the negative free cash flow: operating cash flow of RMB 32.79 bill
 
 ## Chapter 5 Management
 
-Zuckerberg holds 13.4% of shares and 60.6% of voting power (as of October 1). On October 21, Meta created a non-voting Class C share, effective January 19, 2027, distributed 1:1. On October 26, it launched a USD 37.5 billion equity raise (USD 25 billion of common stock priced at USD 625 plus USD 12.5 billion of 6.5% coupon mandatory convertible preferred stock), with an additional USD 60 billion ATM. Repurchases were zero in the first nine months of 2026.
+Zuckerberg holds 13.4% of shares and 60.6% of voting power (as of October 1). On October 21, Meta created a non-voting Class C share, effective January 19, 2027 and distributed 1:1. On October 26, it launched a USD 37.5 billion equity raise — USD 25 billion of common stock priced at USD 625 plus USD 12.5 billion of 6.5% coupon mandatory convertible preferred stock — with an additional USD 60 billion ATM. Repurchases were zero in the first nine months of 2026.
 
-Track record: mobile transition (2012) succeeded, short-video defense (2020–2022) succeeded, metaverse (2021–2026) failed, efficiency revolution (2023) succeeded. Three wins and one loss across four major decisions, with strong course-correction.
+Track record: the mobile transition (2012) succeeded, the short-video defence (2020–2022) succeeded, the metaverse (2021–2026) failed and the efficiency drive (2023) succeeded — three wins and one loss across four major decisions, with strong course-correction.
 
-Governance structure: Class B shares carry ten votes each; Zuckerberg controls 60.6% of voting power with 13.4% economic interest; after the Class C distribution, voting power falls to about 56%, still absolute control. The board has no independent chair and cannot veto strategic investment. No succession plan has been disclosed.
+Governance: Class B shares carry ten votes each, giving Zuckerberg 60.6% of voting power on 13.4% economic interest; after the Class C distribution, voting power falls to about 56%, still absolute control. The board has no independent chair and cannot veto strategic investment. No succession plan has been disclosed.
 
-Incentives: Zuckerberg's base salary is USD 1, and his wealth is almost entirely Meta stock; he has never sold down materially. This aligns his goals with the long-term share price, but not with shareholders' holding horizons.
+Incentives: Zuckerberg's base salary is USD 1 and his wealth is almost entirely Meta stock, which he has never sold down materially. That aligns him with the long-term share price, but not with shareholders' holding horizons.
 
 Two criteria are worth watching: first, whether he is willing to admit error in numbers (he did in 2023, setting explicit margin targets after layoffs); second, whether he ties his own economic interests to shareholders (almost his entire net worth is in stock — he does). He passes both, but neither resolves the structural problem that shareholders cannot veto investment.
 
 ## Chapter 6 Growth Drivers
 
-Three drivers: first, ad unit price, where AI recommendations keep lifting conversion, rising 14% in 2026; second, ad inventory, with Reels and WhatsApp monetization still penetrating; third, Muse subscriptions and transaction take rates, which have yet to contribute revenue. The first two are verifiable; the third is an option.
+Three drivers. First, ad unit pricing, where AI recommendations continue to lift conversion and prices rose 14% in 2026. Second, ad inventory, with Reels and WhatsApp monetisation still penetrating. Third, Muse subscriptions and transaction take rates, which have yet to contribute revenue. The first two are verifiable; the third is an option.
 
-Q4 revenue guidance of USD 73–76 billion, up about +24% year on year at the midpoint, in line with a mild deceleration slope.
+Q4 revenue guidance of USD 73–76 billion, up about +24% YoY at the midpoint, consistent with a mild deceleration slope.
 
 First curve, advertising: the +14% unit price is the main driver; if it holds above 10% in 2027, ad revenue can grow around 15%. Second curve, e-commerce and business messaging: WhatsApp business accounts and in-app checkout remain early-stage, with revenue contribution not broken out. Third curve, Muse: subscriptions plus transaction take rates, contributing at most on the order of USD 10 billion in 2027, still a small fraction of USD 290 billion in revenue.
 
@@ -119,17 +119,17 @@ The only real variable in 2027 is expenses. On revenue, the market has already p
 
 ## Chapter 7 Competitive Landscape
 
-The most dangerous competitor is Google, not TikTok. Google simultaneously has frontier models (Gemini), in-house chips (TPU), cloud (Q3 revenue RMB 30.71 billion, +102.6%) and distribution (Android, Chrome, search). With the same capex, Google has cloud to recoup returns; Meta has only advertising. The second-layer threat is the migration of the agent entry point.
+Google, not TikTok, is the most dangerous competitor. It combines frontier models (Gemini), in-house chips (TPU), cloud (Q3 revenue RMB 30.71 billion, +102.6%) and distribution (Android, Chrome, search). On the same capex, Google has cloud to recoup returns; Meta has only advertising. The second-layer threat is migration of the agent entry point.
 
-ByteDance (TikTok): captures time spent, high penetration among 18 to 34 year olds, but its position in the US is subject to policy, and in 2026 it will not further squeeze Meta's daily active users. Amazon: advertising growth slowed from 26.2% to 10.9%, and it has begun blocking Muse from executing operations on its websites — a downstream counter-move against the entry point. OpenAI: Dots competes head-on with Muse, has no social graph, but leads in model capability.
+ByteDance (TikTok): captures time spent and has high penetration among 18 to 34 year olds, but its US position is subject to policy and it will not further squeeze Meta's daily active users in 2026. Amazon: advertising growth slowed from 26.2% to 10.9%, and it has begun blocking Muse from executing operations on its websites — a downstream counter-move against the entry point. OpenAI: Dots competes head-on with Muse and has no social graph, but leads on model capability.
 
-On the time dimension, the short term (1 year) hinges on pressure from TikTok and Amazon, the medium term (2–3 years) on Google's models and cloud, and the long term (5 years) on who owns the agent entry point. The competitors differ across the three time scales, and so do the risk weights.
+On the time dimension, the short term (1 year) hinges on pressure from TikTok and Amazon, the medium term (2–3 years) on Google's models and cloud, and the long term (5 years) on who owns the agent entry point. Competitors differ across the three time scales, and so do the risk weights.
 
 ## Chapter 8 Risk factors
 
-First, unclear return on capital expenditure: 2027 costs are only described as "significantly increase," with no figure. Second, equity dilution: full issuance of the USD 95 billion financing dilutes about 6%. Third, depreciation squeezes profit: from 2027, annual depreciation rises by USD 23 to 28 billion. Fourth, advertising cyclicality: 97.6% of revenue depends on advertising. Fifth, regulation: changes to teen rules and EU fines. Sixth, gateway substitution: agents become the primary gateway.
+First, unclear return on capex: 2027 costs are described only as "significantly increase," with no figure. Second, equity dilution: full issuance of the USD 95 billion financing dilutes about 6%. Third, depreciation squeezes profit: from 2027, annual depreciation rises by USD 23 to 28 billion. Fourth, advertising cyclicality: 97.6% of revenue depends on advertising. Fifth, regulation: changes to teen rules and EU fines. Sixth, gateway substitution: agents become the primary gateway.
 
-Sensitivity: every 5 percentage point decline in ad growth cuts 2027 EPS by about USD 2.5 (about 9%); every USD 20 billion increase in capital expenditure adds about USD 4 billion to annual depreciation and cuts EPS by about USD 1.2 (about 4%). If both variables turn adverse at once, EPS could fall to USD 22, implying 28x the current price.
+Sensitivity: every 5 percentage point decline in ad growth cuts 2027 EPS by about USD 2.5 (about 9%); every USD 20 billion increase in capex adds about USD 4 billion to annual depreciation and cuts EPS by about USD 1.2 (about 4%). If both variables turn adverse at once, EPS could fall to USD 22, implying 28x the current price.
 
 Regulatory detail: the USD 18.59 billion settlement is paid over ten years, averaging USD 1.86 billion a year; teen accounts default to time limits and privacy protection, changeable only with parental authorization, which will shift how the next generation of users behaves.
 
@@ -147,23 +147,23 @@ Against the sell-side consensus, this report's 2027 EPS of USD 28 is low, with t
 
 ## Chapter 10 Valuation
 
-Method: 2027 EPS × 17–26x PE. Base case USD 28 × 22x = USD 620; bear case 24 × 17 = 410; bull case 33 × 26 = 860. After 6% dilution, base case is about USD 580.
+Method: 2027 EPS × 17–26x P/E. Base case USD 28 × 22x = USD 620; bear case 24 × 17 = 410; bull case 33 × 26 = 860. After 6% dilution, base case is about USD 580.
 
-No DCF, because free cash flow is negative and any DCF rests on post-2029 assumptions. P/S has limited reference value (capital structures differ too much).
+No DCF: free cash flow is negative and any DCF rests on post-2029 assumptions. P/S has limited reference value given how much capital structures differ.
 
 Comparables: Google about 14.8x, Amazon about 20.4x, Microsoft about 25.9x. Meta at 21x sits in the middle but has the highest growth. The discount reflects negative cash flow and governance structure; the premium reflects ad share gains and the Muse option. Netting the two, 21x is roughly fair.
 
-Historical range: Meta's TTM PE fluctuated between 18x and 30x in 2023–2025; 21x sits in the lower half of that range, but free cash flow was positive then.
+Historical range: Meta's P/E (TTM) fluctuated between 18x and 30x in 2023–2025; 21x sits in the lower half of that range, but free cash flow was positive then.
 
-Valuation anchor: anchored on 2027 adjusted EPS of USD 28, 22x corresponds to USD 620. If the market is willing to pay an "AI platform" premium, 26x gives USD 730; if valued as an "asset-heavy advertising company" at 17x, USD 476.
+Valuation anchor: on 2027 adjusted EPS of USD 28, 22x corresponds to USD 620. If the market is willing to pay an "AI platform" premium, 26x gives USD 730; if valued as an "asset-heavy advertising company" at 17x, USD 476.
 
-Why not EV/EBITDA: Meta's EBITDA is "artificially" inflated by depreciation, and depreciation is precisely the largest cost variable today; using EBITDA would systematically overstate its profitability. Likewise, P/S does not apply — its capital structure is shifting from "zero debt" to "equity + debt + preferred stock," and revenue multiples cannot capture these differences. During an asset-heavy transition, only PE and free cash flow are viable, and the latter is now negative.
+Why not EV/EBITDA: depreciation "artificially" inflates Meta's EBITDA, and depreciation is precisely the largest cost variable today; using EBITDA would systematically overstate its profitability. P/S does not apply either — its capital structure is shifting from "zero debt" to "equity + debt + preferred stock," and revenue multiples cannot capture these differences. During an asset-heavy transition, only P/E and free cash flow are viable, and the latter is now negative.
 
 ## Chapter 11 Investment Recommendations
 
-Rating: Watch, wait for a pullback. 12-month target price USD 620 (current price USD 606.73, +2%). Buy trigger: share price ≤USD 500, or 2027 expense growth guidance below revenue growth. Abandon conditions: advertising growth below 10% for two consecutive quarters, or 2027 capex guidance above USD 170 billion.
+Rating: Watch; wait for a pullback. 12-month target price USD 620 (current price USD 606.73, +2%). Buy trigger: share price ≤USD 500, or 2027 expense growth guidance below revenue growth. Abandon conditions: advertising growth below 10% for two consecutive quarters, or 2027 capex guidance above USD 170 billion.
 
-Timeline: Class C shares take effect on January 19, 2027; late January Q4 results provide 2027 expense guidance; ATM may launch in Q1; April Q1 results show the depreciation slope. Of the four milestones, the second is the decision point.
+Timeline: Class C shares take effect on January 19, 2027; Q4 results in late January provide 2027 expense guidance; the ATM may launch in Q1; Q1 results in April show the depreciation slope. Of the four milestones, the second is the decision point.
 
 Position sizing: 0% at the current price; 3% below USD 500; 5% below USD 450 (cap); a fundamental trigger can be acted on without waiting for price.
 
@@ -173,7 +173,7 @@ Advice for long-term capital: if the holding period is over five years, start bu
 
 ## Chapter 12 Appendix
 
-Basis of presentation: market cap of USD 1.575 trillion = USD 606.73 × 2.596 billion shares (excluding additional issuance); PE of 21x on a TTM basis; free cash flow = operating cash flow − purchases of property and equipment − finance lease principal; adjusted EPS excludes the USD 9.89 billion litigation settlement and related tax effects. Data as of the close on November 2, 2026.
+Basis of presentation: market cap of USD 1.575 trillion = USD 606.73 × 2.596 billion shares (excluding additional issuance); P/E 21x on a TTM basis; free cash flow = operating cash flow − purchases of property and equipment − finance lease principal; adjusted EPS excludes the USD 9.89 billion litigation settlement and related tax effects. Data as of the close on November 2, 2026.
 
 Key dates: August 26, 2026 settlement agreement; September 8, 2026 Muse launch; October 21, 2026 Q3 results and Class C share announcement; October 26, 2026 USD 95 billion financing framework and EU fine; November 2, 2026 report date close of USD 606.73.
 
@@ -183,9 +183,9 @@ Data verification: this report is consistent with the m03 dual-source reconcilia
 
 ## Sources
 
-- Meta Platforms Q3 2026 earnings report (released after market close on 2026/10/21)
+- Meta Platforms Q3 2026 earnings: released after the close on 2026/10/21
 - 21st Century Business Herald, "Meta Bets Tomorrow on Muse—Do the AI Numbers Add Up?" (October 22, 2026)
-- Huaxin Securities "Meta Platforms: Revenue Growth, Advertising AI Optimization and Agent Layout Advance Together" (2026/11/24, data cited from the 2026/10/21 earnings report)
-- Cailianshe key takeaways from Meta's earnings call (October 21, 2026)
-- East Money Meta stock profile page: total share capital 2.596 billion shares, P/E TTM (reading as of 2026/11/24)
-- Share price vs. 52-week range: batchdata daily data (as of the close on 2026/11/02)
+- Huaxin Securities "Meta Platforms: Revenue Growth, Advertising AI Optimisation and Agent Build-Out Advance Together" (2026/11/24; data cited from the 2026/10/21 earnings report)
+- Cailianshe key takeaways from Meta's earnings call, October 21, 2026
+- East Money Meta stock profile page: total share capital 2.596 billion shares; P/E (TTM) as of 2026/11/24
+- Share price vs. 52-week range: batchdata daily data (as of the 2026/11/02 close)

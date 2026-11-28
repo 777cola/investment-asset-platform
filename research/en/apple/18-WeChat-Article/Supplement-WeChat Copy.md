@@ -6,31 +6,31 @@
 
 ## Notes
 
-Publishing suggestion: use the contrast of "strongest June quarter vs a 9% drop in three days" for the WeChat cover image; link to the previous piece "Apple's Moat Has Only One Wall Left" at the end. About 1,500 words, no tables. Data consistent with the body text: Apple FY2026Q3 results (2026/07/30), earnings call, Nasdaq daily chart (2026/08/03 close 303.42, 52-week high 340.08). Target price and scenarios are derived from FY2027 EPS estimates, not company guidance.
+Publishing note: use the "strongest June quarter vs a 9% drop in three days" contrast for the WeChat cover image; link to the previous piece "Apple's Moat Has Only One Wall Left" at the end. About 1,500 words, no tables. Data consistent with the body: Apple FY2026Q3 results (2026/07/30), earnings call, Nasdaq daily chart (2026/08/03 close 303.42, 52-week high 340.08). Target price and scenarios are derived from FY2027 EPS estimates, not company guidance.
 
 ## Main text (ready to copy)
 
 Title: Apple delivered its strongest June quarter ever, then fell 9% in three days
 
-On August 3, Apple closed at USD 303.42, down 10.8% from USD 340.08 on July 28.
+Apple closed at USD 303.42 on August 3, down 10.8% from USD 340.08 on July 28.
 
-Just four days earlier, it had reported a near-flawless quarter: revenue USD 109.417 billion, +16.4% YoY; iPhone USD 54.252 billion, +21.7% YoY; net income USD 29.789 billion, +27.1% YoY; EPS USD 2.02.The June quarter is normally the weakest of the year, and Apple turned it into its highest ever.
+Four days earlier it had reported a near-flawless quarter: revenue USD 109.417 billion, +16.4% YoY; iPhone USD 54.252 billion, +21.7% YoY; net income USD 29.789 billion, +27.1% YoY; EPS USD 2.02.The June quarter is normally the weakest of the year, and Apple turned it into its highest ever.
 
-Good earnings, falling stock. The two are not contradictory — the market is not looking at this quarter, but the next.
+Good earnings, falling stock. The two are not contradictory — the market is looking not at this quarter but at the next.
 
-First number: 50.1%.That is this quarter's gross margin, up 3.6 percentage points YoY, one of the best levels in Apple's history. A company that sells phones has a higher gross margin than many software companies — not luck, but two decades of accumulated ecosystem rent: App Store commissions, iCloud subscriptions, Google's default search slot, 1.5 billion paying users.
+First number: 50.1%.That is this quarter's gross margin, up 3.6 percentage points YoY and one of the best levels in Apple's history. A company that sells phones earns a higher gross margin than many software companies — not luck, but two decades of accumulated ecosystem rent: App Store commissions, iCloud subscriptions, Google's default search slot, 1.5 billion paying users.
 
-Second number: 12.1%.That is services revenue growth YoY. Looks decent, but it was 16% last quarter and 16% a year ago.This is the first time in more than three years that services revenue has come in below consensus.
+Second number: 12.1%.That is services revenue growth YoY. It looks decent, but it was 16% last quarter and 16% a year ago.This is the first time in more than three years that services revenue has come in below consensus.
 
-Why is this the most damaging? Because the market gives Apple a 34x P/E rather than 20x on the strength of the story that "a software company is growing inside a hardware company." Services growth falling from 16% to 12% discounts that story.
+Why is this the most damaging? Because the market pays 34x P/E for Apple rather than 20x on the strength of the story that "a software company is growing inside a hardware company." Services growth falling from 16% to 12% discounts that story.
 
-Third number: 47%–48%.That is management's gross margin guidance for next quarter, versus 50.1% this quarter. Cook said something very blunt on the call: "We're struggling with the supply chain — memory has only three core suppliers."
+Third number: 47%–48%.That is management's gross margin guidance for next quarter, versus 50.1% this quarter. Cook was blunt on the call: "We're struggling with the supply chain — memory has only three core suppliers."
 
-Translation: DRAM is up 60%–70% this year, NAND has doubled, Apple absorbed half itself and offset the rest through Pro models and reduced promotions. The buffer is used up.
+Translation: DRAM is up 60%–70% this year, NAND has doubled, and Apple absorbed half itself and offset the rest through Pro models and reduced promotions. The buffer is used up.
 
-One detail that is easy to miss: of the USD 2.02 EPS, USD 0.11 came from a tariff refund. Strip it out and EPS is USD 1.91, just two cents above the consensus of USD 1.89.Revenue above the consensus of 0.5%, EPS propped up by a one-off, guidance below consensus — those three together explain the entire 7.35% post-earnings drop.
+One detail that is easy to miss: of the USD 2.02 EPS, USD 0.11 came from a tariff refund. Strip it out and EPS is USD 1.91, just two cents above the consensus of USD 1.89.Revenue 0.5% above consensus, EPS propped up by a one-off, guidance below consensus — those three together explain the entire 7.35% post-earnings drop.
 
-So is the stock expensive? USD 303 corresponds to 34x TTM and 30x next year's expected earnings. And management's guidance for next quarter is revenue growth of 9%–11%.
+So is the stock expensive? USD 303 corresponds to 34x TTM and 30x next year's expected earnings. And management guides next quarter to revenue growth of 9%–11%.
 
 Paying 30x for 10% growth means discounting 2027 AI monetization back to today.
 
@@ -64,8 +64,8 @@ One final reminder: do not confuse "I am bullish on Apple long term" with "I sho
 
 ## Sources
 
-- Apple FY2026Q3 earnings (after market close on 2026/07/30) consolidated income statement and segment revenue table: revenue USD 109.417 billion, net income USD 29.789 billion, gross margin 50.1%
+- Apple FY2026Q3 results (released after the close on 2026/07/30): consolidated income statement and segment revenue table show revenue of USD 109.417 billion, net income of USD 29.789 billion and gross margin of 50.1%
 - Apple FY2026Q3 earnings call (2026/07/30): Q4 revenue guidance +9%–11%, FX headwind 2.5pct, supply constraints on memory and other components
-- Wall Street CN, "Apple's iPhone Revenue Rose 22% Last Quarter, Slightly Above the Consensus, but Services and China Market Results Disappointed" (July 30, 2026); National Business Daily (July 31, 2026)
+- Wall Street CN: "Apple iPhone Revenue Up 22% Last Quarter, Modestly Ahead of Consensus; Services and China Disappoint" (July 30, 2026); National Business Daily (July 31, 2026)
 - Morgan Stanley cut its target price to USD 360 and FY2027 EPS from 10.39 to 10.00 (2026/08/02); Daiwa raised its target price to USD 335 (2026/07/31)
-- Share price, 52-week range and market cap: Nasdaq daily data (as of the August 3, 2026 close); market cap estimated on 14.53 billion shares
+- Share price, 52-week range and market cap: Nasdaq daily data as of the August 3, 2026 close; market cap based on 14.53 billion shares

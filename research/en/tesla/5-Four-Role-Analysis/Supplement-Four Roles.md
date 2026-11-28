@@ -6,18 +6,18 @@
 
 ## Notes
 
-All five pages in this module are derived from the 2026Q2 earnings report (2026/07/22) and public industry data. The four perspectives are written independently; the Team Lead, when consolidating, values the business by segment: automotive RMB 450 billion, energy storage RMB 80 billion, net cash RMB 40 billion, options RMB 910 billion (RMB 1.48 trillion in total).
+All five pages in this module draw on the 2026Q2 earnings report (2026/07/22) and public industry data. The four perspectives are written independently; in consolidating them, the Team Lead values the business by segment: automotive RMB 450 billion, energy storage RMB 80 billion, net cash RMB 40 billion, options RMB 910 billion (RMB 1.48 trillion in total).
 
 ## Comparison of conclusions from four perspectives
 
 | Perspective | Key findings | Conclusion | Contribution to rating |
 |---|---|---|---|
-| Business (Duan Yongping) | Net profit per vehicle USD 2,320, of which vehicle manufacturing contributes only about USD 900 | You can read the cars, but not the capacity | Not rated Buy |
+| Business (Duan Yongping) | Net profit per vehicle is USD 2,320, of which vehicle manufacturing accounts for only about USD 900 | You can read the cars, but not the capacity | Not rated Buy |
 | Financials (Buffett) | Operating margin 1.4%, ROIC about 2%, FCF -RMB 1.09 billion | No margin of safety | Not rated Buy |
-| Industry (Munger) | Overcapacity in complete vehicles, immature intelligent driving, energy storage expanding but under price pressure | Three clocks counted as one | Not rated Buy |
+| Industry (Munger) | Overcapacity in complete vehicles; intelligent driving still immature; energy storage expanding but under price pressure | Three clocks counted as one | Not rated Buy |
 | Risk (Li Lu) | FSD regulation and key-person dependence are thesis-level risks | Do not take exposure at this price | Not rated Buy |
 
-> Four perspectives worked independently without cross-calibration; the Team Lead adjudicated the conclusion based on sum-of-the-parts valuation.
+> Four perspectives were developed independently, without cross-calibration, and the Team Lead adjudicated the conclusion on a sum-of-the-parts basis.
 
 ## How to read these five reports
 
@@ -25,7 +25,7 @@ The first four are independent assignments, each reasoning from a different angl
 
 ## Sources
 
-- Tesla 2026Q2 earnings (released after market close on 2026/07/22)
+- Tesla 2026Q2 results (released after the close on 2026/07/22)
 - stockanalysis.com/stocks/tsla/financials/
 - Company delivery announcement and earnings call transcript (2026/07/22)
 - Share price vs. 52-week range: stockanalysis.com daily data (as of the 2026/07/22 close)

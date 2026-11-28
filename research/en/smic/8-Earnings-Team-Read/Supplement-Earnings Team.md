@@ -6,7 +6,7 @@
 
 ## Notes
 
-The four close readings are framework-based inferences, not statements by the four individuals themselves. Figures match the main report: Q1 2026 revenue USD 2.506 billion, gross margin 20.1%, depreciation USD 1.088 billion, net profit USD 197 million; 2025 revenue USD 9.327 billion, net profit USD 685 million, depreciation USD 3.81 billion, capex USD 8.1 billion.
+The four close readings are framework-based inferences, not statements by the four individuals themselves. Figures tie to the main report: Q1 2026 revenue USD 2.506 billion, gross margin 20.1%, depreciation USD 1.088 billion and net profit USD 197 million; 2025 revenue USD 9.327 billion, net profit USD 685 million, depreciation USD 3.81 billion and capex USD 8.1 billion.
 
 ## Key takeaways and conclusions from the four close reads
 
@@ -25,13 +25,13 @@ A financial report is a pile of numbers; how you read them determines your concl
 
 ## Three synthetic judgments
 
-First, the revenue mix shift is structural, not a cyclical rebound, because the downstream base has moved from a single handset leg to three legs: consumer, industrial and automotive. Second, profit stays capped by depreciation through at least 2027, because four new 12-inch lines are still ramping and capex of USD 8.1 billion is not coming down, so depreciation will not peak. Third, the absence of shareholder returns is dictated by the ownership structure: no dividend, no buyback, and further share issuance, and this will not change near term.
+First, the revenue mix shift is structural rather than a cyclical rebound: the downstream base has moved from a single handset leg to three — consumer, industrial and automotive. Second, profit stays capped by depreciation through at least 2027, as four new 12-inch lines are still ramping and capex of USD 8.1 billion is not coming down, so depreciation will not peak. Third, the absence of shareholder returns is dictated by the ownership structure — no dividend, no buyback, and further share issuance — and this will not change near term.
 
 ## Sources
 
 - SMIC Q1 2026 Results Announcement (2026/05/14, smics.com)
-- SMIC 2026Q1 Earnings Call and Media Coverage (2026/05/14, Securities Times, East Money, TMTPost)
-- UBS research note: upgrades SMIC H-shares to Buy, target price HKD 96.2 (2026/08/10, reported by Zhitong Finance)
-- Yahoo Finance 0981.HK historical prices (closed at HKD 66.20 on 2026/08/10)
-- Share price, 52-week range and market cap: batchdata market snapshot (close of 2026/08/10); total shares 8.561 billion (exchange basis, 2026/08/01)
+- SMIC 2026Q1 Earnings Call and Media Coverage (2026/05/14; Securities Times, East Money, TMTPost)
+- UBS upgrades SMIC H-shares to Buy with a target price of HKD 96.2 (2026/08/10, per Zhitong Finance)
+- Yahoo Finance historical prices for 0981.HK (closed at HKD 66.20 on 2026/08/10)
+- Share price, 52-week range and market cap: batchdata market snapshot (2026/08/10 close); total shares 8.561 billion (exchange basis, 2026/08/01)
 - Q2 results announcement date: the company is scheduled to report on 2026/08/13; this report does not cite its data

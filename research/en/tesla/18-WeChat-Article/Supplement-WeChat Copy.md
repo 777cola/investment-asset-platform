@@ -6,19 +6,19 @@
 
 ## Notes
 
-All figures in this note are drawn from Tesla's 2026Q2 earnings release (after the close on 2026/07/22) and public industry data; stock prices and market caps are as of the 2026/07/22 close. This note is investment research, not a stock recommendation.
+All figures in this note are sourced from Tesla's 2026Q2 earnings release (published after the close on 2026/07/22) and public industry data; stock prices and market caps are as of the 2026/07/22 close. This note is investment research, not a stock recommendation.
 
 ## Body (plain text, ready to copy)
 
-Tesla posts its best sales ever, then earns just USD 400 millionAfter the close on July 22, 2026, Tesla reported second-quarter results. The next day, its shares fell 4% after hours.
+Tesla posts record sales, then earns just USD 400 millionTesla reported second-quarter results after the close on July 22, 2026. The shares fell 4% after hours the next day.
 
-Many found it hard to understand: 480,000 vehicles delivered, USD 28.2 billion in revenue, both record highs — so why the drop?
+The puzzle: 480,000 vehicles delivered and USD 28.2 billion of revenue, both records — so why the drop?
 
 The answer sits on the third line of the income statement: operating profit of USD 398 million, down 57% year on year.
 
-1. 480,000 vehicles, just USD 400 million of profitStart with the numbers. Tesla sold 480,126 vehicles in the second quarter, up 25% year on year, its best second quarter on record; revenue was USD 28.236 billion, up 26%, the fastest in three years.
+1. 480,000 vehicles, just USD 400 million of profitStart with the numbers. Tesla sold 480,126 vehicles in the second quarter, up 25% year on year and its best second quarter on record; revenue was USD 28.236 billion, up 26%, the fastest in three years.
 
-But look further down: gross profit of USD 4.751 billion, gross margin 16.8%, down 0.4 percentage points from a year earlier; operating expenses of USD 4.353 billion, up 47% year on year; operating profit down to just USD 398 million, an operating margin of 1.4% — versus 4.1% a year earlier.
+Look further down, though: gross profit of USD 4.751 billion, gross margin 16.8%, down 0.4 percentage points from a year earlier; operating expenses of USD 4.353 billion, up 47% year on year; operating profit down to just USD 398 million, an operating margin of 1.4% — versus 4.1% a year earlier.
 
 What does 1.4% mean? A company with USD 28.2 billion of revenue earned less than USD 400 million from its core business. In any industry, that ratio is dangerous.
 
@@ -70,7 +70,7 @@ Until then, let the financials speak, not the story.
 
 ## Sources
 
-- Tesla 2026Q2 earnings (released after market close on 2026/07/22)
+- Tesla 2026Q2 results (released after the close on 2026/07/22)
 - stockanalysis.com/stocks/tsla/financials/
 - Company delivery announcement and earnings call transcript (2026/07/22)
 - Share price vs. 52-week range: stockanalysis.com daily data (as of the 2026/07/22 close)

@@ -6,7 +6,7 @@
 
 ## Notes
 
-This report is an initiation of coverage as of 16 October 2026, with all data as of that date. Earnings forecasts are the assumptions of this report, not company guidance. 2025E revenue is derived from 2026 guidance and the year-on-year growth rate (EUR 44.5 billion ÷ 1.36 ≈ EUR 32.7 billion). The valuation multiple range is taken from the historical PE range for 2016–2026.
+This initiation of coverage is dated 16 October 2026, with all data as of that date. Earnings forecasts reflect the assumptions of this report, not company guidance. We derive 2025E revenue from 2026 guidance and the YoY growth rate (EUR 44.5 billion ÷ 1.36 ≈ EUR 32.7 billion). The valuation multiple range is drawn from the historical P/E range for 2016–2026.
 
 ## Earnings forecast (EUR billion)
 
@@ -37,25 +37,25 @@ Key changes over the past five years: revenue rose from EUR 18.6 billion in 2021
 
 ## Chapter 2 Industry Analysis
 
-The global wafer fab equipment (WFE) market is roughly USD 130 billion in 2026 (rough estimate), with lithography at 20%–25%. The equipment industry is segmented into monopolies: ASML alone in EUV lithography, KLA dominant in metrology, and three players splitting etch and deposition. Concentration determines gross margin — KLA 60%, ASML 57%, Applied Materials 47%, Tokyo Electron 45%.
+The global wafer fab equipment (WFE) market is worth roughly USD 130 billion in 2026 (rough estimate), with lithography accounting for 20%–25%. The equipment industry is segmented into monopolies: ASML alone in EUV lithography, KLA dominant in metrology, and three players splitting etch and deposition. Concentration determines gross margin — KLA 60%, ASML 57%, Applied Materials 47%, Tokyo Electron 45%.
 
 Demand splits into three blocks: advanced logic (AI chips), memory (HBM/DRAM), and mature nodes plus China. In 2026 the first two drive growth, with capex at the four major North American cloud players at a historical peak. Cycle position: bottom in 2024, recovery in 2025, 2026 the third up year.
 
 The key variable for the industry is not total demand but the share of advanced-node capex in total capex. That share rises in 2026 — AI chips need 3nm/2nm, HBM needs advanced DRAM capacity, and both crowd into the most advanced segment. That segment happens to be the one ASML monopolizes, so its growth (+36%) runs well above WFE overall (about +25%, rough estimate).
 
-The industry risk is synchronization: three buyers watch the same signal (AI demand); when the signal is consistent, orders surge, and when it turns, they brake together. This is what happened in 2022 when memory makers collectively cut orders. The equipment cycle is not a demand cycle but a cycle of synchronized decisions.
+The industry risk is synchronization: three buyers watch the same signal (AI demand); when the signal is consistent, orders surge, and when it turns, they brake together. This is what happened in 2022, when memory makers collectively cut orders. The equipment cycle is not a demand cycle but a cycle of synchronized decisions.
 
 In one sentence: this is the only link in the semiconductor chain where supply determines revenue; everywhere else, demand determines revenue. That difference shows up as gross margin in an upcycle and as downside resilience in a downcycle.
 
 ## Chapter 3 Business model
 
-It sells two things: systems and annuities. Systems (EUV at about EUR 241 million per unit, High-NA at over EUR 350 million) are recognized one-time; installed-base management is billed annually, at EUR 3.289 billion in Q3 2026, up about +50% year on year. Customers pay in advance and queue for two years, so working capital is negative.
+ASML sells two things: systems and annuities. Systems — EUV at roughly EUR 241 million per unit, High-NA at over EUR 350 million — are recognised one-time; installed-base management is billed annually and came to EUR 3.289 billion in Q3 2026, up about +50% YoY. Customers pay in advance and queue for two years, so working capital is negative.
 
-The pricing model is shifting from "cost-plus" to "value-based pricing": sharing in the incremental returns customers earn from using the equipment, visible from 2027 and fully reflected in 2028. This is the shift from manufacturing to an "annuity business," and the fundamental reason gross margin can hold above 57%.
+The pricing model is shifting from cost-plus to value-based pricing — sharing in the incremental returns customers earn from using the equipment — visible from 2027 and fully reflected in 2028. This is the shift from manufacturing to an annuity business, and the fundamental reason gross margin can hold above 57%.
 
-The key metric for this model is the installed base. Cumulative global installations of ASML equipment number in the thousands of units, each generating hundreds of thousands to over a million euros of service and upgrade revenue a year. The larger the base, the thicker the annuity and the weaker the cyclicality. Installed-base management revenue rose about +50% year on year in Q3 2026, partly from base growth and partly from high customer capacity utilization (willingness to spend on upgrades).
+The key metric for this model is the installed base. Cumulative global installations of ASML equipment number in the thousands of units, each generating hundreds of thousands to over a million euros of service and upgrade revenue a year. The larger the base, the thicker the annuity and the weaker the cyclicality. Installed-base management revenue rose about +50% YoY in Q3 2026, partly on base growth and partly on high customer capacity utilisation (willingness to spend on upgrades).
 
-The model's vulnerability is its "reliance on advance payments": customers pay upfront because they believe they will receive machines in two years. If delivery delays become the norm, advance-payment terms will be renegotiated and the negative working capital advantage will erode. This is a hidden indicator for watching the company's long-term quality.
+The model's vulnerability is its reliance on advance payments: customers pay upfront because they believe they will receive machines in two years. If delivery delays become the norm, advance-payment terms will be renegotiated and the negative working capital advantage will erode. This is a hidden indicator for watching the company's long-term quality.
 
 ## Chapter 4 Financial Analysis
 
@@ -63,21 +63,21 @@ The model's vulnerability is its "reliance on advance payments": customers pay u
 
 The balance sheet is in net cash, interest-bearing debt is mainly low-coupon euro bonds, and interest coverage exceeds 50x. Share count fell from 417 million in 2021 to about 384 million, down 8% over five years. Financial quality ranks in the top tier of the equipment sector.
 
-The relationship among the three statements is worth spelling out: the income statement shows gross margin (57.5%); the cash flow statement shows operating cash flow (backing out to above EUR 8 billion, exceeding net profit); the balance sheet shows net cash and negative working capital. The three statements corroborate each other, confirming the profit is real money.
+The link across the three statements is worth spelling out: the income statement shows gross margin (57.5%); the cash flow statement shows operating cash flow (backing out to above EUR 8 billion, exceeding net profit); the balance sheet shows net cash and negative working capital. The three corroborate each other, confirming the profit is real money.
 
-The caution is "return on growth capital": in 2026 the company is expanding capacity (the new Veldhoven campus, cleanrooms), with capex on the order of above EUR 2 billion (rough estimate). The return on that expansion determines ROIC after 2028 — if utilization falls below 70% in a downturn, depreciation will drag gross margin by 2–3 percentage points.
+The caveat is return on growth capital: in 2026 the company is expanding capacity (the new Veldhoven campus, cleanrooms), with capex on the order of above EUR 2 billion (rough estimate). The return on that expansion determines ROIC after 2028 — if utilization falls below 70% in a downturn, depreciation will drag gross margin by 2–3 percentage points.
 
-In one sentence: this is a set of results where profit is slightly flattered, cash flow is understated and the balance sheet is healthy. When reading it, keep your eyes on cash and gross margin.
+In one sentence: profit here is slightly flattered, cash flow understated and the balance sheet healthy. When reading it, keep your eyes on cash and gross margin.
 
 ## Chapter 5 Management
 
-CEO Christophe Fouquet (took office in April 2024, former head of EUV business), CFO Roger Dassen (since 2018). Under predecessor Peter Wennink's tenure (2013–2024), revenue grew from about EUR 5.2 billion to EUR 27.6 billion. Capital allocation focused mainly on vertical integration (Cymer, HMI, Zeiss stake, Berliner Glas), shifting to buybacks and dividends after 2020. Governance follows the Dutch two-tier system, with no major integrity incidents.
+CEO Christophe Fouquet (in office since April 2024, formerly head of EUV) and CFO Roger Dassen (since 2018). Under predecessor Peter Wennink (2013–2024), revenue grew from about EUR 5.2 billion to EUR 27.6 billion. Capital allocation centred on vertical integration (Cymer, HMI, Zeiss stake, Berliner Glas) before shifting to buybacks and dividends after 2020. Governance follows the Dutch two-tier system, with no major integrity incidents.
 
-The concern lies in technical succession: after Van den Brink retired in 2024, no equivalent CTO was appointed, concentrating technical decisions in the CEO. The pace of High-NA adoption will test this technical leadership team.
+The concern is technical succession: after Van den Brink retired in 2024, no equivalent CTO was appointed, concentrating technical decisions in the CEO. The pace of High-NA adoption will test this technical leadership team.
 
-The incentive structure deserves separate mention: management's long-term incentives are tied to "relative TSR (benchmarked against the SOX index) + ROIC + ESG," with no link to orders or revenue. This design avoids "growth for growth's sake," but it also means management has a strong incentive to keep buying back stock when the share price outperforms the index—buybacks both lift EPS and support the share price.
+The incentive structure merits separate mention: long-term incentives are tied to "relative TSR (benchmarked against the SOX index) + ROIC + ESG," with no link to orders or revenue. This avoids "growth for growth's sake," but it also gives management a strong incentive to keep buying back stock when the share price outperforms the index—buybacks both lift EPS and support the share price.
 
-The EUR 4.1 billion single-quarter buyback in 2026Q3 equals about 3% of market cap on an annualized basis. This pace is aggressive by European equity standards, and whether it persists at high prices bears watching. Buffett's reminder applies here: buybacks create value only below intrinsic value.
+The EUR 4.1 billion single-quarter buyback in 2026Q3 equals about 3% of market cap annualised. That pace is aggressive by European equity standards, and whether it persists at high prices bears watching. Buffett's reminder applies: buybacks create value only below intrinsic value.
 
 ## Chapter 6 Growth Drivers
 
@@ -91,11 +91,11 @@ That growth rate is half the +36% of 2026, making 2027 a year of growth downshif
 
 ## Chapter 7 Competitive Landscape
 
-No technical rival: Canon's nanoimprint has not reached scale, Nikon has exited EUV, and SMEE sits at the 90nm level. In metrology, KLA overlaps partly with ASML (YieldStar), but the two are more complementary than competitive. The real "competition" comes from customer capex, not from peers.
+No technical rival: Canon's nanoimprint has yet to reach scale, Nikon has exited EUV and SMEE remains at the 90nm node. In metrology, KLA overlaps partly with ASML (YieldStar), but the two are more complementary than competitive. The real "competition" comes from customer capex, not from peers.
 
-Moat score 47/60: technology 10, switching costs 9, supply chain 9, service 8, cost 7, politics 4. Politics is the only failing dimension—mainland China accounted for 23% of 2026Q3 net system sales, EUV has long been banned from sale, and DUV requires a license.
+Moat score 47/60: technology 10, switching costs 9, supply chain 9, service 8, cost 7, politics 4. Politics is the only failing dimension—mainland China accounted for 23% of 2026Q3 net system sales, EUV has long been banned from sale and DUV requires a licence.
 
-A quick pass through Porter's Five Forces: threat of new entrants very low (a decade and EUR 20 billion); threat of substitutes low (nanoimprint and e-beam are a generation behind in volume production); supplier bargaining power low (Zeiss is equity-bound, not a market purchase); customer bargaining power medium (five or six large customers, but they cannot do without it); competitive rivalry almost nonexistent. Four of the five forces favor ASML; the only neutral one is customer bargaining power.
+A quick pass through Porter's Five Forces: threat of new entrants very low (a decade and EUR 20 billion); threat of substitutes low (nanoimprint and e-beam are a generation behind in volume production); supplier bargaining power low (Zeiss is equity-bound, not a market purchase); customer bargaining power medium (five or six large customers, but they cannot do without it); competitive rivalry almost nonexistent. Four of the five forces favour ASML; the only neutral one is customer bargaining power.
 
 What Porter's Five Forces cannot explain is "politics." Export controls amount to a sixth force, and the only one capable of reshaping the revenue mix overnight. That is why its valuation should carry a "policy discount."
 
@@ -103,59 +103,61 @@ Conclusion: the Five Forces model answers "a near-perfect industry structure," w
 
 ## Chapter 8 Risk factors
 
-① AI capex inflection: a 20% cut by two cloud providers would trim 2027 revenue by 15%–25%, compressing PE from 31x to 20x, implying a -36% share price. ② Export control escalation: affects 15%–20% of revenue. ③ High-NA delay: growth curve flattens after 2028. ④ Customer concentration: top three customers exceed half of revenue. ⑤ Valuation mean reversion: growth expectations fall from 25% to 15%, and the multiple de-rates to 25x.
+① AI capex inflection: a 20% cut by two cloud providers would trim 2027 revenue by 15%–25%, compressing P/E from 31x to 20x and implying -36% downside. ② Export control escalation: affects 15%–20% of revenue. ③ High-NA delay: growth curve flattens after 2028. ④ Customer concentration: top three customers exceed half of revenue. ⑤ Valuation mean reversion: growth expectations fall from 25% to 15% and the multiple de-rates to 25x.
 
-Turn the risks into scenarios: bear case (AI capex peaks in 2027 + tighter controls) → 2027 EPS EUR 38, 24x, USD 1,058; base case → EUR 46, 32x, USD 1,708; bull case (value-based pricing fully realized) → EUR 54, 38x, USD 2,380. The three scenarios carry roughly 25% / 50% / 25% probability, giving a weighted target price of about USD 1,619 — essentially flat with the current price.
+These risks map into scenarios: bear case (AI capex peaks in 2027 plus tighter controls) → 2027 EPS EUR 38, 24x, USD 1,058; base case → EUR 46, 32x, USD 1,708; bull case (value-based pricing fully realized) → EUR 54, 38x, USD 2,380. With roughly 25% / 50% / 25% probabilities, the weighted target price is about USD 1,619 — essentially flat with the current price.
 
 That weighted result is telling: the probability-weighted fair value is today's price. The market is not wrong; it has simply folded the three possibilities into the current price by probability.
 
 ## Chapter 9 Earnings Forecast
 
-2026E: revenue EUR 44.5 billion (midpoint of guidance), gross margin about 56%, net profit EUR 14.8 billion, EPS EUR 38.5. 2027E: revenue EUR 52 billion, gross margin about 57%, net profit EUR 17.7 billion, EPS EUR 46.0. Assumptions: EUV shipments up 20%–25% year on year, installed-base service up 30%–40%, value-based pricing adds 1–2 percentage points of gross margin.
+2026E: revenue of EUR 44.5 billion (midpoint of guidance), gross margin of about 56%, net profit of EUR 14.8 billion and EPS of EUR 38.5. 2027E: revenue of EUR 52 billion, gross margin of about 57%, net profit of EUR 17.7 billion and EPS of EUR 46.0. Assumptions: EUV shipments up 20%–25% YoY, installed-base service up 30%–40%, and value-based pricing adding 1–2pp to gross margin.
 
-Backing out 2027 EPS of EUR 46 from 384 million shares gives net profit of about EUR 17.7 billion and a net margin of about 34%, above the 32% in the neutral-scenario text of the working papers — the gap comes from interest income and the tax-rate basis. Valuation uses EPS of EUR 46.
+Backing out 2027 EPS of EUR 46 from 384 million shares implies net profit of about EUR 17.7 billion and a net margin of about 34%, above the 32% in the neutral-scenario text of the working papers; the gap reflects interest income and the tax-rate basis. Valuation uses EPS of EUR 46.
 
-Key assumptions, item by item: 75–80 EUV units delivered in 2027 (about 65 in 2026); non-EUV shipments up 10% year on year; installed-base management up 30% year on year; gross margin of 57% in 2027 (value-based pricing +1 percentage point, FX -0.5 percentage point, mix +0.5 percentage point); operating expenses up 12% year on year; effective tax rate of 16%; share count of 384 million shares (assuming buybacks continue but slow).
+Key assumptions, item by item: 75–80 EUV units delivered in 2027 (about 65 in 2026); non-EUV shipments up 10% YoY; installed-base management up 30% YoY; gross margin of 57% in 2027 (value-based pricing +1pp, FX -0.5pp, mix +0.5pp); operating expenses up 12% YoY; effective tax rate of 16%; share count of 384 million shares (assuming buybacks continue but slow).
 
-Sensitivity: revenue ±5% maps to EPS ±7%; gross margin ±1 percentage point maps to EPS ±3.5%; FX ±3% maps to EPS ±2%. Of the three variables, gross margin has the greatest elasticity and is the one to watch most closely.
+Sensitivity: revenue ±5% maps to EPS ±7%; gross margin ±1pp maps to EPS ±3.5%; FX ±3% maps to EPS ±2%. Of the three variables, gross margin has the greatest elasticity and is the one to watch most closely.
 
 ## Chapter 10 Valuation
 
-Apply 2027 EPS × 24–38x PE (10-year range 25–45x, taking one end at the cycle bottom and the other at the top), EUR/USD at 1.16. Bear case USD 1,058, base case USD 1,708, bull case USD 2,380. The base case implies +4% versus the current price, the bear case -36%, the bull case +45%.
+Apply 2027 EPS × 24–38x P/E (10-year range 25–45x, with one end set at the cycle bottom and the other at the top), EUR/USD at 1.16. Bear case USD 1,058, base case USD 1,708, bull case USD 2,380. The base case implies +4% versus the current price, the bear case -36% and the bull case +45%.
 
-Cross-checks: the current price corresponds to 31x 2027 earnings, versus peers KLA at 30x, Applied Materials at 22x and Tokyo Electron at 22x. The monopoly premium explains the gap but does not constitute a margin of safety.
+Cross-checks: the current price equates to 31x 2027 earnings, versus peers KLA at 30x, Applied Materials at 22x and Tokyo Electron at 22x. The monopoly premium explains the gap but does not constitute a margin of safety.
 
-Beyond PE, two cross-checks. First, EV/EBITDA: 2027 EBITDA of roughly EUR 22 billion (rough calculation) puts the current price at about 24x, above the midpoint of the historical range (18–30x). Second, free cash flow yield: 2027 FCF of roughly EUR 13 billion (rough calculation) against a market cap of EUR 538 billion gives a yield of 2.4% — below the 10-year US Treasury yield, direct evidence that the stock is expensive.
+Beyond P/E, two further cross-checks. First, EV/EBITDA: 2027 EBITDA of roughly EUR 22 billion (rough calculation) puts the current price at about 24x, above the midpoint of the historical range (18–30x). Second, free cash flow yield: 2027 FCF of roughly EUR 13 billion (rough calculation) against a market cap of EUR 538 billion gives a yield of 2.4% — below the 10-year US Treasury yield, direct evidence that the stock is expensive.
 
 Both cross-checks point to the same conclusion: the current price is not cheap, but it is not a bubble. The true bubble zone is above 45x (last seen in 2021).
 
-A final methodological note: for an asset with such high certainty and limited growth, DCF and PE reach conflicting conclusions — DCF discounts cash flows beyond 2030 back to the present and makes the stock look cheap; PE looks only at 2027 and makes it look expensive. This report uses PE because the market prices on PE, and what we are judging is the return over the next 12 months.
+A final methodological note: for an asset with such high certainty and limited growth, DCF and P/E reach conflicting conclusions — DCF discounts cash flows beyond 2030 back to the present and makes the stock look cheap; P/E looks only at 2027 and makes it look expensive. This report uses P/E because the market prices on P/E, and what we are judging is the return over the next 12 months.
 
 ## Chapter 11 Investment Recommendations
 
-Initiation: Watch, wait for a pullback. Rationale: business scores 10, price scores 4; the base case offers only 4% upside, so the risk/reward is asymmetric. Buy levels: USD 1,300 (25x 2027) to build 2%, USD 1,150 (22x) to add up to 4%–5%, cap 6%. Existing holders should keep holding, with no price stop, but event stops (gross margin below 55% for two consecutive quarters, order growth turning negative year on year, China mix below 10%).
+Initiation: Watch — wait for a pullback. Rationale: business score 10, price score 4; the base case offers just 4% upside, so risk/reward is asymmetric. Buy levels: USD 1,300 (25x 2027) to build 2%, USD 1,150 (22x) to add up to 4%–5%, cap 6%. Existing holders should stay invested with no price stop, but event stops apply (gross margin below 55% for two consecutive quarters, order growth turning negative YoY, China mix below 10%).
 
-Catalysts: 2027 guidance at the January 2027 Q4 results; the first full quarter of value-based pricing in April 2027; High-NA customer adoption progress.
+Catalysts: 2027 guidance at the January 2027 Q4 results; the first full quarter of value-based pricing in April 2027; progress on High-NA customer adoption.
 
-Three optional paths. Conservative: buy only below USD 1,150, equivalent to 22x 2027, the best risk/reward but may never be reached. Standard: build 2% at USD 1,300 and add to 5% at USD 1,150. Aggressive: open a 1%–2% "watching position" at the current price to force yourself to keep tracking it — this is not investment advice, but an arrangement for the mental account.
+Three optional paths. Conservative: buy only below USD 1,150, equivalent to 22x 2027 — the best risk/reward, but it may never be reached. Standard: build 2% at USD 1,300 and add to 5% at USD 1,150. Aggressive: open a 1%–2% "watching position" at the current price to force yourself to keep tracking it — not investment advice, but an arrangement for the mental account.
 
-Not recommended: taking a heavy position at the current price just because "the company is good." The 2021 lesson is that a good company at the wrong price can leave you with no returns for three years.
+Not recommended: taking a heavy position at the current price simply because "the company is good." The 2021 lesson is that a good company at the wrong price can leave you with no returns for three years.
 
-The rating matches the tone of the full report: watch, not bearish. The difference: bearish means waiting for it to fall, watch means waiting for it to get cheap.
+The rating matches the tone of the full report: watch, not bearish. The difference: bearish means waiting for it to fall; watch means waiting for it to get cheap.
 
 ## Chapter 12 Appendix: Data Sources and Definitions
 
-Financial data is taken from ASML's 2026Q3 results and earnings call (2026/10/13); share price and 52-week range are taken from batchdata (as of 2026/10/16); share count and TTM net profit basis are taken from stockanalysis.com; industry data (WFE size, gross margin range, localization rate) are industry-basis estimates and are marked "rough calculation." 2025E/2026E/2027E are forecasts of this report, not company guidance. Exchange rate: EUR 1 = USD 1.16.
+Financial data is sourced from ASML's 2026Q3 results and earnings call (2026/10/13); share price and 52-week range from batchdata (as of 2026/10/16); share count and TTM net profit basis from stockanalysis.com. Industry data (WFE size, gross margin range, localisation rate) are industry-basis estimates, marked "rough calculation." 2025E/2026E/2027E are forecasts of this report, not company guidance. Exchange rate: EUR 1 = USD 1.16.
 
-Three notes on basis: first, all "year-on-year" figures compare with the same period of 2025 and are not adjusted for exchange rates; second, market cap is calculated using the 2026/10/16 closing price and approximately 380 million shares, a slight difference from the weighted average of 384 million shares used for EPS; third, figures marked "rough calculation/back-solved" are calculations of this report, not company disclosures, with an error range of within ±5%.
+Three notes on basis. First, all "YoY" figures compare with the same period of 2025 and are not adjusted for exchange rates. Second, market cap uses the 2026/10/16 closing price and approximately 380 million shares, a slight difference from the weighted average of 384 million shares used for EPS. Third, figures marked "rough calculation/back-solved" are calculations of this report, not company disclosures, with an error range of within ±5%.
 
 Data not obtained: net order intake (not separately disclosed this quarter), revenue by customer, maturity structure of contract liabilities, R&D expense breakdown. These four gaps do not affect the main conclusions, but they do affect the precision of judgments on the 2027 revenue cadence.
 
 ## Sources
 
-- ASML Q3 2026 earnings and earnings call (released October 13, 2026; net sales, gross margin, guidance)
-- ASML Q3 2026 earnings call and financial statement notes (2026/10/13): installed base management revenue EUR 3.289 billion, China 23% of net system sales, one-off equity revaluation gain of about EUR 500 million
-- AWP/Alliance News：ASML Q3 Profit Surges, Lifts FY26 Outlook（2026/10/14）
-- China Electronics News "ASML: Quarterly Sales Hit Record High" (2026/10/13, China at 20% guidance, EUV and non-EUV growth rates); Zhitong Finance (2026/10/13, EUV system sales EUR 4.1 billion, up 94% YoY)
+- ASML Q3 2026 results and earnings call (released October 13, 2026; net sales, gross margin, guidance)
+- ASML Q3 2026 earnings call and financial statement notes (2026/10/13): installed base management revenue of EUR 3.289 billion; China at 23% of net system sales; one-off equity revaluation gain of about EUR 500 million
+- AWP/Alliance News: ASML Q3 profit surges; raises FY26 outlook (2026/10/14)
+- China Electronics News, "ASML: Quarterly Sales Hit Record High" (2026/10/13): China at 20% of guidance; EUV and non-EUV growth rates
+
+Zhitong Finance (2026/10/13): EUV system sales EUR 4.1 billion, up 94% YoY
 - Share capital and TTM net profit basis at stockanalysis.com/stocks/asml/
 - Share price vs 52-week range: batchdata closing data (as of 2026/10/16)

@@ -6,9 +6,9 @@
 
 ## Notes
 
-① The three hard lines (growth >25%, gross margin >60%, GAAP profitability) are set for this report and are not industry standards. ② Market caps and multiples use the ranges publicly reported in September–October 2026: Microsoft about USD 3.5 trillion, 30x PE; Snowflake about USD 70 billion, 13x P/S; C3.ai about USD 3 billion, 3x P/S; Booz Allen about USD 18 billion, 15x PE; Databricks primary valuation in the USD 100 billion range. ③ Palantir's 74x P/S is a calculated value (USD 456 billion ÷ TTM USD 6.162 billion).
+① The three hard lines (growth >25%, gross margin >60%, GAAP profitability) are criteria set for this report, not industry standards. ② Market caps and multiples use the ranges publicly reported in September–October 2026: Microsoft about USD 3.5 trillion, 30x P/E; Snowflake about USD 70 billion, 13x P/S; C3.ai about USD 3 billion, 3x P/S; Booz Allen about USD 18 billion, 15x P/E; Databricks primary valuation in the USD 100 billion range. ③ Palantir's 74x P/S is a calculated value (USD 456 billion ÷ TTM USD 6.162 billion).
 
-## Peer comparison (October 2026; market cap and multiples as ranges)
+## Peer comparison, October 2026 (market cap and multiples shown as ranges)
 
 | The company | Market cap | Revenue growth | Gross margin | Price-to-sales ratio | Operating margin | Conclusion |
 |---|---|---|---|---|---|---|
@@ -19,13 +19,13 @@
 | Booz Allen | About USD 18 billion | Approximately +8% | Approximately 22% | — (PE 15x) | Approximately 10% | Eliminated: not software |
 | C3.ai | About USD 3 billion | Approximately +20% | About 60% | About 3x | Loss | Eliminated: losing on both scale and profitability |
 
-> Market cap, growth, gross margin and multiples are ranges based on public reports and market data from September–October 2026, not precise values; Booz Allen is valued on PE because it is a services company, so price-to-sales does not apply.
+> Market cap, growth, gross margin and multiples are ranges drawn from public reports and market data for September–October 2026 rather than precise values. Booz Allen is valued on P/E because it is a services company, so price-to-sales does not apply.
 
 ## First-round screen: three hard cutoffs eliminate half
 
-Three criteria: revenue growth >25%, gross margin >60%, and achieved GAAP profitability. These are not onerous—they simply separate out companies that are "not the same kind of business."
+Three criteria: revenue growth >25%, gross margin >60%, and GAAP profitability. These are not onerous—they simply separate out companies that are "not the same kind of business."
 
-Booz Allen is the first to drop out. Gross margin 22%, growth 8%—it is a consulting firm that charges by the person-day, with no software leverage. It competes with Palantir in government budgets, but it is not the same asset class, and its valuation logic is entirely different (15x PE versus 74x price-to-sales).
+Booz Allen is the first to drop out. Gross margin 22%, growth 8%—a consulting firm that charges by the person-day, with no software leverage. It competes with Palantir for government budgets, but it is not the same asset class, and its valuation logic is entirely different (15x P/E versus 74x price-to-sales).
 
 C3.ai is the second to drop out. Growth 20%, gross margin 60%, persistently loss-making, and only one-hundredth of Palantir's scale. It tells the same story but cannot produce the same numbers—which shows that Palantir's moat is not conferred by the "AI application" category, but by the qualifications and customer relationships it built up over fifteen years.
 
@@ -43,18 +43,18 @@ Palantir is the only name that is "listed + high growth + high profit + embedded
 
 ## Round three: price turns the final pick into a watch
 
-The funnel has screened down to this point, and the usual call would be "Buy." But this report stops at step three: a 74x price-to-sales ratio.
+The funnel has screened down to this point, and the usual call would be "Buy." This report, however, stops at step three: a 74x price-to-sales ratio.
 
-Compare peer valuations: Microsoft at 12x, Snowflake at 13x, C3.ai at 3x. Palantir trades at 6 to 25 times those levels. The premium the market grants it is equivalent to the assumption that "it must remain the only winner."
+Peer valuations: Microsoft at 12x, Snowflake at 13x, C3.ai at 3x. Palantir trades at 6 to 25 times those levels. The premium the market grants it is equivalent to the assumption that "it must remain the only winner."
 
 Is the premium justified? Yes. Its growth rate is three to four times that of peers, its margins are an order of magnitude higher, and it sits closer to the decision layer. But does the premium have a ceiling? Also yes. When a company's price-to-sales ratio is six times that of its peers, its share price is no longer driven by fundamentals but by whether market sentiment can continue to support that multiple.
 
-So the funnel's conclusion must be stated in full: It is the best company in this space, and it is the most expensive stock in this space. These two statements are not contradictory; they simply answer different questions—"what to buy" and "at what price."
+So the funnel's conclusion must be stated in full: It is the best company in this space, and it is the most expensive stock in this space. The two statements are not contradictory; they simply answer different questions—"what to buy" and "at what price."
 
 ## Sources
 
-- Palantir 2026Q2 earnings press release (2026/08/03, investors.palantir.com)
-- Palantir 2026Q1 earnings press release (2026/05/03, Q1 revenue USD 1.633 billion, +85% YoY)
-- stockanalysis.com/stocks/pltr/ quote and share data (market cap calculated on a base of 2.41 billion shares)
-- Yahoo Finance: Palantir had 1,049 customers and 870 commercial customers (2026Q2, reported August 31, 2026)
+- Palantir 2026Q2 earnings press release (3 August 2026, investors.palantir.com)
+- Palantir 2026Q1 earnings press release (2026/05/03): Q1 revenue USD 1.633 billion, +85% YoY
+- Palantir (PLTR) quote and share data from stockanalysis.com/stocks/pltr/, with market cap calculated on a base of 2.41 billion shares
+- Yahoo Finance: Palantir reported 1,049 customers, of which 870 were commercial, for 2026Q2 (reported August 31, 2026)
 - Share price vs. 52-week range: batchdata closing data (as of 2026/10/05)

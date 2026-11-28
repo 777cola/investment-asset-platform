@@ -6,35 +6,35 @@
 
 ## Notes
 
-This piece is ready for publication on the official account; its facts and conclusions are consistent with the previous 17 modules. All price and per-share data reflect the 10-for-1 split effective 2025/11/17. The text uses no tables, footnotes or external links, so it can be copied and published directly.
+This piece is ready for publication on the official account; its facts and conclusions are consistent with the previous 17 modules. All price and per-share data reflect the 10-for-1 split effective 2025/11/17. The text contains no tables, footnotes or external links, so it can be copied and published directly.
 
 ## Main text (ready to copy and publish)
 
-Netflix Falls to a Two-Year Low — I Looked at Only Three Numbers
+Netflix Hits a Two-Year Low — I Looked at Just Three Numbers
 
-On October 23, Netflix closed at USD 65.85, down 1.79%, a two-year low. It is down about 29% year to date and 39.8% from its post-split high last November.
+Netflix closed at USD 65.85 on October 23, down 1.79% and at a two-year low. The stock is down about 29% year to date and 39.8% from its post-split high last November.
 
-First, let's be clear about the basis, or everything that follows will be wrong. Netflix did a 10-for-1 split on November 17, 2025, so all current prices and EPS are post-split. If you see someone say "Netflix fell from over USD 1,000 to USD 66," they are comparing a pre-split price with a post-split one — off by an order of magnitude.
+First, the basis — get this wrong and everything that follows is wrong. Netflix split 10-for-1 on November 17, 2025, so all current prices and EPS are post-split. Anyone saying "Netflix fell from over USD 1,000 to USD 66" is comparing a pre-split price with a post-split one — off by an order of magnitude.
 
 The market's verdict: the growth is over.
 
 Three reasons — third-quarter revenue growth of 11.8%, the lowest in three years; full-year ad revenue cut from USD 3 billion to USD 2.7 billion; full-year revenue guidance at the low end of the prior range.
 
-All three are true. But on the same day, the company also reported three other numbers.
+All three are true. But on the same day the company reported three other numbers.
 
-Number one: 34.6%. That is the third-quarter operating margin, up 6.4 percentage points year on year and above the company's own guidance. Full-year guidance is 31.5%, 2 percentage points above 2025's 29.5%. In media, Disney's operating margin has long run at 10% to 15%, and the streaming businesses of Paramount and WBD have only just turned positive. Netflix earns the entire industry's profit with one company.
+Number one: 34.6%. That is the third-quarter operating margin, up 6.4 percentage points YoY and above the company's own guidance. Full-year guidance is 31.5%, 2 percentage points above 2025's 29.5%. In media, Disney's operating margin has long run at 10% to 15%, and the streaming businesses of Paramount and WBD have only just turned positive. Netflix earns the entire industry's profit with one company.
 
-And that 2-percentage-point gain came on top of price increases. Netflix raised prices in 2026, and churn still fell year on year. Raising prices without losing users is the hardest evidence of a moat — more reliable than market share or content volume.
+And that 2-percentage-point gain came on top of price increases. Netflix raised prices in 2026 and churn still fell YoY. Raising prices without losing users is the hardest evidence of a moat — more reliable than market share or content volume.
 
 Number two: USD 4.8 billion. That is third-quarter buybacks, 63.9 million shares, the highest for any quarter on record. Remaining authorization is USD 22.3 billion, equal to 8.2% of market cap.
 
-Annualized at that pace, buybacks run about USD 19 billion a year. Against a USD 270 billion market cap, that is 7%. In other words, even with the valuation multiple unchanged, per-share value rises 6% to 7% a year. If the multiple goes from 18x back to 22x, that is an extra gift, not a requirement.
+Annualised at that pace, buybacks run about USD 19 billion a year — 7% of a USD 270 billion market cap. In other words, even with the multiple unchanged, per-share value rises 6% to 7% a year. If the multiple goes from 18x back to 22x, that is extra upside, not a requirement.
 
 One detail: the average buyback price this round was about USD 75, 14% above today's USD 65.85. Some cite this to argue management overpaid. That is wrong — buybacks should be judged on whether the purchase price is below intrinsic value, not below the market price three months later. If intrinsic value is USD 79, buying at USD 75 is a good deal.
 
-Number three: USD 12 billion. That is full-year free cash flow guidance. It was cut from USD 12.5 billion, but against a USD 270 billion market cap it is a 4.4% yield. Add 7% buybacks and annualized shareholder return is just over 10%.
+Number three: USD 12 billion. That is full-year free cash flow guidance. It was cut from USD 12.5 billion, but against a USD 270 billion market cap it is a 4.4% yield. Add 7% buybacks and annualised shareholder return is just over 10%.
 
-Put the three numbers together and the structure is simple: a company with a 31.5% operating margin, USD 12 billion of free cash flow and 6% to 7% annual share shrinkage now trades at 18x 2026 expected PE. Excluding one-time gains in the first quarter, it is 21x.
+Put the three numbers together and the structure is simple: a company with a 31.5% operating margin, USD 12 billion of free cash flow and 6% to 7% annual share shrinkage now trades at 18x 2026 expected P/E. Excluding one-time gains in the first quarter, it is 21x.
 
 That price corresponds to a mature media company. Yet it still has 12% growth.
 
@@ -42,11 +42,11 @@ So what is the market worried about? Watch time.
 
 In US viewing share, Netflix has 7.8% and YouTube 14% — nearly double. And the gap is widening.
 
-This battle cannot be won, not because the content is bad but because the supply structure differs. YouTube's content is uploaded by users, with zero marginal cost and unlimited supply; every extra hour of content costs Netflix money, so its supply has a ceiling. On the dimension of total watch time, a paid platform can never beat a UGC platform.
+This battle cannot be won, not because the content is bad but because the supply structure differs. YouTube's content is uploaded by users, with zero marginal cost and unlimited supply; every extra hour of content costs Netflix money, so its supply has a ceiling. On total watch time, a paid platform can never beat a UGC platform.
 
-So Netflix's choice is this: don't fight the hours war, fight monetization efficiency per hour. A 7.8% share of viewing hours buys USD 12.874 billion in quarterly revenue. The strategy is right, but it sets the ceiling — Netflix is a premium paid service, not a mass-market entertainment platform.
+So Netflix's choice is this: don't fight the hours war, fight monetisation efficiency per hour. A 7.8% share of viewing hours buys USD 12.874 billion in quarterly revenue. The strategy is right, but it sets the ceiling — Netflix is a premium paid service, not a mass-market entertainment platform.
 
-That characterization matters. Buy it at a "mass-market entertainment platform" valuation and you'll be paying 45x; buy it at a "premium paid service" valuation and you'll have the nerve to act at 18x.
+That characterisation matters. Buy it at a "mass-market entertainment platform" valuation and you'll be paying 45x; buy it at a "premium paid service" valuation and you'll have the nerve to act at 18x.
 
 One more thing that makes me uneasy: the people.
 
@@ -66,7 +66,7 @@ No price stop-loss; an event stop-loss instead. Three triggers: 2027 revenue gui
 
 One last point that may not be popular.
 
-The reasonable return on this investment is 10% to 15% annualized, driven by profit growth, buybacks and valuation repair — not narrative re-rating. If what you want is "the next ten-bagger," this isn't it.
+The reasonable return on this investment is 10% to 15% annualised, driven by profit growth, buybacks and valuation repair — not narrative re-rating. If what you want is "the next ten-bagger," this isn't it.
 
 But if what you want is "a company that earns USD 12 billion in cash a year, spends 19 billion buying back its own stock, carries only 7.1 billion in net debt, bought at a mature-media price," then now is the time.
 
@@ -74,9 +74,9 @@ The market is selling its growth rate; I'm buying its buybacks. It's that simple
 
 ## Sources
 
-- Netflix Q3 2026 earnings report and shareholder letter (released after US market close on October 20, 2026)
+- Netflix Q3 2026 earnings and shareholder letter (released after the US close on October 20, 2026)
 - Netflix Q3 2026 earnings call transcript (2026/10/20)
-- Zhitong Finance: "Netflix Q3 Revenue Up 12% YoY, Full-Year Advertising Revenue Outlook Cut" (2026/10/21)
-- Netflix 10-for-1 stock split: board approved on 2025/10/30, record date 2025/11/10, effective 2025/11/17 (TheStreet, Nasdaq)
-- Netflix layoffs and organizational restructuring: internal memo from the co-CEOs on 2026/10/13, cutting roughly 6% of staff (nearly 1,000 people), reported by AP and SETN
-- Share price, 52-week high/low and market cap: NASDAQ daily chart (as of 2026/10/23 close), 4.11 billion shares outstanding, all on a post-split basis
+- Zhitong Finance: Netflix Q3 revenue up 12% YoY; full-year advertising revenue outlook cut (2026/10/21)
+- Netflix 10-for-1 stock split: board approval 2025/10/30, record date 2025/11/10, effective 2025/11/17 (TheStreet, Nasdaq)
+- Netflix layoffs and restructuring: co-CEOs' internal memo, 2026/10/13, cutting roughly 6% of staff (nearly 1,000 people), per AP and SETN
+- Share price, 52-week high/low and market cap: NASDAQ daily chart (as of 2026/10/23 close); 4.11 billion shares outstanding, all on a post-split basis

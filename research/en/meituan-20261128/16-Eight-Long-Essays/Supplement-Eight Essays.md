@@ -6,7 +6,7 @@
 
 ## Notes
 
-All eight long-form articles use 2026/11/28 as the cutoff date and rely only on information public on or before that day. Company-disclosed data and estimated figures are labeled at the end of each article; core figures cited repeatedly are in meta.json.
+All eight long-form articles use 2026/11/28 as the cutoff date and rely solely on information public on or before that day. Company-disclosed and estimated figures are labelled at the end of each article; core figures cited repeatedly are in meta.json.
 
 ## A guide to eight long reads
 
@@ -14,9 +14,9 @@ The eight pieces form a whole and must be read in order—later judgments depend
 
 - ① Cognitive reset: Dismantle three outdated beliefs (food delivery is the best business, subsidy wars will produce a winner, losses mean the business is deteriorating).
 
-- ② Business essence: Meituan sells time. Delivery fee per order is RMB 4.1 against a cost of over RMB 7, with the gap covered by in-store gross profit.
+- ② Business essence: Meituan sells time. Delivery fee per order is RMB 4.1 against a cost of over RMB 7, with in-store gross profit covering the gap.
 
-- ③ Moat anatomy: Four moats ranked by how much money and time it would take a rival to close them—fulfillment is hard, in-store is soft.
+- ③ Moat anatomy: Four moats ranked by the money and time a rival would need to close them—fulfillment is hard, in-store is soft.
 
 - ④ Financial truth: RMB 2.071 billion = RMB 8.7 billion more gross profit + RMB 11.5 billion cost savings + RMB 360 million non-operating, with unit economics at RMB 0.3 net profit per order.
 
@@ -38,9 +38,9 @@ The third thread is price: HKD 67.85, HKD 419 billion market cap, 11.5x after ne
 
 ## Sources
 
-- Meituan (03690) Q3 2026 results announcement (released after Hong Kong market close on 27 November 2026): revenue RMB 115.56 billion, net profit RMB 2.07 billion, adjusted net profit RMB 1.85 billion
-- Meituan Q3 2026 earnings call (27 November 2026, 20:00; Wang Xing and Chen Shaohui attending)
-- Meituan 2026 interim results announcement (2026/08/28): Q2 revenue RMB 104.64 billion, core local commerce operating profit RMB 5.67 billion
+- Meituan (03690) reported Q3 2026 results after the Hong Kong close on 27 November 2026, with revenue of RMB 115.56 billion, net profit of RMB 2.07 billion and adjusted net profit of RMB 1.85 billion
+- Meituan Q3 2026 earnings call, 27 November 2026, 20:00, with Wang Xing and Chen Shaohui attending
+- Meituan 2026 interim results (28 August 2026): Q2 revenue RMB 104.64bn, core local commerce operating profit RMB 5.67bn
 - Meituan 2025 annual report: full-year revenue RMB 364.85 billion, net loss RMB 23.355 billion, operating loss RMB 17 billion
-- Share price and 52-week range: daily close, 27 November 2026 at HKD 67.85 (+8.21%); 52-week high HKD 106.10, low HKD 61.45
-- <p class='txt'>Food-delivery order-volume share: Goldman Sachs research report, March 2026 (cited by Jiemian News; data as of February 2026), not company-disclosed; 20.0</p>
+- Share price: HKD 67.85 at the 27 November 2026 close (+8.21%); 52-week range HKD 61.45–106.10
+- <p class='txt'>Food-delivery order-volume share: 20.0, per Goldman Sachs research (March 2026, cited by Jiemian News; data as of February 2026), not company-disclosed</p>

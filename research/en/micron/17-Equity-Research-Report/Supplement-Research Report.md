@@ -2,13 +2,13 @@
 
 - Research date：2026/09/25
 - Price：1082.28 USD
-- Market cap：Approximately USD 1.22 trillion (based on a rough estimate of 1.13 billion shares)
+- Market cap：About USD 1.22 trillion (on a rough estimate of 1.13 billion shares)
 
 ## Notes
 
-This report is a research record as of 25 September 2026; all data reflect information publicly available as of that date. FY23–FY25 are reported actuals; FY26E is a rough calculation from quarterly actuals plus guidance; FY27E EPS is the consensus figure, while revenue and net profit are rough calculations back-solved from it. Valuation multiples are subjective assumptions; probabilities are subjectively assigned.
+This report is a research record as of 25 September 2026; all data reflect information publicly available as of that date. FY23–FY25 are reported actuals. FY26E is derived from quarterly actuals plus guidance; FY27E EPS is consensus, with revenue and net profit back-solved from it. Valuation multiples are subjective assumptions and probabilities are assigned subjectively.
 
-## Earnings forecasts and key assumptions (USD million, fiscal year ending August)
+## Earnings forecasts and key assumptions (USD mn, FY ending August)
 
 | Project | FY2023 | FY2024 | FY2025 | FY2026E | FY2027E |
 |---|---|---|---|---|---|
@@ -19,7 +19,7 @@ This report is a research record as of 25 September 2026; all data reflect infor
 | EPS (USD) | -5.34 | 0.70 | 7.60 | 73 | 166 |
 | Capital expenditure | 7,700 | 8,100 | Approximately 13,000 | 27,000 | >40,000 |
 
-> FY23–FY25 are company-reported figures; FY26E is a rough calculation based on Q1 RMB 13.64 billion + Q2 RMB 23.86 billion + Q3 RMB 41.46 billion + the midpoint of Q4 guidance of RMB 50 billion; FY27E EPS of USD 166 is the late-September consensus (backed out from market cap of RMB 1.22 trillion ÷ 6.5x, in line with sell-side estimates of USD 166–169), while revenue of RMB 249 billion and net profit of RMB 188 billion are rough calculations backed out from an 88% gross margin and 75% net margin, not company guidance.
+> FY23–FY25 are company-reported. FY26E is our rough calculation: Q1 RMB 13.64 billion + Q2 RMB 23.86 billion + Q3 RMB 41.46 billion + the RMB 50 billion midpoint of Q4 guidance. FY27E EPS of USD 166 is late-September consensus, backed out from a market cap of RMB 1.22 trillion ÷ 6.5x and in line with sell-side estimates of USD 166–169; revenue of RMB 249 billion and net profit of RMB 188 billion are rough calculations backed out from an 88% gross margin and 75% net margin, not company guidance.
 
 ## Valuation: three scenarios and sell-side comparison
 
@@ -27,41 +27,41 @@ This report is a research record as of 25 September 2026; all data reflect infor
 |---|---|---|---|
 | Bear case (supply catches up, EPS 80) | USD 400 | 5.0x FY27E | -63% |
 | Neutral (still out of stock, EPS 166) | USD 1,120 | 6.7x FY27E | +3% |
-| Optimistic (over half contracted under long-term agreements, EPS 180) | USD 1,620 | 9.0x FY27E | +50% |
+| Base case: over half of 2026 output is locked in under long-term agreements, supporting EPS of 180 | USD 1,620 | 9.0x FY27E | +50% |
 | Citi（9/22） | USD 1,300 | — | +20% |
 | Wells Fargo (September 22, downgrade) | USD 1,400 | — | +29% |
 | BofA（9/25） | USD 1,550 | — | +43% |
 | UBS（9/24，2029E 8x） | USD 1,625 | — | +50% |
 
-> Current price USD 1,082.28 (close on 2026/09/25). Sell-side target prices are taken from public reports in late September; all are targets under "Buy/Overweight" ratings and do not represent my own view.
+> Current price USD 1,082.28 (close on 2026/09/25). Sell-side target prices are drawn from public reports published in late September; all sit under Buy/Overweight ratings and do not represent my own view.
 
 ## Chapter 1 Company Overview
 
-Micron Technology was founded in 1978 in Boise, Idaho, and listed on Nasdaq in 1994. It is the world's third-largest DRAM maker and fifth-largest NAND maker. The company employs roughly 56,000 people and operates 15 fabs across the US (Boise, Manassas, Virginia), Japan (Hiroshima), Taiwan (Taichung, Taoyuan), Singapore (NAND) and Malaysia (Penang, SSD assembly and test).
+Micron Technology was founded in 1978 in Boise, Idaho, and listed on Nasdaq in 1994. It is the world's third-largest DRAM maker and fifth-largest NAND maker, employing roughly 56,000 people across 15 fabs in the US (Boise; Manassas, Virginia), Japan (Hiroshima), Taiwan (Taichung, Taoyuan), Singapore (NAND) and Malaysia (Penang, SSD assembly and test).
 
-The business is organized into four segments: Core Data Center (CDBU, HBM and server DRAM), Cloud Memory (CMBU, enterprise SSD), Mobile and Client (MCBU, handsets and PCs), and Automotive and Embedded (AEBU). In FY26Q3 the four segments generated revenue of USD 11.5 billion, USD 13.77 billion, USD 11.52 billion and USD 4.63 billion respectively.
+The business is organised into four segments: Core Data Center (CDBU, HBM and server DRAM), Cloud Memory (CMBU, enterprise SSD), Mobile and Client (MCBU, handsets and PCs) and Automotive and Embedded (AEBU). In FY26Q3 the four generated revenue of USD 11.5 billion, USD 13.77 billion, USD 11.52 billion and USD 4.63 billion respectively.
 
-The company acquired Elpida in 2013, gaining Hiroshima capacity, and acquired Inotera in 2016, gaining Taichung capacity. In 2021 it exited 3D XPoint and sold its Lehi, Utah fab, concentrating the business squarely on DRAM and NAND.
+Micron acquired Elpida in 2013, adding Hiroshima capacity, and Inotera in 2016, adding Taichung capacity. In 2021 it exited 3D XPoint and sold its Lehi, Utah fab, concentrating the business squarely on DRAM and NAND.
 
-Share price and market performance: the stock closed at USD 1,082.28 on 2026/09/25, up 0.16% on the day, against a 52-week high of USD 1,213.56, or 10.8% below that high, and up about 226% year to date. Market cap is roughly USD 1.22 trillion (on 1.13 billion basic shares), placing it among the ten largest semiconductor companies globally by market value. The stock has gained about 14% since the start of September, outperforming SOXX, but volatility has widened markedly — up 5% on 22 September and down more than 2% the next day.
+Share price and market performance: the stock closed at USD 1,082.28 on 2026/09/25, up 0.16% on the day and about 10.8% below its 52-week high of USD 1,213.56, and is up roughly 226% year to date. Market cap is about USD 1.22 trillion (on 1.13 billion basic shares), placing it among the ten largest semiconductor companies globally by market value. The stock has gained about 14% since the start of September, outperforming SOXX, though volatility has widened markedly — up 5% on 22 September and down more than 2% the next day.
 
-On customer structure, the company discloses no single customer above 10% of revenue, but CDBU and CMBU together account for about 61% of revenue from data center and cloud customers, including Nvidia (one of its main HBM suppliers), the four major cloud providers and enterprise server OEMs. The benefit of this customer structure is low single-customer risk; the drawback is that pricing power sits with a handful of large buyers.
+On customer structure, Micron discloses no single customer above 10% of revenue, but CDBU and CMBU together account for about 61% of revenue from data center and cloud customers, including Nvidia (one of its main HBM suppliers), the four major cloud providers and enterprise server OEMs. This structure limits single-customer risk; the drawback is that pricing power sits with a handful of large buyers.
 
 ## Chapter 2 Industry Analysis
 
-2026Q2 global DRAM industry revenue was USD 154.73 billion, up 59.5% QoQ (TrendForce), with Samsung at 39.4%, SK hynix at 24.9%, Micron at 23.3% and ChangXin at 9.5%. Industry concentration is high, but the industry has never successfully "controlled output to defend prices" in its history.
+Global DRAM industry revenue reached USD 154.73 billion in 2026Q2, up 59.5% QoQ (TrendForce), with Samsung at 39.4%, SK hynix at 24.9%, Micron at 23.3% and ChangXin at 9.5%. Industry concentration is high, yet the industry has never in its history succeeded in "controlling output to defend prices".
 
-The current shortage is structural: HBM's share of DRAM wafer capacity has risen from under 5% to over 20% (possibly 35% in 2027), and the same wafer yields only one-third to one-half the bit output in HBM versus ordinary DRAM, effectively shifting the ordinary DRAM supply curve left across the board. Add AI data centers as a "buyer regardless of cost", and the result is the extreme 2026 market of DRAM contract prices up 90%–95% YoY and HBM up over 200%.
+The current shortage is structural. HBM's share of DRAM wafer capacity has risen from under 5% to over 20% (possibly 35% in 2027), and a wafer yields only one-third to one-half the bit output in HBM versus ordinary DRAM, shifting the ordinary DRAM supply curve left across the board. Add AI data centres as a "buyer regardless of cost", and the result is the extreme 2026 market of DRAM contract prices up 90%–95% YoY and HBM up over 200%.
 
-On the supply side, wafer supply is expected to grow 12% in 2027, half of it going to HBM, leaving ordinary DRAM bit growth at about 15% against demand growth of 22% — a gap of about 7 percentage points; meaningful supply growth will not arrive until 2028. This means the upcycle lasts at least through the first half of 2027.
+On the supply side, wafer supply is expected to grow 12% in 2027, half of it going to HBM, leaving ordinary DRAM bit growth at about 15% against demand growth of 22% — a gap of about 7 percentage points; meaningful supply growth will not arrive until 2028. The upcycle therefore lasts at least through the first half of 2027.
 
-The pricing mechanism deserves separate explanation: DRAM has two prices — the quarterly contract price (the larger share, negotiated quarter by quarter between manufacturers and major customers) and the spot price (the smaller share, moving with the market). Share prices are far more sensitive to contract prices than to spot prices, because contract prices determine reported revenue. In Q1 2026 contract prices rose 90%–95% YoY, and Q4 is expected to rise 10%–15% QoQ — the sequential gain narrowing quarter by quarter is the single most important indicator to track in this cycle.
+The pricing mechanism warrants separate explanation: DRAM has two prices — the quarterly contract price (the larger share, negotiated quarter by quarter between manufacturers and major customers) and the spot price (the smaller share, moving with the market). Share prices are far more sensitive to contract prices than to spot prices, because contract prices determine reported revenue. Contract prices rose 90%–95% YoY in 2026Q1, and Q4 is expected to rise 10%–15% QoQ — the sequential gain narrowing quarter by quarter is the single most important indicator to track in this cycle.
 
 ## Chapter 3 Business model
 
-Micron sells three things: bits (capacity), bandwidth (HBM), and certainty (long-term contracts). Bits are a commodity, and the low-cost leader wins; HBM sells bandwidth density, won through stacking and yield; long-term contracts sell the promise that "you will get supply," backed by capacity and the balance sheet.
+Micron sells three things: bits (capacity), bandwidth (HBM) and certainty (long-term contracts). Bits are a commodity, and the low-cost leader wins; HBM sells bandwidth density, won through stacking and yield; long-term contracts sell the promise that "you will get supply," backed by capacity and the balance sheet.
 
-By revenue mix, the bit business still contributes about 90% of revenue; HBM4 exceeds USD 1 billion in a single quarter and is the fastest-growing segment; SCA long-term contracts do not show up as current-period revenue, only as USD 22 billion of contract liabilities. Current-period profit is therefore still driven mainly by ordinary DRAM prices, while HBM and long-term contracts determine competitiveness from 2028 onward.
+By revenue mix, bits still contribute about 90% of revenue; HBM4 exceeds USD 1 billion in a single quarter and is the fastest-growing segment; SCA long-term contracts do not show up as current-period revenue, only as USD 22 billion of contract liabilities. Current-period profit is therefore still driven mainly by ordinary DRAM prices, while HBM and long-term contracts determine competitiveness from 2028 onward.
 
 The real change in the business model came in June 2026: 16 five-year strategic customer agreements, take-or-pay, with price floors and ceilings; 14 of them at floor prices correspond to roughly USD 100 billion of revenue, and customers have paid about USD 22 billion in cash deposits. This is the first time the memory industry has shifted from "prices set by the market" to "prices set by contract," but coverage is only about 20%.
 
@@ -79,33 +79,33 @@ The shift in segment gross margins is more telling: CDBU rose from 38% to 87%, M
 
 ## Chapter 5 Management
 
-Chairman and CEO Sanjay Mehrotra (born 1959) took office in May 2017; previously co-founder and CEO of SanDisk. CFO Mark J. Murphy (joined 2022), global operations head Manish Bhatia, CTO Scott DeBoer, chief business officer Sumit Sadana.
+Chairman and CEO Sanjay Mehrotra (born 1959) took office in May 2017, having previously co-founded and led SanDisk as CEO. He is joined by CFO Mark J. Murphy (2022), global operations head Manish Bhatia, CTO Scott DeBoer and chief business officer Sumit Sadana.
 
-Capital allocation record: acquired Elpida for USD 2.5 billion in 2013, acquired Inotera for USD 3.2 billion in 2016, sold the Lehi fab in 2021 to cut losses, secured USD 6.165 billion in CHIPS Act subsidies in December 2024, and in July 2026 raised its long-term US investment from USD 200 billion to USD 250 billion (through 2035, targeting 40% of DRAM production in the US).
+Capital allocation track record: the USD 2.5 billion acquisition of Elpida in 2013; the USD 3.2 billion acquisition of Inotera in 2016; the 2021 sale of the Lehi fab to stem losses; USD 6.165 billion in CHIPS Act subsidies secured in December 2024; and, in July 2026, a raise in the long-term US investment plan from USD 200 billion to USD 250 billion through 2035, targeting 40% of DRAM production in the US.
 
-Two key bets: kept funding HBM through the industry's worst point in 2023 (a winning bet), and launched SCA long-term contracts in 2026 (yet to be proven). Two governance points warrant noting: the CEO also serves as chairman; Mehrotra is 67 with no public succession plan. On August 21, 2026 he sold 40,000 shares under a 10b5-1 plan for about USD 38.76 million, leaving a stake of roughly 0.08%.
+Two key bets: continued HBM funding through the industry trough in 2023 (a winning bet), and the launch of SCA long-term contracts in 2026 (yet to be proven). Two governance points warrant attention: the CEO also serves as chairman, and Mehrotra is 67 with no public succession plan. On August 21, 2026 he sold 40,000 shares under a 10b5-1 plan for about USD 38.76 million, leaving a stake of roughly 0.08%.
 
-Shareholder return policy is conservative: a quarterly dividend of USD 0.15 (raised 30% in March 2026), negligible against quarterly net profit of USD 28.2 billion; historical buybacks have been limited. Management's logic is "at the cycle top, prioritize capex and cash," which is right for a cyclical stock but also means shareholders get no cash return in the best years.
+Shareholder returns are conservative: a quarterly dividend of USD 0.15 (raised 30% in March 2026), negligible against quarterly net profit of USD 28.2 billion, with buybacks limited historically. Management's logic is to prioritise capex and cash at the cycle top, which is right for a cyclical stock but leaves shareholders with no cash return in the best years.
 
 ## Chapter 6 Growth Drivers
 
-First: HBM volume and price both rise. HBM4 12-layer has entered mass production with Vera Rubin, and 16-layer 48GB has been sampled; monthly capacity rises from 40,000–50,000 wafers at end-2025 to about 100,000 wafers at end-2026. HBM unit pricing is roughly 5–8x that of DDR5 of the same density, the main source of ASP uplift.
+First, HBM volume and price both rise. HBM4 12-layer has entered mass production with Vera Rubin and 16-layer 48GB has been sampled; monthly capacity rises from 40,000–50,000 wafers at end-2025 to about 100,000 wafers at end-2026. HBM unit pricing is roughly 5–8x that of DDR5 of the same density — the main source of ASP uplift.
 
-Second: structural upgrade of conventional DRAM. Rising penetration of server DDR5 and LPDDR5X, combined with supply crowded out by HBM, amplifies the price elasticity of conventional DRAM.
+Second, structural upgrade of conventional DRAM. Rising penetration of server DDR5 and LPDDR5X, combined with supply crowded out by HBM, amplifies the price elasticity of conventional DRAM.
 
-Third: enterprise SSD. Data center NAND bit shipments rose 28% QoQ and ASP rose 42%, with global enterprise SSD share climbing to second in the industry — the key to NAND shifting from a drag to a contributor.
+Third, enterprise SSD. Data center NAND bit shipments rose 28% QoQ and ASP rose 42%, with global enterprise SSD share climbing to second in the industry — the key to NAND shifting from a drag to a contributor.
 
-Fourth: visibility from long-term contracts. USD 100 billion minimum revenue over five years; if coverage rises to 50%, it would significantly reduce earnings volatility — the only path to a higher valuation center.
+Fourth, visibility from long-term contracts. USD 100 billion minimum revenue over five years; if coverage rises to 50%, it would significantly reduce earnings volatility — the only path to a higher valuation center.
 
 The capacity map determines the distribution of cost and risk: Boise (R&D and main DRAM), Manassas (niche DRAM), Hiroshima (advanced DRAM, the 2013 Elpida legacy), Taichung and Taoyuan (DRAM, the 2016 Inotera legacy), Singapore (NAND), Penang (SSD packaging and testing). New capacity concentrates in New York and Idaho, USD 250 billion through 2035, targeting 40% of DRAM produced in the US — the trade of higher cost for higher strategic standing.
 
 ## Chapter 7 Competitive Landscape
 
-Samsung: DRAM 39.4%, HBM 33%, first globally to mass-produce HBM4 in February 2026, HBM share jumped from 21% to 33% in a single quarter — the only rival able to subsidize memory from foundry and device businesses. SK hynix: HBM 50%, the biggest winner of this cycle, but overly concentrated. ChangXin: DRAM 9.5%, revenue up 99.3% QoQ, STAR Market IPO approved, its threat lies in capping mainstream DRAM prices.
+Samsung: DRAM 39.4%, HBM 33%; first globally to mass-produce HBM4 in February 2026, with HBM share jumping from 21% to 33% in a single quarter — the only rival able to subsidise memory from its foundry and device businesses. SK hynix: HBM 50%, the biggest winner of this cycle but overly concentrated. ChangXin: DRAM 9.5%, revenue up 99.3% QoQ, STAR Market IPO approved; its threat lies in capping mainstream DRAM prices.
 
-Micron's position: No. 3 in DRAM, No. 3 in HBM; strength in cost (lowest bit cost on 1γ/1δ among the three) and yield (12-layer HBM4 ramp twice as fast as the prior generation), weakness in scale and HBM share. Its strategy — "don't chase the No. 1 share, lock in revenue with long-term contracts" — is pragmatic but unexciting.
+Micron's position: No. 3 in DRAM, No. 3 in HBM. Its strengths are cost (lowest bit cost on 1γ/1δ among the three) and yield (12-layer HBM4 ramp twice as fast as the prior generation); its weaknesses are scale and HBM share. The strategy — "don't chase the No. 1 share, lock in revenue with long-term contracts" — is pragmatic but unexciting.
 
-Valuation cross-check: Micron at 6.5x 2027E, SK hynix at 3.6x 2027E, Samsung does not disclose memory-division profit separately. SK hynix is cheaper because "the market has already priced in 2027 peak earnings," plus the Korean market carries a chaebol discount and FX risk. Micron's premium comes from "purity, disclosure transparency, US liquidity" — a preference, not math.
+Valuation cross-check: Micron at 6.5x 2027E, SK hynix at 3.6x 2027E; Samsung does not disclose memory-division profit separately. SK hynix is cheaper because "the market has already priced in 2027 peak earnings," and because the Korean market carries a chaebol discount and FX risk. Micron's premium comes from "purity, disclosure transparency, US liquidity" — a preference, not math.
 
 ## Chapter 8 Risk factors
 
@@ -127,23 +127,23 @@ Two further tail risks: Taiwan Strait disruption (Micron has DRAM capacity in Ta
 
 ## Chapter 9 Earnings Forecast
 
-FY26E: revenue USD 129 billion (Q1 136.4 + Q2 238.6 + Q3 414.6 + Q4 guidance midpoint 500), net profit about USD 83 billion, EPS about USD 73. The Q4 consensus has been revised up to revenue of 508–514 and EPS of 31.5–31.75.
+FY26E: revenue USD 129 billion (Q1 136.4 + Q2 238.6 + Q3 414.6 + Q4 guidance midpoint 500), net profit about USD 83 billion, EPS about USD 73. Q4 consensus has been revised up to revenue of 508–514 and EPS of 31.5–31.75.
 
-FY27E: consensus EPS about USD 166 (range 166–169); UBS raised its estimate to USD 184.19 on 25 September and expects gross margin to peak at 91% in FY27Q4–FY28Q1. Backing out from an 88% gross margin and 75% net margin implies revenue of about USD 249 billion and net profit of about USD 188 billion (rough calculation, not company guidance).
+FY27E: consensus EPS about USD 166 (range 166–169); UBS raised its estimate to USD 184.19 on 25 September and expects gross margin to peak at 91% in FY27Q4–FY28Q1. Backing out an 88% gross margin and 75% net margin implies revenue of about USD 249 billion and net profit of about USD 188 billion (our rough calculation, not company guidance).
 
 Key assumptions: (1) the DRAM supply-demand gap persists in 2027; (2) gross margin does not peak; (3) capex proceeds as planned and supply is released in 2028. If any one of the three fails, the above forecasts need to be cut by 30%–50%.
 
-Sensitivity analysis: based on FY27E EPS of USD 166, every 5 percentage point decline in gross margin reduces EPS by about USD 11 (rough calculation on revenue of USD 249 billion and 1.13 billion shares); every 10% decline in revenue reduces EPS by about USD 20. Combined (78% gross margin, USD 224 billion revenue), EPS is about USD 115 — the "neutral target price" of USD 1,120 would then require 9.7x, not 6.7x.
+Sensitivity: based on FY27E EPS of USD 166, every 5 percentage point decline in gross margin reduces EPS by about USD 11 (rough calculation on revenue of USD 249 billion and 1.13 billion shares); every 10% decline in revenue reduces EPS by about USD 20. Combined (78% gross margin, USD 224 billion revenue), EPS is about USD 115 — the "neutral target price" of USD 1,120 would then require 9.7x, not 6.7x.
 
 ## Chapter 10 Valuation
 
-Method: use FY2027 expected EPS of USD 166 as the denominator and apply 5–9x. Do not use PE (TTM), because current TTM profit includes two quarters of extreme price increases; do not use DCF, because prices after 2028 cannot be assumed.
+Method: apply 5–9x to FY2027E EPS of USD 166. We avoid P/E (TTM) because the current TTM profit includes two quarters of extreme price increases, and we avoid DCF because prices beyond 2028 cannot be assumed.
 
-Results: bear case USD 400 (5x EPS 80), base case USD 1,120 (6.7x EPS 166), bull case USD 1,620 (9x EPS 180). Weighted at 25/50/25 probabilities, expected value is USD 1,065 versus the current price of USD 1,082.28—expected return -1.6%, downside -63%.
+Results: bear case USD 400 (5x EPS 80), base case USD 1,120 (6.7x EPS 166), bull case USD 1,620 (9x EPS 180). Weighted at 25/50/25, this gives an expected value of USD 1,065 against the current price of USD 1,082.28—expected return -1.6%, downside -63%.
 
-Comparison with sell-side: Citi 1,300, Wells Fargo 1,400, BofA 1,550, UBS 1,625. The difference is not "what multiple to apply" but "which year's earnings to use"—the sell-side uses 2028–2029, while this report uses 2027, because visibility for 2028 is below 50%.
+Versus the sell-side: Citi 1,300, Wells Fargo 1,400, BofA 1,550, UBS 1,625. The difference is not the multiple but the earnings year—the sell-side uses 2028–2029, whereas we use 2027, given visibility for 2028 below 50%.
 
-Cross-check with normalized earnings: revenue RMB 150 billion, gross margin 45%, net margin 30%, EPS about USD 39. At 15x = USD 585, 20x = USD 780, 25x = USD 975. The current USD 1,082 corresponds to about 28x normalized earnings—the conclusion is consistent: it is not cheap; it is "paying for optimistic assumptions."
+Cross-check on normalized earnings: revenue RMB 150 billion, gross margin 45%, net margin 30%, EPS about USD 39. At 15x = USD 585, 20x = USD 780, 25x = USD 975. The current USD 1,082 implies about 28x normalized earnings—a consistent conclusion: the stock is not cheap; investors are paying for optimistic assumptions.
 
 ## Chapter 11 Investment Recommendations
 
@@ -159,18 +159,18 @@ Portfolio level: Micron's correlation with Nvidia, AMD and SOXX is above 0.8, so
 
 Price and market cap: batchdata daily line, 2026/09/25 close USD 1,082.28, +0.16%; market cap USD 1.22 trillion = 1,082.28 × 1.13 billion shares (basic share count), or USD 1.24 trillion on 1.149 billion diluted shares. 52-week high USD 1,213.56, -10.8% from the high.
 
-Financial data: Micron FY26Q1 (2025/12/17), FY26Q2 (2026/03/18), FY26Q3 (2026/06/24) results; FY26Q4 guidance from the 6/24 earnings call. Industry data: TrendForce 2026Q2 DRAM branded-supplier revenue ranking (2026/09/07), Counterpoint 2026Q2 HBM share (2026/09/02). Sell-side estimates: Citi/Wells Fargo (2026/09/22), UBS (2026/09/24), BofA (2026/09/25).
+Financial data: Micron FY26Q1 (2025/12/17), FY26Q2 (2026/03/18) and FY26Q3 (2026/06/24) results; FY26Q4 guidance from the 6/24 earnings call. Industry data: TrendForce 2026Q2 DRAM branded-supplier revenue ranking (2026/09/07); Counterpoint 2026Q2 HBM share (2026/09/02). Sell-side estimates: Citi/Wells Fargo (2026/09/22), UBS (2026/09/24), BofA (2026/09/25).
 
-Basis of presentation: GAAP and Non-GAAP net income shown separately (2.2% gap); "normalized EPS" is a rough calculation (revenue USD 150 billion × 45% gross margin − opex → 30% net margin ÷ 1.13 billion shares ≈ USD 39); "FY27E revenue USD 249 billion" is back-solved from EPS and net margin, not company guidance.
+Basis of presentation: GAAP and Non-GAAP net income shown separately (2.2% gap); "normalized EPS" is our rough calculation (revenue USD 150 billion × 45% gross margin − opex → 30% net margin ÷ 1.13 billion shares ≈ USD 39); "FY27E revenue USD 249 billion" is back-solved from EPS and net margin, not company guidance.
 
-Limitations of this report: (1) Prices beyond 2028 cannot be assumed, so no 2028 earnings forecast is provided; (2) SCA coverage is not disclosed and is included at only 20%; (3) segment gross margins follow management's basis and are not audited segment detail; (4) sell-side price targets are from late-September public reports and may be stale. Readers should factor these basis differences into their judgment.
+Limitations of this report: (1) Prices beyond 2028 cannot be assumed, so no 2028 earnings forecast is provided; (2) SCA coverage is not disclosed and is included at only 20%; (3) segment gross margins follow management's basis and are not audited segment detail; (4) sell-side price targets are drawn from late-September public reports and may be stale. Readers should factor these basis differences into their judgment.
 
 ## Sources
 
-- Micron FY2026 Q3 earnings report and conference call (after market close on 2026/06/24)
-- Chip Insight, "Micron's Gross Margin Climbs to 85%, USD 100 Billion Long-Term Contracts Locked In Through 2030" (2026/06/25)
-- TrendForce "Micron's Fiscal Q3 Revenue Sharply Above Consensus" (2026/06/25)
+- Micron FY2026 Q3 results and earnings call (after the close on 2026/06/24)
+- Chip Insight, "Micron gross margin climbs to 85%; USD 100bn of long-term contracts locked in through 2030" (2026/06/25)
+- TrendForce: Micron fiscal Q3 revenue well above consensus (2026/06/25)
 - Jinshi Data, "After Micron Surged 226%, Wall Street Starts Reworking Its Math" (2026/09/16)
-- Counterpoint Research Q2 2026 global HBM market share (2026/09/02)
-- Micron announcement: FY2026 fourth-quarter results to be released on 2026/09/30 (2026/08/25)
+- Counterpoint Research: Q2 2026 global HBM market share (2026/09/02)
+- Micron to report FY2026 fourth-quarter results on 2026/09/30 (2026/08/25)
 - Share price vs 52-week range: batchdata daily data (as of the September 25, 2026 close)

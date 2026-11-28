@@ -12,27 +12,27 @@ Sources: Microsoft FY2026Q4 earnings release (2026/07/29); share price USD 464.7
 
 | Scenario | Trigger price/conditions | Target position | Rationale |
 |---|---|---|---|
-| First tranche (now) | USD 464.72 (current price) | 2% | 25.8x TTM, 23x FY2027, fairly priced; build a base position first to avoid the risk of holding no position |
-| Second tranche | Below USD 430 (about 21x FY2027) | 4% | The risk/reward has improved to 2.1:1; at this price, downside to the bear-case 400 is only 7% |
-| Third tranche | FY2027Q1 results confirm Azure ≥40% | 5% | Trade data for position size, not price; once the data confirms, full position is acceptable |
-| No adding to positions | Above USD 560 (about 27x FY2027) | Maintain 5% | Above the neutral target price near 564, the risk-reward is below 1:1, leaving no value in adding to the position |
-| Review | Below USD 400 | Pause adding to positions | Before adding to positions when the pessimistic scenario breaks down, check your assumptions first |
+| First tranche (now) | USD 464.72 (current price) | 2% | 25.8x TTM, 23x FY2027 — fairly priced. Build a base position first to avoid the risk of holding no position |
+| Second tranche | Below USD 430 (about 21x FY2027) | 4% | Risk/reward has improved to 2.1:1: at this price, downside to the bear-case 400 is just 7% |
+| Third tranche | FY2027Q1 results confirm Azure ≥40% | 5% | Size positions on trade data, not price; once the data confirms, a full position is acceptable |
+| No adding to positions | Above USD 560 (about 27x FY2027) | Maintain 5% | Above the neutral target price of near 564, risk-reward is below 1:1, leaving no value in adding to the position |
+| Review | Below USD 400 | Pause adding to positions | Before adding to positions as the bear case breaks down, stress-test your assumptions first |
 
-> Position sizing is shown as a percentage of the equity portfolio. USD 430 corresponds to 21.3x FY2027 EPS of about USD 20.2; USD 560 corresponds to 27.7x; the risk-reward calculation is shown below.
+> Position sizing is expressed as a percentage of the equity portfolio. USD 430 equates to 21.3x FY2027 EPS of about USD 20.2, and USD 560 to 27.7x; the risk-reward calculation is set out below.
 
 ## Why start at 2% rather than 5%
 
-The 2% is based on the product of payoff odds and certainty. Base case 564 (+21%), bear case 400 (-14%), a 1.5:1 payoff; at a 55%–60% win rate, expected return is about +8%. Paired with a 5% position, that expected value contributes 0.4 points to the portfolio—not enough to compensate for the risk of being wrong.
+The 2% rests on payoff odds multiplied by certainty. Base case 564 (+21%), bear case 400 (-14%), a 1.5:1 payoff; at a 55%–60% win rate, expected return is roughly +8%. In a 5% position, that expected value adds 0.4 points to the portfolio—not enough to compensate for the risk of being wrong.
 
 If the stock falls back to 430, the payoff becomes (564−430)÷(430−400) = 4.5:1, and at the same win rate expected return rises to +19%; only then is adding to 4% reasonable. In other words, position size should follow the payoff, not conviction.
 
 ## How to set hard price levels for adding, trimming and stop-loss
 
-- Add: at USD 430 (21x FY2027), or on confirmation from FY2027Q1 data. Whichever comes first, act on it first.
+- Add: at USD 430 (21x FY2027), or on confirmation from FY2027Q1 data — whichever comes first.
 
-- Trim: above USD 600 (30x FY2027), cut half the position — not because the company has deteriorated, but because the risk-reward is gone. Or if the thesis is disproven (Azure below 30% for two consecutive quarters), cut to below 1%.
+- Trim: above USD 600 (30x FY2027), cut half the position — not because the company has deteriorated, but because the risk-reward is gone. Or, if the thesis is disproven (Azure below 30% for two consecutive quarters), cut to below 1%.
 
-- Stop-loss: no price stop. Microsoft is not the kind of company that blows up on liquidity or leverage; a price stop would only make you sell at the best price. Use a "thesis stop": if any one of the three disproof conditions (see thesis tracking) is met, trim.
+- Stop-loss: no price stop. Microsoft is not a company that blows up on liquidity or leverage; a price stop would only ensure you sell at the best price. Use a "thesis stop": if any one of the three disproof conditions (see thesis tracking) is met, trim.
 
 This discipline sounds soft, but it is in fact harder — a price stop only requires you to read candlesticks; a thesis stop requires you to read financial statements.
 
@@ -50,20 +50,20 @@ Microsoft's correlation structure is unusual: it is simultaneously a software st
 
 ## If the portfolio already holds the AI chain, size the exposure first
 
-Many investors buying Microsoft already hold Nvidia, AMD, TSMC, or a cloud-provider ETF in their portfolio. Buying Microsoft at that point is not "adding a position" — it is "leveraging a bet on the same thing."
+Many investors buying Microsoft already hold Nvidia, AMD, TSMC or a cloud-provider ETF. At that point, buying Microsoft is not "adding a position" — it is "leveraging a bet on the same thing."
 
 A rough method: sum the market value of all "AI infrastructure"-related holdings and see what share of the portfolio they represent. If that is already above 25%, Microsoft's 2% should come out of that 25%, not be added on top. Because when the AI capex narrative collapses, these holdings fall together — correlations rise in a selloff, the common trap of every diversification strategy.
 
 ## The discipline of rebalancing
 
-Three rules: First, no single position exceeds 8% (the 5% cap on Microsoft reflects its status as a large-cap index heavyweight, which creates higher indirect exposure); second, reconcile once a quarter, asking only three questions: Azure growth, RPO conversion, Copilot seats; third, force a halving once the price rises above 600, with no waiting for a reason.
+Three rules. First, no single position exceeds 8% (the 5% cap on Microsoft reflects its status as a large-cap index heavyweight, which creates higher indirect exposure). Second, reconcile once a quarter, asking only three questions: Azure growth, RPO conversion, Copilot seats. Third, force a halving once the price rises above 600, with no waiting for a reason.
 
-The third rule runs most against human nature, but it is the most useful. With a company like Microsoft, the easiest mistake is not buying wrong — it is "holding still until the price falls back." The point of forcing a halving is to turn paper gains into part of real gains.
+The third rule runs most against human nature, but it is the most useful. With a company like Microsoft, the easiest mistake is not buying wrong — it is holding still until the price falls back. Forcing a halving turns paper gains into part of real gains.
 
 ## Sources
 
-- Microsoft FY2026Q4 and full-year results (released after market close on 2026/07/29): revenue USD 90.01 billion, operating profit USD 40.6 billion, net profit USD 35.8 billion, Azure +43%
-- Microsoft FY2026Q4 earnings call transcript (2026/07/29): capex USD 41 billion, FY2027 capex about USD 175 billion, Copilot 30 million seats, RPO USD 678 billion
+- Microsoft FY2026Q4 and full-year results, released after the market close on 2026/07/29: revenue USD 90.01 billion, operating profit USD 40.6 billion, net profit USD 35.8 billion, Azure +43%
+- Microsoft FY2026Q4 earnings call (2026/07/29): capex USD 41 billion; FY2027 capex guided to about USD 175 billion; Copilot at 30 million seats; RPO USD 678 billion
 - Shanghai Securities News, "Microsoft: Major Changes! Shares Already Surged After Hours!" (2026/07/30); Zhitong Finance earnings call transcript (2026/07/30)
-- Citi raised its target price to USD 600 and Goldman Sachs to USD 640 (July 30–31, 2026); post-earnings sell-side average target is about USD 561
+- Citi lifted its target price to USD 600 and Goldman Sachs to USD 640 (July 30–31, 2026); the post-earnings sell-side average target sits at about USD 561
 - stockanalysis.com/stocks/msft/financials/ (quarterly income statement and free cash flow, through FY2026Q4); share price and 52-week range as of the 2026/07/31 close

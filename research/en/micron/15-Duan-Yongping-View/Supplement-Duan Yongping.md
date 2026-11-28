@@ -2,7 +2,7 @@
 
 - Research date：2026/09/25
 - Price：1082.28 USD
-- Market cap：Approximately USD 1.22 trillion (based on a rough estimate of 1.13 billion shares)
+- Market cap：About USD 1.22 trillion (on a rough estimate of 1.13 billion shares)
 
 ## Notes
 
@@ -10,19 +10,19 @@ This piece re-asks the questions in Duan Yongping's framework and voice; it is n
 
 ## Q: Is this a good business?
 
-Answer: Yes, but not "good business" good. It can generate USD 129 billion in revenue and USD 83 billion in net profit a year, with an 84.9% gross margin — that is of course good. But ask yourself: is that 84.9% earned by the company, or given by customers?
+Answer: Yes — but not in the "good business" sense. Micron can generate USD 129 billion of revenue and USD 83 billion of net profit a year at an 84.9% gross margin, which is of course good. But ask yourself whether that 84.9% is earned by the company or handed to it by customers.
 
-Given by customers. DRAM bit shipments grew only single digits this quarter, while prices rose 60%. That is not skill, it is luck. A truly good business is one where "you raise prices and customers still cannot leave you" — Apple, for example, or TSMC's advanced process nodes. Micron raised prices because of shortages; once the shortage is resolved, prices snap right back, as they did in 2019 and 2023.
+Handed to it. DRAM bit shipments grew only single digits this quarter while prices rose 60% — that is luck, not skill. A truly good business is one where you can raise prices and customers still cannot leave: Apple, for example, or TSMC's advanced process nodes. Micron raised prices because of shortages; once the shortage clears, prices snap right back, as they did in 2019 and 2023.
 
-So the character of this business is: extremely good in good years, extremely bad in bad years. Such a business is not uninvestable — it can only be bought when very cheap, and only in small position sizes.
+The character of this business, then, is extremely good in good years, extremely bad in bad years. That does not make it uninvestable — it just means you can only buy it when it is very cheap, and only in small position sizes.
 
 ## Q: Will it still be around in ten years?
 
-Answer: yes. I am not worried about this. Memory is a hard requirement: AI needs HBM, phones need DRAM, cars need NAND, and in ten years this demand will only be larger. The three-player oligopoly is also hard to break—building an advanced DRAM fab costs tens of billions of dollars and thousands of engineers; money alone does not get you in.
+Answer: yes. This does not worry me. Memory is non-negotiable: AI needs HBM, phones need DRAM, cars need NAND, and in ten years that demand will only be larger. The three-player oligopoly is equally hard to break—an advanced DRAM fab costs tens of billions of dollars and thousands of engineers, and money alone will not get you in.
 
 But "still there" and "how much it earns" are two different things. In ten years it will most likely still be one of the three, with a share of around 20% and gross margin fluctuating between 35% and 45%. It will not disappear, and it will not become TSMC.
 
-By the way, I think that USD 250 billion US investment is right, but it is "a matter of ten years from now" and has nothing to do with today's share price. The market likes such stories; I do not pay much attention.
+On the USD 250 billion US investment, I think the number is right—but it is "a matter of ten years from now" and has nothing to do with today's share price. The market likes such stories; I do not pay much attention.
 
 ## Q: Can you understand it?
 
@@ -34,19 +34,19 @@ If a business's profit is determined by something I do not understand, I should 
 
 ## Q: At what price to buy?
 
-Answer: at the current price, I am not buying. USD 1,082 and 6.5x 2027 expected earnings sounds cheap, but those earnings are built on an 84.9% gross margin. If gross margin reverts to 45%, the same price becomes 24x or 28x, and that is no longer cheap.
+Answer: I am not buying at the current price. USD 1,082, or 6.5x 2027 expected earnings, sounds cheap, but those earnings rest on an 84.9% gross margin. If gross margin reverts to 45%, the same price becomes 24x or 28x — no longer cheap.
 
 My usual approach: how much can this company earn in a normal year? On RMB 150 billion revenue, a 45% gross margin and a 30% net margin, it earns RMB 13.5 billion a year, or about USD 12 per share. At 15x, that is USD 160; at 20x, USD 240. Even if AI has structurally raised its center, 30x gets you only USD 360. The current USD 1,082 already prices in the wildest assumptions.
 
-Of course, the market can stay crazier than me for longer. So I will not short it; I just will not buy it. If it falls below 700, I will take a serious look — not because it is cheap, but because the risk-reward would then be right.
+Of course, the market can stay crazier than me for longer. So I will not short it; I just will not buy it. Below 700, I will take a serious look — not because it is cheap, but because the risk-reward would then be right.
 
 ## Q: What is the biggest fear?
 
-Answer: What I fear most is not a price drop, but believing I am investing when I am actually gambling.
+Answer: What I fear most is not a price drop but believing I am investing when I am actually gambling.
 
-The logic everyone is citing this round is "AI makes memory a strategic asset, and the shortage lasts until 2028." That logic may be right. But it has one feature: it cannot be verified, only waited out. By the time 2028 arrives and it turns out wrong, the stock has already fallen 60%. That is the structure of a gamble—you trade "may be right" for "may be a 60% loss."
+The logic everyone cites this round is that "AI makes memory a strategic asset, and the shortage lasts until 2028." That logic may be right, but it has one feature: it cannot be verified, only waited out. By the time 2028 arrives and it turns out wrong, the stock has already fallen 60%. That is the structure of a gamble—trading "may be right" for "may be a 60% loss."
 
-The second fear is long-term contracts. Take-or-pay sounds good, but a contract is paper, and when a customer turns, they will come talk to you about "changing specs, extending timelines, repricing." Shipping long-term contracts in 2008 and shale gas long-term contracts in 2020 all softened exactly this way. I do not doubt management's sincerity; I doubt the contract's enforceability.
+My second fear is long-term contracts. Take-or-pay sounds good, but a contract is paper, and when a customer turns, they will come to talk about "changing specs, extending timelines, repricing." Shipping long-term contracts in 2008 and shale gas long-term contracts in 2020 all softened in exactly this way. I do not doubt management's sincerity; I doubt the contract's enforceability.
 
 ## Q: So what would you do?
 
@@ -58,10 +58,10 @@ Equanimity. This is a good company, but this is not a good price. Wait for it to
 
 ## Sources
 
-- Micron FY2026 Q3 earnings report and conference call (after market close on 2026/06/24)
-- Chip Insight, "Micron's Gross Margin Climbs to 85%, USD 100 Billion Long-Term Contracts Locked In Through 2030" (2026/06/25)
-- TrendForce "Micron's Fiscal Q3 Revenue Sharply Above Consensus" (2026/06/25)
+- Micron FY2026 Q3 results and earnings call (after the close on 2026/06/24)
+- Chip Insight, "Micron gross margin climbs to 85%; USD 100bn of long-term contracts locked in through 2030" (2026/06/25)
+- TrendForce: Micron fiscal Q3 revenue well above consensus (2026/06/25)
 - Jinshi Data, "After Micron Surged 226%, Wall Street Starts Reworking Its Math" (2026/09/16)
-- Counterpoint Research Q2 2026 global HBM market share (2026/09/02)
-- Micron announcement: FY2026 fourth-quarter results to be released on 2026/09/30 (2026/08/25)
+- Counterpoint Research: Q2 2026 global HBM market share (2026/09/02)
+- Micron to report FY2026 fourth-quarter results on 2026/09/30 (2026/08/25)
 - Share price vs 52-week range: batchdata daily data (as of the September 25, 2026 close)

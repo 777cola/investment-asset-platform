@@ -6,13 +6,13 @@
 
 ## Notes
 
-Four perspectives written independently, each assuming the others cannot see its conclusions; the Team Lead only adjudicates when consolidating and does not rewrite the original judgments. All figures follow the same basis as the preceding modules: 2026Q2 financials plus August 2026 revenue, share price at the close of 11 September 2026 of RMB 2,410.
+Four perspectives, each written independently on the assumption that the others cannot see its conclusions. The Team Lead adjudicates only at the consolidation stage and does not rewrite the original judgments. All figures use the same basis as the preceding modules: 2026Q2 financials plus August 2026 revenue, and a share price of RMB 2,410 at the close on 11 September 2026.
 
 ## Sources
 
-- TSMC Q2 2026 Earnings Conference Presentation and Press Release (2026/07/16)
+- TSMC Q2 2026 Earnings Conference: Presentation and Press Release (2026/07/16)
 - TSMC August 2026 Consolidated Revenue Announcement (2026/09/09)
 - TSMC Q1 2026 Financial Report (2026/04/16)
-- TSMC Q4 2025 Financial Report and Full-Year EPS of 66.25 (2026/01/15)
+- TSMC Q4 2025 Results: Full-Year EPS of 66.25 (2026/01/15)
 - Commercial Times, "TSMC August Revenue Rises Double Digits on Both Measures to RMB 514.806 billion, Fourth Straight Record" (2026/09/09)
-- Share price vs 52-week range: batchdata market data, as of the September 11, 2026 close
+- TSMC (2330.TW) share price vs 52-week range: batchdata market data, as of the September 11, 2026 close

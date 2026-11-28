@@ -6,17 +6,17 @@
 
 ## Notes
 
-Valuation basis: the target price is 12-month forward, using 2027E EPS as the denominator. 2026E EPS of RMB 106 is derived (H1 49.33 + H2 approx. 57); TTM EPS is RMB 86.3. 2027E EPS of RMB 95/125/140 are scenario assumptions, not consensus. Expected value calculation: 1,710×30% + 2,625×45% + 3,360×25% = RMB 2,548.5. The working paper's "earn RMB 1.5 trillion in one year five years out" has been recalculated at RMB 4.4 trillion (see m03, Section 3); rating and target price unchanged.
+Valuation basis: target price is 12-month forward, on 2027E EPS. 2026E EPS of RMB 106 is derived (H1 49.33 + H2 approx. 57); TTM EPS is RMB 86.3. The 2027E EPS figures of RMB 95/125/140 are scenario assumptions, not consensus. Expected value: 1,710×30% + 2,625×45% + 3,360×25% = RMB 2,548.5. The working paper's "earn RMB 1.5 trillion in one year five years out" has been recalculated at RMB 4.4 trillion (see m03, Section 3); rating and target price unchanged.
 
 ## Three-scenario valuation (12-month target price)
 
 | Scenario, Core assumptions, Target price, Relative to current |
 |---|
-| Pessimistic case: AI capex growth slows to 10% in 2027, gross margin falls back to 55%, EPS of RMB 95, 18x multiple, NT$1,710 | -29% |
+| Bear case: AI capex growth slows to 10% in 2027, gross margin retreats to 55%, EPS of RMB 95, 18x multiple, NT$1,710 | -29% |
 | Neutral", "2027 revenue +18%, gross margin holds at 60%, EPS NT$125, 21x", "NT$2,625 | +9% |
-| Optimistic case: AI demand extends to 2028, 2nm fully loaded, overseas fab yields above expectations, EPS of TWD 140, 24x multiple, NT$3,360 | +39% |
+| Bull case: AI demand runs through 2028, 2nm is fully loaded, overseas fab yields beat expectations, EPS of TWD 140, 24x multiple, NT$3,360 | +39% |
 
-> Valuation method: 2027E EPS as the denominator, PE range of 18–24x. EPS is analyst-derived (RMB 106 in 2026; RMB 95/125/140 in 2027), not company guidance. Market cap is based on 25.93 billion shares, excluding dividends.
+> Valuation: 2027E EPS as the denominator, P/E range of 18–24x. EPS is analyst-derived (RMB 106 in 2026; RMB 95/125/140 in 2027), not company guidance. Market cap is based on 25.93 billion shares, excluding dividends.
 
 ## Duan Yongping: I understand this business, but the price has to wait
 
@@ -30,45 +30,45 @@ Laying out the sensitivity makes it clearer. Three 2031 net income scenarios (TW
 
 ## Buffett: a textbook on moats, but no bargains
 
-Buffett would place TSMC in the bucket of "I understand it but rarely get to buy it cheap." Its moat meets all his criteria: extremely high customer switching costs (12–18 months to re-tape-out), pronounced scale effects (a 2nm fab starts at USD 20 billion), and verifiable technology leadership (yield data does not lie).
+Buffett would put TSMC in the "I understand it but rarely get to buy it cheap" bucket. Its moat meets all his criteria: extremely high customer switching costs (12–18 months to re-tape-out), pronounced scale effects (a 2nm fab starts at USD 20 billion) and verifiable technology leadership (yield data does not lie).
 
-He would also note a trait unlike consumer stocks: TSMC must plow 70% of net profit back into machines every year. This is the opposite of his beloved See's Candies, which needs almost no capex. So he would discount TSMC's fair PE: 30x is acceptable for a consumer monopoly, but 20–25x is the ceiling for heavy-asset tech manufacturing. At 22.7x 2026 expected EPS, it sits right in the middle of the range — "fair price for a wonderful company," not a "wonderful price."
+He would also flag a trait unlike consumer stocks: TSMC must plow 70% of net profit back into machines every year. That is the opposite of his beloved See's Candies, which needs almost no capex. He would therefore discount TSMC's fair P/E: 30x is acceptable for a consumer monopoly, but 20–25x is the ceiling for heavy-asset tech manufacturing. At 22.7x 2026 expected EPS, the stock sits right in the middle of that range — "fair price for a wonderful company," not a "wonderful price."
 
-He would also watch one thing: shareholder returns. 2026 dividend of RMB 24 per share, payout ratio 23%, dividend yield 1.0%. That number is not enough for him, but he would say "money kept in the company is better than paid to me if it can still earn 30% ROE." That statement holds only if ROE holds up — so gross margin, not revenue, is the metric he would actually track.
+He would watch one thing above all: shareholder returns. 2026 dividend of RMB 24 per share, payout ratio 23%, dividend yield 1.0%. That is not enough for him, but he would say "money kept in the company is better than paid to me if it can still earn 30% ROE." That holds only if ROE holds up — so gross margin, not revenue, is the metric he would actually track.
 
-## Munger: Don't forget it's a cyclical stock; 67.7% is not the norm
+## Munger: remember this is a cyclical stock — 67.7% is not the norm
 
-Munger's first instinct was to invert: how does this business lose money? The answer is not technology being overtaken, but the cycle.
+Munger's first instinct was to invert: how does this business lose money? Not through technology being overtaken, but through the cycle.
 
-A 67.7% gross margin is not the norm; it is a reading at the top of the cycle. Historically, a gross margin of 50% in foundry is already excellent; reaching 67.7% in 2026 reflects exploding AI demand layered on capacity shortages, with pricing power temporarily entirely in the seller's hands. He would ask: if AI capex growth slows from 60% to 10% in 2027, what happens to TSMC?
+A 67.7% gross margin is not the norm; it is a top-of-cycle reading. Historically, a 50% gross margin in foundry is already excellent; reaching 67.7% in 2026 reflects exploding AI demand layered on capacity shortages, with pricing power temporarily entirely in the seller's hands. He would ask: if AI capex growth slows from 60% to 10% in 2027, what happens to TSMC?
 
-The answer: revenue growth drops to single digits, gross margin returns to 55%–58%, and EPS falls 15% to around RMB 95. The 22.7x forward PE then becomes 28x, and the stock must fall 25% to return to fair value—that is where the bear-case RMB 1,710 comes from.He is not bearish; he is reminding you that you are buying a cyclical growth stock, not a bond. His second line is harsher: when everyone says "this time is different," it is usually when it most resembles last time.
+The answer: revenue growth drops to single digits, gross margin returns to 55%–58%, and EPS falls 15% to around RMB 95. The 22.7x forward P/E then becomes 28x, and the stock must fall 25% to return to fair value—that is where the bear-case RMB 1,710 comes from.He is not bearish; he is reminding you that you are buying a cyclical growth stock, not a bond. His second line is harsher: when everyone says "this time is different," it is usually when it most resembles last time.
 
 The 2022–2023 cycle serves as a reference: TSMC's quarterly revenue fell from RMB 625.5 billion in Q4 2022 to RMB 508.6 billion in Q1 2023, down 18.7% QoQ; gross margin fell from 59.6% to 45.5%, down 14 percentage points in two quarters; quarterly EPS fell from RMB 11.41 to RMB 7.98. The stock dropped from RMB 688 to around RMB 370, a 46% decline.These numbers show one thing: the downcycle moves faster and deeper than most people think. And every financial report at the time looked good—Q4 2022 revenue was still hitting new highs.
 
 ## Li Lu: Civilisation-scale infrastructure, toll-booth logic
 
-In Li Lu's framework, compute is the electricity of this generation of civilization. In the electric-power era, the most profitable businesses were not power plants but grids and transformers; in the compute era, the most profitable business is neither the model company nor the design company, but the one that can actually manufacture the chips.
+In Li Lu's framework, compute is the electricity of this generation of civilisation. In the electric-power era, the most profitable businesses were not power plants but grids and transformers; in the compute era, the most profitable business is neither the model company nor the design company, but the one that can actually manufacture the chips.
 
-He would look further out: agentic AI brings CPUs back into the data center (inference requires heavy scheduling and memory bandwidth), and whether x86, ARM or RISC-V, it all ultimately lands at a foundry. That means TSMC's customer base is widening — from Nvidia dominating alone to "every cloud provider with in-house silicon + every CPU vendor." The more dispersed the customers, the more stable the pricing power, and that is where it is stronger than in 2023.
+He would look further out: agentic AI brings CPUs back into the data centre (inference requires heavy scheduling and memory bandwidth), and whether x86, ARM or RISC-V, it all ultimately lands at a foundry. TSMC's customer base is therefore widening — from Nvidia dominating alone to "every cloud provider with in-house silicon plus every CPU vendor." The more dispersed the customers, the more stable the pricing power, and that is where it is stronger than in 2023.
 
-The one thing he would discount is geopolitics: capacity is concentrated in Taiwan, which is why US customers must diversify and why TSMC must go overseas; going overseas permanently depresses gross margin by 3–4 percentage points. He calls this "the insurance premium on a civilization-level asset" — affordable, but it slows compounding by half a point. Conclusion: worth holding long term, but it must be viewed on a ten-year scale, not bought on a two-year scale.
+The one thing he would discount is geopolitics: capacity is concentrated in Taiwan, which is why US customers must diversify and why TSMC must go overseas; going overseas permanently depresses gross margin by 3–4 percentage points. He calls this "the insurance premium on a civilisation-level asset" — affordable, but it slows compounding by half a point. Conclusion: worth holding long term, but it must be viewed on a ten-year scale, not bought on a two-year scale.
 
-He would also run a "civilization ledger": global data-center power consumption will account for about 3% of global electricity in 2026, and institutions expect 6% by 2030. Power growth requires transformers and grids; compute growth requires fabs and packaging capacity. What these two have in common is that the pace of capacity expansion at the bottleneck link determines the growth rate of the entire chain, not the reverse. TSMC's USD 60 billion of annual capex is the physical ceiling of that chain.
+He would also run a "civilisation ledger": global data-centre power consumption will account for about 3% of global electricity in 2026, and institutions expect 6% by 2030. Power growth requires transformers and grids; compute growth requires fabs and packaging capacity. What these two have in common is that the pace of capacity expansion at the bottleneck link determines the growth rate of the entire chain, not the reverse. TSMC's USD 60 billion of annual capex is the physical ceiling of that chain.
 
 ## Odds assessment: -29% versus +39%, neutral at just +9%
 
-Expected value across three scenarios: assuming 30% pessimistic, 45% neutral, 25% optimistic, expected price = 1,710×0.3 + 2,625×0.45 + 3,360×0.25 = RMB 2,548, 5.7% above the current price. This expected value does not justify a new position—because the trigger for the pessimistic scenario (an AI capex brake) is not a low-probability event; it is something that happens in this industry once every three to four years.
+Probability-weighted value across three scenarios (30% pessimistic, 45% neutral, 25% optimistic): 1,710×0.3 + 2,625×0.45 + 3,360×0.25 = RMB 2,548, 5.7% above the current price. That expected value does not justify a new position—the trigger for the pessimistic case (an AI capex brake) is not a low-probability event; it is something this industry delivers once every three to four years.
 
-The real asymmetry lies on the "holder" side: those already holding must pay transaction costs to sell, give up a 1% dividend, and face the risk of "selling too early"; while continuing to hold carries 29% downside and 39% upside, odds of nearly 1:1.3, barely acceptable. Those with no position face odds of 1:0.3 (neutral case gains only 9%), which is unattractive.
+The real asymmetry sits with existing holders: selling means paying transaction costs, forgoing a 1% dividend and risking "selling too early", while holding on carries 29% downside against 39% upside—odds of roughly 1:1.3, barely acceptable. For those with no position the odds are 1:0.3 (the neutral case gains just 9%), which is unattractive.
 
-So the four people's conclusions can be unified into one sentence: this is an "asset to hold," not a "buying opportunity." A buying opportunity requires either waiting for the price to reach RMB 1,900–2,000 (corresponding to 15–16x 2027 earnings), or waiting for gross margin to bottom and the market to price in the cyclical risk in one go.
+The four views therefore collapse into one line: this is an "asset to hold", not a "buying opportunity". A buying opportunity requires either the price to reach RMB 1,900–2,000 (15–16x 2027 earnings), or gross margin to bottom and the market to price the cyclical risk in one go.
 
 ## Sources
 
-- TSMC Q2 2026 Earnings Conference Presentation and Press Release (2026/07/16)
+- TSMC Q2 2026 Earnings Conference: Presentation and Press Release (2026/07/16)
 - TSMC August 2026 Consolidated Revenue Announcement (2026/09/09)
 - TSMC Q1 2026 Financial Report (2026/04/16)
-- TSMC Q4 2025 Financial Report and Full-Year EPS of 66.25 (2026/01/15)
+- TSMC Q4 2025 Results: Full-Year EPS of 66.25 (2026/01/15)
 - Commercial Times, "TSMC August Revenue Rises Double Digits on Both Measures to RMB 514.806 billion, Fourth Straight Record" (2026/09/09)
-- Share price vs 52-week range: batchdata market data, as of the September 11, 2026 close
+- TSMC (2330.TW) share price vs 52-week range: batchdata market data, as of the September 11, 2026 close

@@ -2,11 +2,11 @@
 
 - Research date：2026/08/24
 - Price：112.5 HKD
-- Market cap：Approximately HKD 2.30 trillion (approximately 20.46 billion shares after placement)
+- Market cap：Approximately HKD 2.30 trillion (approximately 20.46 billion shares post-placement)
 
 ## Notes
 
-WeChat article copy, clickbait headline but not misleading; all figures match the body text and can be copied directly.
+Alibaba: WeChat teaser copy, clickbait headline that still holds up; every figure ties to the body text and can be lifted straight into the note
 
 ## Main text (ready to copy and publish)
 
@@ -16,9 +16,9 @@ The conclusion first: on August 24, 2026, Alibaba closed at HKD 112.5, down 8.54
 
 1. Cloud: the best scorecard in five years
 
-In the first quarter of fiscal 2027 (April to June), Alibaba Cloud was renamed "AI Cloud and Computing Power Services," with revenue of RMB 48.44 billion, up 45% year on year. That growth rate is the fastest in 22 quarters. AI-related products within it came to RMB 12.376 billion, growing triple digits for 12 consecutive quarters.
+In the first quarter of fiscal 2027 (April to June), Alibaba Cloud was renamed "AI Cloud and Computing Power Services," with revenue of RMB 48.44 billion, up 45% YoY. That growth rate is the fastest in 22 quarters. AI-related products within it came to RMB 12.376 billion, growing triple digits for 12 consecutive quarters.
 
-More critical is profit. Adjusted EBITA for this business was RMB 5.63 billion, up 133% year on year, with margin rising from 7.2% to 11.6%. Anyone in cloud knows what that means: asset-heavy businesses usually force a choice — sacrifice profit for growth, or growth for profit. Alibaba got both this time.
+Profit matters more. Adjusted EBITA for this business was RMB 5.63 billion, up 133% YoY, with margin rising from 7.2% to 11.6%. Anyone in cloud knows what that means: asset-heavy businesses usually force a choice — sacrifice profit for growth, or growth for profit. Alibaba got both this time.
 
 Why? Three reasons. First, depreciation on the previous round of chip purchases has not fully run its course, so the cost side has not started paying the bill. Second, the whole industry is scrambling for computing power, and pricing is firm. Third, in-house chips are cutting costs — T-Head's Zhenwu M890 already serves more than 650 external customers across over 20 industries through Alibaba Cloud.
 
@@ -26,17 +26,17 @@ One detail nobody mentions: AliExpress recorded operating profit this quarter. I
 
 2. Net profit -76%: where the money went
 
-Net profit attributable to shareholders fell to just RMB 10.54 billion, down 76% year on year, the lowest in nine quarters. It looks like a collapse. But broken down, only one piece reflects genuine operating deterioration: AI Labs and Applications lost roughly RMB 10.6 billion more.
+Net profit attributable to shareholders fell to just RMB 10.54 billion, down 76% YoY, the lowest in nine quarters. It looks like a collapse. But broken down, only one piece reflects genuine operating deterioration: AI Labs and Applications lost roughly RMB 10.6 billion more.
 
 The rest is one-off or accounting-related: goodwill impairment of RMB 4.46 billion; an EU fine provision of about RMB 4.3 billion; an effective tax rate jumping from 17.6% to 57.4%, adding roughly RMB 6 billion in tax; and interest and investment income falling from RMB 17.38 billion to RMB 9 billion, a drop of RMB 8.38 billion. The four items total about RMB 23 billion.
 
-So adjusted net profit is closer to the truth: RMB 20.72 billion, down only 38% year on year. That 38% roughly equals the incremental AI investment. In other words, without AI spending, net profit this quarter would have been about RMB 31 billion, down only 7% year on year.
+So adjusted net profit is closer to the truth: RMB 20.72 billion, down only 38% YoY. That 38% roughly equals the incremental AI investment. In other words, without AI spending, net profit this quarter would have been about RMB 31 billion, down only 7% YoY.
 
 The business is not broken; the company deliberately changed lanes.
 
 3. The number nobody dares examine closely: -415%
 
-This quarter Alibaba split the company into four segments, and AI Labs and Applications was broken out separately for the first time. Revenue was RMB 3.34 billion, up 16%; the loss was RMB 13.86 billion, a loss margin of -415%, with the loss widening 330% year on year.
+This quarter Alibaba split the company into four segments, and AI Labs and Applications was broken out separately for the first time. Revenue was RMB 3.34 billion, up 16%; the loss was RMB 13.86 billion, a loss margin of -415%, with the loss widening 330% YoY.
 
 In plain terms: for every RMB 1 of revenue, this division spends RMB 5.15.
 
@@ -46,7 +46,7 @@ This is the biggest information gap in the entire report: it gives the loss marg
 
 4. RMB 44.7 billion burned in one quarter, then a request for RMB 80 billion
 
-Operating cash flow was RMB 22.95 billion, still up 11% year on year — cash generation is intact. But capital expenditure was RMB 67.68 billion, up 75% year on year. Subtract the two, and free cash flow was -RMB 44.67 billion, with the shortfall widening 1.4 times year on year.
+Operating cash flow was RMB 22.95 billion, still up 11% YoY — cash generation is intact. But capital expenditure was RMB 67.68 billion, up 75% YoY. Subtract the two, and free cash flow was -RMB 44.67 billion, with the shortfall widening 1.4 times YoY.
 
 Then came the announcement on the evening of August 23: a placement of 710 million new shares at HKD 112.70 each, raising HKD 80 billion, net proceeds of about HKD 79.7 billion, 3.47% dilution, 100% invested in AI infrastructure. The underwriting syndicate was CICC, HSBC, Morgan Stanley and UBS, with a 90-day lock-up.
 
@@ -78,9 +78,9 @@ Until it does, waiting is cheaper than guessing.
 
 ## Sources
 
-- Alibaba Group Fiscal Year 2027 First Quarter Results Announcement (2026/08/20, released after Hong Kong market close)
-- 21st Century Business Herald, "Alibaba Earnings: Cloud Revenue Grows 45% to Record High, Full-Stack AI Commercialization Accelerates" (2026/08/20)
-- Jiemian News, "Alibaba's AI Ledger, Calculated This Clearly for the First Time" (2026/08/21)
-- HKEX placing announcement and Yicai report: 710 million shares, HKD 112.70 per share, net proceeds of about HKD 79.7 billion (August 23–24, 2026)
-- Daily Economic News, "Hong Kong Stock 'Son' Says: Who Exactly Got It Wrong?" (2026/08/24)
-- Share price vs 52-week range: daily data, as of the 2026/08/24 close (52-week high HKD 185.1, low HKD 89.5)
+- Alibaba Group Fiscal Year 2027 First Quarter Results (20 August 2026, released after the Hong Kong close)
+- 21st Century Business Herald, "Alibaba Earnings: Cloud Revenue Jumps 45% to Record High as Full-Stack AI Commercialisation Accelerates" (2026/08/20)
+- # Jiemian News, "Alibaba's AI Ledger, Calculated This Clearly for the First Time" (2026/08/21)
+- HKEX placing announcement and Yicai report: 710mn shares at HKD 112.70 each, net proceeds of c.HKD 79.7bn (23–24 August 2026)
+- Daily Economic News, "Hong Kong Stock 'Son' Says: Who Exactly Got It Wrong?" (24 August 2026)
+- Share price vs 52-week range: daily data, as of 2026/08/24 close (52-week high HKD 185.1, low HKD 89.5)

@@ -6,9 +6,9 @@
 
 ## Notes
 
-This report is the full 12-chapter broker-grade version. Data sources: (1) Netflix 2026Q3 financial results and shareholder letter (after market close on 2026/10/20); (2) Netflix 2026Q3 earnings call (2026/10/20); (3) Zhitong Finance, "Netflix Q3 Revenue Up 12% YoY, Full-Year Advertising Revenue Outlook Cut" (2026/10/21); (4) Netflix 10-for-1 stock split announcement (SEC 8-K Exhibit 99.1, 2025/10/30), record date 2025/11/10, effective date 2025/11/17; (5) 2026/10/13 internal letter from the co-CEOs (roughly 6% workforce reduction; changes atop the content and film divisions); (6) NASDAQ daily chart (through the 2026/10/23 close). Forecasts are based on our own model and are not company guidance.
+This is the full 12-chapter broker-grade report. Sources: (1) Netflix 2026Q3 results and shareholder letter (post-close 2026/10/20); (2) Netflix 2026Q3 earnings call (2026/10/20); (3) Zhitong Finance, "Netflix Q3 Revenue Up 12% YoY, Full-Year Advertising Revenue Outlook Cut" (2026/10/21); (4) Netflix 10-for-1 stock split announcement (SEC 8-K Exhibit 99.1, 2025/10/30), record date 2025/11/10, effective 2025/11/17; (5) 2026/10/13 internal letter from the co-CEOs (roughly 6% workforce reduction; leadership changes atop the content and film divisions); (6) NASDAQ daily chart (through the 2026/10/23 close). Forecasts reflect our own model, not company guidance.
 
-## Earnings forecast (USD million, per-share basis after stock split)
+## Earnings forecast (USD mn, per-share figures post-split)
 
 | Project | 2025A | 2026E | 2027E neutral |
 |---|---|---|---|
@@ -19,7 +19,7 @@ This report is the full 12-chapter broker-grade version. Data sources: (1) Netfl
 | Diluted EPS (USD) | — | 3.66 (including one-off items) / 3.14 (normalized) | 3.60 |
 | Free cash flow | — | 12,000 (guidance) | Approximately 13,000 (rough estimate) |
 
-> 2025 revenue is a derived figure (51,100 ÷ 1.13); 2025 operating profit = 45,200 × 29.5% (rough calculation); 2026 operating profit = 51,100 × 31.5% (rough calculation); 2027 is based on our own base-case model, not company guidance. EPS of 3.66 is derived from 65.85 ÷ 18x; 3.14 is derived from 65.85 ÷ 21x.
+> 2025 revenue is derived as 51,100 ÷ 1.13; 2025 operating profit = 45,200 × 29.5% (approximate); 2026 operating profit = 51,100 × 31.5% (approximate); 2027 reflects our base-case model, not company guidance. EPS of 3.66 is derived from 65.85 ÷ 18x; 3.14 from 65.85 ÷ 21x.
 
 ## Three-scenario valuation (2027 EPS × PE)
 
@@ -29,7 +29,7 @@ This report is the full 12-chapter broker-grade version. Data sources: (1) Netfl
 | Neutral | +10% | 32% | 3.6 | 22x | $79 | +20% |
 | Optimistic | +14% | 33% | 4.1 | 26x | $107 | +62% |
 
-> EPS is estimated using our own model: revenue × operating margin − interest and taxes − share buyback cancellation. The PE range is set at the low end of Netflix's actual 18–45x trading band since 2023. The target price is on a 12-month horizon.
+> EPS is our own estimate: revenue × operating margin − interest and taxes − share buyback cancellation. The P/E range sits at the low end of Netflix's actual 18–45x trading band since 2023. Target price is on a 12-month horizon.
 
 ## Segment revenue and 2026 guidance (USD million)
 
@@ -44,81 +44,81 @@ This report is the full 12-chapter broker-grade version. Data sources: (1) Netfl
 | 2026 advertising revenue | 2,700 | — | Original 3,000, cut 10% |
 | 2026 free cash flow | 12,000 | — | Original 12,500 |
 
-> Source: Netflix 2026Q3 earnings report and shareholder letter. Segment shares calculated in this report; year-over-year figures include FX effects, with FX-neutral figures in parentheses.
+> Source: Netflix 2026Q3 earnings report and shareholder letter. Segment shares are calculated in this report; YoY figures include FX effects, with FX-neutral figures in parentheses.
 
 ## Chapter 1 Company Overview
 
-Netflix is the world's largest subscription streaming platform. Founded in 1997 as a DVD-by-mail rental service, it pivoted to streaming in 2007 and entered the original content era with House of Cards in 2013. As of October 2026, it serves over 190 countries, reaching close to 1 billion viewers (including shared accounts).
+Netflix is the world's largest subscription streaming platform. Founded in 1997 as a DVD-by-mail rental service, it pivoted to streaming in 2007 and moved into original content with House of Cards in 2013. As of October 2026 it operates in over 190 countries and reaches close to 1 billion viewers, including shared accounts.
 
-Business mix: subscription revenue dominates (over 90% of total revenue), with advertising as a supplement (2026 guidance USD 2.7 billion, 5.3%). Geographic mix: US and Canada 43.7%, EMEA 31.9%, Latin America 12.5%, Asia-Pacific 11.9% (Q3 2026).
+Business mix: subscriptions dominate at over 90% of total revenue, with advertising a supplement (2026 guidance USD 2.7 billion, 5.3%). Geographic mix: US and Canada 43.7%, EMEA 31.9%, Latin America 12.5%, Asia-Pacific 11.9% (Q3 2026).
 
-Shareholding and trading: listed on NASDAQ under ticker NFLX, with 4.11 billion shares outstanding and a market cap of about USD 270 billion. On October 30, 2025, the board approved a 10-for-1 stock split, with a record date of November 10 and trading on a split-adjusted basis from the open on November 17—all per-share figures in this report are post-split; pre-split equivalent prices require multiplying by 10.
+Shareholding and trading: listed on NASDAQ under NFLX, with 4.11 billion shares outstanding and a market cap of about USD 270 billion. On October 30, 2025 the board approved a 10-for-1 stock split, with a record date of November 10 and split-adjusted trading from the open on November 17—all per-share figures in this report are post-split; pre-split equivalents require multiplying by 10.
 
 ## Chapter 2 Industry Analysis
 
-The global streaming industry has moved from a land-grab phase into a phase of price increases, advertising and consolidation. The three battlegrounds have already diverged: YouTube leads on watch time (14% US share vs Netflix's 7.8%), Netflix leads on subscriptions, and the advertising battle has only just begun.
+Global streaming has moved from land-grab to price increases, advertising and consolidation. The three battlegrounds have already diverged: YouTube leads on watch time (14% US share vs Netflix's 7.8%), Netflix leads on subscriptions, and the advertising battle has only just begun.
 
-Industry size and migration: roughly USD 170 billion a year of global TV advertising is shifting from linear TV to streaming; traditional pay-TV subscribers keep churning, streaming penetration is near saturation in mature markets, and growth comes mainly from emerging markets and ad-supported tiers.
+Industry size and migration: roughly USD 170 billion a year of global TV advertising is shifting from linear TV to streaming. Traditional pay-TV subscribers keep churning, streaming penetration is near saturation in mature markets, and growth comes mainly from emerging markets and ad-supported tiers.
 
-Competitive landscape: in February 2026 Paramount acquired Warner Bros. Discovery for about USD 110 billion, marking the industry's entry into a consolidation phase. Mid-sized players are exiting because they lack the scale to spread content costs, leaving four leaders — Netflix, Disney, Amazon and YouTube — each with a different monetization structure. The industry is weakly cyclical (subscriptions are a necessity), but sensitive to content quality and macro advertising budgets.
+Competitive landscape: in February 2026 Paramount acquired Warner Bros. Discovery for about USD 110 billion, marking the industry's entry into a consolidation phase. Mid-sized players are exiting because they lack the scale to spread content costs, leaving four leaders — Netflix, Disney, Amazon and YouTube — each with a different monetisation structure. The industry is weakly cyclical (subscriptions are a necessity) but sensitive to content quality and macro advertising budgets.
 
 Netflix's position in this industry can be summed up in one sentence: it is not the fastest grower, it is the most profitable. Among the six major players, its revenue growth ranks mid-pack and its operating margin ranks first (31.5%, with the runner-up at less than a third of that). In a mature industry this combination is the classic winner's profile — efficiency over expansion, cash over story.
 
 ## Chapter 3 Business Model
 
-Revenue side: subscriptions (tiered pricing, billed in local currency by region) + advertising (low-priced ad-supported tier). Cost side: content production and licensing (the largest item), technology (self-built CDN, Open Connect), marketing. Profit mechanism: content costs are fixed and amortized across the user base, creating a virtuous cycle of "the larger the scale, the lower the unit cost."
+Revenue: subscriptions (tiered pricing, billed in local currency by region) plus advertising (low-priced ad-supported tier). Costs: content production and licensing (the largest line item), technology (self-built CDN, Open Connect) and marketing. Profit mechanism: content costs are fixed and amortised across the user base, creating a virtuous cycle in which scale lowers unit cost.
 
-Key operating moves: password-sharing crackdown in 2023 (converting shared accounts into paid accounts) drove a one-time jump in paid users; a 5%–8% price increase in 2026, with churn down year over year; advertising shifting from direct sales to programmatic (integrating MercadoLibre and AdForm in Q3 2026).
+Key operating moves: the 2023 password-sharing crackdown, which converted shared accounts into paid accounts, drove a one-time step-up in paid users; a 5%–8% price increase in 2026, with churn down YoY; and advertising shifting from direct sales to programmatic, with MercadoLibre and AdForm integrated in 2026Q3.
 
-Weakness of the model: content spending cannot stop. Pause content investment for a year and subscribers fall the next year. Part of free cash flow is therefore maintenance capex and cannot be treated entirely as distributable cash. This is the core difference from software subscription companies — gross margin is constrained by content costs rather than approaching the high-margin structure of software.
+The model's weakness: content spending cannot stop. Pause content investment for a year and subscribers fall the next. Part of free cash flow is therefore maintenance capex and cannot be treated entirely as distributable cash. This is the core difference from software subscription companies — gross margin is constrained by content costs rather than approaching software's high-margin structure.
 
-An easily overlooked detail is regional pricing differences. The US standard tier costs close to USD 200 a year, India only USD 20–30, a 6–8x gap. This gap is not arbitrary; it is set by local per-capita income and competitive intensity. Its pricing power is "localized," not "globally uniform" — which also explains why currency swings hit the reported figures directly (Latin America reported +17%, FX-neutral +12%).
+An easily overlooked detail is regional pricing differences. The US standard tier costs close to USD 200 a year; India only USD 20–30, a 6–8x gap. The gap is not arbitrary: it is set by local per-capita income and competitive intensity. Pricing power is "localised," not "globally uniform" — which also explains why currency swings hit reported figures directly (Latin America reported +17%, FX-neutral +12%).
 
 ## Chapter 4 Financial Analysis
 
-2026Q3: revenue USD 12.874 billion (+11.8%), operating profit USD 4.459 billion (+37.3%), operating margin 34.6% (+6.4pct), net income USD 3.664 billion (+43.9%), diluted EPS USD 0.87 (+47.5%), operating cash flow USD 3.162 billion, free cash flow USD 2.884 billion. Profit came in above consensus across the board, but the 34.6% margin includes a "change in expense recognition timing"; the full-year guidance of 31.5% is the sustainable level.
+2026Q3: revenue USD 12.874 billion (+11.8%), operating profit USD 4.459 billion (+37.3%), operating margin 34.6% (+6.4pct), net income USD 3.664 billion (+43.9%), diluted EPS USD 0.87 (+47.5%), operating cash flow USD 3.162 billion, free cash flow USD 2.884 billion. Profit beat consensus across the board, but the 34.6% margin includes a "change in expense recognition timing"; full-year guidance of 31.5% is the sustainable level.
 
 Balance sheet: debt USD 15.3 billion, cash USD 8.2 billion, net debt USD 7.1 billion, 0.44x 2026E operating profit. The company previously held net cash; after buybacks scaled up in 2026 it swung to slight net debt, still within a safe range.
 
-Shareholder returns: Q3 buybacks USD 4.8 billion, 63.9 million shares (average price about USD 75.12), remaining authorization USD 22.3 billion (8.2% of market cap); no dividend. Note that buybacks were 1.66x quarterly free cash flow, with the gap funded by balance-sheet cash and debt — the only financial gap that needs continued monitoring.
+Shareholder returns: Q3 buybacks USD 4.8 billion, 63.9 million shares (average price about USD 75.12), remaining authorization USD 22.3 billion (8.2% of market cap); no dividend. Buybacks were 1.66x quarterly free cash flow, with the gap funded by balance-sheet cash and debt — the only financial gap that needs continued monitoring.
 
 Quarterly breakdown: Q3 revenue USD 12.874 billion, Q4 guidance USD 13.442 billion, first three quarters combined USD 37.658 billion, Q3 at 25.2% of the full year. Q4 is the lowest-margin quarter of the year (guidance 26.0%, including 1.2 percentage points of severance costs) and also the highest-revenue quarter — this "high revenue, low margin" combination reflects concentrated content releases and seasonal marketing spend, not deteriorating operations.
 
 ## Chapter 5 Management
 
-Governance structure: a dual leadership model with Ted Sarandos (co-CEO, content) and Greg Peters (co-CEO, product and technology), with Reed Hastings as executive chairman. Spencer Neumann is CFO. The benefit of dual CEOs is clear division of labor; the drawback is no clear arbitration mechanism when views diverge.
+Governance structure: a dual leadership model with Ted Sarandos (co-CEO, content) and Greg Peters (co-CEO, product and technology), and Reed Hastings as executive chairman. Spencer Neumann is CFO. The dual-CEO setup gives a clear division of labour; the drawback is the absence of a clear arbitration mechanism when views diverge.
 
-Capital allocation record: password-sharing crackdown in 2023, stock split in November 2025, abandonment in February 2026 of the USD 82.7 billion acquisition of Warner Bros. Discovery (Paramount won at USD 31 per share, about USD 110 billion), and continued large-scale buybacks in 2026. "No M&A, no dividend, buybacks only" is clear discipline.
+Capital allocation record: the 2023 password-sharing crackdown, a stock split in November 2025, the February 2026 abandonment of the USD 82.7 billion acquisition of Warner Bros. Discovery (Paramount won at USD 31 per share, about USD 110 billion), and continued large-scale buybacks in 2026. "No M&A, no dividend, buybacks only" is clear discipline.
 
-Organizational changes: about 6% of staff (nearly 1,000 people) laid off on 13 October 2026, content chief Bela Bajaria replaced, and film division head Dan Lin departed. Two organizational restructurings within a year are the main governance demerit; the succession path is also unclear (both co-CEOs are over 50, the chairman is 65).
+Organisational changes: about 6% of staff (nearly 1,000 people) laid off on 13 October 2026, content chief Bela Bajaria replaced, and film division head Dan Lin departed. Two organisational restructurings within a year are the main governance demerit, and the succession path is also unclear (both co-CEOs are over 50, the chairman is 65).
 
-Executive ownership and compensation: apart from founder Reed Hastings, none of the core executives' stakes reach the 5% disclosure threshold, and compensation is mainly equity-based. The benefit of this structure is alignment with shareholders; the drawback is the lack of the stability that a "backstop from a major shareholder" provides—if the core team changes, no one at the company can shoulder long-term responsibility the way the founder did.
+Executive ownership and compensation: apart from founder Reed Hastings, no core executive's stake reaches the 5% disclosure threshold, and compensation is mainly equity-based. The benefit of this structure is alignment with shareholders; the drawback is the lack of the stability that a "backstop from a major shareholder" provides—if the core team changes, no one at the company can shoulder long-term responsibility the way the founder did.
 
 ## Chapter 6 Growth Drivers
 
 Three drivers, ranked by certainty: 1) price increases (5%–8% a year, with 2026 already confirming no rise in churn); 2) advertising (RMB 2.7 billion to over RMB 3.5 billion by 2027, contingent on execution of the 15-country expansion in March 2027); 3) user growth in emerging markets (Latin America +17%, Asia-Pacific +12%, India watch time +24%).
 
-Price increases carry the highest certainty, but the room is narrowing — the US standard tier's annual fee is already near USD 200, close to the psychological threshold set by cable TV. Advertising has the most elasticity, but off a small base (5.3%), so even doubling it adds only 5 points of revenue growth.
+Price increases are the most certain, but headroom is narrowing — the US standard tier already costs close to USD 200 a year, near the psychological threshold set by cable TV. Advertising offers the most elasticity, but off a small base (5.3%), so even doubling it adds only 5 points of revenue growth.
 
-Conclusion: the midpoint of revenue growth over the next three years is 8%–12%, not 15%. The source of growth shifts from user count to ARPU plus advertising, which leaves room for further margin expansion (advertising gross margin exceeds subscription) but lowers revenue elasticity. This is a phase of earnings growth outpacing revenue growth — supportive for valuation, a drag on the narrative.
+Conclusion: revenue growth over the next three years centres on 8%–12%, not 15%. Growth shifts from subscriber count to ARPU plus advertising, leaving room for further margin expansion (advertising gross margin exceeds subscription) but reducing revenue elasticity. This is a phase of earnings growth outpacing revenue growth — supportive for valuation, a drag on the narrative.
 
 ## Chapter 7 Competitive Landscape
 
-Four types of players, four ways to survive. Netflix: subscriptions + advertising, global distribution, 31.5% operating margin — the only player combining high margins with global scale. Disney: the strongest IP, but thin streaming profits and only 2%–3% pricing headroom. Amazon: video is a Prime membership giveaway, not a standalone profit center, and it does not engage in price wars. YouTube: zero marginal-cost supply, 14% US viewing share — the winner in the watch-time battlefield.
+Four types of player, four ways to survive. Netflix: subscriptions plus advertising, global distribution, 31.5% operating margin — the only player combining high margins with global scale. Disney has the strongest IP, but streaming profits are thin and pricing headroom is only 2%–3%. At Amazon, video is a Prime membership giveaway rather than a standalone profit centre, and it does not engage in price wars. YouTube offers zero marginal-cost supply and holds 14% US viewing share — the winner in the watch-time battlefield.
 
-Netflix's competitive position: a winner in the subscription battlefield, a loser in the watch-time battlefield, a novice in the advertising battlefield. The weighting of these three battlefields determines its valuation center of 18–22x, not the 40x of a growth stock.
+Netflix's competitive position: a winner in the subscription battlefield, a loser in the watch-time battlefield, a novice in the advertising battlefield. How these three battlefields are weighted determines its valuation centre of 18–22x, not the 40x of a growth stock.
 
-The most dangerous rival is YouTube, because it simultaneously possesses zero marginal-cost content, 14% watch-time share, and a closed loop from watch time to advertising. Netflix cannot win on watch time; it can only choose to "raise monetization efficiency per unit of watch time" — which it achieved in 2026, but the ceiling of this path is a "premium paid channel."
+YouTube is the most dangerous rival because it simultaneously possesses zero marginal-cost content, 14% watch-time share and a closed loop from watch time to advertising. Netflix cannot win on watch time; it can only choose to "raise monetization efficiency per unit of watch time" — which it achieved in 2026, but the ceiling of this path is a "premium paid channel."
 
-Use share data with caution. The 7.8% and 14% US viewing shares come from third-party audience measurement, with differing samples and methodologies across providers; they indicate a difference in magnitude, not a precise multiple. This report uses them only for directional judgment: Netflix is not No. 1 in watch time, and there is no sign the gap is narrowing.
+Treat share data with caution. The 7.8% and 14% US viewing shares come from third-party audience measurement, with differing samples and methodologies across providers; they indicate a difference in magnitude, not a precise multiple. This report uses them only for directional judgment: Netflix is not No. 1 in watch time, and there is no sign the gap is narrowing.
 
 ## Chapter 8 Risk Disclosures
 
-① Advertising execution risk: 2026 guidance cut from RMB 3 billion to RMB 2.7 billion; if it still has not returned above RMB 3.5 billion after the March 2027 country expansion, the second-curve thesis fails and the valuation multiple de-rates 3–4 turns. ② Engagement and competition risk: US viewing share of 7.8% versus YouTube's 14%; a widening gap would cap long-term growth below 8%.
+① Advertising execution risk: 2026 guidance cut from RMB 3 billion to RMB 2.7 billion; if it has still not recovered above RMB 3.5 billion after the March 2027 country expansion, the second-curve thesis fails and the multiple de-rates 3–4 turns. ② Engagement and competition risk: US viewing share of 7.8% versus YouTube's 14%; a widening gap would cap long-term growth below 8%.
 
-③ Content cost risk: sports rights (NFL, boxing) rising 8%–10% a year; if spending increases outpace subscriber growth, operating margin could fall back to 28%–30% (the 2022 script). ④ Organizational risk: October 2026 layoffs of 6% and the departures of the content chief and film head; the impact on content output will show in 2027–2028. ⑤ Financial risk: buybacks at 1.66x free cash flow, net debt rising about USD 7 billion annualized, leverage could reach 1.7x operating profit in three years.
+③ Content cost risk: sports rights (NFL, boxing) rising 8%–10% a year; if spending outpaces subscriber growth, operating margin could fall back to 28%–30% (the 2022 script). ④ Organizational risk: October 2026 layoffs of 6% and the departures of the content chief and film head; the impact on content output will show in 2027–2028. ⑤ Financial risk: buybacks at 1.66x free cash flow, net debt rising about USD 7 billion annualized, leverage could reach 1.7x operating profit in three years.
 
-There is also FX risk (Latin American currency depreciation weighing on reported results; Q3 Latin America reported +17% versus +12% FX-neutral) and regulatory risk (tightening EU local-content quotas, with Europe at 31.9% of revenue).
+FX risk also applies (Latin American currency depreciation weighing on reported results; Q3 Latin America reported +17% versus +12% FX-neutral), as does regulatory risk (tightening EU local-content quotas, with Europe at 31.9% of revenue).
 
 ## Chapter 9 Earnings Forecast
 
@@ -132,17 +132,17 @@ Sensitivity: each 1 percentage point change in operating margin moves 2027 EPS b
 
 ## Chapter 10 Valuation
 
-Methodology: 2027 EPS × PE. DCF is not used because capitalisation and amortisation of content spend make free cash flow volatile across periods and poorly comparable; EV/EBITDA is not used because content cost is a core cost item and EBITDA systematically overstates profitability.
+Methodology: 2027 EPS × P/E. We do not use DCF because capitalising and amortising content spend makes free cash flow volatile across periods and poorly comparable; we do not use EV/EBITDA because content cost is a core cost item and EBITDA systematically overstates profitability.
 
-PE selection: Netflix's PE has ranged between 18x and 45x since 2023. With current growth of 12%, margin of 31.5% and buyback cancellation rate of 6%–7%, the warranted PE is 18x–24x; 22x in the neutral case, 15x in the bear case (close to the 2022 low) and 26x in the bull case (the level when growth returns to 14%).
+P/E selection: Netflix's P/E has ranged between 18x and 45x since 2023. With current growth of 12%, margin of 31.5% and buyback cancellation rate of 6%–7%, the warranted P/E is 18x–24x: 22x in the neutral case, 15x in the bear case (close to the 2022 low) and 26x in the bull case (the level when growth returns to 14%).
 
 Cross-check: the current price of USD 65.85 implies a 4.4% free cash flow yield + 6%–7% cancellation rate = 10%–11% annualised shareholder return (excluding valuation change). This return exceeds the US 10-year Treasury yield and trails high-quality software companies, matching the positioning of a "mature content asset" — 18x is not a mispricing, merely an absence of premium.
 
 ## Chapter 11 Investment Recommendations
 
-Rating: Buy (initiation). Target price USD 79, 22x PE on 2027 base-case EPS of USD 3.6, +20% vs. current price.
+Rating: Buy (initiation). Target price USD 79, 22x P/E on 2027 base-case EPS of USD 3.6, +20% vs. the current price.
 
-Entry pacing: open one-third of the position at the current price of USD 65.85; add a second tranche below USD 55 (15x normalized PE); fill out around USD 45 (bear case). We do not recommend adding ahead of a single-quarter earnings release — Netflix often moves more than 8% after a quarterly report.
+Entry pacing: open one-third of the position at the current price of USD 65.85; add a second tranche below USD 55 (15x normalized P/E); fill out around USD 45 (bear case). We do not recommend adding ahead of a single-quarter earnings release — Netflix often moves more than 8% after a quarterly report.
 
 Sell conditions (event-triggered, not price stops): 1) 2027 revenue guidance of single-digit growth; 2) 2027 operating margin falling below 30%; 3) net debt/operating profit above 1x. If any one of the three occurs, trim or exit, regardless of the share price.
 
@@ -152,17 +152,17 @@ Difference vs. consensus: the market currently expects 2027 revenue growth in ro
 
 ## Chapter 12 Appendix: Definitions and Data Sources
 
-Split basis (most important). Netflix announced a 10-for-1 forward stock split on October 30, 2025, with a record date of November 10, 2025; shares began trading at post-split prices at the open on November 17, 2025. All per-share data in this report (share price USD 65.85, EPS USD 0.87, 52-week high USD 109.35, average buyback price USD 75.12) are on a post-split basis; pre-split equivalent prices are ×10 (USD 658.5, USD 8.7, USD 1,093.5, USD 751.2).
+Split basis (most important). Netflix announced a 10-for-1 forward stock split on October 30, 2025, with a record date of November 10, 2025; the shares began trading at post-split prices at the open on November 17, 2025. All per-share data in this report (share price USD 65.85, EPS USD 0.87, 52-week high USD 109.35, average buyback price USD 75.12) are on a post-split basis; pre-split equivalents are ×10 (USD 658.5, USD 8.7, USD 1,093.5, USD 751.2).
 
-PE basis: 18x is the commonly used market basis including the one-off gain in 2026Q1; 21x is the normalized basis excluding it. Valuation uses the normalized basis throughout. Market cap basis: USD 65.85 × 4.11 billion shares = USD 270.6 billion (written as approximately 270 billion).
+P/E basis: 18x is the commonly used market basis and includes the one-off gain in 2026Q1; 21x is the normalized basis and excludes it. Valuation uses the normalized basis throughout. Market cap basis: USD 65.85 × 4.11 billion shares = USD 270.6 billion (written as approximately 270 billion).
 
-Treatment of undisclosed items: content cash spend, paid membership count and detailed executive compensation are not separately disclosed in the earnings summary. This report gives no specific figures for these, using qualitative descriptions or marking them "not separately disclosed" instead.
+Undisclosed items: content cash spend, paid membership count and detailed executive compensation are not separately disclosed in the earnings summary. This report gives no specific figures for these, using qualitative descriptions or marking them "not separately disclosed" instead.
 
 ## Sources
 
-- Netflix Q3 2026 earnings report and shareholder letter (released after US market close on October 20, 2026)
+- Netflix Q3 2026 earnings and shareholder letter (released after the US close on October 20, 2026)
 - Netflix Q3 2026 earnings call transcript (2026/10/20)
-- Zhitong Finance: "Netflix Q3 Revenue Up 12% YoY, Full-Year Advertising Revenue Outlook Cut" (2026/10/21)
-- Netflix 10-for-1 stock split: board approved on 2025/10/30, record date 2025/11/10, effective 2025/11/17 (TheStreet, Nasdaq)
-- Netflix layoffs and organizational restructuring: internal memo from the co-CEOs on 2026/10/13, cutting roughly 6% of staff (nearly 1,000 people), reported by AP and SETN
-- Share price, 52-week high/low and market cap: NASDAQ daily chart (as of 2026/10/23 close), 4.11 billion shares outstanding, all on a post-split basis
+- Zhitong Finance: Netflix Q3 revenue up 12% YoY; full-year advertising revenue outlook cut (2026/10/21)
+- Netflix 10-for-1 stock split: board approval 2025/10/30, record date 2025/11/10, effective 2025/11/17 (TheStreet, Nasdaq)
+- Netflix layoffs and restructuring: co-CEOs' internal memo, 2026/10/13, cutting roughly 6% of staff (nearly 1,000 people), per AP and SETN
+- Share price, 52-week high/low and market cap: NASDAQ daily chart (as of 2026/10/23 close); 4.11 billion shares outstanding, all on a post-split basis

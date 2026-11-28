@@ -2,11 +2,11 @@
 
 - Research date：2026/09/04
 - Price：87.4 CNY
-- Market cap：Approximately RMB 796.8 billion (91.17 billion total shares, A+H)
+- Market cap：RMB 796.8 billion market cap (91.17 billion total shares, A+H)
 
 ## Notes
 
-Sources: BYD 2026 interim report (2026/08/28) + Jiemian News (2026/08/29), broker interim-review notes (2026/08/29, including 2Q26 per-vehicle profit estimates), Stockstar (2026/08/27). All 2025H1 absolute values are back-derived from year-on-year growth rates (revenue/0.929, net profit/0.795, R&D/0.788, automotive revenue/0.91) and are flagged as such in the text. In the overseas revenue share bridge, electronics and other is a residual figure. The H-share price of HKD 91.95 is the 2026/08/28 close. Domestic volume year-on-year growth is deliberately not given separately; see Section 4 of the text for the reason.
+Sources: BYD 2026 interim report (2026/08/28); Jiemian News (2026/08/29); broker interim-review notes (2026/08/29, including 2Q26 per-vehicle profit estimates); Stockstar (2026/08/27). All 2025H1 absolute values are back-derived from YoY growth rates (revenue/0.929, net profit/0.795, R&D/0.788, automotive revenue/0.91) and are flagged as such in the text. In the overseas revenue share bridge, electronics and other is a residual. The H-share price of HKD 91.95 is the 2026/08/28 close. Domestic volume YoY growth is deliberately not shown separately; see Section 4 for the reason.
 
 ## Core data cross-checked across two sources (2026H1, RMB billion)
 
@@ -21,9 +21,9 @@ Sources: BYD 2026 interim report (2026/08/28) + Jiemian News (2026/08/29), broke
 | Operating cash flow | 373 (up 55% YoY) | 373 (Jiemian News) | 0.00% | Adopt |
 | Share of overseas revenue | 52.6% (group level) | 47.1% (Automotive segment, rough estimate) | -5.5pct | Present the breakdowns side by side; do not mix them |
 
-> Source A is BYD's 2026 interim report (2026/08/28); Source B is Jiemian News (2026/08/29), a broker's interim results review (2026/08/29) and Stockstar (2026/08/27). The 47.1% is a rough calculation of 1,295/2,751, with automotive and related products revenue as the denominator.
+> Source A is BYD's 2026 interim report (2026/08/28); Source B comprises Jiemian News (2026/08/29), a broker's interim results review (2026/08/29) and Stockstar (2026/08/27). The 47.1% is derived from 1,295/2,751, using automotive and related products revenue as the denominator.
 
-## Bridge for the overseas revenue share (2026H1, RMB billion, rough estimate)
+## Bridge to overseas revenue share (2026H1, RMB bn, rough estimate)
 
 | Basis of presentation | Overseas | Domestic | Total | Overseas share |
 |---|---|---|---|---|
@@ -31,27 +31,27 @@ Sources: BYD 2026 interim report (2026/08/28) + Jiemian News (2026/08/29), broke
 | Electronics and other (derived) | Approximately 519 | Approximately 178 | Approximately 697 | Approximately 74% |
 | Group total | Approximately 1,814 | Approximately 1,634 | 3,448 | 52.6% |
 
-> Automotive segment figures are as disclosed in the interim report (domestic RMB 145.6 billion, -33.6% YoY; overseas RMB 129.5 billion, +55.8% YoY). Electronics and others is derived: group overseas RMB 181.4 billion (344.8 × 52.6%) minus automotive overseas RMB 129.5 billion. The derived figure serves only to explain the variance and should not be cited as a disclosed value.
+> Automotive segment figures are as disclosed in the interim report: domestic RMB 145.6 billion, -33.6% YoY; overseas RMB 129.5 billion, +55.8% YoY. Electronics and others is derived as group overseas RMB 181.4 billion (344.8 × 52.6%) less automotive overseas RMB 129.5 billion. The derived figure serves only to explain the variance and should not be cited as a disclosed value.
 
 ## Six items reconcile: all deviations fall within rounding
 
-Six items — revenue, net profit, sales volume, exports, R&D and cash flow — are identical between the interim report and media retellings. That is no surprise: the media retellings are the interim report, and same-source figures are not cross-validation. What is genuinely independent is the broker estimates: they subtract Q1 from H1 to back out standalone Q2, arriving at Q2 net profit of RMB 8.24 billion, +29.6% YoY and +102% QoQ, consistent with the interim report minus the Q1 report. Only this item truly ties out.
+Six items — revenue, net profit, sales volume, exports, R&D and cash flow — are identical across the interim report and media retellings. Hardly surprising: the retellings are the interim report, and same-source figures are not cross-validation. The genuinely independent check is the broker estimates, which subtract Q1 from H1 to back out standalone Q2, arriving at Q2 net profit of RMB 8.24 billion, +29.6% YoY and +102% QoQ — consistent with the interim report minus the Q1 report. Only this item truly ties out.
 
-The gross margin differs by 0.05 percentage points because the broker rounded to 18.9%. Backing out gross profit at 18.85% gives RMB 65 billion (3,448.2 × 18.85%), which versus last year's RMB 66.9 billion is -2.8% — internally consistent. A deviation of this magnitude needs no explanation; use the precise value.
+Gross margin differs by 0.05pp because the broker rounded to 18.9%. Backing out gross profit at 18.85% gives RMB 65 billion (3,448.2 × 18.85%), which against last year's RMB 66.9 billion is -2.8% — internally consistent. A deviation of this magnitude needs no explanation; use the precise value.
 
 ## The only material deviation: 52.6% vs 47.1%, the gap being BYD Electronics
 
-A quick calculation exposes the problem: overseas automotive revenue of RMB 129.5 billion divided by group revenue of RMB 344.8 billion is 37.6%, neither 52.6% nor 47.1%. The three figures clearly use different denominators.
+A quick calculation exposes the discrepancy: overseas automotive revenue of RMB 129.5 billion divided by group revenue of RMB 344.8 billion gives 37.6%, not 52.6% or 47.1%. The three figures clearly use different denominators.
 
-Breaking it down clarifies matters. The automotive segment's own revenue base is RMB 275.1 billion (RMB 145.6 billion domestic + RMB 129.5 billion overseas), with overseas at 47.1%. Group revenue of RMB 344.8 billion exceeds automotive by RMB 69.7 billion, which is BYD Electronics and other businesses. If group overseas revenue is RMB 181.4 billion (344.8 × 52.6%), subtracting automotive overseas of RMB 129.5 billion leaves approximately RMB 51.9 billion in overseas revenue for electronics and other businesses, or 74% of their own revenue. BYD Electronics' customer base is predominantly overseas (consumer electronics manufacturing), so this ratio is plausible.
+Segmenting the revenue clarifies matters. The automotive segment's own revenue base is RMB 275.1 billion (RMB 145.6 billion domestic plus RMB 129.5 billion overseas), putting overseas at 47.1%. Group revenue of RMB 344.8 billion exceeds automotive by RMB 69.7 billion, which is BYD Electronics and other businesses. If group overseas revenue is RMB 181.4 billion (344.8 × 52.6%), subtracting automotive overseas of RMB 129.5 billion leaves approximately RMB 51.9 billion of overseas revenue for electronics and other businesses, or 74% of their own revenue. BYD Electronics' customer base is predominantly overseas (consumer electronics manufacturing), so this ratio is plausible.
 
-Both figures are therefore correct: overseas accounts for 47.1% of automotive business and 52.6% of the group, the latter lifted 5.5 percentage points by the electronics business. The statement "overseas revenue exceeded domestic for the first time" holds at the group level; at the automotive level it is "close to half." This report consistently uses the automotive basis for business discussion and the group basis for structural discussion, labeling each accordingly.
+Both figures are therefore correct: overseas accounts for 47.1% of the automotive business and 52.6% of the group, the latter lifted 5.5 percentage points by the electronics business. The claim that overseas revenue exceeded domestic for the first time holds at the group level; at the automotive level it is "close to half." This report consistently uses the automotive basis for business discussion and the group basis for structural discussion, labelling each accordingly.
 
 ## Back-solved item: how the 2025H1 base was derived
 
-Where the interim report gives only year-on-year growth rates and no absolute prior-year comparatives, all figures are back-solved: revenue RMB 371.26 billion (344.82 / 0.929), net profit attributable to shareholders RMB 15.51 billion (12.33 / 0.795), R&D expense RMB 29.57 billion (23.3 / 0.788), automotive revenue RMB 302.5 billion (275.3 / 0.91). Back-solved figures are used only to calculate growth rates and mix, and are not cited as disclosed values.
+Where the interim report discloses only YoY growth rates and no absolute prior-year comparatives, all figures are back-solved: revenue RMB 371.26 billion (344.82 / 0.929), net profit attributable to shareholders RMB 15.51 billion (12.33 / 0.795), R&D expense RMB 29.57 billion (23.3 / 0.788), automotive revenue RMB 302.5 billion (275.3 / 0.91). Back-solved figures are used only to calculate growth rates and mix, and are not cited as disclosed values.
 
-One back-solved result deserves separate mention: net profit came in RMB 3.2 billion lower, while R&D expense was RMB 6.3 billion lower. This means that without the R&D cut, the year-on-year decline in profit would have been over 40%, not 20.5%. This conclusion follows from arithmetic alone, relies on no external data, and is this report's most serious challenge to earnings quality.
+One back-solved result warrants separate mention: net profit came in RMB 3.2 billion lower, while R&D expense was RMB 6.3 billion lower. Absent the R&D cut, the YoY decline in profit would have exceeded 40%, not 20.5%. The conclusion follows from arithmetic alone, relies on no external data, and is this report's most serious challenge to earnings quality.
 
 ## Final adopted basis
 
@@ -65,7 +65,7 @@ Figures not provided: domestic sales growth on a standalone basis. Total volume 
 
 - BYD 2026 Interim Report (released August 28, 2026)
 - Jiemian News, "BYD earned RMB 3.2 billion less in the first half — where did the profit go?" (2026/08/29)
-- Sina Finance / Broker Research Report "BYD 2026 Interim Results Review: Domestic Demand Improves After Pressure, Exports Boom, 2Q26 Per-Vehicle Profit Improves Significantly" (2026/08/29)
-- Securities Star "BT Earnings Snapshot: BYD H1 Revenue Down 7%, Net Profit Down 20%, Why Did Gross Margin Rise Instead" (2026/08/27)
+- Sina Finance / Broker Research Report: "BYD 2026 Interim Results Review: Domestic Demand Recovers After Pressure, Exports Boom, 2Q26 Per-Vehicle Profit Up Sharply" (2026/08/29)
+- Securities Star, "BT Earnings Snapshot: BYD H1 revenue down 7%, net profit down 20% — so why did gross margin rise instead" (2026/08/27)
 - BYD 2025 annual report: net profit RMB 32.62 billion, -18.97% YoY (disclosed 2026/03/28)
-- Share price vs 52-week range: A-share daily data, as of the September 4, 2026 close (52-week high RMB 110.63, low RMB 77.84)
+- Share price vs 52-week range: A-share daily data as of the 4 September 2026 close (52-week high RMB 110.63, low RMB 77.84)

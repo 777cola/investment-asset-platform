@@ -6,19 +6,19 @@
 
 ## Notes
 
-Data sources: Pop Mart 2026 interim results announcement (2026/08/20); 2025 annual results announcement (2026/03/24); 2026 first-quarter unaudited business update (2026/05/12); summaries of rating reports from J.P. Morgan, HSBC, BofA and CMS International, 2026/08/20–21; share price and 52-week range from batchdata, as of the 2026/09/07 close. Revenue per store is a rough calculation: revenue / number of stores at period end, without excluding the ramp-up period of new stores, for trend reference only. PE methodology: market cap converted at HKD 0.914/RMB, then divided by TTM net profit of RMB 13.474 billion.
+Data sources: Pop Mart 2026 interim results announcement (2026/08/20); 2025 annual results announcement (2026/03/24); 2026 first-quarter unaudited business update (2026/05/12); summaries of rating reports from J.P. Morgan, HSBC, BofA and CMS International, 2026/08/20–21; share price and 52-week range from batchdata, as of the 2026/09/07 close. Revenue per store is a rough calculation — revenue / number of stores at period end, without excluding the ramp-up period of new stores — for trend reference only. P/E methodology: market cap converted at HKD 0.914/RMB, then divided by TTM net profit of RMB 13.474 billion.
 
 ## Six-gate scorecard (10 points per gate, 60 maximum)
 
 | Checkpoint | Determination | Rating | Based on |
 |---|---|---|---|
-| Gate One: Circle of Competence | Through | 8/10 | Selling IP, selling toys, opening proprietary stores—the revenue mix is clear at a glance; the unknowable part is the next blockbuster |
-| Stage Two: A Good Business | Through | 8/10 | Gross margin 69.7%, net margin 29.3%; stores pay back quickly on light capex; repeat purchases rely on novelty, not necessity |
-| Stage 3: Moat | Narrowly passed | 6/10 | 676 stores, 100 million members and a 92.9% membership sales share are real; IP longevity is not a moat |
-| Level 4: Management | Passed | 7/10 | Wang Ning openly concedes the target will not be met, and simultaneously announces an HKD 2–5 billion buyback; he holds 48.73%, aligning interests |
-| Gate 5: Margin of safety | Narrowly passed | 6/10 | The 14.2x TTM PE has peak profit as its denominator; on 2026 net profit of RMB 1.1 billion it is 17.4x |
-| Level Six: Discipline | Does not pass | 4/10 | The buy case rests on "new IP taking over" or "overseas recovery" — neither can be verified in advance. |
-| Consensus | Does not pass | 39/60 | Good company, reasonable price, bad timing; wait for overseas revenue to stop falling in the Q3 report, or for the share price to return to around HKD 120 |
+| Gate One: Circle of Competence | Through | 8/10 | Selling IP, selling toys, opening proprietary stores—the revenue mix is clear at a glance; what remains unknowable is where the next blockbuster comes from |
+| Stage Two: A Good Business | Through | 8/10 | Gross margin 69.7%, net margin 29.3%. Stores pay back quickly on light capex, but repeat purchases rest on novelty rather than necessity |
+| Stage 3: Moat | Narrowly passed | 6/10 | 676 stores, 100mn members and a 92.9% membership sales share are real; IP longevity is not a moat |
+| Level 4: Management | Passed | 7/10 | Wang Ning openly concedes the target will not be met while announcing an HKD 2–5 billion buyback; his 48.73% stake aligns interests |
+| Gate 5: Margin of safety | Narrowly passed | 6/10 | The 14.2x TTM P/E is flattered by peak profits in the denominator; on 2026 net profit of RMB 1.1 billion it is 17.4x |
+| Level Six: Discipline | Does not pass | 4/10 | The buy case rests on "new IP taking over" or "overseas recovery", neither of which can be verified in advance. |
+| Consensus | Does not pass | 39/60 | Good company, reasonable price, poor timing. Wait for overseas revenue to stop falling in the Q3 report, or for the share price to return to around HKD 120 |
 
 > Scoring: 10 points per checkpoint; 8 or above is "clear", 6–7 is "passes with conditions", below 5 is "fails". Scores reflect this report's subjective judgment, not company data.
 
@@ -42,25 +42,25 @@ A score of 6 rather than 8, because all three are "operational barriers", not "m
 
 Management comes down to two things: the record of telling the truth, and the record of returning cash.
 
-Telling the truth: at the August 20, 2026 earnings call, Wang Ning defined 2026 as a "year of operational adjustment," stating plainly that boosting sales is not the primary goal and that last year's "one good thing covering a hundred flaws" — stores either sold out or queuing — was not normal. Of the 30% growth target set at the start of the year, he conceded it will most likely not be met and cut guidance to no less than 20%.A company that has just posted 184.7% growth voluntarily slowing down is more trustworthy than one propping up an unachievable target.
+Telling the truth: on the August 20, 2026 earnings call, Wang Ning framed 2026 as a "year of operational adjustment," stating plainly that boosting sales is not the primary goal and that last year's "one good thing covering a hundred flaws" — stores either sold out or queuing — was not normal. Of the 30% growth target set at the start of the year, he conceded it will most likely not be met and cut guidance to no less than 20%.A company that has just posted 184.7% growth and voluntarily slows down is more trustworthy than one propping up an unachievable target.
 
 Returning cash: 2025 final dividend of RMB 2.3817 per share, about RMB 3.15 billion in total; in the first half of 2026, 11.22 million shares repurchased and cancelled for HKD 1.74 billion at HKD 140.9–194.9; the interim report announced a further HKD 2–5 billion buyback, the first time since listing that a program of this size has been disclosed at an earnings call. With RMB 12.44 billion in cash, zero bank borrowings and a debt-to-asset ratio of 24.9%, this buyback is not putting on a brave face.
 
 Deduct 3 points for governance: Wang Ning holds 49.14% through trusts and holding platforms — one dominant shareholder, no checks and balances. The upside is fast decisions and the ability to withstand short-term pressure; the downside is that no one can stop him from putting money into city theme parks, desserts and accessories, businesses with unclear returns.
 
-## Gate 5: the denominator behind the 14.2x PE is the peak of H2 2025
+## Gate 5: the 14.2x P/E rests on a denominator set at the H2 2025 peak
 
-Market cap is about HKD 209 billion, or roughly RMB 191 billion, which divided by TTM net profit of RMB 13.47 billion gives 14.2x. At first glance it looks cheap: a consumer company with 70% gross margin that is still opening stores is hard to find at 14x in either A-shares or Hong Kong.
+Market cap is roughly HKD 209 billion, or about RMB 191 billion, which on TTM net profit of RMB 13.47 billion gives 14.2x. At first glance that looks cheap: a consumer company with 70% gross margin that is still opening stores is hard to find at 14x in either A-shares or Hong Kong.
 
-Break it down and it is not cheap. TTM is built as full-year 2025 RMB 13.012 billion + 2026H1 RMB 5.038 billion - 2025H1 RMB 4.576 billion. The second half of 2025 alone earned RMB 8.436 billion, a half-year when Labubu went viral globally and stores queued every day — not the norm. A low PE calculated on a peak half-year is the textbook form of a valuation trap.
+Break it down and it is not cheap. TTM is built as full-year 2025 RMB 13.012 billion + 2026H1 RMB 5.038 billion - 2025H1 RMB 4.576 billion. The second half of 2025 alone earned RMB 8.436 billion — a half-year when Labubu went viral globally and stores queued every day, hardly the norm. A low P/E calculated on a peak half-year is the textbook form of a valuation trap.
 
-On a rough full-year 2026 net profit of RMB 11 billion (H1 RMB 5.038 billion; H2 is usually peak season but overseas weakness must be deducted), the actual PE is 17.4x. On JPMorgan's forecast of Q3 revenue -35% and Q4 -20%, 2026 net profit may be only RMB 9.5–10.5 billion, implying 18–20x. HSBC's August 20 report puts the current price at 16.4x 2026E PE. All three measures point to the same thing: it is not 14x, it is around 17x. For a company whose profit may decline, that is no margin of safety.
+On a rough full-year 2026 net profit of RMB 11 billion (H1 RMB 5.038 billion; H2 is usually peak season but overseas weakness must be deducted), the actual P/E is 17.4x. On JPMorgan's forecast of Q3 revenue -35% and Q4 -20%, 2026 net profit may be only RMB 9.5–10.5 billion, implying 18–20x. HSBC's August 20 report puts the current price at 16.4x 2026E P/E. All three measures point to the same thing: it is not 14x, it is around 17x. For a company whose profit may decline, that is no margin of safety.
 
 ## Gate 6: the buy thesis cannot be verified in advance — if it fails, it fails
 
 Discipline asks one question: what are you betting on when you buy now?
 
-There are only two answers. First, betting that Twinkle Twinkle, CRYBABY and DIMOO can absorb the 26% of revenue Labubu gives up — in the first half, the five mid-tier IPs combined earned 1.89x THE MONSTERS, which looks like they have absorbed it, but Twinkle Twinkle's 580.6% growth cannot persist; once the base rises next year, it turns negative. Second, betting that the overseas online pullback is a one-off clearing — Asia-Pacific online -39.8%, Americas online -45.6%, Shopee -62.1%. Management calls it fading traffic dividends, but that is a structural change, not quarterly noise.
+There are only two answers. First, that Twinkle Twinkle, CRYBABY and DIMOO can absorb the 26% of revenue Labubu gives up — in the first half the five mid-tier IPs combined earned 1.89x THE MONSTERS, which suggests they have, but Twinkle Twinkle's 580.6% growth cannot persist; once the base rises next year, it turns negative. Second, that the overseas online pullback is a one-off clearing — Asia-Pacific online -39.8%, Americas online -45.6%, Shopee -62.1%. Management calls it fading traffic dividends, but that is a structural change, not quarterly noise.
 
 Neither can be solved by "cheap"; both require data. Discipline means: do not predict the inflection point, only pay after the data confirms it. So this gate scores 4 — not because the company is bad, but because the timing is wrong.
 
@@ -69,8 +69,8 @@ Veto item: both revenue and profit are decelerating, and profit is falling faste
 ## Sources
 
 - Pop Mart 2026 Interim Results Announcement (released after market close on 2026/08/20)
-- China Securities Journal · CSI Taurus "Pop Mart: First-Half Revenue Reaches RMB 17.17 billion, Up 23.8% Year on Year" (2026/08/20)
-- GPLP "Pop Mart's first-half results miss market expectations as overseas revenue declines" (2026/08/20)
+- China Securities Journal · CSI Taurus "Pop Mart: 1H revenue RMB 17.17bn, up 23.8% YoY" (2026/08/20)
+- GPLP: "Pop Mart 1H results miss consensus as overseas revenue falls" (2026/08/20)
 - Caihua News, "Pop Mart Falls Over 6%: Slowing Earnings Growth to Blame?" (2026/08/21)
 - Pop Mart 2025 Annual Results Announcement (2026/03/24)
 - Share price vs 52-week range: batchdata market data, as of the September 7, 2026 close

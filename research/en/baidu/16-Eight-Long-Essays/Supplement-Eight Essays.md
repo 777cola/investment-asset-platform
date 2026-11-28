@@ -2,11 +2,11 @@
 
 - Research date：2026/11/23
 - Price：63.55 HKD
-- Market cap：Approximately HKD 168 billion (approximately USD 21.5 billion)
+- Market cap：About HKD 168 billion (roughly USD 21.5 billion)
 
 ## Notes
 
-Eight long-form pieces cover eight facets of one study, with data uniformly based on the 2026Q3 financial report (2026/11/16) and the 2026/11/23 closing price of HKD 63.55. All derived figures are marked as rough estimates or back-solved values.
+Eight long-form pieces cover eight facets of a single study. All data are based on the 2026Q3 financial report (2026/11/16) and the 2026/11/23 closing price of HKD 63.55; derived figures are flagged as rough estimates or back-solved values.
 
 ## Reading order for the eight articles
 
@@ -15,9 +15,9 @@ Suggested reading order: first break down (01 Cognitive Reset), then build up (0
 ## Sources
 
 - Baidu Q3 2026 earnings report (released November 16, 2026)
-- The Paper, "Robin Li: AI Cloud Investment Payback Period Is Shortening" (2026/11/15, segment revenue and profit breakdown)
-- People's Daily Online, "Baidu: Q3 Total Revenue RMB 30.8 Billion; AI Business Accounts for Over Half of Revenue for Three Consecutive Quarters" (2026/11/16)
-- HK Economic Times: "Baidu's Adjusted Profit Falls 36% Last Quarter; First Dividend Expected to Be Announced by Year-End" (2026/11/15)
-- JPMorgan research note (2026/11/18, target price cut to HKD 130; AI cloud passes return test, advertising does not)
-- stockanalysis.com/quote/hkg/9888/statistics/ (market cap HKD 164.3 billion, PE 19.31, PB 0.52, late November data)
-- Share price vs 52-week range: batchdata B9.json (23 November 2026 close HKD 63.55)
+- "Robin Li: AI Cloud Investment Payback Period Is Shortening" (2026/11/15, segment revenue and profit breakdown)
+- People's Daily Online: "Baidu Q3 revenue RMB 30.8bn; AI business exceeds half of revenue for a third straight quarter" (2026/11/16)
+- HK Economic Times: "Baidu's adjusted profit falls 36% last quarter; first dividend expected by year-end" (2026/11/15)
+- JPMorgan note (2026/11/18): target price cut to HKD 130; AI cloud clears the return test, advertising does not
+- Baidu (9888.HK) trades on 19.31x P/E and 0.52x P/B, with a market cap of HKD 164.3 billion, per stockanalysis.com data as of late November.
+- Share price vs 52-week range: batchdata B9.json (HKD 63.55 at the 23 November 2026 close)

@@ -6,12 +6,12 @@
 
 ## Notes
 
-The four close readings each reason through the public frameworks of Duan Yongping, Buffett, Munger and Li Lu respectively; they are not these individuals' own statements on Tencent. All data is taken uniformly from Tencent's 2026Q2 results announcement (2026/08/12) and interim results, and from the closing market data of 2026/08/14. The segment year-on-year bases in the incremental attribution are back-calculated from the growth rates disclosed in the announcement and are rough estimates. The edited and polished version is a publishable final draft, with views consistent with the preceding pieces.
+The four close readings each reason through the public frameworks of Duan Yongping, Buffett, Munger and Li Lu respectively; none represents these individuals' own statements on Tencent. All data is drawn uniformly from Tencent's 2026Q2 results announcement (2026/08/12) and interim results, and from closing market data of 2026/08/14. The segment YoY bases in the incremental attribution are back-calculated from the growth rates disclosed in the announcement and are rough estimates. The edited and polished version is a publishable final draft, with views consistent with the preceding pieces.
 
 ## Sources
 
-- Tencent Holdings Q2 2026 Results Announcement (2026/08/12, HKEX)
+- Tencent Holdings Q2 2026 results announcement (2026/08/12, HKEX)
 - Zhitong Finance: Tencent Q2 results analysis (2026/08/12)
-- East Money / Beijing Business Today: Tencent Q2 revenue RMB 204.79 billion, capex up 176% (2026/08/12)
-- Guosen Securities and Zhongtai Securities comments on Tencent 2026Q2 (2026/08/16–08/18, advertising and Channels metrics)
-- Share price, 52-week range and market cap: batchdata quote snapshot (close of 2026/08/14); total share capital 9.103 billion shares
+- East Money / Beijing Business Today: Tencent Q2 revenue RMB 204.79bn, capex up 176% (2026/08/12)
+- Guosen Securities and Zhongtai Securities on Tencent 2026Q2: advertising and Channels metrics (2026/08/16–08/18)
+- Share price, 52-week range and market cap: batchdata quote snapshot at the 2026/08/14 close; total share capital 9.103 billion shares

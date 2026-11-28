@@ -6,19 +6,19 @@
 
 ## Notes
 
-This module runs a four-role parallel analysis, with five standalone pages. All financial figures come from Netflix's 2026Q3 earnings report (2026/10/20) and full-year guidance; share price, market cap and 52-week high/low are on the post-split basis of the 10-for-1 split effective 2025/11/17. Probabilities and scores are subjective judgments, flagged at each occurrence.
+This module runs a four-role parallel analysis across five standalone pages. All financial figures are sourced from Netflix's 2026Q3 earnings report (2026/10/20) and full-year guidance; share price, market cap and 52-week high/low are on a post-split basis, reflecting the 10-for-1 split effective 2025/11/17. Probabilities and scores are subjective judgments, flagged at each occurrence.
 
 ## How to read these five reports
 
-The first four were done independently, without cross-communication: the business analysis looks only at business structure, the financial analysis only at the three statements, the industry research only at the competitive landscape, and the risk assessment only at the downside. The fifth is a synthesis, specifically handling the points of conflict.
+The first four sections were written independently, with no cross-communication: the business analysis covers only business structure, the financial analysis only the three statements, the industry research only the competitive landscape, and the risk assessment only the downside. The fifth is a synthesis that specifically addresses points of conflict.
 
-The advantage of this approach is that it avoids "conclusion first, evidence second." The drawback is duplication—the same number may appear four times across the four, but each time interpreted from a different angle. If you read only one, I suggest the risk one; if you read only the conclusion, read the final section of this one.
+This approach avoids "conclusion first, evidence second." The drawback is duplication—the same number may appear four times across the four sections, each time interpreted from a different angle. If you read only one, I suggest the risk section; if you read only the conclusion, read the final section of this one.
 
 ## Sources
 
-- Netflix Q3 2026 earnings report and shareholder letter (released after US market close on October 20, 2026)
+- Netflix Q3 2026 earnings and shareholder letter (released after the US close on October 20, 2026)
 - Netflix Q3 2026 earnings call transcript (2026/10/20)
-- Zhitong Finance: "Netflix Q3 Revenue Up 12% YoY, Full-Year Advertising Revenue Outlook Cut" (2026/10/21)
-- Netflix 10-for-1 stock split: board approved on 2025/10/30, record date 2025/11/10, effective 2025/11/17 (TheStreet, Nasdaq)
-- Netflix layoffs and organizational restructuring: internal memo from the co-CEOs on 2026/10/13, cutting roughly 6% of staff (nearly 1,000 people), reported by AP and SETN
-- Share price, 52-week high/low and market cap: NASDAQ daily chart (as of 2026/10/23 close), 4.11 billion shares outstanding, all on a post-split basis
+- Zhitong Finance: Netflix Q3 revenue up 12% YoY; full-year advertising revenue outlook cut (2026/10/21)
+- Netflix 10-for-1 stock split: board approval 2025/10/30, record date 2025/11/10, effective 2025/11/17 (TheStreet, Nasdaq)
+- Netflix layoffs and restructuring: co-CEOs' internal memo, 2026/10/13, cutting roughly 6% of staff (nearly 1,000 people), per AP and SETN
+- Share price, 52-week high/low and market cap: NASDAQ daily chart (as of 2026/10/23 close); 4.11 billion shares outstanding, all on a post-split basis

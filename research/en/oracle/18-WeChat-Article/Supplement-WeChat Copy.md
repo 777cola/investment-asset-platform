@@ -6,25 +6,25 @@
 
 ## Notes
 
-All data in this report are sourced from Oracle's FY2027Q1 earnings release and earnings call (September 10, 2026), the FY2026 annual report, S&P's rating announcement (July 2026), and batchdata market data (closing price of USD 144.79 on September 14, 2026). The statement that "market estimates attribute more than half to OpenAI" is an analyst calculation, not company disclosure; retain the wording "market estimates" at publication.
+All data in this report are sourced from Oracle's FY2027Q1 earnings release and earnings call (September 10, 2026), the FY2026 annual report, S&P's rating announcement (July 2026) and batchdata market data (closing price of USD 144.79 on September 14, 2026). The statement that "market estimates attribute more than half to OpenAI" is an analyst calculation, not company disclosure; retain the wording "market estimates" at publication.
 
 ## Title options
 
-① RMB 664 billion in orders, negative RMB 5.4 billion cash flow: what is Oracle betting on
-② A software company became a contractor in two quarters
+① RMB 664 billion in orders against negative RMB 5.4 billion free cash flow: what is Oracle betting on
+② How a software company became a contractor in two quarters
 ③ Oracle down 41.7% — is it cheap
 
 ## Body
 
 Let me start with the conclusion: Oracle's earnings report is the most fractured one I have seen this year.
 
-The top half looks impossibly good. FY27Q1 revenue was USD 19.345 billion, up 30% year on year; cloud infrastructure OCI USD 7.388 billion, up 121% year on year; remaining performance obligations (RPO) USD 664 billion, up 46% year on year; net income USD 4.76 billion, EPS USD 1.56. All four beat the consensus.
+The top half looks impossibly good. FY27Q1 revenue was USD 19.345 billion, up 30% YoY; cloud infrastructure OCI USD 7.388 billion, up 121% YoY; remaining performance obligations (RPO) USD 664 billion, up 46% YoY; net income USD 4.76 billion, EPS USD 1.56. All four beat consensus.
 
 At its Abilene campus, it delivered 131,000 GPUs in a single quarter and completed acceptance in 24 hours. Microsoft, Amazon and Google have not done that.
 
 The bottom half is too ugly to look at closely.
 
-In the same quarter, capex was USD 28.499 billion, up 235% year on year, 1.47x revenue. Free cash flow was negative USD 5.396 billion, versus negative USD 23.7 billion for the whole prior fiscal year. Total debt is about USD 129.5 billion, debt/EBITDA 4.3x. In July, S&P cut its rating to BBB-, one notch above junk. In August, it completed a USD 20 billion equity offering, equal to 4.5% of market cap.
+In the same quarter, capex was USD 28.499 billion, up 235% YoY, or 1.47x revenue. Free cash flow was negative USD 5.396 billion, versus negative USD 23.7 billion for the whole prior fiscal year. Total debt is about USD 129.5 billion, debt/EBITDA 4.3x. In July, S&P cut its rating to BBB-, one notch above junk. In August, it completed a USD 20 billion equity offering, equal to 4.5% of market cap.
 
 Read those lines together and something awkward emerges: a company with USD 4.76 billion of quarterly net income is selling stock and borrowing money to build the data centers that will fulfill its orders.
 
@@ -38,7 +38,7 @@ So the story is not "a software company growing again"; it is "a software compan
 
 The transformation itself is no disgrace. The disgrace is buying IDC assets at a software company's valuation.
 
-At USD 144.79, the stock trades at 17.9x FY27 non-GAAP PE, which looks inexpensive. But the denominator of that PE does not account for enough depreciation. This quarter's capex of USD 28.5 billion, amortized over six years, adds USD 1.2 billion of quarterly depreciation going forward, versus only USD 1.9 billion now. Once all the new assets are in service, quarterly depreciation doubles—the income statement will be caught by its own capex.
+At USD 144.79, the stock trades at 17.9x FY27 non-GAAP P/E, which looks inexpensive. But the denominator of that P/E does not account for enough depreciation. This quarter's capex of USD 28.5 billion, amortized over six years, adds USD 1.2 billion of quarterly depreciation going forward, versus only USD 1.9 billion now. Once all the new assets are in service, quarterly depreciation doubles—the income statement will be caught by its own capex.
 
 Another way to calculate: market cap USD 440 billion plus net debt USD 100 billion gives enterprise value of USD 540 billion; on a rough FY27 EBITDA of USD 40 billion, EV/EBITDA is about 13.5x. For a negative-free-cash-flow, BBB- heavy-asset company, 13.5x is not cheap.
 
@@ -70,14 +70,14 @@ Demand is real. But shareholders are not the highest-priority party in this trad
 
 ## Publishing note
 
-Suggested visuals: (1) a comparison chart of the four FY27Q1 items above consensus vs the three deteriorating cash-flow items; (2) a pie chart of the revenue mix shift (software 29% / OCI 38%); (3) a drawdown curve of the share price from 248.15 to 144.79. Risk note: this article is a personal research record and does not constitute investment advice.
+Suggested visuals: (1) a chart comparing the four FY27Q1 line items that beat consensus against the three cash-flow items that deteriorated; (2) a pie chart of the revenue mix shift (software 29% / OCI 38%); (3) a drawdown curve of the share price from 248.15 to 144.79. Risk note: this article is a personal research record and does not constitute investment advice.
 
 ## Sources
 
-- Oracle FY2027Q1 earnings and call (released after market close on 2026/09/10)
+- Oracle FY2027Q1 results and call (released after the close on 2026/09/10)
 - Oracle FY2026 Annual Report and Q4 Results (2026/06/10)
-- Business Insider《Oracle maintains its capex forecast and reports cloud growth》（2026/09/09）
-- Gelonghui, "RMB 664 billion in record orders, yet cash flow swings to a RMB 5.4 billion loss: what is Oracle betting on?" (September 10, 2026)
+- Business Insider: Oracle holds capex guidance, cloud growth in focus (2026/09/09)
+- Gelonghui, "Record RMB 664 billion in orders, yet cash flow swings to a RMB 5.4 billion loss: what is Oracle betting on?" (September 10, 2026)
 - Pocket Classroom, "Oracle FY27Q1 Earnings Analysis" (2026/09/11)
 - iFast research report "Oracle Downgraded to BBB-" (2026/07/29)
 - Share price vs 52-week range: batchdata market data, as of the September 14, 2026 close
