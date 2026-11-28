@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⑦ 风险清单：五个能算，一个不能算 — 英伟达</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>⑦ 风险清单：五个能算，一个不能算 — 英伟达</h1>
+  <div class="subtitle">八篇长文之七 | 把风险写成可以被证伪的句子</div>
+  <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股价 $220.78（+1.48%） &nbsp;·&nbsp; 市值 约 5.33 万亿美元（241.5 亿股） &nbsp;·&nbsp; PE(TTM) 约 28x（FY2028 前瞻约 15x）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-英伟达研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>英伟达的风险清单不长，但结构特殊：五个能算（客户集中、中国归零、估值、供应承诺、技术路线），一个不能算（1,085 亿美元担保的对手方与触发条件）。<b>能算的风险可以用价格补偿，不能算的只能用仓位限制。</b></p><p class='txt'>这份清单的价值不在“知道有风险”，在每个风险都配一个可观察的指标和一条证伪条件。</p></div><table class="dt"><caption>风险清单：量级、指标、证伪条件</caption><thead><tr><th>风险</th><th>量级</th><th>观察指标</th><th>证伪条件</th></tr></thead><tbody><tr><td>客户集中</td><td>三家占 44%，前五占应收 70%</td><td>前三大客户收入占比、ACIE 增速</td><td>单一客户流失导致单季营收环比转负</td></tr><tr><td>中国归零</td><td>Q2 合规交付 H200 &lt; 1%，指引不含中国</td><td>是否恢复许可、是否重新纳入指引</td><td>反向：恢复对华销售并纳入指引</td></tr><tr><td>估值</td><td>28x TTM / 15x FY28 / 19x FY28 FCF</td><td>PE、自由现金流倍数</td><td>FY2028 指引下修到 40% 以下</td></tr><tr><td>供应承诺</td><td>2,790 亿美元（FY27 剩 920 亿）</td><td>存货天数、减值计提</td><td>存货天数破 150 天或计提减值</td></tr><tr><td>技术路线</td><td>推理侧 ASIC 单位成本优势</td><td>推理收入占比、AMD/ASIC 份额</td><td>推理侧份额连续两季下滑</td></tr><tr><td>信用担保</td><td>上限 1,085 亿美元，对手方未披露</td><td>10-Q 是否新增代偿科目</td><td>出现首次实际代偿</td></tr></tbody></table><div class="note">数据来源：FY2027Q2 财报与 10-Q、电话会议（2026/08/26）。量级为上限或占比口径，非损失预估。</div><div class="section"><div class="section-title">能算的五个：量级都不致命</div><p class='txt'><b>客户集中（三家 44%）。</b>最坏情况：一家客户把推理全部转自研，收入缺口 10%–15%，股价跌 25%。可算，可跟踪，不足以致命——因为这五家是全球现金流最好的公司，不会突然消失。</p><p class='txt'><b>中国归零（已发生）。</b>FY2026 中国收入 197 亿美元、比上一年约 250 亿下降，H20 计提过 45 亿美元。现在指引不含中国数据中心算力收入。<b>这条风险已经出清，剩下的是“会不会恢复”的期权，不是“会不会失去”的风险。</b></p><p class='txt'><b>估值（15 倍 FY2028）。</b>最坏情况：FY2028 只增 30%，EPS 11.22 美元，给 15 倍是 168 美元，跌 24%。可算。</p><p class='txt'><b>供应承诺（2,790 亿）。</b>最坏情况：需求转弱，FY2028/FY2029 的 1,750 亿采购承诺中的一部分变成存货减值，一次性计提 200–400 亿，净利腰斩一个季度。可算。</p><p class='txt'><b>技术路线（ASIC）。</b>最坏情况：推理侧三成转向自研，增速从 70% 掉到 40%，估值从 15 倍掉到 12 倍，跌 35%。可算，但时间尺度是三到五年。</p></div><div class="section"><div class="section-title">不能算的那一个：担保的三种结局</div><p class='txt'>1,085 亿美元担保上限，公司只给了总额，没给对手方、期限、触发条件。三种可能的结局：</p><p class='txt'><b>结局一（概率最高）：不触发。</b>底层是投资级客户的租约，算力需求真实，客户按期付款，担保到期作废。这种情况下 1,085 亿只是一个数字，不影响任何一年的利润。</p><p class='txt'><b>结局二：部分代偿。</b>某一家 NeoCloud 融资失败、项目停工，英伟达代偿其租约义务，金额 50–200 亿，一次性计提。股价跌 15%–20%，但基本面不受影响。</p><p class='txt'><b>结局三：连锁。</b>2027 年融资环境收紧，两三家 NeoCloud 同时出问题，代偿 + 供应承诺减值 + 应收坏账三件事叠加，一次性计提 500 亿以上。<b>这种情况下股价跌 40%–50%，但公司仍然活着——因为它的净现金是 232 亿、自由现金流是正的、回购授权还有 990 亿。</b></p><p class='txt'>三种结局的概率我给 70% / 22% / 8%。期望损失不大，但方差极大。<b>这就是为什么它只能限仓，不能靠估值折价解决——你没法给一个未知分布定一个精确的折扣。</b></p></div><div class="section"><div class="section-title">四个被高估的风险</div><p class='txt'>市场在担心的四件事，我认为被高估了。</p><p class='txt'><b>第一，AI 泡沫破裂。</b>泡沫论的核心论据是“算力投资回报不明”。但五大云厂的资本开支由经营现金流支撑，在手订单超 2 万亿美元，这不是 2000 年的电信泡沫（当时是靠发债修没人用的光纤）。<b>泡沫可能在 NeoCloud 那一层，不在云厂那一层。</b></p><p class='txt'><b>第二，AMD 抢份额。</b>追了三年，增速一样、份额没动。它的作用是压价，不是替代。</p><p class='txt'><b>第三，中国。</b>已经从“最大增量”变成“零”，而且是公司自己写进指引的零。再 worst 也就是维持零。</p><p class='txt'><b>第四，毛利率下滑。</b>71%–72% 的毛利率仍然是台积电（67.7%）之上的水平。真正的风险不是毛利率掉，是掉了之后回不来——公司说 FY2028 回到 72%–73%，这个需要验证，但不是当下的危机。</p></div><div class="section"><div class="section-title">尾部情景：如果三件事同时发生</div><p class='txt'>把三个负变量叠在一起，会得到什么？</p><p class='txt'>假设 2027 年下半年：①云厂资本开支增速从 +60% 掉到 +5%；②一家 NeoCloud 违约，触发 100 亿代偿；③Q4 毛利率 71% 且 FY2028 没回到 72%。</p><p class='txt'>结果：FY2028 营收只增 20%（5,800 亿），净利率掉到 48%（因为毛利率低 + 减值），净利 2,784 亿、EPS 11.5 美元。市场给 12 倍（因为增速掉到 20% 以下，估值切换成周期股）——<b>138 美元，跌 37%。</b></p><p class='txt'>这个情景的概率我给 15%。它的触发信号是可观察的：云厂资本开支指引下修、NeoCloud 债券利差扩大、Q4 毛利率低于 71%。<b>三个信号出现两个，就该减仓，而不是等财报。</b></p><p class='txt'>用一个数字收尾：<b>这家公司在最坏情况下的跌幅是 40%–50%，最好情况下的涨幅是 75%。概率加权后是正期望，但方差要求仓位有上限。</b>这就是 8% 的由来。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>风险清单结论：五个能算（最坏合计跌 35%），一个不能算（最坏跌 50%），四个被高估（泡沫、AMD、中国、毛利率）。</b>能算的用价格补偿，不能算的用仓位限制，被高估的不做交易依据。<b>动作：仓位 5%（上限 8%），三个尾部信号出现两个就减仓。</b></p></div>
+</div>
+<div class="footer">英伟达 (NVDA) 投资研究报告集 · 2026/08/31</div>
+</body>
+</html>

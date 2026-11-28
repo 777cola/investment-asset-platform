@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>护城河解剖：一条真的，一条假的 — 甲骨文</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>护城河解剖：一条真的，一条假的 — 甲骨文</h1>
+  <div class="subtitle">护城河要看它保护的是哪一块收入</div>
+  <div class="meta">研究日期 2026/09/14 &nbsp;·&nbsp; 股价 $144.79（-3.65%） &nbsp;·&nbsp; 市值 约 4,400 亿美元 &nbsp;·&nbsp; PE(GAAP TTM) 约 23.5x</div>
+</div>
+<div class="container">
+<a class="back" href="../00-甲骨文研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>甲骨文有两条护城河，一条真的、一条假的。<b>真的那条守住 29% 的收入，假的那条承载 60% 的收入和全部资本开支。</b>把两条混在一起谈“甲骨文有护城河”，是这类分析最常见的错误。</p></div><table class="dt"><caption>护城河逐项打分</caption><thead><tr><th>维度</th><th>数据库/软件</th><th>OCI</th><th>说明</th></tr></thead><tbody><tr><td>品牌</td><td>8/10</td><td>4/10</td><td>企业采购清单的默认项 vs 算力客户只看价格</td></tr><tr><td>切换成本</td><td>9/10</td><td>3/10</td><td>迁移以年计 vs 重新部署容器几周</td></tr><tr><td>成本优势</td><td>7/10</td><td>5/10</td><td>研发摊薄 vs 电价与交付速度</td></tr><tr><td>网络效应</td><td>5/10</td><td>2/10</td><td>开发者生态 vs 多一个客户不会让平台更有用</td></tr><tr><td>牌照资质</td><td>7/10</td><td>6/10</td><td>金融/政府认证 vs FedRAMP、IL5</td></tr></tbody></table><div class="note">10 分制主观评分，依据为公开信息与行业访谈口径，非量化模型输出。</div><div class="section"><div class="section-title">真护城河：迁移成本是怎么运作的</div><p class='txt'>数据库的护城河不在代码里，在<b>客户的资产负债表和监管档案里</b>。一家银行换核心系统，预算通常 2–5 亿美元、周期 3–5 年、失败率极高（历史上多家银行换核心系统失败，损失以十亿计）。对 CIO 来说，换甲骨文的数据库不是技术决策，是职业风险决策。<b>只要“不换”不被追责，“换”就永远不会发生。</b></p><p class='txt'>这条护城河还有一个反常识的证据：本季数据库相关业务同比 +353%，而 AWS 和 Azure 都接入了 Oracle 数据库。<b>竞争对手的云主动兼容你的数据库，说明你的数据库是客户不愿放弃的资产。</b>这是护城河里最硬的一种——不是“我比你强”，是“客户不允许你消失”。</p></div><div class="section"><div class="section-title">假护城河：算力为什么没有壁垒</div><p class='txt'>OCI 卖的东西，拆开看是三样：机柜、电、网络。三样都是标准品。客户迁移到另一家云，不需要重写应用，只需要重新部署容器和迁移数据，周期几周，成本几百万美元——和数据库迁移完全不是一个量级。<b>切换成本低，定价权就不存在。</b></p><p class='txt'>甲骨文在 OCI 上的优势是真实的：阿比林园区单季交付 13.1 万张 GPU、24 小时验收、自建燃料电池绕开并网排队。<b>但这些是“执行优势”，能被追上；护城河要的是“结构优势”，不能被复制。</b>执行优势在需求紧缺时值钱，在过剩时一文不值——因为过剩的时候，客户不缺供应商，只缺便宜。</p></div><div class="section"><div class="section-title">护城河的可迁移性：为什么老护城河救不了新业务</div><p class='txt'>很多人会说：甲骨文有数据库客户，这些客户上云的时候自然会用 OCI。这个逻辑听起来顺，但数据不支持——OCI 73.88 亿收入里，增量主要来自 AI 实验室，不是来自传统数据库客户。传统客户上云，多数选了 AWS 或 Azure，因为那边的应用生态更全。</p><p class='txt'><b>护城河是有边界的。数据库的护城河保护的是“数据放在哪里”，不保护“算力在哪里”。</b>这两件事在云时代是分开的——客户完全可以把数据库留在 Oracle，把训练任务放在 AWS。本报告把这条称为“护城河不可迁移”，它是理解甲骨文估值的关键：<b>老护城河值 3,000 亿，新业务要另算。</b></p></div><div class="section"><div class="section-title">护城河的折旧：为什么老护城河在贬值</div><p class='txt'>数据库护城河没有消失，但它在变窄。两个原因：<b>一是客户把新应用放在云上</b>，新应用不一定要用 Oracle 数据库；<b>二是开源数据库（PostgreSQL）在中小客户里替代了 Oracle。</b>本季软件支持收入 -3%，是这条护城河第一次出现负增长。</p><p class='txt'>护城河不会一夜之间消失，它会像冰川一样退。对估值的影响是：这块业务应该按“衰退年金”定价，而不是“永续增长”定价。<b>按 5% 年衰退折现，软件业务值 2,200 亿，而不是 3,500 亿。</b></p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>结论：真护城河守旧，假护城河撑新。</b>投资含义不是“没有护城河”，而是“护城河覆盖的收入在萎缩，增长的收入没有护城河”。<b>这种结构下，公司的估值应该等于两块业务分别估值之和，而不是给整体一个成长股倍数。</b></p></div>
+</div>
+<div class="footer">甲骨文 (ORCL) 投资研究报告集 · 2026/09/14</div>
+</body>
+</html>

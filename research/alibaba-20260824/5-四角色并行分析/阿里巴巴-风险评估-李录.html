@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>风险评估（李录视角） — 阿里巴巴</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>风险评估（李录视角） — 阿里巴巴</h1>
+  <div class="subtitle">把「可能亏多少」放在「可能赚多少」前面</div>
+  <div class="meta">研究日期 2026/08/24 &nbsp;·&nbsp; 股价 HK$112.50（-8.54%） &nbsp;·&nbsp; 市值 约 2.30 万亿港元（配售后约 204.6 亿股） &nbsp;·&nbsp; PE(TTM，反推) 约 31x（利润被 AI 投入扭曲，参考性弱）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-阿里巴巴研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>风险不在「阿里会不会倒」，在「这笔钱会不会被无效烧掉」。<b>最大的风险是资本开支的回报率，其次是 AI 应用层的减亏路径，第三才是竞争。</b>三个风险叠加的概率不高，但每一个单独发生都足够让股价再跌 20%。</p></div><table class="dt"><caption>风险清单与量化（2026/08/24）</caption><thead><tr><th>风险</th><th>触发条件</th><th>对每股影响</th><th>概率</th></tr></thead><tbody><tr><td>云增速回落</td><td>季度增速掉到 25% 以下，PS 从 6x 到 4x</td><td>-19 港元（-17%）</td><td>中</td></tr><tr><td>电商变现率继续下滑</td><td>客户管理连续两季负增长，EBITA 滑向 1,400 亿元</td><td>-15 港元（-13%）</td><td>较高</td></tr><tr><td>资本开支失速</td><td>FCF 连续四季为负，市场按公用事业定价（云 3x PS）</td><td>-30 港元（-27%）</td><td>中低</td></tr><tr><td>AI 应用亏损扩大</td><td>季度亏损超 160 亿元，市场给负估值 5x</td><td>-12 港元（-11%）</td><td>中</td></tr><tr><td>监管与地缘</td><td>欧盟罚款、出口管制升级、ADR 政策</td><td>-10~-25 港元</td><td>低</td></tr></tbody></table><div class="note">影响测算以中性估值 129 港元为基准，逐项单独变动、其他条件不变。概率为主观判断，用于排序而非精算。</div><div class="section"><div class="section-title">第一风险：3,800 亿元的回报率</div><p class='txt'>已投 1,900 亿元，云的年化 EBITA 是 225 亿元——静态回报 11.8%。这个数字在基础设施里算合格，但它建立在一个条件上：<b>算力价格不跌。</b>现在全行业都在扩产（腾讯 Q2 资本开支 +176%、北美四大云厂上调），两三年后供给集中释放，算力单价大概率下行。价格跌 20%，云 EBITA 利润率从 11.6% 掉到 9% 以下，整个分部估值逻辑要重算。</p><p class='txt'>更麻烦的是折旧的时滞。本季折旧还没压满——这是利润率改善的一部分原因。等 FY2026–FY2027 采购的设备开始按 5 年摊，年化新增折旧 540 亿元级别。<b>届时会出现「收入还在涨、利润被折旧吃掉」的组合，这是重资产生意最难受的阶段。</b></p></div><div class="section"><div class="section-title">第二风险：AI 应用的减亏路径</div><p class='txt'>AI 实验室与应用：收入 33.4 亿元、亏损 138.6 亿元、亏损率 -415%。这不是「投入期」，这是「模式未验证」。公司给的解释是「AI 能力建设投入 + Qwen App 推理成本上升」，翻译过来就是「用户免费用，我们付电费」。</p><p class='txt'>李录会问一个更根本的问题：<b>这门生意的付费方是谁。</b>企业端有千问办公，个人端有千问 App 的付费增值服务（8 月上线），两条路都刚起步。对比一下腾讯：微信的 AI 能力是挂在已有收费场景上（广告、游戏、支付），边际成本低、变现路径现成。阿里的千问要新建一个入口，还要跟豆包、DeepSeek 抢用户，这是最贵的一种打法。</p><p class='txt'>如果两年内看不到减亏，市场会把这个部门从「投资」重新归类为「费用」——<b>估值上就是从 -3 倍亏损变成 -5 倍甚至更多，每股差 12 港元以上。</b></p></div><div class="section"><div class="section-title">第三风险：治理与稀释的连锁反应</div><p class='txt'>800 亿港元配售本身不是风险——3.47% 稀释、超额认购 3 倍、主权基金占四成，市场接受了。风险在它的先例效应：<b>如果 FY2027 资本开支继续超预期，会不会有第二次、第三次配售？</b>一次是意外，两次是模式。市场对「习惯性增发」的公司会给估值折价，这是港股过去十年反复验证过的规律。</p><p class='txt'>治理层面还有两点要记：一是配售在业绩会后两天落地，说明信息披露与市场沟通的节奏由公司单方面掌握，中小股东没有预期管理；二是管理层增持 1.2 亿港元对 800 亿配售，比例 0.15%，象征意义大于实质。</p><p class='txt'>地缘与监管是尾部风险：欧盟罚款准备金约 43 亿元已经计提，出口管制影响芯片供给（对阿里反而是「买得到」护城河的来源，双刃），ADR 政策风险长期存在但短期不是主线。</p></div><div class="section"><div class="section-title">风险的另一面：为什么不是「回避」</div><p class='txt'>五个风险都真实，但都不是「资产负债表崩掉」那一类。账上 4,745.05 亿元现金及流动投资、经营现金流正向、债务结构不紧张——<b>这是一家「可能少赚」的公司，不是「可能归零」的公司。</b>这决定了评级的上限是「观察」而不是「回避」。</p><p class='txt'>李录的框架里，最坏情况要能算清：如果云按 3 倍 PS（0.58 万亿元）、电商按 7 倍 EBITA（0.98 万亿元）、AI 应用按 2 倍亏损（-0.11 万亿元），合计 1.45 万亿元人民币，每股 71 港元。<b>这是「同时发生」的极端值，概率低于 10%，但它告诉你下沿在哪。</b></p><p class='txt'>所以真正的纪律是：现价买，最坏亏 37%；95 港元买，最坏亏 25%；80 港元买，最坏亏 11%。<b>价格越低，风险敞口越小——这才是「等回调」的量化含义。</b></p></div><div class="summary-box"><h3>结论</h3><p>三个风险按重要性排序：资本开支回报率（-27%）、电商变现率（-13%）、AI 应用减亏（-11%）。<b>没有一个风险指向「公司会垮」，但三个都指向「利润会被压三到五年」。</b>所以评级是观察，不是回避；触发条件是价格或证据，不是观点。</p></div>
+</div>
+<div class="footer">阿里巴巴 (09988) 投资研究报告集 · 2026/08/24</div>
+</body>
+</html>

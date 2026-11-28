@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>芒格：反过来读，哪些数字会杀死它 — 寒武纪</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>芒格：反过来读，哪些数字会杀死它 — 寒武纪</h1>
+  <div class="subtitle">芒格视角 · 2026 年中报精读</div>
+  <div class="meta">研究日期 2026/08/17 &nbsp;·&nbsp; 股价 ¥1,156.00（+5.76%） &nbsp;·&nbsp; 市值 约 7,271 亿元 &nbsp;·&nbsp; PE(TTM) 约 218x</div>
+</div>
+<div class="container">
+<a class="back" href="../00-寒武纪研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>芒格不问“能涨多少”，只问“怎么会死”。把中报倒过来读，能杀死它的数字有三个：存货、客户集中度、增速曲线。</p></div><div class="section"><div class="section-title">存货 82.48 亿元：一个会计年度就能翻脸的科目</div><p class='txt'>存货 82.48 亿元，占总资产 45.32%、占净资产 60.84%，已计提跌价准备约 7.67 亿元（8.5%）。芯片库存的特殊性在于：<b>它不是贬值，是过时。</b>思元 690 在 2026 年初量产，590 的库存如果卖不到 2027 年，计提就不是 8.5% 而是 30%。</p><p class='txt'>极端情形算一下：如果计提比例从 8.5% 提到 25%，多计提 14.9 亿元，2026 年全年净利直接从 52 亿元掉到 37 亿元，市盈率从 140 倍变成 196 倍。<b>一个会计科目，能改掉三分之一的估值。</b></p></div><div class="section"><div class="section-title">客户集中度 88.66%：护城河的另一面是依赖</div><p class='txt'>2025 年前五名客户 57.60 亿元、占 88.66%，2025 年一季度单一大客户一度占 96.48%。<b>芒格会把这条读成“它没有客户，它有一个客户”。</b></p><p class='txt'>依赖的反面是议价权在对方手里。客户可以随时把订单切给华为，也可以在下一轮谈判里要求降价——55% 的毛利率在“一个客户”面前，其实是脆弱的。<b>集中度不降，护城河就只是“暂时没得选”。</b></p></div><div class="section"><div class="section-title">增速曲线：三个季度三种速度，是最危险的信号</div><p class='txt'>2025 年 +453%，2026Q1 +159.56%，2026Q2 +75.83%、环比 +7.84%。<b>芒格会说：趋势线断了，不是需求断了，是叙事断了。</b></p><p class='txt'>市场给 218 倍市盈率，是因为它相信“翻倍还能继续”。Q2 的 7.84% 已经在说“不能”。这不是财报的错，是预期的错——<b>而预期的错，要用价格来还。</b></p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>芒格式结论：</b>不需要公司做错任何事，只要增速慢一点、存货多计提一点、市场换个风格，股价就能跌六成。这三件事的概率都不低。避开。</p></div>
+</div>
+<div class="footer">寒武纪 (688256) 投资研究报告集 · 2026/08/17</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>财报精读（芒格） — 英伟达</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>财报精读（芒格） — 英伟达</h1>
+  <div class="subtitle">英伟达 (NVDA) | 先想清楚什么会让它崩</div>
+  <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股价 $220.78（+1.48%） &nbsp;·&nbsp; 市值 约 5.33 万亿美元（241.5 亿股） &nbsp;·&nbsp; PE(TTM) 约 28x（FY2028 前瞻约 15x）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-英伟达研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>芒格读财报的方法是倒着读：先找最可能坏的地方，再看它有没有在坏。<b>英伟达最可能坏的三处：存货（316 亿）、应收账款（631 亿）、表外担保（1,085 亿）。</b>这份财报里，前两处已经开始动了，第三处只有上限没有结构。</p></div><table class="dt"><caption>倒着读：三个可能先坏的地方</caption><thead><tr><th>位置</th><th>本季</th><th>变化</th><th>坏掉的信号</th></tr></thead><tbody><tr><td>存货</td><td>315.75 亿美元</td><td>环比 +57.84 亿，119 天成本</td><td>下季营收不及指引而存货继续增</td></tr><tr><td>应收账款</td><td>630.59 亿美元</td><td>环比 +54.9%，账期 45→60 天</td><td>账期破 75 天，或计提比例上升</td></tr><tr><td>表外担保</td><td>上限 1,085 亿美元</td><td>本季首次大额披露</td><td>任一对手方违约触发代偿</td></tr></tbody></table><div class="note">数据来源：FY2027Q2 财报与 10-Q。存货天数按期末存货/单季营业成本×91 计算。</div><div class="section"><div class="section-title">先坏的一定是存货</div><p class='txt'>存货 315.75 亿，一个季度增加 57.84 亿，相当于 119 天的营业成本。管理层说是为 Vera Rubin 备货，这个解释合理——新品爬坡必须提前铺货。</p><p class='txt'>但芒格会追问：<b>如果 Rubin 的爬坡比计划慢一个季度，这 316 亿会怎样？</b>答案是：不会立刻减值，会先压毛利（降价清库存），再压现金流（占用更多营运资金）。半导体行业的历史上，存货永远是第一个报警的指标，1985 年的英特尔、2001 年的思科、2018 年的英伟达自己（矿卡库存）都是这样。</p><p class='txt'>英伟达有一个别人没有的缓冲：2,790 亿美元的供应承诺不是死库存，是可以调整的采购节奏。但承诺已经签了，FY2027 剩余要付 920 亿、FY2028 870 亿、FY2029 880 亿。<b>这意味着未来三年它的成本是锁定的，而收入不是。</b></p></div><div class="section"><div class="section-title">然后坏的是账期，而且它是结构性的</div><p class='txt'>应收账款 630.59 亿，环比 +54.9%，营收环比只涨 18%。账期从 45 天拉到 60 天。公司解释是投资级客户大额订单分季交付。</p><p class='txt'>这个解释能成立一次，不能成立四次。芒格式的检验很简单：<b>如果账期是因为客户变大、订单变大，那么它应该稳定在某个新水平；如果是因为客户付不出钱，它会继续往上走。</b>下个季度看两个数就知道：账期是否超过 65 天，以及应收账款增速是否继续高于营收增速。</p><p class='txt'>还有一个更硬的证据：前五大客户的应收账款占 70%。<b>这意味着一笔坏账就能影响 5% 以上的应收。</b>如果其中一家是 NeoCloud，而它的融资环境在 2027 年收紧，坏账不是概率问题，是时间问题。</p></div><div class="section"><div class="section-title">最后坏的是客户名单，而且它不会恢复</div><p class='txt'>芒格最看重的不是数字，是结构。<b>这门生意的结构是：五个客户，其中四个正在造自己的芯片。</b></p><p class='txt'>谷歌 TPU 做到第七代，亚马逊 Trainium 大规模自用，OpenAI 的 Jalapeño 号称超过 Blackwell，Meta 一直在试自研推理芯片。英伟达的应对是把 Groq 收进来做专用推理（Groq 3 LPX 已量产），这是在承认“通用 GPU 不是所有场景的最优解”。</p><p class='txt'>他的判断框架是这样：短期（1–2 年）客户离不开，因为产能和生态；中期（3–5 年）训练还是英伟达，推理会被切走一部分；长期（5 年以上）如果 AI 算力变成标准化商品，毛利率会向 50% 靠拢，估值会向 20 倍靠拢。</p><p class='txt'>“反过来想，总是反过来想。”——如果十年后英伟达的毛利率是 50%、增速 15%，那么今天的 5.33 万亿市值贵不贵？<b>按 50% 毛利率、25% 净利率、15% 增长算，十年后净利约 2,600 亿，给 20 倍是 5.2 万亿——也就是说，今天的价格已经把十年后的成功定价完了。</b></p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>芒格式结论：三个可能坏的地方，两个已经在动（存货、账期），一个看不见（担保）。</b>他不会说“不要买”，他会说“如果你买，你要知道自己买的是一个正在从卖方市场转向买方融资市场的生意”。<b>他的原话式表达大概是：“告诉他们问题在哪，他们自己会做决定。”</b></p></div>
+</div>
+<div class="footer">英伟达 (NVDA) 投资研究报告集 · 2026/08/31</div>
+</body>
+</html>

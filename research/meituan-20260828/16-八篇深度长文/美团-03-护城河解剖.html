@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>三、护城河解剖：六项打分与它的边界 — 美团</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>三、护城河解剖：六项打分与它的边界 — 美团</h1>
+  <div class="subtitle">为什么它挡得住新玩家，挡不住老巨头</div>
+  <div class="meta">研究日期 2026/08/28 &nbsp;·&nbsp; 股价 HK$77.50（+0.00%） &nbsp;·&nbsp; 市值 约 4,786 亿港元（61.75 亿股） &nbsp;·&nbsp; PE —（2026 年上半年净亏 46.7 亿元，PE 失真）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-美团研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>把护城河拆成六项打分：<b>网络密度 9、成本优势 8、商户生态 7、品牌 6、切换成本 5、牌照 4。</b>前两项是物理壁垒，后四项是社会壁垒。物理壁垒需要十年和几千亿元才能复制，社会壁垒只需要一场营销战役就能绕过。这就是为什么京东砸了两年、上千亿元仍只有 7% 的份额，而淘宝闪购用一年就拿到 40% 以上——<b>前者在攻物理壁垒，后者在绕过它。</b></p></div><div class="section"><div class="section-title">物理壁垒：密度与成本</div><p class='txt'>网络密度 9 分。600 万有单骑手、2,800 个县市区、分钟级调度，这三样是时间堆出来的。京东和阿里可以花钱招骑手，但招来的骑手在低密度商圈赚不到钱，会流失；可以花钱买补贴，但补贴一停用户就走。<b>密度是唯一不能被钱直接买到的东西。</b></p><p class='txt'>成本优势 8 分。2026Q2 配送服务收入 267.8 亿元、+13.1%，靠的是单均配送成本下降，不是提价。单均成本低 → 可以给骑手更高单价 → 骑手更愿意留 → 时效更稳 → 订单更密。<b>这是一个自我强化的循环，对手要打破它，必须先在成本上亏更多。</b></p><p class='txt'>扣分的地方：这两项壁垒都有地理边界。跨出三公里，密度归零；跨出中国，骑手成本和监管环境完全不同（沙特能盈利，巴西未必）。</p></div><div class="section"><div class="section-title">社会壁垒：商户、品牌、切换、牌照</div><p class='txt'>商户生态 7 分。800 万活跃商户是资产，但 2026Q2 商家服务收入只增 4.0%——议价权在下降。抖音用低佣金挖连锁品牌，商户自己在降本砍广告。<b>这条壁垒还在，但在变薄。</b></p><p class='txt'>品牌 6 分。“点外卖上美团”仍然成立，但只在高客单价场景成立。30 元以下，用户已经被补贴教育成“谁便宜用谁”。<b>品牌在价格敏感人群里，几乎等于零。</b></p><p class='txt'>切换成本 5 分。用户换平台只需要下载一个 App，商户多平台上线是常态。<b>这个行业没有“锁定”，只有“习惯”。</b>习惯可以被 10 亿元补贴改变。</p><p class='txt'>牌照 4 分。外卖不需要牌照，这是优点（没有准入限制）也是缺点（没有准入保护）。监管只会加成本，不会加壁垒。</p></div><div class="section"><div class="section-title">为什么淘宝闪购能绕过去</div><p class='txt'>淘宝闪购的做法不是“建一个更好的配送网络”，是“用主站流量把订单灌进来”。<b>它不攻密度，它买密度——用 8 亿用户的流量，硬生生在一个商圈里造出订单量。</b></p><p class='txt'>这是唯一能绕过物理壁垒的方法，也是唯一危险的方法：因为它必须持续补贴，一旦停，订单量掉，密度归零，骑手流失。</p><p class='txt'>所以它的可持续性取决于两件事：阿里的现金流能撑多久、以及电商利润愿不愿意一直补贴外卖。<b>2026 年 8 月阿里配售 800 亿港元全部投向 AI 基建、新财年淘宝闪购投入砍半——这两个动作回答了这个问题。</b></p></div><div class="section"><div class="section-title">护城河的边界：三公里与一百天</div><p class='txt'>美团的护城河有两个边界，都必须记住。</p><p class='txt'><b>空间边界是三公里。</b>它在每个商圈里都是独立的堡垒，全国 2,800 个县市区就是 2,800 场独立的战争。这既是它的强项（没人能一次攻下全部），也是它的弱点（每个堡垒都要单独养）。</p><p class='txt'><b>时间边界是一百天。</b>如果补贴持续一百天，用户习惯就会迁移；如果持续一年，骑手也会迁移。2025 年那场仗打了四个季度，美团丢了 14 个百分点、亏了 234 亿元——这就是时间边界的实测值。</p></div><div class="section"><div class="section-title">护城河的反面：它保护不了什么</div><p class='txt'>讲护城河容易只讲“它挡住了什么”，更重要的是“它挡不住什么”。</p><p class='txt'>它挡不住补贴。2025 年淘宝闪购用一年时间拿到 40% 以上单量，证明只要肯亏钱，份额可以买。护城河能延长战争，不能终止战争。</p><p class='txt'>它挡不住监管。骑手社保、算法合规、商户收费规范，每一条都是成本，而且是不可逆的成本。护城河不能阻止政策。</p><p class='txt'>它挡不住替代。如果消费习惯变了（比如在家做饭变多、预制菜普及），或者技术变了（无人机配送成熟到成本低于人力），护城河的物理基础会被改写。<b>美团自己在投无人机和无人车，就是在给这条护城河买保险。</b></p><p class='txt'>所以护城河的真实作用是：<b>保证它在“正常的竞争”里赢，但不保证它在“不正常的竞争”里活得好。</b>这就是 8 分而不是 10 分的原因。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'>护城河结论：<b>六项打分合计 39/60，属于“强、但不宽”的护城河。</b>它能保证美团不死、不被新玩家取代，但不能保证它提价、不能保证它挡住愿意亏钱的巨头。这就是 15–20 倍与 30 倍的分界线。</p></div>
+</div>
+<div class="footer">美团 (03690) 投资研究报告集 · 2026/08/28</div>
+</body>
+</html>

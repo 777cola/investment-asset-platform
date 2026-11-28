@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>组合管理 — 美团</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>组合管理 — 美团</h1>
+  <div class="subtitle">美团 (03690) | 14-组合管理建议</div>
+  <div class="meta">研究日期 2026/08/28 &nbsp;·&nbsp; 股价 HK$77.50（+0.00%） &nbsp;·&nbsp; 市值 约 4,786 亿港元（61.75 亿股） &nbsp;·&nbsp; PE —（2026 年上半年净亏 46.7 亿元，PE 失真）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-美团研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>这是一笔“期权型”持仓：<b>下行 23%（悲观 60 港元），上行 42%（中性 110 港元），赔率 1:1.8，用 2%–3% 的仓位买一个“利润率修复”的可能性。</b>仓位纪律比选股更重要——因为这只股票的波动来自对手的动作，不来自公司自己。三条价位：77.5 港元建 2%，65 港元加到 4%–5%，Q3 财报后按结果决定加到 5% 还是砍到 1%。</p></div><table class="dt"><caption>仓位建议（组合权重）</caption><thead><tr><th>情景</th><th>仓位</th><th>触发条件</th><th>理由</th></tr></thead><tbody><tr><td>当前</td><td>2%</td><td>77.5 港元</td><td>拐点初现、信息未完全定价，先占位</td></tr><tr><td>回调加仓</td><td>4%–5%</td><td>股价 65 港元附近（赔率 1:3）</td><td>接近 52 周低点 64.25 与 6 月回购价区间</td></tr><tr><td>验证加仓</td><td>4%–5%</td><td>Q3 核心本地商业经营利润 ≥40 亿元且行业补贴环比下降</td><td>拐点从“一个季度”变成“两个季度”</td></tr><tr><td>维持</td><td>2%–3%</td><td>Q3 利润 20–40 亿元</td><td>证据不足，不加不减</td></tr><tr><td>减仓</td><td>1%</td><td>Q3 利润 &lt;20 亿元，或阿里重新加码补贴</td><td>旺季幻觉被证实</td></tr><tr><td>清仓</td><td>0</td><td>两条证伪同时触发，或跌破 55 港元且基本面无改善</td><td>论文失效</td></tr></tbody></table><div class="note">仓位为占组合净值比例，假设组合规模 100%，单一持仓上限 8%。价位条件与 m13 的证伪条件一致。</div><div class="section"><div class="section-title">为什么是 2%，不是 5%</div><p class='txt'>算一笔账。2% 仓位、中性 +42%，对组合贡献 +0.84%；悲观 -23%，对组合拖累 -0.46%。<b>这是一个正期望、低影响的下注——对了赚 0.84%，错了亏 0.46%，而三个月内就知道答案。</b></p><p class='txt'>如果是 5% 仓位：对了 +2.1%，错了 -1.15%。收益翻倍，但对组合的波动贡献也翻倍，而这只股票的波动率远高于组合平均（52 周区间 64.25–106.30，振幅 65%）。</p><p class='txt'>我的原则是：<b>不确定性来自外部（对手行为）的持仓，仓位不超过 3%；不确定性来自内部（执行）的持仓，可以到 5%–8%。</b>美团属于前者——它的利润不由它自己决定。</p></div><div class="section"><div class="section-title">三个价位：77.5、65、55</div><p class='txt'><b>77.5 港元是“信息价”</b>：财报超预期但盘后发布，市场还没定价。这个位置买，是在赌“下个交易日市场会重估”。</p><p class='txt'><b>65 港元是“价值价”</b>：对应 2027 年正常化利润约 12.8 倍、扣现金约 9 倍，赔率变成 1:3。这个位置也是 2026 年 6 月公司回购的区间（66.5–69 港元）和 52 周低点（64.25 港元）所在——<b>公司自己认过这个价。</b></p><p class='txt'><b>55 港元是“论文失效价”</b>：对应悲观情景（2027 年净利 100 亿元）打九折。到这个位置，说明市场已经不相信修复逻辑，或者出现了新的坏消息。不是加仓点，是重新评估点。</p></div><div class="section"><div class="section-title">相关性：它和组合里谁打架</div><p class='txt'>如果组合里同时有阿里和京东，美团是一个天然的对冲：<b>补贴强度上升，美团利润跌、阿里即时零售份额涨（但亏损扩大），京东新业务亏损扩大。</b>三家的股价对“补贴强度”这个变量的反应方向不同，但幅度都不小。</p><p class='txt'>与腾讯的相关性中等（同为港股平台，受恒生科技 beta 影响，相关系数约 0.6–0.7）；与拼多多相关性低（不同赛道、不同市场）；与快手相关性中等（都受抖音竞争影响，但一个是到店、一个是广告）。</p><p class='txt'>组合层面的含义：<b>美团的 2% 不能和阿里、京东的仓位简单相加看成“中国互联网 8%”，因为它们在同一个战场上是负相关的。</b>如果一定要给一个合并口径，美团 + 阿里 + 京东的总敞口控制在 12% 以内比较安全。</p></div><div class="section"><div class="section-title">再平衡纪律：不因为涨了而卖，因为逻辑变了而卖</div><p class='txt'>这笔持仓最容易犯的错是“赚了 30% 就跑”。如果 Q3 验证通过、2027 年利润真的回到 250 亿元，110 港元只是中性目标，乐观 150 港元还在上面。<b>卖的 reason 应该是“论文被证伪”或“估值到位”，不是“账面浮盈”。</b></p><p class='txt'>对应的纪律：涨到 110 港元（中性目标），减一半；涨到 150 港元（乐观目标），清仓。跌到 65 港元，加仓；跌到 55 港元，重新评估而不是机械加仓。</p><p class='txt'>时间止损：如果 2027 年 3 月的年报显示 2026 年全年亏损超过 70 亿元，即使股价没跌，也减到 1%——<b>因为那意味着修复的斜率比假设慢了一年，而时间是有成本的。</b></p></div><div class="section"><div class="section-title">为什么不用对冲</div><p class='txt'>有人会问：既然美团和阿里、京东在同一个战场上负相关，为什么不配对对冲？</p><p class='txt'>答案是对冲不掉。三家的股价对“补贴强度”的反应方向并不对称：补贴上升，美团跌得最多（利润基数小）、阿里跌得少（有电商利润垫）、京东跌得最少（新业务占比小）。<b>用阿里对冲美团，等于用大船对冲小艇——方向对，比例永远调不准。</b></p><p class='txt'>更实际的做法是控制总敞口：美团 2%、阿里、京东各自的仓位加起来不超过 12%。<b>把“中国互联网本地生活”当成一个资产类别来管，而不是当成三只独立的股票。</b></p><p class='txt'>还有一个更简单的办法：不买阿里和京东。如果你已经买了美团，就没必要再买它的对手——那只是把同一个风险买了两遍。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'>组合建议：<b>2% 建仓、65 港元加到 4%–5%、Q3 财报决定生死、110 港元减半、150 港元清仓。</b>这是一笔有明确时间表的投资，不是长期持有的核心仓。</p><p class='txt'>最后一句提醒：不要用杠杆买它。这只股票的波动来源是对手的行为，而对手的行为无法预测——2% 的仓位可以承受 -30%，加了杠杆的 2% 承受不了。</p></div>
+</div>
+<div class="footer">美团 (03690) 投资研究报告集 · 2026/08/28</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>观点合成：四个人的交集与分歧 — 英伟达</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>观点合成：四个人的交集与分歧 — 英伟达</h1>
+  <div class="subtitle">英伟达 (NVDA) | 一份“质量很高、质量在下降”的财报</div>
+  <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股价 $220.78（+1.48%） &nbsp;·&nbsp; 市值 约 5.33 万亿美元（241.5 亿股） &nbsp;·&nbsp; PE(TTM) 约 28x（FY2028 前瞻约 15x）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-英伟达研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>四份精读的交集只有一句话：<b>这是一份需求极好、质量在下降的财报。</b>分歧在“质量下降”该怎么定价——段永平用现金流倍数否掉了 15 倍，巴菲特用能力圈否掉了整家公司，芒格用十年后的毛利率反推今天已经贵，李录用融资结构给出了一个等价格的方案。</p></div><table class="dt"><caption>四个人的交集与分歧</caption><thead><tr><th>议题</th><th>段永平</th><th>巴菲特</th><th>芒格</th><th>李录</th></tr></thead><tbody><tr><td>生意质量</td><td>9 分</td><td>9 分</td><td>9 分</td><td>9 分</td></tr><tr><td>财报质量</td><td>7 分（账期）</td><td>5 分（现金流）</td><td>6 分（存货）</td><td>7 分（结构）</td></tr><tr><td>核心担忧</td><td>价格</td><td>看不懂表外</td><td>十年后毛利率</td><td>融资结构</td></tr><tr><td>动作</td><td>等 180 以下</td><td>放弃</td><td>不买但不否定</td><td>等恐惧成真</td></tr></tbody></table><div class="note">评分为本报告为横向比较自定，非四人本人对英伟达的评分。</div><div class="section"><div class="section-title">交集一：这是一份“需求没问题、钱有问题”的财报</div><p class='txt'>四个人在需求侧没有分歧。营收 962.21 亿、数据中心 890.23 亿、ACIE 同比 +138%、Q3 指引 1,080 亿、FY2028 增长 70%——这些数字说明需求是真实的、在扩散的。</p><p class='txt'>四个人在资金侧也没有分歧。经营现金流 240.77 亿对净利 596.88 亿、应收 630.59 亿、存货 315.75 亿、担保 1,085 亿、股权投资 939.40 亿——这些数字说明这门生意的资金结构变复杂了。</p><p class='txt'><b>交集的价值在于：它把“英伟达好不好”这个问题，换成了“英伟达的钱从哪来”这个问题。</b>前者已经有答案，后者没有。</p></div><div class="section"><div class="section-title">分歧：结构是“风险”还是“不确定性”</div><p class='txt'>巴菲特和芒格把它归为“不确定性”——不可测，所以不能用价格补偿，只能放弃或极小仓位。段永平和李录把它归为“风险”——可以估算概率，所以可以折价买。</p><p class='txt'>这个区分很重要。风险可以定价，不确定性只能回避。1,085 亿美元担保：如果知道对手方是谁、触发条件是什么，它就是风险，能算出期望损失；如果只知道一个上限，它就是不确定性。</p><p class='txt'>裁决：<b>按不确定性处理，但不用“放弃”的方式，用“折价 + 仓位上限”的方式。</b>理由是我能算出最坏情况的量级（一次性计提 300–500 亿，净利腰斩，股价跌 40%–50%），这已经足够做仓位管理。</p></div><div class="section"><div class="section-title">合成结论：一份财报改变的是估值方式，不是评级</div><p class='txt'>四份精读指向同一件事：<b>英伟达应该按现金流定价，不该按净利定价。</b></p><p class='txt'>按净利：FY2028 EPS 14.61 美元、15 倍，便宜。按现金流：FY2027 自由现金流约 1,400 亿、市值 5.33 万亿，38 倍；FY2028 自由现金流若翻倍到 2,800 亿，19 倍。两个口径差 4 倍，差距就来自 40% 的现金转化率。</p><p class='txt'>所以评级不变（持有），但估值锚从“15 倍 FY2028 净利”换成“19 倍 FY2028 自由现金流”。<b>换锚之后，248 美元的中性目标价不变，但安全边际的定义变了：不是等 PE 跌到 12 倍，是等现金转化率回到 60%。</b></p><p class='txt'>这也是为什么我把加仓线定在 180 美元而不是 200 美元：180 美元对应 FY2028 自由现金流 26 倍，那个位置才叫“为不确定性付了钱”。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>合成：需求真、现金假（转化率低）、结构复杂。</b>四份精读的共识是“按现金流定价”，分歧只是处理方式。<b>最终结论：持有、不追高、仓位上限 8%、加仓线 180 美元、减仓看应收周转天数。</b></p></div>
+</div>
+<div class="footer">英伟达 (NVDA) 投资研究报告集 · 2026/08/31</div>
+</body>
+</html>

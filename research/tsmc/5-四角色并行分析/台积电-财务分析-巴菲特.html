@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>财务分析（巴菲特视角） — 台积电</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>财务分析（巴菲特视角） — 台积电</h1>
+  <div class="subtitle">ROE、现金流、资本配置：钱是怎么变成更多钱的</div>
+  <div class="meta">研究日期 2026/09/11 &nbsp;·&nbsp; 股价 NT$2,410（-1.63%） &nbsp;·&nbsp; 市值 约 62.5 万亿新台币（约 1.95 万亿美元） &nbsp;·&nbsp; PE(TTM) 约 27.9x</div>
+</div>
+<div class="container">
+<a class="back" href="../00-台积电研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>台积电的财务特征是“三高一小”：高 ROE（约 33%）、高毛利（67.7%）、高现金流转化（OCF 是净利 1.4–1.7 倍），小股东回报（配发率 23%、股息率 1.0%）。<b>这不是财务瑕疵，是重资产成长股的标准形态</b>——钱留在公司里的回报率高于分给股东。</p></div><table class="dt"><caption>关键财务比率（2026Q2 / TTM）</caption><thead><tr><th>指标</th><th>数值</th><th>解读</th></tr></thead><tbody><tr><td>毛利率</td><td>67.7%</td><td>历史极值，Q3 指引回落至 65%–67%</td></tr><tr><td>营业利益率</td><td>约 57%</td><td>费用率约 10.7 个百分点，研发占 6%–7%</td></tr><tr><td>税后净利率</td><td>55.6%</td><td>税负约 14%，非营业收益贡献利息收入</td></tr><tr><td>ROE</td><td>约 33%（TTM 净利 2.24 万亿 ÷ 权益约 6.8 万亿，粗算）</td><td>十年前约 25%，结构性抬升</td></tr><tr><td>OCF / 净利</td><td>约 1.4–1.7 倍</td><td>折旧规模大，现金含量高</td></tr><tr><td>资本开支 / 营收</td><td>约 45%–50%（2026 年，粗算）</td><td>600–640 亿美元 ÷ 约 1,300 亿美元营收</td></tr><tr><td>净现金</td><td>约 2.5 万亿新台币（现金约 3.5 万亿 − 有息负债约 1 万亿，粗算）</td><td>无债务压力</td></tr></tbody></table><div class="note">比率为按公司披露数字四则运算得出（粗算）。营收美元口径按 32 元兑 1 美元折算。权益为估算值，未做期初期末平均。</div><div class="section"><div class="section-title">一、ROE 33% 是怎么来的</div><p class='txt'>杜邦拆开看：净利率 55.6% × 资产周转率约 0.55 × 权益乘数约 1.1。三个因子都不极端，是净利率撑起了 ROE——这在制造业里罕见，通常高 ROE 靠杠杆或周转，台积电靠的是定价权。</p><p class='txt'>这也是它最脆弱的地方：ROE 的分子是净利率，净利率的分子是毛利率。<b>毛利率掉 10 个百分点，ROE 就从 33% 掉到 24%</b>（粗算），估值中枢会跟着下移。所以看台积电，毛利率比营收重要。</p></div><div class="section"><div class="section-title">二、现金流：赚的是真钱</div><p class='txt'>经营现金流常年是净利的 1.4–1.7 倍，原因很简单：折旧大。一座 200 亿美元的厂，五年折旧，每年 40 亿美元不出现金流出，但要从净利里扣。所以台积电的账面利润是保守的，现金比利润更好看。</p><p class='txt'>自由现金流是另一回事：2026 年资本开支 600–640 亿美元，把经营现金流吃掉七成，FCF 只剩薄薄一层。巴菲特会注意到这个结构——<b>它更像一家铁路公司（不断买机车），而不是喜诗糖果（几乎不花钱）。</b>所以他给的 PE 上限会是 20–25 倍。</p></div><div class="section"><div class="section-title">三、资本配置：分红少，但每一块钱都投对了地方</div><p class='txt'>2026 年每股股利 24 元、同比增 33%，配发率约 23%，股息率 1.0%。看上去小气，但算一笔账：留在公司里的钱，历史回报是每年 25%–30% 的 ROE；分给股东，股东拿去买指数只有 8%。<b>不分红是对的。</b></p><p class='txt'>没有大额并购，这是加分项。半导体行业的历史上，并购几乎都是毁灭价值（联想买 IBM PC、博通买软件资产另说）。台积电三十年只做一件事：建厂、爬良率、拿下一代订单。</p></div><div class="section"><div class="section-title">四、资产负债表的两个隐性资产</div><p class='txt'>第一个是预收款与合约负债。客户为锁定产能预付的钱趴在账上，这是无息资金，也是需求强度的领先指标。第二个是设备折旧年限——台积电对先进制程设备的折旧年限比部分同行短，账面利润因此更保守（也意味着未来毛利率有“折旧到期”的顺风）。</p><p class='txt'>负债端很简单：有息负债约 1 万亿新台币，现金约 3.5 万亿，净现金 2.5 万亿。利息覆盖百倍以上。财务风险这一栏可以直接打勾。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'>财务结论：质量顶级，风险不在表内。真正的财务风险是毛利率的方向，不是负债或现金流。盯一件事就够——季度毛利率与公司指引的差值。</p></div>
+</div>
+<div class="footer">台积电 (2330.TW) 投资研究报告集 · 2026/09/11</div>
+</body>
+</html>

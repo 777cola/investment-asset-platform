@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>财务分析（巴菲特视角） — 比亚迪</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>财务分析（巴菲特视角） — 比亚迪</h1>
+  <div class="subtitle">利润是不是现金、赚的钱要不要全投回去、ROE 是不是靠杠杆</div>
+  <div class="meta">研究日期 2026/09/04 &nbsp;·&nbsp; 股价 ¥87.40（+0.10%） &nbsp;·&nbsp; 市值 约 7,968 亿元（总股本 91.17 亿股，A+H） &nbsp;·&nbsp; PE(TTM) 约 27x（2025 年报 326 亿元净利对应约 24x）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-比亚迪研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>三问的答案：<b>利润是现金（经营现金流是净利的 3 倍）、但赚的钱要全部投回去（五年自由现金流为负）、ROE 不是靠杠杆（有息负债率低）。</b>这是一台效率很高的机器，也是一台吞钱的机器。</p></div><table class="dt"><caption>关键财务比率（2026H1，另有标注除外）</caption><thead><tr><th>指标</th><th>数值</th><th>参照</th><th>解读</th></tr></thead><tbody><tr><td>毛利率</td><td>18.85%</td><td>2025H1 18.01%</td><td>价格战里逆势提升，结构改善</td></tr><tr><td>净利率</td><td>3.58%</td><td>2025H1 4.18%</td><td>掉 0.6 个点，汇兑与研发双杀</td></tr><tr><td>研发费用率</td><td>6.76%</td><td>2025H1 7.97%</td><td>少花 63 亿元，是利润的主要来源</td></tr><tr><td>经营现金流/净利</td><td>3.0 倍</td><td>373 / 123.3</td><td>含金量高，但含应付账款拉长</td></tr><tr><td>汽车分部利润率</td><td>4.07%</td><td>112 / 2,753</td><td>分部利润 -12.8%，快于收入降幅</td></tr><tr><td>Q2 单车净利</td><td>0.72 万元</td><td>Q1 0.58 万元</td><td>券商测算，扣除电子业务</td></tr><tr><td>TTM 净利</td><td>294.4 亿元</td><td>2025 年 326.19 亿元</td><td>推算值，对应 PE 27 倍</td></tr><tr><td>五年累计自由现金流</td><td>为负</td><td>扩产高峰 2021—2023</td><td>赚的钱全部回投产线</td></tr></tbody></table><div class="note">比率均由半年报数据四则运算得出（毛利率、净利率、研发费用率、OCF/净利、分部利润率）；Q2 单车净利为券商测算口径；TTM 净利 = 326.19 − 155.1 + 123.3 = 294.4 亿元（2025H1 净利为反推值）。</div><div class="section"><div class="section-title">利润是不是现金：是，但要看清现金从哪来</div><p class='txt'>经营现金流 373 亿元，是净利的 3 倍，这个比例在制造业里很健康。但公司自己的解释是“购买商品支付的现金减少”——<b>翻译过来是对上游的账期在拉长。</b>这是垂直整合的另一面：当你是最大的买家，你可以把付款周期往后推，把营运资金压力转给供应商。</p><p class='txt'>这种现金流的质量要打折扣。它不可持续——应付天数有极限，供应商也有忍耐极限。真正健康的现金流应该来自“卖得多、收得快”，而不是“付得慢”。<b>2026H1 销量是 -15.7%，所以这份现金流里没有多少是“卖得好”贡献的。</b></p></div><div class="section"><div class="section-title">赚的钱要不要全投回去：要，这是最大的问题</div><p class='txt'>过去五年，比亚迪赚的钱基本全部投回了产线：国内十几个整车基地、弗迪电池的扩产、泰国巴西匈牙利乌兹别克斯坦四座海外工厂、八艘滚装船。<b>五年累计自由现金流为负，意味着股东一分钱没拿到，还倒贴了资本。</b></p><p class='txt'>这不是管理层的错，是行业的结构。汽车是规模生意，不扩产就掉份额，掉份额就掉成本优势，掉成本优势就出局。<b>所以它的资本开支不是“选择”，是“生存”。</b>巴菲特最不喜欢的就是这种生意——他喜欢喜诗糖果那种“不投钱也能增长”的公司。</p><p class='txt'>对估值的含义很直接：<b>不能用自由现金流折现给它估值，因为自由现金流长期为负；只能用 PE，而 PE 的前提是利润可持续。</b>这就把问题绕回了“份额能不能守住”。</p></div><div class="section"><div class="section-title">ROE 是不是靠杠杆：不是，但也不是靠利润率</div><p class='txt'>十年平均 ROE 13%–15%，拆开看：净利率 3.58%（低）、资产周转率 1.0 倍左右（高）、权益乘数 3 倍上下（中）。<b>它是靠周转赚的钱，不是靠利润率，也不是靠杠杆。</b>这种结构在制造业里是健康的——说明资产用得充分，不是靠借钱撑规模。</p><p class='txt'>但周转率的敌人是产能过剩。一旦行业产能利用率下滑，周转率会掉，ROE 会跟着掉，而且掉得比净利率更快。<b>2026H1 净利率从 4.18% 掉到 3.58%，ROE 大概率已经从两位数掉到个位数。</b>这是要盯的下一个数字。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>财务评级：B+。现金是真的，效率是真的，吞钱也是真的。</b>三问过两问：利润是现金、不靠杠杆；第三问不过——赚的钱必须全投回去才能维持地位。这种公司只能用 PE 估值，而 27 倍 PE 对一个净利率 3.58%、自由现金流为负的生意，太贵了。</p></div>
+</div>
+<div class="footer">比亚迪 (002594) 投资研究报告集 · 2026/09/04</div>
+</body>
+</html>

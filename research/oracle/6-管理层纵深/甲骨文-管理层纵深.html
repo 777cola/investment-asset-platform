@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理层纵深 — 甲骨文</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>管理层纵深 — 甲骨文</h1>
+  <div class="subtitle">甲骨文 (ORCL) | 6-管理层纵深</div>
+  <div class="meta">研究日期 2026/09/14 &nbsp;·&nbsp; 股价 $144.79（-3.65%） &nbsp;·&nbsp; 市值 约 4,400 亿美元 &nbsp;·&nbsp; PE(GAAP TTM) 约 23.5x</div>
+</div>
+<div class="container">
+<a class="back" href="../00-甲骨文研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>管理层判断</h3><p class='txt'>甲骨文的管理层是这轮 AI 基建里执行力最强的一支队伍——阿比林园区单季交付 13.1 万张 GPU、24 小时验收，这个速度三大云厂都没做到。<b>但执行力强不等于资本配置对。</b>2026 财年它做了三件几十年来没做过的事：大规模发债（债务 1,295 亿）、大额增发（本季 200 亿）、把订单押在单一客户身上。这三件事都不违法，也不愚蠢，但它们把股东放在了债主和客户之后。</p></div><table class="dt"><caption>关键人物（2026/09）</caption><thead><tr><th>姓名</th><th>职务</th><th>持股</th><th>薪酬</th><th>履历要点</th></tr></thead><tbody><tr><td>Larry Ellison</td><td>联合创始人、执行董事长兼 CTO</td><td>约 40%（含家族信托）</td><td>长期 1 美元年薪 + 期权</td><td>1977 年创立，主导数据库与 OCI 战略，是 OpenAI 合作的直接推动者</td></tr><tr><td>Clay Magouyrk</td><td>联席 CEO（2025/09 起）</td><td><1%</td><td>未单独披露</td><td>2014 年从 AWS 加入，历任 OCI 工程负责人，数据中心交付体系的设计者</td></tr><tr><td>Mike Sicilia</td><td>联席 CEO（2025/09 起）</td><td><1%</td><td>未单独披露</td><td>2008 年随 Primavera 并购加入，主导行业云（医疗、金融、政府）</td></tr><tr><td>Safra Catz</td><td>副董事长（原 CEO，2014–2025）</td><td><1%</td><td>现金 + 限制性股票</td><td>长期负责资本运作与费用纪律，任内完成 NetSuite、Cerner 两笔大并购</td></tr><tr><td>Jeff Henley</td><td>董事会副主席</td><td><1%</td><td>董事薪酬</td><td>1991–2014 年任 CFO，现任董事会副主席，负责与债权人沟通</td></tr></tbody></table><div class="note">持股比例为公开披露的近似值（Ellison 约 40% 为含家族信托口径）。薪酬结构来自公司委托书历年披露；联席 CEO 上任未满一年，薪酬未单独列示。</div><div class="section"><div class="section-title">Ellison 还在，而且比任何时候都更关键</div><p class='txt'>2026 年 Ellison 82 岁，仍是执行董事长兼 CTO。他不是挂名——OCI 的路线、与 OpenAI 的合作、阿比林园区的选址，都是他亲自推的。<b>这既是最大的资产，也是最大的单点风险。</b>他持有约 40% 股份，等于对重大决策有一票否决权，任何“董事会约束管理层”的机制在他面前都不成立。</p><p class='txt'>2025 年 9 月的交接安排很聪明：把公司拆成“云基础设施”（Magouyrk）和“行业应用”（Sicilia）两条线，两人联席 CEO，Catz 转副董事长管资本运作，Ellison 退到董事长兼 CTO 管战略。<b>问题是这个结构里没有一个人对“整体资本配置”负全责</b>——Magouyrk 要为 OCI 抢单，Sicilia 要为行业云守利润，Catz 要为融资找钱，三者的激励方向不完全一致。</p></div><div class="section"><div class="section-title">资本配置记录：从“买收入”到“买时间”</div><p class='txt'>过去二十年，甲骨文的资本配置有一条清晰的主线：<b>用自由现金流买已经赚钱的软件资产，然后把客户迁到自己的技术栈上，涨维护费。</b>2005 年 103 亿美元敌意收购 PeopleSoft、2010 年 74 亿买 Sun（拿到 Java 和硬件）、2016 年 93 亿买 NetSuite、2022 年 283 亿买 Cerner。这套打法在 2022 年之前是成功的，营业收入从 2005 年的 118 亿涨到 2025 年的 574 亿。</p><p class='txt'>Cerner 是一个转折点。283 亿美元买来的医疗 IT 业务，整合进度慢于预期，收入增长乏力，2026 财年这块业务被并入行业云，不再单独披露——<b>不再单独披露，通常意味着数字不好看。</b>而 2026 年的新打法完全反过来了：不再买收入，而是借钱买时间，用 900 亿美元的资本开支去抢 AI 算力的窗口期。<b>这条路的回报率还没有被验证过一次。</b></p></div><div class="section"><div class="section-title">诚信与治理：合法但不体面的部分</div><p class='txt'>三件事要放在桌面上。第一，<b>许可证审计</b>。甲骨文长期通过审计客户对 Oracle 软件的使用情况来追收许可费，这是合同赋予的权利，但也是它提高收入的常规手段，客户体验极差，多年来是 CIO 圈子里最被诟病的一家公司。这类收入合法，但它说明这家公司在“客户成功”和“自己收钱”之间，永远选后者。</p><p class='txt'>第二，<b>2020 年的 FCPA 和解</b>。美国 SEC 认定其土耳其、印度、阿联酋子公司通过中间人向政府官员输送利益，甲骨文以 2,320 万美元和解，未承认也未否认指控。这是内控问题，不是战略问题，但说明在高速增长的市场里，它的合规让位于签单。</p><p class='txt'>第三，<b>2025 年底参与 TikTok 美国业务合资（持股约 15%）</b>，同时成为其云与数据托管方。这笔交易的政治价值远大于财务价值，它让甲骨文在华盛顿获得了别人没有的位置。<b>对股东来说，这是加分项还是风险项，取决于你怎么看“和政府做生意的科技公司”。</b></p></div><div class="section"><div class="section-title">接班人：结构上解决了，实质上没有</div><p class='txt'>联席 CEO 制解决的是“谁来管日常”，没有解决“谁来定战略”。Magouyrk 是工程师出身，擅长交付；Sicilia 是销售出身，擅长行业客户；两个人都不具备 Ellison 那种“用一笔 3,000 亿美元的合同改变公司命运”的决断力和人脉。</p><p class='txt'><b>真正的接班问题在 2029 年之后</b>：如果 AI 算力周期在 2028 年见顶，新一代管理层要面对的是 1,000 亿美元级别的债务和一堆折旧未完的机房，那时候需要的是“收缩”的能力，而这套班子的履历里全是“扩张”。<b>用扩张型团队去处理过剩周期，是这类公司最常见的死法。</b></p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>结论：管理层可信，但不能无条件托付。</b>执行力这一项给 A，过去三年它把不可能交付的机房交付了；资本配置给 C+，2026 年的三件大事（发债、增发、押注单一大客户）都把股东利益排在了后面。<b>对投资者的含义很直接：不要用“管理层很强”来对冲“资产负债表很紧”，这两件事在这家公司身上是同时成立的。</b></p></div>
+</div>
+<div class="footer">甲骨文 (ORCL) 投资研究报告集 · 2026/09/14</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>护城河解剖：四条腿，一条裂缝 — 台积电</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>护城河解剖：四条腿，一条裂缝 — 台积电</h1>
+  <div class="subtitle">技术、切换成本、规模、信任——四条腿支撑 67.7% 的毛利率</div>
+  <div class="meta">研究日期 2026/09/11 &nbsp;·&nbsp; 股价 NT$2,410（-1.63%） &nbsp;·&nbsp; 市值 约 62.5 万亿新台币（约 1.95 万亿美元） &nbsp;·&nbsp; PE(TTM) 约 27.9x</div>
+</div>
+<div class="container">
+<a class="back" href="../00-台积电研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>台积电的护城河不是一条，是四条：技术领先、客户切换成本、规模与资本门槛、客户信任。四条互相加固，构成“追赶者必须同时补齐”的结构。<b>裂缝只有一条——地缘，而它正在被出海慢慢修补，代价是毛利率永久性下移 3–4 个百分点。</b></p></div><div class="section"><div class="section-title">一、第一条腿：技术领先，但它是结果不是原因</div><p class='txt'>2 纳米 2026 年进入首个完整量产年，A16（1.6 纳米）规划 2026 下半年风险试产，A14 规划 2028 年。对手三星的 2 纳米同期量产但良率落后，英特尔 18A 在爬坡。</p><p class='txt'>技术领先是结果，原因有三件：每年 400 亿美元级别的研发与资本投入、良率学习曲线上的数据积累、以及“客户敢把最贵的芯片交给它”的信任。三件事都有复利，追赶者必须同时补齐。<b>注意“每年重赢一次”这个特征——英特尔当年也领先两代，10 纳米延期五年就全丢了。</b></p></div><div class="section"><div class="section-title">二、第二条腿：切换成本，最硬的一条</div><p class='txt'>一颗先进制程芯片从设计到量产要 12–18 个月。设计规则（PDK）、IP 库、良率模型、封装方案全部绑定在特定代工厂的工艺上。换一家，等于把整条验证链重做。</p><p class='txt'>这不是钱的问题，是时间与风险。客户在爬坡期换厂，等于把产品上市时间赌在一家没有验证过的良率曲线上。没有 CEO 会做这个决定，除非原供应商产能不够。</p><p class='txt'>所以真实的竞争不是“谁的技术更好”，是“谁能在客户需要的时候给出产能”。<b>台积电 2026 年把资本开支上调到 600–640 亿美元，本质是在买这条护城河的续期。</b></p></div><div class="section"><div class="section-title">三、第三条腿：规模，600 亿美元的入场费</div><p class='txt'>2026 年资本开支 600–640 亿美元，一座 2 纳米厂 200 亿美元起。这个数字本身就是门槛——全球能每年拿出 600 亿美元投半导体的公司，一只手数得过来（台积电、三星、英特尔）。</p><p class='txt'>规模的经济性体现在两处：采购议价（对 ASML、应用材料的年采购额是别人的数倍）、以及产能调配（全球十多个厂区互相支援，良率问题可以在别处补）。</p><p class='txt'>但规模也是枷锁——一旦需求下行，600 亿美元的折旧还在，毛利率会被压得很难看。这是 2027–2028 年最需要防的事。</p></div><div class="section"><div class="section-title">四、第四条腿：信任，最难量化的一条</div><p class='txt'>苹果的 A 系列、英伟达的旗舰 GPU，首发都在台积电。这不只是商业选择，是“共同定义制程”的关系——客户在工艺开发阶段就参与，台积电按客户需求调整参数。这种关系的替换成本以年计，而且换过去也未必做得好。</p><p class='txt'>信任还有一个反面用法：台积电承诺“不与客户竞争”。它不做芯片设计、不做品牌，这是它和三星最本质的区别。三星既做存储又做手机又做代工，客户把旗舰芯片交给它，等于把路线图交给对手。</p></div><div class="section"><div class="section-title">五、裂缝：地缘与出海</div><p class='txt'>产能集中台湾是这条护城河上唯一的裂缝。亚利桑那、熊本、德累斯顿三地建厂，是在补这条裂缝，代价是毛利率永久性下移 3–4 个百分点（公司口径）。</p><p class='txt'>为什么明知稀释还要建：客户要求（美国客户需要“非台湾产”的供应保障）、政策要求（关税与补贴挂钩）。这是买保险的成本，不是经营失误。但它会永久性压低 ROE 的上限——从 33% 降到 28% 左右（粗算）。</p><p class='txt'><b>所以护城河的总分是 41/50：四条腿里三条满分，裂缝扣 7 分。</b>十年内被正面攻破的概率很低，被慢慢绕开的概率中等。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'>护城河结论：41/50。技术、切换成本、规模、信任四条腿都很硬，只有地缘一条裂缝在漏水。这条裂缝不会让公司倒下，会让它的估值中枢永久性低一档。</p></div>
+</div>
+<div class="footer">台积电 (2330.TW) 投资研究报告集 · 2026/09/11</div>
+</body>
+</html>

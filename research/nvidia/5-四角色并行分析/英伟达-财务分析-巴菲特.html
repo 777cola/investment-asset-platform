@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>财务分析（巴菲特视角） — 英伟达</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>财务分析（巴菲特视角） — 英伟达</h1>
+  <div class="subtitle">英伟达 (NVDA) | 利润表漂亮，现金流量表说实话</div>
+  <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股价 $220.78（+1.48%） &nbsp;·&nbsp; 市值 约 5.33 万亿美元（241.5 亿股） &nbsp;·&nbsp; PE(TTM) 约 28x（FY2028 前瞻约 15x）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-英伟达研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>利润表是完美的：营收 962.21 亿、毛利率 75.0%、营业利润率 66.2%、净利 596.88 亿。现金流量表不完美：经营现金流 240.77 亿，只有净利的 40.3%；自由现金流 213.41 亿，只有 35.8%。<b>差额不是造假，是应收账款 +223 亿、存货 +58 亿、预付 +55 亿，加上 77.71 亿投资收益不进现金。</b></p></div><table class="dt"><caption>三张表的关键数（百万美元，单季）</caption><thead><tr><th>项目</th><th>FY2027Q2</th><th>FY2026Q2</th><th>读法</th></tr></thead><tbody><tr><td>营业收入</td><td>96,221</td><td>46,743</td><td>同比 +106%，环比 +18%</td></tr><tr><td>毛利率</td><td>75.0%</td><td>72.4%</td><td>成本端还没被内存涨价咬到</td></tr><tr><td>营业利润</td><td>63,734</td><td>28,440</td><td>费用率 8.7%，杠杆极高</td></tr><tr><td>净利</td><td>59,688</td><td>26,422</td><td>含 7,771 投资收益</td></tr><tr><td>经营现金流</td><td>24,077</td><td>15,365</td><td>净利的 40.3%，去年同期 58.1%</td></tr><tr><td>资本开支</td><td>2,677</td><td>1,894</td><td>轻资产，FCF 21,341</td></tr><tr><td>应收账款</td><td>63,059</td><td>—</td><td>周转天数 60 天，上季约 45 天</td></tr><tr><td>存货</td><td>31,575</td><td>—</td><td>为 Vera Rubin 备货，约 119 天成本</td></tr></tbody></table><div class="note">数据来源：英伟达 FY2027Q2 财报与 10-Q（2026/08/26）。FY2026Q2 为同期对比，应收账款与存货的上季余额按现金流量表变动额倒推。</div><div class="section"><div class="section-title">利润表：三个数字互相咬得住</div><p class='txt'>营收 96,221、营业成本 24,079、毛利 72,142、营业费用 8,408、营业利润 63,734。这五个数字自洽，没有一次性项目抬轿子。营业利润率 66.2%，比上一季 65.6% 还高，说明规模效应还在。</p><p class='txt'>净利 59,688 要拆一层：其他收入净额 77.73 亿，其中股权证券收益 77.71 亿（H1 累计 237.07 亿）。这块钱来自对 OpenAI、Anthropic、CoreWeave 这类公司的股权投资重估，会随市场波动反向咬人。<b>剔除后净利 532 亿、净利率 55.3%——这才是核心盈利能力，也已经高得离谱。</b></p><p class='txt'>每股：GAAP 摊薄 2.46 美元、非 GAAP 2.22 美元。非 GAAP 比 GAAP 低，是因为从 FY2027Q1 起公司把股权激励计入非 GAAP 口径，这是一个更诚实的做法，值得记一笔。</p></div><div class="section"><div class="section-title">现金流量表：印钞机在转，但转速掉了一半</div><p class='txt'>经营现金流 240.77 亿，去年同期 153.65 亿，绝对值涨了 57%。但净利从 264.22 亿涨到 596.88 亿，涨了 126%。<b>现金增速跑输利润增速 69 个百分点，转化率从 58.1% 掉到 40.3%。</b></p><p class='txt'>钱去哪了，逐项看得见：应收账款增加 223.46 亿（余额 630.59 亿，账期 60 天）；存货增加 57.84 亿（余额 315.75 亿）；预付与其他资产增加 54.97 亿。三项合计 336 亿，正好等于净利与经营现金流的差额减去投资收益。</p><p class='txt'>投资活动这边更有意思：本季购买股权证券 158.22 亿，H1 累计 424.04 亿；购买固定资产 26.77 亿。<b>买别人股权的钱是买自己设备的 6 倍。</b>筹资活动：发债 248.96 亿、回购 197.32 亿、分红 60.47 亿。一家净现金公司发 250 亿债去买别人的股权，这是 2026 年英伟达最该被问的问题。</p></div><div class="section"><div class="section-title">资产负债表：干净，但干净的方式变了</div><p class='txt'>总资产 3,202.72 亿，总负债 912.88 亿，资产负债率 28.5%；权益 2,289.84 亿，半年增 717 亿。现金 224.43 亿 + 可售债券 341.43 亿 − 债务 333.66 亿 = 净现金 232.20 亿，仍然是净现金公司。</p><p class='txt'>变的是资产结构。可售股权证券 427.83 亿（年初 128.86 亿）+ 非上市股权 511.57 亿（年初 222.51 亿）= <b>939.40 亿美元股权投资，占总资产的 29.3%</b>。半年前这个比例是 16.3%。公司自己说，向前沿 AI 实验室投了近 500 亿美元。</p><p class='txt'>一家芯片公司把三成资产放在客户和潜在客户的股权上，这在会计上没问题，在商业上意味着两件事：这些股权的公允价值会进利润表（所以利润会跟着市场波动）；这些客户同时是收入来源（所以收入的质量和股权的价值绑在一起）。<b>巴菲特会在这里停下来，因为这是他最不喜欢的那种循环。</b></p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>一句话：利润表说的是需求，现金流量表说的是谁在为需求付钱。</b>两张表都真实，但后者更重要。当一家公司的净利增速是现金增速的两倍，估值就该按现金流给，不该按净利给。<b>盯三个数：应收周转天数（60 天）、经营现金流/净利（40%）、股权投资占资产比（29%）。这三个数一起恶化，就是这门生意性质改变的信号。</b></p></div>
+</div>
+<div class="footer">英伟达 (NVDA) 投资研究报告集 · 2026/08/31</div>
+</body>
+</html>

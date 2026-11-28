@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>财务分析：三张表讲的是同一个故事 — 寒武纪</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>财务分析：三张表讲的是同一个故事 — 寒武纪</h1>
+  <div class="subtitle">四角色并行 · 财务分析师（巴菲特视角）</div>
+  <div class="meta">研究日期 2026/08/17 &nbsp;·&nbsp; 股价 ¥1,156.00（+5.76%） &nbsp;·&nbsp; 市值 约 7,271 亿元 &nbsp;·&nbsp; PE(TTM) 约 218x</div>
+</div>
+<div class="container">
+<a class="back" href="../00-寒武纪研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>利润表说“赚了 23 亿”，现金流表说“只收到 3 亿”，资产负债表说“82 亿在仓库”。三张表没矛盾，它们讲的是同一件事：这家公司在用现金换未来。</p></div><div class="section"><div class="section-title">利润表：增长是真的，杠杆释放也是真的</div><p class='txt'>营收 59.96 亿元（+108.13%）、毛利 33.13 亿元（+105.62%）、净利 23.11 亿元（+122.61%）、扣非 21.66 亿元（+137.30%）。<b>净利增速快于营收，是因为费用率下降</b>：研发投入占收入从 18.81% 降到 11.72%。这是经营杠杆，不是会计手法。</p><p class='txt'>质量检查三条：扣非占净利 93.7%（高）；非经常性损益仅 1.45 亿元（低）；毛利率同比只降 0.68 个点（稳）。<b>三条都过，说明利润是卖卡赚的，不是卖资产或补贴堆的。</b></p></div><div class="section"><div class="section-title">现金流表：这是整份财报的命门</div><p class='txt'>经营现金流 3.11 亿元、同比 −65.83%，净利现金含量 0.135。筹资现金流 −6.57 亿元（分红与偿债）。<b>一家净利 23 亿元的公司，自有现金流入只有 3 亿元，这在巴菲特眼里等于“没赚到钱”。</b></p><p class='txt'>钱去哪了：存货 +33.04 亿元、预付 +21.7 亿元（29.14 亿元 vs 上年同期约 7.45 亿元，按 +291.37% 反推）。两项合计约 54.7 亿元，正好覆盖净利与现金流之间的 20 亿元差额，还多出一截——多出的部分由应付款与合同负债补上。<b>这不是失血，是输血给了供应链。</b></p></div><div class="section"><div class="section-title">资产负债表：一家 Fabless 公司的“重资产化”</div><p class='txt'>总资产 181.99 亿元（+35.43%），归母净资产 135.55 亿元（+14.53%）。存货占总资产 45.32%、占净资产 60.84%；资产负债率约 25.5%（粗算），几乎没有有息负债。<b>没有债务风险，这是好消息。</b></p><p class='txt'>坏消息是资产质量。82.48 亿元存货里，原材料 57.49 亿元、委托加工物资 25.37 亿元——<b>这些不是成品，是“还没做成卡的料”</b>。它们的价值取决于两件事：晶圆能不能按期回来、卡能不能按期卖出去。任何一环延迟，减值就开始。</p></div><div class="section"><div class="section-title">回报率与估值：ROIC 29% 是幻觉还是真实</div><p class='txt'>上半年净利 23.11 亿元、年化约 46 亿元；投入资本约 160 亿元（净资产 135.55 亿元 + 少量负债），<b>ROIC 约 29%（粗算）</b>。这个数在制造业里是顶级水平。但它有两个前提：毛利率维持 55%、产能不用自己出钱。</p><p class='txt'>一旦要自建产能或大幅增加设备投入（7 月刚调增 11.6 亿元设备），ROIC 会往下走。<b>巴菲特会把 29% 打成“周期性高点”，用 15%—20% 做长期假设</b>；按 18% ROIC、7,263 亿元市值算，需要每年 1,300 亿元投入资本才能撑住，那是不可能的。这就是估值与回报率不匹配的地方。</p></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>财务结论：</b>利润表优秀、现金流表糟糕、资产负债表干净但变形。ROIC 高，但建立在“产能不用自己出钱”的假设上。这是一家好公司，不是一笔好价格。</p></div>
+</div>
+<div class="footer">寒武纪 (688256) 投资研究报告集 · 2026/08/17</div>
+</body>
+</html>

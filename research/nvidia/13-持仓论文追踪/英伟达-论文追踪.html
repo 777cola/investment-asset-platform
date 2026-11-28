@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>论文追踪 — 英伟达</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #f5f8fc; color: #1a1a2e; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #1A4B8C 0%, #1a3a6e 100%); color: #fff; padding: 3rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.header .subtitle { font-size: 1rem; opacity: 0.85; font-weight: 300; }
+.header .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; color: #1A4B8C; padding-bottom: 0.6rem; border-bottom: 2px solid #1A4B8C; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+h3.sub { font-size: 0.98rem; color: #1A4B8C; margin: 1.2rem 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.card { background: #fff; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #e8edf5; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,75,140,0.12); }
+.card .num { font-family: 'Instrument Sans', monospace; font-size: 0.75rem; color: #1A4B8C; font-weight: 600; margin-bottom: 0.3rem; }
+.card .name { font-size: 1.05rem; font-weight: 600; color: #1A4B8C; margin-bottom: 0.3rem; }
+.card .desc { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+.card .files { margin-top: 0.6rem; font-size: 0.75rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 0.5rem; }
+.summary-box { background: #fff; border-radius: 8px; padding: 1.5rem; border: 1px solid #e8edf5; margin-bottom: 2rem; }
+.summary-box h3 { color: #1A4B8C; margin-bottom: 0.8rem; font-size: 1rem; }
+.summary-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.summary-box td, .summary-box th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+.summary-box th { color: #666; font-weight: 500; width: 30%; }
+.summary-box p { font-size: 0.9rem; line-height: 1.8; color: #333; }
+table.dt { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.6rem 0 1rem; background: #fff; }
+table.dt thead th { background: #1A4B8C; color: #fff; padding: 0.5rem; text-align: left; font-weight: 500; }
+table.dt td { padding: 0.5rem; border-bottom: 1px solid #e8ecf1; vertical-align: top; }
+table.dt tbody tr:nth-child(even) { background: #f8f9fb; }
+table.dt caption { caption-side: top; text-align: left; font-size: 0.85rem; color: #1A4B8C; font-weight: 600; padding: 0.4rem 0; }
+.note { font-size: 0.78rem; color: #888; margin: -0.4rem 0 1rem; }
+.txt { font-size: 0.9rem; line-height: 1.9; color: #333; margin-bottom: 0.9rem; }
+.txt ul { margin: 0 0 0.9rem 1.2rem; }
+.txt li { margin-bottom: 0.35rem; font-size: 0.9rem; color: #333; }
+.txt b, .summary-box p b { color: #1a1a2e; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+.badge-green { background: #e6f7e6; color: #1a7a1a; }
+.badge-yellow { background: #fff8e6; color: #9a7a1a; }
+.badge-red { background: #ffe6e6; color: #c00; }
+.badge-blue { background: #e6f0ff; color: #1a4b8c; }
+.footer { text-align: center; padding: 2rem; color: #999; font-size: 0.8rem; border-top: 1px solid #e8edf5; }
+.back { display: inline-block; margin-bottom: 1rem; color: #1A4B8C; text-decoration: none; font-size: 0.82rem; }
+.article { background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem 1.8rem; }
+.article h2 { font-size: 1.15rem; color: #1A4B8C; margin-bottom: 0.8rem; }
+.plain { white-space: pre-wrap; font-size: 0.92rem; line-height: 2; color: #222; background: #fff; border: 1px solid #e8edf5; border-radius: 8px; padding: 1.6rem; }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>论文追踪 — 英伟达</h1>
+  <div class="subtitle">英伟达 (NVDA) | 13-持仓论文追踪</div>
+  <div class="meta">研究日期 2026/08/31 &nbsp;·&nbsp; 股价 $220.78（+1.48%） &nbsp;·&nbsp; 市值 约 5.33 万亿美元（241.5 亿股） &nbsp;·&nbsp; PE(TTM) 约 28x（FY2028 前瞻约 15x）</div>
+</div>
+<div class="container">
+<a class="back" href="../00-英伟达研究报告总目录.html">← 返回总目录</a>
+<div class="summary-box"><h3>核心判断</h3><p class='txt'>持有英伟达的论文可以拆成六条假设。四条已经被数据验证：需求在扩散、供给仍是瓶颈、定价权还在、生态没被替代。第五条“现金能收回来”正在裂——净利 596.88 亿、经营现金流只有 240.77 亿。第六条“客户付得起钱”要等 2027 年才能验证。</p><p class='txt'><b>所以这份论文的状态是“有效，但不牢”。</b>有效到不该卖，不牢到不该加。</p></div><table class="dt"><caption>核心假设追踪表</caption><thead><tr><th>假设</th><th>当前证据</th><th>验证指标</th><th>状态</th></tr></thead><tbody><tr><td>①需求从四家云厂扩散到更多买家</td><td>ACIE 403.13 亿、同比 +138%、占数据中心 45%；主权 AI 同比超 2 倍</td><td>ACIE 占数据中心比例，季度环比增速</td><td>已验证</td></tr><tr><td>②供给仍是瓶颈，卖方市场</td><td>Q3 指引 1,080 亿假设中国为零；公司称真实需求约 100%、指引 70% 因产能</td><td>Q3 实际 vs 指引 1,080 亿；管理层对短缺持续时间的表述</td><td>已验证</td></tr><tr><td>③定价权能维持毛利率 70% 以上</td><td>Q2 75.0%；但 Q3 74%、Q4 指引 71%–72%</td><td>Q4 实际毛利率；FY2028 能否回到 72%–73%</td><td>正在验证（压力中）</td></tr><tr><td>④CUDA 生态不会被替代</td><td>AMD 追三年体量仍为 1/13；Groq LPU 补齐推理短板</td><td>AMD 数据中心收入/英伟达数据中心收入的比值</td><td>已验证</td></tr><tr><td>⑤利润能变成现金</td><td>经营现金流/净利 40.3%（去年 58.1%）；FCF/净利 35.8%</td><td>应收周转天数（现值 60 天）、OCF/净利</td><td><b>正在裂</b></td></tr><tr><td>⑥客户付得起钱（担保不会变坏账）</td><td>担保上限 1,085 亿；1/4 明年收入靠自家资产负债表</td><td>是否出现首次代偿；NeoCloud 融资成本</td><td>待验证（2027）</td></tr></tbody></table><div class="note">状态定义：已验证＝连续两个季度数据支持；正在验证＝本期出现反向证据但未确认趋势；正在裂＝本期出现明确反向数据；待验证＝时间未到。数据来源：FY2027Q2 财报与电话会议（2026/08/26）、10-Q 附注。</div><div class="section"><div class="section-title">四条已验证：论文的骨架没坏</div><p class='txt'><b>需求扩散</b>是最硬的一条。超大规模云 487.10 亿（同比 +102%、环比 +13%）、ACIE 403.13 亿（同比 +138%、环比 +25%）。<b>增速快的那一半，是过去不在客户名单上的那一半。</b>主权 AI 环比 +35%、同比超 2 倍，NeoCloud 装机从 3GW 到 8GW——这些不是财报里的漂亮话，是可以在下一季继续核对的量。</p><p class='txt'><b>供给瓶颈</b>也验证了。Q3 指引 1,080 亿是在“中国数据中心算力收入为零”的前提下给的，环比还要 +12%。公司说真实需求约 100%、指引只给 70%，差距全在产能：晶圆、HBM、电力、机房四样全紧，短缺延续到 FY2028 末。</p><p class='txt'><b>定价权</b>：Q2 毛利率 75.0%，营业利润率 66.2%，费用率 8.7%。即使 Q4 掉到 71%–72%，也远高于任何同行。<b>生态</b>：AMD 追了三年，增速一样、份额没动，数据中心收入还是十三分之一的体量。</p></div><div class="section"><div class="section-title">第五条正在裂：这是最需要盯的一条</div><p class='txt'>“利润能变成现金”这条假设，本季出现了明确的反向数据：经营现金流 240.77 亿 vs 净利 596.88 亿，转化率 40.3%，去年 58.1%；自由现金流 213.41 亿，转化率 35.8%，去年 50.9%。</p><p class='txt'>拆开看，三个原因里两个是“生意变大”的自然结果，一个是“结构变化”：<b>应收账款 +223.46 亿（账期 45 → 60 天）是结构变化</b>；存货 +57.84 亿（为 Rubin 备货）是自然的；预付 +54.97 亿（锁产能）是自然的；投资收益 77.71 亿不进现金是会计的。</p><p class='txt'>判断“裂”还是“没裂”，看两个数：账期是否继续往上走（65 天是警戒，75 天是确认），以及下季度 OCF/净利是否回到 50% 以上。<b>如果 Q3 账期停在 60 天、转化率回到 50%，这条假设就从“正在裂”回到“已验证”；如果账期破 70 天，论文要重写。</b></p></div><div class="section"><div class="section-title">第六条要等 2027：担保是论文的尾部风险</div><p class='txt'>“客户付得起钱”这条假设，2026 年无法验证。公司给了三个数：担保上限 1,085 亿美元、供应承诺 2,790 亿美元、云服务采购承诺 360 亿美元；还给了一句最关键的话——明年需要借助英伟达资产负债表支持的 AI 实验室业务，约占总业务四分之一。</p><p class='txt'>四分之一是什么概念？按 FY2028 营收 6,413 亿算是 1,600 亿美元的收入，背后是一批还没有利润的实验室与 NeoCloud。<b>如果这批客户在 2027 年融不到钱，英伟达面对的不是“卖不动”，是“收不回”。</b></p><p class='txt'>验证时点：2027 年上半年。观察三个先行指标——NeoCloud 的债券利差、CoreWeave 与 Nebius 的资本开支指引、英伟达是否在 10-Q 里新增“担保代偿”科目。<b>在这之前，这条假设只能按“不确定性”处理，用仓位上限而不是估值折价来管理。</b></p></div><div class="section"><div class="section-title">证伪条件与观察日历</div><p class='txt'><b>证伪条件（出现两条就减仓，出现三条就清仓）：</b></p><ul><li>单季营收环比转负（数据中心环比连续两季下滑）。</li><li>应收周转天数超过 75 天。</li><li>Q4 毛利率低于 71%，且 FY2028 指引的毛利率不再提“回升”。</li><li>1,085 亿担保出现首次实际代偿。</li><li>四大云厂中任意两家下修 2027 年资本开支超过 10%。</li></ul><p class='txt'><b>观察日历：</b></p><ul><li><b>2026/10/01：</b>季度股息 0.25 美元/股派付（登记日 9/10），看回购是否继续。</li><li><b>2026/10/21：</b>柏林 GTC 主题演讲，看 Rubin 后续路线图与 LPU 的客户进展。</li><li><b>2026/11/17：</b>FY2027Q3 财报——本期最重要的检验点。看三个数：营收 vs 1,080 亿指引、毛利率是否落在 74%、应收周转天数是否守住 65 天。</li><li><b>2027/02：</b>FY2027Q4 财报——毛利率触底季，看 71%–72% 是否成立，以及 FY2028 指引是否重申 70%。</li><li><b>2027/05：</b>FY2028Q1 财报——价格上调落地季，看毛利率是否真的回到 72%–73%。</li></ul></div><div class="summary-box"><h3>结论</h3><p class='txt'><b>论文状态：有效，但不牢。</b>四条已验证（需求、供给、定价、生态），一条正在裂（现金转化），一条待验证（客户信用）。<b>动作：持有，不加仓；11 月 17 日是最近的分水岭——营收超 1,080 亿、毛利率 74%、账期守住 65 天，三者同时成立就上调评级；账期破 70 天就减仓。</b></p></div>
+</div>
+<div class="footer">英伟达 (NVDA) 投资研究报告集 · 2026/08/31</div>
+</body>
+</html>
