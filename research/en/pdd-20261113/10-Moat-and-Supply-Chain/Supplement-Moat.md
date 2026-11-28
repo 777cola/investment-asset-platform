@@ -37,9 +37,9 @@ The moat score is a subjective rating under this framework, consistent with "Sta
 
 ## Position in the value chain: a chain leader domestically, one node in the chain overseas
 
-In China, Pinduoduo is the chain master. It decides how traffic is allocated, how prices are set and how long payment terms run, and factories and couriers must follow its rules. That position comes from demand aggregation—over 800 million users compare prices in one pool, and anyone outside it loses half their orders. **The mark of a chain master is not scale; it is the ability to change the rules unilaterally.**
+In China, Pinduoduo is the chain master. It decides how traffic is allocated, how prices are set and how long payment terms run, and factories and couriers must follow its rules. That position comes from demand aggregation—over 800 million users compare prices in one pool, and anyone outside it loses half their orders. The mark of a chain master is not scale; it is the ability to change the rules unilaterally.
 
-Overseas, it is merely a node. Temu must clear customs, comply with EU product-safety law, declare every shipment under US filing rules, and build local warehouses and hire local staff. It controls none of these links and can only pay its way through. **At home it collects rent; abroad it pays rent.** That gap is the other half of the valuation discount.
+Overseas, it is merely a node. Temu must clear customs, comply with EU product-safety law, declare every shipment under US filing rules, and build local warehouses and hire local staff. It controls none of these links and can only pay its way through. At home it collects rent; abroad it pays rent. That gap is the other half of the valuation discount.
 
 ## Moat score: three criteria above 8, two below 4
 
@@ -47,27 +47,27 @@ Only three moats are real: low-price mindshare 9, cost structure 9, direct suppl
 
 Three moats are illusory. Network effects 6: a two-sided network sounds appealing, but the user side has no social graph, the WeChat viral-growth dividend is exhausted, and what holds users now is price, not relationships. Switching costs 4: users move from Pinduoduo to Taobao in three seconds, and merchants already operate on multiple platforms. Licenses and market access 3: cross-border not only lacks license protection but is actively chased by regulators adding costs.
 
-**The investment implication is clear: its moat is enough to defend the domestic stock market, but not enough to support a from-zero-to-one overseas expansion.** It should therefore be valued as a stable cash cow, not a global growth stock.
+The investment implication is clear: its moat is enough to defend the domestic stock market, but not enough to support a from-zero-to-one overseas expansion. It should therefore be valued as a stable cash cow, not a global growth stock.
 
 ## Who to fight: four rivals, four playbooks
 
 Alibaba competes on brand and ecosystem. June 2026 quarter revenue was RMB 268.95 billion, +9%, with AI cloud growing 45%, but operating profit fell 57% year on year — it is paying for AI and instant retail and has no bandwidth for a price war with Pinduoduo. That is Pinduoduo's good fortune.
 
-JD.com competes on experience and authentic goods. Q2 2026 revenue was RMB 346.4 billion, −2.9%, with a net margin of 2.0%. Its model is not built for high gross margins, and it does not share a battlefield with Pinduoduo. Douyin competes for time — users buy in passing while scrolling videos, with no need to open a price-comparison app. **This threat is the most insidious, because it does not capture "cheap"; it captures the moment of deciding what to buy.**
+JD.com competes on experience and authentic goods. Q2 2026 revenue was RMB 346.4 billion, −2.9%, with a net margin of 2.0%. Its model is not built for high gross margins, and it does not share a battlefield with Pinduoduo. Douyin competes for time — users buy in passing while scrolling videos, with no need to open a price-comparison app. This threat is the most insidious, because it does not capture "cheap"; it captures the moment of deciding what to buy.
 
 ## The most easily overlooked point: are merchants still willing to stay?
 
 Pinduoduo's moat is the two-sided "user-merchant" network. The user side is solid; the merchant side is in fact loosening. Refund-only, penalty rules and price-comparison mechanisms have squeezed merchant gross margins to the limit; the "hundred-billion support" of 2025 is essentially a transfer of profit to merchants, which shows the platform itself recognizes this.
 
-**The test is simple: merchant count and GMV per merchant.** If merchants begin exiting en masse, low-price supply thins first, and only then does the price advantage disappear. This process is slower than tariffs, but harder to reverse.
+The test is simple: merchant count and GMV per merchant. If merchants begin exiting en masse, low-price supply thins first, and only then does the price advantage disappear. This process is slower than tariffs, but harder to reverse.
 
 ## The most dangerous rival: not Taobao, not JD, but customs and Brussels
 
 This is not rhetoric. In 2026, Pinduoduo's biggest rival has no quarterly earnings report. Its name is "low-value goods regulation." The US suspended de minimis in August 2025; on October 8, 2026, a proposed CBP rule would bring all shipments under USD 2,500 into strict scrutiny, with comments open until December 7; the EU scrapped the EUR 150 duty exemption on July 1 and added a EUR 3 tariff per category, with a further EUR 2 per-category handling fee from November 1.
 
-**Do the math:** a parcel with an average order value of EUR 10 carries EUR 5 in fixed import costs. Temu either raises prices 50% or absorbs the cost. Raising prices loses customers; absorbing it loses profit. That is why growth in its transaction services revenue fell from high double digits last year to 13% — not because demand vanished, but because unit economics were cut.
+Do the math: a parcel with an average order value of EUR 10 carries EUR 5 in fixed import costs. Temu either raises prices 50% or absorbs the cost. Raising prices loses customers; absorbing it loses profit. That is why growth in its transaction services revenue fell from high double digits last year to 13% — not because demand vanished, but because unit economics were cut.
 
-The second threat is Douyin. It does not go directly after low-price users; it goes after the "discovery" step. As users rely more on recommendations than search, Pinduoduo's low-price mindshare degrades from an "entry point" to a "price-comparison tool." **The process is slow, but irreversible.**
+The second threat is Douyin. It does not go directly after low-price users; it goes after the "discovery" step. As users rely more on recommendations than search, Pinduoduo's low-price mindshare degrades from an "entry point" to a "price-comparison tool." The process is slow, but irreversible.
 
 ## Sources
 

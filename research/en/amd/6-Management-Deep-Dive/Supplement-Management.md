@@ -26,19 +26,23 @@ In October 2014, AMD was a company on the brink of collapse. Revenue was USD 5.5
 
 The first thing she did was not launch new products but cut product lines: mobile chips, tablet chips and low-end APUs were all discontinued, with resources concentrated on the Zen architecture and servers. The second was to sell off manufacturing — in 2016 the packaging and testing plant was sold to Tongfu Microelectronics, and all wafer production was handed to GlobalFoundries and TSMC. The third was the 2017 Zen launch, using chiplets to sidestep process-node disadvantages.
 
-The results are quantifiable: server CPU share rose from 1% in 2017 to more than 30% in 2026; data center revenue went from USD 1.5 billion in 2019 to a 2026 annualized USD 27 billion. **This is not luck — it is three correct strategic trade-offs.**
+The results are quantifiable: server CPU share rose from 1% in 2017 to more than 30% in 2026; data center revenue went from USD 1.5 billion in 2019 to a 2026 annualized USD 27 billion. This is not luck — it is three correct strategic trade-offs.
 
 ## Capital allocation track record: only additions, never subtractions
 
 Only five major moves in twelve years, and each one has a clear rationale:
 
 - 2016: Sold the packaging and testing plant to Tongfu Microelectronics in exchange for a long-term capacity agreement — the first step toward an asset-light model.
+
 - February 2022: All-stock acquisition of Xilinx for USD 49 billion. Gained FPGA, adaptive computing and a stable revenue stream from defense and communications, while expanding share count from 1.2 billion shares to 1.6 billion shares.
+
 - 2022: Acquired Pensando for USD 1.9 billion, gaining DPU and SmartNIC to complete the data center networking stack.
+
 - 2024: Acquired Silo AI (a Finnish model team) for USD 665 million to bolster software and model adaptation capabilities.
+
 - 2025: Acquired ZT Systems for USD 4.9 billion, gaining rack-level system integration capability, then sold the manufacturing portion to Sanmina — retaining only design and integration. This deal is the precondition for on-time delivery of Helios racks.
 
-Dividends: zero. Buybacks: yes, but only large enough to offset equity incentive dilution, not a value-return tool. This is not in the same league as Nvidia (USD 26 billion returned in a single quarter of 2026). **For a company still in expansion, this is reasonable; for a company at 125x P/E, it means shareholder returns depend entirely on the share price.**
+Dividends: zero. Buybacks: yes, but only large enough to offset equity incentive dilution, not a value-return tool. This is not in the same league as Nvidia (USD 26 billion returned in a single quarter of 2026). For a company still in expansion, this is reasonable; for a company at 125x P/E, it means shareholder returns depend entirely on the share price.
 
 Two deals warrant a question mark. ZT Systems' USD 4.9 billion bought "system integration capability," but the scarcity of that capability is declining — Dell, Hon Hai and Wistron can all build racks. Silo AI's USD 665 million bought a team, not a product. Neither deal is wrong, but neither was a must-buy.
 
@@ -46,15 +50,15 @@ Two deals warrant a question mark. ZT Systems' USD 4.9 billion bought "system in
 
 No accounting blemishes. No restatement, no SEC investigation, no substantive allegations from short sellers. Related-party transactions are clean, and the proportion of executive pay tied to performance is reasonable. This is not a given in the semiconductor industry—several companies had revenue recognition problems over the same period.
 
-There are two structural issues. **First, the chairman and CEO roles are held by one person.** Lisa Su has also served as chair since 2022; although the lead independent director has the right to convene independent director meetings, for a company with a market cap of USD 800 billion this is a weak check. Second, the OpenAI warrants—a cap of 160 million shares, roughly 9.6% potential dilution, with exercise conditions tied to purchase volume. When the deal was announced in October 2025, it was read as "locking in a major customer," but it also cedes part of shareholders' future returns to a single customer.
+There are two structural issues. First, the chairman and CEO roles are held by one person. Lisa Su has also served as chair since 2022; although the lead independent director has the right to convene independent director meetings, for a company with a market cap of USD 800 billion this is a weak check. Second, the OpenAI warrants—a cap of 160 million shares, roughly 9.6% potential dilution, with exercise conditions tied to purchase volume. When the deal was announced in October 2025, it was read as "locking in a major customer," but it also cedes part of shareholders' future returns to a single customer.
 
-Board composition is reasonably healthy: 9 of 11 directors are independent, the audit committee is fully independent, and 3 directors have semiconductor operations backgrounds. **The governance risk is not "acting recklessly," but "relying too much on one person."**
+Board composition is reasonably healthy: 9 of 11 directors are independent, the audit committee is fully independent, and 3 directors have semiconductor operations backgrounds. The governance risk is not "acting recklessly," but "relying too much on one person."
 
 ## Succession: the biggest single-point risk
 
 Lisa Su was born in 1969 and is 57 in 2026. The typical retirement age for semiconductor CEOs is around 65, leaving eight years in theory. But AMD has no public succession pipeline: CTO Mark Papermaster is already 66, CFO Jean Hu has a finance background, and data center head Forrest Norrod is the closest candidate but has no record of independently running the whole company.
 
-The impact on valuation is real. Much of AMD's excess return over the past twelve years is the "Lisa Su premium" — the market trusts her judgment. That premium appears in no financial statement, but it lives inside the 125x P/E.**If she announces retirement one day and the successor lacks equal credibility, the valuation drops 20% first, and fundamentals get discussed after.**
+The impact on valuation is real. Much of AMD's excess return over the past twelve years is the "Lisa Su premium" — the market trusts her judgment. That premium appears in no financial statement, but it lives inside the 125x P/E.If she announces retirement one day and the successor lacks equal credibility, the valuation drops 20% first, and fundamentals get discussed after.
 
 The metrics to watch are simple: whether the next 8-K contains a COO or President-level appointment, and who presents the 2028 roadmap at analyst day.
 

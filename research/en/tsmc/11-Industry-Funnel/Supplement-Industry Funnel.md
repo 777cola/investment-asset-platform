@@ -37,7 +37,7 @@ A note on capacity: Samsung's 12-inch monthly capacity is close to TSMC's, but i
 
 ## III. Why It: In One Word, Yield</p>
 
-Not "most advanced technology," because Samsung's node numbers are the same; not "cheapest," because its quotes are double UMC's; not "largest capacity," because Samsung's 12-inch capacity is not much smaller. **It is yield — from the same wafer, it can cut more qualified chips.**
+Not "most advanced technology," because Samsung's node numbers are the same; not "cheapest," because its quotes are double UMC's; not "largest capacity," because Samsung's 12-inch capacity is not much smaller. It is yield — from the same wafer, it can cut more qualified chips.
 
 Yield is a composite function of data, process and experience; it cannot be bought with equipment, nor poached with people. TSMC's thirty years of accumulated process-parameter libraries, the historical data of every production line, and the post-mortem of every failure form an asset that cannot be replicated. This is its true moat, and the starting point for every judgment in this report.
 
@@ -53,7 +53,7 @@ In foundry, TSMC trades at 27.9x TTM PE, Samsung Electronics at about 10–12x, 
 
 SMIC's 80x follows a different logic—an A-share liquidity premium plus the domestic substitution narrative, with little connection to fundamentals. Excluding it, the reasonable PE range for foundry is 12–28x, with TSMC at the top.
 
-**This means: buying TSMC is buying "the most expensive certainty"; buying Samsung is buying "cheap cyclicality."** Neither is wrong, but you need to know what you are buying.
+This means: buying TSMC is buying "the most expensive certainty"; buying Samsung is buying "cheap cyclicality." Neither is wrong, but you need to know what you are buying.
 
 ## Sources
 

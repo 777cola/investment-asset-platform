@@ -25,42 +25,45 @@ Share-price reaction records only verifiable data (down 10% after the October 28
 
 ## Attribution: how the 30.5% drawdown came about
 
-Split into three legs. **Leg one (from the 402.62 high to around 330, about -18%): the AI trade cooled overall.** Even before October the market had begun separating "compute with cash flow" from "compute funded by debt"; CoreWeave's drawdown of more than 70% from its high was the landmark event, and Alphabet, as one of the four major cloud players, was de-rated along with the group.
+Split into three legs. Leg one (from the 402.62 high to around 330, about -18%): the AI trade cooled overall. Even before October the market had begun separating "compute with cash flow" from "compute funded by debt"; CoreWeave's drawdown of more than 70% from its high was the landmark event, and Alphabet, as one of the four major cloud players, was de-rated along with the group.
 
-**Leg two (330 to 290, about -12%): capex expectations revised up.** The market progressively raised its 2026 figure from 180 billion to 195–205 billion, and each upward revision cut free cash flow expectations again. **Leg three (290 to 279.84, about -3.5%): results confirm negative FCF plus financing moves.** This leg was the shoe dropping, yet the decline was smaller.
+Leg two (330 to 290, about -12%): capex expectations revised up. The market progressively raised its 2026 figure from 180 billion to 195–205 billion, and each upward revision cut free cash flow expectations again. Leg three (290 to 279.84, about -3.5%): results confirm negative FCF plus financing moves. This leg was the shoe dropping, yet the decline was smaller.
 
-**The sequence matters: expectations fell the most, not facts.** By the time the facts arrived, the price already reflected most of the bad news.
+The sequence matters: expectations fell the most, not facts. By the time the facts arrived, the price already reflected most of the bad news.
 
 ## What counts as noise: treating fines as risk wastes attention
 
-The EU issued three fines in three months: EUR 2.95 billion over ad tech in September 2025, EUR 890 million under the DMA in July 2026, and EUR 460 million over self-preferencing in September 2026, plus the EUR 4.1 billion Android fine upheld by the European Court of Justice. **Together that is under EUR 8.5 billion, or 0.3% of a USD 3.42 trillion market cap.** These are operating costs, not value destruction.
+The EU issued three fines in three months: EUR 2.95 billion over ad tech in September 2025, EUR 890 million under the DMA in July 2026, and EUR 460 million over self-preferencing in September 2026, plus the EUR 4.1 billion Android fine upheld by the European Court of Justice. Together that is under EUR 8.5 billion, or 0.3% of a USD 3.42 trillion market cap. These are operating costs, not value destruction.
 
-The "net income -25%" headline is also noise. **That was fair value on equity securities swinging from +USD 8.6 billion to -USD 8.7 billion, a USD 17.3 billion round trip on paper with not a cent of cash moving.** Strip it out and EPS was USD 2.67, still up year on year. Anyone selling the stock on this as bad news is selling accounting rules.
+The "net income -25%" headline is also noise. That was fair value on equity securities swinging from +USD 8.6 billion to -USD 8.7 billion, a USD 17.3 billion round trip on paper with not a cent of cash moving. Strip it out and EPS was USD 2.67, still up year on year. Anyone selling the stock on this as bad news is selling accounting rules.
 
-**The only regulatory event with structural meaning is the push to break up the ad tech business.** If AdX is actually forced to be divested, the impact is about USD 100 billion, or 3% of market cap — still an impact, but it should not command 30% of the attention.
+The only regulatory event with structural meaning is the push to break up the ad tech business. If AdX is actually forced to be divested, the impact is about USD 100 billion, or 3% of market cap — still an impact, but it should not command 30% of the attention.
 
 ## What Really Counts as a Signal: Three Numbers
 
-**Signal 1: Direction of capex guidance.** Raised from 195 to 205 billion, with an explicit "significant increase" in 2027 — the strongest statement management has made on future demand, and the source of free cash flow pressure.
+Signal 1: Direction of capex guidance. Raised from 195 to 205 billion, with an explicit "significant increase" in 2027 — the strongest statement management has made on future demand, and the source of free cash flow pressure.
 
-**Signal 2: Change in financing structure.** RMB 28.7 billion in bond issuance + 36 million shares placed + buyback suspended, all at once. This is implicit guidance that cash will keep being deployed over the next two to three years — more credible than any statement.
+Signal 2: Change in financing structure. RMB 28.7 billion in bond issuance + 36 million shares placed + buyback suspended, all at once. This is implicit guidance that cash will keep being deployed over the next two to three years — more credible than any statement.
 
-**Signal 3: The combination of cloud growth and cloud margin.** +103% and 36.2% appearing together shows that spending is generating returns. **This is the most important positive signal — capex upgrades alone without cloud margin expansion would be pure cash burn; both together make it investment.**
+Signal 3: The combination of cloud growth and cloud margin. +103% and 36.2% appearing together shows that spending is generating returns. This is the most important positive signal — capex upgrades alone without cloud margin expansion would be pure cash burn; both together make it investment.
 
 ## Catalysts over the next three months
 
-- **February 2027 Q4 earnings:** Where full-year capex lands within the RMB 195–205 billion range, the specific 2027 guidance figure, and whether cloud growth holds above 70%.
-- **January 2027 CES and developer events:** Pricing and customer count for Gemini Enterprise, the most direct read on AI monetization.
-- **DOJ appeal progress:** Google appealed in January 2026; if the appeal is rejected and the choice-screen obligation extends to the US, default traffic takes a hit.
-- **Whether buybacks resume:** The strongest signal that management sees cash-flow pressure easing, more credible than any guidance.
+- February 2027 Q4 earnings: Where full-year capex lands within the RMB 195–205 billion range, the specific 2027 guidance figure, and whether cloud growth holds above 70%.
 
-**What is most likely to move the stock within three months is not new news, but a single number in the Q4 report: the 2027 capex guidance.**
+- January 2027 CES and developer events: Pricing and customer count for Gemini Enterprise, the most direct read on AI monetization.
+
+- DOJ appeal progress: Google appealed in January 2026; if the appeal is rejected and the choice-screen obligation extends to the US, default traffic takes a hit.
+
+- Whether buybacks resume: The strongest signal that management sees cash-flow pressure easing, more credible than any guidance.
+
+What is most likely to move the stock within three months is not new news, but a single number in the Q4 report: the 2027 capex guidance.
 
 ## Measuring the disconnect between share price and fundamentals
 
-How do you tell that "what is falling is the valuation, not the business"? Look at three ratios. **① Market cap/operating profit is down 30.5% from its high, while operating profit is up 30% year on year — the denominator rises and the numerator falls, which means the multiple is compressing. ② Market cap/cloud revenue is down about 40% from its high, while cloud revenue is up 103% year on year — again multiple compression. ③ Market cap/trailing 12-month FCF = RMB 3.42 trillion/19.7 billion ≈ 174x** — a number unimaginable in a bull market, showing the market is pricing off "future FCF."
+How do you tell that "what is falling is the valuation, not the business"? Look at three ratios. ① Market cap/operating profit is down 30.5% from its high, while operating profit is up 30% year on year — the denominator rises and the numerator falls, which means the multiple is compressing. ② Market cap/cloud revenue is down about 40% from its high, while cloud revenue is up 103% year on year — again multiple compression. ③ Market cap/trailing 12-month FCF = RMB 3.42 trillion/19.7 billion ≈ 174x — a number unimaginable in a bull market, showing the market is pricing off "future FCF."
 
-Of the three ratios, the first two support "valuation compression," and the third shows "the market no longer dares to price off current cash flow." **That is both the risk (if FCF never turns positive, 174x cannot hold) and the opportunity (once FCF turns positive, the multiple will fall quickly).**
+Of the three ratios, the first two support "valuation compression," and the third shows "the market no longer dares to price off current cash flow." That is both the risk (if FCF never turns positive, 174x cannot hold) and the opportunity (once FCF turns positive, the multiple will fall quickly).
 
 ## Sources
 

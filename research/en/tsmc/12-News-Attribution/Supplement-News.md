@@ -26,13 +26,13 @@ Event dates come from company announcements and public reports; share-price reac
 
 The July 16 earnings call was the most important day in three months. Three metrics hit record highs (revenue, gross margin, net profit), while the company guided Q3 gross margin to 65%–67%, a midpoint 1.7 percentage points below Q2, and explained the reason explicitly: the 2nm ramp dilutes margin by 3–4 percentage points, and overseas fabs dilute it by a further 2–3 percentage points.
 
-Why this is a signal, not noise: **this is the first time in the current cycle that revenue guidance points up while gross margin guidance points down.** In foundry, the profit inflection typically leads the revenue inflection by one to two quarters, and this combination is the textbook shape of that inflection.
+Why this is a signal, not noise: this is the first time in the current cycle that revenue guidance points up while gross margin guidance points down. In foundry, the profit inflection typically leads the revenue inflection by one to two quarters, and this combination is the textbook shape of that inflection.
 
 The market's reaction at the time was to rally, because everyone looked only at revenue and the capex raise. That is precisely the nature of this kind of signal: it does not get priced on the day, it gets priced two quarters later.
 
 ## II. Signal two: August revenue of RMB 514.8 billion
 
-August revenue, reported on September 9, came in at RMB 514.806 billion, up 53.3% year on year, topping RMB 500 billion for the first time and setting a record for the fourth consecutive month. The value of this data point is that **it disproves the "AI demand has peaked" narrative** — if customers were cutting orders, monthly revenue would react first.
+August revenue, reported on September 9, came in at RMB 514.806 billion, up 53.3% year on year, topping RMB 500 billion for the first time and setting a record for the fourth consecutive month. The value of this data point is that it disproves the "AI demand has peaked" narrative — if customers were cutting orders, monthly revenue would react first.
 
 But note the difference between the year-on-year and month-on-month figures. The 53.3% year-on-year gain looks impressive because the prior-year base was low (roughly RMB 335.8 billion in August 2025, back-calculated from the growth rate). What really matters is the sequential trend: four consecutive record highs from May through August show demand is still accelerating rather than relying on the base effect.
 
@@ -42,19 +42,19 @@ The next things to watch are September and October. If September holds above RMB
 
 This news got wide coverage but barely moves the needle on our view, because the market has long known TSMC would step up US investment—customer demand and policy requirements set the direction two years ago. The added amount only turns "what to do" into "how much has been done."
 
-Its real significance lies in long-term cost: management itself said overseas fabs dilute gross margin by 3–4 percentage points, and depreciation on the USD 100 billion investment will concentrate from 2028 onward.**This is a chronic condition, not something that flares up on a single day, so it should not be treated as a trading signal.**
+Its real significance lies in long-term cost: management itself said overseas fabs dilute gross margin by 3–4 percentage points, and depreciation on the USD 100 billion investment will concentrate from 2028 onward.This is a chronic condition, not something that flares up on a single day, so it should not be treated as a trading signal.
 
 ## IV. Noise 2: Tariffs and the AI bubble debate
 
 The semiconductor trade-measure discussions in mid-August and the AI capex debate in early September were both "headline-driven" volatility and did not change fundamentals. The test is simple: did they change customers' ordering behavior? No. August revenue still hitting a record high is the best answer.
 
-On September 11 the share price was RMB 2,410, down 1.63%, just -4.0% from the 52-week high of RMB 2,510. This level shows the market is not panicking, only hesitating. **Hesitation is not a signal; it is background noise.**
+On September 11 the share price was RMB 2,410, down 1.63%, just -4.0% from the 52-week high of RMB 2,510. This level shows the market is not panicking, only hesitating. Hesitation is not a signal; it is background noise.
 
 ## V. Filter out the noise — what remains
 
 In three months of news flow, only two things can change the valuation: gross margin guidance (July 16) and monthly revenue validation (September 9). The other five — shareholder meeting tone, additional investment, July revenue, tariff discussion, bubble debate — were absorbed by the market within a week of occurring and have no impact on the 12-month target price.
 
-The way to filter noise is simple: **ask whether this news changes the cash flow assumptions**. What changes cash flow is price, volume and cost structure; what does not is sentiment, expectations and policy statements. By this standard, 90% of the news over three months can be skipped.
+The way to filter noise is simple: ask whether this news changes the cash flow assumptions. What changes cash flow is price, volume and cost structure; what does not is sentiment, expectations and policy statements. By this standard, 90% of the news over three months can be skipped.
 
 The next key date is the mid-October Q3 earnings call. Three numbers there — actual Q3 gross margin, Q4 guidance and the preliminary 2027 capex framework — will determine whether this cycle is a soft landing or a hard turn.
 

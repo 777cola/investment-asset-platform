@@ -44,7 +44,7 @@ On scoring, technology and supply chain are close to full marks (10/9), because 
 
 ## The biggest danger is not the competitor, but the license
 
-No technological rival: Canon's nanoimprint lags by a generation on throughput and yield, Nikon has exited the EUV alliance, and Shanghai Micro Electronics sits at the 90nm level. **What can genuinely cost it 20% of revenue is export control, not competition.**
+No technological rival: Canon's nanoimprint lags by a generation on throughput and yield, Nikon has exited the EUV alliance, and Shanghai Micro Electronics sits at the 90nm level. What can genuinely cost it 20% of revenue is export control, not competition.
 
 Mainland China accounts for 23% of Q3 net system sales, mainly DUV and metrology. The Dutch government has required licences for advanced DUV since 2023 and tightened rules repeatedly in 2024–2026. The company has publicly opposed further restrictions, arguing they will accelerate China's own development—but it has no say in the decision. This item scores 4/10, the only failing grade among the six dimensions.
 

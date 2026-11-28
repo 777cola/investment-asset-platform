@@ -42,19 +42,19 @@ The value of the Liang Mong-song line is not in the financials. Achieving mass p
 
 ## Capital allocation: the money went where it should have gone, just not into shareholders' pockets
 
-Three major moves in five years, all in the same direction: **convert every dollar available into capacity.** The 2020 STAR Market IPO raised RMB 53.2 billion, 2025 capex was USD 8.1 billion, another USD 8.1 billion in 2026, and in 2026 RMB 40.6 billion in shares issued to buy the remaining 49% of SMIC North. Four new 12-inch lines (SMIC Beijing, SMIC East, SMIC Shenzhen, SMIC West Qing) are under construction simultaneously, each designed for about 100,000 wafers per month.
+Three major moves in five years, all in the same direction: convert every dollar available into capacity. The 2020 STAR Market IPO raised RMB 53.2 billion, 2025 capex was USD 8.1 billion, another USD 8.1 billion in 2026, and in 2026 RMB 40.6 billion in shares issued to buy the remaining 49% of SMIC North. Four new 12-inch lines (SMIC Beijing, SMIC East, SMIC Shenzhen, SMIC West Qing) are under construction simultaneously, each designed for about 100,000 wafers per month.
 
 The logic of this playbook is the time window: controls can tighten at any moment, each tool bought is one fewer available, and landing capacity first matters more than paying dividends first. From an industrial standpoint, this is the optimal solution; from a DCF standpoint, it is swapping shareholder cash for assets that generate returns only 10 years out.
 
-The cost is explicit: no dividend for 2025, on the grounds that "2026 will still entail relatively large-scale capital expenditure"; never any buyback; the RMB 40.6 billion acquisition paid in shares, raising total share count from about 7.96 billion to 8.561 billion shares, diluting existing shareholders by about 7%. **For a company that pays no dividend, does no buyback and keeps issuing shares, the only source of shareholder return is the share price.**
+The cost is explicit: no dividend for 2025, on the grounds that "2026 will still entail relatively large-scale capital expenditure"; never any buyback; the RMB 40.6 billion acquisition paid in shares, raising total share count from about 7.96 billion to 8.561 billion shares, diluting existing shareholders by about 7%. For a company that pays no dividend, does no buyback and keeps issuing shares, the only source of shareholder return is the share price.
 
 ## Governance and integrity: no scandals, but structural constraints
 
-Ownership structure determines governance. HKSCC (H-share custodian) holds a nominal 56.29%, Datang Holdings (Hong Kong) 14.06%, Xinxin (Hong Kong) 4.50%, National Integrated Circuit Industry Investment Fund Phase II 1.59%, and China Information Communication Technologies 0.90%. **The top three shareholders all have state-owned backgrounds, together holding over 20%**; board and management appointments serve industrial policy objectives first and shareholder returns second.
+Ownership structure determines governance. HKSCC (H-share custodian) holds a nominal 56.29%, Datang Holdings (Hong Kong) 14.06%, Xinxin (Hong Kong) 4.50%, National Integrated Circuit Industry Investment Fund Phase II 1.59%, and China Information Communication Technologies 0.90%. The top three shareholders all have state-owned backgrounds, together holding over 20%; board and management appointments serve industrial policy objectives first and shareholder returns second.
 
 The integrity record shows no company-level blemishes: the December 2020 addition to the US Entity List was a geopolitical event, not financial fraud; in February 2026 Applied Materials was fined USD 252 million for supplying SMIC in violation of rules during 2020–2022 — the penalty fell on the supplier, not on SMIC, but it shows supply-chain compliance risk persists over the long term.
 
-The item to watch is related-party transactions. The RMB 40.6 billion acquisition of 49% of SMIC North involves 5 shareholders including the National Integrated Circuit Fund, making it a related-party transaction; the RMB 40.6 billion price implies an equity value of roughly RMB 82.9 billion for all of SMIC North. Whether that price is fair depends on SMIC North's capacity and profitability, and public disclosure is limited — **this is the only major capital allocation in this report that cannot be independently verified.**
+The item to watch is related-party transactions. The RMB 40.6 billion acquisition of 49% of SMIC North involves 5 shareholders including the National Integrated Circuit Fund, making it a related-party transaction; the RMB 40.6 billion price implies an equity value of roughly RMB 82.9 billion for all of SMIC North. Whether that price is fair depends on SMIC North's capacity and profitability, and public disclosure is limited — this is the only major capital allocation in this report that cannot be independently verified.
 
 ## Succession: the biggest single-point risk is not the chairman
 
@@ -62,7 +62,7 @@ Liu Xunfeng is 61 and Zhao Haijun about 62, both still within normal tenure; the
 
 The company has not disclosed a technical succession plan. Organizationally, R&D headcount is 2,420, or 11.9% of employees — a sizable team, but "someone who can lead an N+3 team" and "having 2,420 R&D staff" are two different things. When TSMC's Liang Mong Song left, it pulled Samsung's process progress forward by years; the replacement cost for people like this is extremely high.
 
-Implication for investors: if an announcement of "Liang Mong Song retirement/departure" appears in the next two years while advanced-node customer orders hold up, that is a sentiment shock; if orders also swing, that is a fundamental event.**This risk cannot be quantified and can only be set as a watch item.**
+Implication for investors: if an announcement of "Liang Mong Song retirement/departure" appears in the next two years while advanced-node customer orders hold up, that is a sentiment shock; if orders also swing, that is a fundamental event.This risk cannot be quantified and can only be set as a watch item.
 
 ## Sources
 

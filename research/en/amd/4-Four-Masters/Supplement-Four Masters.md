@@ -22,11 +22,11 @@ The four sections are a framework-based projection; tone and focus are summarize
 
 Duan Yongping looks at the people before the company. Lisa Su is one of the few tech CEOs he has publicly praised, and the reason is not technology but "knowing what to do and what not to do": when she took over in 2014, AMD had 14,000 employees, seven product lines and cash for only six months; she cut to three lines, sold the manufacturing, and put all resources behind the Zen architecture. That is the "benfen" approach—not doing things beyond your capabilities.
 
-But he would then ask a second question: what will this business still be selling in ten years? The answer is "selling substitutes for Nvidia." Pricing power for a substitute sits with the competitor: when the competitor expands capacity you lose orders, when the competitor cuts prices you lose margin. Duan Yongping has said something similar: **"Differentiation is what users need but others cannot deliver."** AMD's differentiation is price and lead time, and both will be filled in by others.
+But he would then ask a second question: what will this business still be selling in ten years? The answer is "selling substitutes for Nvidia." Pricing power for a substitute sits with the competitor: when the competitor expands capacity you lose orders, when the competitor cuts prices you lose margin. Duan Yongping has said something similar: "Differentiation is what users need but others cannot deliver." AMD's differentiation is price and lead time, and both will be filled in by others.
 
 His conclusion is roughly: people 9 out of 10, business 6 out of 10, price 0 out of 10. It goes into the "understandable but not worth a heavy position" basket, waiting for an "obviously cheap" price—his line is usually more than 40% below the market.
 
-He has only one criterion for picking companies: will this company still exist in ten years, and will it still be doing the same thing. Apple qualifies, Moutai qualifies, NetEase qualifies. AMD will most likely still exist in ten years, but what it sells will turn over three generations—from MI450 to MI550 to the next generation, and each generation has to win customers all over again. **A business that has to prove itself repeatedly is not a good business.**
+He has only one criterion for picking companies: will this company still exist in ten years, and will it still be doing the same thing. Apple qualifies, Moutai qualifies, NetEase qualifies. AMD will most likely still exist in ten years, but what it sells will turn over three generations—from MI450 to MI550 to the next generation, and each generation has to win customers all over again. A business that has to prove itself repeatedly is not a good business.
 
 ## Buffett: The shovels are good shovels, but two companies are selling them
 
@@ -34,7 +34,7 @@ Buffett would start by drawing a circle of competence. He understands the model 
 
 He would also see the good side: fabless, 56% gross margin, customers order first and take delivery later, capex of only USD 800 million. This is See's Candies-style asset-light, only far more cyclical. He would look at AMD alongside Nvidia: same customer, same business, a 19 percentage point gross margin gap.
 
-On price he has no patience. 125x TTM, USD 800 billion market cap, USD 6.4 billion annual profit. He bought Apple at 13x, BYD at 10x, Coca-Cola at 15x. **"A great company, but there is no share of it in the price for me"**—he said this of Coca-Cola in 1998, and he would say it again of AMD in 2026.
+On price he has no patience. 125x TTM, USD 800 billion market cap, USD 6.4 billion annual profit. He bought Apple at 13x, BYD at 10x, Coca-Cola at 15x. "A great company, but there is no share of it in the price for me"—he said this of Coca-Cola in 1998, and he would say it again of AMD in 2026.
 
 If he had to buy somewhere in this chain, he would choose TSMC. Same demand, same customers, TSMC has a 58% gross margin, 70% share, a two-generation technology lead, and does not need to re-win orders every year. AMD is a customer in front of TSMC and a chaser in front of Nvidia—neither identity gives it pricing power.
 
@@ -44,7 +44,7 @@ Munger does not ask about growth; he asks only about the conditions for failure.
 
 Second question: how many years in a row can cloud capex keep rising? In 2026, the four North American cloud providers will spend about USD 800 billion combined, up 60% year on year. No capex cycle in history has ever risen for four consecutive years. If capex grows only 10% in 2027, AMD's "data center doubles" thesis does not hold—AMD does not need to make a mistake; the environment only needs to normalize.
 
-He would also raise an old case: in the 1990s AMD fought a ten-year price war with Intel. AMD survived and won share, but made no money for a full decade. The challenger's fate is to "win share, lose profit." **Munger-style conclusion: buying a challenger at the top of the cycle is a double mistake.**
+He would also raise an old case: in the 1990s AMD fought a ten-year price war with Intel. AMD survived and won share, but made no money for a full decade. The challenger's fate is to "win share, lose profit." Munger-style conclusion: buying a challenger at the top of the cycle is a double mistake.
 
 He also concedes AMD got one thing right: rather than fight Nvidia in training, it went after inference first. Inference demands less of an ecosystem, and customers care more about cost per token, which is exactly where AMD's price-performance can play out. But on the inference side the rival is not Nvidia—it is the cloud providers' in-house ASICs. Google TPU and Amazon Trainium both sit in this slot, and their costs are lower than AMD's because they do not have to protect a gross margin.
 
@@ -54,15 +54,15 @@ Li Lu would look at this on a civilizational scale. Compute is the foundational 
 
 But where do the profits from a foundational resource go? History gives a clear answer: they concentrate with the standard-setters. In the railway era, most railway-building companies went bankrupt while the sellers of rails and locomotives made money; in the PC era, assemblers ran 3% margins while chip and operating-system makers ran above 20%. The standard-setters of the AI era are Nvidia (CUDA) and TSMC (process nodes), and AMD is the "second shovel seller" in that chain.
 
-He would also offer a counterexample, and a serious one: Samsung succeeded within the Android camp because it holds multiple chips in displays, memory and manufacturing, not because it is a pure cost-performance player.** AMD's chips are x86 licensing and chiplets, enough for it to do very well on the CPU side, not enough to win pricing power on the GPU side.** His judgment, therefore: own the CPU portion of the value, do not pay a premium for the GPU portion.
+He would also offer a counterexample, and a serious one: Samsung succeeded within the Android camp because it holds multiple chips in displays, memory and manufacturing, not because it is a pure cost-performance player. AMD's chips are x86 licensing and chiplets, enough for it to do very well on the CPU side, not enough to win pricing power on the GPU side. His judgment, therefore: own the CPU portion of the value, do not pay a premium for the GPU portion.
 
-Geopolitics is another layer. All of AMD's advanced capacity sits with TSMC, and TSMC's advanced capacity sits in Hsinchu and Tainan. This is a risk AMD cannot control, but it sets AMD's valuation floor—once the Taiwan Strait is disturbed, 125x becomes 60x first, and only then do we discuss fundamentals. Li Lu's usual way of handling this kind of risk: **prefer a lower position size in exchange for higher certainty.**
+Geopolitics is another layer. All of AMD's advanced capacity sits with TSMC, and TSMC's advanced capacity sits in Hsinchu and Tainan. This is a risk AMD cannot control, but it sets AMD's valuation floor—once the Taiwan Strait is disturbed, 125x becomes 60x first, and only then do we discuss fundamentals. Li Lu's usual way of handling this kind of risk: prefer a lower position size in exchange for higher certainty.
 
 ## Odds: 1:1 upside versus downside, 2:1 probability of downside
 
-Weight the three scenarios by probability: bear 35% (share stagnation, capex deceleration — the industry norm), base 45% (doubling delivered but multiple compresses), bull 20% (above expectations). Expected price = 240×0.35 + 475×0.45 + 720×0.20 = **USD 442**, 8.6% below the current price.
+Weight the three scenarios by probability: bear 35% (share stagnation, capex deceleration — the industry norm), base 45% (doubling delivered but multiple compresses), bull 20% (above expectations). Expected price = 240×0.35 + 475×0.45 + 720×0.20 = USD 442, 8.6% below the current price.
 
-This is not a "buy and lose money" conclusion; it is a "buy and not get paid" conclusion. Upside requires beating the company's own most optimistic target; downside only requires industry normalization. **The risk/reward is asymmetric, and the direction is inverted.**
+This is not a "buy and lose money" conclusion; it is a "buy and not get paid" conclusion. Upside requires beating the company's own most optimistic target; downside only requires industry normalization. The risk/reward is asymmetric, and the direction is inverted.
 
 When does the risk/reward flip? Two cases: the stock falls to USD 350 (36% upside in the base case), or MI450 quarterly revenue exceeds USD 3 billion and 2027 EPS actually reaches USD 24 (the bull case becomes the base case). The first waits on price, the second waits on earnings — neither requires guessing.
 
@@ -72,11 +72,11 @@ The probabilities are subjective, but the basis is historical frequency: over th
 
 The sell-side consensus for AMD's 2027 EPS is USD 21–23, 10%–20% above our neutral assumption of USD 19. The gap is not in revenue but in gross margin: the sell-side assumes 2027 gross margin reaches 60%, while we assume 55%–57%.
 
-Our reasoning is HBM4. MI450 uses 432GB of HBM4, with per-card HBM cost more than 40% above MI355X, and the HBM price upcycle is not over. Memory price inflation eats into accelerator gross margin, as it did in 2018 and 2021. **If HBM4 rises another 30% in 2027, AMD cannot hold gross margin at 57%, and the sell-side's 60% does not hold.**
+Our reasoning is HBM4. MI450 uses 432GB of HBM4, with per-card HBM cost more than 40% above MI355X, and the HBM price upcycle is not over. Memory price inflation eats into accelerator gross margin, as it did in 2018 and 2021. If HBM4 rises another 30% in 2027, AMD cannot hold gross margin at 57%, and the sell-side's 60% does not hold.
 
 The other disagreement is share count. The sell-side calculates EPS on 1.66 billion shares, excluding dilution from the OpenAI warrants. If half are exercised in 2027 (80 million shares), EPS is diluted 4.8%. This does not affect direction, only precision.
 
-A more fundamental disagreement: the sell-side treats 2027 as the endpoint; we treat it as the starting point. After the doubling is delivered, the 2028 question is whether it can double again. Nvidia's roadmap already extends to 2028 (Rubin Ultra), while AMD's MI500 has no public details. **Pricing a five-year valuation on two years of high growth is the most common error in this type of report.**
+A more fundamental disagreement: the sell-side treats 2027 as the endpoint; we treat it as the starting point. After the doubling is delivered, the 2028 question is whether it can double again. Nvidia's roadmap already extends to 2028 (Rubin Ultra), while AMD's MI500 has no public details. Pricing a five-year valuation on two years of high growth is the most common error in this type of report.
 
 ## Sources
 

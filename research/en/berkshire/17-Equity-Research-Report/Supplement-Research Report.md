@@ -56,43 +56,43 @@ The moat of this model lies not in products but in the balance sheet and reputat
 
 ## Chapter 4 Financial Analysis
 
-2026Q3 operating profit USD 12.705 billion, -5.8%. Breakdown: insurance underwriting USD 1.352 billion (-42.9%), insurance investment USD 2.734 billion (-14.1%), BNSF USD 1.729 billion (+19.3%), BHE USD 1.612 billion (+8.3%), manufacturing, services and retailing USD 4.042 billion (+11.8%). **Insurance side total -26.4%, physical operations +12.6%**; the two offset to -5.8%.
+2026Q3 operating profit USD 12.705 billion, -5.8%. Breakdown: insurance underwriting USD 1.352 billion (-42.9%), insurance investment USD 2.734 billion (-14.1%), BNSF USD 1.729 billion (+19.3%), BHE USD 1.612 billion (+8.3%), manufacturing, services and retailing USD 4.042 billion (+11.8%). Insurance side total -26.4%, physical operations +12.6%; the two offset to -5.8%.
 
 GAAP net income USD 22.112 billion, -28.2%; the gap mainly comes from investment gains and losses. ROE about 10.4% (annualized net income USD 77.19 billion ÷ average equity USD 73.95 billion, rough calculation); interest-bearing debt/equity about 17%, leverage 1.7x. Book value per Class A share USD 536,590, +10.5%.
 
 Quality assessment: earnings are real money (operating basis), cash is real money (short-term debt), leverage extremely low. The only problem is "too much money" — USD 377.4 billion sitting in 4.5% assets, dragging down ROE.
 
-Three cross-checks: ① cash plus short-term debt USD 377.4 billion ÷ market cap USD 1.26 trillion = 30%, consistent with the statement "roughly 30% of market cap"; ② first three quarters net income USD 57.89 billion ÷ average equity USD 73.95 billion × 4/3 = annualized ROE 10.4%; ③ underwriting profit USD 1.352 billion ÷ combined ratio implies premiums of USD 15.7 billion; versus underwriting profit of USD 2.369 billion in the same period of 2025, implied premium scale is broadly flat — **indicating a margin decline, not a shrinking business.**
+Three cross-checks: ① cash plus short-term debt USD 377.4 billion ÷ market cap USD 1.26 trillion = 30%, consistent with the statement "roughly 30% of market cap"; ② first three quarters net income USD 57.89 billion ÷ average equity USD 73.95 billion × 4/3 = annualized ROE 10.4%; ③ underwriting profit USD 1.352 billion ÷ combined ratio implies premiums of USD 15.7 billion; versus underwriting profit of USD 2.369 billion in the same period of 2025, implied premium scale is broadly flat — indicating a margin decline, not a shrinking business.
 
 ## Chapter 5 Management
 
 Abel joined BHE in 1992, took charge of energy in 2008, was promoted to vice chairman in 2018, and succeeded to CEO in January 2026. Jain continues to head insurance. Howard Buffett serves as non-executive chairman. The compensation system carries no stock options; bonuses are tied to business capital returns.
 
-Three observations from the first standalone quarterly report: bad news was not glossed over; buybacks rose from USD 4.5 billion to USD 9.647 billion; M&A remains limited to small deals below USD 10 billion. **Operating capability is proven; capital allocation and crisis response have no track record**, which is why management scores only 7/10.
+Three observations from the first standalone quarterly report: bad news was not glossed over; buybacks rose from USD 4.5 billion to USD 9.647 billion; M&A remains limited to small deals below USD 10 billion. Operating capability is proven; capital allocation and crisis response have no track record, which is why management scores only 7/10.
 
 ## Chapter 6 Growth Drivers
 
-Three points: **① Organic growth in float.** Historically up 2%–5% a year; on a base of RMB 178.5 billion, that means USD 4–9 billion of new investable capital annually. **② Expansion of the rate base at regulated assets.** BHE is accelerating capex on data-center power demand, with allowed returns booked at a fixed percentage. **③ M&A.** With USD 377.4 billion of cash, any USD 30 billion deal would lift operating earnings per share by more than 10%.
+Three points: ① Organic growth in float. Historically up 2%–5% a year; on a base of RMB 178.5 billion, that means USD 4–9 billion of new investable capital annually. ② Expansion of the rate base at regulated assets. BHE is accelerating capex on data-center power demand, with allowed returns booked at a fixed percentage. ③ M&A. With USD 377.4 billion of cash, any USD 30 billion deal would lift operating earnings per share by more than 10%.
 
-Of the three, the first two are slow variables (3%–6% annualized); the third is a step variable. **The market now pays 1.66x book, which means it is pricing in the third as well.**
+Of the three, the first two are slow variables (3%–6% annualized); the third is a step variable. The market now pays 1.66x book, which means it is pricing in the third as well.
 
-The three drivers differ widely in return on capital: M&A has historically ranged from -30% (PCP) to +200% (Japanese trading houses), an enormous variance; rate-base returns are locked at 9%–11%, essentially risk-free; float growth is "free leverage," and its return depends on the price at which it is deployed. **So on valuation, the first two should be assigned separate multiples — the market currently blends all three into a single 1.6x book price, a crude simplification.**
+The three drivers differ widely in return on capital: M&A has historically ranged from -30% (PCP) to +200% (Japanese trading houses), an enormous variance; rate-base returns are locked at 9%–11%, essentially risk-free; float growth is "free leverage," and its return depends on the price at which it is deployed. So on valuation, the first two should be assigned separate multiples — the market currently blends all three into a single 1.6x book price, a crude simplification.
 
 ## Chapter 7 Competitive Landscape
 
 By segment: auto insurance faces Progressive (a leader in UBI pricing) and Allstate; commercial insurance and reinsurance face Chubb, AIG and Munich Re; rail faces Union Pacific and CSX; utilities face NextEra and Duke; manufacturing faces fragmented competition.
 
-Only two threats are real: **Progressive's cost advantage in auto insurance**, and **4.5% US short-term Treasuries** — the latter is the common rival of every equity asset, because the risk-free rate raises the opportunity cost. Berkshire itself holds USD 377.4 billion in short-term Treasuries, effectively conceding that this rival exists.
+Only two threats are real: Progressive's cost advantage in auto insurance, and 4.5% US short-term Treasuries — the latter is the common rival of every equity asset, because the risk-free rate raises the opportunity cost. Berkshire itself holds USD 377.4 billion in short-term Treasuries, effectively conceding that this rival exists.
 
-Share data tells the story: in the USD 300 billion auto insurance market, Progressive's share rose from about 13% to over 16% over the past five years, while GEICO's fell from about 12% to around 11% (rough calculation, on a premium basis). **Two points of share equate to roughly USD 6 billion of premiums and USD 500 million of underwriting profit.** That is the dividing line between "cycle" and "structure" — the cycle comes back; share does not come back on its own.
+Share data tells the story: in the USD 300 billion auto insurance market, Progressive's share rose from about 13% to over 16% over the past five years, while GEICO's fell from about 12% to around 11% (rough calculation, on a premium basis). Two points of share equate to roughly USD 6 billion of premiums and USD 500 million of underwriting profit. That is the dividing line between "cycle" and "structure" — the cycle comes back; share does not come back on its own.
 
 ## Chapter 8 Risk factors
 
-① **Underwriting cycle deterioration**: The combined ratio stands at 91.4%; if it rises above 100% in 2027, float turns from negative-cost to positive-cost, and the valuation model must be rewritten. ② **Safe-haven inflows receding**: Outperformance of 19.2 percentage points versus the S&P over the past month, the widest since 2010; historically such extreme divergence has retraced within 1–3 months. ③ **Wildfire litigation**: BHE's liability across multiple western states could reach the USD 10 billion magnitude. ④ **Large acquisition risk**: The roughly USD 9.8 billion write-down on PCP in 2016 sets a precedent. ⑤ **Succession risk**: The new management team has not been tested in a crisis. ⑥ **Curse of size**: At a market cap of USD 1.26 trillion, long-term returns converge toward the broad market.
+① Underwriting cycle deterioration: The combined ratio stands at 91.4%; if it rises above 100% in 2027, float turns from negative-cost to positive-cost, and the valuation model must be rewritten. ② Safe-haven inflows receding: Outperformance of 19.2 percentage points versus the S&P over the past month, the widest since 2010; historically such extreme divergence has retraced within 1–3 months. ③ Wildfire litigation: BHE's liability across multiple western states could reach the USD 10 billion magnitude. ④ Large acquisition risk: The roughly USD 9.8 billion write-down on PCP in 2016 sets a precedent. ⑤ Succession risk: The new management team has not been tested in a crisis. ⑥ Curse of size: At a market cap of USD 1.26 trillion, long-term returns converge toward the broad market.
 
 ## Chapter 9 Earnings Forecast
 
-Assumptions (rough calculation, not company guidance): 2027 underwriting profit steady at USD 1.5–1.7 billion per quarter (combined ratio 92%–94%), insurance investment income down another 5% on lower short-term bond yields, BNSF and BHE each up 6%–8%, manufacturing, services and retail up 6%. **2027 operating profit of about USD 53 billion** (2026 annualized USD 50.8 billion × 1.04).
+Assumptions (rough calculation, not company guidance): 2027 underwriting profit steady at USD 1.5–1.7 billion per quarter (combined ratio 92%–94%), insurance investment income down another 5% on lower short-term bond yields, BNSF and BHE each up 6%–8%, manufacturing, services and retail up 6%. 2027 operating profit of about USD 53 billion (2026 annualized USD 50.8 billion × 1.04).
 
 Book value: end-2027 Class B equivalent of about USD 386–390 (up 8%–9% annually), corresponding to about USD 580,000 per Class A share. At 1.6x PB, the share price is about USD 620–625; at 1.4x, about USD 545.
 
@@ -102,11 +102,11 @@ Anchor on book value per share. The current USD 592.85 equals 1.66x the Class B 
 
 Three scenarios: bear case USD 488 (1.30x one-year-forward book, risk-off retreat + underwriting decline), base case USD 626 (1.62x), bull case USD 734 (1.85x, sustained risk-off + large acquisition). Probabilities 30/50/20, expected return +2.4% (rough calculation).
 
-**Why not use PE for valuation:** GAAP net income includes large unrealized investment gains and is highly volatile; the operating earnings multiple (24.8x) can serve as a cross-check but is unsuitable as a target-price anchor because it is overly sensitive to the underwriting cycle.
+Why not use PE for valuation: GAAP net income includes large unrealized investment gains and is highly volatile; the operating earnings multiple (24.8x) can serve as a cross-check but is unsuitable as a target-price anchor because it is overly sensitive to the underwriting cycle.
 
 ## Chapter 11 Investment Recommendations
 
-**Rating: Watch, wait for a pullback. 12-month target price USD 626.** Current price USD 592.85, 6% upside, 18% downside; risk/reward does not work, not advisable to build a position at this level.
+Rating: Watch, wait for a pullback. 12-month target price USD 626. Current price USD 592.85, 6% upside, 18% downside; risk/reward does not work, not advisable to build a position at this level.
 
 Recommended entry points in three tiers: USD 500 (1.4x book) build 3%, USD 460 build to 5%, USD 430 build to 8%. Cap at 8%, positioned as a defensive ballast.
 

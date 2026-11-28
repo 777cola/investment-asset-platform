@@ -23,27 +23,31 @@ Assumptions and verification indicators are based on this report's proprietary f
 
 ## Two verified: this is the foundation of the thesis
 
-**The AWS acceleration is real.** Year-on-year growth rose for six straight quarters from 2025Q2 to 2026Q3, reaching 39.3% in the latest quarter, the fastest in nearly five years, on an annualized run rate of USD 184 billion. The harder evidence is orders: backlog of USD 578 billion, up triple digits year on year, and management says customers have locked up 2027–2028 capacity.** There is no crack on the demand side; this point needs no further debate.**
+The AWS acceleration is real. Year-on-year growth rose for six straight quarters from 2025Q2 to 2026Q3, reaching 39.3% in the latest quarter, the fastest in nearly five years, on an annualized run rate of USD 184 billion. The harder evidence is orders: backlog of USD 578 billion, up triple digits year on year, and management says customers have locked up 2027–2028 capacity. There is no crack on the demand side; this point needs no further debate.
 
-**The retail margin expansion is real.** North America revenue grew just 6%, yet operating income rose from USD 4.79 billion to USD 8.72 billion, lifting the margin from 4.3% to 7.7%. The mechanism is verifiable: shipping costs +11% and units +12%; excluding fuel and line-haul inflation, shipping costs rose 8%, 400 basis points below unit growth; cost per unit shipped fell for a fourth consecutive year.** But this only counts as one verification, because the quarter got a assist from Prime Day shifting from Q3 to Q2; the Q4 holiday season will be the clean read.**
+The retail margin expansion is real. North America revenue grew just 6%, yet operating income rose from USD 4.79 billion to USD 8.72 billion, lifting the margin from 4.3% to 7.7%. The mechanism is verifiable: shipping costs +11% and units +12%; excluding fuel and line-haul inflation, shipping costs rose 8%, 400 basis points below unit growth; cost per unit shipped fell for a fourth consecutive year. But this only counts as one verification, because the quarter got a assist from Prime Day shifting from Q3 to Q2; the Q4 holiday season will be the clean read.
 
 ## Two pieces of counter-evidence: the weakest parts of the paper
 
-**Capex shows no sign of peaking.** 2026 capex of RMB 220 billion is already a record high; management says 2027 will "increase significantly," with Deutsche Bank at RMB 330 billion and UBS at over RMB 300 billion. That means free cash flow will most likely remain negative or near zero in 2027 (UBS's words: "free cash flow expected to be near zero or negative"). **The assumption that "free cash flow turns positive in 2028" has no company-level evidence behind it; it is pure extrapolation.**
+Capex shows no sign of peaking. 2026 capex of RMB 220 billion is already a record high; management says 2027 will "increase significantly," with Deutsche Bank at RMB 330 billion and UBS at over RMB 300 billion. That means free cash flow will most likely remain negative or near zero in 2027 (UBS's words: "free cash flow expected to be near zero or negative"). The assumption that "free cash flow turns positive in 2028" has no company-level evidence behind it; it is pure extrapolation.
 
-**Depreciation life is an unexploded accounting variable.** Servers are depreciated over 5–6 years; 2026's incremental compute assets imply roughly USD 40 billion of incremental annual depreciation (broker estimates). The company made no change this quarter, which is good; but if it does change, current-period profit is immediately flattered while cash flow is unchanged. **This item belongs on the checklist not to forecast, but to avoid being fooled.**
+Depreciation life is an unexploded accounting variable. Servers are depreciated over 5–6 years; 2026's incremental compute assets imply roughly USD 40 billion of incremental annual depreciation (broker estimates). The company made no change this quarter, which is good; but if it does change, current-period profit is immediately flattered while cash flow is unchanged. This item belongs on the checklist not to forecast, but to avoid being fooled.
 
 ## Falsification conditions and monitoring calendar
 
-**Falsification conditions (trigger = trim position):**
+Falsification conditions (trigger = trim position):
 
 - AWS year-over-year growth below 30% for two consecutive quarters while Azure stays above 40% over the same period;
+
 - AWS backlog declines quarter-over-quarter for two consecutive quarters (currently triple-digit year-over-year; any sequential decline is a new signal);
+
 - North America retail operating margin falls back below 5%;
+
 - TTM free cash flow negative for four consecutive quarters with the absolute value widening;
+
 - Company extends server depreciation lives while cutting capex guidance (combined signal; either one alone does not count).
 
-**Watch calendar:** Early December 2026, AWS re:Invent (new products and Trainium roadmap); February 2027, Q4 results + annual report (depreciation policy, capex guidance, Q4 advertising growth); April 2027, Q1 results (first quarterly read on 2027 capex); July 2027, Q2 (first test against the high base); October 2027, Q3 (whether AWS growth holds 35%).
+Watch calendar: Early December 2026, AWS re:Invent (new products and Trainium roadmap); February 2027, Q4 results + annual report (depreciation policy, capex guidance, Q4 advertising growth); April 2027, Q1 results (first quarterly read on 2027 capex); July 2027, Q2 (first test against the high base); October 2027, Q3 (whether AWS growth holds 35%).
 
 ## Sources
 

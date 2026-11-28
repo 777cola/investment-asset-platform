@@ -27,33 +27,33 @@ Data sources: 2026 interim results announcement (IP revenue, category mix, store
 
 Pop Mart has two types of upstream. One is proprietary artist IP: in the first half, total revenue from artist IP reached RMB 15.2895 billion, up 25% year on year, with 11 IPs exceeding RMB 100 million and 6 surpassing RMB 1 billion. The company signs these artists itself and splits revenue itself, so gross margins are highest here. The other is licensed IP: Disney, Sanrio, and the 2026 World Cup—LABUBU is the first Chinese original IP ever invited in World Cup history. The licensing model requires minimum guarantees and revenue splits, and gross margins run 10–15 percentage points lower.
 
-The key is bargaining power. **With a designer who is not yet famous, Pop Mart is the principal; with an IP that is already famous, the designer is the principal.** Labubu's creator Kasing Lung will inevitably command better terms on renewal now that the character has exploded. That is why the company is pushing hard to build a matrix of proprietary IP—not to diversify risk, but to keep bargaining power in its own hands.
+The key is bargaining power. With a designer who is not yet famous, Pop Mart is the principal; with an IP that is already famous, the designer is the principal. Labubu's creator Kasing Lung will inevitably command better terms on renewal now that the character has exploded. That is why the company is pushing hard to build a matrix of proprietary IP—not to diversify risk, but to keep bargaining power in its own hands.
 
 Raw materials sit furthest upstream, but carry little value, accounting for 8%–12% of retail price. In the first half of 2026, gross margin was dragged down by rising raw material costs, showing that while this link is worth little, it can still transmit pressure—because contract manufacturers have no capacity to absorb it.
 
 ## Midstream: foundry is both the upside and the Achilles' heel
 
-Pop Mart does not manufacture in-house. Vinyl figures and plush toys are outsourced to contract manufacturers in Guangdong and Vietnam; the company handles only design, quality control and delivery schedules. This is the essence of the asset-light model—**capacity flexes with demand, and there is no need to carry factories through the off-season.**
+Pop Mart does not manufacture in-house. Vinyl figures and plush toys are outsourced to contract manufacturers in Guangdong and Vietnam; the company handles only design, quality control and delivery schedules. This is the essence of the asset-light model—capacity flexes with demand, and there is no need to carry factories through the off-season.
 
 But the 2026 category shift exposed the model's soft spot. Plush rose from under 40% last year to 57.2%; plush involves more process steps than vinyl (cutting, sewing, filling, flocking), takes 30–50% longer to deliver, and fewer factories can make it. Inventory turnover stretched from 123 days to 201 days in the first half, partly because of the longer plush stocking cycle.
 
-Contract manufacturers run gross margins of only 15%–25% and have weak bargaining power, so in theory the brand could push all the pressure onto them. In reality: **when a hit product ramps, the contract manufacturers pick their customers, not the other way round.** The 2025 global Labubu sellout was the extreme version of this logic. So "asset-light" is a liability, not an asset, when demand explodes.
+Contract manufacturers run gross margins of only 15%–25% and have weak bargaining power, so in theory the brand could push all the pressure onto them. In reality: when a hit product ramps, the contract manufacturers pick their customers, not the other way round. The 2025 global Labubu sellout was the extreme version of this logic. So "asset-light" is a liability, not an asset, when demand explodes.
 
 ## Downstream: self-operated stores are the moat, third-party e-commerce is the funnel
 
 The downstream business has two legs. 676 self-operated stores (221 overseas) plus 2,827 Robo Shops; this leg carries a gross margin of about 70%, because it earns both the retail markup and an experience premium. Stores are not just points of sale; they are places where consumers can touch, hug and photograph the product — and with plush now at 57.2% of the mix, that function matters more than ever.
 
-Third-party e-commerce is the other leg, and the one that fell hardest in 2026. Shopee -62.1%, Asia-Pacific online -39.8%, Americas online -45.6%.**Platform e-commerce is essentially renting traffic: when traffic is cheap it is a growth engine, when traffic is expensive it is a cost center.** Pop Mart captured the TikTok dividend over the past two years; now that dividend is over and the platforms are collecting rent.
+Third-party e-commerce is the other leg, and the one that fell hardest in 2026. Shopee -62.1%, Asia-Pacific online -39.8%, Americas online -45.6%.Platform e-commerce is essentially renting traffic: when traffic is cheap it is a growth engine, when traffic is expensive it is a cost center. Pop Mart captured the TikTok dividend over the past two years; now that dividend is over and the platforms are collecting rent.
 
-So the company is shifting its focus to stores, setting up a European headquarters in London and planning flagship stores in Milan, London, Paris and New York.**This is a shift from renting traffic to buying location — heavy upfront investment, but the assets are its own.** The direction is right; the payback period simply stretches from 3 months to 18–24 months.
+So the company is shifting its focus to stores, setting up a European headquarters in London and planning flagship stores in Milan, London, Paris and New York.This is a shift from renting traffic to buying location — heavy upfront investment, but the assets are its own. The direction is right; the payback period simply stretches from 3 months to 18–24 months.
 
 ## Cycle position: from "channel expansion phase" to "IP rotation phase"
 
 The designer toy industry has gone through two cycles in the past five years. 2021–2023 was the "channel expansion period": whoever opened stores fastest won, and Pop Mart reached RMB 6 billion in revenue with more than 400 stores. 2024–2025 was the "single-product breakout period": Labubu alone took the company from RMB 13 billion to RMB 37.1 billion, growth of 184.7%.
 
-2026 enters a third stage: **the IP rotation period.** Its features — no single IP can carry growth, and revenue depends on a portfolio of 5–7 IPs each worth RMB 1 billion; stores are still opening, but output per store is falling; the online traffic dividend is over, and growth returns to the hard work of "site selection + operations." Industry growth in this stage will fall from 20%+ to 10%–15%, and the leader's profit margin will fall from 33% to 25%–28%.
+2026 enters a third stage: the IP rotation period. Its features — no single IP can carry growth, and revenue depends on a portfolio of 5–7 IPs each worth RMB 1 billion; stores are still opening, but output per store is falling; the online traffic dividend is over, and growth returns to the hard work of "site selection + operations." Industry growth in this stage will fall from 20%+ to 10%–15%, and the leader's profit margin will fall from 33% to 25%–28%.
 
-Cycle position: **not a recession, but normalization.** Going from "doubling in a year" back to "up 15% in a year" is the inevitable path for every hit-product category. The problem is valuation — the multiple the market gives it still reflects the single-product breakout period.
+Cycle position: not a recession, but normalization. Going from "doubling in a year" back to "up 15% in a year" is the inevitable path for every hit-product category. The problem is valuation — the multiple the market gives it still reflects the single-product breakout period.
 
 ## Sources
 

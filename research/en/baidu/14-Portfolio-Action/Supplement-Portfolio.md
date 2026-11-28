@@ -33,29 +33,29 @@ Correlation is a rough estimate (a qualitative judgment based on 2026 year-to-da
 
 ## Why not build a heavy position: it is an option, not a bond
 
-A heavy position requires "limited downside + certain upside." Baidu offers only the first half: RMB 276.6 billion in cash and investments and 0.52x PB mean the downside is genuinely floored. But the upside is uncertain—advertising is shrinking, cloud is burning cash, and the dividend has yet to materialize. **For a name with only downside protection and no upside certainty, the allocation logic is that of an "option," and the position must be small.**
+A heavy position requires "limited downside + certain upside." Baidu offers only the first half: RMB 276.6 billion in cash and investments and 0.52x PB mean the downside is genuinely floored. But the upside is uncertain—advertising is shrinking, cloud is burning cash, and the dividend has yet to materialize. For a name with only downside protection and no upside certainty, the allocation logic is that of an "option," and the position must be small.
 
 The math: at a 10% position, a neutral scenario of +34% or a bear case of -29% contributes +3.4% or -2.9% to the portfolio. The same 10% in Tencent buys certainty in social cash flow. With that opportunity cost, 6% is already the ceiling.
 
 ## Correlation: it buys China ADR beta, not AI alpha
 
-Correlation is the most overlooked item in position management. Baidu's price action is highly synchronized with the Hang Seng Tech Index — in 2026, the index fell more than 25%, while Baidu fell 60.4%, same direction, larger magnitude (beta greater than 1). **Its correlation coefficient with Tencent and Alibaba is roughly 0.7–0.8, and only about 0.3 with the Nvidia supply chain.**
+Correlation is the most overlooked item in position management. Baidu's price action is highly synchronized with the Hang Seng Tech Index — in 2026, the index fell more than 25%, while Baidu fell 60.4%, same direction, larger magnitude (beta greater than 1). Its correlation coefficient with Tencent and Alibaba is roughly 0.7–0.8, and only about 0.3 with the Nvidia supply chain.
 
-This means two things. First, holding Baidu cannot be counted as "diversification" — it and Tencent and Alibaba are three expressions of the same China internet position, and combined they should not exceed 15% of the portfolio. Second, **it is no longer part of the AI trade** — on 11/23, Nvidia rose 31% while Baidu fell 0.78%, which is the evidence. To buy AI exposure, Baidu is not the tool; to buy China internet assets at a discount, it is.
+This means two things. First, holding Baidu cannot be counted as "diversification" — it and Tencent and Alibaba are three expressions of the same China internet position, and combined they should not exceed 15% of the portfolio. Second, it is no longer part of the AI trade — on 11/23, Nvidia rose 31% while Baidu fell 0.78%, which is the evidence. To buy AI exposure, Baidu is not the tool; to buy China internet assets at a discount, it is.
 
 ## Rebalancing discipline: three quarters of no action is the answer
 
-This rule matters more than the price level: **if neither trigger appears for three consecutive quarters (Q1–Q3 2027), zero out the observation position and stop tracking it.** The reason is not bearishness but opportunity cost—if a stock gives no signal for two years, its "cheapness" is structural, not a mispricing.
+This rule matters more than the price level: if neither trigger appears for three consecutive quarters (Q1–Q3 2027), zero out the observation position and stop tracking it. The reason is not bearishness but opportunity cost—if a stock gives no signal for two years, its "cheapness" is structural, not a mispricing.
 
-Conversely, if the dividend materializes and the amount is meaningful (say, an annual payout ratio above 2%), the position can go to 3% even if advertising has not stopped falling. **A change in capital allocation is itself worth pricing**, because it turns an "asset" into "cash flow"—the definition of a value stock.
+Conversely, if the dividend materializes and the amount is meaningful (say, an annual payout ratio above 2%), the position can go to 3% even if advertising has not stopped falling. A change in capital allocation is itself worth pricing, because it turns an "asset" into "cash flow"—the definition of a value stock.
 
 ## If the portfolio already holds China ADRs: look at the aggregate first, then discuss individual names
 
-Most portfolios that allocate to Baidu already hold Tencent or Alibaba. **In that case the first step is not deciding how much Baidu to buy, but calculating total China ADR exposure.** Suppose the portfolio is 100%, with Tencent at 8%, Alibaba at 5% and Baidu at 2%, for a combined China exposure of 15% — already at the cap. Any further addition to Baidu can only come from trimming Tencent or Alibaba.
+Most portfolios that allocate to Baidu already hold Tencent or Alibaba. In that case the first step is not deciding how much Baidu to buy, but calculating total China ADR exposure. Suppose the portfolio is 100%, with Tencent at 8%, Alibaba at 5% and Baidu at 2%, for a combined China exposure of 15% — already at the cap. Any further addition to Baidu can only come from trimming Tencent or Alibaba.
 
-The order of trimming matters: **cut the least elastic position first, not the biggest loser.** Tencent's social cash flow is the most certain, making it the ballast; Alibaba's cloud re-rating carries the most elasticity, making it the offensive position; Baidu's asset discount is the defensive position. The three serve different functions, so the trimming order should be "cut Baidu, keep Alibaba, hold Tencent" — not the reverse.
+The order of trimming matters: cut the least elastic position first, not the biggest loser. Tencent's social cash flow is the most certain, making it the ballast; Alibaba's cloud re-rating carries the most elasticity, making it the offensive position; Baidu's asset discount is the defensive position. The three serve different functions, so the trimming order should be "cut Baidu, keep Alibaba, hold Tencent" — not the reverse.
 
-One more angle, cash: if the portfolio's cash ratio is below 10%, skip the 2% in Baidu altogether — **it is not a must-hold asset but an option you can choose not to buy.** Holding cash and waiting for a trigger signal beats taking the position early.
+One more angle, cash: if the portfolio's cash ratio is below 10%, skip the 2% in Baidu altogether — it is not a must-hold asset but an option you can choose not to buy. Holding cash and waiting for a trigger signal beats taking the position early.
 
 ## Sources
 

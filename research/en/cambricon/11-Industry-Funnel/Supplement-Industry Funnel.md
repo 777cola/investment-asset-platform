@@ -22,31 +22,31 @@ Screening pool of 10: Huawei Ascend, Kunlunxin, MetaX, Enflame, Biren, Iluvatar 
 
 ## First-pass screen: 10 in, 5 out
 
-List all domestic AI chip companies: Huawei Ascend, Cambricon, Hygon, Kunlunxin, Moore Threads, MetaX, Enflame, Biren, Iluvatar CoreX, Nvidia (sales in China). The first cut removes "can't buy": Huawei Ascend, Kunlunxin, MetaX, Enflame and Biren are unlisted or their listing timelines are undetermined, so they are out immediately; Nvidia is subject to export controls, and A-share investors cannot directly hold its China business.**One cut leaves only four: Cambricon, Hygon, Moore Threads and Iluvatar CoreX.**
+List all domestic AI chip companies: Huawei Ascend, Cambricon, Hygon, Kunlunxin, Moore Threads, MetaX, Enflame, Biren, Iluvatar CoreX, Nvidia (sales in China). The first cut removes "can't buy": Huawei Ascend, Kunlunxin, MetaX, Enflame and Biren are unlisted or their listing timelines are undetermined, so they are out immediately; Nvidia is subject to export controls, and A-share investors cannot directly hold its China business.One cut leaves only four: Cambricon, Hygon, Moore Threads and Iluvatar CoreX.
 
-The second cut removes "can't understand the financials": Iluvatar CoreX is unlisted and is out. The third cut removes "loss-making with no valuation anchor": Moore Threads had revenue of RMB 1.736 billion in H1 2026, up 147.42% year on year, with a gross margin of 57.0%, but net profit was still RMB -12 million; on 2025 revenue of RMB 1.506 billion, the static price-to-sales ratio is about 178x — **this is a "growth option", not a business that can be valued**, so it is retained for this round of comparison but not selected. Two remain: Cambricon and Hygon.
+The second cut removes "can't understand the financials": Iluvatar CoreX is unlisted and is out. The third cut removes "loss-making with no valuation anchor": Moore Threads had revenue of RMB 1.736 billion in H1 2026, up 147.42% year on year, with a gross margin of 57.0%, but net profit was still RMB -12 million; on 2025 revenue of RMB 1.506 billion, the static price-to-sales ratio is about 178x — this is a "growth option", not a business that can be valued, so it is retained for this round of comparison but not selected. Two remain: Cambricon and Hygon.
 
 ## Second-layer comparison: Cambricon vs Hygon, two ways to survive
 
-Hygon's strength is its base business: dual CPU + DCU lines, 2026H1 revenue of RMB 9.099 billion, net profit of RMB 1.798 billion, gross margin of 55.21%, R&D spend of RMB 2.652 billion (29.15% of revenue). **It is more like "China's AMD" — steady, but a notch slower (+66.52% vs +108.13%).**
+Hygon's strength is its base business: dual CPU + DCU lines, 2026H1 revenue of RMB 9.099 billion, net profit of RMB 1.798 billion, gross margin of 55.21%, R&D spend of RMB 2.652 billion (29.15% of revenue). It is more like "China's AMD" — steady, but a notch slower (+66.52% vs +108.13%).
 
-Cambricon's strength is elasticity: pure AI chips, gross margin of 55.25%, net margin of 38.54% (Hygon 22.69%), revenue growth twice as fast. **The cost is customer concentration of 88.66%, cash flow of RMB 311 million, and inventory of RMB 8.248 billion.**
+Cambricon's strength is elasticity: pure AI chips, gross margin of 55.25%, net margin of 38.54% (Hygon 22.69%), revenue growth twice as fast. The cost is customer concentration of 88.66%, cash flow of RMB 311 million, and inventory of RMB 8.248 billion.
 
-Both are expensive on valuation: Cambricon at 218x TTM, Hygon at about 250x forward. **In other words, the case for Cambricon is not that it is cheap, but that it is "purer and more elastic"** — on the AI compute theme, purity is the source of the premium.
+Both are expensive on valuation: Cambricon at 218x TTM, Hygon at about 250x forward. In other words, the case for Cambricon is not that it is cheap, but that it is "purer and more elastic" — on the AI compute theme, purity is the source of the premium.
 
 ## Final pick: why this one and not Hygon
 
-Three reasons. First, **purity**: Cambricon derives 100% of revenue from AI chips, so every additional yuan of AI capex gives it the greatest leverage; half of Hygon's business is CPUs tied to IT localization, so it only half-participates in AI. Second, **margins**: 38.54% versus 22.69% — on the same revenue, Cambricon earns 70% more. Third, **the scarcity narrative**: the first STAR Market stock with a market cap of RMB 1 trillion and the only pure-play AI chip name, it draws better investor attention and liquidity.
+Three reasons. First, purity: Cambricon derives 100% of revenue from AI chips, so every additional yuan of AI capex gives it the greatest leverage; half of Hygon's business is CPUs tied to IT localization, so it only half-participates in AI. Second, margins: 38.54% versus 22.69% — on the same revenue, Cambricon earns 70% more. Third, the scarcity narrative: the first STAR Market stock with a market cap of RMB 1 trillion and the only pure-play AI chip name, it draws better investor attention and liquidity.
 
-The case against Hygon is equally clear: its R&D intensity is 2.5 times Cambricon's (29.15% vs 11.72%), implying greater pressure to catch up technologically; its trailing P/E of 250x is even richer than Cambricon's; and its DCU follows a "CUDA-like" path, which over the long run means competing head-on with Nvidia on ecosystem — a harder outcome to call. **Hygon is "steady"; Cambricon is "sharp" — and this cycle's main theme calls for sharp.**
+The case against Hygon is equally clear: its R&D intensity is 2.5 times Cambricon's (29.15% vs 11.72%), implying greater pressure to catch up technologically; its trailing P/E of 250x is even richer than Cambricon's; and its DCU follows a "CUDA-like" path, which over the long run means competing head-on with Nvidia on ecosystem — a harder outcome to call. Hygon is "steady"; Cambricon is "sharp" — and this cycle's main theme calls for sharp.
 
 ## Final selection is not a buy: the valuation funnel rules it out
 
-The industry funnel answers "which company to buy"; the valuation funnel answers "whether to buy now." Cambricon trades at 218x TTM P/E, 75.6x P/S and 53.6x P/B, with a base-case target price of RMB 830 (−28%), bear case RMB 400 (−65%) and bull case RMB 1,450 (+25%). **Twenty percent upside, sixty percent downside — the odds point the wrong way.**
+The industry funnel answers "which company to buy"; the valuation funnel answers "whether to buy now." Cambricon trades at 218x TTM P/E, 75.6x P/S and 53.6x P/B, with a base-case target price of RMB 830 (−28%), bear case RMB 400 (−65%) and bull case RMB 1,450 (+25%). Twenty percent upside, sixty percent downside — the odds point the wrong way.
 
-So the funnel's endpoint is: **keep it on the list, zero in the position.** If one must hold a domestic AI chip name, the value-for-money ranking at the current price is "no buy &gt; Hygon &gt; Cambricon &gt; Moore Threads" — no buy ranks first, because all three are expensive and Cambricon's growth is decelerating most visibly (Q2 up 7.84% QoQ).
+So the funnel's endpoint is: keep it on the list, zero in the position. If one must hold a domestic AI chip name, the value-for-money ranking at the current price is "no buy > Hygon > Cambricon > Moore Threads" — no buy ranks first, because all three are expensive and Cambricon's growth is decelerating most visibly (Q2 up 7.84% QoQ).
 
-When does it move from "list" to "position"? One of two conditions: the share price falls below RMB 800 (77x 2027 base-case net profit), or Q3 revenue returns to above 15% QoQ growth and cash content returns to 0.5. **The first waits on the market, the second waits on the company — neither requires action now.**
+When does it move from "list" to "position"? One of two conditions: the share price falls below RMB 800 (77x 2027 base-case net profit), or Q3 revenue returns to above 15% QoQ growth and cash content returns to 0.5. The first waits on the market, the second waits on the company — neither requires action now.
 
 ## Sources
 

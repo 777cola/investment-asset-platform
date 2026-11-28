@@ -37,21 +37,21 @@ Shareholding and voting power: as of October 1, 2026, Zuckerberg held 13.4% econ
 
 ## Key person: this is a "one-man company"
 
-Zuckerberg is simultaneously founder, chairman, CEO and controlling shareholder. Class B shares carry ten votes each, giving him 60.6% of the voting power on just 13.4% of the economic interest. The new Class C shares created on October 21 carry no voting rights and will be distributed 1:1 on January 19, 2027 — effectively a two-for-one split, **but his control does not change one bit after the split — that is precisely the purpose of the design.**
+Zuckerberg is simultaneously founder, chairman, CEO and controlling shareholder. Class B shares carry ten votes each, giving him 60.6% of the voting power on just 13.4% of the economic interest. The new Class C shares created on October 21 carry no voting rights and will be distributed 1:1 on January 19, 2027 — effectively a two-for-one split, but his control does not change one bit after the split — that is precisely the purpose of the design.
 
-Management's execution is not in doubt. In the 2022–2023 "year of efficiency," it cut more than 20,000 jobs in a single year and pulled operating margin from 25% back above 40% — top-tier execution by Silicon Valley standards. **The question is not whether they can execute, but who decides the direction.**
+Management's execution is not in doubt. In the 2022–2023 "year of efficiency," it cut more than 20,000 jobs in a single year and pulled operating margin from 25% back above 40% — top-tier execution by Silicon Valley standards. The question is not whether they can execute, but who decides the direction.
 
 ## Three minutes on the earnings call
 
 On the October 21 earnings call, Zuckerberg switched the topic from advertising to Muse within three minutes of his opening remarks, calling it "one of the most successful product launches in Meta's history." For the next hour, analysts asked about cash flow, depreciation and 2027 expenses, and CFO Susan Li fielded nearly all of the answers.
 
-That detail says more than any strategy document: **the CEO's attention has shifted from the cash cow to the new bet.** That is where his past successes came from (all in on mobile in 2012, all in on short video in 2016), and it is also what shareholders should watch most closely — when a person is not accountable for short-term earnings, how he allocates his time reveals his true priorities.
+That detail says more than any strategy document: the CEO's attention has shifted from the cash cow to the new bet. That is where his past successes came from (all in on mobile in 2012, all in on short video in 2016), and it is also what shareholders should watch most closely — when a person is not accountable for short-term earnings, how he allocates his time reveals his true priorities.
 
 ## Capital allocation: from "returning cash" to "demanding cash"
 
 In the first nine months of 2026, Meta did not buy back a single share. That would have been unthinkable in 2019–2025, when it spent USD 20–30 billion a year on buybacks, making it one of the most active repurchasers among the Magnificent Seven. Dividends continued over the same period, at about USD 1.3 billion a quarter, or just over USD 5 billion a year, a yield of less than 0.4% against a market cap of USD 1.58 trillion.
 
-Then the tap was turned the other way: on October 26, USD 25 billion of Class A common stock (priced at USD 625) plus USD 12.5 billion of mandatory convertible preferred stock (6.5% coupon), alongside an ATM of up to USD 60 billion of Class C shares. **Within a single year, the company went from returning USD 30 billion a year to shareholders to asking shareholders for USD 95 billion — a 180-degree reversal in capital allocation.**
+Then the tap was turned the other way: on October 26, USD 25 billion of Class A common stock (priced at USD 625) plus USD 12.5 billion of mandatory convertible preferred stock (6.5% coupon), alongside an ATM of up to USD 60 billion of Class C shares. Within a single year, the company went from returning USD 30 billion a year to shareholders to asking shareholders for USD 95 billion — a 180-degree reversal in capital allocation.
 
 There is only one test of whether this is good: whether the return on the capital deployed exceeds the return shareholders could earn investing the money themselves. No such evidence is visible yet, so we mark it down.
 
@@ -59,19 +59,19 @@ There is only one test of whether this is good: whether the return on the capita
 
 Almost all of Zuckerberg's net worth is Meta stock. He never cashes out large blocks of shares, nor does he draw a meaningful base salary. That means he cares about the share price just as you do—but in a different way: he wants "this company still here in twenty years," while you want "this investment to pay off within three years."
 
-On September 21, the day Muse topped the app store charts, his net worth rose about USD 25 billion in a single day to USD 253.6 billion.**Wealth of that magnitude is no longer sensitive to price—only to "historical standing."** So he will keep investing even if shareholders object; conversely, he will not sacrifice long-term positioning for short-term profit. That is a strength, and it is also the risk you bear.
+On September 21, the day Muse topped the app store charts, his net worth rose about USD 25 billion in a single day to USD 253.6 billion.Wealth of that magnitude is no longer sensitive to price—only to "historical standing." So he will keep investing even if shareholders object; conversely, he will not sacrifice long-term positioning for short-term profit. That is a strength, and it is also the risk you bear.
 
 ## Integrity and governance: fines are a recurring cost; rule changes are what matter long term
 
-The 2018 Cambridge Analytica scandal, the 2019 FTC USD 5 billion settlement, the August 2026 settlement of USD 18.59 billion with 52 state attorneys general (payable over ten years), and the October 2026 EU EUR 798 million antitrust fine over advertising technology—**this company's compliance record is "pay continuously, violate continuously, appeal continuously."**
+The 2018 Cambridge Analytica scandal, the 2019 FTC USD 5 billion settlement, the August 2026 settlement of USD 18.59 billion with 52 state attorneys general (payable over ten years), and the October 2026 EU EUR 798 million antitrust fine over advertising technology—this company's compliance record is "pay continuously, violate continuously, appeal continuously."
 
-But the 2026 settlement is different: beyond the money, it changes product rules. Teen accounts default to the highest level of privacy and time limits, which cannot be changed without parental authorization.**This will shape the usage habits of the next generation of users—a ten-year variable, not a one-off cost.**
+But the 2026 settlement is different: beyond the money, it changes product rules. Teen accounts default to the highest level of privacy and time limits, which cannot be changed without parental authorization.This will shape the usage habits of the next generation of users—a ten-year variable, not a one-off cost.
 
 ## Successor: no Plan B
 
 The company has no public succession plan. Bosworth (CTO) and Olivan (COO) are the closest to the business, but neither carries Zuckerberg's equity standing; Susan Li, as CFO, oversees financing and capital markets and is more of an executor than a successor.
 
-This means two things: first, as long as he is there, strategy will not waver, which is good for long-term investment; second, if he leaves or has health problems, the company would immediately lose its decision-making center, and the valuation would take a governance discount.**The market is not pricing this risk today because it still looks remote — he is 42 this year.**
+This means two things: first, as long as he is there, strategy will not waver, which is good for long-term investment; second, if he leaves or has health problems, the company would immediately lose its decision-making center, and the valuation would take a governance discount.The market is not pricing this risk today because it still looks remote — he is 42 this year.
 
 ## Sources
 

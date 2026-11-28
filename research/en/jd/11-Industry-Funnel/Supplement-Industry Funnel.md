@@ -23,27 +23,27 @@ Market caps are order-of-magnitude estimates (rough calculations), used only for
 
 ## Rough screening: three criteria, half eliminated
 
-**First criterion: is revenue growing.** JD.com -2.9% and Vipshop negative growth are out; Pinduoduo growing, Meituan single-digit, Alibaba low single-digit stay in. This is the harshest line, because a retailer's valuation re-rating headroom depends on revenue elasticity; companies with negative revenue growth can only rely on "cost cuts" and "buybacks", not on "growth".
+First criterion: is revenue growing. JD.com -2.9% and Vipshop negative growth are out; Pinduoduo growing, Meituan single-digit, Alibaba low single-digit stay in. This is the harshest line, because a retailer's valuation re-rating headroom depends on revenue elasticity; companies with negative revenue growth can only rely on "cost cuts" and "buybacks", not on "growth".
 
-**Second criterion: are margins stable.** Meituan's profit has been crushed to extremely low levels by the food-delivery war (which is also why its PE looks expensive), Alibaba is dragged down by flash-sale investment, and JD.com only turned positive by slashing expenses. All three are in a state of "profit distorted by war"; only Pinduoduo's margin is stable. **The point of this line is to exclude companies with "one-off profit repair".**
+Second criterion: are margins stable. Meituan's profit has been crushed to extremely low levels by the food-delivery war (which is also why its PE looks expensive), Alibaba is dragged down by flash-sale investment, and JD.com only turned positive by slashing expenses. All three are in a state of "profit distorted by war"; only Pinduoduo's margin is stable. The point of this line is to exclude companies with "one-off profit repair".
 
-**Third criterion: does valuation offer enough margin for error.** JD.com at 7.5x offers enough, Pinduoduo at 8–10x offers enough, Meituan above 20x offers no margin for error, Alibaba at 15–18x is barely adequate.
+Third criterion: does valuation offer enough margin for error. JD.com at 7.5x offers enough, Pinduoduo at 8–10x offers enough, Meituan above 20x offers no margin for error, Alibaba at 15–18x is barely adequate.
 
-Crossing the three lines: **Pinduoduo passes all, JD.com passes one (valuation), Meituan passes one and a half, Alibaba passes one and a half, Vipshop passes zero.**
+Crossing the three lines: Pinduoduo passes all, JD.com passes one (valuation), Meituan passes one and a half, Alibaba passes one and a half, Vipshop passes zero.
 
 ## Final pick: why not JD, but why JD deserves a separate look
 
 If you could only buy one Chinese e-commerce company, the answer is Pinduoduo: 55%–60% gross margin, asset-light, stable profitability, valuation below 10x. Its business quality is an order of magnitude better than JD.com's—what JD.com needs 1,500 warehouses and 900,000 employees to do, Pinduoduo accomplishes with algorithms and supply.
 
-But JD.com holds one unique value in this funnel: **it is the only national player that can deliver certainty in categories involving heavy goods, bulky items, and installation and after-sales service.** Home appliances, 3C, furniture, building materials—the fulfillment complexity in these categories is high enough that the platform model cannot do it well. Pinduoduo cannot do it, and Meituan certainly cannot. This position is not large, but it is very stable.
+But JD.com holds one unique value in this funnel: it is the only national player that can deliver certainty in categories involving heavy goods, bulky items, and installation and after-sales service. Home appliances, 3C, furniture, building materials—the fulfillment complexity in these categories is high enough that the platform model cannot do it well. Pinduoduo cannot do it, and Meituan certainly cannot. This position is not large, but it is very stable.
 
-So the correct way to use the funnel is not "pick the single best one to buy" but "assign a price to each cell." **A fair price for Pinduoduo is 10–12x PE; a fair price for JD.com is 8–11x adjusted PE. JD.com now trades at 7.5x, already below the lower bound of its fair range; Pinduoduo at 8–10x is also at the lower bound.** Both are cheap, for different reasons: Pinduoduo's growth is slowing, while JD.com is not growing.
+So the correct way to use the funnel is not "pick the single best one to buy" but "assign a price to each cell." A fair price for Pinduoduo is 10–12x PE; a fair price for JD.com is 8–11x adjusted PE. JD.com now trades at 7.5x, already below the lower bound of its fair range; Pinduoduo at 8–10x is also at the lower bound. Both are cheap, for different reasons: Pinduoduo's growth is slowing, while JD.com is not growing.
 
 ## Why "cheap" does not equal "opportunity" for JD
 
 The funnel screens out two kinds of cheap companies: the "misunderstood" and the "seen through." Pinduoduo is the former—the market worries growth has peaked, but its margins are still there. JD.com is the latter—the market has already tallied the RMB 235.1 billion in cash and knows food delivery is burning money; the 7.5x PE is the price of that perception.
 
-For a company that has been seen through to rise, it needs a "perception-changing event," not a "cheaper price." **For JD.com, there are only two such events: food delivery stops losing money, or management starts returning cash to shareholders.** The former takes two years; the latter takes one decision.
+For a company that has been seen through to rise, it needs a "perception-changing event," not a "cheaper price." For JD.com, there are only two such events: food delivery stops losing money, or management starts returning cash to shareholders. The former takes two years; the latter takes one decision.
 
 So in the funnel, JD.com sits at "watch," not "final pick." This is not a rejection of the company but a judgment on timing.
 

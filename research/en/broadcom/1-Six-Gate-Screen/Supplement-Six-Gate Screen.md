@@ -24,17 +24,17 @@ Scoring note: 10 points per gate, standards set by this report and consistent wi
 
 ## The first three hurdles: a business where customers cannot switch away
 
-Broadcom's revenue splits into four blocks, each with a different rhythm. AI semiconductors were USD 16.7 billion, 80% of semiconductor revenue and 56% of total revenue; non-AI semiconductors were USD 4.14 billion, up only 4% year on year, essentially flat; infrastructure software was USD 8.751 billion, up 30.1% year on year, propped up by VMware's shift to subscriptions.**Only one leg of the company is running.**
+Broadcom's revenue splits into four blocks, each with a different rhythm. AI semiconductors were USD 16.7 billion, 80% of semiconductor revenue and 56% of total revenue; non-AI semiconductors were USD 4.14 billion, up only 4% year on year, essentially flat; infrastructure software was USD 8.751 billion, up 30.1% year on year, propped up by VMware's shift to subscriptions.Only one leg of the company is running.
 
 That leg is genuinely high quality. Custom chips take two years from architecture definition to tape-out, and once a customer picks a supplier, switching for the next generation is hard; Hock Tan said on the call that chips customized for specific large-model workloads can cost half as much as GPUs. That is the business logic of the whole ASIC trade — not stronger than GPUs, cheaper than GPUs.
 
-The moat is not one but three stacked together. First, a decade of co-design with Google from TPU v1 through v7, a relationship no quote can dislodge; second, in-house SerDes and advanced packaging IP, which determine whether chips can link compute together; third, the Tomahawk family of Ethernet switch chips, global number one, with Tomahawk 6 covering almost every customer that co-develops XPUs.**The three moats reinforce each other: whoever sells XPUs also sells switch chips, and whoever sells switch chips understands the customer's network topology better.**
+The moat is not one but three stacked together. First, a decade of co-design with Google from TPU v1 through v7, a relationship no quote can dislodge; second, in-house SerDes and advanced packaging IP, which determine whether chips can link compute together; third, the Tomahawk family of Ethernet switch chips, global number one, with Tomahawk 6 covering almost every customer that co-develops XPUs.The three moats reinforce each other: whoever sells XPUs also sells switch chips, and whoever sells switch chips understands the customer's network topology better.
 
 ## Stage four: Hock Tan faced a multiple-choice question
 
 Score management 7 points here; the deduction is not about capability. Since taking over Avago in 2006, Hock Tan has done deal after deal—LSI, Brocade, CA, Symantec's enterprise business, VMware—turning a company that made RF and storage controllers into a "chip + software" twin engine, while also fending off Broadcom's 2018 reverse acquisition that CFIUS blocked. This is one of the best capital-allocation records in semiconductors over the past fifteen years.
 
-The deduction is because he recently made a new choice: **to make its products affordable for customers, Broadcom has begun arranging financing for them.** Arrangements tied to Apollo and Blackstone provide credit support for AI chip purchases; specific terms were not disclosed. BofA estimates the platform could add USD 150 billion in new debt issuance in 2027 and USD 370 billion in cumulative senior debt by mid-2029.
+The deduction is because he recently made a new choice: to make its products affordable for customers, Broadcom has begun arranging financing for them. Arrangements tied to Apollo and Blackstone provide credit support for AI chip purchases; specific terms were not disclosed. BofA estimates the platform could add USD 150 billion in new debt issuance in 2027 and USD 370 billion in cumulative senior debt by mid-2029.
 
 This is not financial fraud; it is not even aggressive accounting. It is an extension of the business model—translating "customers cannot afford it" into "I will lend you the money to buy it." The problem is that this money is not on Broadcom's financial statements, and once customer deployment falls short of expectations, the guarantees will return to the statements. As a shareholder, what you are buying is a chip order with an implicit guarantee attached.
 
@@ -42,7 +42,7 @@ This is not financial fraud; it is not even aggressive accounting. It is an exte
 
 USD 355.14 corresponds to a USD 1.69 trillion market cap (roughly on 4.77 billion shares), 18.3x FY27 consensus EPS of USD 19.38, and 27.1x FY26 EPS of USD 13.1 on this report's rough estimate. Valuation fell from 27x to 18x within a year not because the stock dropped 26%, but because earnings expectations rose 48%.
 
-Buying at 18x a company with AI revenue up 221% year on year and FY27 guidance of USD 115 billion is the cheapest tier in AI semiconductors. Nvidia trades at around 30x, more than half again as much as Broadcom. **That gap is not the market erring; the market is pricing order quality**—Nvidia collects cash, while part of Broadcom's orders are ones it helped finance itself.
+Buying at 18x a company with AI revenue up 221% year on year and FY27 guidance of USD 115 billion is the cheapest tier in AI semiconductors. Nvidia trades at around 30x, more than half again as much as Broadcom. That gap is not the market erring; the market is pricing order quality—Nvidia collects cash, while part of Broadcom's orders are ones it helped finance itself.
 
 So this gate scores 6 rather than 8: not because it is expensive, but because the numerator (EPS) is not clean enough. The neutral case of USD 388 implies just 9% upside; the bear case of USD 225 implies 37% downside. The payoff is roughly symmetric, but certainty is not.
 
@@ -50,7 +50,7 @@ So this gate scores 6 rather than 8: not because it is expensive, but because th
 
 The discipline rule requires writing the buy thesis as falsifiable numbers. Of Broadcom's three premises, two can be written down: FY27 AI revenue of USD 115 billion, and Non-GAAP gross margin of no less than 71%. The third cannot be written — not a single word has been disclosed on the financing platform's actual exposure, guarantee tenor, or trigger conditions.
 
-If it cannot be written down, it cannot be underwritten. This is not a question of "high risk" but of "unmeasurable risk." **Risk you can understand can be bought at a discount; risk you cannot understand can only be waited on until it becomes understandable.**
+If it cannot be written down, it cannot be underwritten. This is not a question of "high risk" but of "unmeasurable risk." Risk you can understand can be bought at a discount; risk you cannot understand can only be waited on until it becomes understandable.
 
 The FY26Q4 earnings report on 9 December is a window: if the company is willing to explain the financing platform's structure clearly, the sixth gate can be lifted from 4 points to 6, and the rating can move from "Watch" to "Buy." If it stays vague, then 18x is the valuation it deserves, not a discount.
 

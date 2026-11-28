@@ -24,44 +24,45 @@ The share price series is taken from batchdata (2026/05/26 29.76 → 2026/06/26 
 
 ## Signal one: memory contract prices (June) — the real fundamental turning point
 
-June 26 was the most important trading day of the quarter, not because of the size of the drop but because of the reason: memory contract prices were raised again, and the full-year DRAM price increase was revised up to 60%–70%. **That day the market began to realize that the 11.5% handset gross margin could not hold.**
+June 26 was the most important trading day of the quarter, not because of the size of the drop but because of the reason: memory contract prices were raised again, and the full-year DRAM price increase was revised up to 60%–70%. That day the market began to realize that the 11.5% handset gross margin could not hold.
 
-The facts confirmed it quickly: in the August 18 earnings report, handset gross margin was 8.5%, down 3.0pct year on year. From late June to mid-August, the stock price rebounded from 21.42 to around 26, but earnings expectations for the handset business were cut all the way down. **This is the divergence of "share price rebounding while fundamentals deteriorate," and it usually does not last long.**
+The facts confirmed it quickly: in the August 18 earnings report, handset gross margin was 8.5%, down 3.0pct year on year. From late June to mid-August, the stock price rebounded from 21.42 to around 26, but earnings expectations for the handset business were cut all the way down. This is the divergence of "share price rebounding while fundamentals deteriorate," and it usually does not last long.
 
 ## Signal 2: Autos trading price for volume (August) — the valuation method gets swapped out
 
-The key takeaway from the Q2 earnings is not the -42.6% profit decline, but the four sets of auto numbers: deliveries +28.2%, ASP -9.6%, gross margin -7.2pct, operating loss RMB 2.6 billion. **These numbers put a definitive end to the "autos as an option" narrative.**
+The key takeaway from the Q2 earnings is not the -42.6% profit decline, but the four sets of auto numbers: deliveries +28.2%, ASP -9.6%, gross margin -7.2pct, operating loss RMB 2.6 billion. These numbers put a definitive end to the "autos as an option" narrative.
 
-The market reaction is telling: only one day of decline (8/18 actually closed up), followed by three straight days of gains. The reason is **"expectations were already low enough"** — sell-side analysts had already cut 2026 net profit to around RMB 24 billion before the results, and since the actual figure was no worse, it became a case of "bad news fully priced in."
+The market reaction is telling: only one day of decline (8/18 actually closed up), followed by three straight days of gains. The reason is "expectations were already low enough" — sell-side analysts had already cut 2026 net profit to around RMB 24 billion before the results, and since the actual figure was no worse, it became a case of "bad news fully priced in."
 
-But the nature of this rebound is "short covering," not "longs building positions." **The evidence is simple: volume expanded, but the share price failed to break the July high of 31.88.**
+But the nature of this rebound is "short covering," not "longs building positions." The evidence is simple: volume expanded, but the share price failed to break the July high of 31.88.
 
 ## Noise: none of the three rallies had anything to do with the company
 
-On July 8 +9.5%, July 27–29 +19.3%, August 21 +4.5% — the three rallies were driven by a sector rebound, new-model expectations and an oversold bounce, respectively. **None of the three was backed by a company announcement; all were classic "beta moves."**
+On July 8 +9.5%, July 27–29 +19.3%, August 21 +4.5% — the three rallies were driven by a sector rebound, new-model expectations and an oversold bounce, respectively. None of the three was backed by a company announcement; all were classic "beta moves."
 
-Such moves are most easily misread as a "reversal." The test: compare the gain in the Hang Seng Tech Index over the same period. If the stock's gain is close to the index's, it is beta; only a clear outperformance is alpha. **On July 29 Xiaomi rose 9.0% while Hang Seng Tech gained about 3% that day — 6 points of outperformance. That one had an alpha component, but the source was Pengcheng expectations, not current-period results.**
+Such moves are most easily misread as a "reversal." The test: compare the gain in the Hang Seng Tech Index over the same period. If the stock's gain is close to the index's, it is beta; only a clear outperformance is alpha. On July 29 Xiaomi rose 9.0% while Hang Seng Tech gained about 3% that day — 6 points of outperformance. That one had an alpha component, but the source was Pengcheng expectations, not current-period results.
 
-Pengcheng is the only thing left in 2026 that can still offer "option value." Its order and delivery ramp will determine whether the auto business can reach 50.0 thousand units in 2027. **So the late-July rally was not pure noise — it was a "half signal." But expectations cannot be booked as results.**
+Pengcheng is the only thing left in 2026 that can still offer "option value." Its order and delivery ramp will determine whether the auto business can reach 50.0 thousand units in 2027. So the late-July rally was not pure noise — it was a "half signal." But expectations cannot be booked as results.
 
 ## Third attribution: who is buying, who is selling
 
-Beyond events, look at the shareholder base. From May to August 2026, Southbound holdings in Xiaomi declined, foreign active funds cut positions, and passive ETFs and retail investors absorbed the selling. **This structure determines the nature of any rebound: passive money will not add on improving fundamentals, only adjust with index weight changes.**
+Beyond events, look at the shareholder base. From May to August 2026, Southbound holdings in Xiaomi declined, foreign active funds cut positions, and passive ETFs and retail investors absorbed the selling. This structure determines the nature of any rebound: passive money will not add on improving fundamentals, only adjust with index weight changes.
 
 Compare with 2025: that year Southbound funds bought steadily on a net basis and the stock rose from HKD 15 to 59.45. The shift in the shareholder base from "active buying" to "passive holding" is the clearest evidence of this name going from growth stock to value stock.
 
-So one indicator is enough to judge whether a rebound can last: **whether Southbound funds log two consecutive weeks of net buying.** If not, every rally is a zero-sum game.
+So one indicator is enough to judge whether a rebound can last: whether Southbound funds log two consecutive weeks of net buying. If not, every rally is a zero-sum game.
 
 ## Strip out the noise and what signal remains
 
 Three months, seven events, a 51% drawdown, a 35% rebound. Strip out the noise and only two sentences remain:
 
-- **Smartphone gross margin has been broken by memory, and cannot be repaired in the short term.**This is the main driver of the valuation cut.
-- **The auto business has gone from an "option" to a "heavy-asset" business, and the market has switched valuation methods.**This is the main driver of the multiple cut.
+- Smartphone gross margin has been broken by memory, and cannot be repaired in the short term.This is the main driver of the valuation cut.
 
-Both point to the same outcome: an EPS and PE double kill.**And that double kill is not over — because memory prices are still rising and autos are still cutting prices.**
+- The auto business has gone from an "option" to a "heavy-asset" business, and the market has switched valuation methods.This is the main driver of the multiple cut.
 
-So the call on the near-term share price: **a rebound is possible, a reversal is premature.**A true reversal requires smartphone gross margin to recover sequentially, which will not show until the Q3 report around November.
+Both point to the same outcome: an EPS and PE double kill.And that double kill is not over — because memory prices are still rising and autos are still cutting prices.
+
+So the call on the near-term share price: a rebound is possible, a reversal is premature.A true reversal requires smartphone gross margin to recover sequentially, which will not show until the Q3 report around November.
 
 ## Sources
 

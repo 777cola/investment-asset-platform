@@ -48,55 +48,55 @@ Moat score is on a subjective 10-point scale; WeChat MAU 1.439 billion, Video Ac
 
 ## Position in the supply chain (1): who depends on whom
 
-On the upstream side, Tencent is a buyer: buying chips, buying power, buying content. It has no bargaining power over chipmakers (compute is scarce), but it does over content providers (it can build its own studios). **On the downstream side, Tencent is a seller: advertisers need to buy its traffic, developers need to get onto its platform, merchants need to use its payments.**
+On the upstream side, Tencent is a buyer: buying chips, buying power, buying content. It has no bargaining power over chipmakers (compute is scarce), but it does over content providers (it can build its own studios). On the downstream side, Tencent is a seller: advertisers need to buy its traffic, developers need to get onto its platform, merchants need to use its payments.
 
 This "weak upstream, strong downstream" structure is most painful when compute is scarce: costs rise, but prices cannot rise in step (ad prices are set by auction). So Tencent lifting its gross margin by 1 point in 2026 is in fact no small feat—it offset rising costs through revenue-mix optimization (a higher ad share).
 
 ## Position in the industry chain (II): what is the platform position worth
 
-Tencent's on-chain value in one sentence: **it wholesales in the attention of 1.439 billion people, retails it to advertisers and gamers, and earns a 57.8% gross margin in between.** The lower the wholesale price (content, bandwidth, compute) and the higher the retail price (advertising eCPM, game spending), the more it earns.
+Tencent's on-chain value in one sentence: it wholesales in the attention of 1.439 billion people, retails it to advertisers and gamers, and earns a 57.8% gross margin in between. The lower the wholesale price (content, bandwidth, compute) and the higher the retail price (advertising eCPM, game spending), the more it earns.
 
-The 2026 problem is that the wholesale price has risen (compute). If the increase is permanent, Tencent's gross margin ceiling gets pressed to around 55%; if it is cyclical (compute oversupply in 2027), gross margin can return to 58%–60%. **That is why the "compute cycle" is the most important external variable for this company, more important than the advertising cycle.**
+The 2026 problem is that the wholesale price has risen (compute). If the increase is permanent, Tencent's gross margin ceiling gets pressed to around 55%; if it is cyclical (compute oversupply in 2027), gross margin can return to 58%–60%. That is why the "compute cycle" is the most important external variable for this company, more important than the advertising cycle.
 
 ## Social: the only category that earns a 10
 
-The reason is not "many users" but "migration is impossible." Replacing WeChat means replacing contacts, group chat history, payment bindings, loyalty cards in mini programs, and clients in WeCom. **This means replacing five things at once—something no single-point product can do.**
+The reason is not "many users" but "migration is impossible." Replacing WeChat means replacing contacts, group chat history, payment bindings, loyalty cards in mini programs, and clients in WeCom. This means replacing five things at once—something no single-point product can do.
 
-The data confirms it: MAU of 1.439 billion, up 2% year on year, still edging higher even with penetration at its ceiling; time spent on Channels up 20%, showing it is still taking time from other apps. **A product considered "old" is still gaining engagement—evidence that its moat is still deepening.**
+The data confirms it: MAU of 1.439 billion, up 2% year on year, still edging higher even with penetration at its ceiling; time spent on Channels up 20%, showing it is still taking time from other apps. A product considered "old" is still gaining engagement—evidence that its moat is still deepening.
 
 ## Cloud and AI: the case for a 6
 
-Cloud is a second-tier player in China: Alibaba Cloud leads, Huawei Cloud and Tencent Cloud fight for second. Tencent Cloud's differentiation lies in "audio-video, gaming, social ecosystem," not "general-purpose compute." **That means it can hold on to a set of customers, but cannot win the largest ones.**
+Cloud is a second-tier player in China: Alibaba Cloud leads, Huawei Cloud and Tencent Cloud fight for second. Tencent Cloud's differentiation lies in "audio-video, gaming, social ecosystem," not "general-purpose compute." That means it can hold on to a set of customers, but cannot win the largest ones.
 
-AI is even thinner. Hunyuan Hy3 is a "cost-efficiency-first" model: 295B total parameters, 21B activated, 256K context, API priced at RMB 0.25 per million tokens—**this is a price-war play, not a capability-leadership play.** Hy4 does not arrive until year-end; whether it can reach the first tier is unknown.
+AI is even thinner. Hunyuan Hy3 is a "cost-efficiency-first" model: 295B total parameters, 21B activated, 256K context, API priced at RMB 0.25 per million tokens—this is a price-war play, not a capability-leadership play. Hy4 does not arrive until year-end; whether it can reach the first tier is unknown.
 
 But Tencent has something no one else has: a scenario base of 1.439 billion people. Models not leading, scenarios leading—this is the only card it can play. WorkBuddy ranking first in traffic among domestic office AI is validation of this logic.
 
 ## The most dangerous rival: ByteDance, and Doubao behind it
 
-ByteDance's threat has two layers. **The first layer is time spent:** Douyin is still competing with WeChat Channels for the same pool of user time; WeChat Channels is "holding the line," not "winning users back." **The second layer is the entry point:** Doubao is positioning itself as "the AI assistant as entry point." If users grow accustomed to asking an assistant questions rather than opening an app, WeChat's value as an "entry point" gets bypassed.
+ByteDance's threat has two layers. The first layer is time spent: Douyin is still competing with WeChat Channels for the same pool of user time; WeChat Channels is "holding the line," not "winning users back." The second layer is the entry point: Doubao is positioning itself as "the AI assistant as entry point." If users grow accustomed to asking an assistant questions rather than opening an app, WeChat's value as an "entry point" gets bypassed.
 
-The second layer is the truly dangerous one. WeChat's moat is built on "you must open it." Once "you can get things done without opening it" becomes possible, the moat degrades from a "social graph" to a "contact list." **Tencent's response is Xiaowei — embedding AI inside WeChat so the entry point remains WeChat.** The product is still in gray-box testing; success or failure will be decided in 2027.
+The second layer is the truly dangerous one. WeChat's moat is built on "you must open it." Once "you can get things done without opening it" becomes possible, the moat degrades from a "social graph" to a "contact list." Tencent's response is Xiaowei — embedding AI inside WeChat so the entry point remains WeChat. The product is still in gray-box testing; success or failure will be decided in 2027.
 
 ## Specific figures for switching costs
 
-Claims of "high switching costs" need numbers. A person's WeChat contains: on average about 200 contacts, a dozen or so group chats, linked bank cards, memberships in a few mini-programs, and work relationships on WeCom. **Switching to another app means rebuilding all five, a cost measured in months, with zero benefit.**
+Claims of "high switching costs" need numbers. A person's WeChat contains: on average about 200 contacts, a dozen or so group chats, linked bank cards, memberships in a few mini-programs, and work relationships on WeCom. Switching to another app means rebuilding all five, a cost measured in months, with zero benefit.
 
-Compare: switching to another short-video app costs "retraining the recommendation algorithm," about two weeks; switching to another e-commerce app costs "re-entering your address," about ten minutes. **This is why Douyin can capture time spent but not WeChat—it captures the "replaceable part," not the "irreplaceable part."**
+Compare: switching to another short-video app costs "retraining the recommendation algorithm," about two weeks; switching to another e-commerce app costs "re-entering your address," about ten minutes. This is why Douyin can capture time spent but not WeChat—it captures the "replaceable part," not the "irreplaceable part."
 
 ## The flip side of a moat: what can breach it
 
-Three forces: **1) A shift in the entry point** — if AI assistants become the primary entry point, users no longer need to open the app, and WeChat is demoted from "entry point" to "contact list"; **2) Regulator-mandated interoperability** — if platforms are required to interconnect, the exclusivity of the relationship chain weakens; **3) Generational migration** — if young people migrate en masse to new forms of social networking, the relationship chain breaks across generations.
+Three forces: 1) A shift in the entry point — if AI assistants become the primary entry point, users no longer need to open the app, and WeChat is demoted from "entry point" to "contact list"; 2) Regulator-mandated interoperability — if platforms are required to interconnect, the exclusivity of the relationship chain weakens; 3) Generational migration — if young people migrate en masse to new forms of social networking, the relationship chain breaks across generations.
 
-Of the three, the first is already happening (Doubao, Yuanbao), the second is a long-term policy direction, and the third has no evidence so far (WeChat is still growing slightly). **So the first is what needs the closest watching, and Tencent's response is WeChat mini-programs — putting AI inside WeChat.**
+Of the three, the first is already happening (Doubao, Yuanbao), the second is a long-term policy direction, and the third has no evidence so far (WeChat is still growing slightly). So the first is what needs the closest watching, and Tencent's response is WeChat mini-programs — putting AI inside WeChat.
 
 ## If you could keep only one moat
 
-Choose the relationship chain. The reason is not that it scores highest (10 points), but that it is the most "resistant to technological change." **Technology will change, entry points will change, devices will change, but "the person you are looking for is in this network" will not change.**
+Choose the relationship chain. The reason is not that it scores highest (10 points), but that it is the most "resistant to technological change." Technology will change, entry points will change, devices will change, but "the person you are looking for is in this network" will not change.
 
 Conversely, if the relationship chain loosens, the other four fail together: games lose distribution channels, advertising loses traffic, payments lose scenarios, cloud loses customers. This is why I wrote "WeChat MAU negative growth for two consecutive quarters" as one of the hard falsification conditions.
 
-Defending this one costs the least (no need to spend RMB 20 billion a year); defending cloud and AI costs the most. **This is the difference between a "moat" and an "arms race."**
+Defending this one costs the least (no need to spend RMB 20 billion a year); defending cloud and AI costs the most. This is the difference between a "moat" and an "arms race."
 
 ## Sources
 

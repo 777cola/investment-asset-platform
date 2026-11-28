@@ -58,11 +58,11 @@ One more downstream shift is worth noting: cloud providers' in-house chips (Goog
 
 This upcycle began in the second half of 2023, with AI demand exploding in 2024, supply tightening in 2025 and full utilization in 2026. Judging by the historical rhythm of foundry (three years up, two years down), the highest-risk window runs from the second half of 2026 to the first half of 2027.
 
-Two of the three top signals have appeared: capex at a record high (USD 60–64 billion) and gross margin at a record high (67.7%); the third (customers starting to cut orders) has not. The current read: **the cycle is still in the top zone, but the slope has flattened.** The implication for the share price: little good news left, and the bad news has not arrived yet.
+Two of the three top signals have appeared: capex at a record high (USD 60–64 billion) and gross margin at a record high (67.7%); the third (customers starting to cut orders) has not. The current read: the cycle is still in the top zone, but the slope has flattened. The implication for the share price: little good news left, and the bad news has not arrived yet.
 
 ## V. Memory: HBM is another bottleneck, but it is not TSMC's to manage
 
-In the AI chip cost structure, HBM (high-bandwidth memory) accounts for a substantial share. In 2026, HBM supply falls short of demand; with the three oligopolists SK hynix, Samsung and Micron, price increases run at double-digit percentages. TSMC does not produce HBM, but when it performs CoWoS packaging it must stack HBM together with the GPU—**so it is the largest "assembler" of HBM and an indirect beneficiary of tight HBM supply (higher packaging value per unit).**
+In the AI chip cost structure, HBM (high-bandwidth memory) accounts for a substantial share. In 2026, HBM supply falls short of demand; with the three oligopolists SK hynix, Samsung and Micron, price increases run at double-digit percentages. TSMC does not produce HBM, but when it performs CoWoS packaging it must stack HBM together with the GPU—so it is the largest "assembler" of HBM and an indirect beneficiary of tight HBM supply (higher packaging value per unit).
 
 The division of labor along this chain is clear: memory makers earn cyclical money (high price elasticity), TSMC earns processing money (stable pricing, charged per wafer). For investors, HBM offers greater elasticity, TSMC greater certainty. The two assets have entirely different risk-return profiles and are not substitutes for each other.
 
@@ -70,7 +70,7 @@ The division of labor along this chain is clear: memory makers earn cyclical mon
 
 By customer headquarters location: North America accounts for about 70% (Apple, Nvidia, AMD, Qualcomm, Broadcom, cloud providers), China just over 10% (advanced nodes essentially zeroed out under export controls), and the rest of Asia-Pacific plus Europe about 20% combined. This structure makes it highly sensitive to US policy—tariffs, export controls and subsidy conditions each directly affect orders.
 
-Node mix is the other moat: 7nm and below accounts for 77%, of which 5nm is 33% and 3nm 30%. **The higher the share of advanced nodes, the harder it is to replace**—because only it can make them globally, and customers have no second option. This is the quantitative source of its bargaining power in the chain.
+Node mix is the other moat: 7nm and below accounts for 77%, of which 5nm is 33% and 3nm 30%. The higher the share of advanced nodes, the harder it is to replace—because only it can make them globally, and customers have no second option. This is the quantitative source of its bargaining power in the chain.
 
 ## Sources
 

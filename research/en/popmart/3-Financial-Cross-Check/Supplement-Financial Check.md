@@ -27,19 +27,19 @@ Cross-validation method: use company announcements (HKEXnews) as Source A and Ch
 
 Two media outlets reported two growth rates for the same interim report. 10.1% corresponds to net profit attributable to shareholders of RMB 5.038 billion, while 8.9% corresponds to RMB 5.04 billion — the numerator is nearly identical, the denominator differs. H1 2025 net profit attributable to shareholders was RMB 4.576 billion; 50.38/45.76-1 = 10.1%. Using RMB 4.63 billion as the denominator gives 8.9%.
 
-The RMB 50 million gap most likely stems from how minority interests or non-controlling interests are reconciled. Pop Mart's overseas subsidiaries have local joint-venture partners, creating a difference between attributable and total net profit. **For investment purposes, use attributable net profit and adopt 10.1%.** The discrepancy does not affect the conclusion, but reports must state it clearly and must not mix the two figures.
+The RMB 50 million gap most likely stems from how minority interests or non-controlling interests are reconciled. Pop Mart's overseas subsidiaries have local joint-venture partners, creating a difference between attributable and total net profit. For investment purposes, use attributable net profit and adopt 10.1%. The discrepancy does not affect the conclusion, but reports must state it clearly and must not mix the two figures.
 
 ## Deviation 2: overseas -11.1% or -11.6% — the gap comes from FX
 
 The company disclosed overseas revenue of RMB 4.972 billion. Summing the three segments for the same period last year: Asia-Pacific 2.857 + Americas 2.263 + Europe and others 0.482 = RMB 5.602 billion, 4.972/5.602-1 = -11.2%. The company's figure is -11.1%, the media figure -11.6%; all three numbers are within 0.5 percentage points.
 
-The discrepancy comes from two places: first, whether last year's segment data is restated at this year's exchange rates or in original currency; second, whether "overseas" includes cross-border wholesale. **Approach: use -11.1% (company figure) throughout the body text, retain the segment sum of -11.2% in the tables, and label both.** This does not affect the conclusion — whether -11.1 or -11.6, it is the first negative turn for overseas revenue since Labubu went viral.
+The discrepancy comes from two places: first, whether last year's segment data is restated at this year's exchange rates or in original currency; second, whether "overseas" includes cross-border wholesale. Approach: use -11.1% (company figure) throughout the body text, retain the segment sum of -11.2% in the tables, and label both. This does not affect the conclusion — whether -11.1 or -11.6, it is the first negative turn for overseas revenue since Labubu went viral.
 
 ## Deviation 3: 2025 net profit of 127.76 or 130.12 — should TTM be recalculated
 
 2025 annual results announcement: net profit RMB 12.776 billion (+308.8%), adjusted net profit RMB 13.08 billion (+284.5%). The valuation note in the working papers uses RMB 13.012 billion, which differs from both official figures by 0.5%–1.8%.
 
-Recomputing TTM with 12.776: 12.776 + 5.038 - 4.576 = RMB 13.238 billion; using 13.012 gives RMB 13.474 billion. The corresponding PE is 14.4x and 14.2x respectively, a 0.2x gap that does not affect the "around 14x" judgment. **This report retains the working papers' RMB 13.474 billion and 14.2x on grounds of consistent methodology and alignment with all derivations in the body text**; the discrepancy between 12.776 and 13.012 is noted here so readers can recompute independently.
+Recomputing TTM with 12.776: 12.776 + 5.038 - 4.576 = RMB 13.238 billion; using 13.012 gives RMB 13.474 billion. The corresponding PE is 14.4x and 14.2x respectively, a 0.2x gap that does not affect the "around 14x" judgment. This report retains the working papers' RMB 13.474 billion and 14.2x on grounds of consistent methodology and alignment with all derivations in the body text; the discrepancy between 12.776 and 13.012 is noted here so readers can recompute independently.
 
 Market cap is another easily confused figure. At the August 20 close on the reporting date, HKD 153.7 and market cap HKD 204.694 billion; on September 7, HKD 156.2 and about HKD 209 billion. The 2.1% gap stems from the share price, not a change in share count—buyback and cancellation of 11.22 million shares in the first half affected total shares by less than 1%.
 
@@ -51,9 +51,9 @@ All derived figures are flagged in the text as "rough calculation" or "back-solv
 
 ## Two more places that "look contradictory but are not"
 
-**52-week high HKD 288.2 vs all-time high HKD 339.8.** The stock hit HKD 339.8 intraday in August 2025, at the peak of Labubu fever — more than 12 months ago, so outside the 52-week window; the 52-week high is HKD 288.2 in February 2026. So "-45.8% from the 52-week high" is correct, and "-54% from the all-time high" is also correct — both are right, depending on which base you use.
+52-week high HKD 288.2 vs all-time high HKD 339.8. The stock hit HKD 339.8 intraday in August 2025, at the peak of Labubu fever — more than 12 months ago, so outside the 52-week window; the 52-week high is HKD 288.2 in February 2026. So "-45.8% from the 52-week high" is correct, and "-54% from the all-time high" is also correct — both are right, depending on which base you use.
 
-**82.44 million members vs 100 million.** The former is domestic registered members; the latter is cumulative global registered members. The company discloses both, and media often conflate them. For domestic repeat purchases, use 82.44 million and 51.6%; for the global base, use 100 million. Conflating them overstates domestic penetration.
+82.44 million members vs 100 million. The former is domestic registered members; the latter is cumulative global registered members. The company discloses both, and media often conflate them. For domestic repeat purchases, use 82.44 million and 51.6%; for the global base, use 100 million. Conflating them overstates domestic penetration.
 
 ## Sources
 

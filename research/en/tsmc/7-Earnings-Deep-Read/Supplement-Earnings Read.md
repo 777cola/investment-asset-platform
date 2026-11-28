@@ -52,43 +52,43 @@ Of the three tables in this module, revenue, net profit, gross margin, EPS, capi
 
 Q2 revenue was USD 40.2 billion (about TWD 1.27 trillion at an exchange rate of 31.5), up 36% year on year. Breaking it down, HPC accounted for 66%, up 20% quarter on quarter, and smartphones for 22%, down 4% quarter on quarter. This is a structural reversal: three years ago phones were half the business; now they are a supporting act.
 
-The process-node mix tells the same story: 7nm and below combined accounted for 77%, of which 5nm was 33%, 3nm 30% and 7nm 11%, while 2nm, just starting, accounted for 3%. **The higher the share of advanced nodes, the higher the unit price and the higher the gross margin**—this is the structural basis for the 67.7% gross margin.
+The process-node mix tells the same story: 7nm and below combined accounted for 77%, of which 5nm was 33%, 3nm 30% and 7nm 11%, while 2nm, just starting, accounted for 3%. The higher the share of advanced nodes, the higher the unit price and the higher the gross margin—this is the structural basis for the 67.7% gross margin.
 
 One detail worth noting: 2nm's first full quarter was only 3%, meaning there is ample room to ramp in the second half. This both supports Q3/Q4 revenue and explains the gross-margin dilution.
 
 Turning to regions and customers. North American customers accounted for about 70% of revenue, Chinese customers just over 10% (advanced-node business there has been essentially zeroed out by export controls), and the rest came from Asia-Pacific and Europe. Customer concentration is high: the top two customers together account for more than 40% (estimated). That is a risk, but also pricing power—neither of the two largest customers dares to switch orders, because there is no capacity elsewhere with equivalent yields.
 
-An easily overlooked detail: **automotive electronics accounted for only 4%, but grew 15% quarter on quarter**, making it the second-fastest-growing platform. Automotive chip qualification cycles run as long as two years, and once a supplier is in the supply chain it is hard to replace, so the value of this business is "stability" rather than "growth." It hedges the cyclical swings of smartphones.
+An easily overlooked detail: automotive electronics accounted for only 4%, but grew 15% quarter on quarter, making it the second-fastest-growing platform. Automotive chip qualification cycles run as long as two years, and once a supplier is in the supply chain it is hard to replace, so the value of this business is "stability" rather than "growth." It hedges the cyclical swings of smartphones.
 
 One more detail on process economics: 2nm yields fewer good dies per wafer than 3nm (because dies are larger and the process is harder), but the unit price is 30%–50% higher, so revenue per wafer is higher. This is the transmission mechanism behind "a higher share of advanced nodes leads to a higher gross margin," and one reason revenue can keep growing in 2027.
 
 ## Layer two: gross margin — what 67.7% actually means
 
-Foundry historical gross margins: UMC 30%–35%, GlobalFoundries 25%, SMIC 20%–25%, Samsung Foundry estimated 30%–40%. TSMC at 67.7%, more than double the industry average. What this number means: **it has absolute pricing power over every wafer.**
+Foundry historical gross margins: UMC 30%–35%, GlobalFoundries 25%, SMIC 20%–25%, Samsung Foundry estimated 30%–40%. TSMC at 67.7%, more than double the industry average. What this number means: it has absolute pricing power over every wafer.
 
 Breaking down the gross margin change: of the +9.1pct YoY, roughly 5–6pct came from price increases and product mix (higher 3nm share), 2–3pct from fixed-cost dilution on full capacity utilization, and 1–2pct from FX and cost improvements (estimated). All three legs are cyclical; none is permanent.
 
 So the Q3 guidance of 65%–67% matters more than it appears: this is not "seasonal fluctuation" but the start of the first leg (pricing) being exhausted while the second and third legs are offset by the 2nm ramp.
 
-Side by side with peers it is clearer: UMC about 30%, GlobalFoundries about 25%, SMIC about 22%, Samsung Foundry estimated 30%–40%. TSMC's 67.7% is two to three times peers. That gap did not form in a year—in 2019 TSMC was at 46% and UMC at 15%, a 31 percentage point gap; by 2026 the gap widens to more than 35 percentage points. **In an upcycle, the leader's gross margin elasticity is more than double everyone else's—that is the leverage conferred by "advanced-node share."**
+Side by side with peers it is clearer: UMC about 30%, GlobalFoundries about 25%, SMIC about 22%, Samsung Foundry estimated 30%–40%. TSMC's 67.7% is two to three times peers. That gap did not form in a year—in 2019 TSMC was at 46% and UMC at 15%, a 31 percentage point gap; by 2026 the gap widens to more than 35 percentage points. In an upcycle, the leader's gross margin elasticity is more than double everyone else's—that is the leverage conferred by "advanced-node share."
 
 ## Tier 3: Costs and profit — operating margin around 57%
 
 Gross margin 67.7% less expense ratio of about 10.7 percentage points gives an operating margin of about 57%. Within expenses, R&D accounts for 6%–7% (2026 R&D spending estimated at roughly TWD 250 billion), and administrative expenses about 3%. R&D intensity is upper-middle in the semiconductor industry, and in absolute terms ranks top three globally.
 
-Net margin 55.6%, up 13.0pct YoY. Note this jump exceeds the +9.1pct rise in gross margin; the gap comes from two sources: operating expense ratio diluted by revenue, and interest income growing with cash scale.**Both are "tailwinds of a good year" and will not repeat every year.**
+Net margin 55.6%, up 13.0pct YoY. Note this jump exceeds the +9.1pct rise in gross margin; the gap comes from two sources: operating expense ratio diluted by revenue, and interest income growing with cash scale.Both are "tailwinds of a good year" and will not repeat every year.
 
-One more tax detail. TSMC's effective tax rate has long been 13%–15%, below the nominal 20%, due to R&D investment credits under the Statute for Industrial Innovation and overseas income taxation rules. This advantage is not permanent—Taiwan's tax incentives are revised every few years, and if credits shrink after 2026, each 1 percentage point rise in the tax rate reduces EPS by about TWD 1.2.**This is not the main variable, but leave some buffer when modeling 2027 EPS.**
+One more tax detail. TSMC's effective tax rate has long been 13%–15%, below the nominal 20%, due to R&D investment credits under the Statute for Industrial Innovation and overseas income taxation rules. This advantage is not permanent—Taiwan's tax incentives are revised every few years, and if credits shrink after 2026, each 1 percentage point rise in the tax rate reduces EPS by about TWD 1.2.This is not the main variable, but leave some buffer when modeling 2027 EPS.
 
 ## Layer four: cash flow and balance sheet — nothing to fault
 
-Q2 capital expenditure was USD 15.7 billion (about TWD 495 billion), 39% of revenue. Operating cash flow was about TWD 950 billion (rough calculation), free cash flow about TWD 455 billion, still positive. This combination means: **even in the heaviest investment cycle in history, it earns enough to cover its own spending.**
+Q2 capital expenditure was USD 15.7 billion (about TWD 495 billion), 39% of revenue. Operating cash flow was about TWD 950 billion (rough calculation), free cash flow about TWD 455 billion, still positive. This combination means: even in the heaviest investment cycle in history, it earns enough to cover its own spending.
 
 Balance sheet: cash of about TWD 3.5 trillion, interest-bearing debt of about TWD 1 trillion, net cash of TWD 2.5 trillion. Accounts payable and contract liabilities (customer prepayments) are important non-interest-bearing funding sources. No financial risk, no line items that need explaining.
 
-The only concern is future depreciation pressure: 2026 capital expenditure of USD 60–64 billion, depreciated over five years and concentrated from 2027, adds about USD 13 billion (about TWD 410 billion) of depreciation a year, equivalent to 15% of 2026 net profit. **This is a structural downward pressure on gross margin in 2027–2028.**
+The only concern is future depreciation pressure: 2026 capital expenditure of USD 60–64 billion, depreciated over five years and concentrated from 2027, adds about USD 13 billion (about TWD 410 billion) of depreciation a year, equivalent to 15% of 2026 net profit. This is a structural downward pressure on gross margin in 2027–2028.
 
-A depreciation sensitivity calculation: 2026 capital expenditure of USD 60–64 billion, depreciated over five years and fully amortized from 2027, adds about USD 12–13 billion (about TWD 380–410 billion) of depreciation a year. On a 2026 revenue base of TWD 14.5 trillion, this equals a 2.6–2.8 percentage point rise in the operating expense ratio. **If revenue growth falls below 10%, the dilutive effect of depreciation becomes a gross margin killer**—this is the number that most needs to be worked out in advance for 2027.
+A depreciation sensitivity calculation: 2026 capital expenditure of USD 60–64 billion, depreciated over five years and fully amortized from 2027, adds about USD 12–13 billion (about TWD 380–410 billion) of depreciation a year. On a 2026 revenue base of TWD 14.5 trillion, this equals a 2.6–2.8 percentage point rise in the operating expense ratio. If revenue growth falls below 10%, the dilutive effect of depreciation becomes a gross margin killer—this is the number that most needs to be worked out in advance for 2027.
 
 ## The three things to watch most closely
 

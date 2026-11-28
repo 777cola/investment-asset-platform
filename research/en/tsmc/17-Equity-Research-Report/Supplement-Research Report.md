@@ -83,7 +83,7 @@ Driver 2: ASP uplift from process upgrades. 2nm accounted for 3% of revenue in Q
 
 Driver 3: Advanced packaging. CoWoS is the second bottleneck for AI chips; capacity keeps doubling yet remains in short supply, with the market estimating gross margins above 50%. This business is not disclosed separately but is a key source of gross-margin mix improvement.
 
-Quantifying the contribution of the three drivers: of the roughly TWD 4 trillion in 2026 revenue increment, AI-related (HPC) contributes about 70%, ASP uplift from process upgrades about 20%, and advanced packaging about 10% (estimate). The 2027 incremental structure will be similar, but the ASP uplift contribution will expand on the 2nm ramp, and the packaging contribution will rise on CoWoS capacity expansion.
+Quantifying the contribution of the three drivers: of the roughly TWD 400 billion in 2026 revenue growth, AI-related (HPC) contributes about 70%, ASP uplift from process upgrades about 20%, and advanced packaging about 10% (estimate). The 2027 incremental structure will be similar, but the ASP uplift contribution will expand on the 2nm ramp, and the packaging contribution will rise on CoWoS capacity expansion.
 
 ## Chapter 7 Competitive Landscape
 
@@ -113,7 +113,7 @@ The transmission paths must be spelled out: geopolitical event → capacity disr
 
 Key assumptions: 2027 capex stays above USD 60 billion, 2nm reaches a double-digit percentage of revenue, overseas fabs dilute margin by no more than 4 percentage points. If any one falls short, EPS is cut 10%–15%.
 
-Sensitivity: based on the 2027 base case (EPS TWD 125), every 5-percentage-point change in revenue growth moves EPS by about TWD 8; every 1-percentage-point change in gross margin moves EPS by about TWD 4.5. In other words, gross margin matters more than revenue growth — **which is why this report keeps stressing gross margin rather than revenue.**
+Sensitivity: based on the 2027 base case (EPS TWD 125), every 5-percentage-point change in revenue growth moves EPS by about TWD 8; every 1-percentage-point change in gross margin moves EPS by about TWD 4.5. In other words, gross margin matters more than revenue growth — which is why this report keeps stressing gross margin rather than revenue.
 
 Quarterly path: 2026Q3 revenue, extrapolated from the July–August run rate, is about TWD 1.5 trillion (+18% QoQ, rough estimate), with gross margin of 66%; in Q4, deeper 2nm ramp may pull gross margin to 64%–65%, but revenue should keep hitting new highs. Full-year EPS of TWD 106 breaks down as: Q1 22.08, Q2 27.25, Q3 about 29, Q4 about 28 (the last two quarters are estimates).
 
@@ -123,11 +123,11 @@ Method: use 2027E EPS as the denominator and apply an 18–24x PE. Rationale for
 
 Target price: base case TWD 2,625 (TWD 125 × 21x), bear case TWD 1,710 (TWD 95 × 18x), bull case TWD 3,360 (TWD 140 × 24x). At the current price of TWD 2,410, this implies +9% in the base case, -29% in the bear case and +39% in the bull case.
 
-Expected value: weighted at 30%/45%/25% probabilities, the expected price is TWD 2,548, only 5.7% above the current price. **The risk/reward does not support opening a new position.**
+Expected value: weighted at 30%/45%/25% probabilities, the expected price is TWD 2,548, only 5.7% above the current price. The risk/reward does not support opening a new position.
 
-Cross-check: on EV/EBITDA, 2026E EBITDA is about TWD 10 trillion and enterprise value about TWD 60 trillion (market cap TWD 62.5 trillion less net cash TWD 2.5 trillion), implying 6x — within the reasonable 5–8x range for manufacturers and at the midpoint. On dividend discount, a 1.0% yield cannot support the valuation, implying the market is buying growth, not dividends. **Both lenses point to the same conclusion: not cheap, but not a bubble.**
+Cross-check: on EV/EBITDA, 2026E EBITDA is about TWD 10 trillion and enterprise value about TWD 60 trillion (market cap TWD 62.5 trillion less net cash TWD 2.5 trillion), implying 6x — within the reasonable 5–8x range for manufacturers and at the midpoint. On dividend discount, a 1.0% yield cannot support the valuation, implying the market is buying growth, not dividends. Both lenses point to the same conclusion: not cheap, but not a bubble.
 
-One more point on the historical valuation range: 12–18x PE in 2016–2019 (single-digit growth), 15–25x in 2020–2023 (5G and the chip shortage), 22–30x in 2024–2026 (AI). Each upward shift came with a narrative upgrade, and each retreated when the narrative faded. **We are now in the upper band of the third cycle, and mean reversion to 18–20x is the reasonable assumption.**
+One more point on the historical valuation range: 12–18x PE in 2016–2019 (single-digit growth), 15–25x in 2020–2023 (5G and the chip shortage), 22–30x in 2024–2026 (AI). Each upward shift came with a narrative upgrade, and each retreated when the narrative faded. We are now in the upper band of the third cycle, and mean reversion to 18–20x is the reasonable assumption.
 
 ## Chapter 11 Investment Recommendations
 
@@ -137,7 +137,7 @@ Entry: build the first tranche at 2,000 (19x 2026 EPS), the second at 1,800, and
 
 Position: core holding 8%–12%; calculate AI exposure combined with NVIDIA and ASML to avoid looking diversified while actually being concentrated.
 
-Advice by investor type: long-term allocators (five years or more) can hold within an 8% position and ignore short-term volatility; swing traders should wait for below 2,000, because the risk-reward at the current price is unattractive; conservative investors (who cannot tolerate a 30% drawdown) should not allocate, because annualized volatility exceeds 30%.**The same company gets different answers from different money.**
+Advice by investor type: long-term allocators (five years or more) can hold within an 8% position and ignore short-term volatility; swing traders should wait for below 2,000, because the risk-reward at the current price is unattractive; conservative investors (who cannot tolerate a 30% drawdown) should not allocate, because annualized volatility exceeds 30%.The same company gets different answers from different money.
 
 Finally, a watch list in chronological order: mid-October Q3 earnings call (actual gross margin, Q4 guidance, preliminary 2027 capex framework) → around November 10, October revenue → January 2027, final full-year capex → April 2027 Q1 earnings call (2nm share of revenue). If any two of these four checkpoints turn unfavorable, cut the position from 10% to 6%.
 

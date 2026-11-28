@@ -27,33 +27,33 @@ Data sources: NVIDIA FY2027Q2 (2026/08/26), TSMC 2026Q2 (2026/07 earnings call),
 
 The biggest money in this AI cycle is not made by chipmakers but by memory suppliers and foundries.
 
-**Memory.** Micron's FY26Q3 gross margin was 84.9% and net margin 68%, with quarterly revenue of USD 41.46 billion, up 346% year on year; SK hynix's 2026Q1 operating margin was 71.5%. These margins are outliers for manufacturing, driven by HBM supply falling short of demand: in early 2026 DRAM contract prices rose 60%–70% and NAND more than 100%, and institutions expect the shortage to persist into 2027. **Nvidia's Q4 gross margin fell to 71%–72%, eaten away by this layer.**
+Memory. Micron's FY26Q3 gross margin was 84.9% and net margin 68%, with quarterly revenue of USD 41.46 billion, up 346% year on year; SK hynix's 2026Q1 operating margin was 71.5%. These margins are outliers for manufacturing, driven by HBM supply falling short of demand: in early 2026 DRAM contract prices rose 60%–70% and NAND more than 100%, and institutions expect the shortage to persist into 2027. Nvidia's Q4 gross margin fell to 71%–72%, eaten away by this layer.
 
-**Foundry.** TSMC's 2026Q2 gross margin was 67.7%, after-tax net profit TWD 706.56 billion, up 77.4% year on year, with HPC at 66% of revenue. CoWoS advanced packaging is the hard bottleneck, and 2026 capex was raised to USD 60–64 billion. TSMC's pricing power comes from having no second supplier, but it dares not raise prices to memory-like levels—because its customers' alternative is to not build at all.
+Foundry. TSMC's 2026Q2 gross margin was 67.7%, after-tax net profit TWD 706.56 billion, up 77.4% year on year, with HPC at 66% of revenue. CoWoS advanced packaging is the hard bottleneck, and 2026 capex was raised to USD 60–64 billion. TSMC's pricing power comes from having no second supplier, but it dares not raise prices to memory-like levels—because its customers' alternative is to not build at all.
 
-What the two upstream players share: **they do not need to know whether AI applications make money; as long as Nvidia's orders keep coming, they keep earning.** This is the lowest-risk position in the entire chain.
+What the two upstream players share: they do not need to know whether AI applications make money; as long as Nvidia's orders keep coming, they keep earning. This is the lowest-risk position in the entire chain.
 
 ## Midstream: Nvidia's position, and why it has started to move downstream
 
-NVIDIA's role in the chain is a threefold overlay: architecture definition (how the next generation computes), system integration (GB300 / Vera Rubin racks), and software standards (CUDA). **The result is that it captures the fattest gross-margin layer of the entire chain at 75.0%, and it collects customer cash upfront — 60-day payment terms are the exception, not the norm.**
+NVIDIA's role in the chain is a threefold overlay: architecture definition (how the next generation computes), system integration (GB300 / Vera Rubin racks), and software standards (CUDA). The result is that it captures the fattest gross-margin layer of the entire chain at 75.0%, and it collects customer cash upfront — 60-day payment terms are the exception, not the norm.
 
-But this year it did something that violates its midstream identity: it moved downstream. A USD 500 billion financing platform (Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs, KKR), USD 93.9 billion in customer equity, USD 108.5 billion in credit guarantees, USD 36 billion in cloud-service purchase commitments. **It went from "selling equipment to cloud providers" to "helping customers build clouds, then selling equipment to those clouds."**
+But this year it did something that violates its midstream identity: it moved downstream. A USD 500 billion financing platform (Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs, KKR), USD 93.9 billion in customer equity, USD 108.5 billion in credit guarantees, USD 36 billion in cloud-service purchase commitments. It went from "selling equipment to cloud providers" to "helping customers build clouds, then selling equipment to those clouds."
 
-Why? The company's stated reason is that demand is real and what customers lack is balance sheet, not orders. That reasoning holds in a shortage cycle: **when supply is limited, whoever can make the customer able to pay sells more goods.** The cost is that it has moved downstream credit risk onto itself.
+Why? The company's stated reason is that demand is real and what customers lack is balance sheet, not orders. That reasoning holds in a shortage cycle: when supply is limited, whoever can make the customer able to pay sells more goods. The cost is that it has moved downstream credit risk onto itself.
 
-In one sentence: **NVIDIA is the toll booth on this chain, and now it has started making loans to the cars driving through.**
+In one sentence: NVIDIA is the toll booth on this chain, and now it has started making loans to the cars driving through.
 
-Another underappreciated battleground is power. The company itself says building an AI factory requires locking in land, power and shell space 2–3 years ahead; with SB Energy it has secured land, power and shell at the Portsmouth, Ohio campus, with a first phase planned at 4.25GW for OpenAI's use, and each generation of AI factory able to deploy roughly 1.5 million GPUs. **Power has gone from "infrastructure" to "scarce resource," and NVIDIA has already started buying it directly — this is its second move upstream.**
+Another underappreciated battleground is power. The company itself says building an AI factory requires locking in land, power and shell space 2–3 years ahead; with SB Energy it has secured land, power and shell at the Portsmouth, Ohio campus, with a first phase planned at 4.25GW for OpenAI's use, and each generation of AI factory able to deploy roughly 1.5 million GPUs. Power has gone from "infrastructure" to "scarce resource," and NVIDIA has already started buying it directly — this is its second move upstream.
 
 ## Downstream: cloud providers profit, model companies burn cash, NeoClouds take on debt
 
 The downstream splits into three layers, each with a completely different financial profile.
 
-**Hyperscalers (USD 48.7 billion revenue, 55% of the data center market).** Microsoft, Amazon, Google, Meta and Oracle will spend a combined ~USD 800 billion in capex in 2026 and an estimated USD 1.3 trillion in 2027. Their compute can be sold to others (cloud revenue) and used in their own businesses (advertising, search, e-commerce), so returns on investment are the easiest to calculate. **This layer is the ballast for the entire chain.**
+Hyperscalers (USD 48.7 billion revenue, 55% of the data center market). Microsoft, Amazon, Google, Meta and Oracle will spend a combined ~USD 800 billion in capex in 2026 and an estimated USD 1.3 trillion in 2027. Their compute can be sold to others (cloud revenue) and used in their own businesses (advertising, search, e-commerce), so returns on investment are the easiest to calculate. This layer is the ballast for the entire chain.
 
-**NeoCloud (part of ACIE, and the main increment within the USD 40.3 billion).** CoreWeave, Nebius, Nscale, Firmus and YTL will go from 3GW installed at end-2025 to 8GW at end-2026. Their business model is "buy chips, rent them out," with thin balance sheets, expanding on private credit and project finance. **This layer is the most fragile link in the entire chain, and the main counterparty Nvidia guarantees.**
+NeoCloud (part of ACIE, and the main increment within the USD 40.3 billion). CoreWeave, Nebius, Nscale, Firmus and YTL will go from 3GW installed at end-2025 to 8GW at end-2026. Their business model is "buy chips, rent them out," with thin balance sheets, expanding on private credit and project finance. This layer is the most fragile link in the entire chain, and the main counterparty Nvidia guarantees.
 
-**Model companies (OpenAI, Anthropic, xAI).** Revenue is rising, but they are broadly loss-making and pay their compute bills with equity financing. Global AI venture funding exceeded USD 400 billion in the first half of 2026, with about 70% going to compute purchases — **a ratio that shows most venture money turns into Nvidia revenue.**
+Model companies (OpenAI, Anthropic, xAI). Revenue is rising, but they are broadly loss-making and pay their compute bills with equity financing. Global AI venture funding exceeded USD 400 billion in the first half of 2026, with about 70% going to compute purchases — a ratio that shows most venture money turns into Nvidia revenue.
 
 ## Cycle position: third year of shortage, the most expensive year
 
@@ -61,7 +61,7 @@ The timeline is clear: Hopper ramps in 2024, Blackwell in 2025, Vera Rubin in 20
 
 Three demand-side numbers: capex at the five major cloud providers is about USD 800 billion in 2026 and USD 1.3 trillion in 2027; cloud industry backlog exceeds USD 2 trillion; NeoCloud installed capacity goes from 3GW to 8GW.
 
-My view is "three years of buildout, two years of digestion": 2027 is the construction peak, 2028 enters digestion, and growth falling from 70% to below 20% is normal, not a collapse.**The real risk is the financing structure — if more than half of the USD 1.3 trillion in 2027 comes from debt and equity financing, then the 2028 digestion period will see order declines and credit contraction at the same time, with the two amplifying each other.**
+My view is "three years of buildout, two years of digestion": 2027 is the construction peak, 2028 enters digestion, and growth falling from 70% to below 20% is normal, not a collapse.The real risk is the financing structure — if more than half of the USD 1.3 trillion in 2027 comes from debt and equity financing, then the 2028 digestion period will see order declines and credit contraction at the same time, with the two amplifying each other.
 
 The best indicator of where we are in the cycle is not Nvidia's orders but the cloud providers' capex/operating cash flow ratio. That ratio is now near 60%; historically, periods when it exceeded 80% (telecom in 2000, cloud computing in 2021) all peaked within two years.
 

@@ -10,9 +10,9 @@ All eight long-form articles share the same data basis: the FY26Q3 earnings repo
 
 ## Reading order for the eight articles
 
-Suggested reading order: ① Cognitive reset—clear three biases first; ② Business essence—see clearly whether it sells bits, bandwidth or certainty; ③ Moat anatomy—the true width of the four defense lines; ④ Financial truth—what a business with 95% marginal gross margin means; ⑤ Industry and competition—how the 7 percentage point gap is calculated; ⑥ Management—three bets; ⑦ Risk checklist—ten reasons it could halve; ⑧ Decision framework—three price levels, two triggers.
+Suggested reading order: ① Cognitive reset—clear three biases first; ② Business essence—see clearly whether it sells bits, bandwidth or certainty; ③ Moat dissection—the true width of the four lines of defense; ④ Financial truth—what a business with 95% marginal gross margin means; ⑤ Industry and competition—how the 7 percentage point gap is calculated; ⑥ Management—three bets; ⑦ Risk checklist—ten reasons it could halve; ⑧ Decision framework—three price levels, two triggers.
 
-All eight pieces share the same set of numbers (FY26Q3 results, TrendForce/Counterpoint share, batchdata stock price), with no repeated narrative; each piece expands only its own layer.
+All eight pieces share the same set of numbers (FY26Q3 results, TrendForce/Counterpoint share, batchdata stock price) without repeating the narrative; each piece expands only its own layer.
 
 ## Sources
 

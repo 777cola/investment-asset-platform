@@ -39,33 +39,33 @@ The scoring scale is 10 points, proprietary to this report, with six equally wei
 
 Upstream: memory (Samsung, SK hynix, YMTC, CXMT), SoC (Qualcomm, MediaTek, in-house Xuanjie), displays, batteries and structural components. Midstream: device assembly and car plants (Beijing Phase 1 and Phase 2). Downstream: online and offline channels, carriers and overseas markets.
 
-Xiaomi's role in the chain is "demand integrator": it translates user needs into product definitions, then places orders with dozens of suppliers.**That role gives it brand power over users but no bargaining power over suppliers.**The 2026 memory price hike exposed this most starkly.
+Xiaomi's role in the chain is "demand integrator": it translates user needs into product definitions, then places orders with dozens of suppliers.That role gives it brand power over users but no bargaining power over suppliers.The 2026 memory price hike exposed this most starkly.
 
-Cars changed its position: for the first time Xiaomi owns heavy assets (plants, lines, tooling) and large-scale manufacturing capability, and for the first time it carries fixed costs.**Moving from "asset-light integrator" to "asset-heavy manufacturer" changes the type of moat—it once ran on turnover, now it also runs on capacity utilization.**
+Cars changed its position: for the first time Xiaomi owns heavy assets (plants, lines, tooling) and large-scale manufacturing capability, and for the first time it carries fixed costs.Moving from "asset-light integrator" to "asset-heavy manufacturer" changes the type of moat—it once ran on turnover, now it also runs on capacity utilization.
 
 ## The essence of a moat: efficiency, not pricing power
 
-Xiaomi's moat can be summed up in one sentence: **deliver a better product for the same money, or the same product for less money.** This is an efficiency moat, not a pricing-power moat.
+Xiaomi's moat can be summed up in one sentence: deliver a better product for the same money, or the same product for less money. This is an efficiency moat, not a pricing-power moat.
 
-The difference is clearest under stress testing: when costs rise 10%, a pricing-power company (Apple) raises prices 5% and absorbs 5% itself, leaving gross margin roughly unchanged; an efficiency company (Xiaomi) cannot raise prices, so gross margin drops a full 3 points. **2026Q2 is the result of this stress test.**
+The difference is clearest under stress testing: when costs rise 10%, a pricing-power company (Apple) raises prices 5% and absorbs 5% itself, leaving gross margin roughly unchanged; an efficiency company (Xiaomi) cannot raise prices, so gross margin drops a full 3 points. 2026Q2 is the result of this stress test.
 
-The value of an efficiency moat should not be underestimated: it lets Xiaomi outlast rivals in a red ocean, and it lets the company keep entering new categories (from phones to TVs to air conditioners to cars). **But its ceiling is "industry-average gross margin + efficiency premium," not "brand premium."**
+The value of an efficiency moat should not be underestimated: it lets Xiaomi outlast rivals in a red ocean, and it lets the company keep entering new categories (from phones to TVs to air conditioners to cars). But its ceiling is "industry-average gross margin + efficiency premium," not "brand premium."
 
 ## The most dangerous rival: not BYD, but memory makers
 
-BYD and Huawei are fighting for share; memory makers are fighting for profit. DRAM contract prices rise 60%–70% in 2026, and Xiaomi's smartphone gross margin falls from 11.5% to 8.5%, **three points gone in a single quarter, equivalent to RMB 3 billion in annualized profit** — worth more than the market share any automaker has taken.
+BYD and Huawei are fighting for share; memory makers are fighting for profit. DRAM contract prices rise 60%–70% in 2026, and Xiaomi's smartphone gross margin falls from 11.5% to 8.5%, three points gone in a single quarter, equivalent to RMB 3 billion in annualized profit — worth more than the market share any automaker has taken.
 
 Why can't it be defended? Because memory is a three-player oligopoly (Samsung, SK hynix, Micron) plus two Chinese players (YMTC, CXMT), with an 18–24 month capacity expansion cycle and rigid near-term supply. The only things Xiaomi can do are lock in supply early and raise per-device memory capacity to sell at higher prices; it is doing both, but neither solves the root problem.
 
-The second-biggest danger is Huawei: HIMA collides head-on with Xiaomi in the RMB 200,000–300,000 (20–30 万) price band. Huawei has brand premium and the smart-driving label; Xiaomi can only respond with "same specs, RMB 30,000–50,000 (3–5 万) cheaper." **This is not a failure of product strength but a gap in brand strength.**
+The second-biggest danger is Huawei: HIMA collides head-on with Xiaomi in the RMB 200,000–300,000 price band. Huawei has brand premium and the smart-driving label; Xiaomi can only respond with "same specs, RMB 30,000–50,000 cheaper." This is not a failure of product strength but a gap in brand strength.
 
 ## Supply chain: the trade-off between in-house build and outsourcing
 
 Xiaomi EV's supply-chain strategy is "core in-house plus key outsourcing": die-casting, body and e-drive developed in-house; batteries from CATL and BYD; autonomous-driving compute from Nvidia Orin/Thor; cockpit chips from Qualcomm. This approach let it build a car within two years, but it also means a large chunk of per-vehicle BOM is priced by others.
 
-Compare BYD: batteries, motors, electronic controls and chips all supplied in-house, with vertical integration near 75%, which is why it can hold gross margin at 18% through a price war.**Xiaomi's integration is roughly 30%–40% (rough estimate), which is why its gross margin is lower than BYD's and why it is more exposed to upstream price increases.**
+Compare BYD: batteries, motors, electronic controls and chips all supplied in-house, with vertical integration near 75%, which is why it can hold gross margin at 18% through a price war.Xiaomi's integration is roughly 30%–40% (rough estimate), which is why its gross margin is lower than BYD's and why it is more exposed to upstream price increases.
 
-On the phone side it is even clearer: SoC from Qualcomm and MediaTek, memory from the three oligopolists, panels from BOE — what Xiaomi controls is product definition, the system and channels.**In the supply chain it has no ability to "choke others", only the risk of being choked.** The Xuanjie O1 is the sole exception, but it covers only some flagships and the baseband is still outsourced.
+On the phone side it is even clearer: SoC from Qualcomm and MediaTek, memory from the three oligopolists, panels from BOE — what Xiaomi controls is product definition, the system and channels.In the supply chain it has no ability to "choke others", only the risk of being choked. The Xuanjie O1 is the sole exception, but it covers only some flagships and the baseband is still outsourced.
 
 ## Is the moat widening or narrowing?
 
@@ -73,7 +73,7 @@ Three are widening: ecosystem (rising car parc, stronger human-car-home linkage)
 
 Two are narrowing: cost advantage (memory price increases are eating the efficiency dividend) and switching costs (the car price war makes it easier for users to be pulled away by a rival's discounts).
 
-**Net effect: the moat's width is unchanged, but its depth has shallowed.** It can still keep out new entrants (no one can build 100,000 cars in two years), but it cannot stop price wars among incumbents, nor upstream cost pass-through.**That is why its gross margin is so volatile—the moat blocks "who gets in," not "who can make money."**
+Net effect: the moat's width is unchanged, but its depth has shallowed. It can still keep out new entrants (no one can build 100,000 cars in two years), but it cannot stop price wars among incumbents, nor upstream cost pass-through.That is why its gross margin is so volatile—the moat blocks "who gets in," not "who can make money."
 
 ## Sources
 

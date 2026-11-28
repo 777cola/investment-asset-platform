@@ -23,37 +23,37 @@ Moat scores are proprietary to this report. Competitor facts: Li Auto's RMB 2.65
 
 ## Position in the value chain: a midstream "final assembly plant" that bridges upstream and downstream, but not the chain leader
 
-CATL occupies the "materials into cells" segment of the chain: upstream lie lithium, nickel, cathodes, anodes, separators, electrolytes, structural parts and equipment; downstream lie modules/PACKs, vehicles and energy-storage systems. **Its procurement scale is the world's largest, so it gets discounts from suppliers; its product is a core component for automakers, so it has bargaining power over customers.** Together, these two ends make it the most profitable midstream company in the chain.
+CATL occupies the "materials into cells" segment of the chain: upstream lie lithium, nickel, cathodes, anodes, separators, electrolytes, structural parts and equipment; downstream lie modules/PACKs, vehicles and energy-storage systems. Its procurement scale is the world's largest, so it gets discounts from suppliers; its product is a core component for automakers, so it has bargaining power over customers. Together, these two ends make it the most profitable midstream company in the chain.
 
-But it is not the chain master. The chain master is the one that defines standards — Tesla defined 4680, BYD defined the blade cell, and CATL defined the "large cell + high energy density" engineering route. **Leadership in an engineering route is sustainable, but not irreplaceable.** That is why its gross margin is only just above 20%, while TSMC reaches 58% in foundry.
+But it is not the chain master. The chain master is the one that defines standards — Tesla defined 4680, BYD defined the blade cell, and CATL defined the "large cell + high energy density" engineering route. Leadership in an engineering route is sustainable, but not irreplaceable. That is why its gross margin is only just above 20%, while TSMC reaches 58% in foundry.
 
 ## Supply chain: its ability to hold supplier payables is its most underappreciated advantage
 
-A debt-to-asset ratio of 60%–65% and interest-bearing debt below 10% — the other side of this structure is that **it owes its suppliers a lot of money.** A huge accounts-payable balance and long payment terms amount to financing its own working capital with suppliers' money. It can do this because it is the world's largest buyer — suppliers dare not press for payment.
+A debt-to-asset ratio of 60%–65% and interest-bearing debt below 10% — the other side of this structure is that it owes its suppliers a lot of money. A huge accounts-payable balance and long payment terms amount to financing its own working capital with suppliers' money. It can do this because it is the world's largest buyer — suppliers dare not press for payment.
 
-Downstream, it holds contract liabilities (automakers must pay deposits to lock in capacity). **Capturing float at both ends is the cash-form expression of its scale advantage, and the reason it can hold out in a price war.** Second-tier manufacturers cannot: they get no discounts from upstream and no prepayments from downstream, so any price cut hits cash flow first.
+Downstream, it holds contract liabilities (automakers must pay deposits to lock in capacity). Capturing float at both ends is the cash-form expression of its scale advantage, and the reason it can hold out in a price war. Second-tier manufacturers cannot: they get no discounts from upstream and no prepayments from downstream, so any price cut hits cash flow first.
 
-The risk: if share slips, its ability to hold float declines in tandem. This is a mechanism where positive feedback can also run in reverse — **a 5-point share loss would lead suppliers to shorten payment terms, and cash flow would deteriorate before the income statement does.**
+The risk: if share slips, its ability to hold float declines in tandem. This is a mechanism where positive feedback can also run in reverse — a 5-point share loss would lead suppliers to shorten payment terms, and cash flow would deteriorate before the income statement does.
 
 ## Competitive comparison: five rivals, five playbooks
 
-BYD is vertically integrated, uses its batteries in-house at the lowest cost, and takes CATL's customers directly in the RMB 10–20 万元 vehicle market; CALB wins first-supplier status on mid-range models with price and fast response; Sunwoda turns automakers into shareholders through "joint ventures + equity" (Li Auto holds 11.17%); Gotion enters Harmony Intelligent Mobility Alliance via Huawei's "Jupiter" battery supply chain; LG Energy Solution takes share of European and US procurement with North American local capacity.**Of the five playbooks, only BYD's is structural; the rest are price-based.**
+BYD is vertically integrated, uses its batteries in-house at the lowest cost, and takes CATL's customers directly in the RMB 100,000–200,000 vehicle market; CALB wins first-supplier status on mid-range models with price and fast response; Sunwoda turns automakers into shareholders through "joint ventures + equity" (Li Auto holds 11.17%); Gotion enters Harmony Intelligent Mobility Alliance via Huawei's "Jupiter" battery supply chain; LG Energy Solution takes share of European and US procurement with North American local capacity.Of the five playbooks, only BYD's is structural; the rest are price-based.
 
 ## The most dangerous rival: BYD, not CALB
 
-CALB is fighting for orders; BYD is fighting over the premise of whether batteries should be bought externally at all. If every automaker builds its own batteries like BYD, CATL's customer pool shrinks permanently—**this is not a share problem, it is a market-definition problem.**
+CALB is fighting for orders; BYD is fighting over the premise of whether batteries should be bought externally at all. If every automaker builds its own batteries like BYD, CATL's customer pool shrinks permanently—this is not a share problem, it is a market-definition problem.
 
-BYD's blade battery plus vehicle integration pushes battery cost to the industry's lowest, and it amortizes R&D without selling externally. For every car it sells in the RMB 10–20 million price band, it takes one battery's worth of demand away from CATL.**In the first half of 2026 BYD held about 16% global share, the only player with a chance of catching CATL by carrying batteries through whole vehicles.**
+BYD's blade battery plus vehicle integration pushes battery cost to the industry's lowest, and it amortizes R&D without selling externally. For every car it sells in the RMB 10–20 million price band, it takes one battery's worth of demand away from CATL.In the first half of 2026 BYD held about 16% global share, the only player with a chance of catching CATL by carrying batteries through whole vehicles.
 
-CATL's response is to move upmarket and overseas: premium models (Qilin, Shenxing) and overseas customers (BMW, Mercedes-Benz, Volkswagen) are places BYD cannot enter near term.**The path is right, but it narrows CATL's market from all EVs to mid-to-high-end plus overseas.**
+CATL's response is to move upmarket and overseas: premium models (Qilin, Shenxing) and overseas customers (BMW, Mercedes-Benz, Volkswagen) are places BYD cannot enter near term.The path is right, but it narrows CATL's market from all EVs to mid-to-high-end plus overseas.
 
 ## If only one moat remains, which one is it?
 
-Suppose the technology route changes in five years and the brand never gets built—what can CATL still live on? There is only one answer: **cost.** Not the cost of being "5% cheaper than others," but the cost of "lowest unit investment at the same yield"—which comes from the engineering capability of the production line, the in-house share of equipment, and the self-supply share of materials.
+Suppose the technology route changes in five years and the brand never gets built—what can CATL still live on? There is only one answer: cost. Not the cost of being "5% cheaper than others," but the cost of "lowest unit investment at the same yield"—which comes from the engineering capability of the production line, the in-house share of equipment, and the self-supply share of materials.
 
-This moat is invisible: it is not in patents, not in the brand, but in investment per GWh and manufacturing cost per kWh. **For a rival to replicate it, it is not a matter of buying one piece of equipment but of rebuilding an entire engineering system—five years and RMB 50 billion.**
+This moat is invisible: it is not in patents, not in the brand, but in investment per GWh and manufacturing cost per kWh. For a rival to replicate it, it is not a matter of buying one piece of equipment but of rebuilding an entire engineering system—five years and RMB 50 billion.
 
-But a cost moat has an inherent flaw: **it only guarantees "earning more than rivals," not "earning more than last year."** When an industry price war runs its course, even the lowest-cost player must cut prices. That is why CATL's gross margin still fell 1.07 points in 2026—it beat its rivals but lost to the industry.
+But a cost moat has an inherent flaw: it only guarantees "earning more than rivals," not "earning more than last year." When an industry price war runs its course, even the lowest-cost player must cut prices. That is why CATL's gross margin still fell 1.07 points in 2026—it beat its rivals but lost to the industry.
 
 ## Sources
 

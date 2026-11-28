@@ -25,7 +25,7 @@ The Q&A format follows the expression style of Duan Yongping's public interviews
 
 Answer: a good industry and a good company, but not a good business. A good industry means only three players plus one chaser remain in memory, and there will be no more ten-way melee; a good company means SK hynix has genuinely built an HBM lead that others cannot close in two years; not a good business means raising prices loses customers — when commodity DRAM prices rose 60%, customers did not run because they had no choice, not because they could not do without it.
 
-The real dividing line is the small HBM slice: prices there tripled and customers still scrambled to sign long-term agreements, so that segment counts as a good business. But that slice is only 30-40% of revenue, and its contracts run on annual terms. **Applying a ten-tenths valuation to four-tenths of business quality is why many people lose money**.
+The real dividing line is the small HBM slice: prices there tripled and customers still scrambled to sign long-term agreements, so that segment counts as a good business. But that slice is only 30-40% of revenue, and its contracts run on annual terms. Applying a ten-tenths valuation to four-tenths of business quality is why many people lose money.
 
 ## Q: Will it still be around in ten years?
 
@@ -33,13 +33,13 @@ Answer: Yes, it survives. Memory does not disappear, Korea will not let it fail,
 
 But "still here" and "making money" are two different things. Over the past decade it has earned a cumulative KRW 105 trillion in net profit and invested KRW 130 trillion in capex — the money it earned was not enough to build fabs. The essence of this business is "trade profit for capacity, trade capacity for the next round of pricing."
 
-So in ten years it will certainly still be here, but its operating margin in ten years could be 20% or 60%, depending on how the 2027–2030 capacity expansion round plays out. Anyone buying it must accept one thing: **you are not buying "SK hynix ten years from now," you are buying "the remainder of this cycle."**
+So in ten years it will certainly still be here, but its operating margin in ten years could be 20% or 60%, depending on how the 2027–2030 capacity expansion round plays out. Anyone buying it must accept one thing: you are not buying "SK hynix ten years from now," you are buying "the remainder of this cycle."
 
 ## Q: Can you understand it?
 
 Answer: The business is understandable; the inflection point is not. The business in three sentences: build fabs, make chips, sell at contract prices. There are only three variables: inventory, capex, contract price. All three can be checked every month; no insider information needed.
 
-The inflection point is not understandable. The company's CEO said on July 10 that 2027 will be the tightest year in history; the market knocked the stock down 15% on July 13. Both sides have a point, because one is talking about order bookings and the other about expectations. Duan Yongping's approach: **if you cannot understand it, do not price it in**. What can be calculated is a profit of 230 trillion in 2026; what cannot be calculated is whether 2027 profit will be 180 or 110.
+The inflection point is not understandable. The company's CEO said on July 10 that 2027 will be the tightest year in history; the market knocked the stock down 15% on July 13. Both sides have a point, because one is talking about order bookings and the other about expectations. Duan Yongping's approach: if you cannot understand it, do not price it in. What can be calculated is a profit of 230 trillion in 2026; what cannot be calculated is whether 2027 profit will be 180 or 110.
 
 ## Q: At what price to buy?
 
@@ -47,11 +47,11 @@ Answer: below KRW 1.65 million. That price corresponds to 6x 2027 operating prof
 
 Why not wait for KRW 1.4 million? Because good companies are rarely "cheap enough," and KRW 1.4 million may never come. Scaling in makes sense: buy a third at KRW 1.65 million, add to half at KRW 1.4 million; if it falls further, the thesis is wrong, not the price.
 
-One more point: if the July 29 earnings show operating profit of KRW 65 trillion and management maintains its tight-supply stance for 2027, then KRW 1.75 million is also acceptable—**because the assumptions have been validated, the price can be slightly higher**. That is the sequence: get it right first, then buy cheap.
+One more point: if the July 29 earnings show operating profit of KRW 65 trillion and management maintains its tight-supply stance for 2027, then KRW 1.75 million is also acceptable—because the assumptions have been validated, the price can be slightly higher. That is the sequence: get it right first, then buy cheap.
 
 ## Q: What is the biggest fear?
 
-Answer: The biggest mistake is treating "it has fallen a lot" as "it is cheap." From 2.919 million to 1.816 million, a 37.8% decline feels like a lot. But on 2027 neutral profit, the current price is still 7x, and the neutral target price is 9% below the current price. **A 38% drop only shows the prior rally was too big; it does not show the stock is cheap now**.
+Answer: The biggest mistake is treating "it has fallen a lot" as "it is cheap." From 2.919 million to 1.816 million, a 37.8% decline feels like a lot. But on 2027 neutral profit, the current price is still 7x, and the neutral target price is 9% below the current price. A 38% drop only shows the prior rally was too big; it does not show the stock is cheap now.
 
 The second mistake is "this time is different." AI demand is real, the HBM barrier is real, long-term agreement lock-in is real — three reals combined still do not overturn the thirty-year rule that "memory is a cyclical industry." Every historical top had a "this time is different" story: data centers in 2018, work-from-home in 2022, AI in 2026.
 
@@ -61,7 +61,7 @@ Answer: Hold, do not add; add only on a break below 1.4 million. The sell condit
 
 If your cost is above 2.5 million, ask yourself one question: what was the reason you bought it? If the reason was "long-term AI memory shortage," that reason has not yet been falsified, so you can hold; if the reason was "it's going up," that reason has already disappeared.
 
-"Benfen" here means: do not forecast what you cannot forecast, and do not pay for risks you do not want to bear. **At 1.816 million, you are paying for "no crash in 2027," and that is not a bill optimists should pay**.
+"Benfen" here means: do not forecast what you cannot forecast, and do not pay for risks you do not want to bear. At 1.816 million, you are paying for "no crash in 2027," and that is not a bill optimists should pay.
 
 ## Sources
 

@@ -10,7 +10,7 @@ This module has 8 pages, each 900–1,300 words. Sources: NVIDIA FY2027Q2 earnin
 
 ## How to read the eight articles
 
-The first four pieces explain "what it is"; the last four explain "what it is worth." If time is short, read Part ④ and Part ⑧—one covers the financial reality, the other the decision framework.
+The first four pieces cover "what it is"; the last four cover "what it is worth." If time is short, read Part ④ and Part ⑧—one on the financial reality, one on the decision framework.
 
 ## Sources
 

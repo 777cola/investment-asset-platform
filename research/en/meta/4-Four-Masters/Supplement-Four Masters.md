@@ -23,15 +23,15 @@ The four-master framework follows the AI Berkshire standard: Duan Yongping exami
 
 In October 2021, Zuckerberg renamed the company Meta and announced USD 10 billion a year for the metaverse. Over the next four years, Reality Labs racked up cumulative losses of more than USD 100 billion, and the stock fell from USD 384 in September 2021 to USD 88 in November 2022, a 77% decline. It then rebounded in 2023 on advertising efficiency and was one of the best performers among the Magnificent Seven in 2024–2025.
 
-That history cuts both ways today. **On the positive side: it proves the company can rebuild its core business after massive spending.** On the negative side: it also proves that in the two years when the market did not trust the return on that spending, the valuation could be cut by three-quarters, and that had nothing to do with whether the advertising business itself was healthy.
+That history cuts both ways today. On the positive side: it proves the company can rebuild its core business after massive spending. On the negative side: it also proves that in the two years when the market did not trust the return on that spending, the valuation could be cut by three-quarters, and that had nothing to do with whether the advertising business itself was healthy.
 
-This round differs in scale and in how it is funded. In 2022, the money came out of operating cash flow, and free cash flow stayed positive even at the worst point; this time, free cash flow has turned negative and the company has started issuing stock. **Same script, more leverage.**
+This round differs in scale and in how it is funded. In 2022, the money came out of operating cash flow, and free cash flow stayed positive even at the worst point; this time, free cash flow has turned negative and the company has started issuing stock. Same script, more leverage.
 
 ## Duan Yongping: I understand the business, but I don't understand where the money goes
 
 This is the kind of business Duan Yongping likes best: users come back on their own every day, advertisers queue up to bid, and you don't have to win customers over again every year. 3.64 billion daily active users, 79% gross margin, 26% growth — put all three together and you can't find five companies in the world that match. He himself has said that a good business model is one where "profit and net cash flow are always solid, and competitors can't take it away even given a long time."
 
-But he would get stuck on one question: where does the money earned go. USD 135–145 billion in capex a year, more than full-year operating cash flow. He can understand the returns on the advertising algorithm; he can't understand the returns on artificial general intelligence. **The part you can't understand shouldn't be bought with all shareholders' money** — on October 26 the company added another USD 95 billion in equity financing capacity, which is essentially opening up shareholders' wallets.
+But he would get stuck on one question: where does the money earned go. USD 135–145 billion in capex a year, more than full-year operating cash flow. He can understand the returns on the advertising algorithm; he can't understand the returns on artificial general intelligence. The part you can't understand shouldn't be bought with all shareholders' money — on October 26 the company added another USD 95 billion in equity financing capacity, which is essentially opening up shareholders' wallets.
 
 What would he say? "I'm willing to own this business, but I'm not willing to buy at this price. Wait until it spends the money clearly, or until the price falls to a level I consider worthwhile." Duan Yongping's "rough estimate" is simple: USD 620 is a fair price, so talk again below USD 500.
 
@@ -39,15 +39,15 @@ What would he say? "I'm willing to own this business, but I'm not willing to buy
 
 Buffett would concede the moat is real: social graph, advertiser budget inertia, algorithmic data — all three are built over time and cannot be bought with money. The logic is the same as his purchase of See's Candies — it runs on mindshare and habit, not patents.
 
-Then he would single out capex. When he bought Apple, Apple's capex was under 10% of operating cash flow; Meta's is now 106%. **A business that plows every dollar it earns back in, with no clear return rate in sight, does not count as a "great business" in his framework — only a "great asset."** Assets should be bought at a discount; businesses can command full price. That is the difference.
+Then he would single out capex. When he bought Apple, Apple's capex was under 10% of operating cash flow; Meta's is now 106%. A business that plows every dollar it earns back in, with no clear return rate in sight, does not count as a "great business" in his framework — only a "great asset." Assets should be bought at a discount; businesses can command full price. That is the difference.
 
-One more thing he would look for in the annual report: buybacks. In the first nine months of 2026, Meta did not buy back a single share, while still paying its dividend (about USD 1.3 billion a quarter). **Going from a "buyback machine" to a "financing machine" is the kind of directional change Buffett dislikes most** — he himself has said we like businesses that "make money while sitting still, without needing constant reinvestment."
+One more thing he would look for in the annual report: buybacks. In the first nine months of 2026, Meta did not buy back a single share, while still paying its dividend (about USD 1.3 billion a quarter). Going from a "buyback machine" to a "financing machine" is the kind of directional change Buffett dislikes most — he himself has said we like businesses that "make money while sitting still, without needing constant reinvestment."
 
 ## Munger: invert the question — what would make it fall another 30%
 
 Munger would invert the question: at USD 606 now, under what conditions does it fall to USD 410? Three triggers.
 
-① 2027 expense guidance comes in above the consensus of X, and sell-side analysts cut EPS across the board. Q4 revenue guidance of USD 73–76 billion is above the consensus of X, but the expense line is blank, and that blank will have to be filled sooner or later. ② Depreciation starts to pressure profit, advertising growth drops below 15%, and two consecutive quarters show "revenue up, profit not". ③ The funding method shifts from own cash to large-scale equity financing, diluting shareholders — **this one has already gone from "possible" to "happening"**: USD 37.5 billion has been priced, and the USD 60 billion ATM runs through Q1 2027.
+① 2027 expense guidance comes in above the consensus of X, and sell-side analysts cut EPS across the board. Q4 revenue guidance of USD 73–76 billion is above the consensus of X, but the expense line is blank, and that blank will have to be filled sooner or later. ② Depreciation starts to pressure profit, advertising growth drops below 15%, and two consecutive quarters show "revenue up, profit not". ③ The funding method shifts from own cash to large-scale equity financing, diluting shareholders — this one has already gone from "possible" to "happening": USD 37.5 billion has been priced, and the USD 60 billion ATM runs through Q1 2027.
 
 He would add: when management starts making structural preparations for financing, it usually means they already know they need to raise. The Class C shares were approved on October 21 and used on October 26 — a five-day gap.
 
@@ -57,25 +57,25 @@ Li Lu would take a longer view: total human attention is fixed, and whoever capt
 
 The real variable is the next entry point. If personal agents become the primary gateway through which users obtain information, the "social feed" degrades from gateway to content source, and bargaining power erodes. Meta is spending RMB 140 billion on Muse, betting that it will not be the one disrupted. The direction of the bet is right: Muse passed 10 million downloads within 40 days of launch, with daily actives at roughly 25%, more than twice Threads' early pace.
 
-But the size of the bet is unfriendly to shareholders. **If it wins, the company keeps the upside; if it loses, he does not refund the money.** Li Lu's usual approach is to "understand the long term and wait for the price" — he would put this company on the watchlist rather than build a position now.
+But the size of the bet is unfriendly to shareholders. If it wins, the company keeps the upside; if it loses, he does not refund the money. Li Lu's usual approach is to "understand the long term and wait for the price" — he would put this company on the watchlist rather than build a position now.
 
 ## Two real disagreements among four people
 
-**Disagreement one: is AI spending capital allocation or a cost of survival.** Buffett treats it as capital allocation and demands a return; Li Lu treats it as a cost of survival, since not investing risks being displaced by the next-generation entry point. This disagreement determines whether you score the spending as "acceptable." This report leans toward Buffett: **a cost of survival can be paid, but it must be paid efficiently** — for the same RMB 140 billion, Google has cloud to offset it while Meta has only advertising, so its efficiency is inherently lower.
+Disagreement one: is AI spending capital allocation or a cost of survival. Buffett treats it as capital allocation and demands a return; Li Lu treats it as a cost of survival, since not investing risks being displaced by the next-generation entry point. This disagreement determines whether you score the spending as "acceptable." This report leans toward Buffett: a cost of survival can be paid, but it must be paid efficiently — for the same RMB 140 billion, Google has cloud to offset it while Meta has only advertising, so its efficiency is inherently lower.
 
-**Disagreement two: is Muse an option or a story.** Duan Yongping would say that what you cannot understand does not count as value, Munger would say do not pay for stories, and Li Lu would say even an option must be priced. All three agree: **before Muse shows auditable subscription revenue, it is worth USD 0 to 100 per share, but cannot serve as a margin of safety.** This report places it in the optimistic scenario, not the neutral scenario.
+Disagreement two: is Muse an option or a story. Duan Yongping would say that what you cannot understand does not count as value, Munger would say do not pay for stories, and Li Lu would say even an option must be priced. All three agree: before Muse shows auditable subscription revenue, it is worth USD 0 to 100 per share, but cannot serve as a margin of safety. This report places it in the optimistic scenario, not the neutral scenario.
 
 ## One number decides this debate
 
 2027 total cost growth. If it runs below revenue growth, operating leverage turns positive again, depreciation is absorbed by growth, the 21x PE becomes 18x, and the fifth gate is overturned outright; if it runs above revenue growth for two quarters, EPS gets cut repeatedly, the 21x becomes 28x, and the valuation halves.
 
-This is why the report puts "wait for 2027 cost guidance" in its conclusion rather than "wait for AI monetization." **The former is a number that will be published within a quarter; the latter is an answer that will only be known three years from now.** Investing must rest on verifiable things—the one point on which all four of us agree.
+This is why the report puts "wait for 2027 cost guidance" in its conclusion rather than "wait for AI monetization." The former is a number that will be published within a quarter; the latter is an answer that will only be known three years from now. Investing must rest on verifiable things—the one point on which all four of us agree.
 
 ## Odds assessment: why USD 620 is not a buying point
 
-Work out the odds across the three scenarios: bear case 410 (-32%), base case 620 (+2%), bull case 860 (+42%). Assigning each scenario a 1/3 probability gives an expected value of USD 630, 4% above the current price — **those odds are not good enough, because you are taking on 32% downside volatility in exchange for a 4% expected return.**
+Work out the odds across the three scenarios: bear case 410 (-32%), base case 620 (+2%), bull case 860 (+42%). Assigning each scenario a 1/3 probability gives an expected value of USD 630, 4% above the current price — those odds are not good enough, because you are taking on 32% downside volatility in exchange for a 4% expected return.
 
-For the odds to work, either the price has to come down (at USD 500, bear case -18%, base case +24%, bull case +72%, expected +26%), or the probability of the bull case has to rise (Muse has paid data, cost guidance lands). **Neither condition holds now, so the four of us agree: don't buy, wait.**
+For the odds to work, either the price has to come down (at USD 500, bear case -18%, base case +24%, bull case +72%, expected +26%), or the probability of the bull case has to rise (Muse has paid data, cost guidance lands). Neither condition holds now, so the four of us agree: don't buy, wait.
 
 ## Sources
 

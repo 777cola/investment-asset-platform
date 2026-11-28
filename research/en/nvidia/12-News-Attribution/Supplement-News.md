@@ -27,9 +27,9 @@ The stock price series uses daily data (close, 2026/06/02–2026/08/31); the 52-
 
 At the end of June the market was still cheering the H20 ban lift; by the end of July it was back to reality: Chinese regulators required domestic firms to stop purchasing H20, and Nvidia asked suppliers to halt related production. The stock fell from 206.84 to 190.01, −8.1%, a three-month low.
 
-What matters here is that it changed the framing of guidance. Q3 guidance of USD 108 billion explicitly assumes zero China data-center compute revenue; H200 delivered under license in Q2 was less than 1% of data-center revenue. **In other words, the China line has gone from an "option" to "zero" — and a zero the company itself wrote into guidance.**
+What matters here is that it changed the framing of guidance. Q3 guidance of USD 108 billion explicitly assumes zero China data-center compute revenue; H200 delivered under license in Q2 was less than 1% of data-center revenue. In other words, the China line has gone from an "option" to "zero" — and a zero the company itself wrote into guidance.
 
-Many investors are still waiting for a "China recovery" catalyst. My view: **stop treating it as an option.** FY2026 China revenue was USD 19.7 billion, down from about 25 billion the prior year, with a 4.5 billion charge on H20 — this line has already contributed negative value. Valuing it at zero actually makes the valuation cleaner.
+Many investors are still waiting for a "China recovery" catalyst. My view: stop treating it as an option. FY2026 China revenue was USD 19.7 billion, down from about 25 billion the prior year, with a 4.5 billion charge on H20 — this line has already contributed negative value. Valuing it at zero actually makes the valuation cleaner.
 
 ## Signal two: gross margin has peaked — the only new information in this earnings report
 
@@ -37,31 +37,31 @@ Earnings released after the close on August 26; the stock rose 8.74% to USD 227.
 
 On August 28 it fell back to USD 217.55, down 4.57%. What the market digested were two other statements: Q4 gross margin bottoming at 71%–72% (prior market expectation 73%–74%), and the USD 108.5 billion credit guarantee.
 
-Up first, then down, all within a day and a half — the market itself had not decided what multiple to assign. **But one thing is certain: this is the first time the company has explicitly said gross margin will fall, and it gave a specific path (Q3 74%, Q4 71%–72%, FY2028 back to 72%–73%).**
+Up first, then down, all within a day and a half — the market itself had not decided what multiple to assign. But one thing is certain: this is the first time the company has explicitly said gross margin will fall, and it gave a specific path (Q3 74%, Q4 71%–72%, FY2028 back to 72%–73%).
 
-The value of this information is that it changes the FY2028 EPS starting point. The market had been calculating FY2028 on a 74% gross margin; now it must use 72.5%, cutting EPS by about 4%–6%. **The 4.57% share-price decline roughly matches that downward revision — the market was efficient this time.**
+The value of this information is that it changes the FY2028 EPS starting point. The market had been calculating FY2028 on a 74% gross margin; now it must use 72.5%, cutting EPS by about 4%–6%. The 4.57% share-price decline roughly matches that downward revision — the market was efficient this time.
 
 ## Noise: five unusual moves, not a single number changed
 
 The remaining five: why each one is noise, point by point.
 
-**6/5 Senate hearing (−6.2%).** Warren inviting Jensen Huang to testify was a political gesture. A hearing will not change export rules; the rules already hard-code zero China data-center revenue, so testifying or not has no bearing on Q3 guidance.
+6/5 Senate hearing (−6.2%). Warren inviting Jensen Huang to testify was a political gesture. A hearing will not change export rules; the rules already hard-code zero China data-center revenue, so testifying or not has no bearing on Q3 guidance.
 
-**6/26–6/30 lockup expiry (+3.9%).** Loosening H20 sales licenses sounds like good news, but H20 is a previous-generation product and Chinese customers have already shifted to domestic alternatives. The rally lasted two days and faded.
+6/26–6/30 lockup expiry (+3.9%). Loosening H20 sales licenses sounds like good news, but H20 is a previous-generation product and Chinese customers have already shifted to domestic alternatives. The rally lasted two days and faded.
 
-**8/18 Gundlach warning (−2.3%).** He said AI chip financing models look like the eve of the 2007 subprime crisis. It is a good metaphor, but not data. **A metaphor cannot be used for pricing, only to remind yourself to read the footnotes.**
+8/18 Gundlach warning (−2.3%). He said AI chip financing models look like the eve of the 2007 subprime crisis. It is a good metaphor, but not data. A metaphor cannot be used for pricing, only to remind yourself to read the footnotes.
 
-**8/24 sector pullback (−2.9%).** No company-level news; this was valuation digestion across the AI sector. Drops like this usually repair within two weeks.
+8/24 sector pullback (−2.9%). No company-level news; this was valuation digestion across the AI sector. Drops like this usually repair within two weeks.
 
-**8/31 rebound (+1.48%).** No news; it retraced part of the post-earnings decline. Anyone treating it as a signal will get whipsawed twice within two weeks.
+8/31 rebound (+1.48%). No news; it retraced part of the post-earnings decline. Anyone treating it as a signal will get whipsawed twice within two weeks.
 
 ## Two things we can learn from unusual moves
 
-First, **the stock price is more sensitive to "gross margin" than to "revenue."** The 8.74% gain on 8/27 was driven by revenue and guidance; the 4.57% drop on 8/28 was driven by gross margin. Net gain over the one and a half days was 4%, but the swing was 13%. This shows the market already treats revenue growth as a given and has begun pricing "the quality of growth" — the most typical feature of the transition from growth stock to value stock.
+First, the stock price is more sensitive to "gross margin" than to "revenue." The 8.74% gain on 8/27 was driven by revenue and guidance; the 4.57% drop on 8/28 was driven by gross margin. Net gain over the one and a half days was 4%, but the swing was 13%. This shows the market already treats revenue growth as a given and has begun pricing "the quality of growth" — the most typical feature of the transition from growth stock to value stock.
 
-Second, **China news is now negative alpha.** Every "lockup expiry" rumor brings a rally, then gets disproven. The late-June wave of +3.9% was given back by late July, with an extra 8% decline on top. Anyone trading on China news has lost money over these three months.
+Second, China news is now negative alpha. Every "lockup expiry" rumor brings a rally, then gets disproven. The late-June wave of +3.9% was given back by late July, with an extra 8% decline on top. Anyone trading on China news has lost money over these three months.
 
-So the focus for next quarter is clear: ignore China, ignore opinion leaders, ignore the sector. **Watch only the three numbers on November 17 — whether Q4 gross margin lands in the 71%–72% range, whether receivables turnover days hold at 65, and whether FY2028 guidance is maintained at 70%.**
+So the focus for next quarter is clear: ignore China, ignore opinion leaders, ignore the sector. Watch only the three numbers on November 17 — whether Q4 gross margin lands in the 71%–72% range, whether receivables turnover days hold at 65, and whether FY2028 guidance is maintained at 70%.
 
 ## Sources
 

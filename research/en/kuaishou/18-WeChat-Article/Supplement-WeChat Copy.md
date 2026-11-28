@@ -14,7 +14,7 @@ Kuaishou's revenue this quarter was RMB 35.535 billion, up RMB 495 million from 
 
 Of that, Kling AI's revenue rose from about RMB 280 million to RMB 850 million, an increase of RMB 567 million.
 
-495 minus 567 equals -0.7.**In other words: excluding Kling, Kuaishou's revenue across all its businesses combined was shrinking.**
+495 minus 567 equals -0.7.In other words: excluding Kling, Kuaishou's revenue across all its businesses combined was shrinking.
 
 The arithmetic is not hard, but few bother to do it. Because once you do, the claim that "total revenue is still growing" no longer holds up.
 
@@ -24,9 +24,9 @@ Kling is genuinely a good asset. Launched in June 2024, it reached 100 million g
 
 It is the fastest-monetizing Chinese AI application, without dispute.
 
-But its quarterly revenue is RMB 850 million, or **2.4%** of total revenue. At a USD 18 billion valuation it is worth HKD 116.3 billion, equivalent to 92% of Kuaishou's current total market cap.
+But its quarterly revenue is RMB 850 million, or 2.4% of total revenue. At a USD 18 billion valuation it is worth HKD 116.3 billion, equivalent to 92% of Kuaishou's current total market cap.
 
-That is the problem: **either the private-market price is wrong, or the market believes Kuaishou's core business is worth little.** One of the two must hold.
+That is the problem: either the private-market price is wrong, or the market believes Kuaishou's core business is worth little. One of the two must hold.
 
 ## Where did profit go? Revenue sharing and R&D each take a bite
 
@@ -36,15 +36,15 @@ R&D rose from RMB 3.4 billion to RMB 4.6 billion, up nearly RMB 1.2 billion, mai
 
 The two together total RMB 2.6 billion, compressing adjusted net profit from RMB 5.6 billion to RMB 3.9 billion.
 
-The interesting part: had the R&D expense ratio held at last year's level, net profit would have fallen only 9.7%.**In other words, two-thirds of the profit decline was management's own choice; one-third was forced by competition.**The voluntary part can be stopped; the involuntary part cannot.
+The interesting part: had the R&D expense ratio held at last year's level, net profit would have fallen only 9.7%.In other words, two-thirds of the profit decline was management's own choice; one-third was forced by competition.The voluntary part can be stopped; the involuntary part cannot.
 
 ## Is 10.5x PE cheap? Depends on which denominator you use
 
 Many people get excited when they see a 10.5x PE. But the denominator of PE changes.
 
-The market consensus for 2026 adjusted net profit has already been cut to RMB 8.99 billion. On that number, the market cap of roughly RMB 116 billion implies a forward PE of **12.9x** — more expensive than the 10.5x TTM.
+The market consensus for 2026 adjusted net profit has already been cut to RMB 8.99 billion. On that number, the market cap of roughly RMB 116 billion implies a forward PE of 12.9x — more expensive than the 10.5x TTM.
 
-Forward being more expensive than TTM has only one cause: **profit is heading down.** This is not cheap; this is the classic "value trap" pattern — cheap on a static basis, increasingly expensive on a dynamic one.
+Forward being more expensive than TTM has only one cause: profit is heading down. This is not cheap; this is the classic "value trap" pattern — cheap on a static basis, increasingly expensive on a dynamic one.
 
 That said, it holds RMB 24.27 billion in cash-like assets, 21% of market cap, or HKD 6.1 per share. That is a real buffer. But a buffer keeps you alive; it does not make you money.
 
@@ -56,7 +56,7 @@ Base case: advertising +3%, Kling doubles but remains loss-making = HKD 26.6, 9%
 
 Bull case: advertising back to +8%, Kling ARR breaks USD 1 billion = HKD 46, 57% above the current price.
 
-Weighted at 35/45/20 probabilities, expected return is **-8.4%**. **The upside looks larger, yet the math comes out negative—that is the difference between odds and probabilities.**
+Weighted at 35/45/20 probabilities, expected return is -8.4%. The upside looks larger, yet the math comes out negative—that is the difference between odds and probabilities.
 
 ## What is the market betting on?
 
@@ -66,7 +66,7 @@ The first bet is that "Kling wins." Video generation is the hottest technology t
 
 The second bet is that "advertising comes back." Chinese consumption recovers in 2027, ad budgets rebound, and Kuaishou, as a platform with 400 million DAU, benefits automatically. This bet has a higher hit rate but limited upside — if advertising returns, Kuaishou is still just a 12x PE company.
 
-**One bet offers upside without certainty; the other offers certainty without upside.** The market packages both and sells them to you at HKD 29.
+One bet offers upside without certainty; the other offers certainty without upside. The market packages both and sells them to you at HKD 29.
 
 ## Under what circumstances would I change my mind?
 

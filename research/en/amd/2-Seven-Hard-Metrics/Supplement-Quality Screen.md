@@ -28,13 +28,13 @@ Revenue growth of 50%, gross margin of 56.0% and net margin of 19.9% holding sim
 
 The cash flow figure is rough, but the direction is clear: net income of USD 2.297 billion, depreciation and amortization of about USD 800 million, operating cash flow of roughly USD 3 billion, capex of USD 808 million, free cash flow of about USD 2.2 billion. This is the benefit of fabless — the expansion capex is not funded by the company; TSMC funds it.
 
-Leverage also passes. Long-term debt is on the order of USD 3 billion, cash and short-term investments exceed debt, and EBITDA (TTM of about USD 8.5 billion) covers interest dozens of times over. The leverage from the 2022 Xilinx acquisition was paid down long ago. **The balance sheet poses no risk — one of the few certainties in this report.**
+Leverage also passes. Long-term debt is on the order of USD 3 billion, cash and short-term investments exceed debt, and EBITDA (TTM of about USD 8.5 billion) covers interest dozens of times over. The leverage from the 2022 Xilinx acquisition was paid down long ago. The balance sheet poses no risk — one of the few certainties in this report.
 
 ## Two caveats: ROE is a historical ledger, valuation is a future ledger
 
 The causes of the 10% ROE need to be spelled out. AMD acquired Xilinx in February 2022 for USD 49 billion in an all-stock deal, raising its share count from 1.2 billion to 1.6 billion shares, pushing goodwill to USD 24 billion and lifting net assets above USD 55 billion. The denominator grew, but the numerator (profit) fell to a cyclical trough in 2023–2024, with GAAP net income of just USD 1.6 billion in 2024. Only with profit recovering to USD 6.4 billion in 2026 does ROE return to 10%.
 
-Failing this test means "capital efficiency has not yet recovered," not "the business is broken." On the same basis, Nvidia's ROE exceeds 80% and Broadcom's is about 25%, placing AMD's 10% in the second tier.**Excluding the USD 24 billion of goodwill, return on tangible net assets would roughly double—but accounting rules do not allow that, so the verdict remains a fail.**
+Failing this test means "capital efficiency has not yet recovered," not "the business is broken." On the same basis, Nvidia's ROE exceeds 80% and Broadcom's is about 25%, placing AMD's 10% in the second tier.Excluding the USD 24 billion of goodwill, return on tangible net assets would roughly double—but accounting rules do not allow that, so the verdict remains a fail.
 
 The valuation test leaves no room for interpretation. At 125x TTM against 50% growth, PEG is 2.5—the only fail among the seven that is a price problem rather than an operating problem. A PEG of 1.5 implies a share price of about USD 290, which this report regards as the level at which the stock comes into range.
 
@@ -42,7 +42,7 @@ The valuation test leaves no room for interpretation. At 125x TTM against 50% gr
 
 ROE is not fatal. It is an accounting consequence, not an operating one: with no goodwill impairment, growing profit and sustained buybacks, ROE will be revised upward year after year. On TTM net profit of RMB 6.4 billion and net assets of RMB 63 billion, if net profit reaches RMB 33 billion in 2027 (EPS 20 × 1.66 billion shares), ROE jumps above 45% — this metric will resolve itself.
 
-Valuation is fatal. Because it is the only metric that cannot be resolved through operating improvements no matter how good the company is. There are only two solutions to 125x: earnings go up, or the share price comes down. Earnings would have to rise 5x to get back to 25x, and that is a 2029 story; a 50% share-price decline needs only one quarter of sentiment reversal.**The seven screens are not there to pick good companies; they are there to exclude the "good company + bad price" combination, and AMD currently sits squarely in that cell.**
+Valuation is fatal. Because it is the only metric that cannot be resolved through operating improvements no matter how good the company is. There are only two solutions to 125x: earnings go up, or the share price comes down. Earnings would have to rise 5x to get back to 25x, and that is a 2029 story; a 50% share-price decline needs only one quarter of sentiment reversal.The seven screens are not there to pick good companies; they are there to exclude the "good company + bad price" combination, and AMD currently sits squarely in that cell.
 
 One more point on the limits of the threshold itself. These seven criteria are designed for "mature companies with stable earnings" and will misfire on cyclical growth stocks: AMD's ROE was just 1% in 2024, and the screens would have rejected it outright then — yet that was precisely the starting point for its threefold rise by 2026. So the seven can only be used as a process of elimination, not as a process of discovery — which is why six more gates and the Four Masters follow this one.
 

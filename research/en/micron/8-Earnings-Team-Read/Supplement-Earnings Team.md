@@ -10,7 +10,7 @@ The financial figures in the four close-reading sections are all taken from Micr
 
 ## How to read the six pages
 
-The first four pages are close readings by each of the four masters, each taking a distinct angle with no overlap; the fifth page synthesizes the views, compressing the four close readings into three judgments and adjudicating conflicts; the sixth page is the editor's polished version, about 1,000 words, ready to publish. All figures are taken uniformly from the FY26Q3 financial report, with no adjustment to the basis of presentation.
+The first four pages are close readings by each of the four masters, each taking a distinct angle with no overlap; the fifth page synthesizes the views, compressing the four readings into three judgments and adjudicating conflicts; the sixth page is the editorially polished version, about 1,000 words, ready for publication. All figures are taken uniformly from the FY26Q3 financial report, with no adjustment of basis.
 
 ## Sources
 

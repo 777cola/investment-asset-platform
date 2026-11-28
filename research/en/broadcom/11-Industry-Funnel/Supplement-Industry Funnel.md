@@ -25,7 +25,7 @@ Comparison table basis: Broadcom figures are FY26Q3 reported values (revenue USD
 
 The first round looks at two things: AI revenue share and whether the moat is replicable.
 
-AMD is out: its MI series AI accelerators are closing in fast on hardware, but the software ecosystem (ROCm) lags CUDA by a clear margin, customer migration costs are high, and its 2026 share remains in the single digits. **Hardware can be caught up; ecosystems cannot.**
+AMD is out: its MI series AI accelerators are closing in fast on hardware, but the software ecosystem (ROCm) lags CUDA by a clear margin, customer migration costs are high, and its 2026 share remains in the single digits. Hardware can be caught up; ecosystems cannot.
 
 Alchip is out: it is a design services company earning NRE and a small volume-production cut, project-based, with no customer lock-in and 30% gross margins. Such companies see orders surge in boom times and drop to zero in downturns.
 
@@ -35,7 +35,7 @@ MediaTek is out: its AI exposure is too small. Winning Google's TPU V80 is a pos
 
 Marvell most resembles Broadcom: custom ASIC, optical interconnect, storage controllers, and a similar customer mix. In 2026 its custom business will be about one-third the size of Broadcom's, with gross margins around 60%.
 
-It falls short in three places. **First, no switch chips.** Broadcom can sell "compute + connectivity"; Marvell can only sell "compute + optical interconnect," a weaker cross-sell. **Second, IP depth.** SerDes is Broadcom's in-house core; Marvell relies partly on external licensing. **Third, customer relationships.** Broadcom has built seven generations of TPU with Google; Marvell's customers are more fragmented and its projects shorter.
+It falls short in three places. First, no switch chips. Broadcom can sell "compute + connectivity"; Marvell can only sell "compute + optical interconnect," a weaker cross-sell. Second, IP depth. SerDes is Broadcom's in-house core; Marvell relies partly on external licensing. Third, customer relationships. Broadcom has built seven generations of TPU with Google; Marvell's customers are more fragmented and its projects shorter.
 
 Conclusion: Marvell is a "smaller Broadcom," yet its valuation is not cheap (around 25x). There is no reason to buy the smaller version instead of the original.
 
@@ -47,7 +47,7 @@ The first is captive chips not sold externally: Google TPU, Amazon Trainium, Mic
 
 The second is equipment and materials: ASML, Applied Materials, Lam Research. They benefit from capex across the entire chain, but AI revenue elasticity is small, and they have already run a long way.
 
-The third is optical modules and connectors: Zhongji Innolight, Eoptolink, Credo. Elasticity is the highest, but the technical barrier is lower than chip design, and cyclical swings are more violent. **Exclusion is not a bearish call; this round of the funnel is looking for "the highest-certainty position," not "the highest-elasticity position."**
+The third is optical modules and connectors: Zhongji Innolight, Eoptolink, Credo. Elasticity is the highest, but the technical barrier is lower than chip design, and cyclical swings are more violent. Exclusion is not a bearish call; this round of the funnel is looking for "the highest-certainty position," not "the highest-elasticity position."
 
 ## Final pick: why Broadcom
 
@@ -55,7 +55,7 @@ That leaves NVIDIA and Broadcom. NVIDIA is the better company — widest ecosyst
 
 Broadcom offers better odds: 18.3x FY27 expected earnings against 48% EPS growth (USD 13.1 to 19.38); free cash flow yield of 3.1%; plus an underappreciated second leg — AI networking chips at USD 4.51 billion per quarter, with a more diversified customer base than XPU.
 
-**Buying Broadcom is not buying "the best AI chip company"; it is buying "the cheapest AI chip leader."** The distinction matters: the former requires judging where the technology ends up, the latter only requires judging whether 18x can hold.
+Buying Broadcom is not buying "the best AI chip company"; it is buying "the cheapest AI chip leader." The distinction matters: the former requires judging where the technology ends up, the latter only requires judging whether 18x can hold.
 
 Two risks could break that: gross margin falling below 70%, and a blow-up in financing guarantees. Neither means "the company is getting worse" — both mean "the structure is deteriorating." So after the final selection, this stays on the watchlist, not the buy list.
 

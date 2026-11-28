@@ -24,39 +24,39 @@ Share price levels: A-shares closed at RMB 87.4 on 2026/09/04 (+0.1%), 52-week h
 
 ## The left side of the V: the market is pricing in "share loss"
 
-The H-share price of HKD 71.4 at the end of June was the result of a slide all the way down from RMB 110.63 (the A-share high). The reason for the decline was simple: **domestic sales fell year on year for several consecutive months, and the market began to doubt whether the company can hold its position as "number one in new energy."**
+The H-share price of HKD 71.4 at the end of June was the result of a slide all the way down from RMB 110.63 (the A-share high). The reason for the decline was simple: domestic sales fell year on year for several consecutive months, and the market began to doubt whether the company can hold its position as "number one in new energy."
 
-The most typical phenomenon at this stage is an "earnings selloff plus valuation selloff" happening at the same time — the stock fell 35%, but net profit was also falling, so the valuation barely got cheaper. **Many people bought the dip at this point on the grounds that "it has fallen so much," but a big fall does not equal cheap; it only equals downgraded expectations.**
+The most typical phenomenon at this stage is an "earnings selloff plus valuation selloff" happening at the same time — the stock fell 35%, but net profit was also falling, so the valuation barely got cheaper. Many people bought the dip at this point on the grounds that "it has fallen so much," but a big fall does not equal cheap; it only equals downgraded expectations.
 
 ## The right side of the V: interim results confirm second-quarter improvement
 
-The interim results came out on August 28: second-quarter net profit of RMB 8.24 billion, up 29.6% year on year and 102% quarter on quarter; automotive gross margin of 23.0%, up 4.3 percentage points year on year; and overseas revenue approaching half of the total for the first time. The market immediately revised its expectations, and the H-shares moved from around HKD 80 to HKD 91.95 within a week. **This rebound reflects confirmation of fundamentals, not a sentiment-driven bounce.**
+The interim results came out on August 28: second-quarter net profit of RMB 8.24 billion, up 29.6% year on year and 102% quarter on quarter; automotive gross margin of 23.0%, up 4.3 percentage points year on year; and overseas revenue approaching half of the total for the first time. The market immediately revised its expectations, and the H-shares moved from around HKD 80 to HKD 91.95 within a week. This rebound reflects confirmation of fundamentals, not a sentiment-driven bounce.
 
-But the magnitude of the rebound and the reasons behind it are asymmetric. **The improvement came from the overseas mix and R&D cuts, yet the market is pricing a full recovery.** The 29.6% year-on-year increase in second-quarter net profit compares with a low base of roughly -55% year on year in the first quarter—this is not the start of a new high.
+But the magnitude of the rebound and the reasons behind it are asymmetric. The improvement came from the overseas mix and R&D cuts, yet the market is pricing a full recovery. The 29.6% year-on-year increase in second-quarter net profit compares with a low base of roughly -55% year on year in the first quarter—this is not the start of a new high.
 
 ## Why September cannot rally: August sales told the truth
 
-August sales, released on 1 September, rebounded month on month but remained negative year on year. **The stock spiked and faded, closing at RMB 87.4 on 4 September, up 0.1%.** The move is telling: the market will pay for "overseas plus gross margin" but will not pay more for "domestic still falling."
+August sales, released on 1 September, rebounded month on month but remained negative year on year. The stock spiked and faded, closing at RMB 87.4 on 4 September, up 0.1%. The move is telling: the market will pay for "overseas plus gross margin" but will not pay more for "domestic still falling."
 
-That is the core tension now: **the bulls hold overseas high growth, the bears hold persistent domestic decline, and both are right.** In this standoff the stock grinds within a range until data from one side breaks the balance—and the signal that breaks it appears once a month, on the 1st.
+That is the core tension now: the bulls hold overseas high growth, the bears hold persistent domestic decline, and both are right. In this standoff the stock grinds within a range until data from one side breaks the balance—and the signal that breaks it appears once a month, on the 1st.
 
 ## Criterion: to judge whether a piece of news is worth reading, ask only one question
 
-My standard is simple: **does this news change the "2027 net profit" number?** If it changes it, it is a signal; if not, it is noise.
+My standard is simple: does this news change the "2027 net profit" number? If it changes it, it is a signal; if not, it is noise.
 
 Run everything through this filter: Did the interim results change it? Yes — Q2 gross margin of 23.0% came in above expectations, and the 2027 forecast was revised up from RMB 32 billion to RMB 34 billion. Did August sales change it? Partly — the month-on-month rebound shows Q3 will not be worse, but the year-on-year figure remains negative, so the 2027 forecast cannot be raised. Did broker notes change it? No, they only explain what has already happened. Did the industry-wide official price cuts change it? No, the price war has been running since 2023.
 
-By this standard, only two pieces of "real news" emerged in three months: the interim results and the monthly sales.** But 95% of market information is noise, and human attention is finite — focusing on the sales figures released on the 1st of each month is far more useful than reading ten news flashes a day.**
+By this standard, only two pieces of "real news" emerged in three months: the interim results and the monthly sales. But 95% of market information is noise, and human attention is finite — focusing on the sales figures released on the 1st of each month is far more useful than reading ten news flashes a day.
 
 ## Which are noise: four things that should not affect judgment
 
-**First, broker commentary.** "Domestic demand under pressure but improving, exports booming" was written only after the interim results came out — it explains the share price, it does not predict it. Sell-side ratings typically stay relevant for only two weeks.
+First, broker commentary. "Domestic demand under pressure but improving, exports booming" was written only after the interim results came out — it explains the share price, it does not predict it. Sell-side ratings typically stay relevant for only two weeks.
 
-**Second, official price cuts.** The price war has run from 2023 to 2026; every "new round of price cuts" is old news republished. The real new variable is who cannot hold on and exits first, not who cut another RMB 20,000.
+Second, official price cuts. The price war has run from 2023 to 2026; every "new round of price cuts" is old news republished. The real new variable is who cannot hold on and exits first, not who cut another RMB 20,000.
 
-**Third, single-day moves.** Up 0.1% on September 4 — that number carries no information.
+Third, single-day moves. Up 0.1% on September 4 — that number carries no information.
 
-**Fourth, the A/H spread.** H shares trade at about RMB 83.7, A shares at RMB 87.4 — an A-share premium of roughly 4%. This spread persists because shares cannot be freely converted between the two markets, so it offers no arbitrage.** But it is a window into foreign sentiment — a widening spread signals foreign investors turning more bearish.**
+Fourth, the A/H spread. H shares trade at about RMB 83.7, A shares at RMB 87.4 — an A-share premium of roughly 4%. This spread persists because shares cannot be freely converted between the two markets, so it offers no arbitrage. But it is a window into foreign sentiment — a widening spread signals foreign investors turning more bearish.
 
 ## Sources
 

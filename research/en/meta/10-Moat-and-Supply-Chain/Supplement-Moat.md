@@ -37,13 +37,13 @@ Competitor data is sourced from each company's 2026Q3 financial reports and the 
 
 Meta sits in the middle of the chain: upstream it buys compute (no pricing power), downstream it sells advertising (has pricing power). The advantage of this position is asset-light, high-margin; the drawback is that it controls physical resources at neither end—it does not make chips, generate power, or build fiber.
 
-In 2026 this structure worked against it: upstream prices rose across the board (DRAM contract prices up 60%–70%, long-term power contracts locking in prices), while downstream advertiser budget growth was only around 10%. The platform in the middle got squeezed, and gross margin fell from 82.0% to 79.3%. **This is not a decline in competitiveness but a redistribution of profits along the industry chain.**
+In 2026 this structure worked against it: upstream prices rose across the board (DRAM contract prices up 60%–70%, long-term power contracts locking in prices), while downstream advertiser budget growth was only around 10%. The platform in the middle got squeezed, and gross margin fell from 82.0% to 79.3%. This is not a decline in competitiveness but a redistribution of profits along the industry chain.
 
 ## The Real Boundaries of the Moat
 
 Network effects and the data flywheel are hard moats because they cannot be bought. You can spend USD 100 billion building data centers, but you cannot buy the social graph of 3.64 billion people—something already proven in 2022, when TikTok was at its most aggressive: Meta cloned the product with Reels, and users did not leave.
 
-But moats have boundaries: they protect revenue, not profit. **Users will not watch more ads because Meta's capex is high, and advertisers will not pay more because its depreciation is heavy.** So the moat can defend 26% revenue growth, but it cannot defend free cash flow.
+But moats have boundaries: they protect revenue, not profit. Users will not watch more ads because Meta's capex is high, and advertisers will not pay more because its depreciation is heavy. So the moat can defend 26% revenue growth, but it cannot defend free cash flow.
 
 ## Three supply-chain bottlenecks, each of which will slow the pace of investment
 
@@ -51,17 +51,17 @@ First, HBM. DRAM contract prices rose 60%–70% in early 2026, HBM supply falls 
 
 Second, power. Data centers cannot be built on money alone; they need substations, grid connections and 15- to 20-year power purchase agreements. Meta has signed USD 825 billion in lease and purchase commitments, most tied to compute and energy — this money is essentially a deposit on "future electricity."
 
-Third, construction timelines. A hyperscale data center takes 18 to 30 months from site selection to power-up. **Money spent in 2026 will only become usable compute in 2028** — which is why management says "greater flexibility" arrives only in 2028.
+Third, construction timelines. A hyperscale data center takes 18 to 30 months from site selection to power-up. Money spent in 2026 will only become usable compute in 2028 — which is why management says "greater flexibility" arrives only in 2028.
 
 ## Why does the cost advantage item score negative?
 
 Google has TPUs, built in-house over a decade, with unit inference costs far below buying GPUs, and its cloud business can sell idle compute; Microsoft has Azure, so the same capex serves both internal and external customers; Amazon has AWS, where capex turns directly into revenue.
 
-Meta has none of this. **Every GPU it buys can only serve its own advertising and Muse, with no second outlet.** Spend the same RMB 100 billion: Google recovers RMB 30 billion, while Meta recovers only incremental advertising — that is why its cost advantage scores 4/10. In-house MTIA can fill part of the gap, but it covers inference only, not training.
+Meta has none of this. Every GPU it buys can only serve its own advertising and Muse, with no second outlet. Spend the same RMB 100 billion: Google recovers RMB 30 billion, while Meta recovers only incremental advertising — that is why its cost advantage scores 4/10. In-house MTIA can fill part of the gap, but it covers inference only, not training.
 
 ## An underappreciated moat: advertisers' organizational inertia
 
-Small and mid-sized merchants treat Meta as their default channel not because they signed a contract, but because their teams, creative assets, campaign strategies and attribution reports are all built around it. **The cost of switching platforms is not money — it is relearning everything.** This inertia only strengthens when budgets are tight — no one has time to run migration tests in the off-season.
+Small and mid-sized merchants treat Meta as their default channel not because they signed a contract, but because their teams, creative assets, campaign strategies and attribution reports are all built around it. The cost of switching platforms is not money — it is relearning everything. This inertia only strengthens when budgets are tight — no one has time to run migration tests in the off-season.
 
 That is also why Google Ads grew only 10.6% while Meta grew 26%: not because Google's product got worse, but because advertisers prefer to put marginal budget where they can "see conversions directly." Inertia plus performance — together these two form the part of Meta that is hardest to replace.
 
@@ -69,15 +69,15 @@ That is also why Google Ads grew only 10.6% while Meta grew 26%: not because Goo
 
 It is not TikTok. TikTok competes for time spent, and Meta has already held it off with Reels; moreover, TikTok's position in the US is itself unstable.
 
-The threat from Google is structural: it has Gemini (models), TPU (chips), cloud (the monetization outlet), and Android and Chrome (distribution) — all four in place. **For the same USD 20 billion of investment, Google's risk exposure is only half of Meta's, because it can sell compute to customers to recoup the cost.** In the agent battle, Google also has search and email as two natural task entry points.
+The threat from Google is structural: it has Gemini (models), TPU (chips), cloud (the monetization outlet), and Android and Chrome (distribution) — all four in place. For the same USD 20 billion of investment, Google's risk exposure is only half of Meta's, because it can sell compute to customers to recoup the cost. In the agent battle, Google also has search and email as two natural task entry points.
 
 The second-layer threat is entry-point migration. If agents become the primary entry point, Meta's feed degrades from an entry point to a content source. This threat will not materialize within a year, but it is the only reason worth betting RMB 140 billion of capex — the bet is on not being pushed downstream by Google and OpenAI.
 
 ## Where will the moat be breached first?
 
-It will not start with advertising revenue; it will start with "user time." Daily active users of 3.64 billion grew only 3%. If in some year that number turns to zero growth, then user time declines, and only after that do ad impressions decline and unit prices decline. **The lag in this transmission chain is roughly four to six quarters**, so watching DAU is earlier than watching ad revenue.
+It will not start with advertising revenue; it will start with "user time." Daily active users of 3.64 billion grew only 3%. If in some year that number turns to zero growth, then user time declines, and only after that do ad impressions decline and unit prices decline. The lag in this transmission chain is roughly four to six quarters, so watching DAU is earlier than watching ad revenue.
 
-The second observation point is teenagers. The settlement agreement requires teen accounts to have time limits enabled by default, and this generation's usage habits will be reshaped. **When they become the main consumer group ten years from now, Meta's user structure will give you the answer.**
+The second observation point is teenagers. The settlement agreement requires teen accounts to have time limits enabled by default, and this generation's usage habits will be reshaped. When they become the main consumer group ten years from now, Meta's user structure will give you the answer.
 
 ## Sources
 

@@ -27,39 +27,39 @@ The thresholds in the falsification conditions (40%, 20%, two quarters) are set 
 
 ## Why bet on share rather than price
 
-Betting on price is betting on the cycle, and no one can call the cycle reliably. Betting on share is betting on capability, and capability can be verified. **Samsung's share shift this cycle is observable: HBM from 21% to 33% (in one quarter), DRAM from 33% to 39.4% (over three years) — both moving in the same direction.**
+Betting on price is betting on the cycle, and no one can call the cycle reliably. Betting on share is betting on capability, and capability can be verified. Samsung's share shift this cycle is observable: HBM from 21% to 33% (in one quarter), DRAM from 33% to 39.4% (over three years) — both moving in the same direction.
 
-Why does share matter? Because HBM gross margins run 15–20 percentage points above ordinary DRAM. Every 5 percentage points of share gain lifts blended memory gross margin by roughly 1 percentage point, equivalent to about KRW 6 trillion–7 trillion of full-year operating profit (rough calculation). **The 7 percentage points from 33% to 40% is worth roughly KRW 10 trillion in annual profit.**
+Why does share matter? Because HBM gross margins run 15–20 percentage points above ordinary DRAM. Every 5 percentage points of share gain lifts blended memory gross margin by roughly 1 percentage point, equivalent to about KRW 6 trillion–7 trillion of full-year operating profit (rough calculation). The 7 percentage points from 33% to 40% is worth roughly KRW 10 trillion in annual profit.
 
 That is also why the thesis's falsification condition is not "how far the stock falls" but "whether share keeps moving." Price can lie; share cannot.
 
 ## Two items to verify: HBM4E and foundry
 
-**The 12-layer certification for HBM4E is the single most critical item of the year.** If it passes, Samsung can win more than 30% of Nvidia's next-generation platform orders in 2027, pushing its share above 40%; if it fails, share stalls at 33% and Samsung remains a second supplier. The timing is December; the things to watch are Nvidia's supplier list and Samsung's memory revenue mix.
+The 12-layer certification for HBM4E is the single most critical item of the year. If it passes, Samsung can win more than 30% of Nvidia's next-generation platform orders in 2027, pushing its share above 40%; if it fails, share stalls at 33% and Samsung remains a second supplier. The timing is December; the things to watch are Nvidia's supplier list and Samsung's memory revenue mix.
 
-**A foundry turnaround is an option, not the main thesis.** Of the DS division's KRW 127.5 trillion revenue, foundry accounts for about KRW 6.7 trillion, or 5%. If it turns profitable in 2027, it adds KRW 2 trillion–3 trillion to consolidated profit and lifts the valuation center by 1x; if it does not, it burns KRW 2 trillion–3 trillion a year, affecting 1% of profit. **Neither outcome changes the main conclusion, so it is a bonus, not a necessary condition.**
+A foundry turnaround is an option, not the main thesis. Of the DS division's KRW 127.5 trillion revenue, foundry accounts for about KRW 6.7 trillion, or 5%. If it turns profitable in 2027, it adds KRW 2 trillion–3 trillion to consolidated profit and lifts the valuation center by 1x; if it does not, it burns KRW 2 trillion–3 trillion a year, affecting 1% of profit. Neither outcome changes the main conclusion, so it is a bonus, not a necessary condition.
 
 The two are tracked differently: HBM4E hinges on the certification announcement (a one-off event), while foundry hinges on the quarterly DS revenue mix (trend data). The former can wait; the latter needs four consecutive quarters of monitoring.
 
 ## Falsification conditions: four, hard-coded
 
-The first rule is also the hardest: **DRAM contract prices fall month-on-month for two consecutive months.** Once triggered, cut the position by half — regardless of P&L, financials or earnings calls. The reason: price is the only independent variable in this business, and once price turns, every "long-term story" stops working.
+The first rule is also the hardest: DRAM contract prices fall month-on-month for two consecutive months. Once triggered, cut the position by half — regardless of P&L, financials or earnings calls. The reason: price is the only independent variable in this business, and once price turns, every "long-term story" stops working.
 
-Second rule: **HBM share declines for two consecutive quarters.** A single quarter does not count (qualification timing causes quarter-to-quarter swings); only two straight quarters constitute a trend. On trigger, cut one-third of the position and re-underwrite 2027 net profit.
+Second rule: HBM share declines for two consecutive quarters. A single quarter does not count (qualification timing causes quarter-to-quarter swings); only two straight quarters constitute a trend. On trigger, cut one-third of the position and re-underwrite 2027 net profit.
 
-Third rule: **DS division operating margin falls below 40%.** 2026Q2 was 70.0%; a break below 40% means prices have fallen back to 2025 levels, confirming a cycle reversal.
+Third rule: DS division operating margin falls below 40%. 2026Q2 was 70.0%; a break below 40% means prices have fallen back to 2025 levels, confirming a cycle reversal.
 
-Fourth rule: **Capex guidance raised by more than 20%.** This looks like good news (management is confident), but for a cyclical stock it is bad news — it means more supply in 2028. On trigger, do not add to the position, and cut 2028 profit forecasts.
+Fourth rule: Capex guidance raised by more than 20%. This looks like good news (management is confident), but for a cyclical stock it is bad news — it means more supply in 2028. On trigger, do not add to the position, and cut 2028 profit forecasts.
 
 ## Watch calendar: four dates, three decisions
 
-**Early October: Q3 preliminary guidance.** Watch whether operating profit reaches KRW 95 trillion. If reached → one of the conditions for executing the third tranche is met; below KRW 90 trillion → pause adding to the position.
+Early October: Q3 preliminary guidance. Watch whether operating profit reaches KRW 95 trillion. If reached → one of the conditions for executing the third tranche is met; below KRW 90 trillion → pause adding to the position.
 
-**Late October: Q3 official results.** Watch three structural data points: HBM as a share of memory revenue, whether MX stops losing money, and capex guidance. If two of the three deteriorate → cut the position by one-third.
+Late October: Q3 official results. Watch three structural data points: HBM as a share of memory revenue, whether MX stops losing money, and capex guidance. If two of the three deteriorate → cut the position by one-third.
 
-**December: HBM4E certification results.** Pass → build to the full 5% position; fail → hold the initial position and add no more.
+December: HBM4E certification results. Pass → build to the full 5% position; fail → hold the initial position and add no more.
 
-**January 2027: CES and Q4 results.** Watch 2027 supply-demand guidance and memory price outlook. **This is the key checkpoint for judging how long the plateau phase will last.**
+January 2027: CES and Q4 results. Watch 2027 supply-demand guidance and memory price outlook. This is the key checkpoint for judging how long the plateau phase will last.
 
 ## Sources
 

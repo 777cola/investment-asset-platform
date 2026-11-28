@@ -24,7 +24,7 @@ Basis note: The seven metrics follow the AI Berkshire negative-screen criteria (
 
 ## Six solid points, no room for debate
 
-ROE 60%, ROIC 42%—these two numbers need explaining, because they are so high they look like a calculation error. The reason is that Broadcom's book equity has been compressed by years of buybacks and by amortization of VMware's intangible assets; a small denominator produces a high return. What really matters is ROIC: invested capital of about USD 150 billion (equity 105 billion + debt 59.6 billion − cash), after-tax operating profit of about 62.5 billion, a 42% return. **Even if the denominator were doubled, the return would still be above 20%; the capital efficiency of this business is real.**
+ROE 60%, ROIC 42%—these two numbers need explaining, because they are so high they look like a calculation error. The reason is that Broadcom's book equity has been compressed by years of buybacks and by amortization of VMware's intangible assets; a small denominator produces a high return. What really matters is ROIC: invested capital of about USD 150 billion (equity 105 billion + debt 59.6 billion − cash), after-tax operating profit of about 62.5 billion, a 42% return. Even if the denominator were doubled, the return would still be above 20%; the capital efficiency of this business is real.
 
 Gross margin 75.0% (Non-GAAP), net margin 55.3%, far above TSMC's 58%. This is not because it is more irreplaceable than TSMC, but because it sells design services and IP and does not carry fab depreciation. On the same revenue, Broadcom's incremental capex is only a single-digit number of hundred million dollars, while TSMC needs tens of billions.
 
@@ -32,7 +32,7 @@ Interest coverage of 25x shows that the USD 59.6 billion of fixed-rate debt is n
 
 ## Gross margin: verdict "pass", trend "warning"
 
-The 75% versus 40% threshold looks like no contest. But lay out four quarters: FY25Q4 78%, FY26Q2 77.1%, FY26Q3 75.0%, FY26Q4 guidance 73%. **A 5 percentage point drop in a year, one-directional, and accelerating.**
+The 75% versus 40% threshold looks like no contest. But lay out four quarters: FY25Q4 78%, FY26Q2 77.1%, FY26Q3 75.0%, FY26Q4 guidance 73%. A 5 percentage point drop in a year, one-directional, and accelerating.
 
 Management states the reason plainly: XPU hardware is a rising share, and HBM is a rising share of cost. Translation: selling chips earns less than selling IP, and selling fully built systems with memory earns even less than selling chips. The more successful custom ASIC becomes, the lower the gross margin. This is the most counterintuitive thing about Broadcom's business: growth and margin move in opposite directions.
 
@@ -42,7 +42,7 @@ Is 73% the bottom? I lean toward another 1-2 points of downside, because XPU wil
 
 Single-quarter free cash flow of USD 13.67 billion looks impressive and marks a company high. But Non-GAAP net profit for the same period was USD 16.372 billion, so cash conversion was only 83%. Where did the missing USD 2.7 billion go? Mainly receivables and inventory. AI revenue rose 54% quarter over quarter, meaning a large portion of revenue recognized this quarter has not yet been collected, while materials were stockpiled in advance for next quarter's USD 21.7 billion of AI shipments.
 
-This phenomenon is normal during expansion, even healthy—you only dare build inventory when orders are in hand. But it carries two implications: **first, the cash quality of revenue is lower than the income statement suggests; second, if demand suddenly reverses, this inventory build becomes an impairment.**
+This phenomenon is normal during expansion, even healthy—you only dare build inventory when orders are in hand. But it carries two implications: first, the cash quality of revenue is lower than the income statement suggests; second, if demand suddenly reverses, this inventory build becomes an impairment.
 
 The significance of setting the threshold at 1.0x: if a company's cash conversion stays below 1 over the long term, its profit needs to be discounted. Broadcom has mostly been around 1.0 over the past five years; this quarter's drop to 0.83 is characteristic of a cyclical peak, not structural deterioration. So it fails the test, but it is not fatal.
 
@@ -52,7 +52,7 @@ First, customer concentration. Six XPU customers underpin USD 16.7 billion of qu
 
 Second, off-balance-sheet guarantees. The credit support provided to finance AI customers appears in none of the metrics. BofA estimates the platform could reach USD 370 billion of senior debt by mid-2029—if part of that needs Broadcom to backstop it, ROE and interest coverage would distort overnight.
 
-Third, stock-based compensation and amortization. GAAP net income was USD 13.1 billion versus Non-GAAP USD 16.372 billion, a gap of USD 3.27 billion; that gap contains both amortization of acquisition-related intangibles and stock-based compensation.**The 55% net margin calculated on a Non-GAAP basis is the company's best-looking face.** Using Non-GAAP for valuation is industry practice, but you need to know which basis you are using.
+Third, stock-based compensation and amortization. GAAP net income was USD 13.1 billion versus Non-GAAP USD 16.372 billion, a gap of USD 3.27 billion; that gap contains both amortization of acquisition-related intangibles and stock-based compensation.The 55% net margin calculated on a Non-GAAP basis is the company's best-looking face. Using Non-GAAP for valuation is industry practice, but you need to know which basis you are using.
 
 ## Sources
 

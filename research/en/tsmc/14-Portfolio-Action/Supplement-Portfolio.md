@@ -50,7 +50,7 @@ Second tranche at RMB 1,800 (14x 2027), build to 10%. This is the lower edge of 
 
 A company like TSMC is not suited to price-based stop-losses — its trading range is inherently wide (52-week high of 2,510, low not given, but historical annual amplitude often exceeds 40%), and a price stop would shake you out. A thesis-based stop is more reliable: quarterly gross margin falling below 60% (confirming a structural downward shift), or monthly revenue turning negative month-on-month for two consecutive months while capex continues to be raised (a precursor to overcapacity).
 
-The probability of both conditions being met at once is not high, but once they are, the valuation center will shift down by more than 20%, and selling at that point is more rational than holding on stubbornly. **The point of discipline is not to make money every time, but to lose less when you are wrong.**
+The probability of both conditions being met at once is not high, but once they are, the valuation center will shift down by more than 20%, and selling at that point is more rational than holding on stubbornly. The point of discipline is not to make money every time, but to lose less when you are wrong.
 
 ## IV. Rebalancing pace
 
@@ -62,7 +62,7 @@ Dividend treatment: RMB 24 per share in 2026, a 1.0% dividend yield; reinvest ra
 
 Assume the four major North American cloud providers cut capex 30% year on year in 2027, TSMC's revenue growth slows to -5%, gross margin returns to 53%, and EPS comes in at about RMB 78. At 16x (a typical multiple for a downcycle), the stock price is RMB 1,248, 48% below the current price. This is the result of a stress test, not a forecast.
 
-In this scenario, a 12% position would drag the portfolio down by 5.8 percentage points. Is that tolerable? It depends on how the portfolio's other assets perform—if you also hold Nvidia and ASML, the correlation among the three would amplify total losses to 12%–15%. **This is why AI exposure must be calculated on a combined basis rather than by looking only at the position size of a single name.**
+In this scenario, a 12% position would drag the portfolio down by 5.8 percentage points. Is that tolerable? It depends on how the portfolio's other assets perform—if you also hold Nvidia and ASML, the correlation among the three would amplify total losses to 12%–15%. This is why AI exposure must be calculated on a combined basis rather than by looking only at the position size of a single name.
 
 Conclusion: the 12% cap is the cap for "can withstand a halving." If your tolerance for volatility is below 20%, the cap should drop to 8%.
 

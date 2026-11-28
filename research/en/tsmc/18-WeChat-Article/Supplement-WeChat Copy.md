@@ -10,11 +10,11 @@ This article is social-media copy written in colloquial language; the figures ma
 
 ## Headline and lead
 
-**Alternative headline 1:** The world's best manufacturing company — buy now and you may earn just 2% over five years
+Alternative headline 1: The world's best manufacturing company — buy now and you may earn just 2% over five years
 
-**Alternative headline 2:** Gross margin 67.7% — why I still would not chase TSMC
+Alternative headline 2: Gross margin 67.7% — why I still would not chase TSMC
 
-**Lead:** TSMC just delivered its best quarterly report ever — revenue up 36%, net profit up 77%, gross margin at a record 67.7%. Then it said itself: gross margin will fall next quarter. That sentence matters more than the entire report.
+Lead: TSMC just delivered its best quarterly report ever — revenue up 36%, net profit up 77%, gross margin at a record 67.7%. Then it said itself: gross margin will fall next quarter. That sentence matters more than the entire report.
 
 ## Part 1: Lay out the numbers first (about 350 words)
 
@@ -36,7 +36,7 @@ That is the essence of TSMC's business: turn uncertainty into certainty, then ch
 
 The company's own guidance for the third quarter is a gross margin of 65% to 67%, with a midpoint of 66%, 1.7 percentage points lower than the second quarter. The reasons are clearly stated: the new 2-nanometer process is ramping, diluting margin by 3 to 4 percentage points; new overseas fabs carry high costs, diluting it by a further 2 to 3 percentage points.
 
-Neither reason is bad: the company is trading short-term margin for long-term capacity. But the market needs to get used to one thing: **revenue will keep hitting new highs, while profit growth will fall first.** In the foundry industry's history, profit peaks always come one to two quarters before revenue peaks.
+Neither reason is bad: the company is trading short-term margin for long-term capacity. But the market needs to get used to one thing: revenue will keep hitting new highs, while profit growth will fall first. In the foundry industry's history, profit peaks always come one to two quarters before revenue peaks.
 
 At the same time, full-year capital expenditure was raised from USD 52 billion to 56 billion to USD 60 billion to 64 billion. Customers are pushing for it, which is good near term. But depreciation will concentrate in 2027 to 2028, adding USD 13 billion a year, and that is the source of gross margin pressure next year and the year after.
 
@@ -56,9 +56,9 @@ One more number worth remembering: the dividend yield is only 1.0%. That means w
 
 A good company is not the same as a good price. TSMC is the world's most certain AI business, but that certainty is already priced in — 22x forward PE means the market has already paid you for 2027 growth in advance.
 
-TSMC at 2,410 is a hold, not a chase. If you want to buy, wait for below 2,000, or wait for a genuinely bad headline.**In the stock market, patience is not a virtue — it is the only free lunch.**
+TSMC at 2,410 is a hold, not a chase. If you want to buy, wait for below 2,000, or wait for a genuinely bad headline.In the stock market, patience is not a virtue — it is the only free lunch.
 
-One last point that may not be popular: anyone who bought TSMC over the past two years made money, which breeds the illusion that "buying at any time is right." But those who bought at 688 in 2022 waited a year and a half just to break even.**Good companies can also keep you underwater for a long time; the difference is only that they eventually come back.**
+One last point that may not be popular: anyone who bought TSMC over the past two years made money, which breeds the illusion that "buying at any time is right." But those who bought at 688 in 2022 waited a year and a half just to break even.Good companies can also keep you underwater for a long time; the difference is only that they eventually come back.
 
 ## Sources
 

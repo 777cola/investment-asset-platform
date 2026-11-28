@@ -25,51 +25,51 @@ Share prices and dates are taken from the 2026/08/14 closing market snapshot (62
 
 ## Path: three declines, two failed rebounds
 
-**First decline:** from 449.2 in mid-May to 427.2 at end-May, down 5%. The trigger was market concern over capex after the Q1 results (RMB 31.936 billion already spent in Q1). **First rebound:** 10 consecutive days of buybacks plus a sector recovery; +10.5% on 6/2 alone, closing at 481.6.
+First decline: from 449.2 in mid-May to 427.2 at end-May, down 5%. The trigger was market concern over capex after the Q1 results (RMB 31.936 billion already spent in Q1). First rebound: 10 consecutive days of buybacks plus a sector recovery; +10.5% on 6/2 alone, closing at 481.6.
 
-**Second decline:** mid-June to 6/26, from 481.6 to 411.8, down 14.5%. The cause was a global AI stock selloff compounded by southbound capital outflows, with no company-specific bad news. **Second rebound:** driven by the Hy3 launch on 7/6, back to 484.0 by mid-July.
+Second decline: mid-June to 6/26, from 481.6 to 411.8, down 14.5%. The cause was a global AI stock selloff compounded by southbound capital outflows, with no company-specific bad news. Second rebound: driven by the Hy3 launch on 7/6, back to 484.0 by mid-July.
 
-**Third decline:** public fund reduction disclosures on 7/21, -7.0% on 7/22 alone; after the results on 8/12, a further 4.46% drop on 8/13. **This time it is a fundamental event, not sentiment.**
+Third decline: public fund reduction disclosures on 7/21, -7.0% on 7/22 alone; after the results on 8/12, a further 4.46% drop on 8/13. This time it is a fundamental event, not sentiment.
 
 ## Real signal one: Hy3 launch, capabilities externally validated
 
-On July 6, Tencent released and open-sourced the official version of its Hunyuan Hy3 model: 295B total parameters, 21B activated, 256K context, API priced at RMB 0.25 per million tokens, with adaptation for a domestic compute card (Moore Threads MTT S5000) completed the same day. **This is Yao Shunyu's first deliverable since joining Tencent, and the first time the market can assess Tencent's model capabilities using third-party data.**
+On July 6, Tencent released and open-sourced the official version of its Hunyuan Hy3 model: 295B total parameters, 21B activated, 256K context, API priced at RMB 0.25 per million tokens, with adaptation for a domestic compute card (Moore Threads MTT S5000) completed the same day. This is Yao Shunyu's first deliverable since joining Tencent, and the first time the market can assess Tencent's model capabilities using third-party data.
 
 Why it matters: before this, "Tencent is behind in AI" was a judgment that could not be verified; after this, it has benchmarks, pricing and third-party adaptation. The stock rose 4.8% that day, but more importantly it lays the narrative groundwork for the August earnings report — advertising's AIM+ and gaming's Hy3D pipeline are both built on this model.
 
 ## Real signal two: public funds cut holdings by RMB 18.7 billion, pricing power shifts
 
-On July 21, public mutual funds finished disclosing their Q2 reports. Tencent was the stock with the largest reduction in market value, with RMB 18.737 billion sold. The next day the stock fell 7.0% to close at 440.6. **This decline was not a reaction to fundamentals; it was a reaction to "who is pricing the stock."**
+On July 21, public mutual funds finished disclosing their Q2 reports. Tencent was the stock with the largest reduction in market value, with RMB 18.737 billion sold. The next day the stock fell 7.0% to close at 440.6. This decline was not a reaction to fundamentals; it was a reaction to "who is pricing the stock."
 
-Selling by domestic mutual funds means marginal pricing power shifted to foreign investors and southbound retail, while foreign investors were underweight China internet in 2026. **This explains why the stock fell despite decent results: no one was bearish; there was simply no buyer.** This signal is more useful for judging short-term moves than any financial statement figure.
+Selling by domestic mutual funds means marginal pricing power shifted to foreign investors and southbound retail, while foreign investors were underweight China internet in 2026. This explains why the stock fell despite decent results: no one was bearish; there was simply no buyer. This signal is more useful for judging short-term moves than any financial statement figure.
 
 ## Real signal three: earnings have shifted the pricing anchor to cash flow
 
-August 12 earnings: revenue RMB 204.785 billion, +11% (above consensus), gross margin 57.8% (+1pct), advertising +22%, domestic games +17% — all good news. **But free cash flow was -RMB 13.8 billion, Tencent's first negative quarter in years.** The next day the stock fell 4.46%.
+August 12 earnings: revenue RMB 204.785 billion, +11% (above consensus), gross margin 57.8% (+1pct), advertising +22%, domestic games +17% — all good news. But free cash flow was -RMB 13.8 billion, Tencent's first negative quarter in years. The next day the stock fell 4.46%.
 
-The market's reaction was blunt: no more talk of growth, only cash flow. That means **the valuation anchor has shifted from "PE" to "FCF"**. In a quarter of negative FCF, any PE is illusory — which is why buying at 13x PE did not produce a rally.
+The market's reaction was blunt: no more talk of growth, only cash flow. That means the valuation anchor has shifted from "PE" to "FCF". In a quarter of negative FCF, any PE is illusory — which is why buying at 13x PE did not produce a rally.
 
 Conversely, that is where the opportunity lies: once FCF turns positive, the anchor shifts back, and the valuation re-rating will happen quickly.
 
 ## Five noise items, not signals
 
-**① The +10.5% on 6/2:** a combination of buyback + sector rebound + short covering, not a change in fundamentals; the stock subsequently fell back to where it started. **② Goldman Sachs' HKD 700 target price:** the stock kept falling 10% after the 6/11 publication; sell-side views are not buy signals. **③ The 411.8 on 6/26:** transmission from the global AI stock selloff; Tencent made no announcement that day.
+① The +10.5% on 6/2: a combination of buyback + sector rebound + short covering, not a change in fundamentals; the stock subsequently fell back to where it started. ② Goldman Sachs' HKD 700 target price: the stock kept falling 10% after the 6/11 publication; sell-side views are not buy signals. ③ The 411.8 on 6/26: transmission from the global AI stock selloff; Tencent made no announcement that day.
 
-**④ The six-day rally of +10.91% from 7/31 to 8/5:** positioning games ahead of earnings, seen many times historically, with gains given back after the results. **⑤ Market cap overtaken by ChangXin Memory Technologies on 8/13:** purely a ranking news item, with no implications for cash flow, profit or the competitive landscape. **Those who treat it as a signal mistake the "memory cycle" for "Tencent's decline."**
+④ The six-day rally of +10.91% from 7/31 to 8/5: positioning games ahead of earnings, seen many times historically, with gains given back after the results. ⑤ Market cap overtaken by ChangXin Memory Technologies on 8/13: purely a ranking news item, with no implications for cash flow, profit or the competitive landscape. Those who treat it as a signal mistake the "memory cycle" for "Tencent's decline."
 
 ## Attribution: in a 35% decline, how much is self-inflicted
 
-From 677.5 to 440, down 35%. Breaking it down: **valuation fell from about 23x to 15x, accounting for the entire decline; Non-IFRS net profit grew over the same period (RMB 224.84 billion for full-year 2025, +16%; RMB 136.32 billion for 2026H1, +10%).**
+From 677.5 to 440, down 35%. Breaking it down: valuation fell from about 23x to 15x, accounting for the entire decline; Non-IFRS net profit grew over the same period (RMB 224.84 billion for full-year 2025, +16%; RMB 136.32 billion for 2026H1, +10%).
 
-So the answer is: **100% of the decline came from valuation, 0% from earnings.** Valuation fell for three reasons: AI capex turned FCF negative (about half), the overall de-rating of China ADRs (about 30%), and the loss of domestic pricing power (about 20%). Of the three, only the first is the company's own problem, and it is reversible.
+So the answer is: 100% of the decline came from valuation, 0% from earnings. Valuation fell for three reasons: AI capex turned FCF negative (about half), the overall de-rating of China ADRs (about 30%), and the loss of domestic pricing power (about 20%). Of the three, only the first is the company's own problem, and it is reversible.
 
-That is the entire basis for the "Buy" conclusion: **the problem sits on the valuation side, it is reversible, and the stock has already fallen to the bottom of its historical range.**
+That is the entire basis for the "Buy" conclusion: the problem sits on the valuation side, it is reversible, and the stock has already fallen to the bottom of its historical range.
 
 ## The line between signal and noise
 
-The three signals share two things in common: **they either change cash flow (FCF in the financials) or change pricing power (public fund selling, the capability re-rating driven by Hy3).** The five noise items share one thing: they change neither.
+The three signals share two things in common: they either change cash flow (FCF in the financials) or change pricing power (public fund selling, the capability re-rating driven by Hy3). The five noise items share one thing: they change neither.
 
-Judged by this standard, the +10.5% move on 6/2, though the largest and most eye-catching, changed neither cash flow nor pricing power, so it was noise. Conversely, the -4.46% move on 8/13 was modest in size, but it changed the market's judgment on whether Tencent is still a cash cow, so it was a signal.**Magnitude does not equal information content — the most common mistake when reading unusual moves.**
+Judged by this standard, the +10.5% move on 6/2, though the largest and most eye-catching, changed neither cash flow nor pricing power, so it was noise. Conversely, the -4.46% move on 8/13 was modest in size, but it changed the market's judgment on whether Tencent is still a cash cow, so it was a signal.Magnitude does not equal information content — the most common mistake when reading unusual moves.
 
 ## Sources
 

@@ -29,9 +29,11 @@ The second layer eliminates those that are "not pure equipment" plays: lithograp
 
 That leaves KLA and ASML. What they share: both hold segment monopolies, both post the industry's top-tier gross margins, and both serve the same customers. They differ on three points.
 
-- **Monopoly strength.**ASML holds 100% exclusivity in EUV, with no second player; KLA holds about 50% share in metrology, contested by ASML (YieldStar), Hitachi and Applied Materials. The former is "no substitute"; the latter is "best but not the only one."
-- **Growth slope.**ASML revenue +36% in 2026, KLA about +20%. The former is driven by capacity expansion, the latter by rising inspection intensity.
-- **Valuation.**ASML at 41x TTM / 31x 2027E; KLA about 30x. A 30% quality premium — reasonable but not cheap.
+- Monopoly strength.ASML holds 100% exclusivity in EUV, with no second player; KLA holds about 50% share in metrology, contested by ASML (YieldStar), Hitachi and Applied Materials. The former is "no substitute"; the latter is "best but not the only one."
+
+- Growth slope.ASML revenue +36% in 2026, KLA about +20%. The former is driven by capacity expansion, the latter by rising inspection intensity.
+
+- Valuation.ASML at 41x TTM / 31x 2027E; KLA about 30x. A 30% quality premium — reasonable but not cheap.
 
 ## Why it: three conditions that cannot be replicated
 

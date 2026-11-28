@@ -22,7 +22,7 @@ Correlations are order-of-magnitude estimates from long-run statistics (rough ca
 
 ## Why is the cap only 8%?
 
-Berkshire's expected annualized return is 8%–10%, with volatility one-third lower than the S&P.**Its function is to "reduce the portfolio's maximum drawdown," not to "raise the portfolio's return."**Giving it a 15% position is equivalent to using defensive assets to occupy the allocation of offensive assets.
+Berkshire's expected annualized return is 8%–10%, with volatility one-third lower than the S&P.Its function is to "reduce the portfolio's maximum drawdown," not to "raise the portfolio's return."Giving it a 15% position is equivalent to using defensive assets to occupy the allocation of offensive assets.
 
 What 8% means: in a portfolio of 10–12 stocks, it is a "ballast"-level allocation, not a core holding. Core holdings should be businesses with annualized returns above 15%.
 
@@ -30,17 +30,17 @@ Exception: if the portfolio as a whole enters defensive mode (for example, you j
 
 ## Position-sizing discipline: price and thesis as two triggers
 
-**Adding:** add only on price triggers, not on "good news" triggers. Three tranches at 500 / 460 / 430, each 8%–9% apart; don't try to guess the bottom. **Trimming:** two conditions — ① PB >1.85 (about USD 730) with no substantive improvement in the thesis; ② a single position exceeds 10%.
+Adding: add only on price triggers, not on "good news" triggers. Three tranches at 500 / 460 / 430, each 8%–9% apart; don't try to guess the bottom. Trimming: two conditions — ① PB >1.85 (about USD 730) with no substantive improvement in the thesis; ② a single position exceeds 10%.
 
-**Stop-loss: no price stop, a thesis stop.** A 30% drop in this company is often the best entry point; a price stop would force you to sell at the low. The time to actually exit is when the business deteriorates: the combined ratio breaches 100%, float declines, or it makes an acquisition that wrecks the balance sheet.
+Stop-loss: no price stop, a thesis stop. A 30% drop in this company is often the best entry point; a price stop would force you to sell at the low. The time to actually exit is when the business deteriorates: the combined ratio breaches 100%, float declines, or it makes an acquisition that wrecks the balance sheet.
 
 The cautionary tale for this discipline is March 2020: Berkshire fell 30%, many investors stopped out, then watched it climb back in 2021.
 
 ## Correlation with other holdings: it is "the beta of negative beta"
 
-Over the long run, Berkshire's correlation with the S&P 500 is about 0.6–0.7, since it holds a large book of US equities. But **in panic periods the correlation drops below 0.3 or even turns negative** — November 2026 was one example: the S&P fell while Berkshire rose 13.2%.
+Over the long run, Berkshire's correlation with the S&P 500 is about 0.6–0.7, since it holds a large book of US equities. But in panic periods the correlation drops below 0.3 or even turns negative — November 2026 was one example: the S&P fell while Berkshire rose 13.2%.
 
-Correlation with short-term bonds is near 0 (its cash portion behaves like short-term bonds, but the share price fluctuates); near 0 with gold (neither generates cash flow, but the mechanisms differ); about 0.5 with the utilities sector (XLU), given BHE's similar valuation logic; and **negatively correlated with AI hardware stocks during risk-off periods** — its most valuable correlation this year.
+Correlation with short-term bonds is near 0 (its cash portion behaves like short-term bonds, but the share price fluctuates); near 0 with gold (neither generates cash flow, but the mechanisms differ); about 0.5 with the utilities sector (XLU), given BHE's similar valuation logic; and negatively correlated with AI hardware stocks during risk-off periods — its most valuable correlation this year.
 
 Portfolio implication: if you are already heavily weighted in the AI supply chain, Berkshire is a hedge; if your portfolio is already defensive (utilities, consumer staples, short-term bonds), its marginal value is very low — even 8% is too much.
 

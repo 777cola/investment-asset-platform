@@ -22,29 +22,29 @@ Position is shown as a share of the equity portfolio. RMB 180 corresponds to 202
 
 ## Why 0, and not "buy a little first"
 
-"Buy a little and watch" makes sense in two cases: one, you want to track the company and need a position to generate attention; two, the risk-reward is roughly symmetric and a small position lets you test the waters. **Neither holds for Hon Hai — it is one of the top three companies in Taiwan by market cap, so tracking it requires no position; its risk-reward is 33% downside against 17% upside, too asymmetric to justify a trial.**
+"Buy a little and watch" makes sense in two cases: one, you want to track the company and need a position to generate attention; two, the risk-reward is roughly symmetric and a small position lets you test the waters. Neither holds for Hon Hai — it is one of the top three companies in Taiwan by market cap, so tracking it requires no position; its risk-reward is 33% downside against 17% upside, too asymmetric to justify a trial.
 
-More practically: the stock's volatility comes from "AI capex expectations," and expectations reset every quarter. A 0% position means you can wait for the November earnings call to decide, while a 1% position will have you thinking about averaging down on the way down. **For a name with the wrong risk-reward, the best position is no position.**
+More practically: the stock's volatility comes from "AI capex expectations," and expectations reset every quarter. A 0% position means you can wait for the November earnings call to decide, while a 1% position will have you thinking about averaging down on the way down. For a name with the wrong risk-reward, the best position is no position.
 
 ## Three add-on price levels, each mapping to a distinct thesis
 
-RMB 180 is the "cycle-bottom valuation" line: 10x 2027E EPS of RMB 18 (a 20% discount to the neutral RMB 22.5), implying about 1.15x PB. Historically, Hon Hai's two lows in 2019 and 2022 both came at 8–10x PE and 1.1–1.2x PB. **At this level, the -33% pessimistic scenario has already played out; a further decline needs fresh bad news.**
+RMB 180 is the "cycle-bottom valuation" line: 10x 2027E EPS of RMB 18 (a 20% discount to the neutral RMB 22.5), implying about 1.15x PB. Historically, Hon Hai's two lows in 2019 and 2022 both came at 8–10x PE and 1.1–1.2x PB. At this level, the -33% pessimistic scenario has already played out; a further decline needs fresh bad news.
 
-RMB 160 is the "asset floor" line: 8x 2027E, PB of about 1.0x, close to liquidation value plus capacity replacement cost. **A contract manufacturer's PB rarely breaks below 1, because plants and equipment are real.** You can add to 3%–4% here, but be prepared to hold for two years.
+RMB 160 is the "asset floor" line: 8x 2027E, PB of about 1.0x, close to liquidation value plus capacity replacement cost. A contract manufacturer's PB rarely breaks below 1, because plants and equipment are real. You can add to 3%–4% here, but be prepared to hold for two years.
 
 The fundamental trigger (6.5% gross margin) is the only reason to add that does not depend on price—it changes the denominator, not sentiment. When it appears, build 1% first and wait for a second quarter of confirmation before adding.
 
 ## Stop-loss and trimming: look at structure, not price
 
-Price-based stop-losses on cyclicals tend to shake you out; structural stop-losses are more reliable. Three structural signals: ① gross margin below 5.8% for two consecutive quarters; ② single-quarter revenue turns negative quarter-on-quarter and the company does not cut guidance (indicating a break in order visibility); ③ receivables days outstanding up more than 15 days year-on-year. **If any one appears, it is not "it fell, so sell" — it is "the thesis has been falsified, so sell."**
+Price-based stop-losses on cyclicals tend to shake you out; structural stop-losses are more reliable. Three structural signals: ① gross margin below 5.8% for two consecutive quarters; ② single-quarter revenue turns negative quarter-on-quarter and the company does not cut guidance (indicating a break in order visibility); ③ receivables days outstanding up more than 15 days year-on-year. If any one appears, it is not "it fell, so sell" — it is "the thesis has been falsified, so sell."
 
 Use a price stop-loss in only one case: a break below RMB 140 (PB below 0.9x). At that point the issue is not fundamentals but the market pricing a more extreme scenario (for example, cloud capex halved), which calls for reassessment rather than stubbornly holding on.
 
 ## Correlation with other holdings
 
-Hon Hai's correlation with TSMC, Quanta, Wistron and Wiwynn exceeds 0.8, and approaches 0.9 with AI-themed ETFs—**it is not a diversification tool but another expression of the same risk factor.** If the portfolio already holds TSMC or Quanta, adding Hon Hai is equivalent to levering up long AI capex.
+Hon Hai's correlation with TSMC, Quanta, Wistron and Wiwynn exceeds 0.8, and approaches 0.9 with AI-themed ETFs—it is not a diversification tool but another expression of the same risk factor. If the portfolio already holds TSMC or Quanta, adding Hon Hai is equivalent to levering up long AI capex.
 
-True diversification can only come from "different positions along the same trend": upstream (TSMC, SK hynix) earns on price increases, midstream (Hon Hai) earns on scale, downstream (cloud providers) earns on applications. All three rise and fall together, but the order of drawdowns differs when the cycle turns—upstream holds up best, while midstream falls first and rebounds first.**If midstream exposure is a must, Hon Hai is the first choice; but having bought it, one should not also buy Quanta.**
+True diversification can only come from "different positions along the same trend": upstream (TSMC, SK hynix) earns on price increases, midstream (Hon Hai) earns on scale, downstream (cloud providers) earns on applications. All three rise and fall together, but the order of drawdowns differs when the cycle turns—upstream holds up best, while midstream falls first and rebounds first.If midstream exposure is a must, Hon Hai is the first choice; but having bought it, one should not also buy Quanta.
 
 ## Sources
 

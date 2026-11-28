@@ -26,7 +26,7 @@ Industry-chain structure based on public materials and industry reports; equipme
 
 Equipment accounts for more than half the cost of a DRAM fab, and EUV lithography tools are the one link with no substitute. ASML produces only a few dozen EUV units a year, allocated to customers by quota — Samsung, TSMC, SK hynix and Micron are all in line. SK hynix's 2026 capex is KRW 38–40 trillion, a large share of it for EUV and the accompanying advanced packaging equipment.
 
-Materials are less tight: wafer capacity (Shin-Etsu, SUMCO, SK Siltron) is ample, photoresist and specialty gases have multiple suppliers, and packaging substrates (Ibiden, Unimicron) are tight on AI demand but not a bottleneck. **So the upstream constraint on SK hynix is the pace of capacity ramp, not cost** — you want to go faster, but you can't, because the machines can't be delivered.
+Materials are less tight: wafer capacity (Shin-Etsu, SUMCO, SK Siltron) is ample, photoresist and specialty gases have multiple suppliers, and packaging substrates (Ibiden, Unimicron) are tight on AI demand but not a bottleneck. So the upstream constraint on SK hynix is the pace of capacity ramp, not cost — you want to go faster, but you can't, because the machines can't be delivered.
 
 That also explains why 2027 supply growth is only 13% (JPMorgan estimate): not that manufacturers don't want to expand, but that equipment and cleanrooms can't keep up. This is the bull case's strongest argument, and also the bears' easiest point of attack — equipment delivery delays only postpone, they don't cancel.
 
@@ -42,13 +42,13 @@ The NAND story is entirely different: five competitors, homogeneous products, an
 
 Within SK hynix's downstream demand, AI servers (including HBM) account for more than 40% of DRAM revenue, phones and PCs each around 20%, with the remainder from consumer and automotive. Phone and PC shipments have not grown for three consecutive years; the real demand driver is AI — a single AI server requires 3–5x the memory of an ordinary server, and HBM capacity per system keeps rising.
 
-Pricing power across the entire chain therefore ultimately rests on the capex decisions of Nvidia and the four major cloud providers. Nvidia runs a 70% gross margin, and cloud providers are willing to pay a premium for compute; part of that premium flows down to HBM, and part of HBM's share flows further up to equipment. **SK hynix ranks third in this distribution chain, behind Nvidia and ASML**.
+Pricing power across the entire chain therefore ultimately rests on the capex decisions of Nvidia and the four major cloud providers. Nvidia runs a 70% gross margin, and cloud providers are willing to pay a premium for compute; part of that premium flows down to HBM, and part of HBM's share flows further up to equipment. SK hynix ranks third in this distribution chain, behind Nvidia and ASML.
 
 ## Cycle position: stage three, the "capacity expansion race," where stocks typically peak
 
 This cycle has run six quarters: inventory destocking in the second half of 2024, prices surging in 2025, and everyone announcing capacity expansion in 2026. The current signature is prices still rising but at a narrowing rate (general-purpose DRAM +100% in Q1, +58%–63% in Q2), and margins at record highs but with slower quarter-on-quarter growth (71.5% → brokers estimate 65%).
 
-Compare the 2018 cycle: from Q4 2017 to Q1 2018 the pattern was also "prices rising, margins at record highs, everyone expanding capacity." The stock price peaked in May 2018; prices began falling in October 2018 — a five-month gap. **Equities peak half a year ahead of prices; this is the historical rule for memory stocks**. SK hynix's KRW 2.919 million on June 22 is very likely that peak.
+Compare the 2018 cycle: from Q4 2017 to Q1 2018 the pattern was also "prices rising, margins at record highs, everyone expanding capacity." The stock price peaked in May 2018; prices began falling in October 2018 — a five-month gap. Equities peak half a year ahead of prices; this is the historical rule for memory stocks. SK hynix's KRW 2.919 million on June 22 is very likely that peak.
 
 The next observation point is the first half of 2027: Yongin Phase 1 cleanroom commissioning in February, Samsung's HBM4 capacity doubling, and ChangXin's 420,000 wafers/month coming online. With all three supply sources arriving at once, prices will settle the question.
 
@@ -58,7 +58,7 @@ If supply truly overshoots in the second half of 2027, prices will fall in this 
 
 So SK hynix will not be the first to collapse, but it will be hit hardest — because four-tenths of its profit comes from the HBM premium, and once HBM prices start falling, they drop straight from 3x to 2x, not a slow slide.
 
-This sequence is useful for spotting the inflection point: **when commodity DRAM contract prices turn down, HBM has three months left**. Both 2018 and 2022 followed this pattern.
+This sequence is useful for spotting the inflection point: when commodity DRAM contract prices turn down, HBM has three months left. Both 2018 and 2022 followed this pattern.
 
 ## Sources
 

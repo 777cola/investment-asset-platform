@@ -31,22 +31,24 @@ Balance sheet: USD 30.2 billion in cash, 1.13 billion shares unchanged for five 
 
 ## Two critical assumptions: they determine "how much it is worth"
 
-Gross margin: Q4 guidance 86%, up 1pct QoQ. This is the first time in the entire cycle that it "can't go higher." Note that "can't go higher" does not mean it will fall—as long as it holds above 84%, the 2027 EPS assumption of USD 166 still stands. **The threshold means: one more quarter of gains and it is safe; a QoQ decline is the alarm.**
+Gross margin: Q4 guidance 86%, up 1pct QoQ. This is the first time in the entire cycle that it "can't go higher." Note that "can't go higher" does not mean it will fall—as long as it holds above 84%, the 2027 EPS assumption of USD 166 still stands. The threshold means: one more quarter of gains and it is safe; a QoQ decline is the alarm.
 
-SCA coverage: 16 contracts, USD 100 billion, five years, averaging USD 20 billion per year, which is 15%–20% of FY26 revenue of USD 129 billion. Management has said "long-term contracts correspond to minimum volumes at minimum prices," so actual revenue will be higher. But "actually higher" cannot be used for valuation—only disclosed coverage can. **If this assumption holds, the valuation can rise from 6.5x to 8–9x.**
+SCA coverage: 16 contracts, USD 100 billion, five years, averaging USD 20 billion per year, which is 15%–20% of FY26 revenue of USD 129 billion. Management has said "long-term contracts correspond to minimum volumes at minimum prices," so actual revenue will be higher. But "actually higher" cannot be used for valuation—only disclosed coverage can. If this assumption holds, the valuation can rise from 6.5x to 8–9x.
 
 ## One deteriorating assumption: it is the variable to watch most closely this cycle
 
-HBM share: 2026Q2 Micron 18%, -3pct QoQ; Samsung 21%→33%, SK hynix 58%→50%. Samsung was first globally to mass-produce HBM4 in February 2026, and in June Jensen Huang confirmed all three had passed Nvidia certification—**Micron's "HBM4 certification dividend" lasted only one quarter.**
+HBM share: 2026Q2 Micron 18%, -3pct QoQ; Samsung 21%→33%, SK hynix 58%→50%. Samsung was first globally to mass-produce HBM4 in February 2026, and in June Jensen Huang confirmed all three had passed Nvidia certification—Micron's "HBM4 certification dividend" lasted only one quarter.
 
 Why does this matter? Because HBM is the narrative core of this round of valuation expansion: HBM unit prices are 5–8x those of DDR5 of the same capacity, so whoever holds higher share has the better product mix. If Micron's share falls from 18% to 15%, its ASP uplift will lag the industry, and the "structural support" for gross margin weakens.
 
-Counter-evidence deserves fair recording too: Micron's monthly HBM capacity will double to 100,000 wafers by year-end (40,000–50,000 wafers at end-2025), and the 12-layer HBM4 ramp is twice as fast as the prior generation. With capacity doubling plus a yield lead, share may not keep falling.**So the status is "deteriorating," not "disproven."**
+Counter-evidence deserves fair recording too: Micron's monthly HBM capacity will double to 100,000 wafers by year-end (40,000–50,000 wafers at end-2025), and the 12-layer HBM4 ramp is twice as fast as the prior generation. With capacity doubling plus a yield lead, share may not keep falling.So the status is "deteriorating," not "disproven."
 
 ## Falsification conditions: three lines; triggering any one forces a re-rating
 
 - Contract prices turn negative month-on-month (two consecutive months): this is the first hard signal of a cycle reversal; historically the share price tops out 3–6 months earlier, but the decline accelerates once the reversal is confirmed
+
 - Gross margin guidance falls below 80%: this shows pricing has begun to erode profit, invalidating the 2027 EPS assumption of USD 166 and immediately turning 6.5x into 9–10x (on the revised-down E)
+
 - HBM share falls below 15% and Samsung's share exceeds 40%: this shows the HBM competitive landscape has settled, Micron is relegated to third supplier, and the product-mix upgrade story is over
 
 The reverse "confirmation conditions" are also clear: disclosure that SCA coverage exceeds 30%, or HBM accounting for more than 50% of FY27 capex details — if either materializes, the valuation center can be raised.

@@ -39,13 +39,13 @@ Gross margins across the six range from 67.7% to 13.0%, a fivefold spread. That 
 
 ## Reasons for exclusion: why not TSMC, why not Hua Hong
 
-**TSMC is screened out not because it is a poor company, but because it cannot be bought.**A-share investors can only buy its ADR, which brings currency, tax and geopolitical hedging complications; more importantly, its valuation anchor (25–28x PE) is incompatible with the comparable framework in this report—comparing SMIC at 205x with TSMC at 25x can only lead to the conclusion that "SMIC is expensive."
+TSMC is screened out not because it is a poor company, but because it cannot be bought.A-share investors can only buy its ADR, which brings currency, tax and geopolitical hedging complications; more importantly, its valuation anchor (25–28x PE) is incompatible with the comparable framework in this report—comparing SMIC at 205x with TSMC at 25x can only lead to the conclusion that "SMIC is expensive."
 
-**Hua Hong is screened out because its gross margin cannot hold.**A 13.0% gross margin and 22.2% growth sustained by capacity expansion amount to "trading capital for share," similar to SMIC's situation in 2023. Its specialty processes (power, analog) have a decent moat, but its pricing power is weaker than SMIC's.
+Hua Hong is screened out because its gross margin cannot hold.A 13.0% gross margin and 22.2% growth sustained by capacity expansion amount to "trading capital for share," similar to SMIC's situation in 2023. Its specialty processes (power, analog) have a decent moat, but its pricing power is weaker than SMIC's.
 
-**UMC and GlobalFoundries are screened out because they lack advanced process nodes.**Both are stuck at 28/22nm and specialty processes, living off the mature-node cycle; their gross margin improvement in 2026 (32.5%, 28.3%) comes from price increases and fully depreciated equipment, not growth.
+UMC and GlobalFoundries are screened out because they lack advanced process nodes.Both are stuck at 28/22nm and specialty processes, living off the mature-node cycle; their gross margin improvement in 2026 (32.5%, 28.3%) comes from price increases and fully depreciated equipment, not growth.
 
-**Samsung Foundry is screened out because it is opaque.**At the group level, the foundry business has long been loss-making, with recurring yield problems, making standalone valuation impossible.
+Samsung Foundry is screened out because it is opaque.At the group level, the foundry business has long been loss-making, with recurring yield problems, making standalone valuation impossible.
 
 ## Final pick: why this one
 
@@ -53,7 +53,7 @@ Three constraints stack up—investable within China, monthly capacity above 1 m
 
 That uniqueness shows in two places. First, advanced process: for domestic design houses to build 7nm-class chips, only SMIC can take the work; Huawei has taken 43% of N+2 capacity and Cambricon 11%, with a dozen or so others scrambling for the rest. Second, capacity scale: 1.078 million wafers/month (8-inch equivalent) ranks first in mainland China, versus Hua Hong at 508,000 wafers and Nexchip smaller still—no one can catch up near term.
 
-But "only one" does not equal "worth buying." Its 205x PE is the most expensive of the six, 17x richer than UMC and 7x richer than TSMC.**The premium the market pays for "uniqueness" already exceeds the profit that uniqueness can deliver.**
+But "only one" does not equal "worth buying." Its 205x PE is the most expensive of the six, 17x richer than UMC and 7x richer than TSMC.The premium the market pays for "uniqueness" already exceeds the profit that uniqueness can deliver.
 
 ## The final layer of the funnel: even after selection, price remains a hurdle
 
@@ -61,7 +61,7 @@ The industry funnel answers "which company to pick," not "at what price to buy."
 
 Anchor against peers: UMC at 12x PE, TSMC at 25–28x, GlobalFoundries at 20x. SMIC's growth is better than UMC's (+11.5% vs +17% — UMC is actually faster) and far worse than TSMC's. Even 40x PE (implying 2026 net profit of RMB 6.255 billion, market cap of RMB 250 billion, share price around RMB 29) is generous; 205x is another world.
 
-So the correct use of the funnel is: **first screen for "companies worth researching," then wait for "prices worth buying."** SMIC wins at the first layer and fails at the second.
+So the correct use of the funnel is: first screen for "companies worth researching," then wait for "prices worth buying." SMIC wins at the first layer and fails at the second.
 
 One more methodological point: the most common mistake with an industry funnel is treating "the only one" as "the best." Uniqueness explains why it survives and why customers cannot leave it; it does not explain what it should be worth. Valuation is still decided by those three numbers — gross margin, return on capital, free cash flow — and SMIC ranks in the lower middle of the six on all three.
 

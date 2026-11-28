@@ -29,29 +29,29 @@ Exchange rate: KRW 1,500/USD is the level around the report date, used for cross
 
 ## Six items with zero deviation: the results themselves are uncontested
 
-Revenue of KRW 171.5 trillion, operating profit of KRW 89.49 trillion, net profit of KRW 71.62 trillion, gross margin of 69.6%, memory revenue growth of +471%, and DS operating profit of KRW 89.2 trillion — these six figures are identical across Chinese media, Korean newswires and the company press release, matching even to one decimal place. **This means the financial statements themselves leave no room for manipulation, and there is no question of "which outlet got the math wrong."**
+Revenue of KRW 171.5 trillion, operating profit of KRW 89.49 trillion, net profit of KRW 71.62 trillion, gross margin of 69.6%, memory revenue growth of +471%, and DS operating profit of KRW 89.2 trillion — these six figures are identical across Chinese media, Korean newswires and the company press release, matching even to one decimal place. This means the financial statements themselves leave no room for manipulation, and there is no question of "which outlet got the math wrong."
 
-Why so clean? Because Samsung's quarterly disclosure is granular enough: the consolidated income statement gives operating profit, the segment table gives the five major divisions, and memory revenue is broken out separately. The numbers come from the same table; the media merely copy them. **The real risk is not whether the numbers are right, but how they are read.**
+Why so clean? Because Samsung's quarterly disclosure is granular enough: the consolidated income statement gives operating profit, the segment table gives the five major divisions, and memory revenue is broken out separately. The numbers come from the same table; the media merely copy them. The real risk is not whether the numbers are right, but how they are read.
 
 ## Share metrics: does a 1 percentage point difference matter?
 
 On the HBM share figure of 33%: Counterpoint gives 33%, some media cite 32%, and others write 34%. The discrepancy stems from methodology: whether measured by revenue or by shipment bits, whether HBM3E and HBM4 are combined, and whether samples and mass-production shipments are included.
 
-The conclusion is that **a 1 percentage point difference does not affect the judgment**: from 21% to 32% or 34%, the direction is the same — "more than ten points gained in a single quarter" — and that is the decisive fact. I use 33% consistently throughout and note the Counterpoint methodology at each citation.
+The conclusion is that a 1 percentage point difference does not affect the judgment: from 21% to 32% or 34%, the direction is the same — "more than ten points gained in a single quarter" — and that is the decisive fact. I use 33% consistently throughout and note the Counterpoint methodology at each citation.
 
-The DRAM 39.4% deviation is smaller (within 0.5 percentage points), because TrendForce's DRAM revenue ranking is the industry-standard methodology and media outlets cite it directly. **Note that it is a "revenue basis", not a "bit basis"** — in a price-upcycle, revenue share naturally inflates, and Samsung's bit share is in fact somewhat lower than 39.4%.
+The DRAM 39.4% deviation is smaller (within 0.5 percentage points), because TrendForce's DRAM revenue ranking is the industry-standard methodology and media outlets cite it directly. Note that it is a "revenue basis", not a "bit basis" — in a price-upcycle, revenue share naturally inflates, and Samsung's bit share is in fact somewhat lower than 39.4%.
 
 ## The real definitional issue: Q1's figure is derived by subtraction
 
-H1 net profit KRW 118.7 trillion and Q2 net profit KRW 71.62 trillion leave Q1 at only KRW 47.1 trillion — a figure never disclosed separately, derived by subtraction. **Operating profit works the same way: Q1's KRW 57.4 trillion is back-solved from the company's "+756.1% YoY" and the 2025Q1 base.**
+H1 net profit KRW 118.7 trillion and Q2 net profit KRW 71.62 trillion leave Q1 at only KRW 47.1 trillion — a figure never disclosed separately, derived by subtraction. Operating profit works the same way: Q1's KRW 57.4 trillion is back-solved from the company's "+756.1% YoY" and the 2025Q1 base.
 
-These two derived figures matter: H1 operating profit of KRW 146.9 trillion, annualized to KRW 293.8 trillion, anchors the full-year forecast. If Q1 actuals differ from the back-solve by KRW 2 trillion, the full-year forecast shifts by roughly KRW 4 trillion — about 1% of a net profit in the KRW 350 trillion range. **Acceptable, but the text must clearly flag these as derived figures.**
+These two derived figures matter: H1 operating profit of KRW 146.9 trillion, annualized to KRW 293.8 trillion, anchors the full-year forecast. If Q1 actuals differ from the back-solve by KRW 2 trillion, the full-year forecast shifts by roughly KRW 4 trillion — about 1% of a net profit in the KRW 350 trillion range. Acceptable, but the text must clearly flag these as derived figures.
 
 ## The three ROE measures: 24%, 30% and 40% are all correct
 
 The working paper says "ROE approaching 40% at the cycle peak." I calculate 24% on ending net assets — a wide gap worth explaining. The 40% figure uses average net assets for 2023–2025 as the denominator (bottom-of-cycle net assets depressed by losses); 30% uses end-2025 net assets; 24% uses end-2026Q2 net assets.
 
-**All three are correct, but they serve different purposes.** To judge "how much this business can earn when times are good," average net assets (40%) is reasonable; to judge "how much return the price I pay today corresponds to," ending net assets (24%) is required, because what you buy today is today's net assets. **This report uses 24% throughout and explains the difference where the Buffett perspective is involved.**
+All three are correct, but they serve different purposes. To judge "how much this business can earn when times are good," average net assets (40%) is reasonable; to judge "how much return the price I pay today corresponds to," ending net assets (24%) is required, because what you buy today is today's net assets. This report uses 24% throughout and explains the difference where the Buffett perspective is involved.
 
 ## Final adopted methodology
 

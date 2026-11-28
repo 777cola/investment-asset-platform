@@ -24,31 +24,31 @@ Scoring methodology: a 10-point subjective scale, with 6 as the passing threshol
 
 Upstream, it faces Nvidia—the only company globally capable of supplying GB300-class full systems—so it has zero bargaining power and can only accept quoted prices and delivery schedules. It even has to build its own fuel cells (Bloom Energy) to bypass grid connection queues, which shows that it is a passive party even on the most basic input, electricity.
 
-Downstream, it faces OpenAI, xAI and Meta—customers with massive procurement volumes, strong technical capabilities and the ability to build in-house at any time. The best terms Oracle can secure in contracts are "multi-year commitments + prepayments," but contracts generally carry capacity and acceptance clauses.**It is squeezed between two parties that both have pricing power, and earns the engineering fee for "getting racks powered on schedule."**
+Downstream, it faces OpenAI, xAI and Meta—customers with massive procurement volumes, strong technical capabilities and the ability to build in-house at any time. The best terms Oracle can secure in contracts are "multi-year commitments + prepayments," but contracts generally carry capacity and acceptance clauses.It is squeezed between two parties that both have pricing power, and earns the engineering fee for "getting racks powered on schedule."
 
 ## The truth about moats: strong in the old world, weak in the new
 
-The database moat was built brick by brick over four decades: customers' accounting, inventory and reporting all run on Oracle, and the DBA skill stack, ISV certifications and audit compliance records all revolve around it. This quarter the database business grew 353% year on year, and both AWS and Azure now connect to Oracle Database—**a competitor's cloud voluntarily connecting to your database is the hardest evidence of a moat; there is no second explanation.**
+The database moat was built brick by brick over four decades: customers' accounting, inventory and reporting all run on Oracle, and the DBA skill stack, ISV certifications and audit compliance records all revolve around it. This quarter the database business grew 353% year on year, and both AWS and Azure now connect to Oracle Database—a competitor's cloud voluntarily connecting to your database is the hardest evidence of a moat; there is no second explanation.
 
-OCI has no such luck. Compute is a commodity: given the same 1,000 cards, customers look at price per GPU hour, powered-on time and network oversubscription ratio. Oracle's advantages are fast delivery (24-hour acceptance) and self-supplied power—**these are execution advantages that can be caught; they are not structural advantages. What cannot be replicated is customer dependence.** OCI customers feel no dependence on it, only price comparison.
+OCI has no such luck. Compute is a commodity: given the same 1,000 cards, customers look at price per GPU hour, powered-on time and network oversubscription ratio. Oracle's advantages are fast delivery (24-hour acceptance) and self-supplied power—these are execution advantages that can be caught; they are not structural advantages. What cannot be replicated is customer dependence. OCI customers feel no dependence on it, only price comparison.
 
 ## Competitive comparison: who is taking its two yuan
 
 In databases, the real rival is not AWS's Aurora but "customers re-architecting themselves onto the cloud." SAP's HANA, open-source PostgreSQL and cloud vendors' migration tools are steadily eating away at Oracle's foundation — software licenses and support at -3% this quarter is evidence that this foundation is shrinking.
 
-In compute, the rivals are three cloud vendors with positive free cash flow. They can use in-house chips to push costs down to 60% of Nvidia's solution, subsidize compute with cloud gross margin, and then trade that compute for long-term cloud contracts with AI customers.**Oracle lacks this cross-subsidy capability; it has only higher leverage.**
+In compute, the rivals are three cloud vendors with positive free cash flow. They can use in-house chips to push costs down to 60% of Nvidia's solution, subsidize compute with cloud gross margin, and then trade that compute for long-term cloud contracts with AI customers.Oracle lacks this cross-subsidy capability; it has only higher leverage.
 
 ## The most dangerous competitor: Microsoft
 
 Not CoreWeave. CoreWeave and Oracle are the same kind of company—same leverage, same customers, same absence of a moat. Both will be squeezed by price wars together; they die together, they do not kill each other.
 
-Microsoft is the most dangerous, for three reasons.**First, it is OpenAI's largest shareholder and cloud partner**, Oracle's largest source of orders, and was already a customer inside the Microsoft ecosystem; **second, it has cross-subsidies**—cash flow from Office, Azure and GitHub can subsidize compute indefinitely; **third, it collides head-on with Oracle in enterprise software**, with Fabric, SQL Server and Dynamics each competing for Fusion and database budgets. **A company fighting you in both your new business and your old business—that is what makes it the most dangerous competitor.**
+Microsoft is the most dangerous, for three reasons.First, it is OpenAI's largest shareholder and cloud partner, Oracle's largest source of orders, and was already a customer inside the Microsoft ecosystem; second, it has cross-subsidies—cash flow from Office, Azure and GitHub can subsidize compute indefinitely; third, it collides head-on with Oracle in enterprise software, with Fabric, SQL Server and Dynamics each competing for Fusion and database budgets. A company fighting you in both your new business and your old business—that is what makes it the most dangerous competitor.
 
 ## Pricing the Moat: Which Segment the Market Is Valuing
 
 A useful test: value Oracle as two separate companies. The software business (database + SaaS + support, roughly RMB 17 billion revenue per quarter, 85% gross margin, almost zero capex) at 18x EBIT is worth about USD 300–350 billion. The remaining OCI plus hardware services, with revenue of RMB 9.6 billion per quarter, 30% gross margin and RMB 90 billion of capex a year, at 8x EBITDA is worth about USD 150 billion, but only after deducting USD 100 billion of net debt.
 
-Together that is roughly USD 400–450 billion, about the same as the current USD 440 billion market cap.**The conclusion is clear: the market has already given the software business a decent price and OCI a fair price, leaving no margin of safety.** In other words, USD 144.79 is not "the moat is undervalued" but "both businesses are reasonably priced".
+Together that is roughly USD 400–450 billion, about the same as the current USD 440 billion market cap.The conclusion is clear: the market has already given the software business a decent price and OCI a fair price, leaving no margin of safety. In other words, USD 144.79 is not "the moat is undervalued" but "both businesses are reasonably priced".
 
 ## Sources
 

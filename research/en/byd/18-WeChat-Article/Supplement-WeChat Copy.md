@@ -6,7 +6,7 @@
 
 ## Notes
 
-WeChat article copy, plain-text version, ready to copy and publish. Data basis: 2026 interim report (revenue RMB 344.82 billion, net profit RMB 12.33 billion, gross margin 18.85%, R&D RMB 23.3 billion, net financial expenses RMB 5.1 billion, domestic auto revenue RMB 145.6 billion, overseas auto revenue RMB 129.5 billion, exports 792,000 vehicles (79.2万辆), sales 1.81 million vehicles); 2025 net profit RMB 32.619 billion; TTM net profit RMB 29.44 billion is an estimate; target prices of RMB 55/90/124 based on 9.117 billion shares. August sales figures not cited.
+WeChat article copy, plain-text version, ready to copy and publish. Data basis: 2026 interim report (revenue RMB 344.82 billion, net profit RMB 12.33 billion, gross margin 18.85%, R&D RMB 23.3 billion, net financial expenses RMB 5.1 billion, domestic auto revenue RMB 145.6 billion, overseas auto revenue RMB 129.5 billion, exports 792,000 vehicles, sales 1.81 million vehicles); 2025 net profit RMB 32.619 billion; TTM net profit RMB 29.44 billion is an estimate; target prices of RMB 55/90/124 based on 9.117 billion shares. August sales figures not cited.
 
 ## BYD earned RMB 3.2 billion less—why I still keep it first on my watchlist
 
@@ -22,7 +22,7 @@ But here is the interesting part: the same day, many institutions raised their t
 
 First-half gross margin was 18.85% versus 18.01% a year earlier, up 0.84 percentage points. In the year the price war hit hardest, that number stands out.
 
-The breakdown explains it: domestic auto revenue was RMB 145.6 billion, down 33.6% year on year; overseas auto revenue was RMB 129.5 billion, up 55.8% year on year. Exports reached 792,000 units (79.2 万辆), up 67.8% year on year, accounting for 43.8% of total sales.
+The breakdown explains it: domestic auto revenue was RMB 145.6 billion, down 33.6% year on year; overseas auto revenue was RMB 129.5 billion, up 55.8% year on year. Exports reached 792,000 units, up 67.8% year on year, accounting for 43.8% of total sales.
 
 The same vehicle sells for more in Europe than at home, at a higher gross margin. So the margin gain comes not from raising prices but from selling elsewhere. That is mix improvement, not stronger competitiveness.
 

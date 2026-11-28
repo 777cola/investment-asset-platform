@@ -38,7 +38,7 @@ Data sources: 2026 interim results announcement (stores, members, IP structure, 
 
 Viewed along the industry chain, Pop Mart does three things at once: signing IP (upstream), managing categories (midstream) and opening stores (downstream). These three map to three numbers in the financials: artist IP revenue of RMB 15.29 billion, a gross margin of 69.7% and 676 stores.
 
-The advantage of this "full-chain" structure is that it captures all the profit — from design to retail, no one else takes a cut. The drawback is that it must build capabilities at every link: signing IP takes judgment, managing categories takes supply chain, opening stores takes site selection and local marketing.**Of the three, only store openings can be bought with money; signing IP cannot.**
+The advantage of this "full-chain" structure is that it captures all the profit — from design to retail, no one else takes a cut. The drawback is that it must build capabilities at every link: signing IP takes judgment, managing categories takes supply chain, opening stores takes site selection and local marketing.Of the three, only store openings can be bought with money; signing IP cannot.
 
 Its industry-chain position is therefore "strong in channels, weak upstream." To contract manufacturers it is the client (large orders); to top artists it is the counterparty (IP is scarce); to malls it is the client (foot traffic); to consumers it is "one of several substitutable options" (if they don't like the figure, they don't buy).
 
@@ -48,7 +48,7 @@ In the era of figurines, outsourcing was perfect: vinyl production was standardi
 
 In 2026 the category shifted to plush (57.2% of the mix), and the situation changed. Plush involves more process steps, lower yields and lead times 30–50% longer, and few factories can take large orders. In the first half, inventory turnover stretched from 123 days to 201 days, partly stockpiling and partly "plush capacity is fully booked."
 
-Quality control is the bigger problem. Plush is a "feel business": a slightly off stitch, filling or fabric hand-feel is obvious to consumers on touch. Contract manufacturers' yields are unstable, and the brand bears the returns and reputational damage. **This is the price of "asset-light": you truly save when times are good, and you truly get hit when things go wrong.**
+Quality control is the bigger problem. Plush is a "feel business": a slightly off stitch, filling or fabric hand-feel is obvious to consumers on touch. Contract manufacturers' yields are unstable, and the brand bears the returns and reputational damage. This is the price of "asset-light": you truly save when times are good, and you truly get hit when things go wrong.
 
 ## The most dangerous rival: Jellycat, and every "next Labubu"
 
@@ -56,19 +56,19 @@ Start with Jellycat. It is a British plush brand with far deeper mindshare than 
 
 Jellycat's advantage is that it has "no IP cycle." It does not rely on any single character going viral; it relies on a whole aesthetic system of "soft, quirky, cute," releasing new styles every year without retiring old ones. Pop Mart relies on "a character suddenly going viral." The two business models differ: one is a brand, the other a hit-making machine.
 
-Then there are the intangible rivals: any character that suddenly goes viral on TikTok can replicate Labubu's path within three months. The trendy toy industry has no capacity barrier, no patent barrier, no channel exclusivity — malls welcome new brands, and contract manufacturers welcome new orders. **The only barrier is attention, and attention cannot be inherited.**
+Then there are the intangible rivals: any character that suddenly goes viral on TikTok can replicate Labubu's path within three months. The trendy toy industry has no capacity barrier, no patent barrier, no channel exclusivity — malls welcome new brands, and contract manufacturers welcome new orders. The only barrier is attention, and attention cannot be inherited.
 
 Domestic rivals are less dangerous. Bloks, TOP TOY and 52TOYS are all in the "cheaper" business; they capture price-sensitive customers, not Pop Mart's core members. What could truly kill Pop Mart is a company better than it at manufacturing hits — one has not appeared yet, but the bar is not high.
 
 ## Moat verdict: defensible for three years, not ten
 
-Adding up the six scores gives 37/60, above the passing line, but not a "wide moat." Using Buffett's three-tier classification: wide moat (Coca-Cola, Moody's), narrow moat (See's Candies), no moat (most retailers). **Pop Mart sits between "narrow" and "none," leaning narrow.**
+Adding up the six scores gives 37/60, above the passing line, but not a "wide moat." Using Buffett's three-tier classification: wide moat (Coca-Cola, Moody's), narrow moat (See's Candies), no moat (most retailers). Pop Mart sits between "narrow" and "none," leaning narrow.
 
 Where is the narrow part? Channels and members. 676 stores and 100 million members are something others cannot replicate even by spending RMB 5 billion over three years. Management knows this, so in 2026 it is spending money on store openings and member operations, not on advertising.
 
-Where is it not wide enough? **The first reason consumers walk into a store is not "Pop Mart," it is "this figure looks good."** However strong the channel, it can only get "good-looking figures" onto shelves faster; if the figures are not good-looking, the stronger the channel, the higher the inventory. The 201-day inventory turnover in the first half of 2026 is proof of this logic.
+Where is it not wide enough? The first reason consumers walk into a store is not "Pop Mart," it is "this figure looks good." However strong the channel, it can only get "good-looking figures" onto shelves faster; if the figures are not good-looking, the stronger the channel, the higher the inventory. The 201-day inventory turnover in the first half of 2026 is proof of this logic.
 
-One more quantifiable test: the moat's "maintenance cost." Pop Mart's selling expense ratio is about 30%, of which rent is +43.3% and compensation +45.7%; these two are necessary spending to maintain channels and members. **If it ever has to raise the selling expense ratio to 35% to sustain revenue, that means the moat is leaking.** At 30% it is currently healthy, because stores are still in an expansion phase and the ratio will be diluted by new stores.
+One more quantifiable test: the moat's "maintenance cost." Pop Mart's selling expense ratio is about 30%, of which rent is +43.3% and compensation +45.7%; these two are necessary spending to maintain channels and members. If it ever has to raise the selling expense ratio to 35% to sustain revenue, that means the moat is leaking. At 30% it is currently healthy, because stores are still in an expansion phase and the ratio will be diluted by new stores.
 
 ## Sources
 

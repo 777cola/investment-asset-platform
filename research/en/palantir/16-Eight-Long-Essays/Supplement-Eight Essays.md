@@ -10,9 +10,9 @@ All financial figures in the eight articles come from Palantir's 2026Q2 earnings
 
 ## Structure of the eight articles
 
-① Cognitive reset: dismantling the misunderstanding. ② Business essence: what it sells is the power to define. ③ Moat dissection: three real, two stories. ④ Financial truth: of the three margins, only one is real. ⑤ Industry and competition: the enemy is not on the same track. ⑥ Management: capability 9 out of 10, alignment of interests 3 out of 10. ⑦ Risk list: six items, ranked by probability. ⑧ Decision framework: write "at what price to buy" into rules.
+① Cognitive reset: dismantling misconceptions. ② Business essence: what it sells is the power to define. ③ Moat anatomy: three real, two storied. ④ Financial truth: of three margins, only one is real. ⑤ Industry and competition: the enemy is not on the same track. ⑥ Management: capability 9 out of 10, alignment of interests 3 out of 10. ⑦ Risk list: six items, ranked by probability. ⑧ Decision framework: write "at what price to buy" into rules.
 
-Read in sequence, or read only pieces ④ and ⑧—those two distill all the conclusions. Piece ④ tells you what it is worth; piece ⑧ tells you when to buy.
+Read in sequence, or read only sections ④ and ⑧—those two distill all the conclusions. Section ④ tells you what it is worth; section ⑧ tells you when to buy.
 
 ## Sources
 

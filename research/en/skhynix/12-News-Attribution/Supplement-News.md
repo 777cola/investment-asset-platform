@@ -26,13 +26,13 @@ Event and share-price reaction sources: Shanghai Securities News, 13 July 2026, 
 
 On June 22, SK hynix's market cap reached KRW 2,072 trillion, overtaking Samsung to become the largest stock in Korea. At 9x 2026 expected profit, the market was already pricing in a "long-term HBM monopoly" on the consensus at the time. At that level, no bad news was needed—just a match.
 
-The match was the KIS report, but the gunpowder was self-stacked: the stock had risen more than 600% year-to-date (April reports cited "nearly 90% YTD," and by June it had multiplied several times over), Korean retail and leveraged ETFs were deeply involved, and the CSOP 2x long SK hynix ETF fell more than 30% in a single day on July 13. **Rising too fast + leverage too concentrated = any bad news gets amplified**.
+The match was the KIS report, but the gunpowder was self-stacked: the stock had risen more than 600% year-to-date (April reports cited "nearly 90% YTD," and by June it had multiplied several times over), Korean retail and leveraged ETFs were deeply involved, and the CSOP 2x long SK hynix ETF fell more than 30% in a single day on July 13. Rising too fast + leverage too concentrated = any bad news gets amplified.
 
 ## Second layer of attribution: KIS is pointing to a structural problem, not a numbers problem
 
 KIS cuts Q2 operating profit to KRW 60.4 trillion, 7% below the consensus. The reason is not weak demand but "high HBM mix + long-term contracts locking prices = less of the price-hike windfall." That points to a real issue: within SK hynix's revenue structure, HBM, the most profitable segment, is precisely the one with the least price elasticity.
 
-Generic DRAM contract prices rose 58%–63% in Q2 and NAND rose 70%–75%, while SK hynix's blended ASP rose only 30%. **It locked in prices on its most profitable category and has less exposure to the most speculative one**. In an upcycle that is a drawback; in a downcycle it is an advantage—in July the market saw only the drawback.
+Generic DRAM contract prices rose 58%–63% in Q2 and NAND rose 70%–75%, while SK hynix's blended ASP rose only 30%. It locked in prices on its most profitable category and has less exposure to the most speculative one. In an upcycle that is a drawback; in a downcycle it is an advantage—in July the market saw only the drawback.
 
 ## Third layer of attribution: Korean deleveraging and the AI debt narrative
 
@@ -42,13 +42,13 @@ SK hynix is the most sensitive name in this narrative: 100% of its demand is tie
 
 ## Which are noise: four out of five
 
-**Noise one: the 15.4% down day.** It reflects the speed of leverage unwinding, not a change in fundamentals. KIS cut its forecast by only 9%–11% while the stock fell 15%; the overshoot came from forced liquidation.
+Noise one: the 15.4% down day. It reflects the speed of leverage unwinding, not a change in fundamentals. KIS cut its forecast by only 9%–11% while the stock fell 15%; the overshoot came from forced liquidation.
 
-**Noise two: +21% on the ADR's first trading day.** This is the result of issuance discount and passive allocation and does not change company value; what matters is the 2.5% dilution, and that will take a year to show up in EPS.
+Noise two: +21% on the ADR's first trading day. This is the result of issuance discount and passive allocation and does not change company value; what matters is the 2.5% dilution, and that will take a year to show up in EPS.
 
-**Noise three: the +4.86% rebound on July 23.** A sector β bounce, with no new information.
+Noise three: the +4.86% rebound on July 23. A sector β bounce, with no new information.
 
-**Noise four: the CEO's remarks on July 10.** Directional statements carry no information ahead of earnings; the real evidence is the July 29 numbers and the 2027 long-term agreement terms.
+Noise four: the CEO's remarks on July 10. Directional statements carry no information ahead of earnings; the real evidence is the July 29 numbers and the 2027 long-term agreement terms.
 
 The only real signal is the second item: Samsung's HBM4 share rising from 20% to 28%, and all three suppliers passing certification on June 8. This means the "sole supplier" pricing logic is over, and the market's valuation anchor for SK hynix must shift one notch from "core AI supplier" toward "memory leader."
 
@@ -58,7 +58,7 @@ This report offers a simple test: if a piece of news cannot change any of the fi
 
 KIS's downgrade changes the "Q2 profit number" but not "whether supply will be tight in 2027," so it is only short-term noise—but the structural issue it exposes, "HBM long-term agreement price locking," does change H3 (long-term agreement coverage ratio), so half of it is signal.
 
-Samsung's share moving from 20% to 28% directly changes H2 (holding the 50% share), so it is pure signal. The CEO saying "2027 will be the tightest" merely repeats known guidance and changes no assumption, so it is noise. **Filtered by this standard, only two items over the past three months truly require a response**.
+Samsung's share moving from 20% to 28% directly changes H2 (holding the 50% share), so it is pure signal. The CEO saying "2027 will be the tightest" merely repeats known guidance and changes no assumption, so it is noise. Filtered by this standard, only two items over the past three months truly require a response.
 
 ## Sources
 

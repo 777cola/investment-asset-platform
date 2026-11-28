@@ -35,41 +35,41 @@ Assumptions and status constitute this report's own framework. Evidence is drawn
 
 ## Two weakened assumptions: Services and Greater China
 
-Services is the most expensive line item in this thesis. USD 30.739 billion, +12.1% YoY, below the consensus for the first time in over three years, and down 0.8% QoQ. **Of Apple's 34x multiple, 10x comes from Services; with Services growth falling from 16% to 12%, that 10x no longer holds.**
+Services is the most expensive line item in this thesis. USD 30.739 billion, +12.1% YoY, below the consensus for the first time in over three years, and down 0.8% QoQ. Of Apple's 34x multiple, 10x comes from Services; with Services growth falling from 16% to 12%, that 10x no longer holds.
 
-To judge whether this is one-off or a trend, look at two pieces: commissions (compressed by regulation) and the default search placement (threatened by AI search) together account for more than half of Services revenue, and both are in structural decline; subscriptions and advertising are still growing at double digits, but the scale is not large enough. **So my call is that this is a trend, and I am cutting the central case from 15% to 11%–12%.**
+To judge whether this is one-off or a trend, look at two pieces: commissions (compressed by regulation) and the default search placement (threatened by AI search) together account for more than half of Services revenue, and both are in structural decline; subscriptions and advertising are still growing at double digits, but the scale is not large enough. So my call is that this is a trend, and I am cutting the central case from 15% to 11%–12%.
 
-Greater China is more subtle. RMB 18.816 billion, +22.4% YoY — the headline number looks good, but it is below the consensus of 3.9%, and the base was last year's trough (the decline caused by Huawei's return). **In other words, this is climbing out of a hole, not winning new share.** Huawei keeps pressing in the above-RMB 6,000 market with foldables, and Apple's share has not expanded again.
+Greater China is more subtle. RMB 18.816 billion, +22.4% YoY — the headline number looks good, but it is below the consensus of 3.9%, and the base was last year's trough (the decline caused by Huawei's return). In other words, this is climbing out of a hole, not winning new share. Huawei keeps pressing in the above-RMB 6,000 market with foldables, and Apple's share has not expanded again.
 
-Put the two together and the meaning is clear: **two of the growth legs (Services and China) are softening at the same time, leaving only iPhone ASP to carry the story.** That is what "valid but fragile" means in concrete terms.
+Put the two together and the meaning is clear: two of the growth legs (Services and China) are softening at the same time, leaving only iPhone ASP to carry the story. That is what "valid but fragile" means in concrete terms.
 
-One more observation: the Services slowdown and App Store regulation sit on the same timeline. The EU fined Apple EUR 1.84 billion in 2024 and the Digital Markets Act forced open external payments; by 2026 Services growth had fallen to 12%. **This is no coincidence — it is the inevitable result of the high-margin source being repriced** — not a one-year event, but a three-year trend.
+One more observation: the Services slowdown and App Store regulation sit on the same timeline. The EU fined Apple EUR 1.84 billion in 2024 and the Digital Markets Act forced open external payments; by 2026 Services growth had fallen to 12%. This is no coincidence — it is the inevitable result of the high-margin source being repriced — not a one-year event, but a three-year trend.
 
 ## Three assumptions that hold: pricing power, capital allocation, ecosystem
 
-Pricing power is the most robust thesis. iPhone revenue rose 21.7% while unit shipments grew only in the single digits, and share climbed to 20% — **raising prices and gaining share in an industry with no total growth is textbook evidence of pricing power.** This assumption is validated quarterly; it holds as long as ASPs keep rising and share is not lost.
+Pricing power is the most robust thesis. iPhone revenue rose 21.7% while unit shipments grew only in the single digits, and share climbed to 20% — raising prices and gaining share in an industry with no total growth is textbook evidence of pricing power. This assumption is validated quarterly; it holds as long as ASPs keep rising and share is not lost.
 
-The capital allocation thesis also holds, but at a cost. TTM buybacks of about USD 100 billion and a 1.9% reduction in shares outstanding automatically add roughly 2% to per-share value. **The cost is that net cash has fallen from over USD 80 billion three years ago to about USD 30 billion**, and the average buyback price was about USD 270 — buying its own stock at 34x earnings is less efficient than in 2016.
+The capital allocation thesis also holds, but at a cost. TTM buybacks of about USD 100 billion and a 1.9% reduction in shares outstanding automatically add roughly 2% to per-share value. The cost is that net cash has fallen from over USD 80 billion three years ago to about USD 30 billion, and the average buyback price was about USD 270 — buying its own stock at 34x earnings is less efficient than in 2016.
 
-The ecosystem thesis needs the least validation. With 2.3 billion active devices and 1.5 billion paid subscriptions, switching costs exceed any single feature difference. **It will not deteriorate because of one quarter's results; it will erode slowly through "form-factor change"** — a ten-year matter, not a quarterly one.
+The ecosystem thesis needs the least validation. With 2.3 billion active devices and 1.5 billion paid subscriptions, switching costs exceed any single feature difference. It will not deteriorate because of one quarter's results; it will erode slowly through "form-factor change" — a ten-year matter, not a quarterly one.
 
 ## One unverified point: AI monetization needs to show "one line" first
 
-The AI hypothesis cannot yet be considered confirmed, nor can it be falsified. **Siri AI has launched and public beta feedback is positive, but the company itself says "paid value-added services have not yet formed meaningful revenue."** What that means: you cannot see it in the financials.
+The AI hypothesis cannot yet be considered confirmed, nor can it be falsified. Siri AI has launched and public beta feedback is positive, but the company itself says "paid value-added services have not yet formed meaningful revenue." What that means: you cannot see it in the financials.
 
-The verification path is clear, with only two possibilities: ① an independent "AI subscription" line item appears in services revenue; ② the earnings call discloses paying users and ARPU. **Until then, any AI valuation is option pricing, not discounted cash flow.**
+The verification path is clear, with only two possibilities: ① an independent "AI subscription" line item appears in services revenue; ② the earnings call discloses paying users and ARPU. Until then, any AI valuation is option pricing, not discounted cash flow.
 
-That is why I value AI at 0. Not because I do not believe in it, but because "anything that cannot be reconciled does not go into the model." **If fees are actually charged in 2027, buying at 30x then would not be a loss—earning certain money is steadier than earning money from guessing right.**
+That is why I value AI at 0. Not because I do not believe in it, but because "anything that cannot be reconciled does not go into the model." If fees are actually charged in 2027, buying at 30x then would not be a loss—earning certain money is steadier than earning money from guessing right.
 
 ## Watchlist calendar: only six catalysts in the next twelve months
 
-**September 1, 2026:** Ternus formally takes over as CEO. Watch three things — the capital allocation stance in his first public remarks, whether core executives stay, and whether AI investment shifts toward in-house buildout. **This is the first read on governance.**
+September 1, 2026: Ternus formally takes over as CEO. Watch three things — the capital allocation stance in his first public remarks, whether core executives stay, and whether AI investment shifts toward in-house buildout. This is the first read on governance.
 
-**Mid-September 2026:** iPhone 18 launch. Watch two numbers — the starting price (whether it rises to offset memory costs) and first-sale channel inventory. If Apple chooses not to raise prices, it is trading gross margin for share, and the 47% gross margin guidance will fall further.
+Mid-September 2026: iPhone 18 launch. Watch two numbers — the starting price (whether it rises to offset memory costs) and first-sale channel inventory. If Apple chooses not to raise prices, it is trading gross margin for share, and the 47% gross margin guidance will fall further.
 
-**Late October 2026:** FY2026Q4 results. The most important report of the year — whether gross margin actually lands at 47%–48%, whether services growth stops declining, and whether Greater China is still above 20%. **If two of these three fall short, the FY2027 EPS consensus of USD 10.0 gets cut.**
+Late October 2026: FY2026Q4 results. The most important report of the year — whether gross margin actually lands at 47%–48%, whether services growth stops declining, and whether Greater China is still above 20%. If two of these three fall short, the FY2027 EPS consensus of USD 10.0 gets cut.
 
-**Late January 2027:** FY2027Q1 results (holiday quarter). Watch actual iPhone 18 unit sales and average selling price — the only hard data for judging whether the upgrade cycle is over. **March 2027:** Annual shareholder meeting and capital allocation announcement; watch the new CEO's buyback discipline. **June 2027:** WWDC; watch whether AI has a monetization model.
+Late January 2027: FY2027Q1 results (holiday quarter). Watch actual iPhone 18 unit sales and average selling price — the only hard data for judging whether the upgrade cycle is over. March 2027: Annual shareholder meeting and capital allocation announcement; watch the new CEO's buyback discipline. June 2027: WWDC; watch whether AI has a monetization model.
 
 ## Sources
 

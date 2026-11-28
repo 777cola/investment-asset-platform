@@ -10,7 +10,7 @@ WeChat article copy, plain-text style, about 1,600 words. All figures in the tit
 
 ## Title and lead-in
 
-**Stock just hit an all-time high while profit fell 5.8%: this Berkshire report hides a USD 377.4 billion question**
+Stock just hit an all-time high while profit fell 5.8%: this Berkshire report hides a USD 377.4 billion question
 
 Bottom line first: this is a good company, but not a good price right now. If you want to buy, wait for it to fall to USD 500.
 
@@ -22,7 +22,7 @@ Operating profit USD 12.705 billion, -5.8% YoY. Net profit USD 22.112 billion, -
 
 At this point the story seems finished: auto insurance is broken.
 
-But the other half of the same statement: BNSF Railway USD 1.729 billion, +19.3%; Berkshire Hathaway Energy USD 1.612 billion, +8.3%; manufacturing, services and retail USD 4.042 billion, +11.8%. **Together these three total USD 7.383 billion, +12.6% YoY, filling most of the insurance hole.**
+But the other half of the same statement: BNSF Railway USD 1.729 billion, +19.3%; Berkshire Hathaway Energy USD 1.612 billion, +8.3%; manufacturing, services and retail USD 4.042 billion, +11.8%. Together these three total USD 7.383 billion, +12.6% YoY, filling most of the insurance hole.
 
 So the -5.8% figure is the net result of "insurance down 26%, real businesses up 12.6%." Not a broad collapse, but half retreating and half advancing.
 
@@ -30,7 +30,7 @@ So the -5.8% figure is the net result of "insurance down 26%, real businesses up
 
 The key lies in one number: the combined ratio of 91.4%.
 
-That means for every USD 100 of premiums collected, USD 91.4 goes out in claims and expenses, leaving USD 8.6 of profit. **Last year that number was about USD 15.** This is a return from windfall to normal, not a loss.
+That means for every USD 100 of premiums collected, USD 91.4 goes out in claims and expenses, leaving USD 8.6 of profit. Last year that number was about USD 15. This is a return from windfall to normal, not a loss.
 
 The cause is the auto insurance cycle. From 2023 to 2025, auto insurance pricing rose faster than claims, and the whole industry earned three years of excess profit. In 2026, claims costs (repairs, used cars, medical) catch up and pricing starts to soften. This is not Berkshire's problem alone; Progressive and Allstate face the same.
 
@@ -42,7 +42,7 @@ In mid-November, the AI trade swung violently. CoreWeave fell more than 70% from
 
 Where did the money go? Into an asset that holds no position in any AI theme, draws two-thirds of its profit from railroads, power and manufacturing, and sits on USD 377.4 billion of short-term Treasuries.
 
-**Over the past month, Berkshire outperformed the S&P 500 by 19.2 percentage points, its largest rolling monthly relative gain since 2010 and second only to the 2008 financial crisis in 30 years.**
+Over the past month, Berkshire outperformed the S&P 500 by 19.2 percentage points, its largest rolling monthly relative gain since 2010 and second only to the 2008 financial crisis in 30 years.
 
 This is not earnings-driven; it is flow-driven. It does not require the company to improve, only for others to deteriorate.
 
@@ -52,35 +52,35 @@ Cash of USD 40.7 billion + short-term Treasuries of USD 336.7 billion = USD 377.
 
 This money earns 4.4%–4.6% a year, or over USD 10 billion. It does not lose value, but it does not generate excess returns either.
 
-Meanwhile, Q3 buybacks totaled USD 9.647 billion, more than double Q2 and the most aggressive quarter since 2018. First three quarters: USD 14.4 billion of buybacks and USD 16.2 billion of M&A spend (including USD 6.8 billion for Taylor Morrison). **USD 30.6 billion spent, and cash still rose — the arithmetic proof that the money cannot be spent fast enough.**
+Meanwhile, Q3 buybacks totaled USD 9.647 billion, more than double Q2 and the most aggressive quarter since 2018. First three quarters: USD 14.4 billion of buybacks and USD 16.2 billion of M&A spend (including USD 6.8 billion for Taylor Morrison). USD 30.6 billion spent, and cash still rose — the arithmetic proof that the money cannot be spent fast enough.
 
-Three destinations, three outcomes: keep buying short-term debt and the company becomes a 4.5% quasi-bond; large-scale M&A and earnings per share step up immediately; buybacks at high prices amount to paying USD 1.66 for USD 1. **The valuation the market assigns today already prices in the second outcome.**
+Three destinations, three outcomes: keep buying short-term debt and the company becomes a 4.5% quasi-bond; large-scale M&A and earnings per share step up immediately; buybacks at high prices amount to paying USD 1.66 for USD 1. The valuation the market assigns today already prices in the second outcome.
 
 ## V. Abel's first report card: 7 points
 
 Took over as CEO on January 1; on September 18 Buffett handed over the chairman role. This is the first quarterly report in sixty years without Buffett's signature.
 
-He got three things right: he did not gloss over bad news, he raised buybacks from USD 4.5 billion to USD 9.6 billion, and he kept making small-scale acquisitions.**But none of it proves he would act boldly in a crisis.**
+He got three things right: he did not gloss over bad news, he raised buybacks from USD 4.5 billion to USD 9.6 billion, and he kept making small-scale acquisitions.But none of it proves he would act boldly in a crisis.
 
 Buffett's legend is not the 19.9% annualized return; it is that he was a buyer in all four crises of 1973, 1987, 2008 and 2020. Abel has yet to live through one. Those 3 points can only be earned in the next panic.
 
 ## VI. Valuation: 6% upside, 18% downside
 
-Book value per share USD 536,590 for A shares, equivalent to USD 357.7 for B shares. Share price 592.85, **P/B 1.66x**. Historical range 1.2–1.9x, midpoint 1.4x.
+Book value per share USD 536,590 for A shares, equivalent to USD 357.7 for B shares. Share price 592.85, P/B 1.66x. Historical range 1.2–1.9x, midpoint 1.4x.
 
-A different yardstick: annualized operating profit this quarter USD 50.8 billion, market cap USD 1.26 trillion, **24.8x**. For a company growing 8%–10% a year, that multiple is not cheap.
+A different yardstick: annualized operating profit this quarter USD 50.8 billion, market cap USD 1.26 trillion, 24.8x. For a company growing 8%–10% a year, that multiple is not cheap.
 
-Three scenarios: bear case USD 488 (-18%), base case USD 626 (+6%), bull case USD 734 (+24%). Weighted at 30/50/20 probabilities, expected return +2.4% — **barely above short-term bonds, yet carrying 18% downside.**
+Three scenarios: bear case USD 488 (-18%), base case USD 626 (+6%), bull case USD 734 (+24%). Weighted at 30/50/20 probabilities, expected return +2.4% — barely above short-term bonds, yet carrying 18% downside.
 
 ## Seven. Conclusion: a good company, waiting for the price
 
-The entry point is specific: start building the position **below USD 500** (1.4x book), add to 5% at USD 460, add to 8% at USD 430. Cap at 8%, because it is ballast, not an engine.
+The entry point is specific: start building the position below USD 500 (1.4x book), add to 5% at USD 460, add to 8% at USD 430. Cap at 8%, because it is ballast, not an engine.
 
 Three triggers, any one of which justifies acting early: a single acquisition above USD 30 billion, underwriting profit back to USD 2 billion/quarter, or the stock falling below 500.
 
 One honest note to close: Berkshire is most dangerous precisely when it "looks safest." Today everyone knows it is a safe haven, and that perception is already priced into the 1.66x book premium.
 
-**This company is worth waiting for. It is not worth chasing.**
+This company is worth waiting for. It is not worth chasing.
 
 ## Sources
 

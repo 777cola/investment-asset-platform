@@ -30,7 +30,7 @@ What is understandable is where the money flows: a 2nm fab starts at USD 20 bill
 
 ## Stage two: good business — 10/10
 
-Foundry is inherently a capital-intensive, deeply cyclical grind, and by conventional logic it should not earn a 10. But TSMC's heavy assets are not the same as everyone else's heavy assets: **its capacity is booked by customers first, then built with capital**. 2026 capex was raised from USD 52–56 billion to USD 60–64 billion, not because "we want to expand" but because customers are pushing.
+Foundry is inherently a capital-intensive, deeply cyclical grind, and by conventional logic it should not earn a 10. But TSMC's heavy assets are not the same as everyone else's heavy assets: its capacity is booked by customers first, then built with capital. 2026 capex was raised from USD 52–56 billion to USD 60–64 billion, not because "we want to expand" but because customers are pushing.
 
 By the numbers: 2026Q2 gross margin 67.7%, operating margin about 57%, net margin 55.6%, ROE about 33%. Put in a set of equipment, recover the cost within the five-year depreciation period and still keep gross margin above 60% — a return profile with almost no second in manufacturing. More critical is durability — in the 2019 industry downturn its gross margin was 46%, still the highest among global foundries. The business does not lose money at its worst, and at its best it earns RMB 706.56 billion in a single quarter, so it gets full marks.
 
@@ -38,7 +38,7 @@ By the numbers: 2026Q2 gross margin 67.7%, operating margin about 57%, net margi
 
 Process leadership is an outcome, not a cause. Three things cause it: R&D and capex of about USD 40 billion a year, data accumulated along the yield learning curve, and the trust that lets customers hand it their most expensive chips. All three compound, and a challenger must close all three gaps at once.
 
-The evidence sits in the customer list: Apple's A series and M series, Nvidia's Rubin generation, AMD's MI series — every launch is at TSMC. Samsung's 2nm is already in volume production, but it cannot win Nvidia's main training-card orders; Intel's 18A has US government backing yet still lacks scale and outside customer trust. **The hardest part of the moat is switching cost**: an advanced-process chip takes 12–18 months from design to volume production, and changing foundries means redoing the entire validation chain — no customer takes that risk during ramp.
+The evidence sits in the customer list: Apple's A series and M series, Nvidia's Rubin generation, AMD's MI series — every launch is at TSMC. Samsung's 2nm is already in volume production, but it cannot win Nvidia's main training-card orders; Intel's 18A has US government backing yet still lacks scale and outside customer trust. The hardest part of the moat is switching cost: an advanced-process chip takes 12–18 months from design to volume production, and changing foundries means redoing the entire validation chain — no customer takes that risk during ramp.
 
 ## Gate 4: Management — 9/10
 
@@ -50,7 +50,7 @@ Capital allocation has been restrained: the 2026 dividend is TWD 24 per share, u
 
 NTD 2,410 corresponds to a market cap of TWD 62.5 trillion (NTD 2,410 × 25.93 billion shares, rough calculation; about USD 1.95 trillion) and 27.9x TTM PE. On full-year 2026 EPS of about NTD 106 (H1 49.33 + H2 about 57, estimated), forward PE is about 22.7x. This price embeds two assumptions: revenue grows another 18%+ in 2027, and gross margin holds at 60%.
 
-Both assumptions are reasonable, but neither leaves room for error. More important is the direction of gross margin: Q3 guidance of 65%–67%, midpoint 1.7 percentage points below Q2, with the 2nm ramp diluting 3–4 percentage points and overseas fabs diluting another 2–3 percentage points. **Revenue is still hitting new highs while gross margin has already turned**—a combination that only appears in the late stage of a cycle. So the fifth gate can only score 5: the company is not the problem; the price has already used up the good news.
+Both assumptions are reasonable, but neither leaves room for error. More important is the direction of gross margin: Q3 guidance of 65%–67%, midpoint 1.7 percentage points below Q2, with the 2nm ramp diluting 3–4 percentage points and overseas fabs diluting another 2–3 percentage points. Revenue is still hitting new highs while gross margin has already turned—a combination that only appears in the late stage of a cycle. So the fifth gate can only score 5: the company is not the problem; the price has already used up the good news.
 
 ## Level six: Discipline — 7/10
 
@@ -62,7 +62,7 @@ That is good for holders and bad for anyone trying to profit from an information
 
 The structure is typical: business 29/30, price 5/10, discipline 7/10. This is not a score for "the company has several hard flaws" but a score for "the company is fine, the price is the problem."
 
-The approach is therefore clear: those already holding stay put, because there is no reason to sell an asset that can still grow 18% in 2027 with gross margin holding at 60%; those with no position should not chase RMB 2,410 and should wait for below RMB 2,000 (about 19x 2026E PE) or for a signal that gross margin has bottomed.**The difference between these two waits: the former waits for price, the latter waits for bad news.**The latter is more reliable, because when bad news arrives, the market usually hits the price first and revises expectations afterward.
+The approach is therefore clear: those already holding stay put, because there is no reason to sell an asset that can still grow 18% in 2027 with gross margin holding at 60%; those with no position should not chase RMB 2,410 and should wait for below RMB 2,000 (about 19x 2026E PE) or for a signal that gross margin has bottomed.The difference between these two waits: the former waits for price, the latter waits for bad news.The latter is more reliable, because when bad news arrives, the market usually hits the price first and revises expectations afterward.
 
 ## Sources
 

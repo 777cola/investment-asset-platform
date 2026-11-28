@@ -34,25 +34,25 @@ Scoring and peer data: Laopu's 2026 interim report and 2025 annual report; Chow 
 
 ## Position in the chain: it is stuck at the "brand" link, squeezed from both sides
 
-Upstream is gold material from the Shanghai Gold Exchange, at a given price with zero bargaining power; downstream is floor space in top-tier malls, with a 15%–25% commission and location allocated by the mall; further downstream are consumers, who pay per piece and have bargaining power but are swayed by gold price expectations. **Laopu sits in the middle, earning the processing fee and brand premium from "turning gold material into a symbol."**
+Upstream is gold material from the Shanghai Gold Exchange, at a given price with zero bargaining power; downstream is floor space in top-tier malls, with a 15%–25% commission and location allocated by the mall; further downstream are consumers, who pay per piece and have bargaining power but are swayed by gold price expectations. Laopu sits in the middle, earning the processing fee and brand premium from "turning gold material into a symbol."
 
 The upside of this position is asset-light operations (all stores leased, no owned mines), high gross margin (41.3%), and replicability (validated by the Singapore store); the downside is that neither end is set by the company — it does not set the gold price, it does not set the location, and the only thing it does set is "whether consumers are willing to pay more for this symbol." That variable gave a negative answer in the second quarter of 2026.
 
-Put another way: **it is a company that monetizes a long gold position through retail channels, and the brand is the distribution tool for that position.** That sentence is unflattering, but it explains why gross margin swings between 37.6% and 41.3% while net margin can jump from 17.3% to 21.5%.
+Put another way: it is a company that monetizes a long gold position through retail channels, and the brand is the distribution tool for that position. That sentence is unflattering, but it explains why gross margin swings between 37.6% and 41.3% while net margin can jump from 17.3% to 21.5%.
 
 ## In-house workshops: a quality safeguard, not a cost advantage
 
 Laopu's workshop handles its own engraving, filigree and inlay work rather than outsourcing to Shuibei. This yields two results: quality is controllable and craft techniques do not leak out; but capacity is limited and unit costs run above those of contract manufacturing.
 
-So it cannot fight a price war on supply-chain efficiency—in a real fight, Shuibei's costs are half its own. It can only sustain its premium on "others cannot produce this effect." That is also why it raises prices 2–3 times a year: **the hikes are not just a hedge against the gold price, but also a way to sustain the "scarcity" narrative.**
+So it cannot fight a price war on supply-chain efficiency—in a real fight, Shuibei's costs are half its own. It can only sustain its premium on "others cannot produce this effect." That is also why it raises prices 2–3 times a year: the hikes are not just a hedge against the gold price, but also a way to sustain the "scarcity" narrative.
 
 Supply chain scores 5 points; the deduction is not for the workshop but for inventory. RMB 19 billion of inventory means its exposure to the gold price is several times its net assets, and that exposure carries no hedging instrument (the company has not disclosed use of gold leasing or futures hedging). This is a deliberate choice, not an oversight—hedging would lock out upside gains, and management clearly prefers to bet on direction.
 
 ## Competitive comparison: smallest scale, highest efficiency
 
-Put the five companies in one table and Laopu's profile is clear: **fewest stores, highest revenue per store, highest gross margin, fastest growth, and the heaviest dependence on the gold price.**
+Put the five companies in one table and Laopu's profile is clear: fewest stores, highest revenue per store, highest gross margin, fastest growth, and the heaviest dependence on the gold price.
 
-The gap in store-level efficiency is the most striking. Laopu generates RMB 27.3 billion in revenue from 45 stores, or about RMB 600 million annualized per store; Chow Tai Fook's 5,305 mainland stores generate about RMB 86 billion, or about RMB 16 million per store; Lao Feng Xiang's RMB 52.8 billion in revenue spread across thousands of outlets works out to about RMB 10 million per store. **Laopu's store-level efficiency is four to six times theirs.**
+The gap in store-level efficiency is the most striking. Laopu generates RMB 27.3 billion in revenue from 45 stores, or about RMB 600 million annualized per store; Chow Tai Fook's 5,305 mainland stores generate about RMB 86 billion, or about RMB 16 million per store; Lao Feng Xiang's RMB 52.8 billion in revenue spread across thousands of outlets works out to about RMB 10 million per store. Laopu's store-level efficiency is four to six times theirs.
 
 But high efficiency does not equal a deep moat. These brands are not actually competing on the same battlefield: Chow Tai Fook sits in Wanda plazas and pedestrian streets, Lao Feng Xiang in community retail districts, Laopu in SKP and MixC — they are not fighting for the same money from the same customers, but for first-floor space in the same malls. Chow Tai Fook can push its "Heritage" collection of ancient-method gold across 5,305 stores at once and spread marketing costs over scale; Laopu can only go deep in 45 locations. Scale advantages become more visible in a downturn — closing stores, clearing inventory and fighting for foot traffic all depend on store density.
 
@@ -62,7 +62,7 @@ Chow Tai Fook's "Heritage" collection is indeed capturing mindshare in the tradi
 
 What can truly kill this business is the gold price. As gold fell from 5,419 to 4,000, three things happened at once: inventory impairment, gross margin compression and negative same-store sales — and management controls none of them. The second-biggest danger is aesthetic fatigue — traditional gold craft has been hot for three years, and no one knows what the next trend will be.
 
-A third competitor is easily overlooked: **recyclers.** Gold jewellery has a second-hand market, and recycling is priced by weight. A traditional gold bangle bought for RMB 35,000 is worth only its gold value on recycling (about RMB 20,000); the brand premium goes to zero in the second-hand market. This gets amplified in a consumption downgrade — consumers start asking whether it holds its value, and the answer is no. **This is the hardest soft spot in Laopu's luxury narrative.**
+A third competitor is easily overlooked: recyclers. Gold jewellery has a second-hand market, and recycling is priced by weight. A traditional gold bangle bought for RMB 35,000 is worth only its gold value on recycling (about RMB 20,000); the brand premium goes to zero in the second-hand market. This gets amplified in a consumption downgrade — consumers start asking whether it holds its value, and the answer is no. This is the hardest soft spot in Laopu's luxury narrative.
 
 ## Sources
 

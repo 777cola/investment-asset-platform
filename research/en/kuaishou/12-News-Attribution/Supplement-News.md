@@ -24,37 +24,37 @@ The stock price series is taken from batchdata daily bars (from 2026/07/14); int
 
 ## Path: three declines, one failed rebound
 
-**Leg 1 (7/16–8/14): 46.92 → 40.06, -14.6%.** The trigger was the spin-off news running out of steam — the stock jumped to 46.92 after the July 2 announcement, then drifted lower for a month. No bad news in this leg, just "the good news was all sold."
+Leg 1 (7/16–8/14): 46.92 → 40.06, -14.6%. The trigger was the spin-off news running out of steam — the stock jumped to 46.92 after the July 2 announcement, then drifted lower for a month. No bad news in this leg, just "the good news was all sold."
 
-**Leg 2 (8/18–8/20): 39.38 → 33.64, -14.6%.** Interim results plus guidance, fully priced in two days. The only decline with a clear cause, and the only one worth reviewing.
+Leg 2 (8/18–8/20): 39.38 → 33.64, -14.6%. Interim results plus guidance, fully priced in two days. The only decline with a clear cause, and the only one worth reviewing.
 
-**Leg 3 (8/21–10/12): 33.64 → 29.26, -13.0%.** A slow bleed, with two rebounds along the way (September 18 +2.67%, October 9 +5.47%), neither of which held. **The failed rebounds show the selling is not event-driven but position restructuring — institutions are cutting exposure, not waiting for news.**
+Leg 3 (8/21–10/12): 33.64 → 29.26, -13.0%. A slow bleed, with two rebounds along the way (September 18 +2.67%, October 9 +5.47%), neither of which held. The failed rebounds show the selling is not event-driven but position restructuring — institutions are cutting exposure, not waiting for news.
 
 ## Three genuine signals
 
-**Signal 1: The revenue mix in the interim results.** Total revenue +1.4%, advertising +4.4%, livestreaming -13.5% — all the incremental growth came from Kling. The market priced this report with a two-day drop of -14.6% — **it rejects the narrative that "AI growth masks the core business's stall."**
+Signal 1: The revenue mix in the interim results. Total revenue +1.4%, advertising +4.4%, livestreaming -13.5% — all the incremental growth came from Kling. The market priced this report with a two-day drop of -14.6% — it rejects the narrative that "AI growth masks the core business's stall."
 
-**Signal 2: Management's second-half guidance.** The phrase "e-commerce marketing services and commission revenue under year-on-year pressure" did more damage than the numbers themselves, because it turned Q2's weakness from "one quarter" into "at least two quarters."
+Signal 2: Management's second-half guidance. The phrase "e-commerce marketing services and commission revenue under year-on-year pressure" did more damage than the numbers themselves, because it turned Q2's weakness from "one quarter" into "at least two quarters."
 
-**Signal 3: Valuation reconstruction after the spin-off pricing.** At the July spin-off, the market treated Kuaishou as the "Kling parent" and bid it up to 46.92; the August results proved the parent's core business is retreating, and the market then treated it as a "declining ad platform" and drove it down to 33. Neither pricing looked at core cash flow — a sign the valuation anchor is unstable.
+Signal 3: Valuation reconstruction after the spin-off pricing. At the July spin-off, the market treated Kuaishou as the "Kling parent" and bid it up to 46.92; the August results proved the parent's core business is retreating, and the market then treated it as a "declining ad platform" and drove it down to 33. Neither pricing looked at core cash flow — a sign the valuation anchor is unstable.
 
 ## Four noise items, not signals
 
-**The -7.76% on 7/17** had no corresponding announcement; it was profit-taking after spin-off speculation. **The -9.6% from 8/11 to 8/17** was position adjustment ahead of results — right direction, wrong reason (not someone knowing the numbers in advance, but someone unwilling to bear uncertainty). **The September drift lower** was mainly Hang Seng Tech sector beta (Hang Seng Tech fell more than 25% in 2026). **The new low on 10/8 and the rebound on 10/9** were two sides of the same news item, with no fundamental meaning.
+The -7.76% on 7/17 had no corresponding announcement; it was profit-taking after spin-off speculation. The -9.6% from 8/11 to 8/17 was position adjustment ahead of results — right direction, wrong reason (not someone knowing the numbers in advance, but someone unwilling to bear uncertainty). The September drift lower was mainly Hang Seng Tech sector beta (Hang Seng Tech fell more than 25% in 2026). The new low on 10/8 and the rebound on 10/9 were two sides of the same news item, with no fundamental meaning.
 
-**There is only one criterion for separating signal from noise: whether it changes estimates of future cash flows.** Of the seven events, only three — the interim results, the guidance and the spin-off pricing — changed estimates; the other four changed only sentiment.
+There is only one criterion for separating signal from noise: whether it changes estimates of future cash flows. Of the seven events, only three — the interim results, the guidance and the spin-off pricing — changed estimates; the other four changed only sentiment.
 
 ## A counterfactual: what would go wrong with buying at 46.92
 
 The July 16 high was the sentiment peak after the spin-off announcement. The bull case then was "Kling at USD 18 billion, an 83.3% stake worth HKD 116.3 billion, with the core business thrown in for free." That logic sounded airtight but was wrong on two counts.
 
-**First, it treated a primary-market valuation as realizable value.** The 83.3% stake cannot be sold; the only cash flows available are dividends and future selldown windows. **Second, it ignored that the spin-off itself depresses the parent's valuation.** Once the asset is carved out, the remaining business gets priced as a declining asset and its valuation center must shift lower — something that should have been obvious on the day of the spin-off announcement, not learned from the interim report.
+First, it treated a primary-market valuation as realizable value. The 83.3% stake cannot be sold; the only cash flows available are dividends and future selldown windows. Second, it ignored that the spin-off itself depresses the parent's valuation. Once the asset is carved out, the remaining business gets priced as a declining asset and its valuation center must shift lower — something that should have been obvious on the day of the spin-off announcement, not learned from the interim report.
 
-The lesson extends to every sum-of-the-parts opportunity: **when a company's most valuable asset is priced separately, the market usually discounts the remainder rather than paying the additive value you calculate.**
+The lesson extends to every sum-of-the-parts opportunity: when a company's most valuable asset is priced separately, the market usually discounts the remainder rather than paying the additive value you calculate.
 
 ## Attribution: how much of the decline is self-inflicted
 
-Over the same period the Hang Seng Tech Index fell more than 25% (year-to-date 2026), while Kuaishou fell 37.6% in three months. A rough decomposition: **the sector accounts for about 10–12 points, the company itself about 25 points.** Within the company-specific portion, results and guidance account for the bulk, and the unwinding of spin-off speculation a small part.
+Over the same period the Hang Seng Tech Index fell more than 25% (year-to-date 2026), while Kuaishou fell 37.6% in three months. A rough decomposition: the sector accounts for about 10–12 points, the company itself about 25 points. Within the company-specific portion, results and guidance account for the bulk, and the unwinding of spin-off speculation a small part.
 
 This decomposition is useful because it determines the conditions for a rebound: a sector recovery can only deliver 10 points of upside; the remaining 25 points must come from the company itself—that is, advertising growth.
 

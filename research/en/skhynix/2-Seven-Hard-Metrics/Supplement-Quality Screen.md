@@ -24,7 +24,7 @@ The seven thresholds follow the unified methodology used across our report set. 
 
 ## The three that fell short all point to the same thing.
 
-The 10-year average ROE is 12%, below the 15% threshold; gross margin has ranged from -1% to 79%, an 80-percentage-point swing; cumulative free cash flow over ten years is less than two quarters of 2026 operating cash flow. All three fail, but they are not three problems — they are one: **this business's long-term returns are being eaten by capex**.
+The 10-year average ROE is 12%, below the 15% threshold; gross margin has ranged from -1% to 79%, an 80-percentage-point swing; cumulative free cash flow over ten years is less than two quarters of 2026 operating cash flow. All three fail, but they are not three problems — they are one: this business's long-term returns are being eaten by capex.
 
 Do the math: from 2016 to 2025, SK hynix booked cumulative net profit of about KRW 105 trillion against roughly KRW 130 trillion of capex over the same period. The money earned was not enough to build fabs; the gap was covered by borrowing and this ADR offering. So every time it makes a big profit, it must immediately invest it — shareholders receive "the next round of capacity," not cash.
 
@@ -40,7 +40,7 @@ A clean balance sheet: it swung from net debt to net cash in 2025, and the July 
 
 None of the three is fatal. Low ROE stems from the denominator (equity) being eroded by losses at the cycle trough and rapidly padded by profits at the peak, which naturally pulls the average down; gross margin volatility is an industry trait; thin free cash flow is inevitable during capacity expansion.
 
-But they dictate the valuation method: **DCF is unusable, PEG is unusable; only cyclical normalized profit times a multiple works**. On 2026 operating profit of RMB 23 trillion, any price looks cheap; on 2029 normalized profit of RMB 12 trillion, the current price is over 10x. Which denominator you pick is the investment decision itself.
+But they dictate the valuation method: DCF is unusable, PEG is unusable; only cyclical normalized profit times a multiple works. On 2026 operating profit of RMB 23 trillion, any price looks cheap; on 2029 normalized profit of RMB 12 trillion, the current price is over 10x. Which denominator you pick is the investment decision itself.
 
 ## Three reasons to add it to the watchlist
 

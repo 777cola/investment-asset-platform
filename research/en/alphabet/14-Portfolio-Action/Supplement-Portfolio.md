@@ -34,35 +34,35 @@ Position sizing is based on a single name's share of portfolio market value, ass
 
 ## Why 8%, not 15%
 
-On business quality alone, Alphabet deserves 15%. But the constraint in portfolio management is not "the best company gets the most money" — it is "the worst misjudgment must not cause serious damage." **If 2027 depreciation pushes the operating margin down to 26% and cloud growth falls to 30%, the bear-case target price is USD 200, a 28.5% decline from 279.84. An 8% position translates to -2.3% for the portfolio, which is bearable; a 15% position translates to -4.3%, which would start to affect annual performance.**
+On business quality alone, Alphabet deserves 15%. But the constraint in portfolio management is not "the best company gets the most money" — it is "the worst misjudgment must not cause serious damage." If 2027 depreciation pushes the operating margin down to 26% and cloud growth falls to 30%, the bear-case target price is USD 200, a 28.5% decline from 279.84. An 8% position translates to -2.3% for the portfolio, which is bearable; a 15% position translates to -4.3%, which would start to affect annual performance.
 
-The other constraint is concentration: if we also hold Microsoft, Amazon and Meta, all four are exposed to the same direction on the AI capex theme. **Combined, 8% plus each of their positions could easily exceed 25% — that is not diversification, it is one big bet.** So my target for Alphabet is 8%, provided combined exposure stays below 12%.
+The other constraint is concentration: if we also hold Microsoft, Amazon and Meta, all four are exposed to the same direction on the AI capex theme. Combined, 8% plus each of their positions could easily exceed 25% — that is not diversification, it is one big bet. So my target for Alphabet is 8%, provided combined exposure stays below 12%.
 
 ## Adding, trimming, stopping out: three price lines plus three thesis lines
 
-Price levels: **279.84 open a 4% position; 240 add to full 8%; below 200 cap at 10%; above 350 no adding.** These four levels are not forecasts but discipline — execute when price hits them, stay put when it does not.
+Price levels: 279.84 open a 4% position; 240 add to full 8%; below 200 cap at 10%; above 350 no adding. These four levels are not forecasts but discipline — execute when price hits them, stay put when it does not.
 
-The thesis levels matter more and take priority over the price levels: **① cloud growth below 30% for two consecutive quarters with capex guidance not cut → halve; ② operating margin below 26% for two consecutive quarters → halve; ③ search growth below 8% for two consecutive quarters → halve.** If any two of the three trigger, exit and re-underwrite. **No mechanical price stop-loss** — the stock's range over the past year was 273.5–402.62; a mechanical stop would shake you out and force you to chase back in at a higher level.
+The thesis levels matter more and take priority over the price levels: ① cloud growth below 30% for two consecutive quarters with capex guidance not cut → halve; ② operating margin below 26% for two consecutive quarters → halve; ③ search growth below 8% for two consecutive quarters → halve. If any two of the three trigger, exit and re-underwrite. No mechanical price stop-loss — the stock's range over the past year was 273.5–402.62; a mechanical stop would shake you out and force you to chase back in at a higher level.
 
 ## Rebalancing: When to Sell
 
-Three sell scenarios, in priority order: **① Thesis invalidated** (the three points above); **② Valuation overshoot** — if it rises above USD 450, equivalent to 32x 2027 EPS and above the upper end of the historical range, trim to 4%; **③ Position imbalance** — if gains push the weight above 12%, trim back to 8%.
+Three sell scenarios, in priority order: ① Thesis invalidated (the three points above); ② Valuation overshoot — if it rises above USD 450, equivalent to 32x 2027 EPS and above the upper end of the historical range, trim to 4%; ③ Position imbalance — if gains push the weight above 12%, trim back to 8%.
 
-The no-sell scenarios must also be spelled out: **do not sell on negative single-quarter FCF, do not sell on EU fines, do not sell on net profit decline from equity gains/losses, do not sell if the stock falls to 240 (that is an add point).** Writing down the reasons not to sell in advance means no on-the-spot judgment is needed when sentiment is at its worst.
+The no-sell scenarios must also be spelled out: do not sell on negative single-quarter FCF, do not sell on EU fines, do not sell on net profit decline from equity gains/losses, do not sell if the stock falls to 240 (that is an add point). Writing down the reasons not to sell in advance means no on-the-spot judgment is needed when sentiment is at its worst.
 
 ## Stress test: portfolio impact under three scenarios
 
-Assume total portfolio market value of 100, with an Alphabet position of 8%. **In the base case the stock reaches 350 (+25.1%), contributing +2.0% to the portfolio; in the bull case it reaches 450 (+60.8%), contributing +4.9%; in the bear case it falls to 200 (-28.5%), dragging the portfolio down -2.3%.**
+Assume total portfolio market value of 100, with an Alphabet position of 8%. In the base case the stock reaches 350 (+25.1%), contributing +2.0% to the portfolio; in the bull case it reaches 450 (+60.8%), contributing +4.9%; in the bear case it falls to 200 (-28.5%), dragging the portfolio down -2.3%.
 
-If the initial position is 4%, the impact in the three scenarios halves: +1.0% / +2.4% / -1.1%. **That is the mathematical point of scaling in — it compresses the worst-case portfolio impact from -2.3% to -1.1%, at the cost of compressing the best case from +4.9% to +2.4%.**
+If the initial position is 4%, the impact in the three scenarios halves: +1.0% / +2.4% / -1.1%. That is the mathematical point of scaling in — it compresses the worst-case portfolio impact from -2.3% to -1.1%, at the cost of compressing the best case from +4.9% to +2.4%.
 
-Now add correlation: if you also hold Microsoft, Amazon and Meta at 5% each, combined exposure to the AI capex theme is 23%. **In the bear case (a broad de-rating of the AI trade), all four fall 30% simultaneously and the portfolio impact is -6.9% — that is the number that actually needs managing, not the 8% in a single stock.**
+Now add correlation: if you also hold Microsoft, Amazon and Meta at 5% each, combined exposure to the AI capex theme is 23%. In the bear case (a broad de-rating of the AI trade), all four fall 30% simultaneously and the portfolio impact is -6.9% — that is the number that actually needs managing, not the 8% in a single stock.
 
 ## Relationship with cash: why not buy to full allocation in one go
 
-If the target is 8%, buy 4% at the current price and hold the remaining 4% in cash waiting for USD 240. **The opportunity cost of this arrangement is that "if the stock does not fall, the remaining 4% can only be put into something else or sit idle."** But for a name with "negative free cash flow over the next 4–6 quarters," holding cash is reasonable—because it gives you the ability to add on bad news.
+If the target is 8%, buy 4% at the current price and hold the remaining 4% in cash waiting for USD 240. The opportunity cost of this arrangement is that "if the stock does not fall, the remaining 4% can only be put into something else or sit idle." But for a name with "negative free cash flow over the next 4–6 quarters," holding cash is reasonable—because it gives you the ability to add on bad news.
 
-**In other words: scaling in is not just risk control, it is also preserving optionality.** A fully invested investor can only watch at USD 200; a half-position investor can buy.
+In other words: scaling in is not just risk control, it is also preserving optionality. A fully invested investor can only watch at USD 200; a half-position investor can buy.
 
 ## Sources
 

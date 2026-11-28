@@ -37,17 +37,17 @@ Data sources: Pop Mart 2025 annual report (2026/03/24) and HKEX disclosure of in
 
 The first was signing MOLLY in 2016. At the time Pop Mart was still a general merchandise retailer. Wang Ning flew to Hong Kong to meet designer Wang Xinming and secure the MOLLY license, transforming the company from "selling other people's toys" into "a company that owns IP." That step determined the gross margin for the next decade — 30% for a retailer, 70% for an IP owner.
 
-The second was deliberately slowing growth in 2026. At the results meeting he said that while 2025's numbers looked good, they were in some sense "one good thing covering a hundred flaws" — customers either found shelves sold out or had to queue, which is not normal; 2026 would require adjustment, like a race car "pitting to change tires." **A company that had just delivered 184.7% growth voluntarily cut its guidance to 20% — rare in both A-shares and Hong Kong stocks.** Most management teams would tough it out and then blow up the following quarter.
+The second was deliberately slowing growth in 2026. At the results meeting he said that while 2025's numbers looked good, they were in some sense "one good thing covering a hundred flaws" — customers either found shelves sold out or had to queue, which is not normal; 2026 would require adjustment, like a race car "pitting to change tires." A company that had just delivered 184.7% growth voluntarily cut its guidance to 20% — rare in both A-shares and Hong Kong stocks. Most management teams would tough it out and then blow up the following quarter.
 
-The third was the consistency of straight talk. He admitted the 30% target set at the start of the year would most likely be missed, admitted that overseas "a large number of new users lack familiarity with designer toy culture — they are just here to grab LABUBU," and admitted that organizational capability was lagging (the sales team expanded from 6,219 to 9,734, with the group now over 1.2 thousand people). **Any one of these three statements could have gone unsaid; saying them only adds fuel to the stock price.** He chose to say them.
+The third was the consistency of straight talk. He admitted the 30% target set at the start of the year would most likely be missed, admitted that overseas "a large number of new users lack familiarity with designer toy culture — they are just here to grab LABUBU," and admitted that organizational capability was lagging (the sales team expanded from 6,219 to 9,734, with the group now over 1.2 thousand people). Any one of these three statements could have gone unsaid; saying them only adds fuel to the stock price. He chose to say them.
 
 ## Capital allocation: generous dividends, buybacks at high prices, new business formats are a bet
 
 Dividend: the 2025 final dividend is RMB 2.3817 per share, totalling about RMB 3.15 billion, or 24.6% of net profit. For a growth company still opening stores, that payout ratio is on the high side, signalling more cash on hand than it can deploy — period-end cash of RMB 13.78 billion and zero bank borrowings.
 
-Buyback: in the first half it cancelled 11.22 million shares for HKD 1.74 billion, at prices of HKD 140.9–194.9, averaging roughly HKD 155 — about level with the current HKD 156.2. **The money was neither cleverly nor foolishly spent** — the tranche bought at HKD 190 is now 20% underwater, but cancellation is genuine EPS accretion. The new HKD 2–5 billion programme, executed at the current price, equals 1%–2.4% of market cap.
+Buyback: in the first half it cancelled 11.22 million shares for HKD 1.74 billion, at prices of HKD 140.9–194.9, averaging roughly HKD 155 — about level with the current HKD 156.2. The money was neither cleverly nor foolishly spent — the tranche bought at HKD 190 is now 20% underwater, but cancellation is genuine EPS accretion. The new HKD 2–5 billion programme, executed at the current price, equals 1%–2.4% of market cap.
 
-New formats are the real bet. City park, POP BAKERY desserts, POPOP accessories, plus wholesale and other revenue of RMB 553 million, up 111.7% year on year. Standalone that is not small, but it is only 3.2% of total revenue of RMB 17.173 billion, and it comes off a very low base. **Its significance is not how much it earns this year but turning "buying a toy" into "spending a day at Pop Mart."** If it works, IP life cycles stretch; if not, the cost is a few hundred million a year in trial and error.
+New formats are the real bet. City park, POP BAKERY desserts, POPOP accessories, plus wholesale and other revenue of RMB 553 million, up 111.7% year on year. Standalone that is not small, but it is only 3.2% of total revenue of RMB 17.173 billion, and it comes off a very low base. Its significance is not how much it earns this year but turning "buying a toy" into "spending a day at Pop Mart." If it works, IP life cycles stretch; if not, the cost is a few hundred million a year in trial and error.
 
 ## Governance: 49.14% ownership, a good car with no brakes
 
@@ -55,7 +55,7 @@ Wang Ning holds a combined 49.14% through private trusts and multiple holding pl
 
 First, control is absolutely secure. There are no AB shares, and none are needed—just under half is de facto control. Any hostile takeover is impossible, which is good for a long-term orientation.
 
-Second, there are no internal checks. No force on the board can say "no" to him; Duan Yongping's 7.65% is a financial investment, and southbound capital at 24.46% is dispersed. This means **strategic mistakes can only be corrected by him alone**—the 2026 "adjustment year" shows he has the ability to correct course, but that is survivorship bias, not an institutional safeguard.
+Second, there are no internal checks. No force on the board can say "no" to him; Duan Yongping's 7.65% is a financial investment, and southbound capital at 24.46% is dispersed. This means strategic mistakes can only be corrected by him alone—the 2026 "adjustment year" shows he has the ability to correct course, but that is survivorship bias, not an institutional safeguard.
 
 Third, related-party transactions and expenses need watching. Many of the new formats—city theme parks, dessert shops, accessories—are incubated internally, and their related-party transaction structures with the listed company are complex. No negative events have surfaced so far, but this is the one governance area that requires continuous tracking.
 
@@ -67,7 +67,7 @@ Wang Ning was born in 1987 and turns 39 in 2026. On a normal timeline, successio
 
 First, Si De. As COO with a 0.77% stake, he was the one who responded to questions about the overseas decline at the 2026 results meeting, in blunt terms ("they're only here to grab LABUBU"), which shows he both understands the business and is willing to speak his mind. If Wang Ning ever steps back to the chairman role, Si De is the most likely operating successor.
 
-Second, the organization. The explosive growth of 2025 took the company from a few thousand people to 12,000, with the sales team doubling to 9,734, creating gaps in cross-border management—something Wang Ning himself acknowledged at the results meeting.**For a company moving from RMB 37.1 billion in revenue toward RMB 50 billion, what carries it is not the founder alone but a replicable methodology.**That methodology is still being built.
+Second, the organization. The explosive growth of 2025 took the company from a few thousand people to 12,000, with the sales team doubling to 9,734, creating gaps in cross-border management—something Wang Ning himself acknowledged at the results meeting.For a company moving from RMB 37.1 billion in revenue toward RMB 50 billion, what carries it is not the founder alone but a replicable methodology.That methodology is still being built.
 
 ## Sources
 

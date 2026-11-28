@@ -25,7 +25,7 @@ Ratings and trend scores are proprietary to this report, totaling 37/60. Peer gr
 
 | Company | Main battlefield | Latest quarterly performance | Gross margin | The threat to Xiaomi |
 |---|---|---|---|---|
-| Huawei | Premium smartphones + HIMA | Phone share recovers; Luxeed/AITO expand in the 20–30 万 band | Not disclosed (unlisted) | Most directly: brand premium plus smart-driving label collide head-on in the same price band |
+| Huawei | Premium smartphones + HIMA | Phone share recovers; Luxeed/AITO expand in the RMB 200,000–300,000 band | Not disclosed (unlisted) | Most directly: brand premium plus smart-driving label collide head-on in the same price band |
 | BYD | New energy across all price bands | Volume leader, main initiator of the price war | Approximately 18% | Strongest: vertical integration, lower costs than Xiaomi, pricing power in its hands |
 | Apple | Premium smartphones + services | Single-digit growth, services revenue hits record high | Approximately 46% | Indirectly: taking the high-end profit, Xiaomi can only capture the mid-range |
 | Li Auto | Extended-range SUV | Leader in the extended-range market, L series stable | Approximately 19% | Direct: Pengcheng's first direct competitor is the Li Auto L series |
@@ -35,17 +35,17 @@ Ratings and trend scores are proprietary to this report, totaling 37/60. Peer gr
 
 ## Industry-chain position: the two ends of the integrator
 
-The first front is "versus upstream." Xiaomi is one of the world's largest buyers of phones and IoT devices, and it holds strong bargaining power in oversupplied segments such as panels, structural parts and contract manufacturing—which explains why it can push the price of same-spec products to the lowest level. But in oligopolistic segments such as memory, SoC and batteries, it is merely a price taker. **The RMB 4.24 billion gross-profit loss in Q3 2026 is the bill for this "asymmetry of bargaining power."**
+The first front is "versus upstream." Xiaomi is one of the world's largest buyers of phones and IoT devices, and it holds strong bargaining power in oversupplied segments such as panels, structural parts and contract manufacturing—which explains why it can push the price of same-spec products to the lowest level. But in oligopolistic segments such as memory, SoC and batteries, it is merely a price taker. The RMB 4.24 billion gross-profit loss in Q3 2026 is the bill for this "asymmetry of bargaining power."
 
-The second front is "versus downstream." Xiaomi has 800 million connected devices, 300 auto stores and an online-offline same-price channel system, which lets it push new products to users quickly (Pengcheng locking 70,000 orders in its first month is proof of channel capability). **But channel capability is not pricing power—being able to sell goods and being able to sell them dear are two different things.**
+The second front is "versus downstream." Xiaomi has 800 million connected devices, 300 auto stores and an online-offline same-price channel system, which lets it push new products to users quickly (Pengcheng locking 70,000 orders in its first month is proof of channel capability). But channel capability is not pricing power—being able to sell goods and being able to sell them dear are two different things.
 
 ## Moat item by item: highest efficiency, lowest barriers to entry
 
-Efficiency scores 8, the highest of the six. Xiaomi's inventory turnover, channel sales per square meter and annual supply-chain price-down negotiations are all benchmarks in the hardware industry. **This is a real moat, but its ceiling is "earning 2 points more than rivals," not "earning 20 points more than rivals."**
+Efficiency scores 8, the highest of the six. Xiaomi's inventory turnover, channel sales per square meter and annual supply-chain price-down negotiations are all benchmarks in the hardware industry. This is a real moat, but its ceiling is "earning 2 points more than rivals," not "earning 20 points more than rivals."
 
-Ecosystem scores 7, and the trend is widening. Human-car-home connectivity only truly came together after 2024: people who bought the car will most likely buy a Xiaomi phone next; people who bought a Xiaomi air conditioner will look to Xiaomi first for their next renovation. **This binding is slow but real.**
+Ecosystem scores 7, and the trend is widening. Human-car-home connectivity only truly came together after 2024: people who bought the car will most likely buy a Xiaomi phone next; people who bought a Xiaomi air conditioner will look to Xiaomi first for their next renovation. This binding is slow but real.
 
-Access scores 4, the lowest of the six. Anyone can make phones and IoT; cars require licenses, factories and after-sales networks; Europe requires clearing tariffs and compliance; India froze RMB 4.8 billion of assets in 2022. **These barriers do not protect Xiaomi; they only consume it.**
+Access scores 4, the lowest of the six. Anyone can make phones and IoT; cars require licenses, factories and after-sales networks; Europe requires clearing tariffs and compliance; India froze RMB 4.8 billion of assets in 2022. These barriers do not protect Xiaomi; they only consume it.
 
 In-house technology scores 6. Cumulative shipments of the Xuanjie O1 exceed one million units, a rare success among domestic SoCs; but it covers only flagship models, the baseband still has to be bought in, and it is still some distance from "building a moat with chips."
 
@@ -53,19 +53,19 @@ In-house technology scores 6. Cumulative shipments of the Xuanjie O1 exceed one 
 
 BYD is dangerous: vertical integration gives it a lower cost base, and in 2026 it will cut prices on its own initiative in the RMB 200,000–300,000 band, leaving Xiaomi no choice but to follow. But what BYD is taking is share — share lost can be won back, as Xiaomi proved in 2023.
 
-Memory makers are more dangerous: Samsung, SK hynix and Micron need do nothing targeted at Xiaomi; they need only keep raising prices and Xiaomi's profit disappears on its own.**Q3 2026 is a case in point: Xiaomi did nothing wrong, yet profit fell 68.4%.**
+Memory makers are more dangerous: Samsung, SK hynix and Micron need do nothing targeted at Xiaomi; they need only keep raising prices and Xiaomi's profit disappears on its own.Q3 2026 is a case in point: Xiaomi did nothing wrong, yet profit fell 68.4%.
 
-Huawei is the third kind of danger: it competes in the same price band with the same "ecosystem + intelligent driving" narrative, but commands a higher brand premium. If Huawei's Luxeed pushes prices below RMB 250,000, Xiaomi's Pengcheng must choose between cutting prices and losing orders.**Of the three, BYD takes volume, memory takes profit and Huawei takes price — memory hurts most, because what it takes is the one thing Xiaomi has no way to fight back against.**
+Huawei is the third kind of danger: it competes in the same price band with the same "ecosystem + intelligent driving" narrative, but commands a higher brand premium. If Huawei's Luxeed pushes prices below RMB 250,000, Xiaomi's Pengcheng must choose between cutting prices and losing orders.Of the three, BYD takes volume, memory takes profit and Huawei takes price — memory hurts most, because what it takes is the one thing Xiaomi has no way to fight back against.
 
 ## Supply-chain dependence: five irreplaceable suppliers
 
-Xiaomi's supply chain management has a strong reputation in the industry, but three categories cannot be swapped out. **The first is memory**: Samsung, SK hynix, Micron, plus China's YMTC and CXMT, account for the vast majority of global supply; Xiaomi can only allocate share among them, not replace them.
+Xiaomi's supply chain management has a strong reputation in the industry, but three categories cannot be swapped out. The first is memory: Samsung, SK hynix, Micron, plus China's YMTC and CXMT, account for the vast majority of global supply; Xiaomi can only allocate share among them, not replace them.
 
-**The second is SoC and baseband**: Qualcomm and MediaTek supply SoCs, while basebands remain largely outsourced. The Xuanjie O1 surpassing one million cumulative units shipped is a breakthrough, but it covers only flagship models; mid- and low-end devices still depend on Qualcomm and MediaTek. **The third is batteries**: CATL and BYD FinDreams together hold half of the power battery market, limiting cost flexibility on the auto side.
+The second is SoC and baseband: Qualcomm and MediaTek supply SoCs, while basebands remain largely outsourced. The Xuanjie O1 surpassing one million cumulative units shipped is a breakthrough, but it covers only flagship models; mid- and low-end devices still depend on Qualcomm and MediaTek. The third is batteries: CATL and BYD FinDreams together hold half of the power battery market, limiting cost flexibility on the auto side.
 
-There is also plenty that can be swapped: panels (BOE, TCL CSOT), structural components (BYD Electronics, Everwin), and contract manufacturing (Foxconn, Luxshare, Wingtech). These segments suffer from overcapacity, giving Xiaomi strong bargaining power. **So Xiaomi's supply chain strength is "extremely strong in oversupplied segments, extremely weak in oligopolistic ones" — and it is precisely the oligopolistic segments that determine profit.**
+There is also plenty that can be swapped: panels (BOE, TCL CSOT), structural components (BYD Electronics, Everwin), and contract manufacturing (Foxconn, Luxshare, Wingtech). These segments suffer from overcapacity, giving Xiaomi strong bargaining power. So Xiaomi's supply chain strength is "extremely strong in oversupplied segments, extremely weak in oligopolistic ones" — and it is precisely the oligopolistic segments that determine profit.
 
-This also explains why Xiaomi is developing Xuanjie chips, pursuing in-house battery packs, and investing in upstream materials. **Not out of technological sentiment, but to turn "cannot swap" into "can swap."** The payback period on this path is five to ten years; it will not rescue gross margin in the near term.
+This also explains why Xiaomi is developing Xuanjie chips, pursuing in-house battery packs, and investing in upstream materials. Not out of technological sentiment, but to turn "cannot swap" into "can swap." The payback period on this path is five to ten years; it will not rescue gross margin in the near term.
 
 ## Sources
 

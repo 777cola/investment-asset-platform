@@ -24,35 +24,35 @@ Share-price reaction is measured by the close on the event day or the next tradi
 
 ## First, split the seven items into two categories
 
-There is only one classification criterion: whether the event changes expectations for "gross margin" or "free cash flow." What changes them is signal; what does not is noise. **By this standard, only 3 of the 7 items are signal, and all three point in the same direction—margins are deteriorating.**
+There is only one classification criterion: whether the event changes expectations for "gross margin" or "free cash flow." What changes them is signal; what does not is noise. By this standard, only 3 of the 7 items are signal, and all three point in the same direction—margins are deteriorating.
 
-The four noise items are noise because they change "scale" without changing "unit profit": revenue meeting targets, upward revision to industry output value, the new Apple model, and minor foreign broker target-price tweaks. Scale contributes almost nothing to Hon Hai's valuation, because its valuation ceiling is set by gross margin (see Part 4). **The market responded to the upward revision in industry output value with a 2.8% gain, and to the 0.21 percentage point decline in gross margin with a 4.5% drop—this asymmetry is itself information.**
+The four noise items are noise because they change "scale" without changing "unit profit": revenue meeting targets, upward revision to industry output value, the new Apple model, and minor foreign broker target-price tweaks. Scale contributes almost nothing to Hon Hai's valuation, because its valuation ceiling is set by gross margin (see Part 4). The market responded to the upward revision in industry output value with a 2.8% gain, and to the 0.21 percentage point decline in gross margin with a 4.5% drop—this asymmetry is itself information.
 
 ## Signal one: that 4.5% drop on the earnings call
 
-At the August 12 earnings call, revenue, operating profit and EPS all came in above the consensus, yet the stock fell 4.5%. The market is not looking at Q2, which is already history, but at three implicit assumptions: ① whether Q3 gross margin can stop falling; ② what will fill the gap to full-year EPS of 19; ③ how much more capex will rise. **Of these three questions, the first determines the other two.**
+At the August 12 earnings call, revenue, operating profit and EPS all came in above the consensus, yet the stock fell 4.5%. The market is not looking at Q2, which is already history, but at three implicit assumptions: ① whether Q3 gross margin can stop falling; ② what will fill the gap to full-year EPS of 19; ③ how much more capex will rise. Of these three questions, the first determines the other two.
 
-Management's language was "product mix improvement in the second half", but it gave no gross margin guidance. The market expressed its distrust of the word "improvement" through the selloff — after all, the same thing was said in Q1 2026, and Q2 gross margin still fell 0.06 percentage points. **This is a textbook information-deficit decline, not a collapse in fundamentals.**
+Management's language was "product mix improvement in the second half", but it gave no gross margin guidance. The market expressed its distrust of the word "improvement" through the selloff — after all, the same thing was said in Q1 2026, and Q2 gross margin still fell 0.06 percentage points. This is a textbook information-deficit decline, not a collapse in fundamentals.
 
 ## Signal two: capex is being recalculated
 
-On September 22, the US Texas capacity plan was announced and the stock fell 2.0%. The logic is straightforward: expansion across four locations means depreciation rises from 2027, with no sign of gross margin improvement. **The market is starting to reclassify "expansion" from a growth story to a cost story.**
+On September 22, the US Texas capacity plan was announced and the stock fell 2.0%. The logic is straightforward: expansion across four locations means depreciation rises from 2027, with no sign of gross margin improvement. The market is starting to reclassify "expansion" from a growth story to a cost story.
 
 This shift matters. In 2024–2025, every expansion announcement from Hon Hai lifted the stock; from the second half of 2026, the same news sends it lower. The dividing line was the Q2 results — once gross margin was shown not to improve with scale, capex turned from "investment" into "burden".
 
 ## Signal three: the -1.8% on the day it broke the trillion mark
 
-On October 5, September revenue came in at NT$1 trillion 158.6 billion, the first single month above NT$1 trillion for any Taiwanese company, and the stock fell 1.8%. That day deserves recording, because it put "all good news priced in" right on the face of it. **Breaking NT$1 trillion was the brightest number in the company's history, and the market's response was to sell.**
+On October 5, September revenue came in at NT$1 trillion 158.6 billion, the first single month above NT$1 trillion for any Taiwanese company, and the stock fell 1.8%. That day deserves recording, because it put "all good news priced in" right on the face of it. Breaking NT$1 trillion was the brightest number in the company's history, and the market's response was to sell.
 
-The reason is not complicated: the trillion mark was already flagged in the Q3 outlook at the August earnings call ("double-digit quarter-on-quarter growth"), and October 5 merely confirmed it. Meanwhile, news of DRAM and NAND price increases kept coming, and the market's worry was "the bigger the revenue, the lower the gross margin." **When revenue becomes a negative signal, it shows pricing power has shifted entirely to the gross margin line.**
+The reason is not complicated: the trillion mark was already flagged in the Q3 outlook at the August earnings call ("double-digit quarter-on-quarter growth"), and October 5 merely confirmed it. Meanwhile, news of DRAM and NAND price increases kept coming, and the market's worry was "the bigger the revenue, the lower the gross margin." When revenue becomes a negative signal, it shows pricing power has shifted entirely to the gross margin line.
 
 ## Why noise is noise: three counterexamples
 
-TrendForce raised its 2027 rack output value forecast by +214%, and the stock rose 2.8%. For Hon Hai, this number means "orders are still there," but it also means "tighter component supply and steeper price increases"—negative for gross margin. **The market only read the first half of the sentence.**
+TrendForce raised its 2027 rack output value forecast by +214%, and the stock rose 2.8%. For Hon Hai, this number means "orders are still there," but it also means "tighter component supply and steeper price increases"—negative for gross margin. The market only read the first half of the sentence.
 
-Apple unveiled the iPhone 18, with Hon Hai as the largest assembler, and the stock rose 0.5%. The handset business will account for less than 30% of revenue in 2026 and carries a lower gross margin than cloud networking; it is no longer a stock-price driver. **This is a classic "news-relevance illusion."**
+Apple unveiled the iPhone 18, with Hon Hai as the largest assembler, and the stock rose 0.5%. The handset business will account for less than 30% of revenue in 2026 and carries a lower gross margin than cloud networking; it is no longer a stock-price driver. This is a classic "news-relevance illusion."
 
-June revenue hitting target and foreign brokers nudging target prices are both repricing of known information and do not constitute a change in the long-term thesis. **There is only one kind of real signal: the few numbers that can change 2027 EPS—gross margin, capex, and customer mix.**
+June revenue hitting target and foreign brokers nudging target prices are both repricing of known information and do not constitute a change in the long-term thesis. There is only one kind of real signal: the few numbers that can change 2027 EPS—gross margin, capex, and customer mix.
 
 ## Sources
 

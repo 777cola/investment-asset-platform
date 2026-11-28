@@ -23,35 +23,35 @@ Events and dates: company announcements (September 18, 2026, chairman handover; 
 
 ## Real signal one: safe-haven money has turned "certainty" into a crowded trade
 
-The AI trade collapse in mid-November was not caused by Berkshire, but it was the biggest beneficiary. The logic chain is clear: tech valuations rest on "discounting future cash flows," and once the discount rate or growth assumptions waver, capital flees to assets whose "cash flows are already certain." **Two-thirds of Berkshire's profit comes from railroads, utilities and manufacturing — none of which has anything to do with AI.**
+The AI trade collapse in mid-November was not caused by Berkshire, but it was the biggest beneficiary. The logic chain is clear: tech valuations rest on "discounting future cash flows," and once the discount rate or growth assumptions waver, capital flees to assets whose "cash flows are already certain." Two-thirds of Berkshire's profit comes from railroads, utilities and manufacturing — none of which has anything to do with AI.
 
-On the numbers, up 13.2% in a month and outperforming the S&P by 19.2 percentage points, the largest since 2010. **That move is not "fundamentals improved 13%" — it is "the valuation multiple re-rated from 1.45x book to 1.66x."**
+On the numbers, up 13.2% in a month and outperforming the S&P by 19.2 percentage points, the largest since 2010. That move is not "fundamentals improved 13%" — it is "the valuation multiple re-rated from 1.45x book to 1.66x."
 
 That is also the most fragile link: safe-haven money arrives fast and leaves faster. It does not need the company to deteriorate — only for the panic to end.
 
 ## Real signal two: management raised the buyback from RMB 4.5 billion to RMB 9.6 billion — a statement of intent
 
-Q3 buybacks were USD 9.647 billion, Q2 was USD 4.527 billion, and Q1 only about USD 230 million (derived by subtracting from the RMB 14.4 billion nine-month total). **Over three quarters, buybacks grew 40-fold.** This acceleration came as the stock rose from 540 to 590 — the opposite direction. The normal logic is to buy less as the price rises.
+Q3 buybacks were USD 9.647 billion, Q2 was USD 4.527 billion, and Q1 only about USD 230 million (derived by subtracting from the RMB 14.4 billion nine-month total). Over three quarters, buybacks grew 40-fold. This acceleration came as the stock rose from 540 to 590 — the opposite direction. The normal logic is to buy less as the price rises.
 
-Two explanations: ① management believes intrinsic value is far above book value (replacement cost of the railroads and utilities, unrealized gains on Apple and Amex); ② the new leadership wants to use buybacks to prop up relative performance. **Either way, it points to one thing: the USD 377.4 billion will not sit in short-term Treasuries forever.**
+Two explanations: ① management believes intrinsic value is far above book value (replacement cost of the railroads and utilities, unrealized gains on Apple and Amex); ② the new leadership wants to use buybacks to prop up relative performance. Either way, it points to one thing: the USD 377.4 billion will not sit in short-term Treasuries forever.
 
 ## Real signal three: earnings "did not collapse" matters more than "good"
 
-Operating profit -5.8%, and the market did not react at all. That is anomalous in 2026 — over the same period CATL's Q3 net profit rose 14.5% yet its A-shares fell 12%, and Cambricon dropped 6% on a growth slowdown. **Berkshire's profit fell 5.8% while its stock hit a new high, which shows the people buying it are not buying profit.**
+Operating profit -5.8%, and the market did not react at all. That is anomalous in 2026 — over the same period CATL's Q3 net profit rose 14.5% yet its A-shares fell 12%, and Cambricon dropped 6% on a growth slowdown. Berkshire's profit fell 5.8% while its stock hit a new high, which shows the people buying it are not buying profit.
 
 They are buying two things: a combined ratio of 91.4% (still profitable, no collapse) and book value +10.5% (net assets still growing). Those two keep the "defensive" label intact.
 
 ## Noise: four things that look eventful but carry no real information
 
-**① 13F position weight changes.** Top five at 68.5%, Alphabet at 12% — a quarterly snapshot reflecting passive drift from stock-price moves, not active decisions.**② Down 0.02% in a single day.** 592.85 versus 592.94, a 9-cent gap; any interpretation is overfitting.
+① 13F position weight changes. Top five at 68.5%, Alphabet at 12% — a quarterly snapshot reflecting passive drift from stock-price moves, not active decisions.② Down 0.02% in a single day. 592.85 versus 592.94, a 9-cent gap; any interpretation is overfitting.
 
-**③ The "asset shortage" narrative.** The media frames "lots of cash" as "no skill" and "lots of buybacks" as "confidence"; both pieces can hold at once, which shows it is not analysis.**④ The "symbolism" of the chairman handover.** Announced a year ahead of the September 18 event; the market had already priced it.
+③ The "asset shortage" narrative. The media frames "lots of cash" as "no skill" and "lots of buybacks" as "confidence"; both pieces can hold at once, which shows it is not analysis.④ The "symbolism" of the chairman handover. Announced a year ahead of the September 18 event; the market had already priced it.
 
 The test is simple: if a development cannot be explained by one of cash flow, discount rate or competitive landscape, it is noise.
 
 ## The tradable part: only one
 
-Of the three genuine signals, only the first (safe-haven flows) is tradeable, and the direction is **"wait for the tide to recede"**, not "chase it". This kind of extreme relative performance has occurred four times in history, and each time it gave back more than half within 1–3 months.
+Of the three genuine signals, only the first (safe-haven flows) is tradeable, and the direction is "wait for the tide to recede", not "chase it". This kind of extreme relative performance has occurred four times in history, and each time it gave back more than half within 1–3 months.
 
 The second (buybacks) and third (earnings didn't collapse) are "reasons to hold", not "reasons to buy". They tell you the company is fine; they don't tell you the price is right.
 

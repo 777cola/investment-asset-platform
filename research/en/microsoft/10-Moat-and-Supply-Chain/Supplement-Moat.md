@@ -6,7 +6,7 @@
 
 ## Notes
 
-数据来源：微软 FY2026Q4 财报与业绩说明会（2026/07/29）；底稿护城河评分（切换成本 9、网络 7、规模 9、品牌 7、成本 6、数据 6）；GitHub 2.25 亿开发者、Foundry 10 万客户、一年新增 88 个数据中心为底稿记载；OpenAI 持股 27% 为 2025/10 重组口径。竞品数据为 2026 年中公开报道口径。
+Data sources: Microsoft FY2026Q4 earnings release and earnings call (2026/07/29); internal moat scores (switching costs 9, network 7, scale 9, brand 7, cost 6, data 6); GitHub's 225 million developers, Foundry's 100,000 customers and 88 data centers added in one year are from internal records; the 27% OpenAI stake reflects the October 2025 restructuring basis. Competitor data reflects public reporting as of mid-2026.
 
 ## Moat scorecard, item by item (out of 10)
 
@@ -38,28 +38,31 @@
 
 Upstream sits Nvidia's GPUs, AMD's GPUs, in-house Maia, the three HBM suppliers, optical module makers, and power and land. Microsoft has no pricing power at this layer and can only accept price increases—which is why it designs its own chips and signs long-term power contracts. The midstream is Azure's data centers and network, adding 88 data centers a year. The downstream is enterprise customers and developers, distributed through Office, GitHub and Dynamics.
 
-Positionally, Microsoft is the only company across the entire AI supply chain that controls both the demand gateway and compute supply. **This is both an advantage (self-produced and self-sold, high utilization, near-zero customer acquisition cost) and a risk (capex is not shared with third parties).** Amazon and Google follow the same model, and the three are competing over whose capital is cheaper and whose power arrives sooner.
+Positionally, Microsoft is the only company across the entire AI supply chain that controls both the demand gateway and compute supply. This is both an advantage (self-produced and self-sold, high utilization, near-zero customer acquisition cost) and a risk (capex is not shared with third parties). Amazon and Google follow the same model, and the three are competing over whose capital is cheaper and whose power arrives sooner.
 
 ## Supply chain: single-point dependence is the biggest hidden risk
 
 Microsoft's supply chain has three single points: GPUs depend mainly on Nvidia, models mainly on OpenAI, and power on local grids. It controls none of the three.
 
-Microsoft has learned a supply-chain lesson before—during the 2021–2022 chip shortage, Azure's growth was capped by capacity for four full quarters. This time it locked in capacity and power two years ahead, at the cost of front-loading capex.**In other words, a substantial part of the 175 billion is a premium for "buying certainty," not an investment in "buying growth."**This is easily overlooked when assessing the return on capex.
+Microsoft has learned a supply-chain lesson before—during the 2021–2022 chip shortage, Azure's growth was capped by capacity for four full quarters. This time it locked in capacity and power two years ahead, at the cost of front-loading capex.In other words, a substantial part of the 175 billion is a premium for "buying certainty," not an investment in "buying growth."This is easily overlooked when assessing the return on capex.
 
 ## The real source of the moat: inertia, not love
 
 Many analyses describe Microsoft's moat as its "ecosystem," a term too vague. The real mechanism is four concrete layers of lock-in:
 
-- **Identity layer**: Employee accounts, permissions and single sign-on all sit in Entra; switching means resetting permissions for everyone.
-- **Compliance layer**: Audit logs, data residency and industry certifications (financial, healthcare, government) hang off Azure; switching means recertification.
-- **Document layer**: Decades of accumulated docx, xlsx and pptx files; switching office software requires format migration, with high error costs.
-- **Process layer**: Approval flows, expense reimbursement and contracts run on Teams and SharePoint; switching means rebuilding processes from scratch.
+- Identity layer: Employee accounts, permissions and single sign-on all sit in Entra; switching means resetting permissions for everyone.
 
-What these four layers share: **they produce no delight, only friction.** And friction retains customers better than delight—the most underappreciated asset Microsoft has built over the past twelve years.
+- Compliance layer: Audit logs, data residency and industry certifications (financial, healthcare, government) hang off Azure; switching means recertification.
+
+- Document layer: Decades of accumulated docx, xlsx and pptx files; switching office software requires format migration, with high error costs.
+
+- Process layer: Approval flows, expense reimbursement and contracts run on Teams and SharePoint; switching means rebuilding processes from scratch.
+
+What these four layers share: they produce no delight, only friction. And friction retains customers better than delight—the most underappreciated asset Microsoft has built over the past twelve years.
 
 ## The most dangerous rival: Google, not Amazon
 
-Amazon's cloud is bigger and cheaper, but it lacks an entry point into enterprise software; it is capturing "new workloads" rather than "existing customers." Google is different: it is the only competitor that builds all three layers in-house — models (Gemini), chips (TPU) and cloud. **In Microsoft's AI stack, the models depend on OpenAI and the chips on Nvidia, so it pays on both ends; Google pays on neither.**
+Amazon's cloud is bigger and cheaper, but it lacks an entry point into enterprise software; it is capturing "new workloads" rather than "existing customers." Google is different: it is the only competitor that builds all three layers in-house — models (Gemini), chips (TPU) and cloud. In Microsoft's AI stack, the models depend on OpenAI and the chips on Nvidia, so it pays on both ends; Google pays on neither.
 
 If inference cost becomes the core competitive variable (which it most likely will), Microsoft's structural disadvantage will become more pronounced each year. What Google lacks right now is only enterprise sales capability, and that is something it can realistically fix — it is already bundling Workspace + Gemini to win M365 customers.
 

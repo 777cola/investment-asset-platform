@@ -22,27 +22,27 @@ Assuming the status is a judgment as of 2026/09/14, excluding later information.
 
 ## Two claims already falsified — what does that tell us
 
-The first falsified assumption was that "the rating can hold." S&P's downgrade to BBB- in July 2026 was no surprise but the inevitable result of the capex cadence—RMB 90 billion of annual investment cannot be sustained by RMB 32 billion of operating cash flow, so leverage had to rise, and with leverage at 4.3x, a downgrade followed naturally. **Falsifying this assumption also negates the implicit premise of "stable financing costs."**
+The first falsified assumption was that "the rating can hold." S&P's downgrade to BBB- in July 2026 was no surprise but the inevitable result of the capex cadence—RMB 90 billion of annual investment cannot be sustained by RMB 32 billion of operating cash flow, so leverage had to rise, and with leverage at 4.3x, a downgrade followed naturally. Falsifying this assumption also negates the implicit premise of "stable financing costs."
 
-The second falsified assumption was that "no equity financing is needed." A company that bought back hundreds of billions over the past decade conducted its first large-scale secondary offering in twenty years in August 2026. **Management has acknowledged the cash flow gap through action, which is more credible than any guidance.** Taken together, the two falsifications show the company has entered a state where it "must continuously raise money externally," and this state reinforces itself—the more cash it lacks, the more it must finance; the more it finances, the worse the rating; the worse the rating, the more expensive the financing.
+The second falsified assumption was that "no equity financing is needed." A company that bought back hundreds of billions over the past decade conducted its first large-scale secondary offering in twenty years in August 2026. Management has acknowledged the cash flow gap through action, which is more credible than any guidance. Taken together, the two falsifications show the company has entered a state where it "must continuously raise money externally," and this state reinforces itself—the more cash it lacks, the more it must finance; the more it finances, the worse the rating; the worse the rating, the more expensive the financing.
 
 ## Three claims to verify — which one deserves the closest watch?
 
-RPO conversion is the first and most observable: management committed to converting RMB 76.6 billion within 12 months, and the incremental cloud revenue in Q2 and Q3 will tell us directly whether it delivers. **If both quarters fall short by more than 10%, the RMB 664 billion must be discounted again.**
+RPO conversion is the first and most observable: management committed to converting RMB 76.6 billion within 12 months, and the incremental cloud revenue in Q2 and Q3 will tell us directly whether it delivers. If both quarters fall short by more than 10%, the RMB 664 billion must be discounted again.
 
-Capex peaking is the second and most critical. FY27 guidance is RMB 90–95 billion; if FY28 guidance no longer rises, expansion has entered a plateau; if it keeps climbing, the gap is still widening. **OCI gross margin is the third, but it ranks last—because the company does not disclose segment gross margin, leaving only management commentary, the least verifiable.**
+Capex peaking is the second and most critical. FY27 guidance is RMB 90–95 billion; if FY28 guidance no longer rises, expansion has entered a plateau; if it keeps climbing, the gap is still widening. OCI gross margin is the third, but it ranks last—because the company does not disclose segment gross margin, leaving only management commentary, the least verifiable.
 
 ## Falsification conditions: when to abandon the thesis entirely
 
-Three red lines; triggering any one removes the stock from the watchlist: **① rating cut to BB+ or below** (funding costs jump, project returns turn negative); **② free cash flow below -RMB 8 billion for two consecutive quarters** (the gap widens and dilution accelerates); **③ a single major customer contract is disclosed as terminated or sharply reduced** (the foundation of the order book collapses).
+Three red lines; triggering any one removes the stock from the watchlist: ① rating cut to BB+ or below (funding costs jump, project returns turn negative); ② free cash flow below -RMB 8 billion for two consecutive quarters (the gap widens and dilution accelerates); ③ a single major customer contract is disclosed as terminated or sharply reduced (the foundation of the order book collapses).
 
-Conversely, the thesis holds only if all three turn green: single-quarter free cash flow turns positive, the rating outlook returns to stable or above, and the 12-month conversion rate of RPO meets the commitment. **Right now none of the three is in place.**
+Conversely, the thesis holds only if all three turn green: single-quarter free cash flow turns positive, the rating outlook returns to stable or above, and the 12-month conversion rate of RPO meets the commitment. Right now none of the three is in place.
 
 ## Watch calendar for next steps
 
-**Mid-December 2026: FY27Q2 results** — watch whether RPO keeps growing, whether capex stays on the RMB 90–95 billion track, and whether the company raises capital again. **January 2027: annual rating agency reviews** — whether Moody's and Fitch follow S&P. **March 2027: FY27Q3 results** — the 12-month conversion window is halfway through; incremental cloud revenue is the hard metric. **June 2027: FY28 capex guidance** — the only official signal for judging whether the expansion has peaked.
+Mid-December 2026: FY27Q2 results — watch whether RPO keeps growing, whether capex stays on the RMB 90–95 billion track, and whether the company raises capital again. January 2027: annual rating agency reviews — whether Moody's and Fitch follow S&P. March 2027: FY27Q3 results — the 12-month conversion window is halfway through; incremental cloud revenue is the hard metric. June 2027: FY28 capex guidance — the only official signal for judging whether the expansion has peaked.
 
-Four points in time, each capable of changing the thesis. **But before the first one arrives, there is nothing to do — and that, too, is part of discipline.**
+Four points in time, each capable of changing the thesis. But before the first one arrives, there is nothing to do — and that, too, is part of discipline.
 
 ## Sources
 

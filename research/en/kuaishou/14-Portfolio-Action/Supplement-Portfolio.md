@@ -22,33 +22,33 @@ Position sizing is a discretionary allocation under the portfolio management fra
 
 ## Why 0%, not "a small position to test the waters"
 
-The psychology of a small position is "participation," not "return." A 1% position, even if it doubles, contributes only 1% to portfolio return, yet it consumes attention and distorts judgment on other opportunities. **For a stock with negative expected return, the most expensive cost is not the loss, it is the attention.**
+The psychology of a small position is "participation," not "return." A 1% position, even if it doubles, contributes only 1% to portfolio return, yet it consumes attention and distorts judgment on other opportunities. For a stock with negative expected return, the most expensive cost is not the loss, it is the attention.
 
 A small position only makes sense when the payoff is asymmetrically skewed upward—for example, if the price falls below HKD 20, with 20% downside and 100% upside, then 1%–2% is a reasonable option premium.
 
 ## Three add-on price levels, each mapping to a distinct thesis
 
-**HKD 20:** 2027E net profit of RMB 5.5–7.0 billion × 7x + net cash of RMB 24.27 billion, which means the market is pricing Kling at 0. Buying here is buying a "free option," and you can accept continued decline in the core business.
+HKD 20: 2027E net profit of RMB 5.5–7.0 billion × 7x + net cash of RMB 24.27 billion, which means the market is pricing Kling at 0. Buying here is buying a "free option," and you can accept continued decline in the core business.
 
-**HKD 24:** A 10% discount to the neutral-case HKD 26.6. If ad growth also returns to 8%, this level can justify 4% — because the denominator stops shrinking, the multiple can rise from 9x to 12x.
+HKD 24: A 10% discount to the neutral-case HKD 26.6. If ad growth also returns to 8%, this level can justify 4% — because the denominator stops shrinking, the multiple can rise from 9x to 12x.
 
-**HKD 29.26 (current price):** No position. Not because the price isn't low enough, but because there is no evidence that things will stop getting worse.
+HKD 29.26 (current price): No position. Not because the price isn't low enough, but because there is no evidence that things will stop getting worse.
 
 ## Trim and stop-loss: follow the thesis, not the price
 
-If you already hold it (say, bought near HKD 45), the current level is not a "stop-loss level" but a "re-decision level." Ask yourself: **If I were flat today, would I buy at this price?** If the answer is no, then you should trim.
+If you already hold it (say, bought near HKD 45), the current level is not a "stop-loss level" but a "re-decision level." Ask yourself: If I were flat today, would I buy at this price? If the answer is no, then you should trim.
 
 Three hard exit conditions: advertising turns negative year on year, Kling fails to grow quarter on quarter for two consecutive quarters, or cash-like assets fall below RMB 19 billion. If any one of the three holds, exit unconditionally, regardless of price.
 
 ## Rebalancing: where the money comes from and where it goes
 
-If a buy trigger occurs in future, where should the money come from? Three candidates: trim Tencent, trim Meituan, trim cash. The correct order is **trim the same exposure first (Tencent's short-video exposure)**, because the two have a correlation above 0.7; switching positions does not change the portfolio's risk exposure, only its payoff odds; only then consider total position size.
+If a buy trigger occurs in future, where should the money come from? Three candidates: trim Tencent, trim Meituan, trim cash. The correct order is trim the same exposure first (Tencent's short-video exposure), because the two have a correlation above 0.7; switching positions does not change the portfolio's risk exposure, only its payoff odds; only then consider total position size.
 
-If a sale becomes necessary in future, who gets sold first? Within the same China internet basket, Kuaishou is the only name with "core business growth of 1.4%, margin compression, and 40% of its space resting on a story" — **it should be the first to be sold, not the last.**
+If a sale becomes necessary in future, who gets sold first? Within the same China internet basket, Kuaishou is the only name with "core business growth of 1.4%, margin compression, and 40% of its space resting on a story" — it should be the first to be sold, not the last.
 
 ## Correlation: it is the same money as China internet stocks
 
-Kuaishou's correlation with Tencent, Alibaba, Meituan and Pinduoduo exceeds 0.7 — they share the same macro factor (Chinese consumption), the same flow backdrop (southbound plus foreign allocation to China internet ADRs) and the same regulatory environment. **Buying Kuaishou is not diversification; it is another bet on China internet.**
+Kuaishou's correlation with Tencent, Alibaba, Meituan and Pinduoduo exceeds 0.7 — they share the same macro factor (Chinese consumption), the same flow backdrop (southbound plus foreign allocation to China internet ADRs) and the same regulatory environment. Buying Kuaishou is not diversification; it is another bet on China internet.
 
 For genuine diversification, short-video exposure should be replaced with Tencent (which spans Video Accounts, gaming, payments and cloud), and the freed-up position allocated to assets with low correlation to China internet (gold, Vietnamese manufacturing, AI hardware).
 

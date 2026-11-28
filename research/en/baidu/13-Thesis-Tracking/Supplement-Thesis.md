@@ -22,31 +22,35 @@ Assumptions are the report's own, not company guidance. Sources: 2026Q3 results 
 
 ## Assumption 1: narrowing decline in advertising — the most critical assumption, now weakening
 
-This is the foundation of the entire thesis. The logic is simple: **as long as the advertising decline narrows from -22% to -10%, total revenue can turn positive and the valuation can shift from a "recession discount" back to a "normal internet" multiple.** If it fails to narrow, AI cloud growth, however fast, is only a hedge.
+This is the foundation of the entire thesis. The logic is simple: as long as the advertising decline narrows from -22% to -10%, total revenue can turn positive and the valuation can shift from a "recession discount" back to a "normal internet" multiple. If it fails to narrow, AI cloud growth, however fast, is only a hedge.
 
-The evidence now points the other way: online marketing -22%, AI-native marketing -15%. The company frames the latter as "the advertising format of the AI era," and it is falling too, which shows the decline is not a matter of ad-spend pacing but a shrinking total inventory of ad slots. **Status: weakening.** The next checkpoint is the Q4 earnings report in February 2027.
+The evidence now points the other way: online marketing -22%, AI-native marketing -15%. The company frames the latter as "the advertising format of the AI era," and it is falling too, which shows the decline is not a matter of ad-spend pacing but a shrinking total inventory of ad slots. Status: weakening. The next checkpoint is the Q4 earnings report in February 2027.
 
 ## Assumption 2 and Assumption 4: cloud is growing, and gross margin still holds up
 
-Hypothesis two (AI cloud at RMB 50 billion in 2027, near break-even) is the only one currently "pointed in the right direction." At RMB 8.2 billion/quarter, +94%, or RMB 32.8 billion annualized, reaching RMB 50 billion by 2027 requires average growth of only about 40% over the next four quarters—a low bar. **The hard part is "near break-even": the cloud segment's operating profit has never been disclosed separately, and this is the biggest information gap.**
+Hypothesis two (AI cloud at RMB 50 billion in 2027, near break-even) is the only one currently "pointed in the right direction." At RMB 8.2 billion/quarter, +94%, or RMB 32.8 billion annualized, reaching RMB 50 billion by 2027 requires average growth of only about 40% over the next four quarters—a low bar. The hard part is "near break-even": the cloud segment's operating profit has never been disclosed separately, and this is the biggest information gap.
 
-Hypothesis four (gross margin holding at 30%) holds for now: 35.4% this quarter. But depreciation and amortization is RMB 2.8 billion, 9% of revenue, while capex is RMB 29.2 billion annualized, so depreciation will keep rising over the next 8–12 quarters. **The gross margin cushion is only 5 percentage points**; two more quarters of decline could break 30%. This hypothesis requires tracking the depreciation-to-revenue ratio every quarter.
+Hypothesis four (gross margin holding at 30%) holds for now: 35.4% this quarter. But depreciation and amortization is RMB 2.8 billion, 9% of revenue, while capex is RMB 29.2 billion annualized, so depreciation will keep rising over the next 8–12 quarters. The gross margin cushion is only 5 percentage points; two more quarters of decline could break 30%. This hypothesis requires tracking the depreciation-to-revenue ratio every quarter.
 
 ## Assumption 3 and Assumption 5: two "unverified" options
 
-Assumption three (converting net cash into shareholder returns) is the most direct path to a valuation re-rating, and also the most uncertain. The USD 373 million buyback equals less than 2% of market cap; the first dividend appears only in media citations, with no company announcement. **Whether this assumption holds determines whether the HKD 85 base-case target is achievable — without a dividend, the SOTP discount will persist.**
+Assumption three (converting net cash into shareholder returns) is the most direct path to a valuation re-rating, and also the most uncertain. The USD 373 million buyback equals less than 2% of market cap; the first dividend appears only in media citations, with no company announcement. Whether this assumption holds determines whether the HKD 85 base-case target is achievable — without a dividend, the SOTP discount will persist.
 
-Assumption five (Apollo Go per-vehicle profitability) is a pure option. 30 cities and 390 million cumulative kilometers represent genuine operating leadership, but vehicles still require safety operators, and the regulatory minimum human-to-vehicle ratio of no less than 1:3 means labor costs cannot be diluted with scale. **With no disclosure of per-ride cost, this assumption must be treated as "unverified" and assigned no valuation.**
+Assumption five (Apollo Go per-vehicle profitability) is a pure option. 30 cities and 390 million cumulative kilometers represent genuine operating leadership, but vehicles still require safety operators, and the regulatory minimum human-to-vehicle ratio of no less than 1:3 means labor costs cannot be diluted with scale. With no disclosure of per-ride cost, this assumption must be treated as "unverified" and assigned no valuation.
 
 ## Falsification conditions and monitoring calendar
 
-**Four falsification conditions; exit on any one:** ① online marketing year-on-year decline widens beyond -30%; ② quarterly capex returns above RMB 10 billion and cloud revenue growth falls below 40%; ③ gross margin breaks below 30%; ④ no dividend or buyback increase announced by mid-2027. **No price stop-loss** — a price stop on a stock at 0.52x PB amounts to selling assets to the market at a discount.
+Four falsification conditions; exit on any one: ① online marketing year-on-year decline widens beyond -30%; ② quarterly capex returns above RMB 10 billion and cloud revenue growth falls below 40%; ③ gross margin breaks below 30%; ④ no dividend or buyback increase announced by mid-2027. No price stop-loss — a price stop on a stock at 0.52x PB amounts to selling assets to the market at a discount.
 
-- **December 2026**: whether an inaugural dividend is announced, its amount and cadence (HK Economic Times says "before year-end").
-- **February 2027**: Q4 results — whether advertising year-on-year decline narrows, full-year capex guidance, whether further impairments are booked.
-- **May 2027**: Q1 results — whether the cloud segment begins disclosing operating profit separately.
-- **August 2027**: Q2 results — whether depreciation as a share of revenue exceeds 11%, whether gross margin holds at 30%.
-- **Ongoing**: Apollo Go safety-driver-to-vehicle ratio, per-ride cost basis (company communications or regulatory filings).
+- December 2026: whether an inaugural dividend is announced, its amount and cadence (HK Economic Times says "before year-end").
+
+- February 2027: Q4 results — whether advertising year-on-year decline narrows, full-year capex guidance, whether further impairments are booked.
+
+- May 2027: Q1 results — whether the cloud segment begins disclosing operating profit separately.
+
+- August 2027: Q2 results — whether depreciation as a share of revenue exceeds 11%, whether gross margin holds at 30%.
+
+- Ongoing: Apollo Go safety-driver-to-vehicle ratio, per-ride cost basis (company communications or regulatory filings).
 
 ## Sources
 

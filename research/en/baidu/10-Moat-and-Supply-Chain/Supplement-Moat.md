@@ -37,35 +37,35 @@ Scores are subjective ratings assigned in this report (0–10 scale). License ty
 
 In China's AI landscape, Baidu is the only company that simultaneously owns chips (Kunlunxin), cloud (AI Cloud RMB 8.2 billion/quarter), models (Ernie) and scenarios (search, Apollo Go). This structure has value in technical synergy: chips can be optimized for its own models, the cloud can run inference for the models, and the scenarios can feed data to the models.
 
-But commercially, full-stack means **fighting on four fronts at once, each against stronger rivals**. Chips compete with Nvidia and Ascend; cloud with Alibaba Cloud and Volcano Engine; models with Doubao and DeepSeek; Robotaxi with Pony.ai and WeRide. Resources are spread thin, and on each front it can only manage "not falling behind," never "leading."
+But commercially, full-stack means fighting on four fronts at once, each against stronger rivals. Chips compete with Nvidia and Ascend; cloud with Alibaba Cloud and Volcano Engine; models with Doubao and DeepSeek; Robotaxi with Pony.ai and WeRide. Resources are spread thin, and on each front it can only manage "not falling behind," never "leading."
 
 ## Supply chain: GPUs, power and bandwidth — all three depend on others
 
 The AI cloud supply chain has three segments: compute chips, data center power, and network bandwidth. Baidu's response is "half in-house, half purchased"—Kunlun chips secure baseline supply, while high-end cards still must be bought externally; IDC capacity is partly self-built and partly leased; bandwidth is purchased from carriers.
 
-The weak point in this supply chain is high-end cards. In 2026, global AI chips are in short supply, with both advanced process nodes and HBM tight—whoever can secure inventory can expand capacity. Baidu reduces external dependence through Kunlun chips, but Kunlun's absolute performance trails Nvidia, requiring more cards and more power to build training clusters—**the result is "saving on procurement, spending on electricity," and cost per unit of compute may not be lower.**
+The weak point in this supply chain is high-end cards. In 2026, global AI chips are in short supply, with both advanced process nodes and HBM tight—whoever can secure inventory can expand capacity. Baidu reduces external dependence through Kunlun chips, but Kunlun's absolute performance trails Nvidia, requiring more cards and more power to build training clusters—the result is "saving on procurement, spending on electricity," and cost per unit of compute may not be lower.
 
 The other segment is traffic acquisition. The 9% increase in cost of sales includes "traffic acquisition," indicating Baidu must buy traffic externally to fill the gap at its own entry points. A company that once monopolized Chinese-language search traffic has begun paying for traffic—the most alarming change in the supply chain.
 
 ## Five scores: the licence is the only thing not depreciating
 
-**Brand 6 points.** "Baidu it" is still muscle memory for a generation, and Chinese search's brand recognition is irreplaceable. But for users under 25, the first app they open is Doubao or Quark. The brand is aging, not collapsing. The medical-advertising cleanup after the 2016 Wei Zexi incident also left a long-term drag on the brand—this is why it scores 6 points, not 8 points.
+Brand 6 points. "Baidu it" is still muscle memory for a generation, and Chinese search's brand recognition is irreplaceable. But for users under 25, the first app they open is Doubao or Quark. The brand is aging, not collapsing. The medical-advertising cleanup after the 2016 Wei Zexi incident also left a long-term drag on the brand—this is why it scores 6 points, not 8 points.
 
-**Cost 3 points.** The weakest item. Cloud is a scale business; Alibaba Cloud's scale is several times Baidu's, giving it lower unit costs; Volcano Engine has ByteDance's cash flow behind it. Baidu spends RMB 7.3 billion of quarterly capex for RMB 8.2 billion of cloud revenue—a poor input-output ratio.
+Cost 3 points. The weakest item. Cloud is a scale business; Alibaba Cloud's scale is several times Baidu's, giving it lower unit costs; Volcano Engine has ByteDance's cash flow behind it. Baidu spends RMB 7.3 billion of quarterly capex for RMB 8.2 billion of cloud revenue—a poor input-output ratio.
 
-**Network effects 5 points.** The search-era network effect was "more users → more click data → more accurate ranking," and that flywheel has failed in the LLM era—model capability depends on pre-training and compute, not user clicks. The flywheel has stalled, and this is the most fundamental damage.
+Network effects 5 points. The search-era network effect was "more users → more click data → more accurate ranking," and that flywheel has failed in the LLM era—model capability depends on pre-training and compute, not user clicks. The flywheel has stalled, and this is the most fundamental damage.
 
-**Switching costs 4 points.** Advertisers can move budgets in a day; cloud customers can run multi-cloud in parallel by training batch; consumer users migrate at zero cost. All three are low.
+Switching costs 4 points. Advertisers can move budgets in a day; cloud customers can run multi-cloud in parallel by training batch; consumer users migrate at zero cost. All three are low.
 
-**Licenses 7 points.** Class-A mapping survey qualifications, autonomous-driving road-test and commercial-operation permits, cloud and payment licenses—these are administrative gatekeepers that new entrants cannot obtain and incumbents will not lose. **This is Baidu's only moat that does not depreciate as technology shifts**, and the precondition for Apollo Go to operate in 30 cities.
+Licenses 7 points. Class-A mapping survey qualifications, autonomous-driving road-test and commercial-operation permits, cloud and payment licenses—these are administrative gatekeepers that new entrants cannot obtain and incumbents will not lose. This is Baidu's only moat that does not depreciate as technology shifts, and the precondition for Apollo Go to operate in 30 cities.
 
 ## The most dangerous rival: ByteDance's Doubao
 
-Not Alibaba Cloud, not Tencent — it is ByteDance's Doubao. **Because what it is taking is not Baidu's customers, but Baidu's entry point.** Users with a question no longer open a search box; they open a chat box — once that action becomes habit, Baidu's 604 million MAU will slowly turn into an "aging curve of the existing user base."
+Not Alibaba Cloud, not Tencent — it is ByteDance's Doubao. Because what it is taking is not Baidu's customers, but Baidu's entry point. Users with a question no longer open a search box; they open a chat box — once that action becomes habit, Baidu's 604 million MAU will slowly turn into an "aging curve of the existing user base."
 
 Doubao's advantage is threefold: ByteDance's cash flow (no need to make money from cloud), Douyin's traffic pool (a natural distribution channel), and sustained investment in model capability. It does not need to beat Baidu at search; it only needs to make the act of "searching" unnecessary.
 
-The second layer of threat is the scale advantage of Alibaba Cloud and Volcano Engine in AI cloud. Once a price war starts, Baidu's RMB 8.2 billion/quarter cloud revenue will struggle to hold its 94% growth rate — which is why this report assigns AI cloud only RMB 50 billion of revenue in 2027 (roughly 40% annualized growth). **The real risk is not being defeated, but being squeezed simultaneously from both the entry point and the cost side.**
+The second layer of threat is the scale advantage of Alibaba Cloud and Volcano Engine in AI cloud. Once a price war starts, Baidu's RMB 8.2 billion/quarter cloud revenue will struggle to hold its 94% growth rate — which is why this report assigns AI cloud only RMB 50 billion of revenue in 2027 (roughly 40% annualized growth). The real risk is not being defeated, but being squeezed simultaneously from both the entry point and the cost side.
 
 ## Sources
 

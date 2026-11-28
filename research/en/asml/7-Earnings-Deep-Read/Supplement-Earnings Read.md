@@ -51,7 +51,7 @@ The third segment is the most valuable. Equipment sales are one-off; installed b
 
 57.5%, 3.5 percentage points above Q2's 54.0% and above the upper end of the 55%–57% guidance. Three reasons, in order of importance: a higher share of installation services (structural), a better mix of EUV and immersion DUV (cyclical), and shipment volume diluting fixed costs (cyclical).
 
-Whether this 3.5 percentage points can be held depends on Q4 guidance: the company guides about 57%. **If it can stand above 57% in 2027, value-based pricing has truly taken hold; if it falls back to 54%–55%, this was product-mix luck.** This is the single number to track most closely in the entire earnings report.
+Whether this 3.5 percentage points can be held depends on Q4 guidance: the company guides about 57%. If it can stand above 57% in 2027, value-based pricing has truly taken hold; if it falls back to 54%–55%, this was product-mix luck. This is the single number to track most closely in the entire earnings report.
 
 ## Tier 3: Costs and profit — net margin deserves a discount
 
@@ -61,7 +61,7 @@ R&D expense is not disclosed separately in this quarter's press release, but bas
 
 ## Layer four: cash flow and balance sheet — the hardest section
 
-Cash and short-term investments rose from EUR 7.582 billion to EUR 12.735 billion, up EUR 5.15 billion in the quarter, alongside EUR 4.1 billion of buybacks. Adding the two implies quarterly operating cash flow above EUR 8 billion, exceeding net profit. **The source is customer prepayments**: under an order-based model customers pay first and the company delivers later, so working capital is negative.
+Cash and short-term investments rose from EUR 7.582 billion to EUR 12.735 billion, up EUR 5.15 billion in the quarter, alongside EUR 4.1 billion of buybacks. Adding the two implies quarterly operating cash flow above EUR 8 billion, exceeding net profit. The source is customer prepayments: under an order-based model customers pay first and the company delivers later, so working capital is negative.
 
 This is the best balance-sheet shape in the equipment industry—net cash, low-interest debt, negative working capital. It gives the company two capabilities: surviving a downturn without raising capital (proven in 2019 and 2022), and buying back heavily when the share price is depressed.
 
@@ -75,7 +75,7 @@ Q4 guidance of RMB 14.2–15.2 billion and gross margin of about 57% implies a f
 
 ## Three easily misread points
 
-**First, the 133.4% net profit growth does not reflect operating improvement alone.** Excluding the EUR 500 million revaluation gain, growth is about 110% — still strong, but not a doubling. **Second, China's 23% share does not mean demand has returned.** The 14% in Q2 reflected delayed licence approvals; Q3 made up the delayed orders; full-year guidance remains 20%. **Third, 17 of the 112 new machines are EUV.** EUV accounts for only 15% by unit count but 35% by value — the average EUV tool price is about EUR 241 million, more than five times that of non-EUV tools (derived).
+First, the 133.4% net profit growth does not reflect operating improvement alone. Excluding the EUR 500 million revaluation gain, growth is about 110% — still strong, but not a doubling. Second, China's 23% share does not mean demand has returned. The 14% in Q2 reflected delayed licence approvals; Q3 made up the delayed orders; full-year guidance remains 20%. Third, 17 of the 112 new machines are EUV. EUV accounts for only 15% by unit count but 35% by value — the average EUV tool price is about EUR 241 million, more than five times that of non-EUV tools (derived).
 
 ## Layer six: what happened between Q2 and Q3
 
@@ -87,7 +87,7 @@ The other is unit count: 86 to 113 tools, +31% QoQ, faster than revenue growth (
 
 ## Cash flow quality check: three questions
 
-**First, did the cash increase come from operations or financing?** From operations — the company did not issue large-scale debt or additional shares during the period; instead, it was buying back stock. **Second, could the advance receipts be "eating next year's grain this year"?** Possibly, but the customers are companies with extremely strong balance sheets like TSMC and Samsung, so default probability is low. **Third, is the buyback propping up the share price?** EUR 4.1 billion equals 0.8% of market cap — not a small amount, but the company has been buying back stock for the past five years, so it is routine practice, not an emergency rescue.
+First, did the cash increase come from operations or financing? From operations — the company did not issue large-scale debt or additional shares during the period; instead, it was buying back stock. Second, could the advance receipts be "eating next year's grain this year"? Possibly, but the customers are companies with extremely strong balance sheets like TSMC and Samsung, so default probability is low. Third, is the buyback propping up the share price? EUR 4.1 billion equals 0.8% of market cap — not a small amount, but the company has been buying back stock for the past five years, so it is routine practice, not an emergency rescue.
 
 With these three questions cleared, this cash flow can be trusted. It represents the company's true earning power in 2026 better than net profit does.
 
@@ -95,7 +95,7 @@ With these three questions cleared, this cash flow can be trusted. It represents
 
 Plot gross margin as a single line: 44.7% in 2019 (cycle trough, EUV ramp), 52.7% in 2021 (chip shortage, EUV volume ramp), 51.3% in 2024 (product mix skewed to DUV), about 52%–54% in 2025, and 57.5% in Q3 2026. That is roughly 13 percentage points over seven years, with only one marked pullback in between.
 
-The slope steepens after 2025, and the driver is not industry conditions but product mix: EUV's share of system revenue rises from 30% to nearly 50%, and EUV gross margin runs more than ten points above DUV. Add services, whose share rises from 24% to 28%. **Neither structural shift can reverse within a year.**
+The slope steepens after 2025, and the driver is not industry conditions but product mix: EUV's share of system revenue rises from 30% to nearly 50%, and EUV gross margin runs more than ten points above DUV. Add services, whose share rises from 24% to 28%. Neither structural shift can reverse within a year.
 
 So 57.5% is most likely not an isolated peak but the floor of a new plateau. The real worry is the day the plateau becomes a peak — the test being two consecutive quarters below 55%.
 

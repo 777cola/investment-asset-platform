@@ -37,39 +37,39 @@ Moat score is a subjective rating in this report, weighted 6.5/10 (cost 25%, sca
 
 ## Position in the value chain: it does the supplier's work and takes on the supplier's risk
 
-A normal automaker's supply chain runs on "I design, you build": batteries from CATL, electronic controls from Bosch, chips from Infineon. BYD has internalized this relationship — FinDreams Battery, FinDreams Powertrain and BYD Semiconductor are all its own. **The result is material costs 10%–15% lower than peers and a higher grade of supply security.**
+A normal automaker's supply chain runs on "I design, you build": batteries from CATL, electronic controls from Bosch, chips from Infineon. BYD has internalized this relationship — FinDreams Battery, FinDreams Powertrain and BYD Semiconductor are all its own. The result is material costs 10%–15% lower than peers and a higher grade of supply security.
 
-The cost is that it must bear capacity and inventory risk across every link itself. With sales down 15.7% in 2026H1, other automakers can slash battery orders; BYD cannot — its battery plants are its own, and cutting output means depreciation it cannot absorb. **Vertical integration is an accelerator when demand is strong and a drag chute when demand is weak.**
+The cost is that it must bear capacity and inventory risk across every link itself. With sales down 15.7% in 2026H1, other automakers can slash battery orders; BYD cannot — its battery plants are its own, and cutting output means depreciation it cannot absorb. Vertical integration is an accelerator when demand is strong and a drag chute when demand is weak.
 
 ## Supply-chain risk: three links where it calls no shots
 
-First is lithium. Its equity stakes in mines give it limited volume, so when lithium prices surge it can only accept them — the lesson of 2022 still stands. **But it is better off than its rivals — at least part of its supply is self-sourced, giving it a flatter cost curve than automakers that buy purely on the market.**
+The first is lithium. Its equity stakes in mines give it limited volume, so when lithium prices surge it can only accept them — the lesson of 2022 still stands. But it is better off than its rivals — at least part of its supply is self-sourced, giving it a flatter cost curve than automakers that buy purely on the market.
 
-Second is smart-driving chips. Nvidia's Orin/Thor and Horizon Robotics' Journey are all bought externally, with gross margins of 50%–70%, and BYD is a pure buyer. As competition shifts to smart driving in 2026, this vulnerability will widen.
+The second is smart-driving chips. Nvidia's Orin/Thor and Horizon Robotics' Journey are all bought externally, with gross margins of 50%–70%, and BYD is a pure buyer. As competition shifts to smart driving in 2026, this vulnerability will widen.
 
-Third is shipping. It owns eight ro-ro vessels, better than automakers that charter ships, but when global ro-ro capacity is tight, berth slots still queue. **Of the 792,000 vehicles exported (79.2 万辆), how many were lost sales because capacity could not keep up, the company has not said.**
+The third is shipping. It owns eight ro-ro vessels, better than automakers that charter ships, but when global ro-ro capacity is tight, berth slots still queue. Of the 792,000 vehicles exported, how many were lost sales because capacity could not keep up, the company has not said.
 
 ## Moat by item: the two that run deep are precisely not barriers
 
-**Vertical integration scores 9 and scale scores 8. These are real strengths, but they defend against a "cost war," not a "share war."** A cost advantage lets it survive a price war longer than rivals, but it cannot stop customers from walking into the shop next door. H1 2026 is a case in point: gross margin rose, volume fell 15.7%.
+Vertical integration scores 9 and scale scores 8. These are real strengths, but they defend against a "cost war," not a "share war." A cost advantage lets it survive a price war longer than rivals, but it cannot stop customers from walking into the shop next door. H1 2026 is a case in point: gross margin rose, volume fell 15.7%.
 
-**Brand scores 5 and intelligent driving scores 5. These are what determine share, and it is strong in neither.** Denza plus Yangwang account for only 12.8% of volume, showing it cannot crack the above-RMB 300,000 market; its intelligent-driving data volume is sufficient (3.33 million vehicles, 210 million km added daily), but the experience is not top-tier, indicating a gap in algorithms and engineering.
+Brand scores 5 and intelligent driving scores 5. These are what determine share, and it is strong in neither. Denza plus Yangwang account for only 12.8% of volume, showing it cannot crack the above-RMB 300,000 market; its intelligent-driving data volume is sufficient (3.33 million vehicles, 210 million km added daily), but the experience is not top-tier, indicating a gap in algorithms and engineering.
 
-**Switching cost scores 3 — a common failing of the auto industry, not BYD's fault.** Consumers switching cars lose only residual value, and products at the same price are matched within six months, so this industry has never had "customer lock-in," only "this generation is better." That is why automakers must launch new models every year — no launch, no share.
+Switching cost scores 3 — a common failing of the auto industry, not BYD's fault. Consumers switching cars lose only residual value, and products at the same price are matched within six months, so this industry has never had "customer lock-in," only "this generation is better." That is why automakers must launch new models every year — no launch, no share.
 
 ## The moat's boundaries: strongest below RMB 150,000, weakest above RMB 200,000
 
-Split the market by price band and the moat's width changes completely. **Below 10 万元: strongest** — the cost advantage translates into a 5,000 元 price gap, and buyers at this price point are the most price-sensitive, so rivals cannot follow. **10–20 万元: strong but caught up** — Geely's Galaxy and Leapmotor's C series both field comparable products; the contest here is pace and channels, not cost. **Above 20 万元: weakest** — here the contest is smart driving, cabin, and brand, and Denza plus Yangwang account for only 12.8% of sales.
+Split the market by price band and the moat's width changes completely. Below RMB 100,000: strongest — the cost advantage translates into a RMB 5,000 price gap, and buyers at this price point are the most price-sensitive, so rivals cannot follow. RMB 100,000–200,000: strong but caught up — Geely's Galaxy and Leapmotor's C series both field comparable products; the contest here is pace and channels, not cost. Above RMB 200,000: weakest — here the contest is smart driving, cabin, and brand, and Denza plus Yangwang account for only 12.8% of sales.
 
-This structure explains why it must move "up-brand", and why moving up is so hard. **Below 10 万元 it sets the rules; above 20 万元 it is just one option among many.** And the most profitable segment is exactly the one where it is weakest.
+This structure explains why it must move "up-brand", and why moving up is so hard. Below RMB 100,000 it sets the rules; above RMB 200,000 it is just one option among many. And the most profitable segment is exactly the one where it is weakest.
 
 ## The most dangerous rival: Geely, not Tesla
 
-Many people's first reaction is Tesla or Xiaomi. Wrong. **Tesla sits above RMB 200,000 and Xiaomi at RMB 200,000–300,000; they are fighting for the market BYD wants to move up into, not its core base.**
+Many people's first reaction is Tesla or Xiaomi. Wrong. Tesla sits above RMB 200,000 and Xiaomi at RMB 200,000–300,000; they are fighting for the market BYD wants to move up into, not its core base.
 
-Geely is the one. Three reasons: **First, the same price band (RMB 80,000–200,000); second, an upgraded version of the same playbook (multi-brand + group procurement + rapid iteration); third, in 2026H1, with the industry at +7.3% and BYD at -15.7%, Geely's NEV sales still grew 10%.** Share is flowing from BYD to Geely, not to Tesla.
+Geely is the one. Three reasons: First, the same price band (RMB 80,000–200,000); second, an upgraded version of the same playbook (multi-brand + group procurement + rapid iteration); third, in 2026H1, with the industry at +7.3% and BYD at -15.7%, Geely's NEV sales still grew 10%. Share is flowing from BYD to Geely, not to Tesla.
 
-And Geely has an advantage BYD lacks: it does not carry a battery plant's depreciation. It can buy from CATL, from its own battery plant, or from SVOLT — whichever is cheaper. **In a year of falling demand, that flexibility is worth more than vertical integration.**
+And Geely has an advantage BYD lacks: it does not carry a battery plant's depreciation. It can buy from CATL, from its own battery plant, or from SVOLT — whichever is cheaper. In a year of falling demand, that flexibility is worth more than vertical integration.
 
 The second threat is itself: cutting R&D spend 21.2% to buy profit. If the product cycle fails to keep up in 2027, the price will be paid double — this is not external competition, it is internal overdrawing.
 

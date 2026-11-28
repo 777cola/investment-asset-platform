@@ -26,15 +26,15 @@ Stock price data comes from batchdata daily bars (2026/05/11–2026/08/07, closi
 
 After the close on August 4, AMD delivered its best quarter ever: revenue of 11.536 billion, up 50% year on year; data center 6.718 billion, up 107% year on year; Q3 guidance of 13 billion, above the consensus of 500 million. During the day on August 4 the stock had already risen 7.0% (484.64 to 518.58), indicating some funds had bet ahead of the print.
 
-On August 5, the stock fell from 518.58 to 482.05, down 7.0%, giving back the entire prior day's gain. The reaction pattern is worth remembering: **the results themselves had no flaws; what fell was the "expectations gap" — the market wanted guidance well above consensus plus a raised 2027 target, and got "in line" instead.**
+On August 5, the stock fell from 518.58 to 482.05, down 7.0%, giving back the entire prior day's gain. The reaction pattern is worth remembering: the results themselves had no flaws; what fell was the "expectations gap" — the market wanted guidance well above consensus plus a raised 2027 target, and got "in line" instead.
 
-Compare May 20, the day of Nvidia's results: AMD rose 8.1%. Same sector, same logic — why did it rise once and fall once? Because in May AMD traded at 90x, and in August at 125x. **The same good news, at different valuations, produces opposite reactions.**
+Compare May 20, the day of Nvidia's results: AMD rose 8.1%. Same sector, same logic — why did it rise once and fall once? Because in May AMD traded at 90x, and in August at 125x. The same good news, at different valuations, produces opposite reactions.
 
 ## The two weeks at the end of July: a selloff without news
 
 On July 28 it fell 8.2%, then another 5.5% on July 29 — from 494.95 to 429.56 in two days, -13.2%. No company announcement, no earnings report, no regulatory filing. The semiconductor sector pulled back broadly over the same period, and AI-themed funds saw redemptions.
 
-This kind of decline is the hardest to explain, and the most worth remembering. It shows one thing: **a large part of AMD's current share price reflects "positioning," not "value."** When funds need to cut risk, the first things they sell are the names that have risen the most and have the best liquidity — AMD is both.
+This kind of decline is the hardest to explain, and the most worth remembering. It shows one thing: a large part of AMD's current share price reflects "positioning," not "value." When funds need to cut risk, the first things they sell are the names that have risen the most and have the best liquidity — AMD is both.
 
 On July 30 it rebounded 13.0%, again with no news. It fell for no reason and rose for no reason — that is daily life for high-valuation growth stocks: price is set by marginal capital's positioning, not by fundamentals.
 
@@ -44,13 +44,13 @@ Noise: +7.7% on 5/26, +7.7% on 6/30, +13.0% on 7/30. None of the three carried c
 
 What belongs in the paper: the two days of 8/4 and 8/5. Earnings above consensus, stock price down — this combination says "expectations are already fully priced." It does not change the company's operations, but it changes the odds — same fundamentals, buying at USD 518 versus USD 482, a 7% difference in expected return.
 
-**One more thing to note: the 7/28–29 decline proves this stock has high beta.** If the portfolio already holds Nvidia, Broadcom and TSMC, adding AMD does not diversify risk, it only amplifies the same risk. This matters more for position management than any single-day move.May 20 is worth reviewing. After Nvidia's earnings, AMD rose 8.1%, more than Nvidia itself. The reason is "read-across": the market saw strong AI demand and assumed the second supplier would get its share. This linkage appeared four times in the first half of 2026, and each time AMD's gain exceeded Nvidia's —**beta above 1: sharp on the way up, sharp on the way down.**
+One more thing to note: the 7/28–29 decline proves this stock has high beta. If the portfolio already holds Nvidia, Broadcom and TSMC, adding AMD does not diversify risk, it only amplifies the same risk. This matters more for position management than any single-day move.May 20 is worth reviewing. After Nvidia's earnings, AMD rose 8.1%, more than Nvidia itself. The reason is "read-across": the market saw strong AI demand and assumed the second supplier would get its share. This linkage appeared four times in the first half of 2026, and each time AMD's gain exceeded Nvidia's —beta above 1: sharp on the way up, sharp on the way down.
 
-Now look at the +7.0% during the day on August 4. Earnings were released after the close; the daytime gain was "expectation" — some funds knew early that the numbers were good, or simply placed bets. This pattern of "front-running before earnings, cashing out after" has appeared three times in AMD (February, May and August 2026), and all three were followed by a post-earnings decline.**The pattern is clear: do not chase before earnings.**
+Now look at the +7.0% during the day on August 4. Earnings were released after the close; the daytime gain was "expectation" — some funds knew early that the numbers were good, or simply placed bets. This pattern of "front-running before earnings, cashing out after" has appeared three times in AMD (February, May and August 2026), and all three were followed by a post-earnings decline.The pattern is clear: do not chase before earnings.
 
-Volume also supports the "position-driven" read. Volume on July 28–29 was 1.8x the trailing 20-day average, and 2.3x on August 5. Genuine value investors do not sell on heavy volume; institutions and quant funds do.**High turnover + no news = position adjustment, not a change in fundamentals.**
+Volume also supports the "position-driven" read. Volume on July 28–29 was 1.8x the trailing 20-day average, and 2.3x on August 5. Genuine value investors do not sell on heavy volume; institutions and quant funds do.High turnover + no news = position adjustment, not a change in fundamentals.
 
-One last counterintuitive point: this was AMD's best quarter ever, yet the stock fell from 518 to 483 within two weeks. This is not market irrationality; the market is repricing "certainty."**When a company's good news needs "the next two years" to materialize, the market demands a discount first and talks about a premium later.**
+One last counterintuitive point: this was AMD's best quarter ever, yet the stock fell from 518 to 483 within two weeks. This is not market irrationality; the market is repricing "certainty."When a company's good news needs "the next two years" to materialize, the market demands a discount first and talks about a premium later.
 
 ## Sources
 

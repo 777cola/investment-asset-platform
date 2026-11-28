@@ -79,7 +79,7 @@ Returns: TTM net income about RMB 6.4 billion, net assets about RMB 63 billion, 
 
 Costs and tax: R&D about RMB 2.4 billion (21% of revenue), SG&A about RMB 1.1 billion (9%), 30% combined — high for a fabless company, because it must support CPU, GPU and FPGA lines at once. Effective tax rate this quarter about 12%, below the 15% statutory rate, aided by R&D credits and an overseas structure; likely back to 15% in 2027.
 
-The YoY comparison shows the quality: 2025Q2 revenue RMB 7.685 billion, gross margin 43.2%, operating loss RMB 134 million; 2026Q2 revenue RMB 11.536 billion, gross margin 56.0%, operating income RMB 1.990 billion. **In one year, from a loss to a 17.3% operating margin — a pace of improvement rarely seen in semiconductor history.**
+The YoY comparison shows the quality: 2025Q2 revenue RMB 7.685 billion, gross margin 43.2%, operating loss RMB 134 million; 2026Q2 revenue RMB 11.536 billion, gross margin 56.0%, operating income RMB 1.990 billion. In one year, from a loss to a 17.3% operating margin — a pace of improvement rarely seen in semiconductor history.
 
 ## Chapter 5 Management
 
@@ -99,9 +99,9 @@ Three drivers, ranked by certainty: ① share gains from the second-source polic
 
 Order support: Oracle's 50,000 MI450 units, OpenAI's 6GW (first 1GW delivered in 2026H2), Anthropic's 2GW, and Microsoft Azure's Helios testing. These orders cover more than 60% of the 2027 revenue target.
 
-**Note that the company's two targets are internally inconsistent**: data center "doubling" (about USD 30 billion in 2026 → about USD 60 billion in 2027) implies EPS of about USD 14–15, while "EPS above USD 20" requires data center revenue above USD 100 billion (more than triple 2026). The two targets cannot be derived from the same set of assumptions; this report's base case adopts the latter (EPS 19) and therefore remains skeptical of the "doubling" language.The significance of Helios needs to be spelled out. In the past AMD sold "cards" — customers bought their own servers, built their own networking, tuned their own software; Helios is a "72-GPU unit that works out of the box," plug in and run. Clearing this step turns AMD from a component supplier into a solutions supplier, lifting gross margin and customer stickiness by a notch. Fail to clear it, and it remains "the cheap option."
+Note that the company's two targets are internally inconsistent: data center "doubling" (about USD 30 billion in 2026 → about USD 60 billion in 2027) implies EPS of about USD 14–15, while "EPS above USD 20" requires data center revenue above USD 100 billion (more than triple 2026). The two targets cannot be derived from the same set of assumptions; this report's base case adopts the latter (EPS 19) and therefore remains skeptical of the "doubling" language.The significance of Helios needs to be spelled out. In the past AMD sold "cards" — customers bought their own servers, built their own networking, tuned their own software; Helios is a "72-GPU unit that works out of the box," plug in and run. Clearing this step turns AMD from a component supplier into a solutions supplier, lifting gross margin and customer stickiness by a notch. Fail to clear it, and it remains "the cheap option."
 
-Where is the gap? Data center revenue is about USD 30 billion in 2026 and must reach USD 100 billion in 2027 to support EPS of 19 — more than triple, not double. Either the company defines "doubling" differently from the market (possibly referring to second-half sequential growth), or the USD 20 EPS target embeds a large gross-margin beat.**This ambiguity is the question that most needs clarifying on the Q3 earnings call.**
+Where is the gap? Data center revenue is about USD 30 billion in 2026 and must reach USD 100 billion in 2027 to support EPS of 19 — more than triple, not double. Either the company defines "doubling" differently from the market (possibly referring to second-half sequential growth), or the USD 20 EPS target embeds a large gross-margin beat.This ambiguity is the question that most needs clarifying on the Q3 earnings call.
 
 ## Chapter 7 Competitive Landscape
 
@@ -125,7 +125,7 @@ The most likely is capex deceleration—it does not require AMD to make a mistak
 
 Risk compensation: the current price of USD 483 is 70% of the optimistic scenario, leaving no buffer for any of the above. This is the core reason for "watch" rather than "buy."
 
-Historical analogy: in the 2018 crypto retreat, AMD's GPU revenue halved in two quarters and the stock fell from USD 34 to USD 16. Mining-card demand then and AI compute demand today are the same in nature—both are "derived demand," driven by external capex.** AMD took six quarters to recover that time; if it happens again, the recovery will be longer because the base is larger.**
+Historical analogy: in the 2018 crypto retreat, AMD's GPU revenue halved in two quarters and the stock fell from USD 34 to USD 16. Mining-card demand then and AI compute demand today are the same in nature—both are "derived demand," driven by external capex. AMD took six quarters to recover that time; if it happens again, the recovery will be longer because the base is larger.
 
 Sensitivity: every 1-point decline in gross margin cuts EPS by 3%; every 3-point decline in share cuts EPS by 8%; every 5x decline in multiple cuts the stock price by 20%. Of the three variables, the multiple is the least controllable and the most impactful on near-term stock price—which is why buying a "good company" at the wrong price usually loses money in the first year.
 
@@ -135,7 +135,7 @@ Sensitivity: every 1-point decline in gross margin cuts EPS by 3%; every 3-point
 
 2027E, three scenarios: bear case revenue RMB 70 billion, net profit RMB 20 billion, EPS 12; base case revenue RMB 130 billion, net profit RMB 31.5 billion, EPS 19; bull case revenue RMB 160 billion, net profit RMB 40 billion, EPS 24.
 
-Key assumptions: the base case assumes data center revenue of RMB 100 billion (share of about 25%), gross margin of 57% and a tax rate of 15%.**If share reaches only 15% (data center RMB 60 billion), EPS falls to 13–14, implying a share price below USD 300.**
+Key assumptions: the base case assumes data center revenue of RMB 100 billion (share of about 25%), gross margin of 57% and a tax rate of 15%.If share reaches only 15% (data center RMB 60 billion), EPS falls to 13–14, implying a share price below USD 300.
 
 Quarterly breakdown: Q3 guidance of RMB 13 billion ±0.3 billion, assuming data center 7.8 billion, client 3.3 billion, gaming 0.7 billion and embedded 1.0 billion; Q4 at +8% QoQ to RMB 14 billion, with data center 8.5 billion. Full-year data center revenue of about RMB 30 billion, +58% versus RMB 19 billion in 2025.
 
@@ -149,9 +149,9 @@ The median of the three methods is USD 392–475, and the current price of USD 4
 
 Valuation conclusion: not cheap, but not absurdly expensive either—what is expensive is "certainty," not "price." The market is pricing in "doubling will definitely materialize," when doubling is only "likely to materialize."
 
-Comparable companies: Nvidia at 28x TTM (15x forward FY2028), TSMC at 28x, Broadcom at 18x FY27, Marvell at 35x. AMD's 125x is the highest in this group and the only one that still requires 24x even under the most optimistic scenario. **Cross-sectional conclusion: AMD is not a little expensive—it is an order of magnitude expensive.**
+Comparable companies: Nvidia at 28x TTM (15x forward FY2028), TSMC at 28x, Broadcom at 18x FY27, Marvell at 35x. AMD's 125x is the highest in this group and the only one that still requires 24x even under the most optimistic scenario. Cross-sectional conclusion: AMD is not a little expensive—it is an order of magnitude expensive.
 
-Reverse check: at the current price of USD 483 and 1.66 billion shares, the implied market expectation is net profit of USD 40 billion in 2029 (at a 20x exit multiple). That requires revenue above USD 160 billion and a net margin of 25%—more than triple the 2026 level. **In other words, the current price has already discounted success three years out.**
+Reverse check: at the current price of USD 483 and 1.66 billion shares, the implied market expectation is net profit of USD 40 billion in 2029 (at a 20x exit multiple). That requires revenue above USD 160 billion and a net margin of 25%—more than triple the 2026 level. In other words, the current price has already discounted success three years out.
 
 ## Chapter 11 Investment Recommendations
 
@@ -165,7 +165,7 @@ Portfolio view: even if bullish, this is not the moment to build a position. 49%
 
 One more cost to count: waiting for USD 350 could take six quarters. Over those six quarters, if AI capex keeps beating, AMD could first rise to 650 and then fall back to 400 — waiting is not costless. This report's approach: wait, but raise the monitoring frequency to once a month; act when evidence appears, do not fixate on the price.
 
-Conversely, if the price reaches 350 first while fundamentals deteriorate (gross margin below 52%), that is not a buy point but an avoid point. **Price and fundamentals must be read together; looking at only one will lead to mistakes.**
+Conversely, if the price reaches 350 first while fundamentals deteriorate (gross margin below 52%), that is not a buy point but an avoid point. Price and fundamentals must be read together; looking at only one will lead to mistakes.
 
 ## Chapter 12 Appendix: Data and Definitions
 

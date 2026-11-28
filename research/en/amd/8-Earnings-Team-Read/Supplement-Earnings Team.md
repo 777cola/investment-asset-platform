@@ -10,11 +10,11 @@ All four close readings rest on the same factual base: AMD's 2026Q2 earnings and
 
 ## Division of work across the four articles
 
-Duan Yongping's section answers "has this business improved?" The conclusion: gross margin and customer mix improved; pricing power unchanged. Buffett's section answers "how much profit turns into cash?" The conclusion: coverage of 1.3x; capex the only question mark.
+The Duan Yongping section answers "has this business improved?" The conclusion: gross margin and customer mix have improved; pricing power has not changed. The Buffett section answers "how much profit turns into cash?" The conclusion: coverage of 1.3x, with capex the sole question mark.
 
-Munger's section answers "where could this report be fake?" It finds three holes: base effect, non-GAAP measures, segment profit allocation. Li Lu's section answers "can this transition succeed?" The conclusion: right direction, low odds.
+The Munger section answers "where could this financial report be fake?" It identifies three holes: base effects, non-GAAP measures, and segment profit allocation. The Li Lu section answers "can this transformation succeed?" The conclusion: the direction is right, but the probability is not high.
 
-The synthesis section rules on each of the four investors' disagreements point by point; the edited and polished version is the one for people who don't read financial reports.
+The synthesis section adjudicates the four investors' disagreements point by point; the edited and polished version is for readers who do not read financial reports.
 
 ## Sources
 

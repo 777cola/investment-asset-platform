@@ -24,27 +24,27 @@ Assumptions and verification indicators use this report's own framework, with ev
 
 The five assumptions are not parallel. H1 (supply still tight in 2027) determines whether 2027 operating profit is 180 trillion or 110 trillion, and whether valuation is 6x or 4x. The other four are supports or modifiers for H1.
 
-The current supporting evidence for H1 is that "capex does not equal capacity": equipment lead times of 12-18 months and cleanroom build times of 18 months mean money spent in 2026 only creates supply in the second half of 2027. JPMorgan estimates 2027 bit supply growth of only 13%. But the counter-evidence is equally hard: Samsung's HBM4 capacity doubles in 2027, ChangXin reaches 420,000 wafers/month, and Yongin Phase 1 comes online in February 2027. **All three point to the second half of 2027, so H1's time window is the first half only**.
+The current supporting evidence for H1 is that "capex does not equal capacity": equipment lead times of 12-18 months and cleanroom build times of 18 months mean money spent in 2026 only creates supply in the second half of 2027. JPMorgan estimates 2027 bit supply growth of only 13%. But the counter-evidence is equally hard: Samsung's HBM4 capacity doubles in 2027, ChangXin reaches 420,000 wafers/month, and Yongin Phase 1 comes online in February 2027. All three point to the second half of 2027, so H1's time window is the first half only.
 
 ## Falsification conditions: only two, both requiring hard evidence
 
-**Falsification one: DRAM contract prices fall quarter-on-quarter for two consecutive quarters.** Note this is the "contract price," not the "spot price" — contract price is the basis for company revenue. Historically, once this signal appears, a further 30%–40% decline follows, because EPS and multiples contract simultaneously. In the 2022 cycle, contract prices turned down in 2022Q3, while the stock peaked in 2022Q1 — so this signal is lagging confirmation, not an early warning.
+Falsification one: DRAM contract prices fall quarter-on-quarter for two consecutive quarters. Note this is the "contract price," not the "spot price" — contract price is the basis for company revenue. Historically, once this signal appears, a further 30%–40% decline follows, because EPS and multiples contract simultaneously. In the 2022 cycle, contract prices turned down in 2022Q3, while the stock peaked in 2022Q1 — so this signal is lagging confirmation, not an early warning.
 
-**Falsification two: Samsung's disclosed HBM share exceeds 35%.** This is the killer of the valuation center. A share move from 28% to 35% means HBM shifts from a "duopoly" to "two players splitting the market evenly," the 3x premium drops below 2x, and the operating margin returns to 45%–50%. Data sources: quarterly share data from TrendForce and Counterpoint, and Nvidia's supplier allocation.
+Falsification two: Samsung's disclosed HBM share exceeds 35%. This is the killer of the valuation center. A share move from 28% to 35% means HBM shifts from a "duopoly" to "two players splitting the market evenly," the 3x premium drops below 2x, and the operating margin returns to 45%–50%. Data sources: quarterly share data from TrendForce and Counterpoint, and Nvidia's supplier allocation.
 
 Anything other than these two signals does not count as falsification. A 20% stock decline, brokerages cutting target prices, tighter Korean regulation — these are volatility, not falsification.
 
 ## Watch calendar: what to look for over the next six months
 
-**July 29**: Q2 results. Watch three numbers: operating profit (60 or 65), DRAM blended ASP QoQ, and management's 2027 guidance. This one sets the near-term direction.
+July 29: Q2 results. Watch three numbers: operating profit (60 or 65), DRAM blended ASP QoQ, and management's 2027 guidance. This one sets the near-term direction.
 
-**September**: Q3 contract price negotiations. If commodity DRAM price increases fall below 20%, H1 starts to crack.
+September: Q3 contract price negotiations. If commodity DRAM price increases fall below 20%, H1 starts to crack.
 
-**October**: Q3 results plus preliminary 2027 capex guidance. This is the single most important number of the year — if 2027 guidance exceeds KRW 50 trillion, capacity expansion is accelerating and H1 is at risk.
+October: Q3 results plus preliminary 2027 capex guidance. This is the single most important number of the year — if 2027 guidance exceeds KRW 50 trillion, capacity expansion is accelerating and H1 is at risk.
 
-**January–February 2027**: Yongin Phase 1 cleanroom activation and equipment move-in. The first physical evidence of supply landing.
+January–February 2027: Yongin Phase 1 cleanroom activation and equipment move-in. The first physical evidence of supply landing.
 
-**April 2027**: Full-year 2026 results plus 2027 HBM4E pricing. Whether the HBM premium holds at 2.5x hinges on this negotiation.
+April 2027: Full-year 2026 results plus 2027 HBM4E pricing. Whether the HBM premium holds at 2.5x hinges on this negotiation.
 
 ## Failure scenarios for the thesis: when the framework itself breaks down
 

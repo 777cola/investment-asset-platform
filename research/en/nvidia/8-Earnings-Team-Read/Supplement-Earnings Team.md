@@ -10,7 +10,7 @@ This module has 6 pages. Sources: NVIDIA FY2027Q2 earnings release and 10-Q (202
 
 ## Suggested reading order
 
-Read in the order "Duan Yongping → Buffett → Munger → Li Lu." The first two pieces cover how the business is doing now; the last two cover how it could go wrong. The synthesis distills the four into a single sentence, and the edited and polished version is a finished draft ready to publish.
+Read in this order: Duan Yongping → Buffett → Munger → Li Lu. The first two cover how the business stands today; the last two cover how it could go wrong. The synthesis distills the four into a single sentence, and the edited and polished version is a finished piece ready to publish.
 
 ## Sources
 

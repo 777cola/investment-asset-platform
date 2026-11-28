@@ -10,7 +10,7 @@ WeChat article copy, ready to copy and publish. About 1,600 words. All figures m
 
 ## Title and lead-in
 
-**Title: Meituan earned RMB 2.69 billion, but this is not money won back**
+Title: Meituan earned RMB 2.69 billion, but this is not money won back
 
 Subtitle: Q2 beat the consensus of RMB 3.5 billion — why I only dare buy 2%
 
@@ -28,7 +28,7 @@ Second, the core business is profitable. Core local commerce revenue was RMB 71.
 
 Third, new initiatives lost less. Losses were RMB 1.74 billion, with the loss ratio narrowing from 7.1% to 5.3%. Xiaoxiang Supermarket covers 68 cities (39 cities at end-2025), Kuailehou has 40 stores, and Keeta is already profitable in Hong Kong and Saudi Arabia.
 
-One easily overlooked figure: net operating cash inflow in the second quarter was RMB 9.7 billion, 4.5x net profit. For full-year 2025 this figure was **-RMB 13.8 billion**.
+One easily overlooked figure: net operating cash inflow in the second quarter was RMB 9.7 billion, 4.5x net profit. For full-year 2025 this figure was -RMB 13.8 billion.
 
 A swing to positive cash flow is harder to fake than a swing to positive profit.
 
@@ -50,7 +50,7 @@ This isn't me talking it down—the company said so itself.
 
 ## III. The single most critical data point: 4.0%
 
-One inconspicuous line in the revenue breakdown: **merchant services revenue RMB 39.60 billion, up just 4.0% year on year**.
+One inconspicuous line in the revenue breakdown: merchant services revenue RMB 39.60 billion, up just 4.0% year on year.
 
 This segment — commissions plus advertising — is the thermometer of the platform's bargaining power over merchants.
 
@@ -71,14 +71,16 @@ On 2026 losses, there is no PE. On normalized 2027 profit of RMB 25 billion, the
 Three scenarios:
 
 - Bear: subsidies run another two years, 2027 net profit RMB 10 billion, target HKD 60, -23%;
+
 - Base: subsidies normalize, core local commerce margin back to 12%–13%, net profit RMB 25 billion, target HKD 110, +42%;
+
 - Bull: share holds above 55%, Keeta contributes profit, net profit RMB 35 billion, target HKD 150, +94%.
 
 Odds 1:1.8. Enough to buy, not enough to size up.
 
 ## Seven: Finally, this money could have bought something else
 
-A note on my own position sizing: this money was originally earmarked for Tencent. I switched to Meituan because the same capital offers 1:1.8 odds on Meituan versus 1:2 on Tencent, though with far greater certainty on Tencent. **I bought both, but sized the Meituan position at just one quarter of the Tencent position.** This is not a lack of conviction in Meituan; it is a lack of conviction that "competitors will behave rationally."
+A note on my own position sizing: this money was originally earmarked for Tencent. I switched to Meituan because the same capital offers 1:1.8 odds on Meituan versus 1:2 on Tencent, though with far greater certainty on Tencent. I bought both, but sized the Meituan position at just one quarter of the Tencent position. This is not a lack of conviction in Meituan; it is a lack of conviction that "competitors will behave rationally."
 
 ## V. My approach
 
@@ -92,15 +94,15 @@ Hold steady as long as three lines hold: Q3 core local commerce operating profit
 
 If any one breaks, cut below 1%.
 
-This is not a "long-term bullish" story; it is an investment validated by quarterly reports. **October will settle it — no need to wait three years.**
+This is not a "long-term bullish" story; it is an investment validated by quarterly reports. October will settle it — no need to wait three years.
 
 ## Six, a comparison: how it differs from JD
 
 Both fought in food delivery: JD.com lost about RMB 40 billion over two years, with share falling from 31% to 7%; Meituan fought for a year, lost RMB 17 billion, saw share fall from 65% to 51%, then earned it all back in the second quarter.
 
-The difference is not how much money was spent, but **whether there are merchants**. Meituan has 8 million merchants; JD.com had to negotiate from zero. Without merchants, users acquired through subsidies open the app and find "nothing I want to eat," so they don't come back.
+The difference is not how much money was spent, but whether there are merchants. Meituan has 8 million merchants; JD.com had to negotiate from zero. Without merchants, users acquired through subsidies open the app and find "nothing I want to eat," so they don't come back.
 
-That is why I say food delivery is a "merchant density business," not a "logistics business." **Whoever gets this wrong will burn money where there is no compounding.**
+That is why I say food delivery is a "merchant density business," not a "logistics business." Whoever gets this wrong will burn money where there is no compounding.
 
 ## Sources
 

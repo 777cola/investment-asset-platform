@@ -62,7 +62,7 @@ Broadcom sells three things: design capability (NRE and IP), chips (XPU and netw
 
 Design capability is the entry point: when customers want custom chips, they first turn to Broadcom for architecture definition. This revenue is small but high-margin. Chips are the main body: once in volume production, they are priced per unit, generating large revenue at lower margins, because wafer and HBM costs must be passed through. Software is the annuity: customers renew, margins are 90%, and cash flow is stable.
 
-The benefit of this mix is extremely strong customer stickiness — chips cannot be swapped out, software cannot be migrated away. The drawback is that the revenue mix "gets heavier" as AI's share rises, with gross margin falling from 78% to 73%. **This is not a decline in competitiveness; the business model is drifting from "selling IP" to "selling hardware," and the valuation approach must change accordingly.**
+The benefit of this mix is extremely strong customer stickiness — chips cannot be swapped out, software cannot be migrated away. The drawback is that the revenue mix "gets heavier" as AI's share rises, with gross margin falling from 78% to 73%. This is not a decline in competitiveness; the business model is drifting from "selling IP" to "selling hardware," and the valuation approach must change accordingly.
 
 Unit economics can be roughly estimated: of a custom XPU's revenue, design fees (NRE) account for 10–20% at around 80% gross margin; volume-production chips account for over 80% at 55%–60% gross margin. A customer's procurement cycle typically spans three product generations, five to six years, meaning once a customer is signed, it represents more than five years of cash flow. This is also why Broadcom is willing to solve financing problems for customers — what it is buying is not a single deal but five years of cash flow.
 
@@ -110,7 +110,7 @@ The Nvidia threat is structural: if it prices inference GPUs at only 20% above A
 
 MediaTek winning Google TPU V80 is the more direct threat: not to take share, but to compress price. Once the second source is up and running, Broadcom's pricing power erodes.
 
-**Competitive conclusion: share will not be taken near term, but price will be compressed. That is the other meaning of the 73% gross margin guidance.**
+Competitive conclusion: share will not be taken near term, but price will be compressed. That is the other meaning of the 73% gross margin guidance.
 
 The second-source economics are simple: a customer bringing in a second supplier does not need it to perform equally well, only to produce a comparable quote. MediaTek's TPU V80 is behind schedule, but if it can quote a price 15% lower, Google's negotiating position changes. Broadcom has only two choices: cut price to hold share, or hold price and lose share. Judging by the 73% guidance, it chose the former.
 
@@ -132,9 +132,9 @@ FY26E: revenue USD 114.5 billion (Q1 23.8, Q2 26.3, Q3 29.591, Q4 guidance 34.8)
 
 FY27E: AI 115.0 billion + software 41.0 billion + non-AI 17.5 billion = USD 173.5 billion, net margin 53.3%, net income USD 92.4 billion, EPS USD 19.38 (in line with the consensus).
 
-FY28E: AI growth slows to 15% (132.0 billion), gross margin 71%, revenue USD 196.0 billion, net income USD 102.0 billion, EPS USD 21.40 (+10%). **FY28 is the peak year of this infrastructure cycle; slower growth is the core assumption.**
+FY28E: AI growth slows to 15% (132.0 billion), gross margin 71%, revenue USD 196.0 billion, net income USD 102.0 billion, EPS USD 21.40 (+10%). FY28 is the peak year of this infrastructure cycle; slower growth is the core assumption.
 
-Sensitivity: if FY27 AI revenue reaches only 98.0 billion (−15%), revenue falls to USD 156.5 billion, net income to about USD 83.0 billion and EPS to USD 17.4, down 10%; if it reaches only 85.0 billion (−26%), EPS is about USD 15, down 23%. Conversely, if AI reaches 130.0 billion, EPS is about USD 21.5, up 11%. **Upside and downside elasticity are asymmetric: the downside is larger.**
+Sensitivity: if FY27 AI revenue reaches only 98.0 billion (−15%), revenue falls to USD 156.5 billion, net income to about USD 83.0 billion and EPS to USD 17.4, down 10%; if it reaches only 85.0 billion (−26%), EPS is about USD 15, down 23%. Conversely, if AI reaches 130.0 billion, EPS is about USD 21.5, up 11%. Upside and downside elasticity are asymmetric: the downside is larger.
 
 ## X. Valuation
 
@@ -142,7 +142,7 @@ Using FY27 EPS of USD 19.38, applying 15–24x: bear case 15x (EPS USD 15, AI re
 
 The current price of USD 355.14 corresponds to 18.3x, sitting between the base and bear cases. Sum-of-the-parts gives USD 386, almost identical to the base case, indicating market pricing is broadly reasonable.
 
-**The core contradiction in valuation: 18x is cheap among AI semiconductors, but the reason it is cheap is risk pricing, not mispricing.**The market gives Nvidia 30x (cash-collecting) and Broadcom 18x (some orders rely on financing); this gap is reasonable.
+The core contradiction in valuation: 18x is cheap among AI semiconductors, but the reason it is cheap is risk pricing, not mispricing.The market gives Nvidia 30x (cash-collecting) and Broadcom 18x (some orders rely on financing); this gap is reasonable.
 
 Historical range reference: from 2018–2023 Broadcom traded between 12–15x (when it was a cash-flow company); from 2024–2025 it re-rated to 25–35x (AI narrative); in September 2026 it fell back to 18x (narrative receding, EPS pricing). Today's 18x is the midpoint of these three phases. For it to return to 30x requires a clear financing structure + AI growth re-accelerating; neither is present currently.
 

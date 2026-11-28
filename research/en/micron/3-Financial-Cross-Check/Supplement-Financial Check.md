@@ -25,34 +25,37 @@ Dual-source principle: every key figure requires at least two independent source
 
 ## The biggest deviation: Q4 guidance differs from the consensus by 16%
 
-On June 24 the company guided FY26Q4 to USD 49–51 billion and EPS of USD 30–32; the consensus before the print was USD 43.1 billion and EPS of USD 25.3. No one miscalculated — **sell-side models did not anticipate how sharp the price increases would be before the Q3 print**. Q3 itself came in USD 7.9 billion above the top end of guidance (guidance 33.57±0.75 billion, actual 41.46 billion), scrambling everyone's models.
+On June 24 the company guided FY26Q4 to USD 49–51 billion and EPS of USD 30–32; the consensus before the print was USD 43.1 billion and EPS of USD 25.3. No one miscalculated — sell-side models did not anticipate how sharp the price increases would be before the Q3 print. Q3 itself came in USD 7.9 billion above the top end of guidance (guidance 33.57±0.75 billion, actual 41.46 billion), scrambling everyone's models.
 
-By late September the consensus had been revised up to revenue of USD 50.8–51.4 billion and EPS of USD 31.5–31.75, essentially hugging the upper half of company guidance. So treat the "company guidance of USD 49–51 billion" with care: **the market has already taken guidance as the floor**. This is a classic case of guidance losing its meaning after being revised up — a print even slightly below USD 51.4 billion could be read as below expectations.
+By late September the consensus had been revised up to revenue of USD 50.8–51.4 billion and EPS of USD 31.5–31.75, essentially hugging the upper half of company guidance. So treat the "company guidance of USD 49–51 billion" with care: the market has already taken guidance as the floor. This is a classic case of guidance losing its meaning after being revised up — a print even slightly below USD 51.4 billion could be read as below expectations.
 
 ## The few within 1% deviation show the data is clean
 
 Revenue, gross margin, EPS and DRAM revenue all match the company's filings, broker research and media citations exactly (deviation 0–0.01%). Such consistency is unusual for memory stocks, because segment revenue, bit shipments and ASP are often calculated differently across sources. Micron's disclosure quality this quarter is solid: the four segments (CDBU 11.5 billion, CMBU 13.77 billion, MCBU 11.52 billion, AEBU 4.63 billion) total 41.42 billion, a 0.036 billion gap versus total revenue of 41.456 billion, due to rounding.
 
-Net income has two measures: GAAP 28.24 billion and Non-GAAP 28.86 billion, a 0.62 billion (2.2%) difference from stock-based compensation and restructuring charges. This report uses GAAP for the "68% net margin" and Non-GAAP for "EPS 25.11" — **because sell-side consensus and company guidance both use Non-GAAP**, and mixing the two produces wrong multiples.
+Net income has two measures: GAAP 28.24 billion and Non-GAAP 28.86 billion, a 0.62 billion (2.2%) difference from stock-based compensation and restructuring charges. This report uses GAAP for the "68% net margin" and Non-GAAP for "EPS 25.11" — because sell-side consensus and company guidance both use Non-GAAP, and mixing the two produces wrong multiples.
 
 ## Why share data cannot be mixed
 
-The 18% HBM share comes from Counterpoint (revenue basis, 2026Q2), while the 23.3% DRAM share comes from TrendForce (also revenue basis, same period). The two firms differ in methodology, sample and timing, and HBM is part of DRAM, **so combining 18% and 23.3% to calculate an "HBM penetration rate" is wrong**.
+The 18% HBM share comes from Counterpoint (revenue basis, 2026Q2), while the 23.3% DRAM share comes from TrendForce (also revenue basis, same period). The two firms differ in methodology, sample and timing, and HBM is part of DRAM, so combining 18% and 23.3% to calculate an "HBM penetration rate" is wrong.
 
-This report cites them separately: the HBM competitive landscape draws only on Counterpoint (SK hynix 50%, Samsung 33%, Micron 18%), while total DRAM and the CXMT threat draw only on TrendForce (Samsung 39.4%, SK hynix 24.9%, Micron 23.3%, CXMT 9.5%). TrendForce industry revenue of USD 154.73 billion × Micron's 23.3% = USD 36.05 billion, a 15% gap versus the company's disclosed DRAM revenue of USD 31.3 billion. The gap stems from definition: TrendForce measures DRAM brand revenue (including HBM), whereas Micron's reported DRAM revenue excludes some HBM-related packaging revenue — **a definitional difference, not a data error**, so no forced reconciliation is made.
+This report cites them separately: the HBM competitive landscape draws only on Counterpoint (SK hynix 50%, Samsung 33%, Micron 18%), while total DRAM and the CXMT threat draw only on TrendForce (Samsung 39.4%, SK hynix 24.9%, Micron 23.3%, CXMT 9.5%). TrendForce industry revenue of USD 154.73 billion × Micron's 23.3% = USD 36.05 billion, a 15% gap versus the company's disclosed DRAM revenue of USD 31.3 billion. The gap stems from definition: TrendForce measures DRAM brand revenue (including HBM), whereas Micron's reported DRAM revenue excludes some HBM-related packaging revenue — a definitional difference, not a data error, so no forced reconciliation is made.
 
 ## The four finally adopted metrics
 
 - Financial data: raw company filings in USD million, with GAAP and Non-GAAP presented separately and clearly labelled
+
 - Share price and market cap: batchdata close of USD 1,082.28 on 2026/09/25 × 1.13 billion shares = USD 1.22 trillion; undiluted share count used to avoid conflicting with the "PE (2027E) 6.5x" basis
+
 - Industry share: TrendForce for DRAM, Counterpoint for HBM, each with quarter and methodology noted
+
 - Consensus: used for PE and target-price comparison, taken from late September (EPS 2027E of about USD 166, FY26Q4 revenue of USD 50.8–51.4 billion), with timing labelled "late September"
 
 ## Two careful checks on share price and share count
 
 The share-price column can only come from one source: batchdata daily bars. The 2026/09/25 close was USD 1,082.28, up 0.16% on the day; the 52-week high is USD 1,213.56, 10.8% above the current price, and the year-to-date gain is about 226% — which implies a price of about USD 332 at the start of the year, consistent with media reports of "a cumulative gain of about 14% since September" and "a close of USD 1,096.16 on 22 September", indicating no gaps in the price series.
 
-The sequential share shifts need to be added up manually: Counterpoint's 2026Q2 HBM figures are SK hynix 50% (58% in the prior quarter), Samsung 33% (21%) and Micron 18% (21%), totalling 101%, i.e. 100% after rounding. **The key point in this data is not that Micron lost 3 points, but that Samsung grabbed 12 points in a single quarter** — proof that HBM4 qualification is not an exclusive pass.
+The sequential share shifts need to be added up manually: Counterpoint's 2026Q2 HBM figures are SK hynix 50% (58% in the prior quarter), Samsung 33% (21%) and Micron 18% (21%), totalling 101%, i.e. 100% after rounding. The key point in this data is not that Micron lost 3 points, but that Samsung grabbed 12 points in a single quarter — proof that HBM4 qualification is not an exclusive pass.
 
 ## Sources
 

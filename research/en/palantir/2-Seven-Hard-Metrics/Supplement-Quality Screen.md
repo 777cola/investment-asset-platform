@@ -24,17 +24,17 @@ Calculation: (1) The gross margin of about 80% is the range described in the com
 
 ## The only item that does not pass: it is not a matter of paying no dividend, but of reverse dilution
 
-Palantir has paid no dividend since listing and has done no meaningful buyback—of the USD 1 billion buyback authorization granted in 2023, the amount executed is far below what was authorized. On a "shareholder return" screen it should be excluded, but I set criterion 7 to "equity dilution ≤1%/year" because its problem is more serious than not paying a dividend: **it is not that it fails to return money, it is that it asks shareholders for another 2% every year.**
+Palantir has paid no dividend since listing and has done no meaningful buyback—of the USD 1 billion buyback authorization granted in 2023, the amount executed is far below what was authorized. On a "shareholder return" screen it should be excluded, but I set criterion 7 to "equity dilution ≤1%/year" because its problem is more serious than not paying a dividend: it is not that it fails to return money, it is that it asks shareholders for another 2% every year.
 
 Q2 stock-based compensation was USD 265 million, 13.7% of revenue. Annualized that exceeds USD 1 billion, equivalent to paying employees one-fifth of full-year free cash flow (Q2 annualized 4.88 billion). Tech companies routinely use stock to retain staff, and 13.7% is on the high side among peers (mature SaaS typically runs 8%–12%).
 
-Is this not fatal? **On its own, not fatal; combined with valuation, fatal.**A 74x price-to-sales multiple assumes "per-share value compounds 30% a year"; 2% dilution a year turns 30% into 27.4%. Over six years that is a 15 percentage point gap—exactly the stretch between the neutral scenario and the current price.
+Is this not fatal? On its own, not fatal; combined with valuation, fatal.A 74x price-to-sales multiple assumes "per-share value compounds 30% a year"; 2% dilution a year turns 30% into 27.4%. Over six years that is a 15 percentage point gap—exactly the stretch between the neutral scenario and the current price.
 
 ## Six more: not a squeaker, but a landslide
 
-The 47% operating margin is the most striking item among these seven. In software, Salesforce runs an operating margin of about 20%, Snowflake is still near loss-making, and Databricks is private but publicly reports near break-even.**Palantir has delivered the margin of an entire industry in a single company.**
+The 47% operating margin is the most striking item among these seven. In software, Salesforce runs an operating margin of about 20%, Snowflake is still near loss-making, and Databricks is private but publicly reports near break-even.Palantir has delivered the margin of an entire industry in a single company.
 
-The 55% net margin needs a discount: net profit of USD 1.062 billion exceeds operating profit of USD 912 million, with the gap coming from interest and investment income on USD 9.2 billion of cash. That portion tracks interest rates and is not sustainable.**True earning power is the 47% operating margin, which is also top-tier for the industry.**
+The 55% net margin needs a discount: net profit of USD 1.062 billion exceeds operating profit of USD 912 million, with the gap coming from interest and investment income on USD 9.2 billion of cash. That portion tracks interest rates and is not sustainable.True earning power is the 47% operating margin, which is also top-tier for the industry.
 
 Operating cash flow at 117% of net profit shows the profit is real money, not receivables piled up. Customers are governments and large enterprises, paying in advance and on milestones, so cash comes in faster than profit. Net cash of USD 9.2 billion and almost no interest-bearing debt is especially valuable in a rate-hiking cycle—it does not need financing to survive.
 
@@ -44,9 +44,9 @@ The 93% revenue growth needs no elaboration. The caveat is sustainability: total
 
 All seven hard metrics are quality metrics; none touches valuation. That is by design—spend ten minutes screening out bad businesses first, and save the time for those worth a deeper look. Palantir's performance at this step says: "no need to screen further, go straight to deep research."
 
-But this is where investors most often err: **seeing six of seven boxes ticked, they assume they have found a good target.** Cisco in 2021, Lucent in 2000, Zoom in 2021—all were top of the class on the screen-out-bad-businesses test. Their quality problem was not in the financials; it was in the price.
+But this is where investors most often err: seeing six of seven boxes ticked, they assume they have found a good target. Cisco in 2021, Lucent in 2000, Zoom in 2021—all were top of the class on the screen-out-bad-businesses test. Their quality problem was not in the financials; it was in the price.
 
-So the conclusion of this module must be stated clearly: **passing the screen-out-bad-businesses test ≠ a buy.** Palantir's quality earns it a place on any core-holdings list, but a 74x price-to-sales ratio earns it a place on no buy list. The next step is not to build a position, but to put it on the watchlist and wait for the price.
+So the conclusion of this module must be stated clearly: passing the screen-out-bad-businesses test ≠ a buy. Palantir's quality earns it a place on any core-holdings list, but a 74x price-to-sales ratio earns it a place on no buy list. The next step is not to build a position, but to put it on the watchlist and wait for the price.
 
 ## Sources
 

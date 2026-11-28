@@ -23,37 +23,37 @@ Stock price data: closed at HKD 77.5 on 28 August 2026, HKD 62.70 on 26 November
 
 ## Three-month price trajectory: down 19%, up 8% on the final day
 
-Closed at HKD 77.5 on August 28 and HKD 62.70 on November 26, down 19.1%; on November 27 it rose 8.21% to HKD 67.85 after results. **Of the decline over those three months, 60% was broad Hong Kong equity multiple compression and 40% was the expectation that "Q3 will be worse."**
+Closed at HKD 77.5 on August 28 and HKD 62.70 on November 26, down 19.1%; on November 27 it rose 8.21% to HKD 67.85 after results. Of the decline over those three months, 60% was broad Hong Kong equity multiple compression and 40% was the expectation that "Q3 will be worse."
 
-The Hang Seng Tech Index has fallen more than 25% year-to-date in 2026, Tencent and SMIC more than 30%, Alibaba and Xiaomi more than 20%. **Meituan at -36% from its high is not the worst in this group, but it is not cheap either—half of its decline is its own problem.**
+The Hang Seng Tech Index has fallen more than 25% year-to-date in 2026, Tencent and SMIC more than 30%, Alibaba and Xiaomi more than 20%. Meituan at -36% from its high is not the worst in this group, but it is not cheap either—half of its decline is its own problem.
 
-The November 27 rally turned "Q3 will be worse" from a worry into a known, and turned "will it lose money" into "it already made money." **The 8.21% corresponds to HKD 31.8 billion of market-cap gain, a figure roughly equal to the market repricing the probability that the subsidy war is over, not to pricing new profit.**
+The November 27 rally turned "Q3 will be worse" from a worry into a known, and turned "will it lose money" into "it already made money." The 8.21% corresponds to HKD 31.8 billion of market-cap gain, a figure roughly equal to the market repricing the probability that the subsidy war is over, not to pricing new profit.
 
 ## Two real signals: guidance delivered and turnaround achieved
 
-**The first signal came on August 28.** The results themselves were unremarkable that day (net profit RMB 2.69 billion, margin 2.6%), but on the call management volunteered that "per-order delivery cost will be higher in Q3, we will step up investment in in-store, and profit will be worse than Q2." **In that context the remark was a profit warning, yet the stock did not fall, because the market did not believe it — everyone assumed the peak season would not disappoint.**
+The first signal came on August 28. The results themselves were unremarkable that day (net profit RMB 2.69 billion, margin 2.6%), but on the call management volunteered that "per-order delivery cost will be higher in Q3, we will step up investment in in-store, and profit will be worse than Q2." In that context the remark was a profit warning, yet the stock did not fall, because the market did not believe it — everyone assumed the peak season would not disappoint.
 
-**The second signal came on November 27.** Q3 core local commerce operating profit was about RMB 4.52 billion (estimated), down RMB 1.15 billion from RMB 5.67 billion in Q2 — **management's warning had come true.** At the same time net profit turned positive at RMB 2.071 billion and revenue rose 21.6%, above consensus. **Delivering on the promise matters more than the numbers themselves — it makes the next guidance credible.**
+The second signal came on November 27. Q3 core local commerce operating profit was about RMB 4.52 billion (estimated), down RMB 1.15 billion from RMB 5.67 billion in Q2 — management's warning had come true. At the same time net profit turned positive at RMB 2.071 billion and revenue rose 21.6%, above consensus. Delivering on the promise matters more than the numbers themselves — it makes the next guidance credible.
 
-Together the two signals form a complete timeline: **in August it said things would get worse → in November they did get worse but stayed positive → so when it says in March 2027 that "Q4 will be better," the market will start to believe it.** That is the mechanism of valuation repair.
+Together the two signals form a complete timeline: in August it said things would get worse → in November they did get worse but stayed positive → so when it says in March 2027 that "Q4 will be better," the market will start to believe it. That is the mechanism of valuation repair.
 
 ## Four noise signals: don't reposition for them
 
-**Noise one: broad Hong Kong market pullback.** The Hang Seng Tech Index is down 25% year to date, and Meituan fell with it. That is beta, not alpha. Selling on this basis substitutes a macro call for a company call.
+Noise one: broad Hong Kong market pullback. The Hang Seng Tech Index is down 25% year to date, and Meituan fell with it. That is beta, not alpha. Selling on this basis substitutes a macro call for a company call.
 
-**Noise two: competitor earnings preview.** In October the market worried Alibaba would step up quick commerce, and the stock swung. **In the event, the HKD 80 billion Alibaba allocated in 2026 went to AI infrastructure, not food delivery.** Expectations ran opposite to fact, and this kind of noise most easily pushes people the wrong way.
+Noise two: competitor earnings preview. In October the market worried Alibaba would step up quick commerce, and the stock swung. In the event, the HKD 80 billion Alibaba allocated in 2026 went to AI infrastructure, not food delivery. Expectations ran opposite to fact, and this kind of noise most easily pushes people the wrong way.
 
-**Noise three: 11.11 subsidy pulse.** All three players stepped up "minute delivery" in 3C and beauty, and the stock fell to HKD 62. **But 11.11 is a once-a-year pulse and does not change the annual picture** — the 22.9% marketing expense ratio in the Q3 results already includes summer and promotional spending.
+Noise three: 11.11 subsidy pulse. All three players stepped up "minute delivery" in 3C and beauty, and the stock fell to HKD 62. But 11.11 is a once-a-year pulse and does not change the annual picture — the 22.9% marketing expense ratio in the Q3 results already includes summer and promotional spending.
 
-**Noise four: broker ratings.** In mid-November several brokers cut target prices to HKD 75–85. **Brokers cut after the stock fell, not after the fundamentals changed** — such reports lag by 2–4 weeks and carry limited reference value.
+Noise four: broker ratings. In mid-November several brokers cut target prices to HKD 75–85. Brokers cut after the stock fell, not after the fundamentals changed — such reports lag by 2–4 weeks and carry limited reference value.
 
 ## Three things to learn from the event
 
-**First, the stock's sensitivity to "subsidy expectations" far exceeds its sensitivity to "profit."** Q3 net profit was RMB 2.071 billion — not a large absolute figure — yet the stock rose 8.21%, because the market is trading the possibility that the subsidy war is over, not that RMB 2.071 billion.
+First, the stock's sensitivity to "subsidy expectations" far exceeds its sensitivity to "profit." Q3 net profit was RMB 2.071 billion — not a large absolute figure — yet the stock rose 8.21%, because the market is trading the possibility that the subsidy war is over, not that RMB 2.071 billion.
 
-**Second, management's guidance is starting to earn credibility.** In August they said it would get worse; in November it did get worse. Once that credibility is established, the Q4 guidance in March 2027 will be taken seriously. **For investors, this means "follow the guidance" is becoming a usable strategy.**
+Second, management's guidance is starting to earn credibility. In August they said it would get worse; in November it did get worse. Once that credibility is established, the Q4 guidance in March 2027 will be taken seriously. For investors, this means "follow the guidance" is becoming a usable strategy.
 
-**Third, the 52-week low of HKD 61.45 is a meaningful level.** That day multiple brokers cut target prices and sentiment was at its worst, yet three weeks later the results proved fundamentals were improving. **This shows the "sentiment bottom" and the "fundamentals bottom" do not move in sync — the former tends to come earlier and lower.**
+Third, the 52-week low of HKD 61.45 is a meaningful level. That day multiple brokers cut target prices and sentiment was at its worst, yet three weeks later the results proved fundamentals were improving. This shows the "sentiment bottom" and the "fundamentals bottom" do not move in sync — the former tends to come earlier and lower.
 
 ## Sources
 

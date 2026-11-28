@@ -25,37 +25,37 @@ Reconciliation method: for each metric, use two sources — the company's origin
 
 ## Basis gap of 1.4%: three ways to calculate share count
 
-Market cap is the only item above 1%, for an ordinary reason: Apple's share count has three measures—**145.3 billion basic shares outstanding, 147.1 billion diluted shares, and 147.9 billion actual shares outstanding at quarter-end (including unvested RSUs)**. Multiplying the same share price by different denominators can produce a USD 60 billion difference in market cap.
+Market cap is the only item above 1%, for an ordinary reason: Apple's share count has three measures—145.3 billion basic shares outstanding, 147.1 billion diluted shares, and 147.9 billion actual shares outstanding at quarter-end (including unvested RSUs). Multiplying the same share price by different denominators can produce a USD 60 billion difference in market cap.
 
-This report uses 145.3 billion shares throughout, because that is the denominator for per-share metrics and the most commonly used measure in the market; the cost is that market cap will be slightly below the figures shown on some terminals.**This difference does not affect any conclusion**—34x or 33.6x makes no difference to the judgment of whether it is expensive.
+This report uses 145.3 billion shares throughout, because that is the denominator for per-share metrics and the most commonly used measure in the market; the cost is that market cap will be slightly below the figures shown on some terminals.This difference does not affect any conclusion—34x or 33.6x makes no difference to the judgment of whether it is expensive.
 
-Note that the numerator and denominator of PE must use the same basis: if market cap is calculated on diluted shares, diluted EPS must be used; mixing the two creates a 1% valuation gap out of thin air.**This report uses one consistent basis throughout: basic-share market cap of RMB 4.41 trillion ÷ TTM net profit of RMB 129.6 billion = 34.0x.**
+Note that the numerator and denominator of PE must use the same basis: if market cap is calculated on diluted shares, diluted EPS must be used; mixing the two creates a 1% valuation gap out of thin air.This report uses one consistent basis throughout: basic-share market cap of RMB 4.41 trillion ÷ TTM net profit of RMB 129.6 billion = 34.0x.
 
 ## Two substantive expectation gaps matter more than the data deviation
 
-Services revenue came in at RMB 30.739 billion against a consensus of RMB 31.36 billion, 2.0% below, a gap of USD 620 million — note the magnitude: the "USD 6.2 billion below expectations" circulating in the market is a magnitude error that turns "620 million" into "6.2 billion"; this report reads it as USD 620 million. **But even at just 2%, the nature of it matters: this is the first quarter in more than three years that services revenue has fallen below expectations.**
+Services revenue came in at RMB 30.739 billion against a consensus of RMB 31.36 billion, 2.0% below, a gap of USD 620 million — note the magnitude: the "USD 6.2 billion below expectations" circulating in the market is a magnitude error that turns "620 million" into "6.2 billion"; this report reads it as USD 620 million. But even at just 2%, the nature of it matters: this is the first quarter in more than three years that services revenue has fallen below expectations.
 
-Greater China came in at RMB 18.816 billion against expectations of RMB 19.58 billion, 3.9% below, roughly USD 760 million. The gap itself is not large, but it sits next to a flattering "+22.4% year on year" figure and is easy to overlook. **The market had expected +25% or more; the actual 22.4% shows share expansion is not as fast as imagined.**
+Greater China came in at RMB 18.816 billion against expectations of RMB 19.58 billion, 3.9% below, roughly USD 760 million. The gap itself is not large, but it sits next to a flattering "+22.4% year on year" figure and is easy to overlook. The market had expected +25% or more; the actual 22.4% shows share expansion is not as fast as imagined.
 
 How to handle it: cite actuals in the body, list expectations separately under "Assessment", and do not mix them into the financial tables. These two items are among the main explanations for the "9% drop in the three days after earnings" in m12 and cannot be written up as merely "slightly above expectations".
 
 ## EPS of USD 0.11: one-off or recurring
 
-Of the reported USD 2.02, USD 0.11 came from a tariff refund (about USD 1.6 billion; rough math: 0.11 × 14.7 billion shares). **This money is neither core revenue nor recurring**; excluding it, EPS is USD 1.91, up 21.7% YoY, only USD 0.02 above the consensus.
+Of the reported USD 2.02, USD 0.11 came from a tariff refund (about USD 1.6 billion; rough math: 0.11 × 14.7 billion shares). This money is neither core revenue nor recurring; excluding it, EPS is USD 1.91, up 21.7% YoY, only USD 0.02 above the consensus.
 
-That is why the results came in "above the consensus by 0.5%" yet the stock fell 7.35%: the market is not looking at the GAAP number, but at "how much is left after stripping out one-offs." **Revenue above the consensus by 0.5%, EPS propped up by a tax refund, guidance below the consensus—add the three together, and the valuation should be revised down.**
+That is why the results came in "above the consensus by 0.5%" yet the stock fell 7.35%: the market is not looking at the GAAP number, but at "how much is left after stripping out one-offs." Revenue above the consensus by 0.5%, EPS propped up by a tax refund, guidance below the consensus—add the three together, and the valuation should be revised down.
 
 Final treatment: the body text and tables retain USD 2.02 (the company-reported figure), with a note at every occurrence that it "includes a USD 0.11 refund; USD 1.91 excluding it"; all valuation work uses the USD 1.91 continuing basis to derive FY2026E, avoiding capitalizing one-time gains.
 
 ## Cross-check by aggregation: both independent equations hold up
 
-Line-item reconciliation only proves the numbers were copied correctly; only aggregate reconciliation proves they were broken down correctly. Two equations. First: product gross margin 40.1% × 786.78 = RMB 315.5 billion; services 75.6% × 307.39 = RMB 232.4 billion; total RMB 547.9 billion. Reported gross profit USD 54,770 million = RMB 547.7 billion. **The USD 20 million gap comes from rounding the gross margin; the structure holds.**
+Line-item reconciliation only proves the numbers were copied correctly; only aggregate reconciliation proves they were broken down correctly. Two equations. First: product gross margin 40.1% × 786.78 = RMB 315.5 billion; services 75.6% × 307.39 = RMB 232.4 billion; total RMB 547.9 billion. Reported gross profit USD 54,770 million = RMB 547.7 billion. The USD 20 million gap comes from rounding the gross margin; the structure holds.
 
-Second: regional revenue discloses only the Americas at RMB 457.81 billion, Europe at RMB 293.95 billion and Greater China at RMB 188.16 billion, totaling RMB 939.92 billion. Total revenue is RMB 1,094.17 billion; the RMB 154.25 billion difference is Japan plus the rest of Asia-Pacific. **This derived figure can be checked against the year-earlier period** — the same-basis difference in FY2025Q3 was RMB 134.3 billion, up 14.8% year on year, slower than the 16.4% overall, indicating Japan and Southeast Asia were the weak spots this quarter.
+Second: regional revenue discloses only the Americas at RMB 457.81 billion, Europe at RMB 293.95 billion and Greater China at RMB 188.16 billion, totaling RMB 939.92 billion. Total revenue is RMB 1,094.17 billion; the RMB 154.25 billion difference is Japan plus the rest of Asia-Pacific. This derived figure can be checked against the year-earlier period — the same-basis difference in FY2025Q3 was RMB 134.3 billion, up 14.8% year on year, slower than the 16.4% overall, indicating Japan and Southeast Asia were the weak spots this quarter.
 
-Both derivations point to the same conclusion: the segment data in this report is internally consistent. The problem is not the statistics but the structure — growth is overly concentrated in iPhone and in the Americas and Europe, while Japan, Asia-Pacific and Greater China all grew below the overall rate. **Only two regions outgrowing the average is normal for a global company in a year of currency headwinds; in a year of currency tailwinds it is not.**
+Both derivations point to the same conclusion: the segment data in this report is internally consistent. The problem is not the statistics but the structure — growth is overly concentrated in iPhone and in the Americas and Europe, while Japan, Asia-Pacific and Greater China all grew below the overall rate. Only two regions outgrowing the average is normal for a global company in a year of currency headwinds; in a year of currency tailwinds it is not.
 
-One item cannot be cross-verified: operating cash flow. Apple does not disclose quarterly cash-flow detail, and few in the media calculate it; this report uses an approximation derived from last year's cash-flow ratio. **This is the only soft data in the reconciliation**, so wherever the main text touches cash flow and free cash flow it uses qualitative language ("covers profit", "net cash position") without decimal precision.
+One item cannot be cross-verified: operating cash flow. Apple does not disclose quarterly cash-flow detail, and few in the media calculate it; this report uses an approximation derived from last year's cash-flow ratio. This is the only soft data in the reconciliation, so wherever the main text touches cash flow and free cash flow it uses qualitative language ("covers profit", "net cash position") without decimal precision.
 
 ## Sources
 

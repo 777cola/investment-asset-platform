@@ -35,31 +35,31 @@ Position sizing is a framework-level statement and does not constitute investmen
 
 ## Why is the current price 0 rather than 3%?
 
-A 3% observation position is typically used for names where the thesis holds but the price is expensive—using position size to buy tracking discipline. Xiaomi does not currently meet the "thesis holds" bar: of five assumptions, one has broken, one awaits verification, and three have not started. **Building a position before the thesis has taken shape is paying money for a story.**
+A 3% observation position is typically used for names where the thesis holds but the price is expensive—using position size to buy tracking discipline. Xiaomi does not currently meet the "thesis holds" bar: of five assumptions, one has broken, one awaits verification, and three have not started. Building a position before the thesis has taken shape is paying money for a story.
 
-The other reason is opportunity cost. At the same 32x, Apple's gross margin is more than double Xiaomi's; for the same auto bet, BYD trades at 22x with 18% ROE. **Every dollar in the portfolio has an alternative, and Xiaomi's risk-reward does not rank in the top three right now.**
+The other reason is opportunity cost. At the same 32x, Apple's gross margin is more than double Xiaomi's; for the same auto bet, BYD trades at 22x with 18% ROE. Every dollar in the portfolio has an alternative, and Xiaomi's risk-reward does not rank in the top three right now.
 
 ## The arithmetic of building a position in three tranches
 
-HKD 23 corresponds to 21.8x 2027 neutral net profit of RMB 25 billion, a market cap of HKD 592 billion. This price assumes "memory prices decline in the second half of 2027 + annual vehicle deliveries of 480,000 units," both neutral assumptions, **leaving room for "getting half the thesis wrong."**
+HKD 23 corresponds to 21.8x 2027 neutral net profit of RMB 25 billion, a market cap of HKD 592 billion. This price assumes "memory prices decline in the second half of 2027 + annual vehicle deliveries of 480,000 units," both neutral assumptions, leaving room for "getting half the thesis wrong."
 
 HKD 20 corresponds to 18.9x 2027 neutral net profit and 26.3x pessimistic net profit, a market cap of HKD 514.8 billion. Even with a haircut to the neutral case, 19x is not expensive for a manufacturer with roughly 5% net margin; even on pessimistic earnings, 26x sits at the midpoint of its historical range. Only at this price does a margin of safety emerge.
 
-HKD 32 corresponds to 30.3x 2027 neutral net profit and 23x optimistic net profit — the price at which "the optimistic scenario is pulled forward." At that level, even if fundamentals deliver, annualized return is only in the single digits — **the move then is to trim, not add.**
+HKD 32 corresponds to 30.3x 2027 neutral net profit and 23x optimistic net profit — the price at which "the optimistic scenario is pulled forward." At that level, even if fundamentals deliver, annualized return is only in the single digits — the move then is to trim, not add.
 
 ## Stop-loss: not a price stop-loss, but a logic stop-loss
 
-HKD 18 (corresponding to 17x 2027 neutral net profit) is not in itself a reason to sell — a cheap manufacturing company can get cheaper. The real stop-loss condition is "both assumptions break at once": **autos swing back to a loss + handset gross margin falls below 8%.** If both happen together, Xiaomi has lost both the auto cost curve and the handset scale effect, and it is just an ordinary contract manufacturer.
+HKD 18 (corresponding to 17x 2027 neutral net profit) is not in itself a reason to sell — a cheap manufacturing company can get cheaper. The real stop-loss condition is "both assumptions break at once": autos swing back to a loss + handset gross margin falls below 8%. If both happen together, Xiaomi has lost both the auto cost curve and the handset scale effect, and it is just an ordinary contract manufacturer.
 
-Also set a soft stop: if within 12 months of building the position, Pengcheng monthly deliveries fail to reach 1.0 million units, Europe shows no progress, and handset gross margin does not recover, **with all three stalled, the "wait" thesis itself is wrong — exit.**
+Also set a soft stop: if within 12 months of building the position, Pengcheng monthly deliveries fail to reach 1.0 million units, Europe shows no progress, and handset gross margin does not recover, with all three stalled, the "wait" thesis itself is wrong — exit.
 
 ## Portfolio-level role
 
 Xiaomi's role in the portfolio is exposure to "Chinese manufacturing going global": it holds share in India, Southeast Asia and Europe for handsets, and enters Europe with cars in 2027. This exposure differs from "China domestic demand" names (Meituan, JD.com) and from "AI compute" names (NVIDIA, TSMC).
 
-Its best fit is a "satellite position": no more than 5%, used to express the judgment that "Chinese hardware companies can build global brands." **It does not suit a core position — its margins are too thin, and any cost shock amplifies into profit volatility of more than 50%.**
+Its best fit is a "satellite position": no more than 5%, used to express the judgment that "Chinese hardware companies can build global brands." It does not suit a core position — its margins are too thin, and any cost shock amplifies into profit volatility of more than 50%.
 
-To hedge within this track, the most natural counterparty is memory stocks: **buy Samsung and sell Xiaomi when memory prices rise, reverse when memory prices fall.** In 2026 this pair's spread has already run two rounds, making it the clearest negative correlation between Hong Kong and Korean equities today.
+To hedge within this track, the most natural counterparty is memory stocks: buy Samsung and sell Xiaomi when memory prices rise, reverse when memory prices fall. In 2026 this pair's spread has already run two rounds, making it the clearest negative correlation between Hong Kong and Korean equities today.
 
 ## Sources
 

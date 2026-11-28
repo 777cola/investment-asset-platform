@@ -23,31 +23,31 @@ Market caps are based on mid-September 2026 quotes; Zhongji closed at RMB 925.23
 
 ## Step 1 screening: 20 companies down to 6
 
-The screen sets three hard criteria: **1) makes 800G/1.6T datacom optical modules (not telecom, not PON); 2) overseas revenue above 30% (proof it can enter North American cloud vendors' supply chains); 3) market cap above RMB 50 billion (sufficient liquidity).** Three filters leave only four A-share names: Zhongji Innolight, Eoptolink, T&S Communications and Accelink; overseas, Coherent and Lumentum are added for reference.
+The screen sets three hard criteria: 1) makes 800G/1.6T datacom optical modules (not telecom, not PON); 2) overseas revenue above 30% (proof it can enter North American cloud vendors' supply chains); 3) market cap above RMB 50 billion (sufficient liquidity). Three filters leave only four A-share names: Zhongji Innolight, Eoptolink, T&S Communications and Accelink; overseas, Coherent and Lumentum are added for reference.
 
-Screened out: telecom-focused players (slower demand growth), optical component makers that do not move into modules (all small except T&S), silicon-photonics startups (unlisted or unprofitable), and second-tier module makers (not on 1.6T customer lists).**In optical modules, a supplier not on North American cloud vendors' lists is simply not in the game.**
+Screened out: telecom-focused players (slower demand growth), optical component makers that do not move into modules (all small except T&S), silicon-photonics startups (unlisted or unprofitable), and second-tier module makers (not on 1.6T customer lists).In optical modules, a supplier not on North American cloud vendors' lists is simply not in the game.
 
 ## Step two elimination: why the four fell out
 
-**Accelink**: Revenue RMB 6.61 billion, growth 26.1%, the slowest of the four; gross margin 25.53%, net margin 8.67%. It covers the full product line (telecom + datacom) and carries no 1.6T premium. **Not a bad company, but not at the core of this cycle's windfall.**
+Accelink: Revenue RMB 6.61 billion, growth 26.1%, the slowest of the four; gross margin 25.53%, net margin 8.67%. It covers the full product line (telecom + datacom) and carries no 1.6T premium. Not a bad company, but not at the core of this cycle's windfall.
 
-**T&S Communications**: Gross margin 60.87%, the highest of the six; it makes optical engines and passive components, a better position than module makers. But 2026H1 revenue was only RMB 2.828 billion, growth 15.2% — upstream component growth cannot keep pace with module volume ramp, and a market cap of RMB 303.7 billion implies 126x annualized H1 PE. **Good business, too expensive, too small.**
+T&S Communications: Gross margin 60.87%, the highest of the six; it makes optical engines and passive components, a better position than module makers. But 2026H1 revenue was only RMB 2.828 billion, growth 15.2% — upstream component growth cannot keep pace with module volume ramp, and a market cap of RMB 303.7 billion implies 126x annualized H1 PE. Good business, too expensive, too small.
 
-**Coherent, Lumentum**: They control EML optical chips, the link in this chain with the strongest pricing power. But they also compete head-on with Chinese vendors in modules, and their share has been overtaken by Eoptolink over the past two years (Eoptolink rose to global No. 2 in 2025). **Buying them means buying a mix of "upstream stronghold + module retreat"; better to buy pure upstream names directly.**
+Coherent, Lumentum: They control EML optical chips, the link in this chain with the strongest pricing power. But they also compete head-on with Chinese vendors in modules, and their share has been overtaken by Eoptolink over the past two years (Eoptolink rose to global No. 2 in 2025). Buying them means buying a mix of "upstream stronghold + module retreat"; better to buy pure upstream names directly.
 
 ## Final pick: Zhongji vs. Eoptolink — what decides the choice
 
-The gap between the two is smaller than expected. Zhongji's revenue is twice that of Eoptolink and its share ranks first globally; **but Eoptolink's gross margin of 48.44% is 2 points higher than Zhongji's, its net margin of 36.0% is 3.3 points higher, its net cash ratio of 21.5% beats Zhongji's 13.2%, and its valuation (40.3x H1 annualized) is also lower than Zhongji's (53.3x TTM).**
+The gap between the two is smaller than expected. Zhongji's revenue is twice that of Eoptolink and its share ranks first globally; but Eoptolink's gross margin of 48.44% is 2 points higher than Zhongji's, its net margin of 36.0% is 3.3 points higher, its net cash ratio of 21.5% beats Zhongji's 13.2%, and its valuation (40.3x H1 annualized) is also lower than Zhongji's (53.3x TTM).
 
-So why still pick Zhongji as the research subject? Three reasons. **① Scale determines supply-chain position**: 18.99 million units shipped in the half-year, giving it a notch more bargaining power on chip procurement and capacity priority; **② deeper in-house silicon photonics**: 1.6T silicon photonics, 3.2T NPO and 6.4T NPO are already developed, and 2.4T silicon photonics + lithium niobate can iterate toward 3.2T, a fuller technology roadmap than its rival; **③ a more "NVIDIA" customer structure**: top customer at 25.1%, directly tied to GPU shipment cadence.
+So why still pick Zhongji as the research subject? Three reasons. ① Scale determines supply-chain position: 18.99 million units shipped in the half-year, giving it a notch more bargaining power on chip procurement and capacity priority; ② deeper in-house silicon photonics: 1.6T silicon photonics, 3.2T NPO and 6.4T NPO are already developed, and 2.4T silicon photonics + lithium niobate can iterate toward 3.2T, a fuller technology roadmap than its rival; ③ a more "NVIDIA" customer structure: top customer at 25.1%, directly tied to GPU shipment cadence.
 
-But to be honest: **if comparing only "current odds," Eoptolink is better — higher gross margin, better cash flow, lower valuation, and though growth is slower, the base is smaller.** Zhongji's advantage is "leader certainty," and the price is a valuation premium. **The difference between these two stocks is not who is better, but who is more expensive.**
+But to be honest: if comparing only "current odds," Eoptolink is better — higher gross margin, better cash flow, lower valuation, and though growth is slower, the base is smaller. Zhongji's advantage is "leader certainty," and the price is a valuation premium. The difference between these two stocks is not who is better, but who is more expensive.
 
 ## Why it, and why not buy now
 
-The answer to "why this one": **it is the company with the strongest delivery capability, the deepest technology reserves and the closest customer relationships in this 1.6T cycle.** Half-year revenue of RMB 41.78 billion, a 46.59% gross margin and a 37.62% half-year ROE are not luck.
+The answer to "why this one": it is the company with the strongest delivery capability, the deepest technology reserves and the closest customer relationships in this 1.6T cycle. Half-year revenue of RMB 41.78 billion, a 46.59% gross margin and a 37.62% half-year ROE are not luck.
 
-The answer to "why not buy now" is equally clear: **a 53.3x TTM PE and a 39.9x annualized H1 PE have already front-loaded the 2027 handoff to 3.2T.** The base-case target price of RMB 772 is 17% below the current price; the bear case of RMB 407 is 56% below. **Paying 53x PE at a mid-to-late stage of the cycle, with 81.9% customer concentration and a 13% net cash ratio, does not offer a viable risk-reward.**
+The answer to "why not buy now" is equally clear: a 53.3x TTM PE and a 39.9x annualized H1 PE have already front-loaded the 2027 handoff to 3.2T. The base-case target price of RMB 772 is 17% below the current price; the bear case of RMB 407 is 56% below. Paying 53x PE at a mid-to-late stage of the cycle, with 81.9% customer concentration and a 13% net cash ratio, does not offer a viable risk-reward.
 
 ## Sources
 

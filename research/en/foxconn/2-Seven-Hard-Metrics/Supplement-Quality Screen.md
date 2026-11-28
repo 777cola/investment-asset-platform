@@ -24,27 +24,27 @@ Seven thresholds define this framework: ROE ≥15%, gross margin ≥20% and not 
 
 ## Only two passed — don't rush to write off the company
 
-The seven hard metrics are meant to "screen out the bad"—to filter out companies that earn fake money, rely on leverage, or depend on financing to prop up growth. Hon Hai trips five of them, but it trips them in a very consistent way: **every cent of its profit is real cash earned as a processing fee, just too thin.** This is not fraud-type failure; it is business-type failure.
+The seven hard metrics are meant to "screen out the bad"—to filter out companies that earn fake money, rely on leverage, or depend on financing to prop up growth. Hon Hai trips five of them, but it trips them in a very consistent way: every cent of its profit is real cash earned as a processing fee, just too thin. This is not fraud-type failure; it is business-type failure.
 
 Distinguishing the two matters. With a fraudulent company, the better the statements look, the more dangerous it is; with a structurally weak company, ugly statements are the norm, which makes it priceable instead. Hon Hai's 2026Q2 revenue was TWD 2,525.9 billion and after-tax net profit TWD 59.97 billion, both figures withstanding dual-source verification (see Part 3). Its problem is not authenticity; it is thinness.
 
 ## Of the five that fell short, three are structural and two cyclical
 
-A gross margin of 6.12%, an operating margin of 3.75%, and net profit growing slower than revenue — these three are structural. In the buy-parts-and-assemble business, the ceiling on gross margin is set by how much processing fee customers are willing to pay, not by how hard Foxconn tries. Revenue +41% with gross margin -0.21pct in 2026 amounts to the company admitting it cannot pass through costs. **Expecting it to hit a 20% gross margin next year is like expecting Nvidia to sell it GPUs at cost.**
+A gross margin of 6.12%, an operating margin of 3.75%, and net profit growing slower than revenue — these three are structural. In the buy-parts-and-assemble business, the ceiling on gross margin is set by how much processing fee customers are willing to pay, not by how hard Foxconn tries. Revenue +41% with gross margin -0.21pct in 2026 amounts to the company admitting it cannot pass through costs. Expecting it to hit a 20% gross margin next year is like expecting Nvidia to sell it GPUs at cost.
 
 Negative free cash flow and an ROE of only 9%–12% are the combined result of the cycle and expansion. AI racks carry high unit prices and long component lead times, so doubling revenue inevitably inflates receivables and inventory in tandem; at the same time, capacity is expanding in four locations, front-loading capital expenditure. Both have room to recover once capex slows in 2027, but that recovery hinges on orders holding up — back to that uncontrollable assumption.
 
 ## The ROE point is the easiest to misread
 
-Hon Hai's ROE of about 9%–12% looks mediocre, but the three DuPont components make it clear: net margin 2.37% × asset turnover of about 1.4x × equity multiplier of about 2.4x ≈ 8% (rough calculation). **It is not that leverage is low; it is that every dollar of assets turns too slowly.** There are only two ways to raise ROE: lift net margin (not achievable) or lift turnover (already near the limit).
+Hon Hai's ROE of about 9%–12% looks mediocre, but the three DuPont components make it clear: net margin 2.37% × asset turnover of about 1.4x × equity multiplier of about 2.4x ≈ 8% (rough calculation). It is not that leverage is low; it is that every dollar of assets turns too slowly. There are only two ways to raise ROE: lift net margin (not achievable) or lift turnover (already near the limit).
 
 For comparison: TSMC's 30% ROE rests on a 50% gross margin, while Hon Hai's 9% ROE rests on 1.4x turnover. Both companies make money, but only one can protect its profit through a price-hike cycle. That is the difference the "seven hard metrics" are designed to screen for.
 
 ## But is it fatal: fatal for "holding", not fatal for "trading"
 
-If the goal is to buy a company you can hold for ten years without watching it, these five criteria alone are fatal — a business with a 2.37% net margin cannot absorb any upstream price increase; in 2026 DRAM contract prices rise 60%–70% and NAND more than 100%, and all of those increases pass straight through its income statement. **Shareholders have no buffer, only scale and efficiency.**
+If the goal is to buy a company you can hold for ten years without watching it, these five criteria alone are fatal — a business with a 2.37% net margin cannot absorb any upstream price increase; in 2026 DRAM contract prices rise 60%–70% and NAND more than 100%, and all of those increases pass straight through its income statement. Shareholders have no buffer, only scale and efficiency.
 
-But if the goal is to make money from one cycle, then failing them is not fatal, because when it is cheap it is genuinely cheap. At the two lows of 2019 and 2022, Hon Hai traded near 8x PE, then recovered to 12–14x over the following two years. The right classification for this kind of asset is "cyclical stock": the entry point is set by PB and PE percentiles, not by seven hard metrics. **The working paper's "Watch" rating simply acknowledges that it is now neither in the buy zone nor in the elimination zone.**
+But if the goal is to make money from one cycle, then failing them is not fatal, because when it is cheap it is genuinely cheap. At the two lows of 2019 and 2022, Hon Hai traded near 8x PE, then recovered to 12–14x over the following two years. The right classification for this kind of asset is "cyclical stock": the entry point is set by PB and PE percentiles, not by seven hard metrics. The working paper's "Watch" rating simply acknowledges that it is now neither in the buy zone nor in the elimination zone.
 
 ## Sources
 

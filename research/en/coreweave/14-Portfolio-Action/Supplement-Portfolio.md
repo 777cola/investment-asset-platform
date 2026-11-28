@@ -22,21 +22,21 @@ Position sizing is set on a single high-volatility name management basis; at the
 
 ## Why not short it
 
-Three reasons. **First, borrow cost and squeeze risk**: for a name with this much volatility and attention, any "guidance raise" or "major new order" can trigger a 20%–30% rebound, and shorts cannot absorb the drawdown. **Second, time is not on the short side**: its debt matures in 2027, and default is "possible" rather than "underway"; shorts would pay a year of borrow fees to wait for an uncertain date.
+Three reasons. First, borrow cost and squeeze risk: for a name with this much volatility and attention, any "guidance raise" or "major new order" can trigger a 20%–30% rebound, and shorts cannot absorb the drawdown. Second, time is not on the short side: its debt matures in 2027, and default is "possible" rather than "underway"; shorts would pay a year of borrow fees to wait for an uncertain date.
 
-**Third, and most important: not investing is already a complete decision.** Being bearish on a company does not require shorting it to prove the point; avoidance itself is how the risk gets priced. **Shorting turns "I judge it will fall" into "I need it to fall by a certain date" — the latter requires forecasting timing, the former only requires judging value.**
+Third, and most important: not investing is already a complete decision. Being bearish on a company does not require shorting it to prove the point; avoidance itself is how the risk gets priced. Shorting turns "I judge it will fall" into "I need it to fall by a certain date" — the latter requires forecasting timing, the former only requires judging value.
 
 ## Price levels for trimming and adding positions
 
-**Trim: any rebound to USD 55–60 (1.3–1.4x the neutral valuation of USD 43) is a trimming window** — not because of technical levels, but because "at this price the risk-reward deteriorates further." **Add: no add level** — not because the price isn't low enough, but because the triggers are structural (debt duration, FCF path, contract terms), not price-driven.
+Trim: any rebound to USD 55–60 (1.3–1.4x the neutral valuation of USD 43) is a trimming window — not because of technical levels, but because "at this price the risk-reward deteriorates further." Add: no add level — not because the price isn't low enough, but because the triggers are structural (debt duration, FCF path, contract terms), not price-driven.
 
-**Stop-loss: none.** That sounds counterintuitive, but it is meaningless for anyone at 0% position; for existing holders, USD 39.51 is -71.4% from the high, and a stop-loss should have triggered above USD 100 long ago. **Discussing stop-losses now is using trading discipline to mask the original buying mistake.**
+Stop-loss: none. That sounds counterintuitive, but it is meaningless for anyone at 0% position; for existing holders, USD 39.51 is -71.4% from the high, and a stop-loss should have triggered above USD 100 long ago. Discussing stop-losses now is using trading discipline to mask the original buying mistake.
 
 ## Correlation with other holdings
 
-If the portfolio holds Nvidia, TSMC, SK hynix and Microsoft, CoreWeave's correlation is extremely high (all driven by AI capex), **but the risk profile is completely different: the upstream names offer "demand + pricing power", while it offers "demand + leverage"**. When the same event occurs (a slowdown in AI capex), the upstream names fall 20% and it falls 60%.
+If the portfolio holds Nvidia, TSMC, SK hynix and Microsoft, CoreWeave's correlation is extremely high (all driven by AI capex), but the risk profile is completely different: the upstream names offer "demand + pricing power", while it offers "demand + leverage". When the same event occurs (a slowdown in AI capex), the upstream names fall 20% and it falls 60%.
 
-So its only role in the portfolio can be a "high-beta satellite position", never a core holding. **And since its expected value is negative, even a satellite position is unnecessary**. To express the view that "AI compute continues to grow", use upstream names or hyperscalers instead — the payoff structure is far better: upside participation, with cash flow providing a floor on the downside.
+So its only role in the portfolio can be a "high-beta satellite position", never a core holding. And since its expected value is negative, even a satellite position is unnecessary. To express the view that "AI compute continues to grow", use upstream names or hyperscalers instead — the payoff structure is far better: upside participation, with cash flow providing a floor on the downside.
 
 ## Sources
 

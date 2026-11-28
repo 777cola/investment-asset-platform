@@ -25,15 +25,15 @@ Eight standalone articles built on the same dataset, with figures consistent wit
 
 ## Why write eight articles
 
-A 40,000-word report gets read only for its conclusion. Split it into eight pieces, each answering one question, so readers can read only the piece they care about. That is the formatting consideration.
+A 40,000-word report gets read only for its conclusion. Split into eight pieces, each answering one question, readers can read only the piece they care about. That is the formatting consideration.
 
-More important is the substance: for SMIC, the bulls and the bears are using completely different frameworks. The bulls use "domestic substitution + AI demand"; the bears use "depreciation + valuation." The point of the eight pieces is to lay out both frameworks so readers can judge for themselves which one holds up better.
+More important is the substance: on SMIC, the bulls and the bears use entirely different frameworks. The bulls use "domestic substitution + AI demand"; the bears use "depreciation + valuation." The point of eight pieces is to lay out both frameworks so readers can judge for themselves which one holds up better.
 
 ## The shared foundation of all eight articles
 
-Eight articles share one set of numbers: 2026Q1 revenue USD 2.506 billion, gross margin 20.1%, net profit USD 197 million, depreciation USD 1.088 billion, utilization 93.1%; 2025 revenue USD 9.327 billion, net profit USD 685 million, depreciation USD 3.81 billion, capex USD 8.1 billion; 2026 guidance depreciation about USD 5 billion, capex about USD 8.1 billion.
+All eight pieces share the same set of numbers: 2026Q1 revenue of USD 2.506 billion, gross margin of 20.1%, net profit of USD 197 million, depreciation of USD 1.088 billion, utilization of 93.1%; 2025 revenue of USD 9.327 billion, net profit of USD 685 million, depreciation of USD 3.81 billion, capex of USD 8.1 billion; 2026 guidance of approximately USD 5 billion in depreciation and approximately USD 8.1 billion in capex.
 
-So the eight articles must reach consistent conclusions — not repetition, but the same set of facts projected from different angles. If any one article's conclusion conflicts with the other seven, that article's reasoning is wrong.
+So the conclusions of all eight pieces must agree—not repetition, but the same set of facts projected from different angles. If any one piece's conclusion conflicts with the other seven, that piece's reasoning must be wrong.
 
 ## Sources
 

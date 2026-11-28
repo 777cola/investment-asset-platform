@@ -14,7 +14,7 @@ Answer: Yes, but not "good business" good. It can generate USD 129 billion in re
 
 Given by customers. DRAM bit shipments grew only single digits this quarter, while prices rose 60%. That is not skill, it is luck. A truly good business is one where "you raise prices and customers still cannot leave you" — Apple, for example, or TSMC's advanced process nodes. Micron raised prices because of shortages; once the shortage is resolved, prices snap right back, as they did in 2019 and 2023.
 
-So the character of this business is: **extremely good in good years, extremely bad in bad years**. Such a business is not uninvestable — it can only be bought when very cheap, and only in small position sizes.
+So the character of this business is: extremely good in good years, extremely bad in bad years. Such a business is not uninvestable — it can only be bought when very cheap, and only in small position sizes.
 
 ## Q: Will it still be around in ten years?
 
@@ -30,7 +30,7 @@ Answer: I understand the business; I do not understand the price. These are two 
 
 What I understand: what it does, who it sells to, that its costs are lower than competitors', that its HBM certification is done, that long-term contracts are signed. I can figure these out in an hour. What I do not understand: whether DRAM contract prices will rise or fall in 2027. Even their CEO cannot say — on the call he himself said he "cannot see clearly when supply will catch up with demand."
 
-**If a business's profit is determined by something I do not understand, I should not hold a heavy position.** This is not modesty; it is survival. When I was young I also thought I could read cycles, then found it was not understanding — it was luck.
+If a business's profit is determined by something I do not understand, I should not hold a heavy position. This is not modesty; it is survival. When I was young I also thought I could read cycles, then found it was not understanding — it was luck.
 
 ## Q: At what price to buy?
 
@@ -44,7 +44,7 @@ Of course, the market can stay crazier than me for longer. So I will not short i
 
 Answer: What I fear most is not a price drop, but believing I am investing when I am actually gambling.
 
-The logic everyone is citing this round is "AI makes memory a strategic asset, and the shortage lasts until 2028." That logic may be right. But it has one feature: **it cannot be verified, only waited out.** By the time 2028 arrives and it turns out wrong, the stock has already fallen 60%. That is the structure of a gamble—you trade "may be right" for "may be a 60% loss."
+The logic everyone is citing this round is "AI makes memory a strategic asset, and the shortage lasts until 2028." That logic may be right. But it has one feature: it cannot be verified, only waited out. By the time 2028 arrives and it turns out wrong, the stock has already fallen 60%. That is the structure of a gamble—you trade "may be right" for "may be a 60% loss."
 
 The second fear is long-term contracts. Take-or-pay sounds good, but a contract is paper, and when a customer turns, they will come talk to you about "changing specs, extending timelines, repricing." Shipping long-term contracts in 2008 and shale gas long-term contracts in 2020 all softened exactly this way. I do not doubt management's sincerity; I doubt the contract's enforceability.
 
@@ -54,7 +54,7 @@ Answer: If I already hold it, I keep it and add nothing. Selling triggers tax, a
 
 If the itch is truly unbearable, buy a little, 1–2% of total position, and treat it as tuition. That way you do not regret a rally and do not ache over a drop. The worst thing in investing is "building a heavy position because you fear missing out" — that is the most expensive emotion of all.
 
-**Equanimity. This is a good company, but this is not a good price. Wait for it to get cheap, or wait for proof that the long-term contract can truly change the cycle — when either happens, I will reconsider.**
+Equanimity. This is a good company, but this is not a good price. Wait for it to get cheap, or wait for proof that the long-term contract can truly change the cycle — when either happens, I will reconsider.
 
 ## Sources
 

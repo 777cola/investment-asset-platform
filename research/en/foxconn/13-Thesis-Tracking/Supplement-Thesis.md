@@ -22,19 +22,19 @@ Break the thesis into this framework's method: write the buy case as proposition
 
 ## Two conditions for establishment: shipments and expense leverage
 
-The first point is largely uncontested. Q3 revenue was 3 trillion 269 billion, up 47.1% YoY, with September alone at 1 trillion 1,586 billion, breaking the trillion mark for the first time; the monthly figures reconcile exactly with the quarterly total. **The AI rack ramp is fact, not expectation.** The 2027 handover to VR200 rests only on industry research inference (TrendForce expects NVL72 output value to rise 214%), with no order evidence, so the "2026 portion" of this assumption holds while the "2027 portion" remains unverified.
+The first point is largely uncontested. Q3 revenue was 3 trillion 269 billion, up 47.1% YoY, with September alone at 1 trillion 1,586 billion, breaking the trillion mark for the first time; the monthly figures reconcile exactly with the quarterly total. The AI rack ramp is fact, not expectation. The 2027 handover to VR200 rests only on industry research inference (TrendForce expects NVL72 output value to rise 214%), with no order evidence, so the "2026 portion" of this assumption holds while the "2027 portion" remains unverified.
 
-The second point also holds: operating margin was 3.75%, up 0.6pct YoY, with operating expenses up only 6% while revenue rose 41%. But the expense ratio has already fallen to 2.36% against a theoretical floor of 2.1%–2.2%; squeezing out another 0.2pct would add 5 billion in pre-tax profit, or 8% of net income. **This assumption can still deliver one small surprise, but it cannot support a re-rating—it has been downgraded from growth engine to defensive item.**
+The second point also holds: operating margin was 3.75%, up 0.6pct YoY, with operating expenses up only 6% while revenue rose 41%. But the expense ratio has already fallen to 2.36% against a theoretical floor of 2.1%–2.2%; squeezing out another 0.2pct would add 5 billion in pre-tax profit, or 8% of net income. This assumption can still deliver one small surprise, but it cannot support a re-rating—it has been downgraded from growth engine to defensive item.
 
 ## Two claims that do not hold: gross margin and cash flow
 
-The gross margin line is the core issue. 2026Q1 6.18%, Q2 6.12%, declining for two consecutive quarters; down -0.21pct YoY. Management said twice that "the product mix will improve in the second half," and delivered neither time. **By discipline, this assumption has been downgraded from "pending verification" to "partially falsified" — not overturned by data, but drained of credibility by repeated statements.**
+The gross margin line is the core issue. 2026Q1 6.18%, Q2 6.12%, declining for two consecutive quarters; down -0.21pct YoY. Management said twice that "the product mix will improve in the second half," and delivered neither time. By discipline, this assumption has been downgraded from "pending verification" to "partially falsified" — not overturned by data, but drained of credibility by repeated statements.
 
-The cash flow line likewise does not hold: free cash flow was negative in the first half, driven by receivables and inventory swelling as revenue doubled, plus capex from capacity expansion in four locations. **Only two paths turn it positive — revenue growth slows (working capital stops expanding), or customer payment terms shorten (pricing power improves). The first would hit the share price; the second requires gross margin to improve in tandem.**
+The cash flow line likewise does not hold: free cash flow was negative in the first half, driven by receivables and inventory swelling as revenue doubled, plus capex from capacity expansion in four locations. Only two paths turn it positive — revenue growth slows (working capital stops expanding), or customer payment terms shorten (pricing power improves). The first would hit the share price; the second requires gross margin to improve in tandem.
 
 ## One point yet to be verified: the "quality" of the customer mix
 
-The share of full-rack purchases by North America's five largest CSPs falls from about 70% in 2025 to about 60% in 2026 — the numbers are improving. But the gap is filled by Neoclouds and sovereign clouds: the former buy GPUs on debt financing, the latter on fiscal budgets. **More customers and lower bargaining power per customer is good; worse credit quality among new customers and collection that depends more on financing progress is bad.**
+The share of full-rack purchases by North America's five largest CSPs falls from about 70% in 2025 to about 60% in 2026 — the numbers are improving. But the gap is filled by Neoclouds and sovereign clouds: the former buy GPUs on debt financing, the latter on fiscal budgets. More customers and lower bargaining power per customer is good; worse credit quality among new customers and collection that depends more on financing progress is bad.
 
 The way to verify this is days sales outstanding: if revenue grows 40% while receivables grow more than 50%, customers are using their own payment terms to tie up Hon Hai's capital. This metric can be calculated from the interim report and is more reliable than what is said at the earnings call.
 
@@ -42,15 +42,19 @@ The way to verify this is days sales outstanding: if revenue grows 40% while rec
 
 Three hard conditions; triggering any one removes the stock from the watchlist: ① gross margin below 5.8% for two consecutive quarters (indicating structural dilution from the full-cabinet model exceeds expectations); ② quarterly revenue turning negative quarter-on-quarter with no guidance cut and no explanation at the earnings call (indicating a break in order visibility); ③ receivables turnover days up more than 15 days year-on-year (indicating deteriorating customer credit).
 
-Conversely, improvement in any one of the three warrants an upgrade: gross margin above 6.5% for two consecutive quarters, free cash flow turning positive, or the share price falling below RMB 180 (a valuation trigger, not a fundamental one). **The point of fixing these conditions in writing: no need to agonize anew each quarter—just watch the metrics.**
+Conversely, improvement in any one of the three warrants an upgrade: gross margin above 6.5% for two consecutive quarters, free cash flow turning positive, or the share price falling below RMB 180 (a valuation trigger, not a fundamental one). The point of fixing these conditions in writing: no need to agonize anew each quarter—just watch the metrics.
 
 ## Watch calendar
 
-- **2026/11/12 (estimated)**: Q3 earnings call. Watch gross margin (thresholds 6.0%/6.5%), capacity utilization commentary, capex guidance.
-- **2026/12/05**: November revenue. Watch whether year-on-year growth holds above 30%.
-- **2027/01/05**: December and full-year revenue. Watch whether Q4 grows quarter on quarter.
-- **2027/03**: Q4 results and annual report. Watch full-year free cash flow, receivables days, depreciation breakdown.
-- **2027/05**: Q1 results. First full quarter after the VR200 transition; gross margin direction is most critical.
+- 2026/11/12 (estimated): Q3 earnings call. Watch gross margin (thresholds 6.0%/6.5%), capacity utilization commentary, capex guidance.
+
+- 2026/12/05: November revenue. Watch whether year-on-year growth holds above 30%.
+
+- 2027/01/05: December and full-year revenue. Watch whether Q4 grows quarter on quarter.
+
+- 2027/03: Q4 results and annual report. Watch full-year free cash flow, receivables days, depreciation breakdown.
+
+- 2027/05: Q1 results. First full quarter after the VR200 transition; gross margin direction is most critical.
 
 ## Sources
 

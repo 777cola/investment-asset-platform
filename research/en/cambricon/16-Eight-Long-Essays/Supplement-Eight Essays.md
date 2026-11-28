@@ -10,7 +10,7 @@ Shared data basis across all eight reports: 2026H1 revenue RMB 5.996 billion (+1
 
 ## How to read the eight articles
 
-Read in order, it forms a complete chain of reasoning: first break down (①), then build up (②③), then look at the numbers (④), then look at the environment (⑤⑥⑦), and finally decide (⑧). With only ten minutes, read ① and ⑧; to form a judgment, read all eight.
+Read in order, it forms a complete chain of reasoning: first break down (①), then build up (②③), then look at the numbers (④), then look at the environment (⑤⑥⑦), and finally decide (⑧). If you only have ten minutes, read ① and ⑧; if you need to make a judgment, read all eight.
 
 ## Sources
 

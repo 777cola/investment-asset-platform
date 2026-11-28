@@ -10,7 +10,7 @@ This module is the summary page of the earnings team's analysis; the six full ar
 
 ## Division of labour across the four notes
 
-These are not four repetitive analyses but four ways of reading: Duan Yongping asks whether the business still holds; Buffett asks whether the capital still earns; Munger asks whether the books can still be trusted; Li Lu asks whether the trend still runs in your favor. Four questions map to four facets of the financials: revenue mix, return on capital, accounting treatment, industry cycle.
+These are not four repetitive analyses but four ways of reading: Duan Yongping asks whether the business still holds; Buffett asks whether the capital still earns; Munger asks whether the books are still credible; Li Lu asks whether the trend is still favorable. The four questions map to four facets of the financials: revenue mix, return on capital, accounting treatment, and industry cycle.
 
 ## Sources
 

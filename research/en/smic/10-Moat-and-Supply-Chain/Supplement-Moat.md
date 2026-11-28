@@ -39,7 +39,7 @@ Competitor data: TSMC 2026Q2 earnings call (revenue USD 40.2 billion, gross marg
 
 Upstream lies equipment and materials, over which SMIC has no pricing power. EUV is unobtainable, and DUV was added to the proposed ban list in April 2026; 12-inch wafers are up 15%–25%, and SMIC can only accept it. Costs at this end are rigid and do not bend to the company's operating efforts.
 
-Downstream lie the design companies, over which SMIC has pricing power—but only when capacity is tight. In February–March 2026 the company negotiated price increases customer by customer, covering only categories in short supply; mobile phones and panel drivers have "seen no price increase to date" because those customers are struggling too. **This shows pricing power is "conditional," and the condition is shortage.**
+Downstream lie the design companies, over which SMIC has pricing power—but only when capacity is tight. In February–March 2026 the company negotiated price increases customer by customer, covering only categories in short supply; mobile phones and panel drivers have "seen no price increase to date" because those customers are struggling too. This shows pricing power is "conditional," and the condition is shortage.
 
 The value of the middle segment lies in irreplaceability: for domestic design companies pursuing advanced process nodes, SMIC is the only outlet; for automotive-grade BCD, SMIC has the largest capacity and the most complete certifications. Irreplaceability brings "they must place orders with you," not "they must accept your price." The difference between these two things is the difference between a 20% and a 67.7% gross margin.
 
@@ -47,7 +47,7 @@ The value of the middle segment lies in irreplaceability: for domestic design co
 
 A moat is defined as "competitors cannot get in, customers cannot get out." SMIC satisfies both: a new fab takes three years, USD 10 billion and equipment licences, and no second domestic player will emerge within five years; customer qualification takes 18–24 months, and switching fabs means redoing the entire validation chain.
 
-But a moat protects "the existence of revenue," not "the level of profit." **Depreciation does not care whether you have a moat**—once equipment enters the fab, it is amortised over five years, USD 5 billion a year, not a cent less. In 2026 depreciation grows 30% year on year while revenue grows 11.5%; the gap between the two slopes is why gross margin falls.
+But a moat protects "the existence of revenue," not "the level of profit." Depreciation does not care whether you have a moat—once equipment enters the fab, it is amortised over five years, USD 5 billion a year, not a cent less. In 2026 depreciation grows 30% year on year while revenue grows 11.5%; the gap between the two slopes is why gross margin falls.
 
 A counter-check: if the moat protected profit, then with 2026 capacity utilisation at 93.1% and 8-inch prices up 10%, gross margin should improve sharply; in reality it rises only 0.9 points quarter on quarter. This shows the "scarcity premium" is eaten by depreciation—the moat's returns all flow to equipment vendors.
 
@@ -59,13 +59,13 @@ The first bottleneck is lithography. SMIC has no EUV, so N+2 and N+3 rely entire
 
 The second bottleneck is spare parts and maintenance. Buying the equipment does not mean it can run indefinitely; original manufacturers' spare parts, software upgrades and on-site engineers all require licenses. Since the Entity List, this line has been sustained by inventory and third-party channels, with no public data on supply stability, but it is a hidden risk widely acknowledged in the industry.
 
-The third bottleneck is materials. Silicon wafers, photoresists, electronic specialty gases and CMP polishing pads remain dominated by Japan and the US in high-end categories. In the 2026 wafer price increase, SMIC has no choice but to accept; if controls extend to materials, utilization will feel the impact immediately. **Of the three bottlenecks, lithography sets the ceiling, spare parts set stability, and materials set cost.**
+The third bottleneck is materials. Silicon wafers, photoresists, electronic specialty gases and CMP polishing pads remain dominated by Japan and the US in high-end categories. In the 2026 wafer price increase, SMIC has no choice but to accept; if controls extend to materials, utilization will feel the impact immediately. Of the three bottlenecks, lithography sets the ceiling, spare parts set stability, and materials set cost.
 
 ## The most dangerous rivals: not TSMC, but Hua Hong and Nexchip
 
 TSMC is chasing high-margin advanced-node orders that SMIC could never win anyway; the two are not on the same battlefield. What can really hurt SMIC is domestic peers: Hua Hong posted revenue of USD 661 million in Q1 2026, up 22.2% year on year, with capacity utilization above 100% for an extended period; Nexchip and SiEn are expanding aggressively in CIS, power and MCU.
 
-These players follow a simple playbook: **win commodity categories with lower prices**. After Chinese New Year in 2026, several Chinese foundries plan to cut prices on PMIC and DDI by 15%–20%, striking directly at the mature-node base that underpins SMIC. SMIC's choice is not to follow — protect gross margin and cede share. The near-term numbers look good; the long-term share gets eroded.
+These players follow a simple playbook: win commodity categories with lower prices. After Chinese New Year in 2026, several Chinese foundries plan to cut prices on PMIC and DDI by 15%–20%, striking directly at the mature-node base that underpins SMIC. SMIC's choice is not to follow — protect gross margin and cede share. The near-term numbers look good; the long-term share gets eroded.
 
 The second opponent is equipment controls. This is not competition but a supply cutoff: if DUV is banned, expansion halts while depreciation keeps running — the ugliest combination. This risk does more damage than any competitor, but it is unpredictable and cannot be hedged.
 

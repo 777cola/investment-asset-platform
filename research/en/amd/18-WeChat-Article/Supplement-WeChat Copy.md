@@ -10,7 +10,7 @@ WeChat article copy, plain text, ready to copy. About 1,500 words. All figures s
 
 ## Title and lead-in
 
-Title: **AMD earned USD 11.5 billion—so why did the stock still fall 7%?**
+Title: AMD earned USD 11.5 billion—so why did the stock still fall 7%?
 
 Lead: On August 4, AMD delivered the best earnings report in its history. The next day, the stock fell 7%. This is not the market failing to understand—it is the market calculating too clearly.
 
@@ -58,7 +58,7 @@ One risk not to overlook: customer concentration. The top five customers account
 
 ## Conclusion
 
-Final word: **AMD made money this quarter, but has not yet earned its position. At 125x, you are paying for "the position will change" — and a change in position cannot be verified by any earnings report.**
+Final word: AMD made money this quarter, but has not yet earned its position. At 125x, you are paying for "the position will change" — and a change in position cannot be verified by any earnings report.
 
 Wait for USD 350, or wait for MI450 revenue. Until then, the best move is to do nothing.
 

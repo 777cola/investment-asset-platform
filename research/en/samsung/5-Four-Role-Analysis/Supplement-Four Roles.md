@@ -14,11 +14,11 @@ The probabilities and position recommendations in the Team Lead summary are the 
 
 ## How to read these five reports
 
-The first four are done independently, without cross-communication: business analysis looks only at business structure, financial analysis only at the three statements, industry research only at competition and cycles, risk assessment only at the downside. The fifth is a synthesis, specifically handling the points of conflict.
+The first four are done independently, without cross-communication: commercial analysis looks only at business structure, financial analysis only at the three statements, industry research only at competition and cycles, risk assessment only at the downside. The fifth is a synthesis, specifically handling where they conflict.
 
-The advantage of this approach is that it avoids "conclusion first, evidence second"; the drawback is duplication — the same number may appear four times across the four pieces, but each time from a different interpretive angle. If you read only one, read the risk piece; if you read only the conclusion, read the final section of the synthesis.
+The benefit of this approach is that it avoids "conclusion first, evidence second"; the drawback is duplication — the same number may appear four times, but each time from a different angle. If you read only one, read the risk one; if you read only conclusions, read the last section of the synthesis.
 
-The common data base for the four pieces is the 2026Q2 earnings report (disclosed 2026/07/30): revenue KRW 171.5 trillion, operating profit KRW 89.49 trillion, net profit KRW 71.62 trillion, DS division KRW 89.2 trillion. Share data comes from TrendForce (2026/09/07) and Counterpoint (2026/09/02). The divergence does not come from the data but from the weighting assigned to the same set of data.
+The common data base for all four is the 2026Q2 earnings report (disclosed 2026/07/30): revenue KRW 171.5 trillion, operating profit KRW 89.49 trillion, net profit KRW 71.62 trillion, DS division KRW 89.2 trillion. Share data comes from TrendForce (2026/09/07) and Counterpoint (2026/09/02). The divergence does not come from the data, but from the weighting assigned to the same set of data.
 
 ## Sources
 

@@ -23,7 +23,7 @@ Sources: ASML 2026Q3 earnings and earnings call (2026/10/13), AWP/Alliance News 
 
 ## First discrepancy: EUR 500 million in net profit
 
-Of the EUR 4.96 billion, about EUR 500 million came from the revaluation of the Mistral AI stake — ASML invested EUR 1.3 billion in the French model company in September 2025 for a roughly 11% stake, and after the company's valuation was marked up in the third quarter of 2026, ASML recognized this book gain under the equity method. **It generates not a single euro of cash and should not be included in operating profit.**
+Of the EUR 4.96 billion, about EUR 500 million came from the revaluation of the Mistral AI stake — ASML invested EUR 1.3 billion in the French model company in September 2025 for a roughly 11% stake, and after the company's valuation was marked up in the third quarter of 2026, ASML recognized this book gain under the equity method. It generates not a single euro of cash and should not be included in operating profit.
 
 Excluding it, net profit is about EUR 4.46 billion, still above the market expectation of EUR 4.165 billion, above the consensus by about 7%. So both things hold at once: the results are genuinely good, but part of the 133.4% net profit growth is "valuation revaluation," not "money earned selling machines." Every reference to net profit in this report carries this caveat.
 
@@ -31,13 +31,13 @@ Excluding it, net profit is about EUR 4.46 billion, still above the market expec
 
 The 23% is the single-quarter share of net system sales from mainland China in 2026Q3; the 20% is the company's full-year 2026 guidance. The two figures do not conflict, but read together they are easily misread as "the share is set to decline." The actual path is Q1 19%, Q2 14%, Q3 23% — down first, then up, landing near 20% for the full year.
 
-Why Q2 was only 14%: after export controls tightened, license approvals for some Chinese customers were delayed, pushing order deliveries into Q3. Why Q3 rebounded to 23%: the delayed DUV orders were delivered in a cluster. **This is delivery timing, not a change in demand.** Judging Chinese demand requires looking at orders rather than single-quarter revenue, and order value was not disclosed separately this quarter — a data gap that must be acknowledged.
+Why Q2 was only 14%: after export controls tightened, license approvals for some Chinese customers were delayed, pushing order deliveries into Q3. Why Q3 rebounded to 23%: the delayed DUV orders were delivered in a cluster. This is delivery timing, not a change in demand. Judging Chinese demand requires looking at orders rather than single-quarter revenue, and order value was not disclosed separately this quarter — a data gap that must be acknowledged.
 
 ## Third point: the market cap and PE calculation methods must be spelled out
 
 The USD 624 billion market cap is calculated as USD 1,641.52 × about 380 million shares, with share count on a post-buyback basis (about 417 million shares in 2021). Cross-checked in EUR: EUR 538 billion × 1.16 = USD 624.1 billion, a 0.05% difference between the two routes, so they corroborate each other.
 
-Be careful with the PE denominator. TTM net profit is about USD 15.2 billion (backed out from 6,240 ÷ 41), which includes a EUR 500 million one-off gain in Q3. Excluding it, TTM net profit is about USD 14.6 billion and PE is about 43x. **Industry convention uses the figure excluding one-offs, but market quotes use reported net profit**—so the report states 41x as the primary basis (consistent with market data software), while the analysis uses 43x (more conservative).
+Be careful with the PE denominator. TTM net profit is about USD 15.2 billion (backed out from 6,240 ÷ 41), which includes a EUR 500 million one-off gain in Q3. Excluding it, TTM net profit is about USD 14.6 billion and PE is about 43x. Industry convention uses the figure excluding one-offs, but market quotes use reported net profit—so the report states 41x as the primary basis (consistent with market data software), while the analysis uses 43x (more conservative).
 
 ## Final adopted basis
 

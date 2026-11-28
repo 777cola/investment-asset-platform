@@ -33,13 +33,13 @@ The second is High-NA. At EUR 350 million per unit, customers buy it because it 
 
 ## Falsification conditions: three; if any one occurs, rewrite the thesis
 
-**① Gross margin fell below 55% for two consecutive quarters.** This shows value-based pricing has not taken hold, or the product mix has deteriorated; either case has a large valuation impact.**② Orders turned negative year on year while revenue is still growing.** This shows the company is drawing down its order backlog, the most classic signal of a cyclical peak.**③ Mainland China's share fell below 10%.** This shows controls have effectively tightened, directly cutting a chunk of revenue.
+① Gross margin fell below 55% for two consecutive quarters. This shows value-based pricing has not taken hold, or the product mix has deteriorated; either case has a large valuation impact.② Orders turned negative year on year while revenue is still growing. This shows the company is drawing down its order backlog, the most classic signal of a cyclical peak.③ Mainland China's share fell below 10%. This shows controls have effectively tightened, directly cutting a chunk of revenue.
 
 Beyond these three, there is a soft indicator: management's comments on capacity expansion. If "studying further expansion" becomes "adjusting as needed," customers are delaying — and this leads the order figures by a quarter.
 
 ## Watch calendar
 
-**Late January 2027:** Q4 and full-year results — watch whether Q4 gross margin holds at 57%, full-year order commentary, and 2027 guidance. **April 2027:** Q1 results — the first full quarter of value-based pricing. **July 2027:** Q2 results — first comparable High-NA shipment count. **October 2027:** Q3 results — validate the 2028 capacity plan.
+Late January 2027: Q4 and full-year results — watch whether Q4 gross margin holds at 57%, full-year order commentary, and 2027 guidance. April 2027: Q1 results — the first full quarter of value-based pricing. July 2027: Q2 results — first comparable High-NA shipment count. October 2027: Q3 results — validate the 2028 capacity plan.
 
 Each checkpoint requires watching only three things: gross margin, orders, and China share. Everything else (share price, analyst ratings, target prices) stays out of the thesis.
 
@@ -47,7 +47,7 @@ Each checkpoint requires watching only three things: gross margin, orders, and C
 
 If all six assumptions hold, 2027 EPS is EUR 46; at 32x, the target is USD 1,708, 4% above the current price. If only the first four hold and the last two fail (AI capex cut, High-NA delayed), EPS is about EUR 38; at 24x, the target is USD 1,058, 36% below the current price.
 
-That is the asymmetry of the payoff: **if the thesis is fully right, you make 4%; if it is half wrong, you lose 36%.** The thesis is not wrong; the price treats "fully right" as the base case. Only two paths can change this structure—the price falls, or earnings rise above expectations. The former can be waited for; the latter is uncontrollable.
+That is the asymmetry of the payoff: if the thesis is fully right, you make 4%; if it is half wrong, you lose 36%. The thesis is not wrong; the price treats "fully right" as the base case. Only two paths can change this structure—the price falls, or earnings rise above expectations. The former can be waited for; the latter is uncontrollable.
 
 ## Three sentences to read in the next earnings report
 

@@ -25,31 +25,31 @@ Event dates come from public reports (The Paper, 2026/11/15; People's Daily Onli
 
 ## Timeline reading: bad news triggers small declines, good news fails to lift the stock
 
-Lay the seven events out on a timeline and a counterintuitive pattern emerges: **bad news hits and the stock does not crash; good news hits and the stock does not rise.** Q2 earnings showed record capex, and the reaction was muted; Q3 earnings showed negative revenue growth, and the stock fell slightly; the global tech selloff on 11/20 dragged it down; on 11/23 Nvidia rose 31% and Baidu fell 0.78%.
+Lay the seven events out on a timeline and a counterintuitive pattern emerges: bad news hits and the stock does not crash; good news hits and the stock does not rise. Q2 earnings showed record capex, and the reaction was muted; Q3 earnings showed negative revenue growth, and the stock fell slightly; the global tech selloff on 11/20 dragged it down; on 11/23 Nvidia rose 31% and Baidu fell 0.78%.
 
-This "numbness" is a classic signature of the shareholder base: those who wanted to sell finished selling months ago, and those left do not intend to sell; but no new money is willing to come in either. Average daily turnover shrinks, volatility compresses, and the stock drifts sideways near its 52-week low. **This is not "it cannot fall further" — it is "nobody cares."** For a name that needs a catalyst to re-rate, nobody caring is worse than falling.
+This "numbness" is a classic signature of the shareholder base: those who wanted to sell finished selling months ago, and those left do not intend to sell; but no new money is willing to come in either. Average daily turnover shrinks, volatility compresses, and the stock drifts sideways near its 52-week low. This is not "it cannot fall further" — it is "nobody cares." For a name that needs a catalyst to re-rate, nobody caring is worse than falling.
 
 ## Three noise items: mileage, rhetoric, target price
 
-**Apollo Go's 30 cities and 390 million km** is the item most easily read as good news. But it has no matching revenue line — Robotaxi revenue is folded into "AI applications" or another category, and the filings show no per-ride cost, per-vehicle revenue or gross margin. Operating figures with no financial data behind them are narrative only.
+Apollo Go's 30 cities and 390 million km is the item most easily read as good news. But it has no matching revenue line — Robotaxi revenue is folded into "AI applications" or another category, and the filings show no per-ride cost, per-vehicle revenue or gross margin. Operating figures with no financial data behind them are narrative only.
 
-**"The payback period on AI cloud investment is shortening"** is management's comment at the results call, a qualitative judgment with no quantified basis: what the payback period used to be, what it is now, and how it is calculated all go unstated. **Statements like this function to anchor expectations, not to convey information.**
+"The payback period on AI cloud investment is shortening" is management's comment at the results call, a qualitative judgment with no quantified basis: what the payback period used to be, what it is now, and how it is calculated all go unstated. Statements like this function to anchor expectations, not to convey information.
 
-**JPMorgan's HKD 130 target price** looks 105% above the current price, but it is the view of one sell-side report, not a fact. Its value is as an external reference: **even the most bullish sell-side house goes only to HKD 130, implying a market cap of about HKD 340 billion, still below cash plus investments** — which itself shows how low the market's pricing consensus on this asset is.
+JPMorgan's HKD 130 target price looks 105% above the current price, but it is the view of one sell-side report, not a fact. Its value is as an external reference: even the most bullish sell-side house goes only to HKD 130, implying a market cap of about HKD 340 billion, still below cash plus investments — which itself shows how low the market's pricing consensus on this asset is.
 
 ## Two real signals: ad decline and dividend
 
-Only two real signals matter, and both are in the financials and filings. **The first is online marketing -22%** — a continuation of multi-quarter double-digit declines, and AI-native marketing at RMB 2.4 billion, -15%, shows the new format is not picking up either. This number sets the direction of total revenue and determines whether the valuation deserves 10x or 20x.
+Only two real signals matter, and both are in the financials and filings. The first is online marketing -22% — a continuation of multi-quarter double-digit declines, and AI-native marketing at RMB 2.4 billion, -15%, shows the new format is not picking up either. This number sets the direction of total revenue and determines whether the valuation deserves 10x or 20x.
 
-**The second is the first-ever dividend.** Hong Kong Economic Times reported on 2026/11/15 that the company "expects to announce its first dividend before year-end." The market underestimates this: for a company that has never paid a dividend, the first payout signals a shift in capital allocation philosophy — from "keep the cash to invest in AI" to "return the cash to shareholders." **If it materializes, the re-rating from 0.52x PB has an internal driver and does not need to wait for AI to win.**
+The second is the first-ever dividend. Hong Kong Economic Times reported on 2026/11/15 that the company "expects to announce its first dividend before year-end." The market underestimates this: for a company that has never paid a dividend, the first payout signals a shift in capital allocation philosophy — from "keep the cash to invest in AI" to "return the cash to shareholders." If it materializes, the re-rating from 0.52x PB has an internal driver and does not need to wait for AI to win.
 
 The test is simple: watch the filings, not the reports. The dividend amount, the buyback authorization size and the execution pace — all three numbers must be out before it counts.
 
 ## The most notable day: November 23
 
-Global tech stocks crashed on November 20, with Nvidia down 14% in a single day; on November 23 Nvidia rebounded 31%. The same day, Baidu closed at HKD 63.55, down 0.78%. **That contrast carries more information than any research report: the market no longer grants Baidu "AI beta."**
+Global tech stocks crashed on November 20, with Nvidia down 14% in a single day; on November 23 Nvidia rebounded 31%. The same day, Baidu closed at HKD 63.55, down 0.78%. That contrast carries more information than any research report: the market no longer grants Baidu "AI beta."
 
-In 2023 Baidu was the "flagship of China's AI theme" — it rose with Nvidia, it rose when OpenAI launched new models. That linkage is now broken. The reason is not hard to grasp: the main line of the AI trade is compute and model capability. Baidu's AI cloud is third tier, its models second tier, and advertising is still shrinking — **it is neither a compute beneficiary nor a model winner, just "an old internet company with an AI business."**
+In 2023 Baidu was the "flagship of China's AI theme" — it rose with Nvidia, it rose when OpenAI launched new models. That linkage is now broken. The reason is not hard to grasp: the main line of the AI trade is compute and model capability. Baidu's AI cloud is third tier, its models second tier, and advertising is still shrinking — it is neither a compute beneficiary nor a model winner, just "an old internet company with an AI business."
 
 That pricing is correct. Conversely, it also means that once it actually delivers profit (the cloud segment turning positive, a dividend materializing), the re-rating upside would be large — because AI currently accounts for zero of its valuation.
 

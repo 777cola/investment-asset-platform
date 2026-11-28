@@ -10,7 +10,7 @@ This module's eight long-form articles draw on the same dataset (Meituan's 2025 
 
 ## Why this order
 
-Most research reports start with "Company Overview" and end with "Investment Recommendation." This series reverses that: it first tells you where the market is wrong, then what the business is, and only at the end gives the price.
+Most research reports start with "Company Overview" and end with "Investment Recommendation." This series reverses that: first tell you where the market is wrong, then tell you what the business is, and only then give the price.
 
 Because the most common reason for losing money in investing is not "getting the numbers wrong" but "misjudging the object"—you think you are buying a growth stock when it is actually a cyclical; you think you are buying a platform when it is actually a retailer. Get the perception wrong, and every valuation that follows is wrong.
 

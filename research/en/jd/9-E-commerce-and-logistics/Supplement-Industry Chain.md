@@ -23,31 +23,31 @@ Gross/net margins at each link of the chain fall within common industry ranges (
 
 ## Who makes money in the chain: a three-tier structure
 
-The first layer is **brand premium**. Apple's online sales in China, whether through JD.com, Tmall or Pinduoduo, all carry gross margins above 30%; Midea and Haier home appliances run gross margins around 25%. This layer makes money because consumers recognize the label.
+The first layer is brand premium. Apple's online sales in China, whether through JD.com, Tmall or Pinduoduo, all carry gross margins above 30%; Midea and Haier home appliances run gross margins around 25%. This layer makes money because consumers recognize the label.
 
-The second layer is **traffic allocation**. Alibaba and Pinduoduo post gross margins above 60% because what they sell is not goods but "the chance to be seen" — commissions, advertising, promotional slots. This is the most profitable layer in the entire chain because it controls the entry point to demand.
+The second layer is traffic allocation. Alibaba and Pinduoduo post gross margins above 60% because what they sell is not goods but "the chance to be seen" — commissions, advertising, promotional slots. This is the most profitable layer in the entire chain because it controls the entry point to demand.
 
-The third layer is **fulfillment and inventory**. JD Retail's gross margin is 8%–15% with a 4.6% operating margin; JD Logistics runs a 3.5% margin; the Tongda couriers earn per-parcel profit measured in "cents". **This layer bears the most capex, the most employees and the heaviest assets, and takes the thinnest profit.**
+The third layer is fulfillment and inventory. JD Retail's gross margin is 8%–15% with a 4.6% operating margin; JD Logistics runs a 3.5% margin; the Tongda couriers earn per-parcel profit measured in "cents". This layer bears the most capex, the most employees and the heaviest assets, and takes the thinnest profit.
 
 What sets JD apart is that it stands in half of the second layer and all of the third: it has platform commission and advertising revenue (Q2 platform advertising RMB 30.9 billion, +8.3%), but its core remains first-party merchandising and self-built fulfillment.
 
 ## JD.com's position in the chain: the heaviest one
 
-In one sentence: **JD.com is the only Chinese retailer that controls both the goods and the last mile.** Control of goods (first-party procurement and sales) lets it govern quality and after-sales service; the last mile (over 1,500 warehouses, 211 delivery) lets it govern experience. The cost is that both ends are heavy — inventory is its money, warehouses are its assets, and 900,000 ecosystem employees are its cost.
+In one sentence: JD.com is the only Chinese retailer that controls both the goods and the last mile. Control of goods (first-party procurement and sales) lets it govern quality and after-sales service; the last mile (over 1,500 warehouses, 211 delivery) lets it govern experience. The cost is that both ends are heavy — inventory is its money, warehouses are its assets, and 900,000 ecosystem employees are its cost.
 
 The advantage of this position is defensibility: brands need it (one of the largest single online channels for 3C and home appliances), consumers trust it (the first reflex for expensive big-ticket items), and competitors cannot build it in the short term (time cannot be compressed).
 
-The disadvantage is that it cannot raise prices: it sits between brands and consumers, and both sides are stronger than it. Brands can offer lower prices to other channels, and consumers can compare prices at any time. **The only party it can raise prices on is merchants (commissions and advertising), and that depends on traffic — which in turn depends on category breadth, precisely its weak spot.**
+The disadvantage is that it cannot raise prices: it sits between brands and consumers, and both sides are stronger than it. Brands can offer lower prices to other channels, and consumers can compare prices at any time. The only party it can raise prices on is merchants (commissions and advertising), and that depends on traffic — which in turn depends on category breadth, precisely its weak spot.
 
 ## Cycle position: three cycles overlap
 
-**The first layer is the policy cycle.** The 2025 home-appliance trade-in subsidy pulled demand forward; the 2026 rollback directly drove Q2 electronics and appliances to -11.8%. This cycle fully unwinds in the first half of 2027, making it the most certain of the three.
+The first layer is the policy cycle. The 2025 home-appliance trade-in subsidy pulled demand forward; the 2026 rollback directly drove Q2 electronics and appliances to -11.8%. This cycle fully unwinds in the first half of 2027, making it the most certain of the three.
 
-**The second layer is the competition cycle.** The 2025–2026 food-delivery war was industry-wide: Meituan, Taobao Shangou and JD.com all burned cash together, with two-year investment running into the hundreds of billions. It has now entered a contraction phase, and all three are cutting subsidy intensity — good for JD.com, which holds the smallest share and has the least to show for its losses.
+The second layer is the competition cycle. The 2025–2026 food-delivery war was industry-wide: Meituan, Taobao Shangou and JD.com all burned cash together, with two-year investment running into the hundreds of billions. It has now entered a contraction phase, and all three are cutting subsidy intensity — good for JD.com, which holds the smallest share and has the least to show for its losses.
 
-**The third layer is the technology/infrastructure cycle.** Instant retail's displacement of far-field e-commerce is a long-term trend that will not stop because someone pulls back. This cycle runs upward, but it works against JD.com. **The three overlap: the policy cycle is up (2027 recovery), the competition cycle is up (subsidies receding), and the infrastructure cycle is down (its position being displaced).**
+The third layer is the technology/infrastructure cycle. Instant retail's displacement of far-field e-commerce is a long-term trend that will not stop because someone pulls back. This cycle runs upward, but it works against JD.com. The three overlap: the policy cycle is up (2027 recovery), the competition cycle is up (subsidies receding), and the infrastructure cycle is down (its position being displaced).
 
-So the cycle-position call is this: **the next four quarters are a dual recovery window in policy and competition; in two to three years the company must confront structural pressure at the infrastructure layer.** That defines the nature of this investment — a two-to-three-year recovery trade, not a ten-year compounder.
+So the cycle-position call is this: the next four quarters are a dual recovery window in policy and competition; in two to three years the company must confront structural pressure at the infrastructure layer. That defines the nature of this investment — a two-to-three-year recovery trade, not a ten-year compounder.
 
 ## Sources
 

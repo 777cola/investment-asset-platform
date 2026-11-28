@@ -27,7 +27,7 @@ Event dates and content sourced from: JD.com 2026Q2 results announcement (2026/0
 
 Electronics and home appliances Q2 revenue was RMB 157.9 billion, down 11.8% YoY, the main drag on total revenue growth of -2.9%. This figure is often misread as "JD losing share"; in reality, the 2025 trade-in subsidy pulled demand forward, and 2026's policy rollback produced a natural payback.
 
-To judge the nature of this, look at two comparisons: **first, general merchandise +5.6% (categories without subsidies are still growing); second, JD's upstream bargaining position is unchanged (3C and home appliances remain one of brands' largest single online channels).** Both comparisons show this is a cyclical wound, not structural bleeding. When the wound heals: H1 2027, because the high base will not be fully absorbed until Q2 2027.
+To judge the nature of this, look at two comparisons: first, general merchandise +5.6% (categories without subsidies are still growing); second, JD's upstream bargaining position is unchanged (3C and home appliances remain one of brands' largest single online channels). Both comparisons show this is a cyclical wound, not structural bleeding. When the wound heals: H1 2027, because the high base will not be fully absorbed until Q2 2027.
 
 That is also why the guidance for "Q3 retail revenue turning positive" is worth watching — if it turns positive before the national subsidy base is fully absorbed, it means growth in general merchandise and services is already offsetting the appliance gap, and that would be real capability.
 
@@ -35,27 +35,27 @@ That is also why the guidance for "Q3 retail revenue turning positive" is worth 
 
 New business losses: RMB 14.78 billion (2025Q2) → RMB 10.35 billion (2026Q1) → RMB 9.85 billion (2026Q2). The direction is right, but the slope is too slow: only RMB 0.5 billion narrower per quarter. At this pace, it reaches RMB 8 billion by mid-2027 and only approaches breakeven in 2028.
 
-More noteworthy is the revenue side: new business revenue of RMB 7.26 billion, down 47.6% YoY.**Revenue halved while losses fell only a third, showing the contraction came from cutting order volume rather than improving efficiency.** Cutting order volume quickly reduces variable costs, but fixed costs (technology, organization, rider base pay) cannot be spread, so the loss ratio actually rose from 106.7% to 135.7%.
+More noteworthy is the revenue side: new business revenue of RMB 7.26 billion, down 47.6% YoY.Revenue halved while losses fell only a third, showing the contraction came from cutting order volume rather than improving efficiency. Cutting order volume quickly reduces variable costs, but fixed costs (technology, organization, rider base pay) cannot be spread, so the loss ratio actually rose from 106.7% to 135.7%.
 
-This combination tells us: the food delivery business has entered a "maintain minimum scale" state; there is no more share story, only a cost story. The impact on valuation — **it has gone from an "option" to a "liability," and the market will no longer price in any upside.**
+This combination tells us: the food delivery business has entered a "maintain minimum scale" state; there is no more share story, only a cost story. The impact on valuation — it has gone from an "option" to a "liability," and the market will no longer price in any upside.
 
 ## Signal three: 148 and the reduction — the disagreement is not about earnings but about cash
 
 In the same month, JPMorgan set HKD 148, BofA set HKD 145, and Morgan Stanley cut to Underweight (implying about 8x PE). The three differ little on revenue assumptions; the entire gap sits in "what is RMB 235.1 billion of cash worth."
 
-The bull case: cash equals 90% of market cap, so once management stops burning it, the valuation must converge. The bear case: the cash has been burning for two years and will keep burning, so it cannot be counted at face value. **Both are right; they differ on the probability they assign to management behavior.**
+The bull case: cash equals 90% of market cap, so once management stops burning it, the valuation must converge. The bear case: the cash has been burning for two years and will keep burning, so it cannot be counted at face value. Both are right; they differ on the probability they assign to management behavior.
 
 That is why the October share price did not react to good news (JPMorgan's HKD 148 failed to hold) and did not crash on bad news (still near 99 after Morgan Stanley's Underweight) — the market has already made the "cash discount" the consensus, and what it awaits is not opinion but action.
 
 ## Which parts are noise
 
-**First noise: target price.** The numbers 145 and 148 stack two optimistic assumptions — food delivery stops losing money and cash is counted at face value. That is scenario analysis, not a forecast. A target price cut or hike changes no fundamental.
+First noise: target price. The numbers 145 and 148 stack two optimistic assumptions — food delivery stops losing money and cash is counted at face value. That is scenario analysis, not a forecast. A target price cut or hike changes no fundamental.
 
-**Second noise: Double 11 marketing volume.** Phrases like "step up investment" and "in-store debut" are the same every year. The real information sits in the Q4 expense ratio, not in the launch event.
+Second noise: Double 11 marketing volume. Phrases like "step up investment" and "in-store debut" are the same every year. The real information sits in the Q4 expense ratio, not in the launch event.
 
-**Third, semi-noise: the stock near its 52-week low.** HKD 96 means nothing in itself; what matters is the PE multiple and cash coverage it implies — HKD 99.4 is 7.5x adjusted PE, HKD 96 is 7.2x. A 3% drop changes no judgment.
+Third, semi-noise: the stock near its 52-week low. HKD 96 means nothing in itself; what matters is the PE multiple and cash coverage it implies — HKD 99.4 is 7.5x adjusted PE, HKD 96 is 7.2x. A 3% drop changes no judgment.
 
-**The signal beyond the noise:** how management describes food delivery on the Q3 call — "optimize efficiency" means contraction, "seize the opportunity" means keep fighting. One phrase sets the direction.
+The signal beyond the noise: how management describes food delivery on the Q3 call — "optimize efficiency" means contraction, "seize the opportunity" means keep fighting. One phrase sets the direction.
 
 ## Sources
 

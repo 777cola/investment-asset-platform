@@ -27,7 +27,7 @@ Verification method: Source A is the company's 2026 interim results announcement
 
 Six items — revenue, net profit, gross margin, net margin, inventory and store count — match exactly between the company announcement and commentary from at least two brokers. That consistency is no surprise: the interim results announcement came out on 24 August, and the broker notes simply copy it and add their own estimates.
 
-Two categories of numbers genuinely need cross-checking: **ratios the company calculates itself** and **forecasts the brokers calculate themselves**. For the former, take "inventory turnover of 271 days" — the company derives it by dividing average inventory by cost of sales, but the report does not specify whether work-in-progress and raw materials are included in that basis. For the latter, take "Q2 revenue of RMB 2.3–3.95 billion" — brokers back-solved it from the growth range in the profit alert, so it is not a company-disclosed figure.
+Two categories of numbers genuinely need cross-checking: ratios the company calculates itself and forecasts the brokers calculate themselves. For the former, take "inventory turnover of 271 days" — the company derives it by dividing average inventory by cost of sales, but the report does not specify whether work-in-progress and raw materials are included in that basis. For the latter, take "Q2 revenue of RMB 2.3–3.95 billion" — brokers back-solved it from the growth range in the profit alert, so it is not a company-disclosed figure.
 
 This report therefore treats them as follows: disclosed figures are used directly, ratio figures carry a note on their basis, and back-solved figures are all labelled "back-solved/rough estimate".
 
@@ -35,23 +35,23 @@ This report therefore treats them as follows: disclosed figures are used directl
 
 PE is the most error-prone number here, because the TTM net profit denominator requires stitching together three reporting periods.
 
-This report's recalculation: TTM net profit = full-year 2025 RMB 4.90 billion − 2025H1 RMB 2.268 billion + 2026H1 RMB 4.267 billion = **RMB 6.90 billion**. Market cap HKD 59.6 billion ÷ 1.092 = RMB 54.54 billion; 54.54 ÷ 6.90 = 7.9x.
+This report's recalculation: TTM net profit = full-year 2025 RMB 4.90 billion − 2025H1 RMB 2.268 billion + 2026H1 RMB 4.267 billion = RMB 6.90 billion. Market cap HKD 59.6 billion ÷ 1.092 = RMB 54.54 billion; 54.54 ÷ 6.90 = 7.9x.
 
-The 6.9x in the working papers corresponds to TTM of RMB 7.93 billion, RMB 1.03 billion more than RMB 6.90 billion. The report does not explain where that RMB 1.03 billion comes from. **The discrepancy does not change the direction of the call, but it does change how cheap "cheap" is**: 7.9x and 6.9x sit mid-range and at the bottom of the consumer-stock band, respectively. This report adopts the conservative figure and, everywhere valuation is involved, uses 2027 forecast profit to sidestep the definitional issue.
+The 6.9x in the working papers corresponds to TTM of RMB 7.93 billion, RMB 1.03 billion more than RMB 6.90 billion. The report does not explain where that RMB 1.03 billion comes from. The discrepancy does not change the direction of the call, but it does change how cheap "cheap" is: 7.9x and 6.9x sit mid-range and at the bottom of the consumer-stock band, respectively. This report adopts the conservative figure and, everywhere valuation is involved, uses 2027 forecast profit to sidestep the definitional issue.
 
 ## Three figures from a single source only
 
 Three numbers deserve to be flagged separately, because they are used as evidence later on.
 
-First, **operating cash flow +RMB 2.008 billion**. Brokerage notes only wrote "positive for the first time in three years" without citing the specific amount, and the media briefs did not either. This number has only one source: the interim report. It is critical — it is the only hard evidence of "improved earnings quality" — so it can only be used with the caveat that it has not been verified by a second source.
+First, operating cash flow +RMB 2.008 billion. Brokerage notes only wrote "positive for the first time in three years" without citing the specific amount, and the media briefs did not either. This number has only one source: the interim report. It is critical — it is the only hard evidence of "improved earnings quality" — so it can only be used with the caveat that it has not been verified by a second source.
 
-Second, **inventory turnover of 271 days**. Again, company figures only. The 216 days at end-2025 was back-calculated from "up 55 days from the start of the year," making it a second-order estimate.
+Second, inventory turnover of 271 days. Again, company figures only. The 216 days at end-2025 was back-calculated from "up 55 days from the start of the year," making it a second-order estimate.
 
-Third, **payout ratio of about 75%**. RMB 3.185 billion ÷ RMB 4.267 billion = 74.6%; this was calculated in-house, but the total dividend of RMB 3.185 billion and RMB 18.02 per share are disclosed figures, and the two cross-check (18.02 × 176.75 million shares = RMB 3.185 billion), so it is credible.
+Third, payout ratio of about 75%. RMB 3.185 billion ÷ RMB 4.267 billion = 74.6%; this was calculated in-house, but the total dividend of RMB 3.185 billion and RMB 18.02 per share are disclosed figures, and the two cross-check (18.02 × 176.75 million shares = RMB 3.185 billion), so it is credible.
 
 ## Final adopted basis
 
-This report set uses the following unified basis, applied across all 17 subsequent modules: **2026H1 revenue of RMB 19.808 billion, net profit of RMB 4.267 billion, gross margin of 41.3%, net margin of 21.5%; full-year 2025 revenue of RMB 27.303 billion, net profit attributable to parent of RMB 4.868 billion (profit for the year of RMB 4.90 billion); market cap of HKD 59.6 billion, share price of HKD 337, share count of 176.75 million shares; PE uses the calculated 7.9x, with the working-paper 6.9x retained for external presentation; the three-tier valuation applies 8x/10x/13x to 2027 net profit of RMB 45/57/74 billion, at an exchange rate of RMB 1 = HKD 1.092.**
+This report set uses the following unified basis, applied across all 17 subsequent modules: 2026H1 revenue of RMB 19.808 billion, net profit of RMB 4.267 billion, gross margin of 41.3%, net margin of 21.5%; full-year 2025 revenue of RMB 27.303 billion, net profit attributable to parent of RMB 4.868 billion (profit for the year of RMB 4.90 billion); market cap of HKD 59.6 billion, share price of HKD 337, share count of 176.75 million shares; PE uses the calculated 7.9x, with the working-paper 6.9x retained for external presentation; the three-tier valuation applies 8x/10x/13x to 2027 net profit of RMB 45/57/74 billion, at an exchange rate of RMB 1 = HKD 1.092.
 
 Note that the 2025H1 revenue of RMB 12.36 billion and net profit of RMB 2.268 billion are both back-solved from year-on-year growth rates and match the figures disclosed in the company's 2025 interim report, so the back-solving method is reliable. The Q2 single-quarter revenue of RMB 2.3–3.95 billion and net profit of RMB 510–760 million are back-solved by brokers from the profit-alert range; only a range is available, not point values, so the range must be preserved when cited.
 

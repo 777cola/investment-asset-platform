@@ -34,35 +34,35 @@ Biographies and titles are taken from company annual reports and public reportin
 
 ## One-Man Company: Zeng Yuqun's Two Moves Ahead
 
-In 2016, the entire industry was pursuing lithium iron phosphate, because subsidies were tiered by range and LFP was cheap. Zeng Yuqun bet on ternary lithium instead, wagering that energy density would become the core metric for automakers, at the cost of higher expense and harder safety engineering. **The result: he won orders from BMW and Volkswagen, and with them the number-one share position for the next five years.**
+In 2016, the entire industry was pursuing lithium iron phosphate, because subsidies were tiered by range and LFP was cheap. Zeng Yuqun bet on ternary lithium instead, wagering that energy density would become the core metric for automakers, at the cost of higher expense and harder safety engineering. The result: he won orders from BMW and Volkswagen, and with them the number-one share position for the next five years.
 
-In 2021, when power batteries were scarcest and everyone was scrambling for automaker orders, he shifted capacity to energy storage. At the time it looked like a distraction; in the first half of 2026, storage revenue reached RMB 53.26 billion, up 87.5% year on year, the only segment still accelerating. **Neither was luck — both were bets placed two years before consensus formed.**
+In 2021, when power batteries were scarcest and everyone was scrambling for automaker orders, he shifted capacity to energy storage. At the time it looked like a distraction; in the first half of 2026, storage revenue reached RMB 53.26 billion, up 87.5% year on year, the only segment still accelerating. Neither was luck — both were bets placed two years before consensus formed.
 
-These two records justify a premium for his judgment, but they also expose a structural problem: the company's strategic capability is highly concentrated in one 58-year-old man. Since Huang Shilin stepped back from day-to-day management in 2022, no public "number two" has emerged to take over technology-roadmap decisions. **This is the only substantive gap in governance.**
+These two records justify a premium for his judgment, but they also expose a structural problem: the company's strategic capability is highly concentrated in one 58-year-old man. Since Huang Shilin stepped back from day-to-day management in 2022, no public "number two" has emerged to take over technology-roadmap decisions. This is the only substantive gap in governance.
 
 ## Where the money went: all into capacity, no random M&A
 
-Since its 2018 listing, CATL has raised major capital twice: a RMB 45 billion private placement in 2022 and a Hong Kong IPO in 2025 raising about HKD 35.6 billion. Both rounds went into capacity — Fuding, Zhaoqing, Hungary — never into buying into a sector, buying traffic, or buying an ecosystem. **For a manufacturing company, this is the least error-prone way to spend money.**
+Since its 2018 listing, CATL has raised major capital twice: a RMB 45 billion private placement in 2022 and a Hong Kong IPO in 2025 raising about HKD 35.6 billion. Both rounds went into capacity — Fuding, Zhaoqing, Hungary — never into buying into a sector, buying traffic, or buying an ecosystem. For a manufacturing company, this is the least error-prone way to spend money.
 
-More telling is the September 2026 move: with the stock at a 52-week low, the company simultaneously announced a RMB 20–40 billion buyback and an interim dividend of RMB 14.11 per 10 shares. The payout ratio is only 15.1% (rough calculation) — hardly generous, but the direction is right — **through "buyback + dividend" it is telling the market: 14x is not a price I accept.**
+More telling is the September 2026 move: with the stock at a 52-week low, the company simultaneously announced a RMB 20–40 billion buyback and an interim dividend of RMB 14.11 per 10 shares. The payout ratio is only 15.1% (rough calculation) — hardly generous, but the direction is right — through "buyback + dividend" it is telling the market: 14x is not a price I accept.
 
-The flip side is capital intensity. The 764GWh under construction implies RMB 230–310 billion of capex (rough calculation), meaning free cash flow stays tight for the next two years. Management chose to "expand capacity itself" rather than "acquire second-tier capacity," on the logic that cost and yield stay controllable — at the price of an ugly set of financials. **This is a trade-off, not a mistake.**
+The flip side is capital intensity. The 764GWh under construction implies RMB 230–310 billion of capex (rough calculation), meaning free cash flow stays tight for the next two years. Management chose to "expand capacity itself" rather than "acquire second-tier capacity," on the logic that cost and yield stay controllable — at the price of an ugly set of financials. This is a trade-off, not a mistake.
 
 ## Governance and integrity: no blemishes, risk lies in geopolitics
 
 Eight years listed on the A-share market with no record of financial fraud, no controlling-shareholder fund appropriation and no irregular guarantees; related-party transactions mainly stem from the historical ATL relationship and materials procurement, and are contained in scale. Zeng Yuqun himself has no negative record of share sales for cash, which is uncommon among ChiNext founders.
 
-The real governance risk comes from outside: in early 2025 the US Department of Defense added CATL to the 1260H list (the "Chinese military companies" list), and the company filed a lawsuit. This does not affect China-region business, but it does affect overseas customers' political risk assessment — **when European automakers select suppliers, their boards ask this question.** The response is to move capacity to customers' doorsteps (Hungary, Spain, Indonesia), hedging list risk through localisation.
+The real governance risk comes from outside: in early 2025 the US Department of Defense added CATL to the 1260H list (the "Chinese military companies" list), and the company filed a lawsuit. This does not affect China-region business, but it does affect overseas customers' political risk assessment — when European automakers select suppliers, their boards ask this question. The response is to move capacity to customers' doorsteps (Hungary, Spain, Indonesia), hedging list risk through localisation.
 
-The consumption tax is likewise a test of governance capability: on 1 September 2026 a 2% levy is reinstated on lithium-ion batteries, rising to 4% in September 2027, while BYD's batteries are used in-house and the tax burden falls on the vehicle segment, so the impact is far smaller. **Under the same policy, the structural disadvantage lands on CATL, which can only hedge through price increases or overseas capacity.**
+The consumption tax is likewise a test of governance capability: on 1 September 2026 a 2% levy is reinstated on lithium-ion batteries, rising to 4% in September 2027, while BYD's batteries are used in-house and the tax burden falls on the vehicle segment, so the impact is far smaller. Under the same policy, the structural disadvantage lands on CATL, which can only hedge through price increases or overseas capacity.
 
 ## Succession: no answer — the biggest gap in this report
 
 No publicly available information reveals a succession plan. Zeng Yuqun is 58 and still personally oversees the technology roadmap; Huang Shilin has exited; Wu Kai is chief scientist, not an operational successor; Zhou Jia runs day-to-day operations but has no final say on the technology roadmap.
 
-For comparison: Buffett spent a decade choosing a successor, TSMC has an explicit dual-leadership structure, and BYD has Wang Chuanfu plus a group of executive vice presidents.**CATL follows a "founder-as-strategy" model, which is most efficient before the founder turns 60 and carries the greatest risk after 60.**
+For comparison: Buffett spent a decade choosing a successor, TSMC has an explicit dual-leadership structure, and BYD has Wang Chuanfu plus a group of executive vice presidents.CATL follows a "founder-as-strategy" model, which is most efficient before the founder turns 60 and carries the greatest risk after 60.
 
-The investment implication is not to sell now, but to withhold a "founder premium." This is one reason the report caps valuation at 11–20x rather than granting a growth stock 25x.**Holders with a ten-year horizon must treat "who comes after Zeng Yuqun" as a genuine discount factor.**
+The investment implication is not to sell now, but to withhold a "founder premium." This is one reason the report caps valuation at 11–20x rather than granting a growth stock 25x.Holders with a ten-year horizon must treat "who comes after Zeng Yuqun" as a genuine discount factor.
 
 ## Sources
 

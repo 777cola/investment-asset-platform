@@ -52,35 +52,35 @@ All three tables in this module are drawn from Netflix's Q3 2026 financial state
 
 ## Layer one: revenue mix — advertising contributed only 20% of incremental revenue
 
-Revenue USD 12.874 billion, +11.8% YoY, +2.5% QoQ. The slowest growth in three years, but in line with prior company guidance. Breaking down the increment: **subscription revenue rose about USD 1.06 billion YoY, advertising revenue about USD 260 million.** In other words, advertising contributed only two-tenths of the increment; eight-tenths still came from the core business (member growth + price increases).
+Revenue USD 12.874 billion, +11.8% YoY, +2.5% QoQ. The slowest growth in three years, but in line with prior company guidance. Breaking down the increment: subscription revenue rose about USD 1.06 billion YoY, advertising revenue about USD 260 million. In other words, advertising contributed only two-tenths of the increment; eight-tenths still came from the core business (member growth + price increases).
 
-By region, all four posted double-digit growth: US and Canada USD 5.628 billion (+11%), EMEA USD 4.107 billion (+11%, +9% FX-neutral), Latin America USD 1.603 billion (+17%), Asia-Pacific USD 1.537 billion (+12%, +15% FX-neutral). **Latin America grew fastest but took the heaviest FX drag (+17% vs. +12% FX-neutral); Asia-Pacific was the reverse, with FX a tailwind (+12% vs. +15%).**
+By region, all four posted double-digit growth: US and Canada USD 5.628 billion (+11%), EMEA USD 4.107 billion (+11%, +9% FX-neutral), Latin America USD 1.603 billion (+17%), Asia-Pacific USD 1.537 billion (+12%, +15% FX-neutral). Latin America grew fastest but took the heaviest FX drag (+17% vs. +12% FX-neutral); Asia-Pacific was the reverse, with FX a tailwind (+12% vs. +15%).
 
-One notable structural shift: **UCAN's share fell from 48% three years ago to 43.7%.** That means Netflix's reliance on any single market is declining, and its exposure to FX and regulatory risk is more diversified. That is a good thing, but it also shows that the US, its most profitable market, is nearing saturation in growth.
+One notable structural shift: UCAN's share fell from 48% three years ago to 43.7%. That means Netflix's reliance on any single market is declining, and its exposure to FX and regulatory risk is more diversified. That is a good thing, but it also shows that the US, its most profitable market, is nearing saturation in growth.
 
 ## Layer two: margins — the 34.6% is inflated; 31.5% is the real number
 
-Operating margin 34.6%, 6.4 percentage points above 28.2% in the year-ago period and above company guidance. **But this figure cannot be annualized.** The report explicitly notes that part of this quarter's profit came from "changes in the timing of expense recognition" — certain expenses were deferred to Q4, an accounting timing effect, not an efficiency gain.
+Operating margin 34.6%, 6.4 percentage points above 28.2% in the year-ago period and above company guidance. But this figure cannot be annualized. The report explicitly notes that part of this quarter's profit came from "changes in the timing of expense recognition" — certain expenses were deferred to Q4, an accounting timing effect, not an efficiency gain.
 
-The full-year guidance is the better read: **31.5%**, 2 percentage points above 29.5% in 2025. That expansion is real, because it reflects three things: price increases, a higher mix of high-margin advertising revenue, and slower growth in content costs.
+The full-year guidance is the better read: 31.5%, 2 percentage points above 29.5% in 2025. That expansion is real, because it reflects three things: price increases, a higher mix of high-margin advertising revenue, and slower growth in content costs.
 
-But the pace is slowing. +2pct in 2026, and I expect only about +1pct in 2027. **The reason is Q4 guidance of 26.0%, which carries two drags: layoff costs of about 1.2 percentage points and higher sports rights investment.** Q4 is historically Netflix's lowest-margin quarter (content concentrated in the quarter, high marketing spend), so 26.0% is no surprise, but it caps the upside for the full year.
+But the pace is slowing. +2pct in 2026, and I expect only about +1pct in 2027. The reason is Q4 guidance of 26.0%, which carries two drags: layoff costs of about 1.2 percentage points and higher sports rights investment. Q4 is historically Netflix's lowest-margin quarter (content concentrated in the quarter, high marketing spend), so 26.0% is no surprise, but it caps the upside for the full year.
 
 ## Layer three: costs and profit — how much of the 44% net profit growth is operational
 
-Net profit RMB 3.664 billion, up 44% YoY; EPS 0.87, up 47.5% YoY (EPS growth outpacing net profit because buybacks reduced share count). **But net profit growth of 44% far exceeds operating profit growth of 37.3%, and the gap comes from non-operating items.**
+Net profit RMB 3.664 billion, up 44% YoY; EPS 0.87, up 47.5% YoY (EPS growth outpacing net profit because buybacks reduced share count). But net profit growth of 44% far exceeds operating profit growth of 37.3%, and the gap comes from non-operating items.
 
-Breaking it down: operating profit RMB 4.459 billion, net profit RMB 3.664 billion, so net profit equals 82.2% of operating profit (rough calculation). Normally this ratio should be 75%–80% (after ~20% tax and a small amount of interest income). 82.2% implies a lighter tax burden or non-operating gains this quarter. **Add in Q1's RMB 5.28 billion net profit (up 83% YoY), and part of 2026 earnings cannot be counted as "operating capability."**
+Breaking it down: operating profit RMB 4.459 billion, net profit RMB 3.664 billion, so net profit equals 82.2% of operating profit (rough calculation). Normally this ratio should be 75%–80% (after ~20% tax and a small amount of interest income). 82.2% implies a lighter tax burden or non-operating gains this quarter. Add in Q1's RMB 5.28 billion net profit (up 83% YoY), and part of 2026 earnings cannot be counted as "operating capability."
 
-That is why the market assigns 18x rather than 21x. **18x is "cheap including one-off gains"; 21x is "a fair price for true operating profit."** Write both clearly, or you are fooling yourself.
+That is why the market assigns 18x rather than 21x. 18x is "cheap including one-off gains"; 21x is "a fair price for true operating profit." Write both clearly, or you are fooling yourself.
 
 ## Layer 4: Cash flow and balance sheet — buybacks outpace earnings
 
-Operating cash flow RMB 3.162 billion (+11.9%), free cash flow RMB 2.884 billion (+8.4%). **FCF growth trails revenue growth, indicating content cash spending is accelerating**—consistent with the direction of sports rights investment. Full-year guidance of RMB 12 billion is 4.4% of the RMB 270 billion market cap.
+Operating cash flow RMB 3.162 billion (+11.9%), free cash flow RMB 2.884 billion (+8.4%). FCF growth trails revenue growth, indicating content cash spending is accelerating—consistent with the direction of sports rights investment. Full-year guidance of RMB 12 billion is 4.4% of the RMB 270 billion market cap.
 
-Balance sheet: RMB 15.3 billion debt, RMB 8.2 billion cash, RMB 7.1 billion net debt. For a business with RMB 16.1 billion in annual operating profit, that is 0.44x leverage—very clean. **But note the trend: Netflix was once a net cash company, and after buybacks scale up in 2026, cash is heading lower.**
+Balance sheet: RMB 15.3 billion debt, RMB 8.2 billion cash, RMB 7.1 billion net debt. For a business with RMB 16.1 billion in annual operating profit, that is 0.44x leverage—very clean. But note the trend: Netflix was once a net cash company, and after buybacks scale up in 2026, cash is heading lower.
 
-The most striking comparison: **Q3 buybacks of RMB 4.8 billion versus FCF of only RMB 2.884 billion—buybacks were 1.66x FCF.** And the average buyback price of USD 75.12 is 14% above the current price of USD 65.85. Together these two facts suggest management sees intrinsic value above USD 75—a positive signal, but also indicating the buyback pace won't accelerate on share price declines, because the authorization is a predetermined plan, not opportunistic.
+The most striking comparison: Q3 buybacks of RMB 4.8 billion versus FCF of only RMB 2.884 billion—buybacks were 1.66x FCF. And the average buyback price of USD 75.12 is 14% above the current price of USD 65.85. Together these two facts suggest management sees intrinsic value above USD 75—a positive signal, but also indicating the buyback pace won't accelerate on share price declines, because the authorization is a predetermined plan, not opportunistic.
 
 ## Sources
 

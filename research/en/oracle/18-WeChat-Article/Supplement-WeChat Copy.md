@@ -26,7 +26,7 @@ The bottom half is too ugly to look at closely.
 
 In the same quarter, capex was USD 28.499 billion, up 235% year on year, 1.47x revenue. Free cash flow was negative USD 5.396 billion, versus negative USD 23.7 billion for the whole prior fiscal year. Total debt is about USD 129.5 billion, debt/EBITDA 4.3x. In July, S&P cut its rating to BBB-, one notch above junk. In August, it completed a USD 20 billion equity offering, equal to 4.5% of market cap.
 
-Read those lines together and something awkward emerges: **a company with USD 4.76 billion of quarterly net income is selling stock and borrowing money to build the data centers that will fulfill its orders.**
+Read those lines together and something awkward emerges: a company with USD 4.76 billion of quarterly net income is selling stock and borrowing money to build the data centers that will fulfill its orders.
 
 Why? Because its business has changed.
 

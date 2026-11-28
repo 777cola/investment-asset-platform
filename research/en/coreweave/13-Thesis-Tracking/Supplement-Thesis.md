@@ -22,30 +22,35 @@ This report holds no position in CoreWeave; the thesis tracking is written under
 
 ## Why H1 was judged falsified
 
-Management has been saying since 2025 that "scale effects will bring unit costs down and turn free cash flow positive." Three quarters later, **revenue has nearly doubled, and the free cash flow gap has widened from -RMB 4.71 billion to -RMB 7.47 billion**. Scale did arrive; cash flow did not follow, because every additional RMB 1 of revenue requires RMB 2.58 of capex.
+Management has been saying since 2025 that "scale effects will bring unit costs down and turn free cash flow positive." Three quarters later, revenue has nearly doubled, and the free cash flow gap has widened from -RMB 4.71 billion to -RMB 7.47 billion. Scale did arrive; cash flow did not follow, because every additional RMB 1 of revenue requires RMB 2.58 of capex.
 
-This is a wrong directional assumption, not a delayed realization. For it to hold, capex intensity must fall (from 258% to below 80%) while revenue keeps growing, which requires it to stop buying market share and shift to monetizing the installed base—**and in neocloud competition, stopping the land grab means ceding share. A dilemma.**
+This is a wrong directional assumption, not a delayed realization. For it to hold, capex intensity must fall (from 258% to below 80%) while revenue keeps growing, which requires it to stop buying market share and shift to monetizing the installed base—and in neocloud competition, stopping the land grab means ceding share. A dilemma.
 
 ## H3 Why it is the most lethal
 
-H3 is the only assumption with no remedy once broken. If H1 breaks, you can wait; if H2 breaks, you can switch customers; if H3 breaks—**the RMB 13.4 billion of debt maturing in 2027 must be repaid with equity, and the equity is already at USD 39.51**.
+H3 is the only assumption with no remedy once broken. If H1 breaks, you can wait; if H2 breaks, you can switch customers; if H3 breaks—the RMB 13.4 billion of debt maturing in 2027 must be repaid with equity, and the equity is already at USD 39.51.
 
-A 15% refinancing cost means annual interest of RMB 1.5 billion on every RMB 10 billion borrowed—4x its single-quarter adjusted operating profit. This is not "a bit more expensive"; it is "borrowing still kills you." **So watching credit metrics matters more than watching the financials**: bond yields are the leading indicator, financials the lagging one.
+A 15% refinancing cost means annual interest of RMB 1.5 billion on every RMB 10 billion borrowed—4x its single-quarter adjusted operating profit. This is not "a bit more expensive"; it is "borrowing still kills you." So watching credit metrics matters more than watching the financials: bond yields are the leading indicator, financials the lagging one.
 
 ## Watch calendar for next steps
 
-- **Weekly:** unsecured bond secondary-market yield (currently about 15%) and spread over US Treasuries of matching maturity
-- **December 2026:** delivery against Q4 guidance — revenue around RMB 4 billion? Do customer prepayments actually reach RMB 9 billion?
-- **January–February 2027:** 2027 capex guidance (key: does it come down from RMB 37–39 billion)
-- **March 2027:** refinancing plan for the first tranche of maturing debt (coupon, tenor, secured or not)
-- **Quarterly:** whether depreciation lives are adjusted; whether revenue share of the top two customers falls from 54%
-- **Ad hoc:** conclusions of Microsoft's USD 80 billion external compute review; Maia 300 mass-production progress
+- Weekly: unsecured bond secondary-market yield (currently about 15%) and spread over US Treasuries of matching maturity
+
+- December 2026: delivery against Q4 guidance — revenue around RMB 4 billion? Do customer prepayments actually reach RMB 9 billion?
+
+- January–February 2027: 2027 capex guidance (key: does it come down from RMB 37–39 billion)
+
+- March 2027: refinancing plan for the first tranche of maturing debt (coupon, tenor, secured or not)
+
+- Quarterly: whether depreciation lives are adjusted; whether revenue share of the top two customers falls from 54%
+
+- Ad hoc: conclusions of Microsoft's USD 80 billion external compute review; Maia 300 mass-production progress
 
 ## The flip side of the falsification condition: what would change my mind
 
-Tracking the thesis is not just about "confirming the bear case"; it must also spell out "what would break my thesis." Three items: **① The free cash flow gap narrows for two consecutive quarters and management indicates the quarter it turns positive; ② The company successfully issues new debt with a maturity of more than 5 years and a coupon below 10%; ③ A major customer converts its contract to take-or-pay and prepays more.**
+Tracking the thesis is not just about "confirming the bear case"; it must also spell out "what would break my thesis." Three items: ① The free cash flow gap narrows for two consecutive quarters and management indicates the quarter it turns positive; ② The company successfully issues new debt with a maturity of more than 5 years and a coupon below 10%; ③ A major customer converts its contract to take-or-pay and prepays more.
 
-If any two of the three appear simultaneously, I will upgrade the rating from "Avoid" to "Watch." Only if all three appear simultaneously will I consider valuation. **Note: a 30% share price decline is not among the triggers**—a cheaper price does not change the thesis, it only changes the odds, and the other side of those odds is -70%.
+If any two of the three appear simultaneously, I will upgrade the rating from "Avoid" to "Watch." Only if all three appear simultaneously will I consider valuation. Note: a 30% share price decline is not among the triggers—a cheaper price does not change the thesis, it only changes the odds, and the other side of those odds is -70%.
 
 ## Sources
 

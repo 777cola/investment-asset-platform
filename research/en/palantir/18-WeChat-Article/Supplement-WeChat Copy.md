@@ -10,7 +10,7 @@ All figures in this note match the main report: revenue RMB 1.935 billion (+93%)
 
 ## Main text (ready to copy and publish)
 
-**Title: A company growing 93% with 47% margins — why I rated it "Avoid"**
+Title: A company growing 93% with 47% margins — why I rated it "Avoid"
 
 The conclusion first: this is the best earnings report I have read this year, and also the most expensive stock I have looked at. Both are true at once, and there is no contradiction.
 
@@ -70,7 +70,7 @@ When to buy? When price-to-sales falls below 30x, roughly USD 80. At that point,
 
 And if it never gets there? Then keep waiting. Investing does not require answering every question.
 
-**(End of article)**
+(End of article)
 
 — Sources: Palantir 2026Q2 earnings (2026/08/03), October 5, 2026 close of USD 189.40. This is a research note, not investment advice.
 

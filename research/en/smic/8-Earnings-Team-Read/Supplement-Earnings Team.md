@@ -21,11 +21,11 @@ The four close readings are framework-based inferences, not statements by the fo
 
 ## Why read the same earnings report four times
 
-Financial reports are piles of numbers; how you read them determines your conclusion. Duan Yongping reads cash flow and concludes "no free cash flow generated." Buffett reads ROE and concludes "returns don't justify the valuation." Munger reads the fixed-cost structure and concludes "operating leverage is too high." Li Lu reads industry position and concludes "the rent goes to the state." All four readings hold; only together do they form a complete judgment.
+A financial report is a pile of numbers; how you read them determines your conclusion. Duan Yongping reads cash flow and concludes "it generates no free cash flow"; Buffett reads ROE and concludes "the return does not justify the valuation"; Munger reads the fixed-cost structure and concludes "operating leverage is too high"; Li Lu reads industry position and concludes "the rent accrues to the state." All four readings hold; only together do they form a complete judgment.
 
 ## Three synthetic judgments
 
-First, the revenue mix improvement is structural, not a cyclical rebound, because the downstream base has gone from a single handset leg to three legs: consumer, industrial and automotive. Second, profit stays locked down by depreciation at least through 2027, because four new 12-inch lines are still ramping and capex of USD 8.1 billion is not coming down, so depreciation will not peak. Third, the absence of shareholder returns is dictated by the ownership structure: no dividend, no buyback, and dilution instead, and this will not change in the near term.
+First, the revenue mix shift is structural, not a cyclical rebound, because the downstream base has moved from a single handset leg to three legs: consumer, industrial and automotive. Second, profit stays capped by depreciation through at least 2027, because four new 12-inch lines are still ramping and capex of USD 8.1 billion is not coming down, so depreciation will not peak. Third, the absence of shareholder returns is dictated by the ownership structure: no dividend, no buyback, and further share issuance, and this will not change near term.
 
 ## Sources
 

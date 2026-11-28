@@ -41,13 +41,13 @@ Advertiser structure determines its cyclical nature. Performance ads and e-comme
 
 ## III. Business model
 
-Kuaishou is at heart an **attention wholesaler**: it buys content and creator supply upstream and sells attention downstream to advertisers and merchants. Four monetization streams: advertising (RMB 20.6 billion, auction-priced), livestreaming (RMB 8.7 billion, tipping revenue share), e-commerce commission (consolidated into other services), and Kling (RMB 850 million, subscription + usage-based).
+Kuaishou is at heart an attention wholesaler: it buys content and creator supply upstream and sells attention downstream to advertisers and merchants. Four monetization streams: advertising (RMB 20.6 billion, auction-priced), livestreaming (RMB 8.7 billion, tipping revenue share), e-commerce commission (consolidated into other services), and Kling (RMB 850 million, subscription + usage-based).
 
 Unit economics: each DAU contributes RMB 86 per quarter (advertising 50 + livestreaming 21 + other 15), or RMB 344 annualized. That figure is low for the industry, reflecting a dual gap in user spending power and advertising product capability.
 
-Kling is a different business: customers shift from advertisers to enterprises, revenue from auctions to subscriptions, costs from bandwidth to compute. **The two share a brand but not a set of economics.**
+Kling is a different business: customers shift from advertisers to enterprises, revenue from auctions to subscriptions, costs from bandwidth to compute. The two share a brand but not a set of economics.
 
-Breaking down the cost structure: revenue sharing is the largest item (livestreaming payouts + creator incentives + short-drama revenue splits), followed by bandwidth and servers, then content procurement and personnel. Revenue sharing is a variable cost — the more users and the stronger the creators, the faster it rises. **This is the fundamental reason Kuaishou's gross margin is only 51.6% while a pure advertising platform can reach 80%.** Scale is not a cure-all in this business.
+Breaking down the cost structure: revenue sharing is the largest item (livestreaming payouts + creator incentives + short-drama revenue splits), followed by bandwidth and servers, then content procurement and personnel. Revenue sharing is a variable cost — the more users and the stronger the creators, the faster it rises. This is the fundamental reason Kuaishou's gross margin is only 51.6% while a pure advertising platform can reach 80%. Scale is not a cure-all in this business.
 
 One easily overlooked revenue characteristic: Kuaishou's ad inventory is "self-produced" and does not depend on external web pages the way search does. The upside is stable supply; the downside is that the inventory ceiling equals user time spent — if time spent does not grow, ad inventory caps out and only pricing can drive growth.
 
@@ -55,11 +55,11 @@ One easily overlooked revenue characteristic: Kuaishou's ad inventory is "self-p
 
 Revenue RMB 35.535 billion (+1.4%), gross profit RMB 18.34 billion (-6.0%), gross margin 51.6% (-4.1pct). R&D RMB 4.6 billion (+34.7%, expense ratio 12.9%), adjusted EBITDA RMB 7.1 billion (-7.7%), adjusted net profit RMB 3.913 billion (-30.3%), reported net profit RMB 3.152 billion (-36.0%).
 
-One key subtraction: revenue increment RMB 495 million, Kling increment RMB 567 million, **all businesses excluding Kling combined -RMB 70 million.** On the profit side: gross profit down RMB 1.18 billion + R&D up RMB 1.185 billion = RMB 2.36 billion, the entire source of the RMB 1.7 billion net profit decline (the rest offset by expense compression and interest income).
+One key subtraction: revenue increment RMB 495 million, Kling increment RMB 567 million, all businesses excluding Kling combined -RMB 70 million. On the profit side: gross profit down RMB 1.18 billion + R&D up RMB 1.185 billion = RMB 2.36 billion, the entire source of the RMB 1.7 billion net profit decline (the rest offset by expense compression and interest income).
 
 Asset side: cash-like assets RMB 24.27 billion, 20.9% of market cap, capex down to RMB 5.9 billion. On accounting quality, all R&D is expensed with no major capitalization to flatter results, but disclosure has also narrowed (GMV no longer disclosed, Kling not broken out).
 
-The three expense ratios total about 35%: sales and marketing about 20% (compressing), R&D 12.9% (rising), administrative about 2%. The shift in expense structure since 2024 is clear — money saved on marketing has moved into R&D. This is not cost cutting to lift efficiency; it is resource reallocation. **Saving on marketing can improve a single quarter's profit but weakens user growth; raising R&D drags on current profit and bets on three years out.**
+The three expense ratios total about 35%: sales and marketing about 20% (compressing), R&D 12.9% (rising), administrative about 2%. The shift in expense structure since 2024 is clear — money saved on marketing has moved into R&D. This is not cost cutting to lift efficiency; it is resource reallocation. Saving on marketing can improve a single quarter's profit but weakens user growth; raising R&D drags on current profit and bets on three years out.
 
 On cash flow, adjusted EBITDA of RMB 7.1 billion less capex of RMB 5.9 billion gives roughly RMB 1.2 billion of free cash flow. That number is not high, but it is positive. For a company funneling cash into AI, self-funding is the floor, and Kuaishou has held that line.
 
@@ -75,11 +75,11 @@ On the organization side, three restructurings since 2023: commercialization mer
 
 ## VI. Growth drivers
 
-Four possible drivers, ranked by certainty: **① ad load and eCPM uplift** (medium certainty, 20%–30% upside, but capped by user spending power); **② e-commerce commission rate uplift and shelf-based shopping** (medium certainty, but GMV is no longer disclosed and cannot be verified); **③ Kling commercialization** (low certainty, large upside, RMB 3.4 billion annualized; at RMB 15 billion in three years it would be equivalent to recreating half of Kuaishou); **④ overseas Kwai** (low certainty, small scale, a free option).
+Four possible drivers, ranked by certainty: ① ad load and eCPM uplift (medium certainty, 20%–30% upside, but capped by user spending power); ② e-commerce commission rate uplift and shelf-based shopping (medium certainty, but GMV is no longer disclosed and cannot be verified); ③ Kling commercialization (low certainty, large upside, RMB 3.4 billion annualized; at RMB 15 billion in three years it would be equivalent to recreating half of Kuaishou); ④ overseas Kwai (low certainty, small scale, a free option).
 
 Of the four drivers, only the first can be verified within the next four quarters. That is why we treat ad growth as the core metric to watch.
 
-Ad load is a self-limiting variable. Kuaishou's feed ad load is below Douyin's, so there is theoretical room to raise it, but each point of load costs a little user time — **ad load and time spent are inversely related, and there is no solution that raises load without hurting the experience.** This also explains why its ad growth can only come from eCPM and advertiser count, not from more ad slots.
+Ad load is a self-limiting variable. Kuaishou's feed ad load is below Douyin's, so there is theoretical room to raise it, but each point of load costs a little user time — ad load and time spent are inversely related, and there is no solution that raises load without hurting the experience. This also explains why its ad growth can only come from eCPM and advertiser count, not from more ad slots.
 
 ## VII. Competitive landscape
 
@@ -95,19 +95,19 @@ Hongguo deserves separate mention. It is not short video but free short drama, y
 
 ## VIII. Risk factors
 
-**① Core business decline risk:** If ad growth turns negative, the valuation framework shifts from PE to PS/EV-EBITDA, implying a share price below HKD 18. **② AI investment with no return risk:** R&D plus capex exceeds RMB 40 billion annually, while Kling's annualized revenue is only RMB 3.4 billion — the input-output ratio is unbalanced. **③ Spin-off governance risk:** Kling's losses stay on the consolidated statements while its valuation sits outside minority shareholders, so the parent's profit may be dragged down twice. **④ Valuation anchor break risk:** If the USD 18 billion primary-market price is marked down to USD 8 billion, the parent's equity value falls by about HKD 64.6 billion. **⑤ Regulatory risk:** Tipping limits, algorithm filing and AI content labeling are all tightening.
+① Core business decline risk: If ad growth turns negative, the valuation framework shifts from PE to PS/EV-EBITDA, implying a share price below HKD 18. ② AI investment with no return risk: R&D plus capex exceeds RMB 40 billion annually, while Kling's annualized revenue is only RMB 3.4 billion — the input-output ratio is unbalanced. ③ Spin-off governance risk: Kling's losses stay on the consolidated statements while its valuation sits outside minority shareholders, so the parent's profit may be dragged down twice. ④ Valuation anchor break risk: If the USD 18 billion primary-market price is marked down to USD 8 billion, the parent's equity value falls by about HKD 64.6 billion. ⑤ Regulatory risk: Tipping limits, algorithm filing and AI content labeling are all tightening.
 
-The five risks are not independent; they share one factor: advertising budgets. When the macro weakens, advertisers cut budgets, merchants reduce spend and AI clients trim subscriptions — all five deteriorate simultaneously. **This means Kuaishou's downside is not linear but stepwise.** Calculating expected value from single-risk probabilities understates it; correlation adjustment is required.
+The five risks are not independent; they share one factor: advertising budgets. When the macro weakens, advertisers cut budgets, merchants reduce spend and AI clients trim subscriptions — all five deteriorate simultaneously. This means Kuaishou's downside is not linear but stepwise. Calculating expected value from single-risk probabilities understates it; correlation adjustment is required.
 
 ## Nine, Earnings Forecast
 
 Assumption 1: advertising +3% in 2026 and +2% in 2027 (base case), -3% bear case, +8% bull case. Assumption 2: livestreaming -10% in each of 2026 and 2027. Assumption 3: other services +20% in 2026 (Kling at RMB 4 billion annualized) and +25% in 2027 (Kling at RMB 6 billion).
 
-This yields 2026E revenue of about RMB 145 billion (+2%) and adjusted net profit of RMB 8.99 billion (consensus); 2027E base-case revenue of RMB 148 billion and net profit of RMB 9 billion, a net margin of 6.1% — **profit no longer declines, but it no longer grows either; this is the most likely steady state.**
+This yields 2026E revenue of about RMB 145 billion (+2%) and adjusted net profit of RMB 8.99 billion (consensus); 2027E base-case revenue of RMB 148 billion and net profit of RMB 9 billion, a net margin of 6.1% — profit no longer declines, but it no longer grows either; this is the most likely steady state.
 
 Bear case net profit of RMB 5.5 billion (advertising turns negative and Kling falls behind), bull case RMB 11 billion (advertising +8% and Kling breaks even).
 
-Sensitivity: each 1pct change in advertising growth moves 2027E adjusted net profit by about RMB 800–900 million (rough calculation based on a 58% revenue share × 25% net margin contribution); each 1pct change in gross margin moves net profit by about RMB 1.4 billion. **Net profit is more sensitive to gross margin than to revenue growth** — this explains why the market reacts more sharply to "rising revenue-share costs" than to "slowing revenue growth."
+Sensitivity: each 1pct change in advertising growth moves 2027E adjusted net profit by about RMB 800–900 million (rough calculation based on a 58% revenue share × 25% net margin contribution); each 1pct change in gross margin moves net profit by about RMB 1.4 billion. Net profit is more sensitive to gross margin than to revenue growth — this explains why the market reacts more sharply to "rising revenue-share costs" than to "slowing revenue growth."
 
 ## X. Valuation
 
@@ -115,15 +115,15 @@ Sum-of-the-parts valuation: core business at 7–10x 2027E adjusted net profit (
 
 Results: bear case HKD 16, base case HKD 26.6, bull case HKD 46. Base-case target market cap HKD 115 billion, 9% below the current HKD 126.7 billion.
 
-Reverse check: the HKD 11.7 billion left after deducting base-case value from the current price is what the market is pricing Kling at — equivalent to 9% of the USD 18 billion post-money valuation. **The market is not paying an AI premium; it is applying an AI discount.**
+Reverse check: the HKD 11.7 billion left after deducting base-case value from the current price is what the market is pricing Kling at — equivalent to 9% of the USD 18 billion post-money valuation. The market is not paying an AI premium; it is applying an AI discount.
 
-Cross-check on three metrics: PE 10.5x (TTM)/12.9x (forward); EV/EBITDA about 3.2x (EV RMB 91.8 billion ÷ annualized EBITDA RMB 28.4 billion); PS 0.82x (market cap RMB 116 billion ÷ annualized revenue RMB 142.1 billion). **All three metrics say "cheap," and all three rest on the assumption that profit stops declining.** Cheap and safe are not the same thing.
+Cross-check on three metrics: PE 10.5x (TTM)/12.9x (forward); EV/EBITDA about 3.2x (EV RMB 91.8 billion ÷ annualized EBITDA RMB 28.4 billion); PS 0.82x (market cap RMB 116 billion ÷ annualized revenue RMB 142.1 billion). All three metrics say "cheap," and all three rest on the assumption that profit stops declining. Cheap and safe are not the same thing.
 
 The biggest controversy in the sum-of-the-parts valuation is Kling. We use 0 or a 50% discount because its valuation comes from the private market and lacks a listed-comparable anchor. If Kling lists independently in future, the market will assign a real multiple, and Kuaishou will then become "a holding company that owns a Kling stake" — the entire valuation approach would need to be rewritten.
 
 ## XI. Investment recommendation
 
-Rating: **Avoid**. Target price HKD 26.6 (Neutral). Three reasons for not assigning a Buy rating: core business growth of 1.4% with guidance under pressure, Keling's valuation unverifiable and only 2.4% of revenue, forward PE of 12.9x above TTM 10.5x.
+Rating: Avoid. Target price HKD 26.6 (Neutral). Three reasons for not assigning a Buy rating: core business growth of 1.4% with guidance under pressure, Keling's valuation unverifiable and only 2.4% of revenue, forward PE of 12.9x above TTM 10.5x.
 
 Triggers for reassessment: ① online marketing YoY ≥8% for two consecutive quarters; ② Keling discloses P&L on a comparable basis with annualized revenue ≥RMB 6 billion; ③ share price falls below HKD 20 (corresponding to 7x 2027E + net cash). The first two are fundamental triggers, the third is a price trigger.
 

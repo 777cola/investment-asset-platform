@@ -51,21 +51,21 @@ Revenue RMB 19.808 billion. By region: mainland China RMB 16.49 billion, +53.3% 
 
 Growth breaks into three parts: same-store, price increases, new stores. Store count held at 45 in H1 2026 (45 at the start of the year; full-year plan is to optimize 10–12), so the new-store contribution is close to zero; the one-off 20%–30% price increase in late February was the main driver of revenue growth; the rest is same-store volume growth.
 
-A rough decomposition: if price increases contributed 25%, store count was flat and revenue grew 60.3%, then same-store volume growth was about 28%. This method carries error—the price increase hit categories unevenly, with inlaid pieces rising more than plain gold—but the direction and magnitude hold.**28% volume growth would be excellent in any consumer sector, but it was achieved in a first half marked by rising gold prices and peak buying frenzy.** Once gold prices fell in the second half, that volume disappeared—Q2 revenue of RMB 2.3–3.95 billion is the evidence.
+A rough decomposition: if price increases contributed 25%, store count was flat and revenue grew 60.3%, then same-store volume growth was about 28%. This method carries error—the price increase hit categories unevenly, with inlaid pieces rising more than plain gold—but the direction and magnitude hold.28% volume growth would be excellent in any consumer sector, but it was achieved in a first half marked by rising gold prices and peak buying frenzy. Once gold prices fell in the second half, that volume disappeared—Q2 revenue of RMB 2.3–3.95 billion is the evidence.
 
 ## Second layer: gross margin — 41.3% is a return to normal, not a record high
 
-The market treats 41.3% as a "new high," but it is not. 41.2% in 2021, 41.9% in 2022, 41.9% in 2023, 41.2% in 2024, falling to 37.6% in 2025, back to 41.3% in 2026H1. **This company's gross margin has held at 41%–42% year in, year out; 2025 was the anomaly.**
+The market treats 41.3% as a "new high," but it is not. 41.2% in 2021, 41.9% in 2022, 41.9% in 2023, 41.2% in 2024, falling to 37.6% in 2025, back to 41.3% in 2026H1. This company's gross margin has held at 41%–42% year in, year out; 2025 was the anomaly.
 
 Why was 2025 anomalous? Gold prices rose fast, and the company's three price hikes (August +10%–15%, October +20%–30%) all failed to keep pace with cost inflation; on top of that, the time lag between buying by the gram and selling by the piece was compressed, squeezing 3.6 percentage points off gross margin.
 
-The return to 41.3% in 2026H1 has two causes: the 20%–30% price hike in late February, and the release of RMB 16 billion of low-cost inventory from late 2025 into a high-price period. The second cause is one-off; the first is sustainable. One more detail deserves attention: this low-cost inventory was not drawn down evenly — Q1 sold strongest and consumed the most, while Q2 sales stalled and what remains is all high-cost stock. **This means 2026H2 gross margin will be lower than H1, even if gold prices do not fall.** So looking ahead, the reasonable gross margin expectation is 39%–41%, not 41.3% continuing upward.
+The return to 41.3% in 2026H1 has two causes: the 20%–30% price hike in late February, and the release of RMB 16 billion of low-cost inventory from late 2025 into a high-price period. The second cause is one-off; the first is sustainable. One more detail deserves attention: this low-cost inventory was not drawn down evenly — Q1 sold strongest and consumed the most, while Q2 sales stalled and what remains is all high-cost stock. This means 2026H2 gross margin will be lower than H1, even if gold prices do not fall. So looking ahead, the reasonable gross margin expectation is 39%–41%, not 41.3% continuing upward.
 
 ## Tier 3: Costs and Profit — Operating Leverage Is a Double-Edged Sword
 
 Net margin rose from 18.4% to 21.5%, up 3.1 percentage points. Revenue grew 60.3% while gross margin rose only 3.2pct, so the net margin gain came mainly from expense dilution, not gross profit.
 
-A rough calculation: the period expense ratio was 18.2% in 2024. Assume revenue grows 60% and expenses grow 35% in the first half of 2026; the expense ratio falls to about 15.4%, saving 2.8 percentage points—almost the entire net margin gain. **Rent, labor and renovation amortization are fixed costs; the larger the revenue base, the thinner they are spread.**
+A rough calculation: the period expense ratio was 18.2% in 2024. Assume revenue grows 60% and expenses grow 35% in the first half of 2026; the expense ratio falls to about 15.4%, saving 2.8 percentage points—almost the entire net margin gain. Rent, labor and renovation amortization are fixed costs; the larger the revenue base, the thinner they are spread.
 
 That is why Q2 looks so ugly. Q2 revenue is RMB 2.3–3.95 billion, only about 20% of Q1, but the rent on 45 stores and the wages of thousands of employees cannot be cut. The expense ratio will rebound from 15% to above 30%, and net margin will fall below 15%—Q2 net profit of RMB 510–760 million implies a net margin of about 19%–22% (16%–24% on the mid-point revenue of RMB 3.1 billion), indicating some expense compression, but operating leverage has already turned negative.
 
@@ -75,19 +75,19 @@ Operating cash flow +RMB 2.008 billion, net profit RMB 4.267 billion, a ratio of
 
 The improvement comes from slower inventory growth: inventory rose from RMB 4.088 billion to RMB 16.044 billion in 2025 (+290%), but added only 18.5% (+RMB 2.974 billion) in H1 2026. Less buying means better cash flow.
 
-But the balance sheet is deteriorating: inventory of RMB 19.018 billion and 271 days of turnover (+55 days) mean goods did not sell in Q2. Meanwhile the interim dividend of RMB 3.185 billion exceeds operating cash flow of RMB 1.177 billion, with the gap drawn from cash on hand. **If revenue stays weak and inventory keeps building in H2, operating cash flow could turn negative again, and the 75% payout ratio would not hold.**
+But the balance sheet is deteriorating: inventory of RMB 19.018 billion and 271 days of turnover (+55 days) mean goods did not sell in Q2. Meanwhile the interim dividend of RMB 3.185 billion exceeds operating cash flow of RMB 1.177 billion, with the gap drawn from cash on hand. If revenue stays weak and inventory keeps building in H2, operating cash flow could turn negative again, and the 75% payout ratio would not hold.
 
 This is the weakest link in the report: of revenue, profit and cash flow, only the first two look good; the third was bought with time.
 
 ## Layer five: do the three statements tie out
 
-Put three numbers side by side: revenue of RMB 19.808 billion, net profit of RMB 4.267 billion, operating cash flow of RMB 2.008 billion. For an asset-light company, cash should approximate net profit; for an asset-heavy company, cash may fall well short of net profit, with the gap flowing into fixed assets. **At Laopu, the gap flowed into inventory — a RMB 2.974 billion increase in inventory, plus changes in receivables and prepayments, exactly explains the RMB 2.26 billion gap between profit and cash.**
+Put three numbers side by side: revenue of RMB 19.808 billion, net profit of RMB 4.267 billion, operating cash flow of RMB 2.008 billion. For an asset-light company, cash should approximate net profit; for an asset-heavy company, cash may fall well short of net profit, with the gap flowing into fixed assets. At Laopu, the gap flowed into inventory — a RMB 2.974 billion increase in inventory, plus changes in receivables and prepayments, exactly explains the RMB 2.26 billion gap between profit and cash.
 
 Now the asset side: RMB 19.018 billion of inventory against RMB 19.808 billion of half-year revenue means nine months of sales are locked in the warehouse. That ratio is not outrageous for jewellery — Chow Tai Fook's inventory turnover also runs above 200 days — but it contradicts Laopu's brand narrative of "per-piece pricing, high turnover". A brand premium should show up as faster turnover, not slower.
 
-Third cross-check: dividends of RMB 3.185 billion, net profit of RMB 4.267 billion, operating cash flow of RMB 2.008 billion. Dividends were 74.6% of profit and 159% of cash. **Above 100% means existing cash was drawn down — a one-off that cannot repeat every year.** If profit falls to RMB 4.5 billion in 2027 and the payout ratio holds at 75%, RMB 3.375 billion of cash would be needed, and operating cash flow then would most likely not cover it — unless the company destocks.
+Third cross-check: dividends of RMB 3.185 billion, net profit of RMB 4.267 billion, operating cash flow of RMB 2.008 billion. Dividends were 74.6% of profit and 159% of cash. Above 100% means existing cash was drawn down — a one-off that cannot repeat every year. If profit falls to RMB 4.5 billion in 2027 and the payout ratio holds at 75%, RMB 3.375 billion of cash would be needed, and operating cash flow then would most likely not cover it — unless the company destocks.
 
-The three statements tie out, with no anomalous line items. The problem is not accounting but business: **this company's earnings quality depends on the direction of the gold price, and the gold price is not on the statements.**
+The three statements tie out, with no anomalous line items. The problem is not accounting but business: this company's earnings quality depends on the direction of the gold price, and the gold price is not on the statements.
 
 ## Sources
 

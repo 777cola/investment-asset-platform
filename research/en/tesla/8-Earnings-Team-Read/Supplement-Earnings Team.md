@@ -21,7 +21,7 @@ All financial data are taken from Tesla's 2026Q2 earnings release (after market 
 
 ## How to read these six pages
 
-The first four pages are close readings of the earnings report from four independent angles, each with its own focus and no cross-references; the fifth page synthesizes the views, identifying consensus and disagreement; the sixth page is the edited, publishable version, stripped of all jargon and left with only numbers and judgments. Four pages for detail, one page for conclusions, one page ready to forward.
+The first four pages are close readings of the earnings report from four independent perspectives, each with its own focus and no cross-references; the fifth page synthesizes the views, identifying consensus and disagreement; the sixth page is the edited, publish-ready version, with all jargon removed and only numbers and judgments left.Four pages for detail, one page for conclusions, one page ready to forward.
 
 ## Sources
 

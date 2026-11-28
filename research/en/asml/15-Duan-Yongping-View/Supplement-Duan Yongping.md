@@ -12,7 +12,7 @@ This module is written from a perspective using Duan Yongping's publicly stated 
 
 Good — the good part is that customers have no bargaining power. One EUV tool costs over EUR 200 million, customers queue two years in advance, and they have to pay upfront. This kind of business is nearly extinct in manufacturing — most manufacturers beg customers to buy; this one has customers begging it to sell.
 
-And it collects money in two parts: once for selling the machine, and for a lifetime on installation services. In Q3 2026, installed-base management revenue was EUR 3.289 billion, up about +50% year on year. This is an annuity — customers will not stop maintenance just because they are not expanding capacity for a year.**One-off revenue plus annuity revenue — this is one of the best revenue structures.**
+And it collects money in two parts: once for selling the machine, and for a lifetime on installation services. In Q3 2026, installed-base management revenue was EUR 3.289 billion, up about +50% year on year. This is an annuity — customers will not stop maintenance just because they are not expanding capacity for a year.One-off revenue plus annuity revenue — this is one of the best revenue structures.
 
 ## Question 2: Will it still be around in ten years?
 
@@ -24,13 +24,13 @@ If chips are still made with lithography a decade from now, it is an unavoidable
 
 Eighty percent is understandable. The revenue model (selling machines plus service fees), the customers (five or six), the cost structure (R&D plus precision manufacturing) can all be explained clearly. What is not understandable is physics and geopolitics: the technical details of the light source, the mirrors, the dual-stage wafer table, and whether the Dutch and US governments will tighten licensing again next year.
 
-Duan Yongping said that "knowing what you don't know" matters more than "knowing what you know." These two areas you don't understand are exactly the parts he would admit defeat on—**so even if you buy this business, you shouldn't take a heavy position.** No position for what you don't understand—that is discipline.
+Duan Yongping said that "knowing what you don't know" matters more than "knowing what you know." These two areas you don't understand are exactly the parts he would admit defeat on—so even if you buy this business, you shouldn't take a heavy position. No position for what you don't understand—that is discipline.
 
 ## Question 4: At what price to buy?
 
 Current price USD 1,641.52, 41x TTM PE, 31x 2027 PE. The base case (2027 revenue of USD 52 billion, 32% net margin, 32x) yields USD 1,708, only 4% above the current price. In other words, if the company gets everything right, your one-year return is in the single digits.
 
-His standard is "discounted future cash flow," not "buy good companies." By that standard, buying a cyclical at above 30x means prepaying the seller for the next three years of growth. **A reasonable entry point is 25x 2027 PE, roughly USD 1,300**—at that level, even if the bear case plays out, you only return to where you started rather than losing money.
+His standard is "discounted future cash flow," not "buy good companies." By that standard, buying a cyclical at above 30x means prepaying the seller for the next three years of growth. A reasonable entry point is 25x 2027 PE, roughly USD 1,300—at that level, even if the bear case plays out, you only return to where you started rather than losing money.
 
 ## Question 5: What worries you most?
 
@@ -44,7 +44,7 @@ If you already hold it, hold. The business has not deteriorated — Q3 gross mar
 
 If you do not hold it, wait. Wait until USD 1,300 (25x) to start building a position, add to 5% at USD 1,150, cap at 6%. If it never gets there, admit you missed it — the market never lacks opportunities; what it lacks is people who are not in a hurry.
 
-One last note to myself: **the gap between a "good company" and a "good investment" is price, and that gap never disappears just because the company gets better.**
+One last note to myself: the gap between a "good company" and a "good investment" is price, and that gap never disappears just because the company gets better.
 
 ## Connect the six questions
 

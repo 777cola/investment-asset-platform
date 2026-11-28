@@ -22,7 +22,7 @@ The four sub-reports are independent extrapolations from the same data set, not 
 
 ## Why four roles instead of a single report
 
-A single report written start to finish most often errs by "conclusion first, evidence patched in later." Splitting it into four roles, each answering only one question, forces contradictions into the open — and this time it surfaced three: the sustainability of price hikes, the depreciation peak, and the valuation metric.
+The most common mistake when writing a report from start to finish is "conclusion first, evidence patched in later." Splitting it into four roles, each answering only one question, forces contradictions to the surface—and this time it surfaced three: the sustainability of price increases, the depreciation peak, and the valuation metric.
 
 The four reports run 700–900 words each, plus a 900–1,200-word summary, roughly 4,500 words in total, all contained in the 5 pages of this folder. This page serves only as navigation and adjudication.
 

@@ -34,39 +34,39 @@ Shareholding percentages and compensation are approximate figures based on the 2
 
 ## Wang Chuanfu: 9 out of 10 on technology judgment, 6 out of 10 on capital discipline
 
-His judgment is well documented. In 2003, when everyone thought it was madness for a battery maker to build cars, he bought Qinchuan Automobile. In 2020, the Blade Battery turned safety into a selling point using lithium iron phosphate, sidestepping the cobalt and nickel costs of NCM chemistry. In 2021, DM-i broke through the RMB 100,000 price band with "electric cheaper than oil." In 2024, flash charging cut charging time to single-digit minutes. **Four calls, all four on industry inflection points — that is not luck.**
+His judgment is well documented. In 2003, when everyone thought it was madness for a battery maker to build cars, he bought Qinchuan Automobile. In 2020, the Blade Battery turned safety into a selling point using lithium iron phosphate, sidestepping the cobalt and nickel costs of NCM chemistry. In 2021, DM-i broke through the RMB 100,000 price band with "electric cheaper than oil." In 2024, flash charging cut charging time to single-digit minutes. Four calls, all four on industry inflection points — that is not luck.
 
-Capital discipline is weaker. Five-year capex far exceeds operating cash flow, free cash flow is negative, and four overseas plants plus eight ro-ro ships are under construction simultaneously. **The direction of these investments is right, but the pace is aggressive — with domestic sales down 15.7% in 2026H1, capacity is still expanding outward, and fixed-cost pressure will persist for two years.**
+Capital discipline is weaker. Five-year capex far exceeds operating cash flow, free cash flow is negative, and four overseas plants plus eight ro-ro ships are under construction simultaneously. The direction of these investments is right, but the pace is aggressive — with domestic sales down 15.7% in 2026H1, capacity is still expanding outward, and fixed-cost pressure will persist for two years.
 
-Most alarming is the move in 2026H1: R&D expense cut 21.2%, RMB 6.3 billion less spent, while net profit fell only 20.5%. **Trading one quarter of R&D for a year of reported earnings is a CFO's logic, not a founder's.** It shows management is under pressure on short-term profit, and that "protect profit" has this time overridden "protect the future."
+Most alarming is the move in 2026H1: R&D expense cut 21.2%, RMB 6.3 billion less spent, while net profit fell only 20.5%. Trading one quarter of R&D for a year of reported earnings is a CFO's logic, not a founder's. It shows management is under pressure on short-term profit, and that "protect profit" has this time overridden "protect the future."
 
 ## Shareholding structure: founder-controlled, but without absolute control
 
-Wang Chuanfu holds about 18%, Lu Xiangyang about 5.5% and Xia Zuoquan about 3%, together less than 27%. With a dual A+H listing and a substantial H-share float, institutional investors are dispersed. **The upside of this structure is that no single dominant shareholder can force through reckless decisions; the downside is that no external force can challenge management.**
+Wang Chuanfu holds about 18%, Lu Xiangyang about 5.5% and Xia Zuoquan about 3%, together less than 27%. With a dual A+H listing and a substantial H-share float, institutional investors are dispersed. The upside of this structure is that no single dominant shareholder can force through reckless decisions; the downside is that no external force can challenge management.
 
-The past decade brought no control battle and no related-party transaction scandal. The lithium mine dealings between Rongjie Group and BYD drew scrutiny, but the amounts were small relative to revenue and disclosure was full. Audit opinions have been standard unqualified every year. **Judged by whether shareholder money has been stolen, BYD is clean.**
+The past decade brought no control battle and no related-party transaction scandal. The lithium mine dealings between Rongjie Group and BYD drew scrutiny, but the amounts were small relative to revenue and disclosure was full. Audit opinions have been standard unqualified every year. Judged by whether shareholder money has been stolen, BYD is clean.
 
 ## Integrity and governance: two blemishes, neither fatal
 
-In May 2023, Great Wall Motor publicly reported that two of BYD's plug-in hybrid models used unpressurized fuel tanks and were suspected of failing emissions standards. **The substance of the matter was a competitor using regulatory means to attack a rival, but it also exposed how BYD handles compliance boundaries in the course of pushing cost to the extreme.** No penalty conclusion followed, but it damaged the brand.
+In May 2023, Great Wall Motor publicly reported that two of BYD's plug-in hybrid models used unpressurized fuel tanks and were suspected of failing emissions standards. The substance of the matter was a competitor using regulatory means to attack a rival, but it also exposed how BYD handles compliance boundaries in the course of pushing cost to the extreme. No penalty conclusion followed, but it damaged the brand.
 
-In late 2024, during construction of the Brazil plant, local prosecutors identified labor-condition problems on the part of the contractor; the company terminated cooperation with the contractor and rectified the issues. **This is a typical case of "management reach failing to keep pace with expansion speed" in the overseas push.** One instance can be attributed to the contractor; repeated instances point to a systemic problem.
+In late 2024, during construction of the Brazil plant, local prosecutors identified labor-condition problems on the part of the contractor; the company terminated cooperation with the contractor and rectified the issues. This is a typical case of "management reach failing to keep pace with expansion speed" in the overseas push. One instance can be attributed to the contractor; repeated instances point to a systemic problem.
 
 Neither matter involves financial authenticity or controlling-shareholder fund appropriation. The rating deducts 1–2 points; it does not constitute a veto.
 
 ## Incentives and assessment: employee stock ownership ties management to the share price, and also ties them to short-term profit
 
-In 2022 the company conducted an A-share buyback for an employee stock ownership plan covering core technical and management personnel, with performance metrics typically tied to net profit or sales volume. **The upside of this design is aligned interests; the downside is that it encourages "manufacturing the profit."**
+In 2022 the company conducted an A-share buyback for an employee stock ownership plan covering core technical and management personnel, with performance metrics typically tied to net profit or sales volume. The upside of this design is aligned interests; the downside is that it encourages "manufacturing the profit."
 
-In 2026H1 R&D expense was cut 21.2% while net profit fell only 20.5% — hard to say this is entirely unrelated to assessment pressure. A company with a genuine long-term money mindset would increase R&D when share is slipping rather than cut it — because that is the only way to win share back. **BYD chose another path: protect profit, protect the stock price, protect the assessment.**
+In 2026H1 R&D expense was cut 21.2% while net profit fell only 20.5% — hard to say this is entirely unrelated to assessment pressure. A company with a genuine long-term money mindset would increase R&D when share is slipping rather than cut it — because that is the only way to win share back. BYD chose another path: protect profit, protect the stock price, protect the assessment.
 
-This is not a moral issue; it is determined by the incentive structure. If the metric is annual net profit, management cutting R&D is "correctly completing the KPI"; if the metric is three-year share, the actions would be entirely different. **How a company spends money is more reliable than what it says — in the first half of 2026, it chose to save.**
+This is not a moral issue; it is determined by the incentive structure. If the metric is annual net profit, management cutting R&D is "correctly completing the KPI"; if the metric is three-year share, the actions would be entirely different. How a company spends money is more reliable than what it says — in the first half of 2026, it chose to save.
 
 ## Succession: the biggest gap
 
-Wang Chuanfu was born in 1966 and turns 60 in 2026, with no publicly disclosed succession plan. There is no obvious "number two" in management — Li Ke runs overseas, and the Fudi units (battery, powertrain, technology) each have their own heads, but strategic decisions are highly concentrated in the founder alone. **The company's product cadence, technology roadmap and capacity-expansion decisions all rest on one person's judgment.**
+Wang Chuanfu was born in 1966 and turns 60 in 2026, with no publicly disclosed succession plan. There is no obvious "number two" in management — Li Ke runs overseas, and the Fudi units (battery, powertrain, technology) each have their own heads, but strategic decisions are highly concentrated in the founder alone. The company's product cadence, technology roadmap and capacity-expansion decisions all rest on one person's judgment.
 
-Global automakers such as Toyota and Volkswagen rely on systems, not individuals. BYD has not yet reached that stage. **This is not a reason to sell today, but it is one reason the stock cannot command too high a valuation** — a company dependent on a single decision-maker has weaker error tolerance than a systematized company.
+Global automakers such as Toyota and Volkswagen rely on systems, not individuals. BYD has not yet reached that stage. This is not a reason to sell today, but it is one reason the stock cannot command too high a valuation — a company dependent on a single decision-maker has weaker error tolerance than a systematized company.
 
 ## Sources
 

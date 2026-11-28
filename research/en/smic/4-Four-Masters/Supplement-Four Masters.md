@@ -51,11 +51,11 @@ He held TSMC for just two quarters before selling, and the reason was not valuat
 
 ## Munger: invert the question — what would make it halve?
 
-Munger's habit was to list the ways to die first. SMIC has three: **First, depreciation keeps growing at 30% while price increases stall.** Depreciation is USD 5 billion in 2026 and will rise further in 2027; as long as ASP does not rise, gross margin will fall from 20.1% back below 17% and net profit will turn negative year on year — this requires no deterioration in demand, only prices standing still.
+Munger's habit was to list the ways to die first. SMIC has three: First, depreciation keeps growing at 30% while price increases stall. Depreciation is USD 5 billion in 2026 and will rise further in 2027; as long as ASP does not rise, gross margin will fall from 20.1% back below 17% and net profit will turn negative year on year — this requires no deterioration in demand, only prices standing still.
 
-**Second, equipment controls tighten further.** In April 2026 the US plans to add DUV to the China ban, covering five companies including SMIC. If expansion is cut off, capacity ramp-up at the four new fabs stalls, depreciation continues to be booked and revenue does not grow — the ugliest combination.
+Second, equipment controls tighten further. In April 2026 the US plans to add DUV to the China ban, covering five companies including SMIC. If expansion is cut off, capacity ramp-up at the four new fabs stalls, depreciation continues to be booked and revenue does not grow — the ugliest combination.
 
-**Third, A-share sentiment recedes.** This one requires no deterioration in fundamentals, only money changing direction: on the same day, H shares at HKD 66.20 convert to RMB 57, versus RMB 126.25 for A shares, a premium of 121%. When A shares hit RMB 173 on 9 July, that premium was above 160%; a month later it has fallen back to 121%, with A shares down 27% and H shares down 26% — the synchronized decline is coincidence, but convergence will happen sooner or later.
+Third, A-share sentiment recedes. This one requires no deterioration in fundamentals, only money changing direction: on the same day, H shares at HKD 66.20 convert to RMB 57, versus RMB 126.25 for A shares, a premium of 121%. When A shares hit RMB 173 on 9 July, that premium was above 160%; a month later it has fallen back to 121%, with A shares down 27% and H shares down 26% — the synchronized decline is coincidence, but convergence will happen sooner or later.
 
 Munger would say: of these three, the first two require waiting, and the third is already happening. So do not ask "is the company good", ask "how much optimism is still in the price".
 
@@ -63,7 +63,7 @@ Munger would say: of these three, the first two require waiting, and the third i
 
 Li Lu would give it the highest strategic rating. Semiconductor localization is not a cycle but a two-decade structural realignment: China imports over USD 300 billion of chips annually, domestic manufacturing self-sufficiency remains low, and SMIC is the only node on this chain with scale capacity. Such a position has historically captured excess profit—TSMC grew exactly this way in the 1980s.
 
-But he would press one question: **does the excess profit go to the company, or to the state?** If prices are regulated, capacity expansion follows state planning, and profit must be reinvested, then "industry success" and "shareholder returns" will diverge for a long time. He bought BYD because he was betting on the product of the entrepreneur and the industry's space; SMIC's management are not entrepreneurs but executors, which his framework discounts.
+But he would press one question: does the excess profit go to the company, or to the state? If prices are regulated, capacity expansion follows state planning, and profit must be reinvested, then "industry success" and "shareholder returns" will diverge for a long time. He bought BYD because he was betting on the product of the entrepreneur and the industry's space; SMIC's management are not entrepreneurs but executors, which his framework discounts.
 
 His approach is typically to buy the segment where "the industry succeeds and shareholders get paid": wait for the company to start paying dividends, wait for free cash flow to turn positive, wait for capex as a share of revenue to fall from 87% to below 50%. Until those three signals appear, he would concede this is a good company but would not pay 205x PE for a "national project."
 
@@ -71,15 +71,15 @@ His approach is typically to buy the segment where "the industry succeeds and sh
 
 All four say "wait," but those who already hold A-shares face a more concrete question: for the same SMIC, the A-share is RMB 126.25 and the H-share HKD 66.20 (RMB 57.2), a premium of 121% — why not switch to the H-share?
 
-**The case for switching is hard-nosed.** Same shares, same rights, same financials, same dividend policy (no dividend at all); what the H-share collects each year is a price discount, not compensation for risk. Historically this premium has ranged between 50% and 150%, meaning "twice as expensive" is the norm, not a one-off mispricing; but 121% sits toward the upper end of the range, with more room down than up.
+The case for switching is hard-nosed. Same shares, same rights, same financials, same dividend policy (no dividend at all); what the H-share collects each year is a price discount, not compensation for risk. Historically this premium has ranged between 50% and 150%, meaning "twice as expensive" is the norm, not a one-off mispricing; but 121% sits toward the upper end of the range, with more room down than up.
 
-**The case against is equally real.** First, liquidity: A-shares often trade RMB 5–10 billion a day versus only HKD 300–500 million for the H-share, so large flows in and out incur slippage. Second, FX: with the renminbi at 6.7367 in 2026, part of the H-share return in RMB terms is eaten by the exchange rate. Third, access: domestic money buying H-shares must go through Stock Connect, which carries quota and eligibility limits.
+The case against is equally real. First, liquidity: A-shares often trade RMB 5–10 billion a day versus only HKD 300–500 million for the H-share, so large flows in and out incur slippage. Second, FX: with the renminbi at 6.7367 in 2026, part of the H-share return in RMB terms is eaten by the exchange rate. Third, access: domestic money buying H-shares must go through Stock Connect, which carries quota and eligibility limits.
 
-The compromise: **if you can only buy A-shares, write the 121% premium into your expected return as a "cost of holding"** — meaning that with identical fundamentals, an A-share investor must wait for 20%–30% more upside than an H-share investor just to break even. This is not a theoretical point; it directly determines that RMB 126 is not a entry point, and that only below RMB 100 does it barely qualify as one.
+The compromise: if you can only buy A-shares, write the 121% premium into your expected return as a "cost of holding" — meaning that with identical fundamentals, an A-share investor must wait for 20%–30% more upside than an H-share investor just to break even. This is not a theoretical point; it directly determines that RMB 126 is not a entry point, and that only below RMB 100 does it barely qualify as one.
 
 ## Odds: the neutral scenario already sits below the current price
 
-The probability-weighted expected return across the three scenarios is negative. Weighting 30% pessimistic, 50% neutral and 20% optimistic: 0.3×(-30%) + 0.5×(-5%) + 0.2×(+23%) = **-6.9%**. This is not a precise forecast but a magnitude judgment — 23% upside against 30% downside, odds below 1:1.3, with the probability distribution clearly skewed lower.
+The probability-weighted expected return across the three scenarios is negative. Weighting 30% pessimistic, 50% neutral and 20% optimistic: 0.3×(-30%) + 0.5×(-5%) + 0.2×(+23%) = -6.9%. This is not a precise forecast but a magnitude judgment — 23% upside against 30% downside, odds below 1:1.3, with the probability distribution clearly skewed lower.
 
 The optimistic scenario requires three things to hold at once: price increases extending into 2027, depreciation growth peaking in 2027, and the A/H premium not converging. Two of the three are not within the company's control. The neutral scenario requires only "full-load utilization sustained + 5% ASP growth per year"; even under such mild assumptions the target price is still 5% below the current price, implying the current price already discounts optimism beyond the neutral scenario.
 

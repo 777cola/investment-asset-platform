@@ -24,45 +24,45 @@ The six-gate score follows the AI Berkshire pre-purchase checklist standard, wit
 
 ## Gate one: the lease is legible; the depreciation is not
 
-A score of 6, not because it is hard to understand, but precisely because it is **too easy to understand, which invites underestimating the risk**. The business model in three sentences: sign 5-year contracts with AI labs, use those contracts to borrow from banks and bond markets, buy Nvidia cards, rent power, build data centers, then collect rent monthly. Anyone can grasp this layer.
+A score of 6, not because it is hard to understand, but precisely because it is too easy to understand, which invites underestimating the risk. The business model in three sentences: sign 5-year contracts with AI labs, use those contracts to borrow from banks and bond markets, buy Nvidia cards, rent power, build data centers, then collect rent monthly. Anyone can grasp this layer.
 
-The real dividing line is the second-layer judgment: **whether the economic life of an H100 or GB300 is 3 years or 6 years**. The company depreciates over 6 years. If reality is 3–4 years — Nvidia ships a new generation every year, and Hopper rents will fall once Rubin launches — then current operating profit on the books is fictitious, and future catch-up depreciation will blow through the income statement. The useful-life assumption in the 10-Q matters more than any USD 20 billion order announcement. I cannot answer this layer, so the stock only barely passes.
+The real dividing line is the second-layer judgment: whether the economic life of an H100 or GB300 is 3 years or 6 years. The company depreciates over 6 years. If reality is 3–4 years — Nvidia ships a new generation every year, and Hopper rents will fall once Rubin launches — then current operating profit on the books is fictitious, and future catch-up depreciation will blow through the income statement. The useful-life assumption in the 10-Q matters more than any USD 20 billion order announcement. I cannot answer this layer, so the stock only barely passes.
 
 ## The second hurdle: 62% of EBITDA is an accounting illusion
 
 Adjusted EBITDA of USD 2.256 billion and a 62% margin — management repeatedly emphasized these figures. But GAAP operating margin over the same period was only 5.7% (USD 207 million / USD 3.661 billion); the 57-percentage-point gap in between is depreciation. Further down, USD 846 million of net interest consumed the entire USD 207 million of operating profit and left a USD 639 million shortfall, producing a net loss of USD 709 million.
 
-**This is not a matter of "things will be fine once scale arrives."**The larger the scale, the more cards must be purchased, the greater the debt, and the greater the interest. Q4 interest guidance of USD 1.05–1.15 billion is 2.8–3x this quarter's adjusted operating profit. If a business must take on USD 2 of debt and pay USD 0.2 of interest for every extra USD 1 of revenue, its operating leverage breaks down at the interest line.
+This is not a matter of "things will be fine once scale arrives."The larger the scale, the more cards must be purchased, the greater the debt, and the greater the interest. Q4 interest guidance of USD 1.05–1.15 billion is 2.8–3x this quarter's adjusted operating profit. If a business must take on USD 2 of debt and pay USD 0.2 of interest for every extra USD 1 of revenue, its operating leverage breaks down at the interest line.
 
 ## Round three: the biggest customer is turning into the biggest rival
 
 Compute is a commodity. For the same GB300 racks, customers go wherever power is cheaper, PUE is lower and energization is faster. CoreWeave's first-mover advantage was "getting cards 9 months earlier and power 6 months earlier than others" — that is a time window, not a structural moat.
 
-The hardest evidence comes from the buyers themselves. On November 18, Nadella said publicly that "selling to only one or two customers is not a business"; Microsoft spent USD 45.2 billion in capex this quarter and about USD 170 billion for the full year, while it was reported to be reviewing more than USD 80 billion of external AI compute commitments and to have cancelled a USD 3.22 billion Nscale order.**Buyers are shifting money from "renting" back to "building", and the spread that gets squeezed is precisely the middleman's.**
+The hardest evidence comes from the buyers themselves. On November 18, Nadella said publicly that "selling to only one or two customers is not a business"; Microsoft spent USD 45.2 billion in capex this quarter and about USD 170 billion for the full year, while it was reported to be reviewing more than USD 80 billion of external AI compute commitments and to have cancelled a USD 3.22 billion Nscale order.Buyers are shifting money from "renting" back to "building", and the spread that gets squeezed is precisely the middleman's.
 
 ## Stage four: execution A, capital structure D
 
 Management is genuinely strong on delivery: 900MW of contracted power added in the quarter, 200MW brought online, and 1.7GW of the 4.6GW contracted already running — the fastest pace among global neoclouds. A 25% price increase in July and a further 10% at quarter-end show it dares to raise prices with customers, and that this is a seller's market.
 
-But in the same quarter the company simultaneously pushed a USD 4.2 billion convertible bond, a USD 2.6 billion delayed-draw term loan, a 35 million share placement plan, and staked its funding source for the next three months on roughly USD 9 billion of customer prepayments. **This is not "seizing the opportunity" — it is opening every financing channel to maximum at once**. For a company with a USD 22 billion market cap, that financing density means its dependence on the credit window is survival-level. Score 5; the deductions are all in the capital structure.
+But in the same quarter the company simultaneously pushed a USD 4.2 billion convertible bond, a USD 2.6 billion delayed-draw term loan, a 35 million share placement plan, and staked its funding source for the next three months on roughly USD 9 billion of customer prepayments. This is not "seizing the opportunity" — it is opening every financing channel to maximum at once. For a company with a USD 22 billion market cap, that financing density means its dependence on the credit window is survival-level. Score 5; the deductions are all in the capital structure.
 
 ## Stage Five: Still not cheap after a 71% drop
 
-Lay out the capital structure: market cap USD 22 billion, total debt USD 46.87 billion (of which USD 41.6 billion is recourse debt), enterprise value of about USD 83.5 billion including lease liabilities, and net debt of about USD 61 billion. In other words, **equity is only 26% of enterprise value — a thin layer sitting on top**. A 10% drop in enterprise value takes equity down 38%.
+Lay out the capital structure: market cap USD 22 billion, total debt USD 46.87 billion (of which USD 41.6 billion is recourse debt), enterprise value of about USD 83.5 billion including lease liabilities, and net debt of about USD 61 billion. In other words, equity is only 26% of enterprise value — a thin layer sitting on top. A 10% drop in enterprise value takes equity down 38%.
 
-The price signal is more direct still: the 9.625% coupon unsecured notes issued in June had seen yields rise to around 15% by mid-November, entering distressed territory, while AAA issuers like Microsoft were funding at under 5% over the same period. **For the same company, the bond market is pricing default probability while the stock market is still pricing the RMB 132.5 billion order book**. When the two markets disagree, the bond market is usually right.
+The price signal is more direct still: the 9.625% coupon unsecured notes issued in June had seen yields rise to around 15% by mid-November, entering distressed territory, while AAA issuers like Microsoft were funding at under 5% over the same period. For the same company, the bond market is pricing default probability while the stock market is still pricing the RMB 132.5 billion order book. When the two markets disagree, the bond market is usually right.
 
 ## Level six: the buy case is a narrative, not a premise
 
 The only reason to buy CoreWeave now is a belief that "AI compute demand will keep outpacing supply, so its orders will keep converting, rents won't fall, and financing will always be available." Not one of these four can be verified from the financials; all are faith in the future.
 
-Verifiable preconditions should look like this: free cash flow turns positive in some quarter of 2027, debt duration extends from 2 years to more than 5 years, and at least one major customer converts its "maximum commitment" into a "minimum payment guarantee." **Buying before these three things happen is essentially betting on the credit market, not investing in a business.**
+Verifiable preconditions should look like this: free cash flow turns positive in some quarter of 2027, debt duration extends from 2 years to more than 5 years, and at least one major customer converts its "maximum commitment" into a "minimum payment guarantee." Buying before these three things happen is essentially betting on the credit market, not investing in a business.
 
 ## Veto items and items to be verified
 
-**Dealbreaker: capital structure.**Debt of RMB 46.87 billion at an average cost of 7.9%, with about RMB 13.4 billion maturing within two years, against quarterly free cash flow of -RMB 7.466 billion and roughly RMB 5.5 billion of cash on hand. This is not growth-stock volatility; it is a model that cannot operate without continuous refinancing. If the credit window shuts, RMB 132.5 billion of orders will not convert into a single yuan of cash.
+Dealbreaker: capital structure.Debt of RMB 46.87 billion at an average cost of 7.9%, with about RMB 13.4 billion maturing within two years, against quarterly free cash flow of -RMB 7.466 billion and roughly RMB 5.5 billion of cash on hand. This is not growth-stock volatility; it is a model that cannot operate without continuous refinancing. If the credit window shuts, RMB 132.5 billion of orders will not convert into a single yuan of cash.
 
-**Items to verify (in order of importance):**
+Items to verify (in order of importance):
 - Whether management has given a quarterly path for 2027 capex guidance and the point at which free cash flow turns positive
 - Whether customer prepayments can be sustained: RMB 2.127 billion this quarter versus guidance of about RMB 9 billion for Q4, the cheapest and most fragile source of funding
 - Whether the assumed GPU depreciation life has been cut (if so, reported profit disappears immediately)

@@ -23,41 +23,41 @@ Gross and net margins at each link in the chain fall within common industry rang
 
 ## Who makes money along the chain: three profit pools, each thinner than the last
 
-The first layer is the brand. A hot pot chain runs a 60% gross margin, but after rent, labor and platform commissions, net margin is only 8%–10%. **The brand earns the premium consumers pay for recognizing the label, and it must pay rent and commissions for that premium.**
+The first layer is the brand. A hot pot chain runs a 60% gross margin, but after rent, labor and platform commissions, net margin is only 8%–10%. The brand earns the premium consumers pay for recognizing the label, and it must pay rent and commissions for that premium.
 
-The second layer is the platform. Meituan's core local commerce revenue reached RMB 71.53 billion in 2026Q2, with operating profit of RMB 5.67 billion and a margin of 7.9%; in 2024 that figure was 20.9%. The platform earns money from "matching" — distributing demand to the most suitable merchants and collecting commissions and advertising. **This is the most profitable link in the chain because it is asset-light, replicable and has near-zero marginal cost.**
+The second layer is the platform. Meituan's core local commerce revenue reached RMB 71.53 billion in 2026Q2, with operating profit of RMB 5.67 billion and a margin of 7.9%; in 2024 that figure was 20.9%. The platform earns money from "matching" — distributing demand to the most suitable merchants and collecting commissions and advertising. This is the most profitable link in the chain because it is asset-light, replicable and has near-zero marginal cost.
 
-The third layer is fulfillment. Rider costs account for more than 70% of per-order delivery cost — a hard cost with no room to fall beyond economies of scale. From July 1, 2026, the new occupational injury insurance covers the whole country with premiums fully borne by platforms, effectively adding another layer to this segment. **Meituan must run fulfillment itself because that is its moat; but it therefore can never earn the margins of a pure platform.**
+The third layer is fulfillment. Rider costs account for more than 70% of per-order delivery cost — a hard cost with no room to fall beyond economies of scale. From July 1, 2026, the new occupational injury insurance covers the whole country with premiums fully borne by platforms, effectively adding another layer to this segment. Meituan must run fulfillment itself because that is its moat; but it therefore can never earn the margins of a pure platform.
 
 ## Meituan's position: the only company that has built all three segments
 
-In one sentence: **Meituan is the only company that simultaneously owns a demand gateway (an app with 500 million users), a fulfillment network (6 million riders across 2,800 counties and districts), and merchant digitalization (POS, supply chain, Kuailv).** Alibaba has the gateway and Ele.me's capacity, but a weak merchant side; Douyin has the gateway and content, but no fulfillment at all; JD has capacity and a quality mindset, but builds its merchant side from zero.
+In one sentence: Meituan is the only company that simultaneously owns a demand gateway (an app with 500 million users), a fulfillment network (6 million riders across 2,800 counties and districts), and merchant digitalization (POS, supply chain, Kuailv). Alibaba has the gateway and Ele.me's capacity, but a weak merchant side; Douyin has the gateway and content, but no fulfillment at all; JD has capacity and a quality mindset, but builds its merchant side from zero.
 
-The advantage of this position is two-way lock-in: merchants cannot do without its orders, and users cannot do without its speed. The downside is that it must bear the full cost of fulfillment itself, so any rise in labor costs hits profit directly — **a pure platform can pass it on; Meituan cannot.**
+The advantage of this position is two-way lock-in: merchants cannot do without its orders, and users cannot do without its speed. The downside is that it must bear the full cost of fulfillment itself, so any rise in labor costs hits profit directly — a pure platform can pass it on; Meituan cannot.
 
-There is also a hidden benefit: **it sees data on both "eating" and "buying."** Food delivery knows what you want to eat today; Shanguo knows when your shampoo at home runs out. Douyin and JD do not fully possess this data asset, and it underpins Meituan's confidence to build the AI assistants "Xiaomei" and "Xiaotuan."
+There is also a hidden benefit: it sees data on both "eating" and "buying." Food delivery knows what you want to eat today; Shanguo knows when your shampoo at home runs out. Douyin and JD do not fully possess this data asset, and it underpins Meituan's confidence to build the AI assistants "Xiaomei" and "Xiaotuan."
 
 ## Cycle position: stock efficiency, not incremental upside
 
 Three cycles overlap, pulling in different directions.
 
-**The first layer is the restaurant market.** In 2026 restaurant revenue growth falls to around 5%, store counts are shrinking, and average ticket size is declining. This layer is heading down, and irreversibly so—determined by demographics and consumption habits.
+The first layer is the restaurant market. In 2026 restaurant revenue growth falls to around 5%, store counts are shrinking, and average ticket size is declining. This layer is heading down, and irreversibly so—determined by demographics and consumption habits.
 
-**The second layer is food delivery penetration.** Penetration in tier-1 cities is already high; growth is in county-level markets and among the middle-aged and older population, but average ticket size there is low and fulfillment costs are high. This layer is near its ceiling.
+The second layer is food delivery penetration. Penetration in tier-1 cities is already high; growth is in county-level markets and among the middle-aged and older population, but average ticket size there is low and fulfillment costs are high. This layer is near its ceiling.
 
-**The third layer is instant retail (flash shopping).** It has shifted from "emergency" to "everyday," with categories expanding from pharmaceuticals and liquor to supermarkets and 3C. This layer is still expanding, and it is the source of Meituan's 25% new-business revenue growth.
+The third layer is instant retail (flash shopping). It has shifted from "emergency" to "everyday," with categories expanding from pharmaceuticals and liquor to supermarkets and 3C. This layer is still expanding, and it is the source of Meituan's 25% new-business revenue growth.
 
-Putting the three layers together: **Meituan's growth over the next three years will come mainly from instant retail and overseas, not food delivery.** Food delivery is the cash cow and the moat; flash shopping and Keeta are the growth drivers. The valuation implication: food delivery cannot command a growth-stock multiple, only a stable-cash-flow multiple—15 to 20x.
+Putting the three layers together: Meituan's growth over the next three years will come mainly from instant retail and overseas, not food delivery. Food delivery is the cash cow and the moat; flash shopping and Keeta are the growth drivers. The valuation implication: food delivery cannot command a growth-stock multiple, only a stable-cash-flow multiple—15 to 20x.
 
 ## Upstream bargaining power, tested: who gets squeezed in the chain
 
 "Pricing power" is an empty phrase; two numbers can measure it.
 
-The first is restaurant merchants' net margin. A small restaurant with a RMB 40 average ticket and 100 orders a day, after food costs (35%), rent (15%), labor (20%), and platform commission plus promotion (15%–20%), nets only 5%–8%. **The 15%–20% the platform takes is almost equal to the merchant's entire net profit.** That is why merchants are extremely sensitive to commission, and why Douyin can poach merchants with lower commission.
+The first is restaurant merchants' net margin. A small restaurant with a RMB 40 average ticket and 100 orders a day, after food costs (35%), rent (15%), labor (20%), and platform commission plus promotion (15%–20%), nets only 5%–8%. The 15%–20% the platform takes is almost equal to the merchant's entire net profit. That is why merchants are extremely sensitive to commission, and why Douyin can poach merchants with lower commission.
 
-The second is Meituan's merchant services revenue growth: only +4.0% in Q2 2026. If the platform held pricing power, that number should be above 10% — merchants' business improves, the platform collects more. 4.0% shows **the platform dare not raise prices, and merchants are unwilling to spend more on advertising.**
+The second is Meituan's merchant services revenue growth: only +4.0% in Q2 2026. If the platform held pricing power, that number should be above 10% — merchants' business improves, the platform collects more. 4.0% shows the platform dare not raise prices, and merchants are unwilling to spend more on advertising.
 
-Put the two numbers together and the conclusion is clear: Meituan has pricing power over upstream merchants (it can charge 15%–20%), but has already pushed it to the limit (raise it further and merchants leave). **This is the classic state of "a moat with no headroom."**
+Put the two numbers together and the conclusion is clear: Meituan has pricing power over upstream merchants (it can charge 15%–20%), but has already pushed it to the limit (raise it further and merchants leave). This is the classic state of "a moat with no headroom."
 
 ## Overseas: can this supply chain be relocated?
 
@@ -65,7 +65,7 @@ The local-services chain rests on one premise: high-density cities + low-cost fl
 
 Keeta's experiment yields three data points: Hong Kong turned UE positive in Q4 2025 (high density, high ticket size, short delivery distance), Saudi Arabia reached profitability in July 2026 in just 22 months (high ticket size, weak competition, ample foreign labor), and Brazil has launched operations but disclosed no data (low ticket size, Didi's home turf, complex tax regime).
 
-Connect the three points and you get a sloped line: **the higher the ticket size, the weaker the competition and the cheaper the labor, the faster the replication.** By that rule, Brazil is the hardest case—it holds no advantage on any of the three. My expectation for Brazil is therefore "no profit within three years; controlled losses count as success."
+Connect the three points and you get a sloped line: the higher the ticket size, the weaker the competition and the cheaper the labor, the faster the replication. By that rule, Brazil is the hardest case—it holds no advantage on any of the three. My expectation for Brazil is therefore "no profit within three years; controlled losses count as success."
 
 If this chain can truly be transplanted to Brazil, Meituan's valuation framework must be rewritten: from "Chinese local-services platform" (15–20x) to "emerging-market instant-delivery platform" (25–30x). That is the source of the HKD 150 bull case, and the largest option value in this investment.
 

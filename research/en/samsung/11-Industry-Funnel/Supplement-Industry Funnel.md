@@ -27,35 +27,35 @@ Kioxia (285A.T) listed in Tokyo in December 2024; this report did not obtain rel
 
 ## Rough screening: first cut half with three hard criteria
 
-Three criteria: **① Can price on its own (top three in share); ② Has balance-sheet buffer (net cash or low debt); ③ Valuation not at a historical high.** All three must pass to advance to the next round.
+Three criteria: ① Can price on its own (top three in share); ② Has balance-sheet buffer (net cash or low debt); ③ Valuation not at a historical high. All three must pass to advance to the next round.
 
-Kioxia fails the first: NAND-only, no DRAM, single-product structure, fully a price taker. ChangXin fails the second and cannot be judged on the third: unlisted, no public valuation, and in a cash-burning phase of capacity expansion. **Both are eliminated at the rough-screen stage — not because they are bad companies, but because they do not meet the "investable, valuetable" conditions.**
+Kioxia fails the first: NAND-only, no DRAM, single-product structure, fully a price taker. ChangXin fails the second and cannot be judged on the third: unlisted, no public valuation, and in a cash-burning phase of capacity expansion. Both are eliminated at the rough-screen stage — not because they are bad companies, but because they do not meet the "investable, valuetable" conditions.
 
 TSMC passes all three, but it is a different business — the foundry moat is process technology and customer trust; the memory moat is cost and capacity. Comparing them in the same funnel yields the wrong conclusion, so at the final-selection stage it serves as a "reference", not a "candidate".
 
 ## Final pick: Samsung vs SK hynix vs Micron
 
-**SK hynix's strength is elasticity; its weakness is that it is expensive.** 2026Q1 operating margin was 71.5%, the highest of the three; HBM share is 50%, tied to Nvidia. But its PE of 17.2x (TTM) is the most expensive of the three, and it has already fallen 37.8% in July — the market is already pricing in a "cyclical peak," the price just has not fallen far enough yet.
+SK hynix's strength is elasticity; its weakness is that it is expensive. 2026Q1 operating margin was 71.5%, the highest of the three; HBM share is 50%, tied to Nvidia. But its PE of 17.2x (TTM) is the most expensive of the three, and it has already fallen 37.8% in July — the market is already pricing in a "cyclical peak," the price just has not fallen far enough yet.
 
-**Micron's strength is purity; its weakness is the absence of a buffer.** FY26Q3 gross margin 84.9%, revenue +346% YoY, the pure-play memory name with the greatest elasticity; a PE of 6.5x (2027E) looks the cheapest. But it has no foundry, no end market — once prices turn down, profit falls vertically; and it has already risen 226% in 2026, carrying the greatest drawdown risk.
+Micron's strength is purity; its weakness is the absence of a buffer. FY26Q3 gross margin 84.9%, revenue +346% YoY, the pure-play memory name with the greatest elasticity; a PE of 6.5x (2027E) looks the cheapest. But it has no foundry, no end market — once prices turn down, profit falls vertically; and it has already risen 226% in 2026, carrying the greatest drawdown risk.
 
-**Samsung's strength is longevity; its weakness is low elasticity.** PE 7.5x, PB 1.8x, net cash, four divisions backstopping one another. In its best years it earns less than SK hynix (dragged by end markets), and in its worst years it loses the least (cushioned by end markets). **If the call is that the cycle is near a top, this trait is worth more than elasticity.**
+Samsung's strength is longevity; its weakness is low elasticity. PE 7.5x, PB 1.8x, net cash, four divisions backstopping one another. In its best years it earns less than SK hynix (dragged by end markets), and in its worst years it loses the least (cushioned by end markets). If the call is that the cycle is near a top, this trait is worth more than elasticity.
 
 ## Why it: three reasons, one precondition
 
-Reason one: **downside protection.** Samsung's bear case is KRW 110,000 (-60%), but that corresponds to 0.72x PB, and it has never fallen below 0.8x in history; SK hynix's bear case is KRW 880,000 (-52%), at which PE has already lost meaning. For the same downside, Samsung has net assets as a floor; SK hynix has only "valuation mean reversion."
+Reason one: downside protection. Samsung's bear case is KRW 110,000 (-60%), but that corresponds to 0.72x PB, and it has never fallen below 0.8x in history; SK hynix's bear case is KRW 880,000 (-52%), at which PE has already lost meaning. For the same downside, Samsung has net assets as a floor; SK hynix has only "valuation mean reversion."
 
-Reason two: **share is improving.** HBM from 21% to 33%, DRAM from 33% to 39.4% — both lines are moving in the right direction. This is rare at a cycle peak — peaks usually bring frozen share and reliance on price hikes, whereas Samsung has "price hikes + share gains" happening at the same time.
+Reason two: share is improving. HBM from 21% to 33%, DRAM from 33% to 39.4% — both lines are moving in the right direction. This is rare at a cycle peak — peaks usually bring frozen share and reliance on price hikes, whereas Samsung has "price hikes + share gains" happening at the same time.
 
-Reason three: **the valuation discount has room to narrow.** The 7.5x PE embeds a triple discount: "governance discount + cycle discount + messy business mix." If HBM share climbs above 40% and foundry turns profitable, one of these layers disappears, and valuation can recover to 6–6.5x (bull case).
+Reason three: the valuation discount has room to narrow. The 7.5x PE embeds a triple discount: "governance discount + cycle discount + messy business mix." If HBM share climbs above 40% and foundry turns profitable, one of these layers disappears, and valuation can recover to 6–6.5x (bull case).
 
-One precondition: **this choice only holds when "the cycle is judged to be near a peak."** If the cycle has two more years to run, you should buy SK hynix or Micron, which offer far more upside beta. The funnel's conclusion depends on the cycle call, not on company quality — this must be stated clearly.
+One precondition: this choice only holds when "the cycle is judged to be near a peak." If the cycle has two more years to run, you should buy SK hynix or Micron, which offer far more upside beta. The funnel's conclusion depends on the cycle call, not on company quality — this must be stated clearly.
 
 ## The two eliminated players deserve a spot on the watchlist
 
-CXMT is worth watching, but not to buy it in the secondary market (it is unlisted) — rather, **watch its capacity and pricing**. Every DDR5 line it adds lowers the price floor for consumer-grade DRAM by one notch and shaves a slice off Samsung's ordinary DRAM profit. It is a "short indicator" for Samsung's profit.
+CXMT is worth watching, but not to buy it in the secondary market (it is unlisted) — rather, watch its capacity and pricing. Every DDR5 line it adds lowers the price floor for consumer-grade DRAM by one notch and shaves a slice off Samsung's ordinary DRAM profit. It is a "short indicator" for Samsung's profit.
 
-Kioxia is also worth watching, because it is a pure read on NAND prices. Samsung does not disclose profit for its NAND business separately, but Kioxia's quarterly results serve as a proxy — **the moment Kioxia's gross margin turns down, Samsung's NAND runs into trouble first.**
+Kioxia is also worth watching, because it is a pure read on NAND prices. Samsung does not disclose profit for its NAND business separately, but Kioxia's quarterly results serve as a proxy — the moment Kioxia's gross margin turns down, Samsung's NAND runs into trouble first.
 
 These two are not investment candidates; they are "information sources." The funnel screens out "what to buy," but what remains includes "what to watch."
 

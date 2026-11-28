@@ -10,7 +10,7 @@ Eight long-form pieces cover eight facets of one study, with data uniformly base
 
 ## Reading order for the eight articles
 
-Suggested reading order: first break down (01 Cognitive Reset), then build up (02–03 Business and Moat), then verify with numbers (04 Financial Truth), and finally close on four dimensions: industry, people, risk and decision. Each piece stands alone, but only together do they form a complete argument.
+Suggested reading order: first break down (01 Cognitive Reset), then build up (02–03 Business and Moat), then verify with numbers (04 Financial Truth), and finally close on four dimensions—industry, people, risk, and decision.Each piece stands alone, but only together do they form a complete argument.
 
 ## Sources
 

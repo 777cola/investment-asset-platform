@@ -10,7 +10,9 @@ The eight long-form articles in this module are eight facets of the same study, 
 
 ## Structure of the eight articles
 
-Structure of the eight-part series: Part 1, cognitive reset — tearing off the old growth-stock label; Part 2, business essence — three arithmetic questions; Part 3, moat dissection — the width of six rivers; Part 4, financial truth — the most important item across the three statements is not profit; Part 5, industry and competition — three battlegrounds; Part 6, management — two faces; Part 7, risk checklist — five risks; Part 8, decision framework — three sheets of paper. All eight parts share one set of numbers: revenue RMB 12.874 billion (Q3), operating margin 31.5% (full-year guidance), FCF RMB 12 billion, buybacks RMB 4.8 billion (Q3), share price USD 65.85, PE 18x (21x normalized). All per-share data are on a post-split basis reflecting the 10-for-1 split effective 2025/11/17.
+Part 1, Cognitive Reset: Tear Off the Old "Growth Stock" Label. Part 2, Business Essence: Three Arithmetic Questions. Part 3, Moat Anatomy: The Width of Six Rivers. Part 4, Financial Truth: The Most Critical Item in the Three Statements Is Not Profit. Part 5, Industry and Competition: Three Battlefields. Part 6, Management: Two Faces. Part 7, Risk Checklist: Five Risks. Part 8, Decision Framework: Three Sheets of Paper.
+
+All eight parts share one set of numbers: revenue RMB 12.874 billion (Q3), operating margin 31.5% (full-year guidance), FCF RMB 12 billion, buybacks RMB 4.8 billion (Q3), share price USD 65.85, PE 18x (21x normalized). All per-share data are on a post-split basis reflecting the 10-for-1 split effective 2025/11/17.
 
 ## Sources
 

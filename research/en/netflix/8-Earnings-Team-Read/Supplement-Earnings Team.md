@@ -10,7 +10,9 @@ These six pages in this module share the same 2026Q3 earnings data (after market
 
 ## How are these six pages organized?
 
-The six pages are organized as follows: the first four stand alone, each answering one question only — what this earnings report shows under a given methodology. Page five handles overlaps and conflicts, and page six translates the conclusions into language a general reader can follow. All six pages share one set of numbers: revenue of RMB 12.874 billion, operating profit of RMB 4.459 billion, operating margin of 34.6%, net profit of RMB 3.664 billion, EPS of 0.87, FCF of RMB 2.884 billion, and buybacks of RMB 4.8 billion. Different pages read the same number differently; that is not a contradiction but a matter of angle.
+The first four pages are close readings done independently, each answering only one question: what does this earnings report show under a given methodology. Page five handles overlaps and conflicts, and page six translates the conclusions into language the ordinary reader can follow.
+
+All six pages share one set of numbers: revenue RMB 12.874 billion, operating profit RMB 4.459 billion, operating margin 34.6%, net profit RMB 3.664 billion, EPS 0.87, FCF RMB 2.884 billion, buybacks RMB 4.8 billion. Different pages read the same number differently; this is not contradiction, it is angle.
 
 ## Sources
 

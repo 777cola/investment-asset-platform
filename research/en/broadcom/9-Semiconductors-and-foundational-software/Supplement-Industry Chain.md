@@ -40,7 +40,7 @@ Data sources: Broadcom FY26Q3 earnings release and conference call (2026/09/02);
 
 In the cost structure of custom chips, wafers and HBM are the biggest components. Only TSMC and Samsung can make 3nm wafers, only TSMC can do CoWoS packaging at scale, and only three memory makers can supply HBM — all of it in short supply in 2026.
 
-This means Broadcom has almost no bargaining power over upstream suppliers. What it does is "lock in capacity" — paying advances, signing long-term supply agreements, accepting price increases. On the earnings call, Hock Tan said the USD 115 billion for FY27 was "based on secured supply"; the flip side of that statement is: **Broadcom has already bought up upstream capacity, at the cost of prepayments and commitments.**
+This means Broadcom has almost no bargaining power over upstream suppliers. What it does is "lock in capacity" — paying advances, signing long-term supply agreements, accepting price increases. On the earnings call, Hock Tan said the USD 115 billion for FY27 was "based on secured supply"; the flip side of that statement is: Broadcom has already bought up upstream capacity, at the cost of prepayments and commitments.
 
 This is also the second reason for the gross margin decline. As HBM prices rise, Broadcom must pass the cost on to customers; how much it can pass on depends on contract terms. If it cannot pass it on, gross margin gets squeezed in the middle.
 
@@ -48,7 +48,7 @@ This is also the second reason for the gross margin decline. As HBM prices rise,
 
 The middle of the chain splits into three segments: architecture and design (Broadcom, Marvell, Alchip), manufacturing (TSMC), and connectivity (Broadcom's Tomahawk, Astera Labs' retimers, optical module makers).
 
-Broadcom is the only company that occupies both the "design" and "connectivity" segments at once. The value of this combination: when customers buy XPUs, they buy the switch chips along with them; and once they have bought the switch chips, switching to another vendor for the next-generation XPU becomes much harder.**The two businesses lock each other in, and this is the structural source of its 75% gross margin.**
+Broadcom is the only company that occupies both the "design" and "connectivity" segments at once. The value of this combination: when customers buy XPUs, they buy the switch chips along with them; and once they have bought the switch chips, switching to another vendor for the next-generation XPU becomes much harder.The two businesses lock each other in, and this is the structural source of its 75% gross margin.
 
 Compare Marvell: it also does custom ASIC and optical interconnect, but it holds no share in switch chips, so its customer relationships are project-based, whereas Broadcom's are platform-based. The difference shows up in gross margin — Broadcom at 75%, Marvell around 60%.
 
@@ -56,15 +56,15 @@ Compare Marvell: it also does custom ASIC and optical interconnect, but it holds
 
 Downstream sits six frontier model companies plus every enterprise building AI data centers. On the surface, Broadcom is the seller and the customers are the buyers; in reality, the capex of these six customers sets the pace of the entire chain—they are the true price-setters.
 
-The evidence is price. For the same custom chip, Broadcom quotes widely different prices to different customers, depending on purchase volume and the competitive landscape. Google has MediaTek as a second source, giving it strong bargaining power; Anthropic has no second source and must accept Broadcom's quote. **So the claim that "Broadcom has pricing power" needs a qualifier: it has it with customers that lack a second source, and does not with customers that have one.**
+The evidence is price. For the same custom chip, Broadcom quotes widely different prices to different customers, depending on purchase volume and the competitive landscape. Google has MediaTek as a second source, giving it strong bargaining power; Anthropic has no second source and must accept Broadcom's quote. So the claim that "Broadcom has pricing power" needs a qualifier: it has it with customers that lack a second source, and does not with customers that have one.
 
 MediaTek winning the TPU V80 project is essentially Google building a second source. The impact on Broadcom is not lost orders—it is lost pricing.
 
 ## Two counterintuitive conclusions
 
-First counterintuitive point: the segment with the highest gross margin has the smallest addressable market. EDA carries an 80% gross margin, yet the global market is only around USD 15 billion, split between Synopsys and Cadence; foundry has a 58% gross margin on a USD 120 billion market; custom ASIC carries a 60%–75% gross margin, with the AI portion at about USD 58 billion this year. **Gross margin reads the moat; market size sets the ceiling.**
+First counterintuitive point: the segment with the highest gross margin has the smallest addressable market. EDA carries an 80% gross margin, yet the global market is only around USD 15 billion, split between Synopsys and Cadence; foundry has a 58% gross margin on a USD 120 billion market; custom ASIC carries a 60%–75% gross margin, with the AI portion at about USD 58 billion this year. Gross margin reads the moat; market size sets the ceiling.
 
-Second counterintuitive point: the segment with the greatest value share has the weakest bargaining power. Chips account for 60%–70% of the cost of an AI server, yet chipmakers must queue at TSMC and queue at memory makers; assembly accounts for only 3%–5%, yet Foxconn must win orders on scale and delivery speed. **Value share and bargaining power are not the same thing: the former is set by technology, the latter by scarcity.**
+Second counterintuitive point: the segment with the greatest value share has the weakest bargaining power. Chips account for 60%–70% of the cost of an AI server, yet chipmakers must queue at TSMC and queue at memory makers; assembly accounts for only 3%–5%, yet Foxconn must win orders on scale and delivery speed. Value share and bargaining power are not the same thing: the former is set by technology, the latter by scarcity.
 
 Apply both to Broadcom: its gross margin is high, but its addressable market is capped by six customers; its value share is large, but it has no bargaining power over upstream suppliers. Its moat is therefore "deep enough, not wide enough," which is why it cannot command a software company's valuation.
 
@@ -74,7 +74,7 @@ Three indicators gauge where we are in the cycle: customer capex guidance, upstr
 
 The four major North American cloud providers are again raising capex for 2026, TSMC's 3nm and CoWoS are running at full capacity, and HBM is in short supply — all evidence that the upcycle continues. But AI data center financing increasingly relies on debt and structured arrangements (Broadcom's platform is one of them), and once rates rise, construction pacing will slow first.
 
-**The semiconductor industry's rule: order cuts precede capex cuts by two quarters, and capex cuts precede revenue cuts by one quarter.** So the second half of 2027 is the inflection point. Before then, Broadcom's numbers will look good; after that, it depends on whether this round of infrastructure buildout has generated real revenue.
+The semiconductor industry's rule: order cuts precede capex cuts by two quarters, and capex cuts precede revenue cuts by one quarter. So the second half of 2027 is the inflection point. Before then, Broadcom's numbers will look good; after that, it depends on whether this round of infrastructure buildout has generated real revenue.
 
 ## Sources
 

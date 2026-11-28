@@ -6,7 +6,7 @@
 
 ## Notes
 
-仓位比例为占股票组合的比例，单一持仓上限 5%。相关性数据：2026 年 1–7 月老铺 -46.2%、蜜雪 -44.7%（金斧子/证券时报 2026/07–08 报道）；泡泡玛特同期亦下跌。金价与同业相关性为定性判断，未做量化回归。三档价位对应 m04 估值：222/352/595 港元。
+Position sizes are a share of the equity portfolio; single-name cap 5%. Correlation data: January–July 2026 Laopu −46.2%, Mixue −44.7% (Gold Axe / Securities Times coverage, 2026/07–08); Pop Mart also fell over the period. The correlation between the gold price and peers is a qualitative judgement, not a quantified regression. The three price levels map to the m04 valuation: HKD 222 / 352 / 595.
 
 ## Positioning recommendations (by scenario)
 
@@ -26,27 +26,27 @@ First number: 4%. The upside from the current price of HKD 337 to HKD 352 in the
 
 Second number: 34%. The downside to HKD 222 in the bear case. The trigger requires only a further 15% fall in the gold price (4,300 → 3,600 USD), and this already happened once in the first half of 2026 (5,419 → 4,000).
 
-Third number: 3.4%. The expected return weighted at 40/40/20 probabilities. Taking on 34% downside risk for a 3.4% expected return — **this is not investing, it is gambling.**
+Third number: 3.4%. The expected return weighted at 40/40/20 probabilities. Taking on 34% downside risk for a 3.4% expected return — this is not investing, it is gambling.
 
 ## Positioning discipline: adding, trimming, stop-loss
 
-**Add to position:** only under two conditions. First, price: the stock falls below HKD 250 and none of the falsification conditions has triggered. Second, data: same-store sales turn positive and inventory turnover falls back below 250 days, in which case price can be ignored. The two must not be mixed; a cheap price cannot substitute for data validation.
+Add to position: only under two conditions. First, price: the stock falls below HKD 250 and none of the falsification conditions has triggered. Second, data: same-store sales turn positive and inventory turnover falls back below 250 days, in which case price can be ignored. The two must not be mixed; a cheap price cannot substitute for data validation.
 
-**Trim position:** the stock returns above HKD 500 (corresponding to RMB 5.7 billion in 2027, over 15x), or gross margin falls below 37% and inventory turnover exceeds 320 days — cut to less than half.
+Trim position: the stock returns above HKD 500 (corresponding to RMB 5.7 billion in 2027, over 15x), or gross margin falls below 37% and inventory turnover exceeds 320 days — cut to less than half.
 
-**Stop loss:** cyclical stocks like Laopu are unsuited to price-based stop losses (too volatile, easily shaken out); use logic-based stops — **clear the position the moment any falsification condition triggers, regardless of cost basis.** In particular, "same-store sales negative for two consecutive quarters with the decline widening" means the core assumption of the thesis is gone.
+Stop loss: cyclical stocks like Laopu are unsuited to price-based stop losses (too volatile, easily shaken out); use logic-based stops — clear the position the moment any falsification condition triggers, regardless of cost basis. In particular, "same-store sales negative for two consecutive quarters with the decline widening" means the core assumption of the thesis is gone.
 
 ## Correlation: which stock does it track most closely
 
 Before adding it to a portfolio, you must first know what it rises and falls with.
 
-**Highly correlated with Hong Kong new-consumption names.**From January to July 2026, Laopu fell 46.2%, Mixue fell 44.7%, and Pop Mart was also falling; the market calls these three the "three sisters of new consumption." What they share is that in 2023–2025 they rode narrative to 40–140x PE, and in 2026 they de-rated together. Holding Laopu is equivalent to holding a slice of Hong Kong new-consumption beta.
+Highly correlated with Hong Kong new-consumption names.From January to July 2026, Laopu fell 46.2%, Mixue fell 44.7%, and Pop Mart was also falling; the market calls these three the "three sisters of new consumption." What they share is that in 2023–2025 they rode narrative to 40–140x PE, and in 2026 they de-rated together. Holding Laopu is equivalent to holding a slice of Hong Kong new-consumption beta.
 
-**Positively correlated with gold miners, but through a different mechanism.**Zijin Mining and Shandong Gold grow revenue on higher gold prices; Laopu grows inventory value on higher gold prices — same direction, higher beta. If the portfolio already holds long gold miners, adding Laopu is a double bet on gold.
+Positively correlated with gold miners, but through a different mechanism.Zijin Mining and Shandong Gold grow revenue on higher gold prices; Laopu grows inventory value on higher gold prices — same direction, higher beta. If the portfolio already holds long gold miners, adding Laopu is a double bet on gold.
 
-**Low correlation with Hang Seng Tech.**Its drivers are the gold price and consumption, not AI or the internet. If the portfolio carries large Hong Kong tech exposure, it is a diversifier.
+Low correlation with Hang Seng Tech.Its drivers are the gold price and consumption, not AI or the internet. If the portfolio carries large Hong Kong tech exposure, it is a diversifier.
 
-One more easily overlooked correlation: **correlation with Hong Kong liquidity.**Laopu has a small free float and 58.10% family ownership, so southbound flows in and out can amplify volatility. From July 2025 to March 2026 it fell from HKD 1,065 to around HKD 500, with no change in fundamentals over the period — purely a matter of positioning and liquidity. That means its short-term price signal has low credibility; don't use the weekly chart to make calls.
+One more easily overlooked correlation: correlation with Hong Kong liquidity.Laopu has a small free float and 58.10% family ownership, so southbound flows in and out can amplify volatility. From July 2025 to March 2026 it fell from HKD 1,065 to around HKD 500, with no change in fundamentals over the period — purely a matter of positioning and liquidity. That means its short-term price signal has low credibility; don't use the weekly chart to make calls.
 
 ## Sources
 

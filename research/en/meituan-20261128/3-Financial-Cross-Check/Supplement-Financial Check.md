@@ -25,28 +25,33 @@ Source A: Meituan Q3 2026 results announcement (2026/11/27), 2026 interim result
 
 ## The only item above 1%: adjusted net profit
 
-The company disclosed RMB 1.85 billion, while some terminals calculated RMB 1.79–1.82 billion, a difference of RMB 30–60 million. **The reason is not a calculation error, but a difference in definition.** Net profit for the quarter of RMB 2.071 billion exceeds adjusted net profit of RMB 1.85 billion, indicating that "the net of adjustment items is positive"—that is, non-operating items (fair value changes on investments, disposal gains) contributed more than approximately RMB 200 million, while equity incentives are a deduction. If a terminal excludes only equity incentives and retains investment fair value gains, the calculated "adjusted" figure will be higher than the company's basis; otherwise it will be lower.
+The company disclosed RMB 1.85 billion, while some terminals calculated RMB 1.79–1.82 billion, a difference of RMB 30–60 million. The reason is not a calculation error, but a difference in definition. Net profit for the quarter of RMB 2.071 billion exceeds adjusted net profit of RMB 1.85 billion, indicating that "the net of adjustment items is positive"—that is, non-operating items (fair value changes on investments, disposal gains) contributed more than approximately RMB 200 million, while equity incentives are a deduction. If a terminal excludes only equity incentives and retains investment fair value gains, the calculated "adjusted" figure will be higher than the company's basis; otherwise it will be lower.
 
-Treatment: adopt the company's basis of RMB 1.85 billion, and clarify wherever "profit quality" is discussed—**operating profit is only RMB 1.71 billion (estimated), and of the RMB 2.071 billion net profit, approximately RMB 360 million was not earned from operations.** This point is critical: when the market says "adjusted slightly below consensus," it actually means the recovery on the operating side was milder than headline net profit suggests.
+Treatment: adopt the company's basis of RMB 1.85 billion, and clarify wherever "profit quality" is discussed—operating profit is only RMB 1.71 billion (estimated), and of the RMB 2.071 billion net profit, approximately RMB 360 million was not earned from operations. This point is critical: when the market says "adjusted slightly below consensus," it actually means the recovery on the operating side was milder than headline net profit suggests.
 
 ## Two metrics in conflict: share and net cash
 
-There are two share numbers: the company's 2025 annual report emphasizes "GTV share above 60%", while Goldman Sachs estimates about 51% on an order-volume basis. Both are correct; they describe different things — **Meituan held onto high-ticket orders and lost low-price ones.** This quarter's industry estimate is about 50%, 1 point below February's 51%, which falls within estimation error and does not support a claim that "share is still being lost". That is why the body of this report says "about 50%, stabilizing but not recovering" rather than citing a specific decimal.
+There are two share numbers: the company's 2025 annual report emphasizes "GTV share above 60%", while Goldman Sachs estimates about 51% on an order-volume basis. Both are correct; they describe different things — Meituan held onto high-ticket orders and lost low-price ones. This quarter's industry estimate is about 50%, 1 point below February's 51%, which falls within estimation error and does not support a claim that "share is still being lost". That is why the body of this report says "about 50%, stabilizing but not recovering" rather than citing a specific decimal.
 
-Net cash likewise comes in two versions: the disclosed cash of RMB 104.7 billion plus short-term wealth-management products of RMB 63.6 billion, totaling RMB 168.3 billion, is a **gross** figure that does not deduct merchant settlement payables, rider payables or short-term borrowings; the RMB 120 billion commonly cited in the media is a **net** estimate. Use the net figure for valuation (more conservative) and the gross figure when discussing the balance sheet (closer to available funds). **Mixing the two is the most common error in this type of report; this report keeps them strictly separate.**
+Net cash likewise comes in two versions: the disclosed cash of RMB 104.7 billion plus short-term wealth-management products of RMB 63.6 billion, totaling RMB 168.3 billion, is a gross figure that does not deduct merchant settlement payables, rider payables or short-term borrowings; the RMB 120 billion commonly cited in the media is a net estimate. Use the net figure for valuation (more conservative) and the gross figure when discussing the balance sheet (closer to available funds). Mixing the two is the most common error in this type of report; this report keeps them strictly separate.
 
 ## Final adopted basis and reproducible checklist
 
 Financial figures: all taken from the company's 2026Q3 results announcement, 2026 interim report and 2025 annual report. Six figures are estimates, all reproducible:
 
 - Q3 2025 revenue RMB 95.03 billion = 115.56/1.216
+
 - Core local commerce revenue RMB 80.02 billion = Q2 71.53 × 1.12 (on sequential acceleration and management guidance)
+
 - Core local commerce operating profit RMB 4.52 billion, new initiatives loss RMB 2.16 billion, unallocated -RMB 650 million, the three items totaling operating profit of RMB 1.71 billion, consistent with the operating profit range implied by net profit of RMB 2.071 billion
+
 - R&D RMB 8.65 billion = Q3 2025 ~RMB 7.77 billion × 1.113
+
 - Gross profit RMB 40.06 billion = 115.56 − 75.5 (cost of sales, at the Q2 cost ratio and allowing for higher rider work-injury insurance costs)
+
 - 2027E net profit RMB 23 billion = core local commerce operating profit RMB 42 billion − new initiatives loss RMB 2 billion − unallocated RMB 4.5 billion − tax and minority interests RMB 3.5 billion
 
-**None of these six figures appears in "company disclosures"; all carry the word "estimate".**If a recalculation conflicts with the text, the text prevails and is revised accordingly — this is the report's self-check rule.
+None of these six figures appears in "company disclosures"; all carry the word "estimate".If a recalculation conflicts with the text, the text prevails and is revised accordingly — this is the report's self-check rule.
 
 ## Sources
 

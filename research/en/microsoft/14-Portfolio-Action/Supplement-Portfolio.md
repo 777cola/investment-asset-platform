@@ -24,34 +24,39 @@ Sources: Microsoft FY2026Q4 earnings release (2026/07/29); share price USD 464.7
 
 The 2% is based on the product of payoff odds and certainty. Base case 564 (+21%), bear case 400 (-14%), a 1.5:1 payoff; at a 55%–60% win rate, expected return is about +8%. Paired with a 5% position, that expected value contributes 0.4 points to the portfolio—not enough to compensate for the risk of being wrong.
 
-If the stock falls back to 430, the payoff becomes (564−430)÷(430−400) = 4.5:1, and at the same win rate expected return rises to +19%; only then is adding to 4% reasonable. **In other words, position size should follow the payoff, not conviction.**
+If the stock falls back to 430, the payoff becomes (564−430)÷(430−400) = 4.5:1, and at the same win rate expected return rises to +19%; only then is adding to 4% reasonable. In other words, position size should follow the payoff, not conviction.
 
 ## How to set hard price levels for adding, trimming and stop-loss
 
-- **Add**: at USD 430 (21x FY2027), or on confirmation from FY2027Q1 data. Whichever comes first, act on it first.
-- **Trim**: above USD 600 (30x FY2027), cut half the position — not because the company has deteriorated, but because the risk-reward is gone. Or if the thesis is disproven (Azure below 30% for two consecutive quarters), cut to below 1%.
-- **Stop-loss**: no price stop. Microsoft is not the kind of company that blows up on liquidity or leverage; a price stop would only make you sell at the best price. Use a "thesis stop": if any one of the three disproof conditions (see thesis tracking) is met, trim.
+- Add: at USD 430 (21x FY2027), or on confirmation from FY2027Q1 data. Whichever comes first, act on it first.
+
+- Trim: above USD 600 (30x FY2027), cut half the position — not because the company has deteriorated, but because the risk-reward is gone. Or if the thesis is disproven (Azure below 30% for two consecutive quarters), cut to below 1%.
+
+- Stop-loss: no price stop. Microsoft is not the kind of company that blows up on liquidity or leverage; a price stop would only make you sell at the best price. Use a "thesis stop": if any one of the three disproof conditions (see thesis tracking) is met, trim.
 
 This discipline sounds soft, but it is in fact harder — a price stop only requires you to read candlesticks; a thesis stop requires you to read financial statements.
 
 ## Correlation with other holdings
 
-Microsoft's correlation structure is unusual: **it is simultaneously a software stock, a cloud stock and an AI infrastructure stock.**
+Microsoft's correlation structure is unusual: it is simultaneously a software stock, a cloud stock and an AI infrastructure stock.
 
 - With Nvidia, AMD and Broadcom: positive correlation of 0.6–0.7. Microsoft's capex is their revenue — two sides of the same coin.
+
 - With Amazon and Alphabet: positive correlation above 0.7. All three share the "AI capex" narrative and rise and fall together.
+
 - With Apple and steady-state consumer names such as Coca-Cola: low correlation of 0.2–0.3. This sleeve stabilizes the portfolio.
+
 - With A-shares and Hong Kong stocks: low correlation. But if the portfolio already holds China internet AI names (Alibaba, Tencent), note that an "AI narrative drawdown" would hit both sides at once.
 
 ## If the portfolio already holds the AI chain, size the exposure first
 
 Many investors buying Microsoft already hold Nvidia, AMD, TSMC, or a cloud-provider ETF in their portfolio. Buying Microsoft at that point is not "adding a position" — it is "leveraging a bet on the same thing."
 
-A rough method: sum the market value of all "AI infrastructure"-related holdings and see what share of the portfolio they represent. If that is already above 25%, Microsoft's 2% should come out of that 25%, not be added on top. **Because when the AI capex narrative collapses, these holdings fall together — correlations rise in a selloff, the common trap of every diversification strategy.**
+A rough method: sum the market value of all "AI infrastructure"-related holdings and see what share of the portfolio they represent. If that is already above 25%, Microsoft's 2% should come out of that 25%, not be added on top. Because when the AI capex narrative collapses, these holdings fall together — correlations rise in a selloff, the common trap of every diversification strategy.
 
 ## The discipline of rebalancing
 
-Three rules: **First, no single position exceeds 8%** (the 5% cap on Microsoft reflects its status as a large-cap index heavyweight, which creates higher indirect exposure); **second, reconcile once a quarter**, asking only three questions: Azure growth, RPO conversion, Copilot seats; **third, force a halving once the price rises above 600**, with no waiting for a reason.
+Three rules: First, no single position exceeds 8% (the 5% cap on Microsoft reflects its status as a large-cap index heavyweight, which creates higher indirect exposure); second, reconcile once a quarter, asking only three questions: Azure growth, RPO conversion, Copilot seats; third, force a halving once the price rises above 600, with no waiting for a reason.
 
 The third rule runs most against human nature, but it is the most useful. With a company like Microsoft, the easiest mistake is not buying wrong — it is "holding still until the price falls back." The point of forcing a halving is to turn paper gains into part of real gains.
 

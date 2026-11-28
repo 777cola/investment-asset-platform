@@ -51,53 +51,53 @@ Data source: Xiaomi 2026Q3 results announcement (2026/11/24) and earnings call; 
 
 ## Layer one: the revenue mix is shifting, but the top line cannot hold it up
 
-Total revenue RMB 107.24 billion, -5.2% YoY, -1.5% QoQ. Broken down: automotive segment about RMB 22.9 billion (-19%), smartphones × AIoT about RMB 83.6 billion (-0.6%), other about RMB 0.7 billion. **Automotive, not smartphones, is the real drag — the first time this has happened in 2026.**
+Total revenue RMB 107.24 billion, -5.2% YoY, -1.5% QoQ. Broken down: automotive segment about RMB 22.9 billion (-19%), smartphones × AIoT about RMB 83.6 billion (-0.6%), other about RMB 0.7 billion. Automotive, not smartphones, is the real drag — the first time this has happened in 2026.
 
-Why it matters. Xiaomi's 2024–2025 growth story rested entirely on automotive, with the segment up more than 30% YoY each quarter and masking the decline in smartphones. In Q3 2026 the roles reversed: automotive -19%, smartphones roughly flat, and total revenue only -5.2%. **This means the "automotive drives growth" narrative ends this year, and the company has entered a phase of defending all four businesses at once.**
+Why it matters. Xiaomi's 2024–2025 growth story rested entirely on automotive, with the segment up more than 30% YoY each quarter and masking the decline in smartphones. In Q3 2026 the roles reversed: automotive -19%, smartphones roughly flat, and total revenue only -5.2%. This means the "automotive drives growth" narrative ends this year, and the company has entered a phase of defending all four businesses at once.
 
-Another signal on revenue quality: 0.8% above the consensus. That sounds like good news, but look at the baseline — over the past three months sell-side analysts cut Q3 revenue estimates from RMB 112.0 billion to RMB 106.4 billion, so "above consensus" really means "fell less than feared." **This is not a demand recovery; expectations came down first.**
+Another signal on revenue quality: 0.8% above the consensus. That sounds like good news, but look at the baseline — over the past three months sell-side analysts cut Q3 revenue estimates from RMB 112.0 billion to RMB 106.4 billion, so "above consensus" really means "fell less than feared." This is not a demand recovery; expectations came down first.
 
 ## Layer two: gross margin — the whole story is here
 
-Blended gross margin was 20.2%, down 2.7 percentage points from 22.9% a year earlier. In revenue terms, gross profit fell by RMB 4.24 billion. **The cause of this shortfall is singular and exogenous: memory price increases.**
+Blended gross margin was 20.2%, down 2.7 percentage points from 22.9% a year earlier. In revenue terms, gross profit fell by RMB 4.24 billion. The cause of this shortfall is singular and exogenous: memory price increases.
 
-In early 2026, DRAM contract prices rose 60%–70% and NAND by more than 100%, with memory accounting for 15%–25% of a phone's BOM. Xiaomi responded on three fronts: pre-building inventory to lock in prices, annual supply-chain cost reductions, and price increases on some models. All three were deployed, yet 2.7 percentage points were still lost — showing that **the magnitude of the price increases exceeded what any handset maker could absorb**. Transsion and Honor also saw gross margins decline over the same period; this is not a Xiaomi-specific operating problem.
+In early 2026, DRAM contract prices rose 60%–70% and NAND by more than 100%, with memory accounting for 15%–25% of a phone's BOM. Xiaomi responded on three fronts: pre-building inventory to lock in prices, annual supply-chain cost reductions, and price increases on some models. All three were deployed, yet 2.7 percentage points were still lost — showing that the magnitude of the price increases exceeded what any handset maker could absorb. Transsion and Honor also saw gross margins decline over the same period; this is not a Xiaomi-specific operating problem.
 
-One sequential detail is worth noting: Q3 gross margin of 20.2% was 0.4 percentage points higher than Q2's 19.8%, with gross profit edging up from RMB 21.57 billion to RMB 21.66 billion. **The reason is a sequential recovery in the automotive segment's gross margin (as annual supply-chain cost reductions landed), which offset the continued decline in handsets.** This tells us: handsets have not yet bottomed, but the automotive improvement is real.
+One sequential detail is worth noting: Q3 gross margin of 20.2% was 0.4 percentage points higher than Q2's 19.8%, with gross profit edging up from RMB 21.57 billion to RMB 21.66 billion. The reason is a sequential recovery in the automotive segment's gross margin (as annual supply-chain cost reductions landed), which offset the continued decline in handsets. This tells us: handsets have not yet bottomed, but the automotive improvement is real.
 
 ## Layer 3: Costs and profit — R&D intact, store expansion underway
 
-Gross profit was RMB 4.24 billion lower and adjusted net profit RMB 6.43 billion lower; the RMB 2.19 billion gap is expenses and tax. **Management chose this deliberately; it is not a loss of control.**
+Gross profit was RMB 4.24 billion lower and adjusted net profit RMB 6.43 billion lower; the RMB 2.19 billion gap is expenses and tax. Management chose this deliberately; it is not a loss of control.
 
-R&D exceeds RMB 9 billion a quarter (RMB 9.2 billion in Q2, +18.9% YoY), burning across three lines: the Xuanjie chip, autonomous driving and large AI models. Selling expenses rise with auto store expansion — stores grow from just over 200 in 2026 to more than 300, at millions of RMB per store. Management's logic: **cutting R&D at the cycle trough means selling three years of product strength for one quarter of profit.** I agree with that choice.
+R&D exceeds RMB 9 billion a quarter (RMB 9.2 billion in Q2, +18.9% YoY), burning across three lines: the Xuanjie chip, autonomous driving and large AI models. Selling expenses rise with auto store expansion — stores grow from just over 200 in 2026 to more than 300, at millions of RMB per store. Management's logic: cutting R&D at the cycle trough means selling three years of product strength for one quarter of profit. I agree with that choice.
 
-But the cost must be counted clearly: if R&D holds at RMB 40 billion a year in 2027 and stores add another 100, rigid expense growth will consume half the gross-margin improvement from falling memory prices. **In other words, 2027 profit elasticity is smaller than the market thinks.**
+But the cost must be counted clearly: if R&D holds at RMB 40 billion a year in 2027 and stores add another 100, rigid expense growth will consume half the gross-margin improvement from falling memory prices. In other words, 2027 profit elasticity is smaller than the market thinks.
 
-Net profit was RMB 3.876 billion, -68.4% YoY, RMB 1.008 billion below adjusted net profit — investment items were a negative contributor this quarter. Last year the same period was +RMB 960 million, a RMB 1.97 billion swing that accounts for 23% of the net profit decline. **This item should not enter valuation, but it is a major reason the "net profit" figure looks ugly; strip it out first when reading the statements.**
+Net profit was RMB 3.876 billion, -68.4% YoY, RMB 1.008 billion below adjusted net profit — investment items were a negative contributor this quarter. Last year the same period was +RMB 960 million, a RMB 1.97 billion swing that accounts for 23% of the net profit decline. This item should not enter valuation, but it is a major reason the "net profit" figure looks ugly; strip it out first when reading the statements.
 
 ## Layer four: cash flow and balance sheet — the murkiest layer
 
 This layer carries the least information. The company does not disclose quarterly operating cash flow in its summary; only semi-annual data is available for reference: in the first half of 2026, operating cash flow coverage of net profit has fallen below 1x, as memory stockpiling converted cash into inventory.
 
-The balance sheet is clean: interest-bearing debt is minimal, the company holds net cash, and interest coverage is well above 10x. This means that even if profit continues to decline in 2027, the company faces no solvency risk—**this is one of the grounds for "watching" rather than "avoiding."**
+The balance sheet is clean: interest-bearing debt is minimal, the company holds net cash, and interest coverage is well above 10x. This means that even if profit continues to decline in 2027, the company faces no solvency risk—this is one of the grounds for "watching" rather than "avoiding."
 
-The real concern is inventory. Stockpiling ahead to lock in costs is the right call, but if memory prices fall back in 2027, this batch of high-cost inventory will require impairment provisions. **Rough estimate: if memory-related inventory accounts for 30% of the total and prices fall 20%, the potential impairment is RMB 3–5 billion, equivalent to one quarter's net profit.** This item can only be verified once the annual report's inventory breakdown is available.
+The real concern is inventory. Stockpiling ahead to lock in costs is the right call, but if memory prices fall back in 2027, this batch of high-cost inventory will require impairment provisions. Rough estimate: if memory-related inventory accounts for 30% of the total and prices fall 20%, the potential impairment is RMB 3–5 billion, equivalent to one quarter's net profit. This item can only be verified once the annual report's inventory breakdown is available.
 
 ## Three things invisible at this layer
 
-- **Quarterly handset shipments and ASP.** The announcement only gives combined phone × AIoT revenue, not units or average price. Judging by broadly flat revenue, the likely picture is "slightly higher volume, slightly lower price," but this cannot be confirmed.
+- Quarterly handset shipments and ASP. The announcement only gives combined phone × AIoT revenue, not units or average price. Judging by broadly flat revenue, the likely picture is "slightly higher volume, slightly lower price," but this cannot be confirmed.
 
-- **Cost breakdown for the auto segment.** The company does not disclose how selling expenses, R&D expenses and factory depreciation are allocated to autos. This is the root of the 140% discrepancy in m03.
+- Cost breakdown for the auto segment. The company does not disclose how selling expenses, R&D expenses and factory depreciation are allocated to autos. This is the root of the 140% discrepancy in m03.
 
-- **The order-lock structure for Pengcheng.** "Over 70,000 locked orders in the first month" includes refundable deposits; the conversion rate to firm orders is typically 70%. Real demand must wait for Q4 delivery data.
+- The order-lock structure for Pengcheng. "Over 70,000 locked orders in the first month" includes refundable deposits; the conversion rate to firm orders is typically 70%. Real demand must wait for Q4 delivery data.
 
 ## Appendix: What actually changed within the quarter, on a quarter-on-quarter basis
 
-The year-on-year comparison is distorted by last year's base; the quarter-on-quarter view better reveals the trend. Revenue RMB 108.922 billion → RMB 107.239 billion (-1.5%), gross profit RMB 21.57 billion → RMB 21.66 billion (+0.4%), gross margin 19.8% → 20.2% (+0.4pct), but adjusted net profit RMB 6.219 billion → RMB 4.884 billion (-21.5%). **Gross profit up slightly while net profit falls sharply — this combination shows the problem is not on the production side but in expenses and investments.**
+The year-on-year comparison is distorted by last year's base; the quarter-on-quarter view better reveals the trend. Revenue RMB 108.922 billion → RMB 107.239 billion (-1.5%), gross profit RMB 21.57 billion → RMB 21.66 billion (+0.4%), gross margin 19.8% → 20.2% (+0.4pct), but adjusted net profit RMB 6.219 billion → RMB 4.884 billion (-21.5%). Gross profit up slightly while net profit falls sharply — this combination shows the problem is not on the production side but in expenses and investments.
 
-Work it backwards: gross profit rose RMB 0.09 billion while adjusted net profit fell RMB 1.335 billion; the RMB 1.425 billion in between is the change in expenses, tax and minority interests. R&D was roughly flat (above RMB 9 billion vs RMB 9.2 billion), so the incremental change sits mainly in selling expenses (auto store expansion) and taxes. **This is a textbook quarter of "scale expanding, efficiency lagging."**
+Work it backwards: gross profit rose RMB 0.09 billion while adjusted net profit fell RMB 1.335 billion; the RMB 1.425 billion in between is the change in expenses, tax and minority interests. R&D was roughly flat (above RMB 9 billion vs RMB 9.2 billion), so the increase sits mainly in selling expenses (auto store expansion) and taxes. This is a textbook quarter of "scale expanding, efficiency lagging."
 
-The net profit line is more dramatic quarter-on-quarter: RMB 9.463 billion → RMB 3.876 billion (-59.0%). Same reason — the investment line contributed +RMB 3.24 billion in Q2 and turned to -RMB 1.01 billion in Q3, a RMB 4.25 billion swing. **So when looking at Xiaomi's net profit, always strip out the investment line first, otherwise you will be scared or fooled every quarter.**
+The net profit line is more dramatic quarter-on-quarter: RMB 9.463 billion → RMB 3.876 billion (-59.0%). Same reason — the investment line contributed +RMB 3.24 billion in Q2 and turned to -RMB 1.01 billion in Q3, a RMB 4.25 billion swing. So when looking at Xiaomi's net profit, always strip out the investment line first, otherwise you will be scared or fooled every quarter.
 
 ## Sources
 

@@ -25,31 +25,31 @@ Peer data are rough order-of-magnitude estimates, not checked against each compa
 
 The first layer of the funnel ignores valuation and asks whether the company has a real connection to AI. Three criteria: proprietary compute or models, monetizable AI revenue, and AI that reshapes its core business landscape. Companies meeting all three move to the next layer.
 
-By this standard, Meituan and Xiaomi are screened out first: Meituan is local services, where AI is a tool rather than a business; Xiaomi's valuation framework is hardware plus IoT, and AI is merely a product feature. **Kuaishou meets the first two (it has the Kling model and AI advertising tools) but fails the third** — it has no proprietary compute, and the ceiling on its AI capability depends on whose chips it buys.
+By this standard, Meituan and Xiaomi are screened out first: Meituan is local services, where AI is a tool rather than a business; Xiaomi's valuation framework is hardware plus IoT, and AI is merely a product feature. Kuaishou meets the first two (it has the Kling model and AI advertising tools) but fails the third — it has no proprietary compute, and the ceiling on its AI capability depends on whose chips it buys.
 
 ## Second-layer coarse screening: another cut by whether price reflects value
 
-What remains is Alibaba, Tencent and Baidu. The test at this layer is "whether the market cap leaves room for an AI-driven expectation gap." **Tencent's problem is a good company without a good price**: social cash flow is too stable, the market has never valued it cheaply, AI is a bonus rather than a re-rating driver, and a PE around twenty times already prices in what is deserved.
+What remains is Alibaba, Tencent and Baidu. The test at this layer is "whether the market cap leaves room for an AI-driven expectation gap." Tencent's problem is a good company without a good price: social cash flow is too stable, the market has never valued it cheaply, AI is a bonus rather than a re-rating driver, and a PE around twenty times already prices in what is deserved.
 
-**Alibaba's problem is that "the re-rating has already happened"**: Alibaba Cloud is in China's first tier, the market began pricing the cloud business separately from 2025, and the share price already embeds that expectation. Buying Alibaba means buying "cloud keeps beating expectations," not "cloud is undervalued."
+Alibaba's problem is that "the re-rating has already happened": Alibaba Cloud is in China's first tier, the market began pricing the cloud business separately from 2025, and the share price already embeds that expectation. Buying Alibaba means buying "cloud keeps beating expectations," not "cloud is undervalued."
 
-Baidu is the only company with "an AI business of scale but no money in the market cap" — a market cap of HKD 168 billion, lower than its cash and investments on the books. **What this layer screens out is not "the best company" but "the most unpriced AI asset."**
+Baidu is the only company with "an AI business of scale but no money in the market cap" — a market cap of HKD 168 billion, lower than its cash and investments on the books. What this layer screens out is not "the best company" but "the most unpriced AI asset."
 
 ## Final pick: why Baidu, and why only "Watch"
 
-Baidu is the final pick for one reason: **it is the only name in this sector whose margin of safety can be calculated from assets.** PB 0.52; cash and investments of RMB 276.6 billion are 1.8x the RMB 153.0 billion market cap; AI Cloud at RMB 8.2 billion/quarter, +94%; Apollo Go in 30 cities. On SOTP, the neutral case is HKD 85, 34% above the current price.
+Baidu is the final pick for one reason: it is the only name in this sector whose margin of safety can be calculated from assets. PB 0.52; cash and investments of RMB 276.6 billion are 1.8x the RMB 153.0 billion market cap; AI Cloud at RMB 8.2 billion/quarter, +94%; Apollo Go in 30 cities. On SOTP, the neutral case is HKD 85, 34% above the current price.
 
-But the case for watchlist-only is equally clear: it is the only one of the six with negative revenue growth (-1.1%), the only one with a sharp non-GAAP net profit decline (-36%), and the only one whose gross margin has fallen to 35%.**It is cheap not because it has been mispriced, but because it is in decline — the market has priced it correctly.**
+But the case for watchlist-only is equally clear: it is the only one of the six with negative revenue growth (-1.1%), the only one with a sharp non-GAAP net profit decline (-36%), and the only one whose gross margin has fallen to 35%.It is cheap not because it has been mispriced, but because it is in decline — the market has priced it correctly.
 
-So the real conclusion of this screen is: **in China internet and AI, there is no "cheap and good" target.** The good ones are not cheap (Tencent, Alibaba); the cheap one is in decline (Baidu). Baidu makes the cut because it is "cheap + optionality," not because it is "good." That is also why the position can only be 0–2%.
+So the real conclusion of this screen is: in China internet and AI, there is no "cheap and good" target. The good ones are not cheap (Tencent, Alibaba); the cheap one is in decline (Baidu). Baidu makes the cut because it is "cheap + optionality," not because it is "good." That is also why the position can only be 0–2%.
 
 ## The funnel's blind spot: where this framework could pick wrong
 
-The funnel screen has two structural blind spots, and they are especially lethal for Baidu. **First, it screens on financial metrics and cannot see how fast user behavior is migrating.** Ad revenue -22% is the result; users asking questions in a chat box is the cause. The funnel sees only the result, not whether the cause will accelerate. If the migration accelerates in 2027, today's calculated "cheap" becomes tomorrow's "cheaper."
+The funnel screen has two structural blind spots, and they are especially lethal for Baidu. First, it screens on financial metrics and cannot see how fast user behavior is migrating. Ad revenue -22% is the result; users asking questions in a chat box is the cause. The funnel sees only the result, not whether the cause will accelerate. If the migration accelerates in 2027, today's calculated "cheap" becomes tomorrow's "cheaper."
 
-**Second, it treats low PB as safety, but low PB may be the market correctly pricing low ROE.** For a company with ROE of 1.9%, net assets should inherently trade at a discount to shareholder value—0.52x PB is not a mispricing; it is a fair price calculated on a 2% return. If the funnel only looks at "PB below 1," it will mistake such companies for opportunities.
+Second, it treats low PB as safety, but low PB may be the market correctly pricing low ROE. For a company with ROE of 1.9%, net assets should inherently trade at a discount to shareholder value—0.52x PB is not a mispricing; it is a fair price calculated on a 2% return. If the funnel only looks at "PB below 1," it will mistake such companies for opportunities.
 
-Having acknowledged these two blind spots, one sentence in the funnel's conclusion needs revising: **Baidu was selected not because it is "undervalued," but because "the downside has asset support and the upside has optionality"—**neither of which depends on "the market being wrong," only on "time being long enough." This is also why the position can only be 0–2%: if the judgment is wrong, the loss is limited; if right, even a 6% position can contribute meaningful returns.
+Having acknowledged these two blind spots, one sentence in the funnel's conclusion needs revising: Baidu was selected not because it is "undervalued," but because "the downside has asset support and the upside has optionality"—neither of which depends on "the market being wrong," only on "time being long enough." This is also why the position can only be 0–2%: if the judgment is wrong, the loss is limited; if right, even a 6% position can contribute meaningful returns.
 
 ## Sources
 

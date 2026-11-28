@@ -23,23 +23,23 @@ Margins at each link of the value chain are industry-level estimates (rough calc
 
 ## Upstream: it sells "certainty", not insurance
 
-The top of the insurance value chain is not product design but **claims-paying capacity**. In a USD 50 billion catastrophe, no more than five companies worldwide can pay out in one go without affecting their ratings, and Berkshire is one of them. This gives it absolute pricing power in categories others dare not underwrite: large liability, terrorism and stadium cover.
+The top of the insurance value chain is not product design but claims-paying capacity. In a USD 50 billion catastrophe, no more than five companies worldwide can pay out in one go without affecting their ratings, and Berkshire is one of them. This gives it absolute pricing power in categories others dare not underwrite: large liability, terrorism and stadium cover.
 
 Auto insurance is the other end: GEICO sells a standardized product, and customers compare prices and claims speed with no loyalty. At this end, margins are being continuously compressed by Progressive's data-driven pricing, and this quarter's -45% is the evidence.
 
-So the "upstream" must be viewed in two halves: **commercial insurance is the moat, auto insurance is the battlefield.** The former delivers stable but limited scale; the latter delivers large scale but thin profit.
+So the "upstream" must be viewed in two halves: commercial insurance is the moat, auto insurance is the battlefield. The former delivers stable but limited scale; the latter delivers large scale but thin profit.
 
 ## Midstream: capital allocation is its real "core business"
 
 The most accurate way to view Berkshire is as "a capital allocation company." Its product is "converting low-cost liabilities into high-return assets," its customers are shareholders, and its suppliers are policyholders.
 
-The key to this business is the **purchase price**, not operational improvement. Buying Precision Castparts for RMB 32.1 billion in 2016 was the wrong price (roughly RMB 9.8 billion written down in 2020); buying Japan's five major trading houses in 2020 was the right price (dividend yield 5%+, financing cost 0.5%). Same company, same method — the difference lies in price.
+The key to this business is the purchase price, not operational improvement. Buying Precision Castparts for RMB 32.1 billion in 2016 was the wrong price (roughly RMB 9.8 billion written down in 2020); buying Japan's five major trading houses in 2020 was the right price (dividend yield 5%+, financing cost 0.5%). Same company, same method — the difference lies in price.
 
-The problem now is **no price**: RMB 377.4 billion in cash, three years without a single deployment above USD 30 billion. The middle-machine is idling, and this is the biggest risk to the valuation.
+The problem now is no price: RMB 377.4 billion in cash, three years without a single deployment above USD 30 billion. The middle-machine is idling, and this is the biggest risk to the valuation.
 
 ## Downstream: three regulated cash-flow machines
 
-BNSF is one of the two oligopolists in the western United States, with a rail network that cannot be replicated, but its freight rates are constrained by truck competition and the Surface Transportation Board. Its value lies not in growth but in **"replacement cost far above book value"**—building a transcontinental railroad today would cost several hundred billion dollars.
+BNSF is one of the two oligopolists in the western United States, with a rail network that cannot be replicated, but its freight rates are constrained by truck competition and the Surface Transportation Board. Its value lies not in growth but in "replacement cost far above book value"—building a transcontinental railroad today would cost several hundred billion dollars.
 
 BHE is the most capital-rich player among regulated utilities, and data-center electricity demand is turning the industry from a "bond substitute" into a "utility with volume." But wildfire litigation is a long-term tail risk; several cases combined could reach USD 10 billion or more.
 
@@ -47,9 +47,9 @@ Manufacturing, services and retail is a grab bag: aerospace forgings (PCP), lubr
 
 ## Cycle position: four sub-sectors, four different clocks
 
-**Insurance: hard market peaking, drifting toward the mid-cycle.** Combined ratio 91.4% versus the industry average of 96%–98%, with 2–3 more quarters of decline but no collapse. **Rail: recovering off the bottom.** Intermodal volumes pick up with restocking, rates flat — "volume up, price flat." **Power: early stage of demand upcycle.** Data-center electricity use pushes US power demand growth from 0.5% to 2%–3%; the capex cycle has just begun. **Manufacturing: tracking the industrial cycle, mild expansion.**
+Insurance: hard market peaking, drifting toward the mid-cycle. Combined ratio 91.4% versus the industry average of 96%–98%, with 2–3 more quarters of decline but no collapse. Rail: recovering off the bottom. Intermodal volumes pick up with restocking, rates flat — "volume up, price flat." Power: early stage of demand upcycle. Data-center electricity use pushes US power demand growth from 0.5% to 2%–3%; the capex cycle has just begun. Manufacturing: tracking the industrial cycle, mild expansion.
 
-The four clocks do not point in the same direction at once; combined, they produce a mild -5.8% decline. **This lack of synchronization is the value of a conglomerate — and the reason it will never run fast.**
+The four clocks do not point in the same direction at once; combined, they produce a mild -5.8% decline. This lack of synchronization is the value of a conglomerate — and the reason it will never run fast.
 
 ## Sources
 

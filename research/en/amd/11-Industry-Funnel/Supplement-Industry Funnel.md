@@ -25,7 +25,7 @@ Screening thresholds: revenue growth ≥30%, gross margin ≥45%, ROE ≥15% —
 
 Criterion one, growth ≥30%: Nvidia +106%, AMD +50%, Broadcom +70%, TSMC +35%, Marvell +40% pass; Intel's single-digit growth fails. Criterion two, gross margin ≥45%: Intel at 35% fails; all others pass. Criterion three, ROE ≥15%: AMD at 10%, Marvell at 10% and Intel negative — three fail.
 
-After the three screens, Nvidia, TSMC and Broadcom remain. **The result is no surprise — profit in the AI compute chain concentrates in these three: one defines the ecosystem, one defines manufacturing, one defines custom silicon.**
+After the three screens, Nvidia, TSMC and Broadcom remain. The result is no surprise — profit in the AI compute chain concentrates in these three: one defines the ecosystem, one defines manufacturing, one defines custom silicon.
 
 AMD is stuck on ROE because its 2022 Xilinx acquisition was paid in stock, inflating net assets to RMB 63 billion while profit has only just recovered. This is not fatal, but its role in the screen is to remind you that the company's capital efficiency has not yet reached top-tier.
 
@@ -33,7 +33,7 @@ AMD is stuck on ROE because its 2022 Xilinx acquisition was paid in stock, infla
 
 NVIDIA's strength is an "irreplaceable ecosystem plus system-level delivery"; its weaknesses are price (28x TTM is not expensive, but a USD 5 trillion market cap demands it beat expectations every year) and off-balance-sheet commitments (USD 530.5 billion). TSMC's strength is "irreplaceable manufacturing plus pricing power"; its weaknesses are geopolitics (all capacity in Taiwan) and capital-expenditure intensity.
 
-Why does AMD fail to make the final cut? Three reasons. First, its growth depends on a rival's capacity, which it does not control. Second, its gross-margin ceiling is capped near 60%, because it sells components, not systems. Third, and most important — **the current price already discounts 70% of the "doubling by 2027" scenario; buying it means buying "above consensus", and the probability of exceeding consensus is no more than 30%.**
+Why does AMD fail to make the final cut? Three reasons. First, its growth depends on a rival's capacity, which it does not control. Second, its gross-margin ceiling is capped near 60%, because it sells components, not systems. Third, and most important — the current price already discounts 70% of the "doubling by 2027" scenario; buying it means buying "above consensus", and the probability of exceeding consensus is no more than 30%.
 
 If forced to pick one "challenger" between AMD and Broadcom, this report picks Broadcom: its custom ASIC business carries a 75% gross margin, its customers are Google, Meta and ByteDance, order visibility extends three years, and it trades at 18x FY27. AMD's story is sexier; Broadcom's business is sturdier.
 
@@ -41,13 +41,13 @@ If forced to pick one "challenger" between AMD and Broadcom, this report picks B
 
 Strictly speaking, this report is not a "recommendation of AMD" but an "assessment of AMD." The conclusion: it is the most elastic name in this chain, and also the most expensive.
 
-**If the investor's goal is "exposure to AI compute," the optimal solution is not AMD but TSMC (manufacturing monopoly + 28x) or Nvidia (ecosystem monopoly + 28x).**AMD suits investors who "believe the second supplier's share will rise from 9% to 20%" — a judgment that must be verified each quarter against earnings.So the funnel's conclusion: AMD stays in the watchlist, not the buy list. Wait for its price to fall to a level where "even if share only reaches 15%, you don't lose" — below USD 350.
+If the investor's goal is "exposure to AI compute," the optimal solution is not AMD but TSMC (manufacturing monopoly + 28x) or Nvidia (ecosystem monopoly + 28x).AMD suits investors who "believe the second supplier's share will rise from 9% to 20%" — a judgment that must be verified each quarter against earnings.So the funnel's conclusion: AMD stays in the watchlist, not the buy list. Wait for its price to fall to a level where "even if share only reaches 15%, you don't lose" — below USD 350.
 
-Marvell deserves a separate mention. It is the second supplier of custom ASICs (after Broadcom), with Amazon and Microsoft as customers, 40% growth and 60% gross margin — the business quality is not bad. It was eliminated because ROE is only 10% — again, acquisitions inflated equity.**This is the same disease as AMD: good business + poor capital structure.**The difference between the two is valuation: Marvell at 35x, AMD at 125x.
+Marvell deserves a separate mention. It is the second supplier of custom ASICs (after Broadcom), with Amazon and Microsoft as customers, 40% growth and 60% gross margin — the business quality is not bad. It was eliminated because ROE is only 10% — again, acquisitions inflated equity.This is the same disease as AMD: good business + poor capital structure.The difference between the two is valuation: Marvell at 35x, AMD at 125x.
 
-Why can't TSMC be left out? Because it is the only foundry that can achieve 70% yield on N2, and both AMD and Nvidia have to queue up. Buying TSMC is buying "the water seller's water seller," at a valuation of 28x — more than four times cheaper than AMD.**Same industry trend, two completely different risk-reward structures.**
+Why can't TSMC be left out? Because it is the only foundry that can achieve 70% yield on N2, and both AMD and Nvidia have to queue up. Buying TSMC is buying "the water seller's water seller," at a valuation of 28x — more than four times cheaper than AMD.Same industry trend, two completely different risk-reward structures.
 
-Intel is the cautionary tale in this table. It has three things AMD lacks: its own fabs, the original x86 license, and the backing of a US government stake. But its gross margin is only 35%, because the foundry business is losing money and 18A yields have not ramped.**Owning manufacturing is not necessarily an advantage — when the process lags, it is a burden.**AMD sold off manufacturing fifteen years ago; today that looks right.
+Intel is the cautionary tale in this table. It has three things AMD lacks: its own fabs, the original x86 license, and the backing of a US government stake. But its gross margin is only 35%, because the foundry business is losing money and 18A yields have not ramped.Owning manufacturing is not necessarily an advantage — when the process lags, it is a burden.AMD sold off manufacturing fifteen years ago; today that looks right.
 
 ## Sources
 

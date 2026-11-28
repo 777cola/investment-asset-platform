@@ -24,48 +24,51 @@ Position sizing is a percentage of total equity exposure, set as a discipline fo
 
 ## Why no base position: paying 28x for profit down 43%
 
-A common approach is "buy a little first, add on dips." That does not work with Xiaomi, because **its decline is fundamentally driven** — not a sentiment selloff, but EPS downgrades.
+A common approach is "buy a little first, add on dips." That does not work with Xiaomi, because its decline is fundamentally driven — not a sentiment selloff, but EPS downgrades.
 
-Do the math: 2026 net profit of RMB 24.6 billion at 28x gives a market cap of RMB 687.2 billion. If 2027 net profit falls to RMB 20.0 billion (bear case), the same 28x gives a market cap of just RMB 559.0 billion, equivalent to HKD 23.6. **In other words, doing nothing, with profit simply tracking the bear case, leaves 19% more downside in the stock.**
+Do the math: 2026 net profit of RMB 24.6 billion at 28x gives a market cap of RMB 687.2 billion. If 2027 net profit falls to RMB 20.0 billion (bear case), the same 28x gives a market cap of just RMB 559.0 billion, equivalent to HKD 23.6. In other words, doing nothing, with profit simply tracking the bear case, leaves 19% more downside in the stock.
 
-"Buy a little first" carries negative expectancy in this structure. **A 0 position is not conservatism — it is a decision made after running the numbers.**
+"Buy a little first" carries negative expectancy in this structure. A 0 position is not conservatism — it is a decision made after running the numbers.
 
 ## Why HKD 24 is the first entry point
 
-HKD 24 corresponds to 23x 2026E and 20x 2027E (base case RMB 30 billion). What this multiple means: **the market is pricing only "manufacturing + a bit of growth," not an "ecosystem premium."**
+HKD 24 corresponds to 23x 2026E and 20x 2027E (base case RMB 30 billion). What this multiple means: the market is pricing only "manufacturing + a bit of growth," not an "ecosystem premium."
 
-At HKD 24, the risk/reward across the three scenarios becomes: bull 40.1 (+67%), base 25.3 (+5%), bear 12.7 (-47%). **Expected value is about HKD 24.5, slightly above the entry price — shifting from negative expectancy to marginally positive.**
+At HKD 24, the risk/reward across the three scenarios becomes: bull 40.1 (+67%), base 25.3 (+5%), bear 12.7 (-47%). Expected value is about HKD 24.5, slightly above the entry price — shifting from negative expectancy to marginally positive.
 
 This is not "so cheap you buy with your eyes closed"; it is "the risk/reward is finally not a loss." So we hold only 3% and add no more.
 
 ## Why stop-losses should be based on gross margin, not share price
 
-Most people set stop-losses on price, e.g. exit after a 20% drop. On cyclicals this rule gets you hurt both ways: **a 20% drop may be indiscriminate selling (add), or a broken business (exit); price cannot tell them apart.**
+Most people set stop-losses on price, e.g. exit after a 20% drop. On cyclicals this rule gets you hurt both ways: a 20% drop may be indiscriminate selling (add), or a broken business (exit); price cannot tell them apart.
 
-Gross margin can. Smartphone gross margin of 8.5% is cyclical (memory price hikes); below 7% is the business (worse than contract manufacturing); auto gross margin of 19.2% is competition (price war); below 15% is the model (cannot cover fixed costs). **Both lines mark the boundary between "structural" and "cyclical."**
+Gross margin can. Smartphone gross margin of 8.5% is cyclical (memory price hikes); below 7% is the business (worse than contract manufacturing); auto gross margin of 19.2% is competition (price war); below 15% is the model (cannot cover fixed costs). Both lines mark the boundary between "structural" and "cyclical."
 
-So the discipline is: **when price falls, look at gross margin to decide whether to add or wait; when gross margin breaks the line, exit regardless of price.**
+So the discipline is: when price falls, look at gross margin to decide whether to add or wait; when gross margin breaks the line, exit regardless of price.
 
 ## Correlation with other holdings: it is not a diversification tool
 
 Xiaomi's correlation with several asset classes is roughly as follows (a rough estimate, based on directional judgment from 2026 daily data):
 
-- **With Hang Seng Tech: around 0.8.** Highly correlated — buying it is equivalent to levered exposure to Hong Kong tech.
-- **With new-energy vehicles (BYD, Li Auto, Tesla): 0.6–0.7.** The auto business makes it increasingly resemble an automaker.
-- **With memory stocks (Samsung, SK hynix, GigaDevice): around negative 0.3.** Opposite on the cost side — memory prices rise, Xiaomi's gross margin falls.
-- **With the Apple chain: around 0.5.** Both are consumer electronics, but the Apple chain earns contract-manufacturing fees, a different logic.
+- With Hang Seng Tech: around 0.8. Highly correlated — buying it is equivalent to levered exposure to Hong Kong tech.
 
-**Conclusion: Xiaomi cannot be used to diversify Hong Kong tech exposure; it only amplifies it.** If allocating, positions in Hang Seng Tech or automakers must be cut, otherwise total exposure will spiral out of control.
+- With new-energy vehicles (BYD, Li Auto, Tesla): 0.6–0.7. The auto business makes it increasingly resemble an automaker.
+
+- With memory stocks (Samsung, SK hynix, GigaDevice): around negative 0.3. Opposite on the cost side — memory prices rise, Xiaomi's gross margin falls.
+
+- With the Apple chain: around 0.5. Both are consumer electronics, but the Apple chain earns contract-manufacturing fees, a different logic.
+
+Conclusion: Xiaomi cannot be used to diversify Hong Kong tech exposure; it only amplifies it. If allocating, positions in Hang Seng Tech or automakers must be cut, otherwise total exposure will spiral out of control.
 
 ## Three portfolio-level disciplines
 
-**First, no single position above 10%.** Xiaomi's governance structure (one-man decision-making) means it should carry a position cap, however bullish the view.
+First, no single position above 10%. Xiaomi's governance structure (one-man decision-making) means it should carry a position cap, however bullish the view.
 
-**Second, no overlap with similar holdings.** If BYD or a Hang Seng Tech ETF is already held, Xiaomi's position should be reduced accordingly.
+Second, no overlap with similar holdings. If BYD or a Hang Seng Tech ETF is already held, Xiaomi's position should be reduced accordingly.
 
-**Third, hard-code trigger conditions; no judgment calls in the moment.** Buy 3% at HKD 24, buy 6% at HKD 19, add to 8% if gross margin holds at 10% or above for two quarters, exit in full on a line break — four rules written in advance, so execution needs no "let me think again."
+Third, hard-code trigger conditions; no judgment calls in the moment. Buy 3% at HKD 24, buy 6% at HKD 19, add to 8% if gross margin holds at 10% or above for two quarters, exit in full on a line break — four rules written in advance, so execution needs no "let me think again."
 
-The core of this discipline: **separate "I like this company" from "do I buy it now."** The former is a research conclusion (a good company); the latter is an odds calculation (not cheap).
+The core of this discipline: separate "I like this company" from "do I buy it now." The former is a research conclusion (a good company); the latter is an odds calculation (not cheap).
 
 ## Sources
 

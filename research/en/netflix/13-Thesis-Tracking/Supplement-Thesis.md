@@ -22,43 +22,43 @@ The five assumptions form this report's own framework, and all verification metr
 
 ## Assumption one: pricing power — already proven with three numbers
 
-Prices rose in 2026, churn fell year over year, and the operating margin climbed from 29.5% to 31.5%. **Read together, the three numbers form a complete chain of evidence: price hike → customers stayed → margin expanded.**
+Prices rose in 2026, churn fell year over year, and the operating margin climbed from 29.5% to 31.5%. Read together, the three numbers form a complete chain of evidence: price hike → customers stayed → margin expanded.
 
-Why does this matter? Because it determines where revenue growth comes from. If growth comes from new subscriber acquisition, the company must keep buying traffic and running marketing, which drags on margin; if growth comes from price hikes, it is almost pure profit. **Of Netflix's current 11.8% growth, the main contributors are price hikes and advertising, with membership count contributing very little.**
+Why does this matter? Because it determines where revenue growth comes from. If growth comes from new subscriber acquisition, the company must keep buying traffic and running marketing, which drags on margin; if growth comes from price hikes, it is almost pure profit. Of Netflix's current 11.8% growth, the main contributors are price hikes and advertising, with membership count contributing very little.
 
-The risk is the ceiling on price hikes. The US standard tier already sits close to cable TV pricing, and further increases will run into a psychological threshold. **The way to monitor this is churn in the 3 months after a price hike — a jump of more than 1 percentage point from the current level would signal the ceiling has been reached.**
+The risk is the ceiling on price hikes. The US standard tier already sits close to cable TV pricing, and further increases will run into a psychological threshold. The way to monitor this is churn in the 3 months after a price hike — a jump of more than 1 percentage point from the current level would signal the ceiling has been reached.
 
 ## Assumption 2: Advertising as the second growth curve — the most uncertain one
 
-USD 2.7 billion, or 5.3% of revenue. **The test for this assumption is clear: reaching above USD 3.5 billion by 2027 qualifies it as a "second curve"; stuck at USD 2.7 billion, it is merely a "side dish."**
+USD 2.7 billion, or 5.3% of revenue. The test for this assumption is clear: reaching above USD 3.5 billion by 2027 qualifies it as a "second curve"; stuck at USD 2.7 billion, it is merely a "side dish."
 
-Why does this determine valuation elasticity? Because advertising revenue commands a far higher valuation multiple than subscription revenue. Subscriptions grow linearly, are predictable, and have a clear ceiling; advertising is cyclical, highly elastic, and has a high ceiling. **The market assigns pure advertising companies 25–30x PE and subscription companies 15–20x.**
+Why does this determine valuation elasticity? Because advertising revenue commands a far higher valuation multiple than subscription revenue. Subscriptions grow linearly, are predictable, and have a clear ceiling; advertising is cyclical, highly elastic, and has a high ceiling. The market assigns pure advertising companies 25–30x PE and subscription companies 15–20x.
 
-Expanding into 15 new countries in March 2027 is the first hard milestone. If advertising revenue grows more than 15% quarter on quarter in the two quarters after expansion, the assumption holds; below 8%, it can basically be judged a failure. **At that point, the base case must be cut to the bear case, and the target price lowered from 79 to around 60.**
+Expanding into 15 new countries in March 2027 is the first hard milestone. If advertising revenue grows more than 15% quarter on quarter in the two quarters after expansion, the assumption holds; below 8%, it can basically be judged a failure. At that point, the base case must be cut to the bear case, and the target price lowered from 79 to around 60.
 
 ## Assumption 3: Margins hold at 32% — the toughest test for 2027
 
-2026 guidance is 31.5%, and 2027 must hold 32%, implying a further 0.5 percentage point gain. **That sounds easy, but three forces are dragging it down: rising sports rights costs, restructuring costs after layoffs, and narrowing room for price increases.**
+2026 guidance is 31.5%, and 2027 must hold 32%, implying a further 0.5 percentage point gain. That sounds easy, but three forces are dragging it down: rising sports rights costs, restructuring costs after layoffs, and narrowing room for price increases.
 
-Q4 guidance of 26.0% is a warning. Although it includes 1.2 points of severance costs, part of the remaining 7.4 point sequential decline (from 34.6%) is structural — concentrated content launches, high marketing spend, sports rights amortization. **If Q4 2027 is still 26%, the full year cannot hold 32%.**
+Q4 guidance of 26.0% is a warning. Although it includes 1.2 points of severance costs, part of the remaining 7.4 point sequential decline (from 34.6%) is structural — concentrated content launches, high marketing spend, sports rights amortization. If Q4 2027 is still 26%, the full year cannot hold 32%.
 
-This assumption carries the highest weight because it affects both profit and narrative. **A 2 point margin decline cuts EPS by 8%, and the market will reclassify the company as a "content company with runaway costs," compressing the valuation multiple.** A double hit. So if this breaks, it is not a matter of trimming the position — it is a full exit.
+This assumption carries the highest weight because it affects both profit and narrative. A 2 point margin decline cuts EPS by 8%, and the market will reclassify the company as a "content company with runaway costs," compressing the valuation multiple. A double hit. So if this breaks, it is not a matter of trimming the position — it is a full exit.
 
 ## Assumptions 4 and 5: buybacks and content efficiency—two pillars of downside protection
 
-**The buyback thesis holds, but with limits.** Q3 buybacks were RMB 4.8 billion, authorization remaining RMB 22.3 billion, net debt RMB 7.1 billion (0.44x operating profit). The limit: buybacks ran at 1.66x FCF, with the gap funded by cash and debt. **The metric to watch is net debt/operating profit; stop adding above 1x.**
+The buyback thesis holds, but with limits. Q3 buybacks were RMB 4.8 billion, authorization remaining RMB 22.3 billion, net debt RMB 7.1 billion (0.44x operating profit). The limit: buybacks ran at 1.66x FCF, with the gap funded by cash and debt. The metric to watch is net debt/operating profit; stop adding above 1x.
 
-**The content-efficiency thesis also holds.** FCF growth of 8.4% trails revenue growth of 11.8%, indicating content cash spending is accelerating but not out of control; FCF/net income of 93% sits in the healthy 85%–100% range. **Watch this ratio; below 80% means content investment is starting to erode cash flow.**
+The content-efficiency thesis also holds. FCF growth of 8.4% trails revenue growth of 11.8%, indicating content cash spending is accelerating but not out of control; FCF/net income of 93% sits in the healthy 85%–100% range. Watch this ratio; below 80% means content investment is starting to erode cash flow.
 
-Both are downside protection, not upside drivers. They won't push the stock up, but they will keep it from falling — **because a company buying back RMB 19 billion a year with RMB 12 billion of FCF and 0.44x net debt will find strong buyers at USD 45.**
+Both are downside protection, not upside drivers. They won't push the stock up, but they will keep it from falling — because a company buying back RMB 19 billion a year with RMB 12 billion of FCF and 0.44x net debt will find strong buyers at USD 45.
 
 ## Falsification conditions and monitoring calendar
 
-Three falsification triggers: **1) 2027 revenue guidance of single-digit growth; 2) 2027 operating margin falling below 30%; 3) net debt/operating profit exceeding 1x.** If any one of the three appears, the thesis is void and the action is to trim or exit entirely — regardless of the share price at the time.
+Three falsification triggers: 1) 2027 revenue guidance of single-digit growth; 2) 2027 operating margin falling below 30%; 3) net debt/operating profit exceeding 1x. If any one of the three appears, the thesis is void and the action is to trim or exit entirely — regardless of the share price at the time.
 
-Watch calendar: **mid-to-late January 2027** Q4 results (check whether revenue is ≥ RMB 13.3 billion, whether Q4 operating margin is ≥26.0%, and the first sentence of 2027 guidance); **March 2027** advertising expansion into 15 countries goes live; **April 2027** Q1 results (check advertising revenue QoQ and churn rate); **every quarter** check buyback amount and net debt.
+Watch calendar: mid-to-late January 2027 Q4 results (check whether revenue is ≥ RMB 13.3 billion, whether Q4 operating margin is ≥26.0%, and the first sentence of 2027 guidance); March 2027 advertising expansion into 15 countries goes live; April 2027 Q1 results (check advertising revenue QoQ and churn rate); every quarter check buyback amount and net debt.
 
-This calendar is more useful than a target price. **A target price is a guess; a calendar waits for facts.** In the end, investing earns money from "waiting for facts to materialize," not from "guessing the price right."
+This calendar is more useful than a target price. A target price is a guess; a calendar waits for facts. In the end, investing earns money from "waiting for facts to materialize," not from "guessing the price right."
 
 ## Sources
 

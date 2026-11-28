@@ -10,7 +10,7 @@ Eight long-form articles based on Tesla's Q2 2026 earnings (2026/07/22) and publ
 
 ## How to read the eight articles
 
-Read in this order: 01 get the classification right first, 02 examine the nature of the business, 03 examine the moat, 04 examine the financial reality, 05 examine the industry position, 06 examine the people, 07 examine the risks, 08 arrive at a decision. The first four pieces cover "what it is"; the last four cover "whether to buy".
+Read in this order: 01 get the classification right, 02 examine the nature of the business, 03 examine the moat, 04 examine the financial reality, 05 examine the industry position, 06 examine the people, 07 examine the risks, 08 arrive at a decision. The first four cover "what it is"; the last four cover "whether to buy it."
 
 ## Sources
 

@@ -24,13 +24,13 @@ Correlations are rough approximations based on daily returns from 2026/05/11 to 
 
 Current price 483.36. Bear case 240 (-50%), base case 475 (-2%), bull case 720 (+49%). Probability-weighted at 35/45/20, expected value 442, 8.6% below the current price.
 
-Another angle: to make money at the current price, 2027 EPS must exceed USD 20 (the company's target) and the market must be willing to pay more than 25x. This report puts the probability of both holding at 30%. To lose money, EPS only needs to stall at USD 15 or the multiple to fall back to 18x, a 50% probability. **A 30% win rate with 1:1 odds is the worst table in the casino.**
+Another angle: to make money at the current price, 2027 EPS must exceed USD 20 (the company's target) and the market must be willing to pay more than 25x. This report puts the probability of both holding at 30%. To lose money, EPS only needs to stall at USD 15 or the multiple to fall back to 18x, a 50% probability. A 30% win rate with 1:1 odds is the worst table in the casino.
 
 ## Correlation: Buying it does not equal diversification
 
 AMD's daily return correlation with Nvidia is about 0.85, with the Philadelphia Semiconductor Index about 0.9, and with Broadcom about 0.7. The implication is straightforward: if the portfolio already holds Nvidia or a semiconductor ETF, buying AMD merely amplifies the same risk 1.3x and does not reduce volatility.
 
-The bigger problem is narrative overlap. Nvidia, Broadcom, AMD and TSMC are driven by the same variable — AI capex. When that variable turns, all four fall together; the diversification is illusory. **True diversification must span industries, not stocks.**
+The bigger problem is narrative overlap. Nvidia, Broadcom, AMD and TSMC are driven by the same variable — AI capex. When that variable turns, all four fall together; the diversification is illusory. True diversification must span industries, not stocks.
 
 If one must allocate within semiconductors, this report's ranking is: TSMC (certainty) > Nvidia (ecosystem) > Broadcom (valuation) > AMD (elasticity). AMD ranks last not because it is the worst, but because it is the most expensive.
 
@@ -40,9 +40,11 @@ If you built a 2% position at USD 450 on the "evidence first" basis, set the sto
 
 Rebalancing: trim to 6% when a single position exceeds 8% of the portfolio; halve the position when AMD rises above USD 700 (29x 2027 EPS), because at that point the price is already pricing 2028, and visibility into 2028 is zero.
 
-**What not to do: don't add the day before earnings, don't bottom-fish on an unexplained selloff, don't use leverage.** These three rules matter especially for high-beta growth stocks — the -13.2% over two days on 28–29 July would turn into a permanent loss with leverage.One more practical constraint: cash and concentration. If the portfolio already holds 5% in Nvidia and 3% in TSMC, adding 5% in AMD takes semiconductor exposure to 13%. That number shrinks across the board when AI capex turns.**Position sizing isn't about a single stock; it's about total exposure to the same risk factor.** The 5% cap in this report assumes AMD is the only semiconductor holding.
+What not to do: don't add the day before earnings, don't bottom-fish on an unexplained selloff, don't use leverage. These three rules matter especially for high-beta growth stocks — the -13.2% over two days on 28–29 July would turn into a permanent loss with leverage.One more practical constraint: cash and concentration. If the portfolio already holds 5% in Nvidia and 3% in TSMC, adding 5% in AMD takes semiconductor exposure to 13%. That number shrinks across the board when AI capex turns.Position sizing isn't about a single stock; it's about total exposure to the same risk factor. The 5% cap in this report assumes AMD is the only semiconductor holding.
 
-When to sell? Three conditions: ① the thesis is disproven (gross margin One practical addition: if you built 3% at USD 350 and it later rises to 500, don't rush to trim. 500 corresponds to 26x 2027 EPS, not yet "expensive"; trim by half only at 700 (29x).**The criterion for taking profit is valuation, not the size of the gain.**
+When to sell? Three conditions: ① the thesis is disproven (gross margin Don't sell because you're "up 30%", and don't sell because you're "down 20%". Sell for a reason, not an emotion.
+
+One practical addition: if you built 3% at USD 350 and it later rises to 500, don't rush to trim. 500 corresponds to 26x 2027 EPS, not yet "expensive"; trim by half only at 700 (29x).The criterion for taking profit is valuation, not the size of the gain.
 
 ## Sources
 

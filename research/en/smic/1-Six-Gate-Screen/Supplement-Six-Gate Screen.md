@@ -28,11 +28,11 @@ How foundry money is made fits on one page: buy equipment, build lines, turn des
 
 Revenue also splits by five end applications: smartphones 18.9%, computers and tablets 13.6%, consumer electronics 46.2%, connectivity and wearables 7.3%, industrial and automotive 14.0%, with China at 88.9%. Which downstream segment is restocking is plain at a glance.
 
-Two points off for the economics of advanced nodes. N+2 (7nm-class) and N+3 (5nm-class) rely on DUV multi-patterning, and the company never discloses yield or per-die cost. **You can understand the business but cannot calculate what it is worth.**
+Two points off for the economics of advanced nodes. N+2 (7nm-class) and N+3 (5nm-class) rely on DUV multi-patterning, and the company never discloses yield or per-die cost. You can understand the business but cannot calculate what it is worth.
 
 ## Gate two: good business — 5/10
 
-Foundry is a capital-intensive, deeply cyclical grind of a business, and a score of 5 already credits its scarcity. 2025 revenue was USD 9.327 billion, net profit USD 685 million, and depreciation and amortization USD 3.81 billion — **depreciation is 5.6x net profit**; in 2026 depreciation rises another 30% to about USD 5 billion, meaning every USD 1 of net profit absorbs USD 7 of equipment cost first.
+Foundry is a capital-intensive, deeply cyclical grind of a business, and a score of 5 already credits its scarcity. 2025 revenue was USD 9.327 billion, net profit USD 685 million, and depreciation and amortization USD 3.81 billion — depreciation is 5.6x net profit; in 2026 depreciation rises another 30% to about USD 5 billion, meaning every USD 1 of net profit absorbs USD 7 of equipment cost first.
 
 Returns on capital are therefore persistently poor. Roughly calculated from 2025 net profit attributable to shareholders and closing attributable equity, ROE is about 2.7%. Capital expenditure that year was USD 8.1 billion, or 87% of revenue, and operating cash flow less capital expenditure was a net outflow. At full utilization it is a money printer; idle, it is a meat grinder — gross margin once fell to around 16% in 2023.
 
@@ -42,7 +42,7 @@ A score of 5 is not a dismissal; it says the business model caps the valuation: 
 
 SMIC's moat is not technological leadership; it is being "the only player in mainland China able to deliver at scale." Three layers: 12-inch capacity (equivalent to 1.078 million 8-inch wafers per month, roughly 5% of global pure-play foundry share, ranking third); advanced processes (N+2 supports Huawei's Ascend and Kirin series, with no second domestic supplier); customer certification (automotive and industrial qualification takes 18–24 months, and switching suppliers means redoing the entire validation chain). Add another layer: policy. Equipment licenses, capacity quotas and Big Fund capital injections amount to a de facto admission license.
 
-Three deductions. Equipment and materials remain constrained by others: in April 2026 the US plans to extend the DUV ban to China, so the pace of capacity expansion is not self-determined; the technology lags by more than two generations, with N+3 roughly comparable to the 5–6nm class when TSMC mass-produces 2nm; **most critically, this river protects revenue, not profit**—profit is determined by depreciation and ASP.
+Three deductions. Equipment and materials remain constrained by others: in April 2026 the US plans to extend the DUV ban to China, so the pace of capacity expansion is not self-determined; the technology lags by more than two generations, with N+3 roughly comparable to the 5–6nm class when TSMC mass-produces 2nm; most critically, this river protects revenue, not profit—profit is determined by depreciation and ASP.
 
 ## Gate 4: Management — 7/10
 
@@ -50,13 +50,13 @@ Liu Xunfeng serves as chairman, with Zhao Haijun and Liang Mong Song as co-CEOs.
 
 They do not dodge bad news either. In February, finance head Wu Junfeng said plainly that depreciation from new fabs would lift 2026 depreciation about 30% YoY and pressure gross margin; in May, Zhao Haijun repeatedly stressed that depreciation, not demand, is the core variable.
 
-Three points off for the capital-allocation stance: no dividend for 2025, and the RMB 40.6 billion share issuance to acquire 49% of SMIC North dilutes existing shareholders by about 7%. These decisions make sense industrially but deserve a discount from a shareholder-return standpoint—**for this company, the money's first priority is national capacity.**
+Three points off for the capital-allocation stance: no dividend for 2025, and the RMB 40.6 billion share issuance to acquire 49% of SMIC North dilutes existing shareholders by about 7%. These decisions make sense industrially but deserve a discount from a shareholder-return standpoint—for this company, the money's first priority is national capacity.
 
 ## Gate Five: Margin of Safety — 1/10
 
 RMB 126.25 × 8.561 billion shares = RMB 1.08 trillion market cap; net assets per share RMB 20.19, PB 6.3x; TTM net profit attributable to parent of about RMB 5.2–5.3 billion, PE about 205x. Put the three numbers together and there is only one explanation: the market is pricing today using 2029 capacity and price hikes.
 
-On the same day the H-share stood at HKD 66.20, about RMB 57, an A-share premium of about 121%. Same class of shares, same rights, same financial report, yet the two prices differ by more than double. On 9 August UBS upgraded the H-share to Buy with a target price of HKD 96.2 (3.3x average 2027–2028 PB), about RMB 83 — **the foreign target price for the H-share is still 34% below the current A-share price**.
+On the same day the H-share stood at HKD 66.20, about RMB 57, an A-share premium of about 121%. Same class of shares, same rights, same financial report, yet the two prices differ by more than double. On 9 August UBS upgraded the H-share to Buy with a target price of HKD 96.2 (3.3x average 2027–2028 PB), about RMB 83 — the foreign target price for the H-share is still 34% below the current A-share price.
 
 A score of 1 acknowledges its resource value. At 4x PB that implies RMB 81; at the 2026 consensus net profit of RMB 6.255 billion and 40x PE, market cap would be less than a quarter of the current price.
 
@@ -74,9 +74,9 @@ To put it bluntly: 31/60 fails the six-gate framework, meaning do not buy now �
 
 ## Veto items and items to be verified
 
-**Deal-breaker: margin of safety.**205x TTM PE, 6.3x PB and a 121% A/H premium together price in 2028–2029 capacity and price hikes ahead of time. This is not "a bit expensive" — it is "no room for error".
+Deal-breaker: margin of safety.205x TTM PE, 6.3x PB and a 121% A/H premium together price in 2028–2029 capacity and price hikes ahead of time. This is not "a bit expensive" — it is "no room for error".
 
-**Three items to verify:** ① whether Q2 results on 13 August land at the top end of guidance (revenue USD 2.86–2.91 billion, gross margin 20%–22%) and the direction of Q3 gross margin; ② the timing of peak depreciation — the company says only that it rises 30% in 2026 and rises again in 2027, with no inflection point given; ③ whether ASP can cover wafer price increases (12-inch up 15%–25% cumulatively, 8-inch up 8%–12%), which determines the true elasticity of gross margin.
+Three items to verify: ① whether Q2 results on 13 August land at the top end of guidance (revenue USD 2.86–2.91 billion, gross margin 20%–22%) and the direction of Q3 gross margin; ② the timing of peak depreciation — the company says only that it rises 30% in 2026 and rises again in 2027, with no inflection point given; ③ whether ASP can cover wafer price increases (12-inch up 15%–25% cumulatively, 8-inch up 8%–12%), which determines the true elasticity of gross margin.
 
 ## Sources
 

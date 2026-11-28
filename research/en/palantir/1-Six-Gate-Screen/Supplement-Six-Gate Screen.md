@@ -24,7 +24,7 @@ Basis of presentation: (1) Revenue, margins and cash flow are all 2026Q2 (April�
 
 ## Gate one: the business can be summed up in a sentence, but truly understanding it is not easy
 
-What Palantir does, in one sentence: **it links a client's data scattered across dozens of systems into a single "Ontology", defines business objects, permissions and actions on that graph, and then lets AI run decisions on top of it.** Governments use it to find intelligence leads and schedule logistics; enterprises use it for production scheduling, fraud detection and supply-chain management. The charging model is subscription plus implementation projects, with contracts of three years or more and high renewal rates.
+What Palantir does, in one sentence: it links a client's data scattered across dozens of systems into a single "Ontology", defines business objects, permissions and actions on that graph, and then lets AI run decisions on top of it. Governments use it to find intelligence leads and schedule logistics; enterprises use it for production scheduling, fraud detection and supply-chain management. The charging model is subscription plus implementation projects, with contracts of three years or more and high renewal rates.
 
 I give it 8 rather than 10 because "understanding the product" and "understanding why it can charge so much" are two different things. A large chunk of its revenue comes from on-site engineers rewriting client workflows — that is closer to high-end consulting than to standard software. Judging whether it will still be here in ten years means judging whether the "ontology layer" becomes a default feature of the cloud vendors. I cannot answer that question with full confidence, so I deduct 2 points.
 
@@ -32,7 +32,7 @@ But it passes the circle-of-competence test. No commodity prices, no inventory, 
 
 ## Second hurdle: a 47% GAAP operating margin — no other software company comes close
 
-2026Q2 revenue USD 1.935 billion, +93% YoY; GAAP operating profit USD 912 million, margin 47.1%; adjusted operating profit USD 1.194 billion, margin 61.7%; free cash flow USD 1.220 billion, margin 63.1%. **Put these three numbers together and you get "margins a company growing 93% should not have."**
+2026Q2 revenue USD 1.935 billion, +93% YoY; GAAP operating profit USD 912 million, margin 47.1%; adjusted operating profit USD 1.194 billion, margin 61.7%; free cash flow USD 1.220 billion, margin 63.1%. Put these three numbers together and you get "margins a company growing 93% should not have."
 
 The reason is no mystery: software is delivered once and replicated countless times, so marginal cost approaches zero; and once a Palantir customer goes live, the incremental cost of adding modules the following year is minimal. Q1 revenue USD 1.633 billion (+85%), Q2 USD 1.935 billion (+93%), single-quarter QoQ +18.5% — the QoQ is accelerating, which shows this is not a one-off step-up from a large contract.
 
@@ -40,29 +40,29 @@ On the "Rule of 40" it scores 156 (growth 93 + free cash flow margin 63). Few so
 
 ## Gate three: three genuine moats, one is exposure rather than a barrier
 
-**Security clearance 9/10.** Deployable in air-gapped environments and able to handle classified data — this alone shuts out most software companies. This is not technology; it is credentials plus history, and new entrants cannot buy it at any price.
+Security clearance 9/10. Deployable in air-gapped environments and able to handle classified data — this alone shuts out most software companies. This is not technology; it is credentials plus history, and new entrants cannot buy it at any price.
 
-**Ontology 8/10.** Once a client's business logic, metric definitions and permission structures are written into this graph, switching vendors means redoing the past five years of process. Rebuild cost is measured in years, not months.
+Ontology 8/10. Once a client's business logic, metric definitions and permission structures are written into this graph, switching vendors means redoing the past five years of process. Rebuild cost is measured in years, not months.
 
-**Migration cost 8/10.** With on-site teams plus custom models, no one inside the client fully knows how the system runs. This is the hardest factor to quantify, but the most useful at the renewal negotiating table.
+Migration cost 8/10. With on-site teams plus custom models, no one inside the client fully knows how the system runs. This is the hardest factor to quantify, but the most useful at the renewal negotiating table.
 
-A cold shower on the fourth point: **"government relationships" are not a moat, they are concentration.** The US government accounts for 42% of revenue (USD 809 million), and including international government clients, government overall is more than half (rough estimate). A moat means the client cannot leave you; relying on one client group for 40% of revenue means you cannot leave it. In a year of budget tightening, both turn against you at the same time.
+A cold shower on the fourth point: "government relationships" are not a moat, they are concentration. The US government accounts for 42% of revenue (USD 809 million), and including international government clients, government overall is more than half (rough estimate). A moat means the client cannot leave you; relying on one client group for 40% of revenue means you cannot leave it. In a year of budget tightening, both turn against you at the same time.
 
 ## Gate 4: Karp score of 9, cut to 6 by equity incentives
 
 Alex Karp is a rare CEO in this era who genuinely has conviction. AIP went from a concept in 2023 to US commercial revenue up 149% year over year in 2026Q2 — in two years. He did not pursue opportunistic M&A, did not cut R&D to protect short-term EPS, and his public remarks are harsh but consistent. There are not many people like this in Silicon Valley.
 
-The deduction is for alignment of interests. Q2 stock-based compensation was USD 265 million, 13.7% of revenue; share count rose about 2% over the year. That is, for every 100 of revenue the company earns, 13.7 goes to employees in stock; shareholders are diluted 2% a year.**For a company at 74x price-to-sales, 2% dilution mathematically equals USD 9 billion of market cap evaporating out of thin air every year.**
+The deduction is for alignment of interests. Q2 stock-based compensation was USD 265 million, 13.7% of revenue; share count rose about 2% over the year. That is, for every 100 of revenue the company earns, 13.7 goes to employees in stock; shareholders are diluted 2% a year.For a company at 74x price-to-sales, 2% dilution mathematically equals USD 9 billion of market cap evaporating out of thin air every year.
 
-Karp's and the core team's sales are executed under 10b5-1 plans, procedurally clean. But when a company's CEO says "this is the best moment in our history" while selling a fixed amount every week, investors should at least acknowledge:**his expected return from this company over the next six years is probably not as high as the sell-side reports suggest.**That is where the 6 comes from.
+Karp's and the core team's sales are executed under 10b5-1 plans, procedurally clean. But when a company's CEO says "this is the best moment in our history" while selling a fixed amount every week, investors should at least acknowledge:his expected return from this company over the next six years is probably not as high as the sell-side reports suggest.That is where the 6 comes from.
 
 ## Gate five and six: lay out the numbers plainly — only simple arithmetic remains
 
-Skip the DCF; use the simplest arithmetic. Assume flawless execution: USD 8.15 billion of revenue in 2026, then +33% a year for six years to reach USD 45 billion in 2032; a 34% net margin (below today's 55%, because interest income is unsustainable and taxes will normalize); and a 30x P/E. Market cap = 45 × 34% × 30 = **USD 459 billion**.
+Skip the DCF; use the simplest arithmetic. Assume flawless execution: USD 8.15 billion of revenue in 2026, then +33% a year for six years to reach USD 45 billion in 2032; a 34% net margin (below today's 55%, because interest income is unsustainable and taxes will normalize); and a 30x P/E. Market cap = 45 × 34% × 30 = USD 459 billion.
 
-Today's market cap is USD 456 billion. **Six years of flawless execution, and the market cap goes nowhere.** Factor in 2% annual share count growth and 2032 brings 2.71 billion shares, or USD 169 per share, 11% below today's 189.40. Annualized return: −1.9%.
+Today's market cap is USD 456 billion. Six years of flawless execution, and the market cap goes nowhere. Factor in 2% annual share count growth and 2032 brings 2.71 billion shares, or USD 169 per share, 11% below today's 189.40. Annualized return: −1.9%.
 
-Another angle: discount the 2032 figure of USD 459 billion back at 8% and the present value is USD 289.2 billion, or USD 120 per share — **this is the report's neutral case, 37% below the current price.** In other words, buyers today are paying a 58% premium for "flawless execution."
+Another angle: discount the 2032 figure of USD 459 billion back at 8% and the present value is USD 289.2 billion, or USD 120 per share — this is the report's neutral case, 37% below the current price. In other words, buyers today are paying a 58% premium for "flawless execution."
 
 Gate 5 scoring 1 point and Gate 6 scoring 3 points both follow from this arithmetic. Margin of safety means "price below value"; here price is 58% above value, and there is nothing to debate.
 

@@ -23,7 +23,7 @@ The comparison table is organized by whether a company purely expresses the memo
 
 ## Initial screen: four grounds for elimination
 
-**Samsung**: Market cap USD 1.08 trillion, DRAM share 39.4%, HBM 33% — the strongest in the industry. But memory accounts for only part of its revenue (the rest is phones, panels, appliances, foundry), so buying it means buying a Korean conglomerate, with diluted leverage to the cycle. Its foundry business has also lost money for years and drags on the overall valuation — **you want the memory cycle; it gives you a conglomerate.** **SK hynix**: 50% HBM share, the biggest winner of this cycle. But its valuation already reflects that: 2026E PE 4.8x, 2027E 3.6x, which looks cheaper than Micron — **the reason it is cheap is that the market has already priced in 2027 peak earnings, and Korean equities carry a "chaebol discount" and FX risk.** For overseas investors, there is an added layer of FX and liquidity cost. **ChangXin Memory**: The fastest grower (revenue +99.3% QoQ, 9.5% share), but unlisted — its STAR Market IPO passed review on 27 May and is still in the registration process. Even once listed, its pricing will be shaped by domestic-substitution policy and local capital, not purely by the market. **Nanya Technology / Winbond**: Both are niche DRAM (consumer electronics, networking, automotive), with 2026 gross margins of 67.9%/70% — strong leverage, but no HBM, no leading-edge process, and scale a few dozen times smaller than Micron. They are "cyclical beta", not "AI alpha".
+Samsung: Market cap USD 1.08 trillion, DRAM share 39.4%, HBM 33% — the strongest in the industry. But memory accounts for only part of its revenue (the rest is phones, panels, appliances, foundry), so buying it means buying a Korean conglomerate, with diluted leverage to the cycle. Its foundry business has also lost money for years and drags on the overall valuation — you want the memory cycle; it gives you a conglomerate. SK hynix: 50% HBM share, the biggest winner of this cycle. But its valuation already reflects that: 2026E PE 4.8x, 2027E 3.6x, which looks cheaper than Micron — the reason it is cheap is that the market has already priced in 2027 peak earnings, and Korean equities carry a "chaebol discount" and FX risk. For overseas investors, there is an added layer of FX and liquidity cost. ChangXin Memory: The fastest grower (revenue +99.3% QoQ, 9.5% share), but unlisted — its STAR Market IPO passed review on 27 May and is still in the registration process. Even once listed, its pricing will be shaped by domestic-substitution policy and local capital, not purely by the market. Nanya Technology / Winbond: Both are niche DRAM (consumer electronics, networking, automotive), with 2026 gross margins of 67.9%/70% — strong leverage, but no HBM, no leading-edge process, and scale a few dozen times smaller than Micron. They are "cyclical beta", not "AI alpha".
 
 ## Final pick: Why Micron
 
@@ -31,23 +31,23 @@ First, purity. 92% of revenue comes from DRAM and NAND — no foundry, no handse
 
 Second, cost. Its bit cost on the 1γ/1δ nodes is the lowest of the three. In shortage years that means "earning more"; in glut years it means "the last one to lose money." For a cyclical stock, the latter matters more — it determines whether you survive the bottom and buy the dip.
 
-Third, long-term contracts. 16 SCAs, five-year terms, take-or-pay, USD 100 billion minimum revenue, USD 22 billion of customer deposits — **of the three, only Micron has turned this into a publicly disclosed business model**. That does not mean it will succeed, but it does mean it is the only one trying to change the industry's rules.
+Third, long-term contracts. 16 SCAs, five-year terms, take-or-pay, USD 100 billion minimum revenue, USD 22 billion of customer deposits — of the three, only Micron has turned this into a publicly disclosed business model. That does not mean it will succeed, but it does mean it is the only one trying to change the industry's rules.
 
 Fourth, investability. USD 1.22 trillion market cap, US equity liquidity, a single share class, high-quality disclosure (GAAP/Non-GAAP gap of 2.2%). For the vast majority of investors, this is the only pure memory name you can buy, sell and understand.
 
 ## Make its disadvantages versus competitors equally clear
 
-Scale: DRAM share 23.3%, below Samsung's 39.4%; HBM share 18%, below SK hynix's 50% and Samsung's 33%. **It ranks third among the three, not first.** Buying it means buying "elasticity + cost," not "leadership."
+Scale: DRAM share 23.3%, below Samsung's 39.4%; HBM share 18%, below SK hynix's 50% and Samsung's 33%. It ranks third among the three, not first. Buying it means buying "elasticity + cost," not "leadership."
 
 Technology gap: HBM4 12-layer mass production came later than Samsung's (Samsung achieved the world's first mass production in February 2026); only its ramp speed is faster. Competition in HBM5 will restart, with no first-mover advantage to inherit.
 
-Valuation: 6.5x 2027E, 80% more expensive than SK hynix's 3.6x. **If selecting purely on "who is cheaper," SK hynix is the choice**; the case for Micron is "purer elasticity, more transparent disclosure, better liquidity"—a preference, not a mathematical conclusion.
+Valuation: 6.5x 2027E, 80% more expensive than SK hynix's 3.6x. If selecting purely on "who is cheaper," SK hynix is the choice; the case for Micron is "purer elasticity, more transparent disclosure, better liquidity"—a preference, not a mathematical conclusion.
 
 ## Another option: buy equipment, not memory
 
 If the goal is to "participate in the memory capex cycle," there is a steadier vehicle: equipment makers. Micron's FY26 capex is USD 27 billion and FY27 above USD 40 billion, with Samsung and SK hynix expanding in tandem; that money ultimately flows to ASML, Applied Materials, Lam Research and KLA. Equipment makers run gross margins of 48%–60% through the cycle, far less volatile than memory fabs, and investors need not call 2027 DRAM contract prices.
 
-The cost is less upside: equipment makers will not earn 85% gross margins in a shortage year. So this is a substitute that trades upside for certainty—**if you accept that the memory shortage will last another 4–6 quarters but are unsure how high prices can go, buying the equipment makers is more logical than buying Micron.** This is also the Duan Yongping-style "sell the shovels" choice.
+The cost is less upside: equipment makers will not earn 85% gross margins in a shortage year. So this is a substitute that trades upside for certainty—if you accept that the memory shortage will last another 4–6 quarters but are unsure how high prices can go, buying the equipment makers is more logical than buying Micron. This is also the Duan Yongping-style "sell the shovels" choice.
 
 ## Sources
 

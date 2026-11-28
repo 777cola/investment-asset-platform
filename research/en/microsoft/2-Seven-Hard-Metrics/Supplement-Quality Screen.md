@@ -24,7 +24,7 @@ Data sources: Microsoft FY2026Q4 earnings report and earnings call (2026/07/29);
 
 ## The six criteria it passed: not narrowly, but by a wide margin
 
-These six metrics should be read not just for whether they pass, but for the margin of safety. **Net margin 39.7% against a 10% threshold, a fourfold cushion; ROE around 39% against a 15% threshold; operating cash flow at 1.55x net profit** — the last point shows profit is not a paper figure: depreciation and amortization depress book profit, so cash actually collected exceeds profit by half.
+These six metrics should be read not just for whether they pass, but for the margin of safety. Net margin 39.7% against a 10% threshold, a fourfold cushion; ROE around 39% against a 15% threshold; operating cash flow at 1.55x net profit — the last point shows profit is not a paper figure: depreciation and amortization depress book profit, so cash actually collected exceeds profit by half.
 
 One item must be stripped out of net profit: a USD 3.2 billion gain from the Anthropic investment, equal to 9% of quarterly net profit. Excluding it leaves net profit of about RMB 33.1 billion and a net margin of 36.8%, still far above the threshold. This adjustment is not nitpicking: the gain will not recur, and using it to calculate PE would understate the valuation.
 
@@ -32,15 +32,15 @@ Gross margin down 1.4 percentage points year on year is the only deteriorating d
 
 ## The one that fell short: capex consumed 74% of operating cash flow
 
-RMB 41 billion of capex against RMB 55.4 billion of operating cash flow, a ratio of 74%. The full year is more extreme: cash capex of RMB 115.9 billion against operating cash flow of RMB 182.9 billion, 63%; including finance leases, the ratio is higher still. **The only metric of the seven that fails is precisely the only one deteriorating fast** — two years ago this ratio was still below 45%, and in fiscal 2026 it is already 63%, stepping up every year.
+RMB 41 billion of capex against RMB 55.4 billion of operating cash flow, a ratio of 74%. The full year is more extreme: cash capex of RMB 115.9 billion against operating cash flow of RMB 182.9 billion, 63%; including finance leases, the ratio is higher still. The only metric of the seven that fails is precisely the only one deteriorating fast — two years ago this ratio was still below 45%, and in fiscal 2026 it is already 63%, stepping up every year.
 
-The metric has a very concrete meaning: for every RMB 100 of cash collected, the company must spend RMB 74 on GPUs and data centers. What remains must cover dividends (about RMB 25.8 billion for the full year), buybacks (about RMB 17.2 billion), and a margin of safety. That is why, for the RMB 175 billion of capex in FY2027, the market will certainly ask "how will the remaining gap be funded" — **whatever operating cash flow does not cover can only come from the balance sheet.**
+The metric has a very concrete meaning: for every RMB 100 of cash collected, the company must spend RMB 74 on GPUs and data centers. What remains must cover dividends (about RMB 25.8 billion for the full year), buybacks (about RMB 17.2 billion), and a margin of safety. That is why, for the RMB 175 billion of capex in FY2027, the market will certainly ask "how will the remaining gap be funded" — whatever operating cash flow does not cover can only come from the balance sheet.
 
 ## One miss — is it fatal?
 
 Not fatal, but it changes the valuation method. Excessively high capex intensity turns disastrous in two scenarios: first, demand falls before depreciation is fully taken, leaving data centers as idle capacity; second, financing costs rise and the debt-financed capex model breaks. The first is business risk, the second is interest-rate risk, and neither has materialized yet—Azure growth is accelerating, RPO is up 84% year over year, and the company's rating remains AAA.
 
-So the correct reading of this miss is: **it downgrades Microsoft from "a stable cash cow deserving 30x" to "a capital-intensive growth stock deserving 22–26x."** The neutral 24x in the working paper means exactly this. If capex/operating cash flow ever falls below 50% while Azure growth stays above 35%, that is when a re-rating is warranted.
+So the correct reading of this miss is: it downgrades Microsoft from "a stable cash cow deserving 30x" to "a capital-intensive growth stock deserving 22–26x." The neutral 24x in the working paper means exactly this. If capex/operating cash flow ever falls below 50% while Azure growth stays above 35%, that is when a re-rating is warranted.
 
 ## Sources
 

@@ -35,7 +35,7 @@ Operating data (over 1,500 warehouses, 900,000 ecosystem employees, 1,000-plus a
 
 ## Industry chain position (1): Cargo rights and the last mile
 
-JD.com's position in the industry chain can be summed up in two "onlys": **it is the only national retailer in China that controls both ownership of goods and last-mile delivery capability.** Ownership of goods lets it control quality, after-sales service and gross-margin structure; last-mile delivery lets it control experience, delivery speed and return costs. Together, these two things form the material basis for "buy expensive, bulky items on JD.com."
+JD.com's position in the industry chain can be summed up in two "onlys": it is the only national retailer in China that controls both ownership of goods and last-mile delivery capability. Ownership of goods lets it control quality, after-sales service and gross-margin structure; last-mile delivery lets it control experience, delivery speed and return costs. Together, these two things form the material basis for "buy expensive, bulky items on JD.com."
 
 Compare with peers: Pinduoduo has ownership of goods (partly self-operated) but no fulfillment network; Meituan has a fulfillment network but no ownership of goods (instant retail relies on forward warehouses and merchants); Alibaba has both but neither runs deep (primarily a platform, with Cainiao as a collaborative network). JD.com is the only one doing both ends itself, at the cost of having to invest at both ends.
 
@@ -43,21 +43,21 @@ Compare with peers: Pinduoduo has ownership of goods (partly self-operated) but 
 
 Upstream, JD.com's bargaining power is strong. Its annual procurement of 3C and home appliances runs at the RMB 100 billion level, making it one of the largest single online channels in China for Apple, Xiaomi, Midea and Haier, which gives it payment terms, rebates and exclusive models. The -11.8% in electronics and home appliances in Q2 was mainly the high base from national subsidies, not share loss — an important judgment, because it shows JD.com's upstream position is intact.
 
-Downstream, its bargaining power is weak. Consumers can compare prices at any time and switch to Pinduoduo at the first price increase; the commission and advertising it can charge merchants are constrained by traffic, and traffic is constrained by category breadth. **That is what "stuck in the middle" means in concrete terms: it can squeeze prices upstream but not downstream, so in between it can only rely on efficiency.**
+Downstream, its bargaining power is weak. Consumers can compare prices at any time and switch to Pinduoduo at the first price increase; the commission and advertising it can charge merchants are constrained by traffic, and traffic is constrained by category breadth. That is what "stuck in the middle" means in concrete terms: it can squeeze prices upstream but not downstream, so in between it can only rely on efficiency.
 
 ## Three real pillars of the moat, two real gaps
 
-Three supports: **network** (a time barrier that money cannot compress), **mindshare** (the default option for 3C appliances), and **payment terms** (float from suppliers that keeps operating cash flow at 3–5x net profit year after year). None of these can be copied, because all three are functions of time.
+Three supports: network (a time barrier that money cannot compress), mindshare (the default option for 3C appliances), and payment terms (float from suppliers that keeps operating cash flow at 3–5x net profit year after year). None of these can be copied, because all three are functions of time.
 
-Two gaps: **price** (the cost structure of self-operated retail plus self-built logistics makes absolute low pricing impossible — a matter of math, not resolve), and **immediacy** (rider density and merchant coverage start from zero, so per-order fulfillment cost is inherently higher than the leader's).
+Two gaps: price (the cost structure of self-operated retail plus self-built logistics makes absolute low pricing impossible — a matter of math, not resolve), and immediacy (rider density and merchant coverage start from zero, so per-order fulfillment cost is inherently higher than the leader's).
 
-The 2025–2026 food delivery war was essentially JD.com trying to buy its way past the second gap. The result proved the gap cannot be bought — RMB 40 billion over two years for a 7%–10% share. **This is a live test of moat theory: anything you can buy is not a moat; moats are precisely what cannot be bought.**
+The 2025–2026 food delivery war was essentially JD.com trying to buy its way past the second gap. The result proved the gap cannot be bought — RMB 40 billion over two years for a 7%–10% share. This is a live test of moat theory: anything you can buy is not a moat; moats are precisely what cannot be bought.
 
 ## The Most Dangerous Rival: Why Meituan, Not Pinduoduo
 
-Pinduoduo's threat is that it "slowly squeezes you into a place that sells home appliances." That process plays out over years, and JD can defend 3C, its core base. Meituan's threat is different: it changes **expectations**.
+Pinduoduo's threat is that it "slowly squeezes you into a place that sells home appliances." That process plays out over years, and JD can defend 3C, its core base. Meituan's threat is different: it changes expectations.
 
-Once users grow used to 30-minute delivery, next-day delivery shifts from "fast" to "slow." Once that psychological switch is complete, JD's 211 service—the core experience it built over twenty years—turns from an advantage into a minimum standard. **Once someone else takes the "fast" label, all JD has left is "authentic."** And "authentic" is hard to use as a standalone basis for a premium, especially on standardized products.
+Once users grow used to 30-minute delivery, next-day delivery shifts from "fast" to "slow." Once that psychological switch is complete, JD's 211 service—the core experience it built over twenty years—turns from an advantage into a minimum standard. Once someone else takes the "fast" label, all JD has left is "authentic." And "authentic" is hard to use as a standalone basis for a premium, especially on standardized products.
 
 What makes it worse is that Meituan's flywheel is self-reinforcing: order density → fulfillment cost → price → order volume. JD cannot break in with subsidies, because subsidies buy order volume, not density—once subsidies stop, order volume falls, and density never gets built.
 

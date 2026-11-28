@@ -22,27 +22,27 @@ Assumptions and validation metrics are analyst-set. Option value estimate (rough
 
 ## Why "cash deployment" matters most
 
-The first four assumptions together are worth roughly 1.3–1.4x book — the midpoint of its range over the past decade. The market now assigns 1.66x; the extra 0.25–0.35x **is not paying for the existing business but for the option that this money will be deployed at good prices**.
+The first four assumptions together are worth roughly 1.3–1.4x book — the midpoint of its range over the past decade. The market now assigns 1.66x; the extra 0.25–0.35x is not paying for the existing business but for the option that this money will be deployed at good prices.
 
-Value that option: if the RMB 377.4 billion buys assets at 12x pre-tax profit (about RMB 31.5 billion of pre-tax profit), the annualized return is 8.3%; if it keeps buying 4.5% short-term paper, the gap is about 4 percentage points, equivalent to roughly USD 150 billion of market cap — **close to the portion of the current market cap above 1.4x book.**
+Value that option: if the RMB 377.4 billion buys assets at 12x pre-tax profit (about RMB 31.5 billion of pre-tax profit), the annualized return is 8.3%; if it keeps buying 4.5% short-term paper, the gap is about 4 percentage points, equivalent to roughly USD 150 billion of market cap — close to the portion of the current market cap above 1.4x book.
 
 In other words, the market has already priced in the return from deploying the cash. That is why this assumption hanging unresolved is more serious than any single one of the others failing.
 
 ## Falsification conditions: when this thesis is invalidated
 
-**① Combined ratio above 100% for two consecutive quarters.** This means underwriting has shifted from "negative-cost funds" to a "positive-cost liability," the value of float reverses, and the entire valuation model must be rewritten. **② Float declines year over year.** This signals policy attrition and erodes the foundation of negative-cost funds.
+① Combined ratio above 100% for two consecutive quarters. This means underwriting has shifted from "negative-cost funds" to a "positive-cost liability," the value of float reverses, and the entire valuation model must be rewritten. ② Float declines year over year. This signals policy attrition and erodes the foundation of negative-cost funds.
 
-**③ A large acquisition at more than 2x book value.** The 2016 PCP lesson (a USD 9.8 billion writedown) shows that "paying up for growth" is this company's most likely way to err. **④ Continued large buybacks above 1.8x book value.** That would mean buybacks are no longer a value judgment but share-price management.
+③ A large acquisition at more than 2x book value. The 2016 PCP lesson (a USD 9.8 billion writedown) shows that "paying up for growth" is this company's most likely way to err. ④ Continued large buybacks above 1.8x book value. That would mean buybacks are no longer a value judgment but share-price management.
 
 If any one of the four holds, the rating drops straight from "Watch" to "Avoid" — no need to wait for the price.
 
 ## Watch calendar: what to watch over the next 12 months
 
-**Late February 2027:** Annual report plus Abel's first shareholder letter. Watch two things—the weighted average price of buybacks, and how he frames the RMB 377.4 billion ("patience" or "can't find anything"). **Early May 2027:** Annual shareholder meeting. Watch the quality of Abel's answers when he fields questions alone, and whether Buffett attends.
+Late February 2027: Annual report plus Abel's first shareholder letter. Watch two things—the weighted average price of buybacks, and how he frames the RMB 377.4 billion ("patience" or "can't find anything"). Early May 2027: Annual shareholder meeting. Watch the quality of Abel's answers when he fields questions alone, and whether Buffett attends.
 
-**Within 45 days of each quarter:** 13F holdings. The focus is not what was bought, but **whether cash declined**. **Each quarterly report:** three numbers—the combined ratio, float, and buyback amount.
+Within 45 days of each quarter: 13F holdings. The focus is not what was bought, but whether cash declined. Each quarterly report: three numbers—the combined ratio, float, and buyback amount.
 
-One unscheduled event: **any M&A announcement above USD 30 billion**. It is the only catalyst that can make the valuation immediately reasonable, and the only event that can make the stock fall 10% on the spot (if the price paid is too high).
+One unscheduled event: any M&A announcement above USD 30 billion. It is the only catalyst that can make the valuation immediately reasonable, and the only event that can make the stock fall 10% on the spot (if the price paid is too high).
 
 ## Sources
 

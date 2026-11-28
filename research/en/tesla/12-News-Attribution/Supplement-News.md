@@ -24,31 +24,31 @@ Events and data sources: Tesla Q1 delivery announcement (2026/04/02), Q1 results
 
 ## Attribution: why good news fails to lift the stock and only bad news drives it down
 
-Classify the seven events by nature: four true signals (FSD entering China, driverless Robotaxi, Q2 deliveries above the consensus, Q2 earnings miss) and three confirmations or noise. **Of the four true signals, three are positive and one negative, so the event set is clearly skewed to the upside.**
+Classify the seven events by nature: four true signals (FSD entering China, driverless Robotaxi, Q2 deliveries above the consensus, Q2 earnings miss) and three confirmations or noise. Of the four true signals, three are positive and one negative, so the event set is clearly skewed to the upside.
 
-Yet the stock fell from about USD 450 at the start of the year (backed out from the -17% year-to-date decline) to USD 374. That means: **the gains from positive events were eaten by de-rating.** The market is not dismissing these advances; it judges them "not fast enough, not big enough" to justify a 389x PE.
+Yet the stock fell from about USD 450 at the start of the year (backed out from the -17% year-to-date decline) to USD 374. That means: the gains from positive events were eaten by de-rating. The market is not dismissing these advances; it judges them "not fast enough, not big enough" to justify a 389x PE.
 
-More precisely: **what Tesla's stock went through in the first half of 2026 was "narrative depreciation", not an "earnings kill".** Narrative depreciation works like this: every piece of good news is delivered, but once delivered the market finds it "is that all", and the valuation center shifts down one notch at a time.
+More precisely: what Tesla's stock went through in the first half of 2026 was "narrative depreciation", not an "earnings kill". Narrative depreciation works like this: every piece of good news is delivered, but once delivered the market finds it "is that all", and the valuation center shifts down one notch at a time.
 
 ## Which are real signals and which are noise
 
-**Real signal one: Q2 deliveries of 480,126 vehicles, up 25% year on year.** This is hard data, and it came in above the consensus of 74,000 units, showing the price-cut-for-volume strategy is working. **But it also exposed the cost — average selling price per vehicle kept falling, and gross margin was only 16.8%.** **Real signal two: Robotaxi has operated without safety drivers in Dallas and Houston from day one, expanding to the entire Austin metro area in June.** This is the most concrete piece of progress within the USD 910 billion option value, more important than any launch event. Unfortunately, the company does not disclose trip volumes, so it cannot be quantified. **Real signal three: supervised FSD entered China (May 21).** The market had waited two years for this, yet the reaction on the day was muted — because expectations were already fully priced in. **"Expectations delivered" is a positive in a bull market; at a high valuation, it is "good news fully priced."** **Noise one: the Shanghai energy storage plant exporting to Europe (early July).** The direction is right, but Q2 energy revenue rose only 12.6%, with volume up and price down, affecting less than 1% of revenue in the near term. **Noise two: all the "what Musk said" headlines** — they change no cash flow assumption. **The negative signal that deserves the most attention: free cash flow of -USD 1.092 billion.** This is the first time in two years, and the only figure in this earnings report that cannot be cleanly explained away as "investing in the future" — because it coincided with operating expenses up 47%.
+Real signal one: Q2 deliveries of 480,126 vehicles, up 25% year on year. This is hard data, and it came in above the consensus of 74,000 units, showing the price-cut-for-volume strategy is working. But it also exposed the cost — average selling price per vehicle kept falling, and gross margin was only 16.8%. Real signal two: Robotaxi has operated without safety drivers in Dallas and Houston from day one, expanding to the entire Austin metro area in June. This is the most concrete piece of progress within the USD 910 billion option value, more important than any launch event. Unfortunately, the company does not disclose trip volumes, so it cannot be quantified. Real signal three: supervised FSD entered China (May 21). The market had waited two years for this, yet the reaction on the day was muted — because expectations were already fully priced in. "Expectations delivered" is a positive in a bull market; at a high valuation, it is "good news fully priced." Noise one: the Shanghai energy storage plant exporting to Europe (early July). The direction is right, but Q2 energy revenue rose only 12.6%, with volume up and price down, affecting less than 1% of revenue in the near term. Noise two: all the "what Musk said" headlines — they change no cash flow assumption. The negative signal that deserves the most attention: free cash flow of -USD 1.092 billion. This is the first time in two years, and the only figure in this earnings report that cannot be cleanly explained away as "investing in the future" — because it coincided with operating expenses up 47%.
 
 ## The line between noise and signal: can it enter the income statement?
 
-The test for whether a news item matters is simple: **will it change a line on the income statement within a year.**
+The test for whether a news item matters is simple: will it change a line on the income statement within a year.
 
-The Q2 delivery call (changes revenue), FSD entering China (changes service revenue, but the company does not disclose it), the driverless Robotaxi (changes nothing, because revenue is not broken out), energy storage exports (change energy revenue, but the volume is too small). **Of the four real signals, only two leave a trace on the financials.**
+The Q2 delivery call (changes revenue), FSD entering China (changes service revenue, but the company does not disclose it), the driverless Robotaxi (changes nothing, because revenue is not broken out), energy storage exports (change energy revenue, but the volume is too small). Of the four real signals, only two leave a trace on the financials.
 
-This is Tesla's information dilemma: **the most important progress is precisely the least transparent part.** Investors are forced to choose between "trusting management" and "waiting for the financials to verify." The former is faith, the latter is discipline. **We choose the latter.**
+This is Tesla's information dilemma: the most important progress is precisely the least transparent part. Investors are forced to choose between "trusting management" and "waiting for the financials to verify." The former is faith, the latter is discipline. We choose the latter.
 
 ## If you remember only one thing: the after-hours bearish candle on July 22
 
-The day's script bears repeated reading: revenue of RMB 28.236 billion, above the consensus of 7–10%; deliveries of 480,126 units, above the consensus of 74,000 units; energy storage 13.5GWh, +41% year on year. **All three beat expectations, and the stock fell 4% after hours.**
+The day's script bears repeated reading: revenue of RMB 28.236 billion, above the consensus of 7–10%; deliveries of 480,126 units, above the consensus of 74,000 units; energy storage 13.5GWh, +41% year on year. All three beat expectations, and the stock fell 4% after hours.
 
-There is only one reason: Non-GAAP EPS of USD 0.33 against expectations of USD 0.51–0.53, a 35% miss. **The market has told the company in real money that it no longer pays for selling more cars, only for making more money.**
+There is only one reason: Non-GAAP EPS of USD 0.33 against expectations of USD 0.51–0.53, a 35% miss. The market has told the company in real money that it no longer pays for selling more cars, only for making more money.
 
-That signal matters more than any single news item. It means the valuation anchor is shifting from delivery volume to profit margin. **And profit margin happens to be Tesla's ugliest line in 2026.**
+That signal matters more than any single news item. It means the valuation anchor is shifting from delivery volume to profit margin. And profit margin happens to be Tesla's ugliest line in 2026.
 
 ## Sources
 

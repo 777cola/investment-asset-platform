@@ -24,21 +24,21 @@ Thresholds: ROE ≥15%, gross margin ≥40%, OCF/net profit ≥80%, interest cov
 
 ## The one that got through is precisely the one least deserving of trust
 
-Gross margin is about 70%, absurdly high for a hardware-intensive business. The reason is that it sells "compute hours": the cost side is only electricity, data center rent and O&M, while GPU purchase costs do not run through cost of goods but through depreciation. **Moving capex out of cost and into depreciation makes the gross margin flattering by construction** — a generic accounting effect in asset-heavy industries, not a competitive advantage.
+Gross margin is about 70%, absurdly high for a hardware-intensive business. The reason is that it sells "compute hours": the cost side is only electricity, data center rent and O&M, while GPU purchase costs do not run through cost of goods but through depreciation. Moving capex out of cost and into depreciation makes the gross margin flattering by construction — a generic accounting effect in asset-heavy industries, not a competitive advantage.
 
 To judge whether the business actually makes money, look at what is left after depreciation: GAAP operating margin of 5.7%, and net margin of -19.4% after interest. So a "pass" on this item only means it is not losing money on direct costs; it does not mean it is profitable.
 
 ## But the six points all point to the same problem: surviving on financing
 
-The picture becomes clear when you line up the three cash-flow metrics. Operating cash flow was RMB 1.975 billion, which looks healthy, but RMB 2.127 billion of it was customer prepayments—**prepayments exceed total operating cash flow, meaning that excluding prepayments, day-to-day operations were net cash outflows**. Capital expenditure was RMB 9.441 billion, leaving free cash flow at negative RMB 7.466 billion. What fills the gap? RMB 4.2 billion in convertible bonds, RMB 2.6 billion in delayed-draw loans, 35 million shares in a follow-on offering, and roughly RMB 9 billion of prepayments over the next three months.
+The picture becomes clear when you line up the three cash-flow metrics. Operating cash flow was RMB 1.975 billion, which looks healthy, but RMB 2.127 billion of it was customer prepayments—prepayments exceed total operating cash flow, meaning that excluding prepayments, day-to-day operations were net cash outflows. Capital expenditure was RMB 9.441 billion, leaving free cash flow at negative RMB 7.466 billion. What fills the gap? RMB 4.2 billion in convertible bonds, RMB 2.6 billion in delayed-draw loans, 35 million shares in a follow-on offering, and roughly RMB 9 billion of prepayments over the next three months.
 
-Interest coverage of 0.24x and net debt/EBITDA of 10x are two gauges of the same thing: **the absolute scale of debt has outstripped this business's ability to generate cash**. Q4 interest guidance is USD 1.05–1.15 billion, against adjusted operating profit of USD 379 million this quarter—even doubling margins would not cover the interest.
+Interest coverage of 0.24x and net debt/EBITDA of 10x are two gauges of the same thing: the absolute scale of debt has outstripped this business's ability to generate cash. Q4 interest guidance is USD 1.05–1.15 billion, against adjusted operating profit of USD 379 million this quarter—even doubling margins would not cover the interest.
 
 ## But is it fatal: not fatal, but "uninvestable"
 
 Taken individually, each item has a defense: negative ROE because the company is still in its expansion phase; negative FCF because capex is front-loaded; share dilution because it had to seize the window. These defenses held up within the 2024–2025 growth-stock narrative.
 
-But failing all seven at once does not signal "temporarily ugly" — it signals that **this business's cash-flow structure is inherently misaligned with shareholder interests**: every dollar it earns must be plowed straight back into equipment, and it borrows two more on top; what shareholders receive is accounting growth and an ever-thickening debt instrument. For a framework whose first principle is "don't lose money," this is not a question of valuation being high or low — the target is disqualified.
+But failing all seven at once does not signal "temporarily ugly" — it signals that this business's cash-flow structure is inherently misaligned with shareholder interests: every dollar it earns must be plowed straight back into equipment, and it borrows two more on top; what shareholders receive is accounting growth and an ever-thickening debt instrument. For a framework whose first principle is "don't lose money," this is not a question of valuation being high or low — the target is disqualified.
 
 ## Sources
 

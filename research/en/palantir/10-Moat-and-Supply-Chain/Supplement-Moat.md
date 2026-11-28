@@ -39,25 +39,25 @@ On a client's procurement list, Palantir is never "a piece of software" — it i
 
 This positioning has two consequences. The good: extremely high revenue per customer (average annual spend of USD 5.87 million per client), extremely high renewal rates, extremely strong pricing power. The bad: long sales cycles, slow customer growth (+24%), and gross margin dragged down by headcount (80% rather than 85%).
 
-AIP is changing this positioning. The Bootcamp model lets clients build a prototype themselves in five days, cutting the sales cycle from nine months to five weeks — this is the mechanism behind US commercial growth of +149%. **But it also means the company is shifting from "process overhaul firm" to "tool vendor" — a short-term boost to growth, a long-term erosion of the moat.**
+AIP is changing this positioning. The Bootcamp model lets clients build a prototype themselves in five days, cutting the sales cycle from nine months to five weeks — this is the mechanism behind US commercial growth of +149%. But it also means the company is shifting from "process overhaul firm" to "tool vendor" — a short-term boost to growth, a long-term erosion of the moat.
 
 ## Moat breakdown: three hold up, two need a discount
 
-**Security clearance: 9.** This is the hardest one. Access to classified data, deployment in air-gapped environments, a fifteen-year delivery record—stack those three together and no more than five companies worldwide can match them. It is not a technology barrier but a qualification barrier, and qualification barriers are the hardest to breach with technology.
+Security clearance: 9. This is the hardest one. Access to classified data, deployment in air-gapped environments, a fifteen-year delivery record—stack those three together and no more than five companies worldwide can match them. It is not a technology barrier but a qualification barrier, and qualification barriers are the hardest to breach with technology.
 
-**Switching costs: 8; Ontology: 8.** These two are two sides of one thing: the ontology graph locks in the customer's business semantics, so changing vendors means redoing the past five years of process. Rebuild costs are measured in years. On the government side this is near-unbeatable; on the commercial side it is eroding—cloud vendors have begun offering "out-of-the-box ontology templates," shallow but sufficient.
+Switching costs: 8; Ontology: 8. These two are two sides of one thing: the ontology graph locks in the customer's business semantics, so changing vendors means redoing the past five years of process. Rebuild costs are measured in years. On the government side this is near-unbeatable; on the commercial side it is eroding—cloud vendors have begun offering "out-of-the-box ontology templates," shallow but sufficient.
 
-**Brand: 7; Technology: 6.** On the government side the brand is an asset (one of the default options); on the commercial side it is a liability ("that company that built the system for ICE"). Technology is not a barrier—its models are bought in, and its engineering talent can be poached. **The real technology asset is Apollo's deployment capability, and this is underrated.**
+Brand: 7; Technology: 6. On the government side the brand is an asset (one of the default options); on the commercial side it is a liability ("that company that built the system for ICE"). Technology is not a barrier—its models are bought in, and its engineering talent can be poached. The real technology asset is Apollo's deployment capability, and this is underrated.
 
 ## The most dangerous rival: not Databricks, but Microsoft
 
 Databricks is strong at the data entry point, but it lacks "business semantics" — the customer's data sits with it, but decisions still sit in Excel. Moving upmarket will take three to five years and require building a consulting team, which is not in its DNA.
 
-Microsoft is different. It has three things Palantir does not: **enterprise distribution (the default entry point of Office/Teams/Azure), the CFO's trust (existing contracts, existing security reviews), and the procurement convenience of "no new vendor sign-off."** Fabric bundles data integration, governance and BI into Azure, so customers do not need to sign another Palantir.
+Microsoft is different. It has three things Palantir does not: enterprise distribution (the default entry point of Office/Teams/Azure), the CFO's trust (existing contracts, existing security reviews), and the procurement convenience of "no new vendor sign-off." Fabric bundles data integration, governance and BI into Azure, so customers do not need to sign another Palantir.
 
-This is not a product contest; it is a contest of procurement habits. It is easier for a CFO to approve "adding a module to an existing cloud contract" than "signing a new vendor and going through a six-month security review." **Palantir wins on credentials on the government side and loses on distribution on the commercial side — and the commercial side is the half that drives its fastest growth and most of its valuation.**
+This is not a product contest; it is a contest of procurement habits. It is easier for a CFO to approve "adding a module to an existing cloud contract" than "signing a new vendor and going through a six-month security review." Palantir wins on credentials on the government side and loses on distribution on the commercial side — and the commercial side is the half that drives its fastest growth and most of its valuation.
 
-Anduril deserves a separate mention. It binds hardware (drones, sentry towers) to software (Lattice), and its influence at the Department of Defense is rising fast. Its model is harder to displace because it sells "capability," not "software." **If the DoD's procurement logic shifts from "buying software" to "buying capability," Anduril will be the biggest beneficiary and Palantir the biggest casualty.**
+Anduril deserves a separate mention. It binds hardware (drones, sentry towers) to software (Lattice), and its influence at the Department of Defense is rising fast. Its model is harder to displace because it sells "capability," not "software." If the DoD's procurement logic shifts from "buying software" to "buying capability," Anduril will be the biggest beneficiary and Palantir the biggest casualty.
 
 ## Sources
 

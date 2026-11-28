@@ -10,11 +10,11 @@ WeChat article copy, clickbait headline but not misleading; all figures match th
 
 ## Main text (ready to copy and publish)
 
-**Alibaba's Earnings: Half Miracle, Half Bill**
+Alibaba's Earnings: Half Miracle, Half Bill
 
 The conclusion first: on August 24, 2026, Alibaba closed at HKD 112.5, down 8.54% in a single day. What fell was not the results but an HKD 80 billion placement. And the brightest part of the results — Cloud, with revenue up 45%, a 22-quarter high. One earnings report, two extremes.
 
-**1. Cloud: the best scorecard in five years**
+1. Cloud: the best scorecard in five years
 
 In the first quarter of fiscal 2027 (April to June), Alibaba Cloud was renamed "AI Cloud and Computing Power Services," with revenue of RMB 48.44 billion, up 45% year on year. That growth rate is the fastest in 22 quarters. AI-related products within it came to RMB 12.376 billion, growing triple digits for 12 consecutive quarters.
 
@@ -24,7 +24,7 @@ Why? Three reasons. First, depreciation on the previous round of chip purchases 
 
 One detail nobody mentions: AliExpress recorded operating profit this quarter. International e-commerce went from burning cash to making money, something that has not happened in the past five years.
 
-**2. Net profit -76%: where the money went**
+2. Net profit -76%: where the money went
 
 Net profit attributable to shareholders fell to just RMB 10.54 billion, down 76% year on year, the lowest in nine quarters. It looks like a collapse. But broken down, only one piece reflects genuine operating deterioration: AI Labs and Applications lost roughly RMB 10.6 billion more.
 
@@ -34,7 +34,7 @@ So adjusted net profit is closer to the truth: RMB 20.72 billion, down only 38% 
 
 The business is not broken; the company deliberately changed lanes.
 
-**3. The number nobody dares examine closely: -415%**
+3. The number nobody dares examine closely: -415%
 
 This quarter Alibaba split the company into four segments, and AI Labs and Applications was broken out separately for the first time. Revenue was RMB 3.34 billion, up 16%; the loss was RMB 13.86 billion, a loss margin of -415%, with the loss widening 330% year on year.
 
@@ -44,7 +44,7 @@ The company's explanation is "investment in building AI capabilities + rising in
 
 This is the biggest information gap in the entire report: it gives the loss margin but not the trend of that margin, nor a path to narrowing losses or a timeline.
 
-**4. RMB 44.7 billion burned in one quarter, then a request for RMB 80 billion**
+4. RMB 44.7 billion burned in one quarter, then a request for RMB 80 billion
 
 Operating cash flow was RMB 22.95 billion, still up 11% year on year — cash generation is intact. But capital expenditure was RMB 67.68 billion, up 75% year on year. Subtract the two, and free cash flow was -RMB 44.67 billion, with the shortfall widening 1.4 times year on year.
 
@@ -56,7 +56,7 @@ On August 24, the stock fell below the placement price of 112.70 and closed at 1
 
 The same day, Joe Tsai bought 720,000 shares and Eddie Wu bought 350,000 shares, HKD 120 million combined. That sounds like a lot, but it is 0.15% of the HKD 80 billion placement. It is a gesture, not a hedge.
 
-**V. What it is worth: HKD 129 neutral, and 1-to-1.5 odds**
+V. What it is worth: HKD 129 neutral, and 1-to-1.5 odds
 
 Value the four pieces separately: the e-commerce group's annualized EBITA of about RMB 159 billion at 9x, RMB 1.43 trillion; cloud annualized revenue of RMB 193.7 billion at 6x, RMB 1.16 trillion; AI applications at 3x the annualized loss of RMB 55.4 billion as a negative value, minus RMB 17 billion. That adds up to RMB 2.42 trillion, or HKD 129 per share on 20.46 billion shares post-placement at an exchange rate of 0.92.
 
@@ -66,7 +66,7 @@ To make money at these odds, the win rate has to exceed 60%. Of the two conditio
 
 So the conclusion is watch, not avoid. Good assets, neutral price, insufficient evidence.
 
-**VI. At what price to buy, stated clearly**
+VI. At what price to buy, stated clearly
 
 Two triggers, either one suffices: first, the share price falls below HKD 95; second, the cloud segment margin holds above 12% for two consecutive quarters and AI application losses begin to narrow quarter on quarter.
 

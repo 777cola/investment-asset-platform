@@ -34,39 +34,39 @@ The moat score is a subjective rating by this report. The working-paper basis of
 
 ## Position in the value chain: it must handle fulfillment itself
 
-Meituan's position in the industry chain is unusual: it is both a platform (distributing demand, collecting commissions) and a fulfillment provider (employing its own riders, bearing the costs itself). **Most platform companies choose an asset-light model—matching only, outsourcing fulfillment. Meituan did not, because it tried: outsourced delivery could not control timeliness, user experience collapsed, and the gateway was lost.**
+Meituan's position in the industry chain is unusual: it is both a platform (distributing demand, collecting commissions) and a fulfillment provider (employing its own riders, bearing the costs itself). Most platform companies choose an asset-light model—matching only, outsourcing fulfillment. Meituan did not, because it tried: outsourced delivery could not control timeliness, user experience collapsed, and the gateway was lost.
 
 The upside of this choice is a harder moat: the fulfillment network is a physical asset that requires time, ground-level outreach, algorithms and rider relationships to accumulate simultaneously. JD.com and Alibaba spent two years and over RMB 100 billion, yet their combined order volume is still less than half—that is why.
 
-The downside is that it will always be heavier than a pure platform: rider costs are rigid, social insurance compliance costs rise year by year, and insufficient density in any single county drags down overall unit economics. **So Meituan's moat is a time barrier bought with heavy assets, not pricing power bought with brand.**
+The downside is that it will always be heavier than a pure platform: rider costs are rigid, social insurance compliance costs rise year by year, and insufficient density in any single county drags down overall unit economics. So Meituan's moat is a time barrier bought with heavy assets, not pricing power bought with brand.
 
 ## Supply chain: supply-side control is weakening
 
-Meituan's "supply chain" is not a goods supply chain; it is two chains: **merchant supply + rider capacity**.
+Meituan's "supply chain" is not a goods supply chain; it is two chains: merchant supply + rider capacity.
 
-Merchant side: roughly 8 million active merchants are an asset, but merchant services revenue grew only 4.0% in Q2 2026, the weakest of all metrics. Two reasons: first, Douyin used low commissions to take away chain brands and influencer shops; second, merchants themselves are cutting costs, and advertising budgets are being cut harder than commissions. **Control over this supply chain is declining, and the decline is structural.**
+Merchant side: roughly 8 million active merchants are an asset, but merchant services revenue grew only 4.0% in Q2 2026, the weakest of all metrics. Two reasons: first, Douyin used low commissions to take away chain brands and influencer shops; second, merchants themselves are cutting costs, and advertising budgets are being cut harder than commissions. Control over this supply chain is declining, and the decline is structural.
 
-Rider side: roughly 6 million riders with orders, one of the largest flexible labor pools in the world. Meituan did three things to stabilize it—nationwide coverage of pension insurance subsidies (the industry's first to cover all rider types), nationwide rollout of occupational injury protection on July 1, 2026, and an algorithm addition of a "pop-up reminder to rest after 4 cumulative hours of deliveries." **All three add cost, but what they buy is capacity stability, and capacity stability is the precondition for delivery timeliness.**
+Rider side: roughly 6 million riders with orders, one of the largest flexible labor pools in the world. Meituan did three things to stabilize it—nationwide coverage of pension insurance subsidies (the industry's first to cover all rider types), nationwide rollout of occupational injury protection on July 1, 2026, and an algorithm addition of a "pop-up reminder to rest after 4 cumulative hours of deliveries." All three add cost, but what they buy is capacity stability, and capacity stability is the precondition for delivery timeliness.
 
-Supply chain judgment: **the rider chain is more stable than the merchant chain.** Merchants can leave; riders will not—because Meituan offers the densest order density in the country, and riders cannot earn the same money elsewhere.
+Supply chain judgment: the rider chain is more stable than the merchant chain. Merchants can leave; riders will not—because Meituan offers the densest order density in the country, and riders cannot earn the same money elsewhere.
 
 ## The most dangerous rival: Taobao Shangou, not JD
 
-JD.com made the loudest entrance and suffered the worst outcome: its share once reached 31%, now 7%, with new businesses losing nearly RMB 10 billion in a single quarter. **It lost because it was wrong from the start—no rider network, no merchant base, yet it chose to fight on someone else's home turf.** On July 17 it announced that 100% of its full-time riders would sign labor contracts with full social insurance and housing fund contributions—ahead on compliance, heavier on cost.
+JD.com made the loudest entrance and suffered the worst outcome: its share once reached 31%, now 7%, with new businesses losing nearly RMB 10 billion in a single quarter. It lost because it was wrong from the start—no rider network, no merchant base, yet it chose to fight on someone else's home turf. On July 17 it announced that 100% of its full-time riders would sign labor contracts with full social insurance and housing fund contributions—ahead on compliance, heavier on cost.
 
-The real danger is Taobao Shangou. What it is doing is not food delivery but using food delivery as a traffic funnel: **leveraging the 800 million users of the main site plus subsidies, it took order volume from 0 to over 40% in under two years.** Worse, the math works for it—losses in food delivery can be covered by e-commerce advertising.
+The real danger is Taobao Shangou. What it is doing is not food delivery but using food delivery as a traffic funnel: leveraging the 800 million users of the main site plus subsidies, it took order volume from 0 to over 40% in under two years. Worse, the math works for it—losses in food delivery can be covered by e-commerce advertising.
 
-But two turning signals emerged in 2026: Alibaba's HKD 80 billion placement in August went entirely to AI infrastructure rather than instant retail; and according to 36Kr, Alibaba is halving Taobao Shangou investment in the new fiscal year. **If both hold true, Alibaba has done the math: food delivery is not worth unlimited investment. This is the most important external condition for Meituan's margin recovery.**
+But two turning signals emerged in 2026: Alibaba's HKD 80 billion placement in August went entirely to AI infrastructure rather than instant retail; and according to 36Kr, Alibaba is halving Taobao Shangou investment in the new fiscal year. If both hold true, Alibaba has done the math: food delivery is not worth unlimited investment. This is the most important external condition for Meituan's margin recovery.
 
-The third rival, Douyin, is not on the food delivery battlefield—it is in in-store. In-store is Meituan's fattest profit pool (gross margin far above food delivery), and Douyin's in-store GTV grew nearly 60% in 2025 to over RMB 800 billion. **Food delivery can be defended; in-store cannot—this is Meituan's most real battlefield over the next three years.**
+The third rival, Douyin, is not on the food delivery battlefield—it is in in-store. In-store is Meituan's fattest profit pool (gross margin far above food delivery), and Douyin's in-store GTV grew nearly 60% in 2025 to over RMB 800 billion. Food delivery can be defended; in-store cannot—this is Meituan's most real battlefield over the next three years.
 
 ## The Three-Kilometer Rule: The Spatial Boundary of a Moat
 
-All of Meituan's advantages are bound by one physical rule: **three kilometers.** The rider's delivery radius, the user's patience to wait, the merchant's coverage — all sit at this scale.
+All of Meituan's advantages are bound by one physical rule: three kilometers. The rider's delivery radius, the user's patience to wait, the merchant's coverage — all sit at this scale.
 
 The implication: Meituan's moat is not "one national network" but "2,800 independent networks." The economics of each network depend on order density in that trade area — the per-order cost in Beijing's Guomao may be half that of a county town.
 
-So the term "scale effect" needs a discount when applied to Meituan: **it has scale effects, but they are segmented, local, and cannot be reallocated across regions.** This explains why it loses to small local platforms in lower-tier cities, and why it must invest in ground promotion county by county.
+So the term "scale effect" needs a discount when applied to Meituan: it has scale effects, but they are segmented, local, and cannot be reallocated across regions. This explains why it loses to small local platforms in lower-tier cities, and why it must invest in ground promotion county by county.
 
 Investors easily mistake "largest nationally" for "strongest everywhere." The truth: it is strongest in tier-1 and tier-2 cities; in county towns it merely "exists," it is not "strong."
 
@@ -76,9 +76,9 @@ The current competition is a "subsidy war." If it shifted to either of the other
 
 The first is a "quality war": rivals compete not on price but on food safety, on-time delivery rates and after-sales service. This hurts Meituan—quality wars require investment, and Meituan's current margin cannot support extra spending; but it is not fatal, because Meituan's fulfillment timeliness is already the strongest.
 
-The second is an "ecosystem war": rivals bundle food delivery with e-commerce, payments and video memberships, attacking through cross-subsidies. This is what Taobao Shangou is doing, and it is the most dangerous—**because Meituan's ecosystem is only "eating," while rivals' ecosystems cover "food, clothing and daily necessities."**
+The second is an "ecosystem war": rivals bundle food delivery with e-commerce, payments and video memberships, attacking through cross-subsidies. This is what Taobao Shangou is doing, and it is the most dangerous—because Meituan's ecosystem is only "eating," while rivals' ecosystems cover "food, clothing and daily necessities."
 
-The third is a "regulatory war": if regulators bar platforms from using subsidies to squeeze out competitors, the subsidy war would be forcibly terminated. That is good for Meituan, but it equally limits Meituan's ability to fight back.**Of the three playbooks, the second is the most likely to happen and the hardest to defend against.**
+The third is a "regulatory war": if regulators bar platforms from using subsidies to squeeze out competitors, the subsidy war would be forcibly terminated. That is good for Meituan, but it equally limits Meituan's ability to fight back.Of the three playbooks, the second is the most likely to happen and the hardest to defend against.
 
 ## Sources
 

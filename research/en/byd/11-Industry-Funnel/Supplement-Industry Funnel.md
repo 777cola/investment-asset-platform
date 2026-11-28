@@ -23,37 +23,37 @@ The five coarse screens set for this report are: two consecutive years of profit
 
 ## Step 1 Initial screen: five hard criteria cut 80% at a stroke
 
-**Criterion one: profitable for two consecutive years.** This eliminates Leapmotor, Neta, Zeekr (pre-consolidation) and a batch of others; **criterion two: annual sales above 500,000 units.** Eliminates all second-tier new entrants; **criterion three: overseas sales.** Eliminates Li Auto and AITO (negligible export share); **criterion four: self-supply or deep binding of core components.** Eliminates pure assemblers; **criterion five: valuation can be calculated.** Eliminates loss-makers that cannot be valued.
+Criterion one: profitable for two consecutive years. This eliminates Leapmotor, Neta, Zeekr (pre-consolidation) and a batch of others; criterion two: annual sales above 500,000 units. Eliminates all second-tier new entrants; criterion three: overseas sales. Eliminates Li Auto and AITO (negligible export share); criterion four: self-supply or deep binding of core components. Eliminates pure assemblers; criterion five: valuation can be calculated. Eliminates loss-makers that cannot be valued.
 
-Run all five, and only four remain: BYD, Geely, Great Wall and Tesla (Xiaomi is blocked at criterion one because its auto business is not yet profitable). **This step does not judge good or bad; it only screens out what is "unintelligible and unquantifiable."**
+Run all five, and only four remain: BYD, Geely, Great Wall and Tesla (Xiaomi is blocked at criterion one because its auto business is not yet profitable). This step does not judge good or bad; it only screens out what is "unintelligible and unquantifiable."
 
 ## Step 2 Comparison: Why not Geely
 
-Geely is the closest competitor. Its total sales rose 1% and NEV sales 10% in 2026H1, still growing while BYD fell 15.7%, which shows that both product strength and channels are sound. **Its weak spot is batteries: it relies mainly on external sourcing (CATL, SVOLT, and its own Yaoning), leaving costs well above BYD's, with gross margin in the 16% range versus 18.85%.**
+Geely is the closest competitor. Its total sales rose 1% and NEV sales 10% in 2026H1, still growing while BYD fell 15.7%, which shows that both product strength and channels are sound. Its weak spot is batteries: it relies mainly on external sourcing (CATL, SVOLT, and its own Yaoning), leaving costs well above BYD's, with gross margin in the 16% range versus 18.85%.
 
-In a price war, that gap is fatal — BYD can cut prices down to an 18% gross margin, while Geely at 16% is on the edge of losses. **So Geely's share gains rest on "the right products" rather than "strong costs", and such growth stalls first as the price war deepens.**
+In a price war, that gap is fatal — BYD can cut prices down to an 18% gross margin, while Geely at 16% is on the edge of losses. So Geely's share gains rest on "the right products" rather than "strong costs", and such growth stalls first as the price war deepens.
 
-But it has one advantage: it does not carry battery-plant depreciation, making it more flexible when demand falls. **That is why it is the "second choice" rather than "eliminated" — it loses on cost and wins on flexibility.**
+But it has one advantage: it does not carry battery-plant depreciation, making it more flexible when demand falls. That is why it is the "second choice" rather than "eliminated" — it loses on cost and wins on flexibility.
 
 ## Step 3 Final selection: why BYD
 
-All four legs stand up: **profitability (RMB 12.33 billion, one of the few in the industry that actually makes money), scale (1.81 million vehicles, No. 1 in global NEVs), overseas (792,000 vehicles, +67.8% YoY, four plants under construction), technology (over 80% in-house battery supply, in-house IGBT/SiC).** Globally, the only automakers with all four at once are it and Tesla, and Tesla's valuation is a different species.
+All four legs stand up: profitability (RMB 12.33 billion, one of the few in the industry that actually makes money), scale (1.81 million vehicles, No. 1 in global NEVs), overseas (792,000 vehicles, +67.8% YoY, four plants under construction), technology (over 80% in-house battery supply, in-house IGBT/SiC). Globally, the only automakers with all four at once are it and Tesla, and Tesla's valuation is a different species.
 
-One more under-discussed advantage: **it is the only company to replicate "China manufacturing cost" at overseas plants.** Thailand, Brazil, Hungary, Uzbekistan — the four plants total more than 750,000 units of capacity. This is not exporting; it is building capacity on other countries' soil. Once done, tariffs cannot touch it.
+One more under-discussed advantage: it is the only company to replicate "China manufacturing cost" at overseas plants. Thailand, Brazil, Hungary, Uzbekistan — the four plants total more than 750,000 units of capacity. This is not exporting; it is building capacity on other countries' soil. Once done, tariffs cannot touch it.
 
-So the funnel's answer is it. But note: **"the best company in this industry" and "worth buying now" are two separate conclusions.** The former holds; the latter does not.
+So the funnel's answer is it. But note: "the best company in this industry" and "worth buying now" are two separate conclusions. The former holds; the latter does not.
 
 ## If you can't buy it, what should you buy?
 
-If the judgment is that "the industry will win, but the leader may not be the most profitable," there are three alternatives. **First, buy upstream in the supply chain** — battery materials, power semiconductors; the upside beta is larger than for whole vehicles, but cyclicality is stronger. **Second, buy Geely** — it is the share gainer, with NEV sales +10% in 2026H1; the drawback is a cost structure inferior to BYD's. **Third, buy a new energy vehicle ETF** — delegate the choice to the index, at the cost of earning the industry average return, which is currently a loss.
+If the judgment is that "the industry will win, but the leader may not be the most profitable," there are three alternatives. First, buy upstream in the supply chain — battery materials, power semiconductors; the upside beta is larger than for whole vehicles, but cyclicality is stronger. Second, buy Geely — it is the share gainer, with NEV sales +10% in 2026H1; the drawback is a cost structure inferior to BYD's. Third, buy a new energy vehicle ETF — delegate the choice to the index, at the cost of earning the industry average return, which is currently a loss.
 
-None of the three beats "wait for BYD to fall to RMB 70." The reason is simple: **it is most likely the one that survives this industry, and its current price is merely "expensive," not "absurdly expensive."** A 20% drop from RMB 87.4 to RMB 70 is the kind of opportunity that appears several times a year in the A-share market.
+None of the three beats "wait for BYD to fall to RMB 70." The reason is simple: it is most likely the one that survives this industry, and its current price is merely "expensive," not "absurdly expensive." A 20% drop from RMB 87.4 to RMB 70 is the kind of opportunity that appears several times a year in the A-share market.
 
 ## After the Final Selection: It Fails the Valuation Test
 
-RMB 796.8 billion market cap, 27x TTM, 24x 2025 net profit. Base case 2027 net profit of RMB 34 billion, 24x = RMB 90, 3% upside; bear case RMB 55, 37% downside. **The funnel screens for "worth researching"; valuation decides "worth buying" — and it fails that test.**
+RMB 796.8 billion market cap, 27x TTM, 24x 2025 net profit. Base case 2027 net profit of RMB 34 billion, 24x = RMB 90, 3% upside; bear case RMB 55, 37% downside. The funnel screens for "worth researching"; valuation decides "worth buying" — and it fails that test.
 
-Put another way: if it fell to RMB 70 (23x base-case net profit), the funnel's conclusion would be unchanged, and it would pass the valuation test. **So for this company, the only action required is "wait", not "choose".**
+Put another way: if it fell to RMB 70 (23x base-case net profit), the funnel's conclusion would be unchanged, and it would pass the valuation test. So for this company, the only action required is "wait", not "choose".
 
 ## Sources
 

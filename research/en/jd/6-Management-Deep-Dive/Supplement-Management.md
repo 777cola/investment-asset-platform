@@ -36,35 +36,35 @@ Shareholding and voting rights are estimated on the public structure of 20 votes
 
 Liu Qiangdong's role changed substantially after 2022: he no longer runs day-to-day operations, but he has ceded no strategic decision-making authority. After Xu Ran took over as CEO in May 2023, JD.com's organizational structure became "founder sets direction + professional managers execute." Over 2024–2026, this structure produced two sharply different outcomes.
 
-At the execution level, it succeeded. Xu Ran's finance background shows directly in cost control: 2026Q2 marketing spend was RMB 20.3 billion, down 24.8% year on year, with its share of revenue compressed from 7.6% to 5.9%; R&D over the same period rose 37.7% against the trend to RMB 7.3 billion—**this is not across-the-board cost cutting; it is moving money from customer acquisition to technology, and the direction is right.** Operating cash flow rose 54.5% and free cash flow 44.6%, taking a company that posted a quarterly loss back to profit within a year—execution worthy of a case study.
+At the execution level, it succeeded. Xu Ran's finance background shows directly in cost control: 2026Q2 marketing spend was RMB 20.3 billion, down 24.8% year on year, with its share of revenue compressed from 7.6% to 5.9%; R&D over the same period rose 37.7% against the trend to RMB 7.3 billion—this is not across-the-board cost cutting; it is moving money from customer acquisition to technology, and the direction is right. Operating cash flow rose 54.5% and free cash flow 44.6%, taking a company that posted a quarterly loss back to profit within a year—execution worthy of a case study.
 
-At the strategic level, it failed. The 2025 decision to go all-in on food delivery appears from public information to be a founder-led strategic choice, not a managerial execution error. In JD.com's organization, such a decision could hardly be vetoed internally—**because the voting structure means no one is in a position to veto it.**
+At the strategic level, it failed. The 2025 decision to go all-in on food delivery appears from public information to be a founder-led strategic choice, not a managerial execution error. In JD.com's organization, such a decision could hardly be vetoed internally—because the voting structure means no one is in a position to veto it.
 
 ## Capital allocation: A for saving money, D for spending it
 
 Split 2024–2026 capital allocation into two columns and the conclusion is stark.
 
-**The saving column: A.** Marketing expense cut 24.8% in a year; capex compression lifted free cash flow from RMB 10.1 billion to RMB 31.4 billion (trailing 12 months), while cash balance rose from RMB 225.4 billion at the start of the year to RMB 235.1 billion. Achieving all three amid negative revenue growth is hard-won.
+The saving column: A. Marketing expense cut 24.8% in a year; capex compression lifted free cash flow from RMB 10.1 billion to RMB 31.4 billion (trailing 12 months), while cash balance rose from RMB 225.4 billion at the start of the year to RMB 235.1 billion. Achieving all three amid negative revenue growth is hard-won.
 
-**The spending column: D.** RMB 40 billion poured into food delivery bought 7%–10% share and a business losing nearly RMB 10 billion a quarter. Spent on buybacks, that money would repurchase about 15% of shares at the current market cap; paid as dividends, it equals two years of net profit. Munger would call this "buying face with shareholders' money."
+The spending column: D. RMB 40 billion poured into food delivery bought 7%–10% share and a business losing nearly RMB 10 billion a quarter. Spent on buybacks, that money would repurchase about 15% of shares at the current market cap; paid as dividends, it equals two years of net profit. Munger would call this "buying face with shareholders' money."
 
-The contrast between the two columns says one thing: **this company does not lack execution; it lacks the discipline to not do things.** And capital allocation is, at its core, deciding what not to do.
+The contrast between the two columns says one thing: this company does not lack execution; it lacks the discipline to not do things. And capital allocation is, at its core, deciding what not to do.
 
 ## Integrity and governance: no fraud, but a trust discount
 
 On financial integrity, JD.com's record is clean: its auditor has long been one of the international Big Four, quarterly disclosure is granular down to segment revenue and segment operating profit, and the gap between non-GAAP and GAAP is clearly explained (share-based compensation + amortization of intangible assets). There have been no major financial restatements or regulatory penalties.
 
-But three governance issues constitute a long-term discount. **First, the dual-class share structure.** Class B shares carry 20 votes each, and the founder controls more than 70% of voting power with roughly 11%–13% of equity, leaving outside shareholders no veto at the strategic level. **Second, the 2018 Minnesota incident** — though no charges were filed, the damage to the company's governance reputation is long-lasting and is one reason institutional investors have persistently applied a discount. **Third, the 2024 organizational overhaul** (attendance and proxy-check-in crackdowns, the founder's internal speech stressing hard work), which reflects declining organizational efficiency and anxiety over execution — a short-term lift, but a signal of cultural pressure over the long run.
+But three governance issues constitute a long-term discount. First, the dual-class share structure. Class B shares carry 20 votes each, and the founder controls more than 70% of voting power with roughly 11%–13% of equity, leaving outside shareholders no veto at the strategic level. Second, the 2018 Minnesota incident — though no charges were filed, the damage to the company's governance reputation is long-lasting and is one reason institutional investors have persistently applied a discount. Third, the 2024 organizational overhaul (attendance and proxy-check-in crackdowns, the founder's internal speech stressing hard work), which reflects declining organizational efficiency and anxiety over execution — a short-term lift, but a signal of cultural pressure over the long run.
 
 None of these three makes the company uninvestable, but together they explain why a company trading at 7.5x PE, with nine-tenths of its market cap in cash, has seen its valuation discount stay stubbornly wide.
 
 ## Succession: no near-term worry, no medium-term fix
 
-JD.com's succession question has two layers. The operational layer is settled: Xu Ran is the de facto operating chief, with the heads of finance, supply chain and logistics all reporting to her, and the transition since 2023 has been smooth. The strategic layer is not: **Liu Qiangdong remains the only person who can decide whether to fight a battle, and there is no public succession arrangement for that seat.**
+JD.com's succession question has two layers. The operational layer is settled: Xu Ran is the de facto operating chief, with the heads of finance, supply chain and logistics all reporting to her, and the transition since 2023 has been smooth. The strategic layer is not: Liu Qiangdong remains the only person who can decide whether to fight a battle, and there is no public succession arrangement for that seat.
 
-The implication for investment judgment is this: **you cannot use "replace management" as an assumption for valuation recovery.** At a company with dispersed ownership, poor results get the CEO replaced; at JD.com, a strategic misstep does not replace the decision-maker, only the executors. So "management stops expanding" can only be observed through behavior, not forced through governance mechanisms.
+The implication for investment judgment is this: you cannot use "replace management" as an assumption for valuation recovery. At a company with dispersed ownership, poor results get the CEO replaced; at JD.com, a strategic misstep does not replace the decision-maker, only the executors. So "management stops expanding" can only be observed through behavior, not forced through governance mechanisms.
 
-This is the underlying reason the fourth of the six gates (management) scores only 6 and the sixth (discipline) only 4 — **not a lack of capability, but a lack of correction mechanisms.**
+This is the underlying reason the fourth of the six gates (management) scores only 6 and the sixth (discipline) only 4 — not a lack of capability, but a lack of correction mechanisms.
 
 ## Sources
 

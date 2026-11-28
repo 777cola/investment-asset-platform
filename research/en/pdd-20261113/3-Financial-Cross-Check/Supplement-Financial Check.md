@@ -25,17 +25,17 @@ Deviation calculation: net profit (285−271.8)/271.8=4.86%; cash (4,564−4,169
 
 ## Why do this
 
-Half of Pinduoduo's numbers have been reprocessed by the media: GAAP and non-GAAP are mixed, point-in-time figures and period-end figures are mixed, and ADS counts and ordinary share counts are mixed. Stack these three conflations together and the same company can be assigned two P/E ratios, 8x and 12x. **Pin down the accounting basis first, then argue about whether it is cheap.**
+Half of Pinduoduo's numbers have been reprocessed by the media: GAAP and non-GAAP are mixed, point-in-time figures and period-end figures are mixed, and ADS counts and ordinary share counts are mixed. Stack these three conflations together and the same company can be assigned two P/E ratios, 8x and 12x. Pin down the accounting basis first, then argue about whether it is cheap.
 
 ## Four items deviate by more than 1%; explain each one
 
-**Net profit differs by 4.9%:** RMB 27.18 billion is GAAP net profit attributable to shareholders; RMB 28.49 billion is Non-GAAP (excluding equity incentives). Broker summaries often state "net profit of RMB 28.5 billion" outright, leading readers to assume GAAP. Throughout this report, all year-on-year figures use GAAP, all "earning power" figures use Non-GAAP, and both are labeled.
+Net profit differs by 4.9%: RMB 27.18 billion is GAAP net profit attributable to shareholders; RMB 28.49 billion is Non-GAAP (excluding equity incentives). Broker summaries often state "net profit of RMB 28.5 billion" outright, leading readers to assume GAAP. Throughout this report, all year-on-year figures use GAAP, all "earning power" figures use Non-GAAP, and both are labeled.
 
-**Cash differs by 9.5%:** RMB 456.4 billion is cash and short-term investments at end-June 2026; RMB 416.9 billion is the reading near end-2025 (another research note's basis also excludes long-term deposits). Cash rose RMB 34.1 billion in one quarter — that growth rate matters more than the absolute number.
+Cash differs by 9.5%: RMB 456.4 billion is cash and short-term investments at end-June 2026; RMB 416.9 billion is the reading near end-2025 (another research note's basis also excludes long-term deposits). Cash rose RMB 34.1 billion in one quarter — that growth rate matters more than the absolute number.
 
-**EPS differs by 4.1%:** Backing out EPS from a 8.2x PE gives USD 9.63; dividing reported net profit by ADS gives USD 9.25. The gap comes from different TTM window conventions (whether 2025Q2 is included). This report uses USD 9.25 and states PE only as "about 8.2x".
+EPS differs by 4.1%: Backing out EPS from a 8.2x PE gives USD 9.63; dividing reported net profit by ADS gives USD 9.25. The gap comes from different TTM window conventions (whether 2025Q2 is included). This report uses USD 9.25 and states PE only as "about 8.2x".
 
-**Temu Europe share differs by 20 percentage points:** Investment banks estimate 33%; third-party research says above 40%. This number determines the damage from EU tariffs, but no one can obtain the true figure. **The approach is to give no precise value**: the main text says "around four tenths", and the sensitivity analysis uses 33% and 45% as the two endpoints.
+Temu Europe share differs by 20 percentage points: Investment banks estimate 33%; third-party research says above 40%. This number determines the damage from EU tariffs, but no one can obtain the true figure. The approach is to give no precise value: the main text says "around four tenths", and the sensitivity analysis uses 33% and 45% as the two endpoints.
 
 ## The finally adopted basis
 
@@ -45,15 +45,15 @@ Revenue, profit, expenses: company's 2026Q2 results, with GAAP and Non-GAAP pres
 
 Some historical data in this report is back-solved from year-on-year growth rates (2025Q2 revenue of RMB 104.04 billion, advertising of RMB 55.6 billion, transaction services of RMB 48.4 billion). Whether back-solving is usable can be tested against a known answer: full-year 2025 revenue of RMB 431.8 billion, +10% year on year, back-solves to RMB 392.5 billion for 2024; the company's 2024 annual report discloses RMB 393.8 billion, a 0.33% difference.
 
-**The 0.33% error shows back-solving is usable, but also that rounding eats the decimals.** Wherever figures are back-solved, this report flags them in the table notes and does not treat them as disclosed values. Any figure entering the valuation model uses disclosed values or research consensus.
+The 0.33% error shows back-solving is usable, but also that rounding eats the decimals. Wherever figures are back-solved, this report flags them in the table notes and does not treat them as disclosed values. Any figure entering the valuation model uses disclosed values or research consensus.
 
 ## The part that has not been verified
 
-Pinduoduo does not disclose segment data for Temu; GMV, unit economics and fulfillment costs all rely on external estimates, with errors that may reach 30%. Duoduo Maicai is likewise not disclosed separately. **These two businesses receive only a qualitative weighting in valuation and do not enter the model.** This is an honest note: the only things you can know with precision are the main site and the consolidated statements. On the Temu piece, the market is guessing just as you are.
+Pinduoduo does not disclose segment data for Temu; GMV, unit economics and fulfillment costs all rely on external estimates, with errors that may reach 30%. Duoduo Maicai is likewise not disclosed separately. These two businesses receive only a qualitative weighting in valuation and do not enter the model. This is an honest note: the only things you can know with precision are the main site and the consolidated statements. On the Temu piece, the market is guessing just as you are.
 
 ## There are three numbers I chose not to write.
 
-Temu's GMV, Temu's segment gross profit, and Duoduo Maicai's loss. The company discloses none of these three figures; every version in circulation is an outside estimate, with errors of up to 30%. **Putting a falsely precise number in a report is more dangerous than writing "unknown"**—because downstream analysis will cite it as fact.
+Temu's GMV, Temu's segment gross profit, and Duoduo Maicai's loss. The company discloses none of these three figures; every version in circulation is an outside estimate, with errors of up to 30%. Putting a falsely precise number in a report is more dangerous than writing "unknown"—because downstream analysis will cite it as fact.
 
 ## Sources
 

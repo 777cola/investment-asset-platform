@@ -23,43 +23,43 @@ Position sizes are portfolio NAV weights; the portfolio cap assumes a single hol
 
 ## Why 2%, not 5%
 
-Let's run the numbers. A 2% position, base case +42%, contributes +0.84% to the portfolio; bear case -23%, drags -0.46%. **This is a positive-expectancy, low-impact bet — right, and you make 0.84%; wrong, and you lose 0.46%, and you'll know the answer within three months.**
+Let's run the numbers. A 2% position, base case +42%, contributes +0.84% to the portfolio; bear case -23%, drags -0.46%. This is a positive-expectancy, low-impact bet — right, and you make 0.84%; wrong, and you lose 0.46%, and you'll know the answer within three months.
 
 At a 5% position: right, +2.1%; wrong, -1.15%. Returns double, but so does the contribution to portfolio volatility, and this stock's volatility is far above the portfolio average (52-week range 64.25–106.30, a 65% swing).
 
-My principle: **positions where the uncertainty is external (competitor behavior) cap at 3%; positions where the uncertainty is internal (execution) can go to 5%–8%.** Meituan falls in the former camp — its profit is not its own to decide.
+My principle: positions where the uncertainty is external (competitor behavior) cap at 3%; positions where the uncertainty is internal (execution) can go to 5%–8%. Meituan falls in the former camp — its profit is not its own to decide.
 
 ## Three price levels: 77.5, 65, 55
 
-**HKD 77.5 is the "information price"**: earnings beat consensus but were released after the close, so the market has not priced them. Buying here is a bet that the market reprices on the next trading day.
+HKD 77.5 is the "information price": earnings beat consensus but were released after the close, so the market has not priced them. Buying here is a bet that the market reprices on the next trading day.
 
-**HKD 65 is the "value price"**: about 12.8x 2027 normalized profit and about 9x ex-cash, which turns the risk-reward to 1:3. This level also spans the company's June 2026 buyback range (HKD 66.5–69) and the 52-week low (HKD 64.25) — **the company itself has endorsed this price.**
+HKD 65 is the "value price": about 12.8x 2027 normalized profit and about 9x ex-cash, which turns the risk-reward to 1:3. This level also spans the company's June 2026 buyback range (HKD 66.5–69) and the 52-week low (HKD 64.25) — the company itself has endorsed this price.
 
-**HKD 55 is the "thesis-invalidation price"**: the bear case (2027 net profit of RMB 10 billion) at a 10% discount. At this level, the market no longer believes the recovery story, or new bad news has emerged. Not a level to add; a level to reassess.
+HKD 55 is the "thesis-invalidation price": the bear case (2027 net profit of RMB 10 billion) at a 10% discount. At this level, the market no longer believes the recovery story, or new bad news has emerged. Not a level to add; a level to reassess.
 
 ## Correlation: which holdings does it clash with in the portfolio
 
-If the portfolio holds both Alibaba and JD.com, Meituan is a natural hedge: **as subsidy intensity rises, Meituan's profit falls, Alibaba's instant retail share gains (but losses widen), and JD.com's new-business losses widen.** The three stocks react in different directions to the same variable—subsidy intensity—but the magnitude is significant for all of them.
+If the portfolio holds both Alibaba and JD.com, Meituan is a natural hedge: as subsidy intensity rises, Meituan's profit falls, Alibaba's instant retail share gains (but losses widen), and JD.com's new-business losses widen. The three stocks react in different directions to the same variable—subsidy intensity—but the magnitude is significant for all of them.
 
 Correlation with Tencent is moderate (both are Hong Kong-listed platforms exposed to Hang Seng Tech beta, with a correlation coefficient of about 0.6–0.7); correlation with Pinduoduo is low (different track, different market); correlation with Kuaishou is moderate (both are affected by Douyin competition, but one is in-store services and the other is advertising).
 
-Portfolio-level implication: **Meituan's 2% cannot simply be added to the Alibaba and JD.com positions to read as "8% China internet," because they are negatively correlated in the same battlefield.** If a combined figure is required, keeping total exposure across Meituan + Alibaba + JD.com within 12% is safer.
+Portfolio-level implication: Meituan's 2% cannot simply be added to the Alibaba and JD.com positions to read as "8% China internet," because they are negatively correlated in the same battlefield. If a combined figure is required, keeping total exposure across Meituan + Alibaba + JD.com within 12% is safer.
 
 ## Rebalancing discipline: sell because the thesis has changed, not because the price has risen
 
-The most common mistake with this position is "taking profit at 30%." If Q3 confirms the thesis and 2027 profit really returns to RMB 25 billion, HKD 110 is only the neutral target, with the optimistic HKD 150 still above it. **The reason to sell should be "the thesis is disproven" or "valuation is fully realized," not "unrealized gains."**
+The most common mistake with this position is "taking profit at 30%." If Q3 confirms the thesis and 2027 profit really returns to RMB 25 billion, HKD 110 is only the neutral target, with the optimistic HKD 150 still above it. The reason to sell should be "the thesis is disproven" or "valuation is fully realized," not "unrealized gains."
 
 The corresponding discipline: at HKD 110 (neutral target), cut half; at HKD 150 (optimistic target), exit fully. At HKD 65, add; at HKD 55, reassess rather than mechanically adding.
 
-Time stop: if the March 2027 annual report shows a full-year 2026 loss exceeding RMB 7 billion, cut to 1% even if the stock has not fallen—**because that means the recovery slope is one year slower than assumed, and time has a cost.**
+Time stop: if the March 2027 annual report shows a full-year 2026 loss exceeding RMB 7 billion, cut to 1% even if the stock has not fallen—because that means the recovery slope is one year slower than assumed, and time has a cost.
 
 ## Why not hedge
 
 Some will ask: since Meituan is negatively correlated with Alibaba and JD.com in the same battlefield, why not pair them as a hedge?
 
-The answer is that the hedge does not work. The three stocks do not react symmetrically to "subsidy intensity": when subsidies rise, Meituan falls the most (small profit base), Alibaba falls less (cushioned by e-commerce profits), and JD.com falls the least (new businesses are a small share). **Hedging Meituan with Alibaba is like hedging a small boat with a big ship — the direction is right, but the ratio can never be tuned correctly.**
+The answer is that the hedge does not work. The three stocks do not react symmetrically to "subsidy intensity": when subsidies rise, Meituan falls the most (small profit base), Alibaba falls less (cushioned by e-commerce profits), and JD.com falls the least (new businesses are a small share). Hedging Meituan with Alibaba is like hedging a small boat with a big ship — the direction is right, but the ratio can never be tuned correctly.
 
-The more practical approach is to control total exposure: Meituan at 2%, with Alibaba and JD.com positions combined not exceeding 12%. **Manage "China internet local life" as an asset class, not as three independent stocks.**
+The more practical approach is to control total exposure: Meituan at 2%, with Alibaba and JD.com positions combined not exceeding 12%. Manage "China internet local life" as an asset class, not as three independent stocks.
 
 There is an even simpler approach: do not buy Alibaba and JD.com. If you already own Meituan, there is no need to buy its rivals — that just buys the same risk twice.
 

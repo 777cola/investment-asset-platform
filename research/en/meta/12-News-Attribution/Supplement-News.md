@@ -24,29 +24,29 @@ Share price data comes from batchdata daily bars (close, 2026/08/04–2026/11/02
 
 ## Phase 1 (late August to mid-September): bad news lands, stock price holds
 
-On August 26, Meta reached a settlement with the attorneys general of 52 states, totaling up to USD 18.59 billion, payable over ten years, and making safety settings for teen accounts default-on. It is one of the largest state-level consumer protection settlements in US history. The stock rose just 1.1% that day—**showing the market had already priced in the fine expectation; the real new information is that "product rules have been permanently changed."**
+On August 26, Meta reached a settlement with the attorneys general of 52 states, totaling up to USD 18.59 billion, payable over ten years, and making safety settings for teen accounts default-on. It is one of the largest state-level consumer protection settlements in US history. The stock rose just 1.1% that day—showing the market had already priced in the fine expectation; the real new information is that "product rules have been permanently changed."
 
-This stretch also saw a 4.4% pullback (8/17 to 8/18, from 568.97 to 543.67), with no company-level news, part of broad tech-sector volatility.**Such declines need no explanation and no action.**
+This stretch also saw a 4.4% pullback (8/17 to 8/18, from 568.97 to 543.67), with no company-level news, part of broad tech-sector volatility.Such declines need no explanation and no action.
 
 ## Phase 2 (September): a valuation re-rating driven by one product
 
 Muse launched on September 8, drawing 730,000 downloads in 5 days and surpassing 10 million in 40 days. It topped the US App Store on September 21; the stock rose 11.3% that day, adding USD 192 billion in market cap, while Zuckerberg's net worth rose about 25 billion in a single day. On September 24 it set a 52-week high of USD 777.59.
 
-**Market cap rose about USD 300 billion over the month, reflecting the narrative that "Meta is back at the AI table," not any revenue.** Muse revenue in the financials is zero — the Q3 report contains no contribution from it at all. The market is buying an option, not cash flow.
+Market cap rose about USD 300 billion over the month, reflecting the narrative that "Meta is back at the AI table," not any revenue. Muse revenue in the financials is zero — the Q3 report contains no contribution from it at all. The market is buying an option, not cash flow.
 
 ## Phase 3 (late October): cash flow takes center stage
 
 Earnings after the close on October 21: revenue of RMB 64.6 billion came in above the consensus, and the stock rose as much as 6% after hours; but the call was all about capex and 2027 expenses. The next day the stock fell 7.0%, then declined for four straight sessions, from 697.52 to 612.49, a cumulative -12.2%.
 
-On October 26, the EU's EUR 798 million fine and a USD 95 billion equity financing were announced on the same day. The stock fell 1.9%. **The market barely reacted to the fine (0.05% of market cap); its reaction to the financing was slow-burning — the stock fell another 4% over the next five days.**
+On October 26, the EU's EUR 798 million fine and a USD 95 billion equity financing were announced on the same day. The stock fell 1.9%. The market barely reacted to the fine (0.05% of market cap); its reaction to the financing was slow-burning — the stock fell another 4% over the next five days.
 
-On October 29, Google's earnings sent its stock down 13%, while Meta rose 2.0%. The day showed money rotating within the sector: out of Google, where investment is dragging on profit, and into Meta, where ad growth is faster. **But this is relative strength, not an absolute endorsement.**
+On October 29, Google's earnings sent its stock down 13%, while Meta rose 2.0%. The day showed money rotating within the sector: out of Google, where investment is dragging on profit, and into Meta, where ad growth is faster. But this is relative strength, not an absolute endorsement.
 
 ## One overlooked detail: 13 upgrades, stock still falls
 
-At least 13 investment banks raised their target prices after the earnings report, including Bernstein and Morgan Stanley, citing advertising resilience and Muse's potential. Yet the stock fell from 697.52 to 606.73, a 13% decline. **Sell-side looks at cash flow 12 months out; buy-side sells the uncertainty within 12 months.**
+At least 13 investment banks raised their target prices after the earnings report, including Bernstein and Morgan Stanley, citing advertising resilience and Muse's potential. Yet the stock fell from 697.52 to 606.73, a 13% decline. Sell-side looks at cash flow 12 months out; buy-side sells the uncertainty within 12 months.
 
-This divergence is common during capital-intensive transitions: analysts use DCF, and the DCF denominator is long-term growth, so the more the stock falls, the cheaper it looks; traders use positioning, and positioning looks at next quarter's free cash flow, so the more the stock falls, the less they dare to buy. **Two languages coexist, and price is set by the latter.**
+This divergence is common during capital-intensive transitions: analysts use DCF, and the DCF denominator is long-term growth, so the more the stock falls, the cheaper it looks; traders use positioning, and positioning looks at next quarter's free cash flow, so the more the stock falls, the less they dare to buy. Two languages coexist, and price is set by the latter.
 
 ## Which are noise: three criteria
 
@@ -60,9 +60,9 @@ Third, ask whether there is a verifiable follow-through. The settlement has a te
 
 A counterfactual exercise: assume Muse had never launched, and the market would price Meta as "an advertising company growing 26% + USD 140 billion of capex." At 2027 EPS of USD 28 and 18x, that is USD 504; at 20x, USD 560.
 
-**In other words, of the current price of USD 606.73, roughly USD 50 to 100 is Muse's option value, or 8%–16%.** That pricing is not unreasonable—if Muse reaches USD 20 billion of revenue in 2028, at 10x PS that is a USD 200 billion market cap, which discounts back to exactly this magnitude.
+In other words, of the current price of USD 606.73, roughly USD 50 to 100 is Muse's option value, or 8%–16%. That pricing is not unreasonable—if Muse reaches USD 20 billion of revenue in 2028, at 10x PS that is a USD 200 billion market cap, which discounts back to exactly this magnitude.
 
-But remember: option value fluctuates, cash flow does not.**Most of September's USD 300 billion of market-cap gain falls into the former.**
+But remember: option value fluctuates, cash flow does not.Most of September's USD 300 billion of market-cap gain falls into the former.
 
 ## Sources
 

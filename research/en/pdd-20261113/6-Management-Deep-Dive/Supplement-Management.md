@@ -35,43 +35,43 @@ Shareholding: Huang Zheng approximately 26% (down from 43.3% to around 29% after
 
 ## Three people, one logic
 
-Pinduoduo's decision-making structure is simpler than most China concept stocks: Huang Zheng sets direction, Chen Lei runs execution, Zhao Jiazhen runs supply. All three come from engineering or operations backgrounds; there are no professional managers, and no parachuted-in CFO speaking to the outside world. **The strength of this structure is fast decisions; the weakness is the absence of checks and balances.**
+Pinduoduo's decision-making structure is simpler than most China concept stocks: Huang Zheng sets direction, Chen Lei runs execution, Zhao Jiazhen runs supply. All three come from engineering or operations backgrounds; there are no professional managers, and no parachuted-in CFO speaking to the outside world. The strength of this structure is fast decisions; the weakness is the absence of checks and balances.
 
-When Huang Zheng stepped down as CEO in 2020 and as chairman in 2021, he donated 2.37% of shares to the Fanxing Charity Fund and transferred another 3.77% to the partner collective, cutting his personal stake from 43.3% to around 29%. This move is rare among Chinese internet founders — most sell down at share-price highs; he gave shares away. **This earns him credit on character, but does not change his absolute say over capital allocation.**
+When Huang Zheng stepped down as CEO in 2020 and as chairman in 2021, he donated 2.37% of shares to the Fanxing Charity Fund and transferred another 3.77% to the partner collective, cutting his personal stake from 43.3% to around 29%. This move is rare among Chinese internet founders — most sell down at share-price highs; he gave shares away. This earns him credit on character, but does not change his absolute say over capital allocation.
 
 ## Capital allocation: full marks for M&A discipline, zero for shareholder returns
 
-PDD has made almost no acquisitions. In eight years since listing, not a single USD billion-scale deal, no goodwill impairment landmines. Against the history of Alibaba and Tencent buying their way forward, this restraint is a scarce quality—**it means management does not need to "get bigger" to prove itself.**
+PDD has made almost no acquisitions. In eight years since listing, not a single USD billion-scale deal, no goodwill impairment landmines. Against the history of Alibaba and Tencent buying their way forward, this restraint is a scarce quality—it means management does not need to "get bigger" to prove itself.
 
-The flip side is cash piling up. At end-June 2026, RMB 456.4 billion, up RMB 34.1 billion from end-2025; over the same period the company spent heavily on its "RMB 100 billion support" program and kept investing in Temu localization.**Saying heavy investment while cash rises net means the intensity of that investment is far smaller than the narrative suggests.**
+The flip side is cash piling up. At end-June 2026, RMB 456.4 billion, up RMB 34.1 billion from end-2025; over the same period the company spent heavily on its "RMB 100 billion support" program and kept investing in Temu localization.Saying heavy investment while cash rises net means the intensity of that investment is far smaller than the narrative suggests.
 
-The real criticism is here: the stock fell from USD 122.66 to USD 78.97, ex-cash P/E of 3.4x, and not one meaningful buyback at this level. Management says it "believes in long-term value," but the best expression of long-term value is buying your own stock when it is cheap.**Not doing so admits only two explanations: either they don't think it's cheap, or they don't care about the share price.**
+The real criticism is here: the stock fell from USD 122.66 to USD 78.97, ex-cash P/E of 3.4x, and not one meaningful buyback at this level. Management says it "believes in long-term value," but the best expression of long-term value is buying your own stock when it is cheap.Not doing so admits only two explanations: either they don't think it's cheap, or they don't care about the share price.
 
 ## Integrity and governance: no fraud, but a string of compliance bills
 
 First, the good news: eight years since listing, no allegations of financial fraud, no SEC investigation, no qualified auditor's opinion. Among China concept stocks, that alone filters out most of the field. Colin Huang's share donation upon stepping down and Chen Lei's smooth succession show that the company's transfer of power was clean.
 
-Now the bill: in 2021, an employee's sudden death triggered a public backlash; in 2022–2023, the app was removed from Google Play over security vulnerabilities; from 2024, the EU opened a DSA investigation, and in July 2026 imposed a EUR 200 million fine; as of October 2026, the EU product safety investigation is still ongoing, with a worst-case fine of 6% of global annual revenue. **These are not financial problems; they are license-to-operate problems, and the ceiling on license-to-operate problems is far higher than on financial ones.**
+Now the bill: in 2021, an employee's sudden death triggered a public backlash; in 2022–2023, the app was removed from Google Play over security vulnerabilities; from 2024, the EU opened a DSA investigation, and in July 2026 imposed a EUR 200 million fine; as of October 2026, the EU product safety investigation is still ongoing, with a worst-case fine of 6% of global annual revenue. These are not financial problems; they are license-to-operate problems, and the ceiling on license-to-operate problems is far higher than on financial ones.
 
 ## Compare across the board: what the other two companies' management teams are doing
 
 Alibaba kept buying back stock and paying dividends in fiscal 2026, JD.com has a standing buyback, and Tencent's annual HKD 100 billion-scale buyback has become the valuation anchor. All three are using cash to buy their own shares; only Pinduoduo is saving.
 
-**This is not an industry-norm issue; it is a choice.** Same China ADR regulatory environment, same share-price discount: peers chose to buy when it was cheap, while it chose to hold the cash. For shareholders, the cost of that choice accrues every year.
+This is not an industry-norm issue; it is a choice. Same China ADR regulatory environment, same share-price discount: peers chose to buy when it was cheap, while it chose to hold the cash. For shareholders, the cost of that choice accrues every year.
 
 ## Successor: Chen Lei's five years — the organization is already running
 
 Whether a company can survive without its founder comes down to two things: whether the handover is smooth and whether the organization keeps iterating. Chen Lei took over in 2020 and accomplished two things in five years — Temu went from zero to a GMV scale of USD 100 billion, and the main site held onto its low-price mindshare. Zhao Jiazhen was promoted to co-CEO in 2023, the second generation grown internally.
 
-**The risk lies in depth.** Core decisions still rest on the Huang Zheng–Chen Lei dual core, and no one has emerged at the third layer who can shoulder responsibility independently. Compared with Alibaba's Jiang Fan and JD.com's Xu Ran, Pinduoduo's management pipeline is visibly thinner. If Chen Lei left tomorrow, there would be no short-term crisis, but the quality of strategic judgment would decline.
+The risk lies in depth. Core decisions still rest on the Huang Zheng–Chen Lei dual core, and no one has emerged at the third layer who can shoulder responsibility independently. Compared with Alibaba's Jiang Fan and JD.com's Xu Ran, Pinduoduo's management pipeline is visibly thinner. If Chen Lei left tomorrow, there would be no short-term crisis, but the quality of strategic judgment would decline.
 
 ## Three governance questions
 
-**Question 1: Whose cash is it?** Legally it belongs to the company; economically it should belong to shareholders. The two are now separated, and this is the root of all valuation discounts.
+Question 1: Whose cash is it? Legally it belongs to the company; economically it should belong to shareholders. The two are now separated, and this is the root of all valuation discounts.
 
-**Question 2: Is the super-voting right protection or risk?** Colin Huang holds about 26% but controls a majority of voting power. The upside is that it blocks short-term pressure; the downside is that no force can require him to pay dividends.
+Question 2: Is the super-voting right protection or risk? Colin Huang holds about 26% but controls a majority of voting power. The upside is that it blocks short-term pressure; the downside is that no force can require him to pay dividends.
 
-**Question 3: Is disclosure sufficient?** No segment disclosure for Temu, no separate disclosure for Duoduo Maicai, no full-year guidance, no external CFO. That style is efficiency in the growth phase; in the mature phase it is opacity.
+Question 3: Is disclosure sufficient? No segment disclosure for Temu, no separate disclosure for Duoduo Maicai, no full-year guidance, no external CFO. That style is efficiency in the growth phase; in the mature phase it is opacity.
 
 ## Sources
 

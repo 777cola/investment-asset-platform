@@ -6,7 +6,7 @@
 
 ## Notes
 
-数据来源：博通 FY26Q3 财报与电话会议（2026/09/02），季度截至 2026/08/02。FY25Q3 分部数据按披露增速反推（半导体 9,181 = 20,840／2.27；AI 5,202 = 16,700／3.21；软件 6,728 = 8,751／1.30）。XPU 12,191 = 16,700 × 73%；网络 4,509 = 16,700 − 12,191。经营现金流 14,270、资本开支 600 为粗算（自由现金流 13,670 为披露值，差值即资本开支）。股息支出 2,815 = 0.59 美元 × 47.7 亿股。FY27 收入 1,735 亿为粗算：AI 1,150 + 软件 410 + 非 AI 175。
+Source: Broadcom FY26Q3 results and earnings call (2026/09/02), quarter ended 2026/08/02. FY25Q3 segment figures are back-solved from disclosed growth rates (semiconductor 9,181 = 20,840/2.27; AI 5,202 = 16,700/3.21; software 6,728 = 8,751/1.30). XPU 12,191 = 16,700 × 73%; networking 4,509 = 16,700 − 12,191. Operating cash flow of 14,270 and capex of 600 are rough estimates (disclosed free cash flow of 13,670 implies the capex). Dividends paid 2,815 = USD 0.59 × 4.77bn shares. FY27 revenue of 173.5bn is a rough estimate: AI 115.0 + software 41.0 + non-AI 17.5.
 
 ## Income statement (USD million)
 
@@ -24,7 +24,7 @@
 | Net profit (Non-GAAP) | 16,372 | 8,396 | +95% |
 | Net margin (Non-GAAP) | 55.3% | 52.8% | +2.5pct |
 
-> 数据来源：博通 FY26Q3 财报（2026/09/02）。FY25Q3 半导体、AI、软件按公司披露的同比增速反推；XPU 与 AI 网络按 73%／27% 拆分，属推算；非 AI 半导体 = 20,840 − 16,700。净利率同比比较用 FY25Q3 反推值 8,396／15,909。
+> Source: Broadcom FY26Q3 results (2026/09/02). FY25Q3 semiconductor, AI and software figures are back-solved from the growth rates the company disclosed; the 73%/27% XPU-to-AI-networking split is our estimate; non-AI semiconductor = 20,840 − 16,700. The year-on-year net margin comparison uses back-solved FY25Q3 values of 8,396 and 15,909.
 
 ## Cash flow and balance sheet (USD million)
 
@@ -56,17 +56,17 @@
 
 Total revenue USD 29.591 billion, +86% YoY. Broken down: AI semiconductor USD 16.7 billion (+221%), non-AI semiconductor USD 4.14 billion (+4.05%), infrastructure software USD 8.751 billion (+30.1%).
 
-Put these three numbers together and one thing is clear: **Broadcom now has only one leg running.** Non-AI semiconductor is essentially flat, software holds 30% on VMware price hikes and subscription conversion, and all remaining incremental growth comes from AI. Of the USD 13.68 billion revenue increase, AI contributed USD 11.5 billion, or 84%.
+Put these three numbers together and one thing is clear: Broadcom now has only one leg running. Non-AI semiconductor is essentially flat, software holds 30% on VMware price hikes and subscription conversion, and all remaining incremental growth comes from AI. Of the USD 13.68 billion revenue increase, AI contributed USD 11.5 billion, or 84%.
 
-AI itself is splitting: XPU USD 12.19 billion (73%), AI networking USD 4.51 billion (27%). XPU is custom silicon with only six customers; networking chips sell to virtually everyone building AI data centers, with a more dispersed customer base and stronger cyclicality. **The higher XPU's share, the more concentrated revenue and the lower gross margin—deteriorating on both fronts at once.**
+AI itself is splitting: XPU USD 12.19 billion (73%), AI networking USD 4.51 billion (27%). XPU is custom silicon with only six customers; networking chips sell to virtually everyone building AI data centers, with a more dispersed customer base and stronger cyclicality. The higher XPU's share, the more concentrated revenue and the lower gross margin—deteriorating on both fronts at once.
 
 ## Layer two: gross margin — a 5-point drop in a year reflects structure, not the cycle
 
 Non-GAAP gross margin 75.0%, down 2.1pct QoQ; GAAP 69%. Lining up the four quarters: FY25Q4 78%, FY26Q2 77.1%, FY26Q3 75.0%, FY26Q4 guidance 73%.
 
-Management gives two reasons: a higher share of XPU hardware, and a higher share of HBM in cost. In one sentence: **an increasing share of what Broadcom sells is "reselling someone else's hardware," and a shrinking share is "selling its own designs."**
+Management gives two reasons: a higher share of XPU hardware, and a higher share of HBM in cost. In one sentence: an increasing share of what Broadcom sells is "reselling someone else's hardware," and a shrinking share is "selling its own designs."
 
-Can this trend reverse? No. FY27 AI revenue guidance is USD 115 billion, double FY26's USD 58 billion, and the increment is almost entirely XPU hardware. So gross margin keeps sliding; the question is where it bottoms.**My rough floor is around 71% (FY27 revenue USD 173.5 billion, AI at 66%); a break below 70% would signal losing pricing power, not just a mix problem.**
+Can this trend reverse? No. FY27 AI revenue guidance is USD 115 billion, double FY26's USD 58 billion, and the increment is almost entirely XPU hardware. So gross margin keeps sliding; the question is where it bottoms.My rough floor is around 71% (FY27 revenue USD 173.5 billion, AI at 66%); a break below 70% would signal losing pricing power, not just a mix problem.
 
 ## Tier 3: costs and profit — a 55% net margin is the best on record
 
@@ -74,7 +74,7 @@ Non-GAAP net income was USD 16.372 billion, up 95% YoY, with a net margin of 55.
 
 Broadcom's cost structure is very light: R&D expense ratio has long been 9%–10%, and SG&A expense ratio 2%–3%, because it has only a few dozen customers and does not need a large sales force. Cutting costs after acquisitions is Hock Tan's signature move, and the expense ratio fell further after the VMware integration.
 
-But two things need to be flagged. First, **GAAP net income was 13.1 billion, up 216% YoY, far faster than the 95% Non-GAAP growth**; the gap between the two is only 3.27 billion, indicating that the amortization burden is lightening and may also include one-off items that the financial statements do not separately disclose. Second, the 55% net margin is on a Non-GAAP basis, excluding stock-based compensation and acquisition amortization; on a GAAP basis it is 44.3%. **Using the former for valuation is industry practice, but the latter must not be forgotten.**
+But two things need to be flagged. First, GAAP net income was 13.1 billion, up 216% YoY, far faster than the 95% Non-GAAP growth; the gap between the two is only 3.27 billion, indicating that the amortization burden is lightening and may also include one-off items that the financial statements do not separately disclose. Second, the 55% net margin is on a Non-GAAP basis, excluding stock-based compensation and acquisition amortization; on a GAAP basis it is 44.3%. Using the former for valuation is industry practice, but the latter must not be forgotten.
 
 ## Tier 4: Cash flow and balance sheet — strong cash generation, but conversion is falling
 
@@ -82,25 +82,25 @@ Quarterly free cash flow USD 13.67 billion, or roughly USD 52 billion annualized
 
 The flaw is in conversion: FCF/Non-GAAP net income of 0.83, down from last quarter. The reason: AI revenue rose 54% quarter over quarter, and receivables and inventory expanded in tandem — a meaningful portion of revenue recognized this quarter has not yet been collected, while the company pre-builds inventory for next quarter's USD 21.7 billion of AI shipments.
 
-The on-balance-sheet picture is clean: USD 59.6 billion of fixed-rate debt, long maturities, 25x interest coverage, half of it repayable within three years. Off-balance-sheet is another matter: the financing platform built for AI customers, size undisclosed, which BofA estimates could accumulate USD 370 billion of senior debt by mid-2029. **That sentence is the only item in the entire report that cannot be quantified yet could change the conclusion.**
+The on-balance-sheet picture is clean: USD 59.6 billion of fixed-rate debt, long maturities, 25x interest coverage, half of it repayable within three years. Off-balance-sheet is another matter: the financing platform built for AI customers, size undisclosed, which BofA estimates could accumulate USD 370 billion of senior debt by mid-2029. That sentence is the only item in the entire report that cannot be quantified yet could change the conclusion.
 
 ## Chain the four quarters together: this is acceleration, not a step change
 
 The quarterly AI revenue trajectory can be reconstructed: about RMB 8.76 billion in FY26Q1, about RMB 10.84 billion in Q2, RMB 16.7 billion in Q3, and guidance of RMB 21.7 billion for Q4 (Q1 and Q2 back-solved from full-year guidance of RMB 58 billion). Sequential growth was +24%, +54% and +30%, respectively.
 
-**These three numbers carry more information than the +221% year-on-year figure.** Year-on-year compares against last year's low base; sequential shows current acceleration or deceleration. Q3's +54% is an outlier, reflecting Google TPU v7 volume shipments plus Anthropic's initial deployment; Q4 falling back to +30% signals the high base has arrived.
+These three numbers carry more information than the +221% year-on-year figure. Year-on-year compares against last year's low base; sequential shows current acceleration or deceleration. Q3's +54% is an outlier, reflecting Google TPU v7 volume shipments plus Anthropic's initial deployment; Q4 falling back to +30% signals the high base has arrived.
 
-FY26 full-year RMB 58 billion and FY27 guidance of RMB 115 billion imply growth of +98%. That number needs unpacking: if Q4 annualizes to RMB 86.8 billion, then FY27's RMB 115 billion means a further 32% for the full year—not a doubling, but sustaining Q4's run rate for four quarters. **So "doubling" is a year-on-year measure, not a growth-rate measure.** The market is sensitive to this distinction, which is why the stock did not rise after guidance.
+FY26 full-year RMB 58 billion and FY27 guidance of RMB 115 billion imply growth of +98%. That number needs unpacking: if Q4 annualizes to RMB 86.8 billion, then FY27's RMB 115 billion means a further 32% for the full year—not a doubling, but sustaining Q4's run rate for four quarters. So "doubling" is a year-on-year measure, not a growth-rate measure. The market is sensitive to this distinction, which is why the stock did not rise after guidance.
 
 ## Three items that are not on the income statement
 
 Reading Broadcom's financials, three things must be filled in yourself, or you will overvalue or undervalue it.
 
-**First, stock-based compensation.** It hides in the USD 3.27 billion gap between Non-GAAP and GAAP, mixed together with acquisition amortization, and the company does not break it out separately. Stock-based compensation in the semiconductor industry typically runs 3%–5% of revenue; Broadcom's ratio is lower because of its lean headcount, but the absolute amount is still in the billions. This is a real cost, it just does not appear as cash.
+First, stock-based compensation. It hides in the USD 3.27 billion gap between Non-GAAP and GAAP, mixed together with acquisition amortization, and the company does not break it out separately. Stock-based compensation in the semiconductor industry typically runs 3%–5% of revenue; Broadcom's ratio is lower because of its lean headcount, but the absolute amount is still in the billions. This is a real cost, it just does not appear as cash.
 
-**Second, acquisition amortization.** The intangibles from VMware, CA and Symantec are still being amortized, several billion dollars a year. It does not affect cash, but it affects book profit and net assets—which is one reason the 60% ROE looks absurd (the denominator is suppressed).
+Second, acquisition amortization. The intangibles from VMware, CA and Symantec are still being amortized, several billion dollars a year. It does not affect cash, but it affects book profit and net assets—which is one reason the 60% ROE looks absurd (the denominator is suppressed).
 
-**Third, off-balance-sheet guarantees.** This item does not even get a footnote. Accounting-wise it does not constitute a liability; a provision is recognized only when a loss is "probable"—and the threshold for "probable" is management's judgment.**In other words, when this risk hits the financial statements depends on when management decides it is a problem.** Together, these three items are the distance between Non-GAAP profit and true economic profit.
+Third, off-balance-sheet guarantees. This item does not even get a footnote. Accounting-wise it does not constitute a liability; a provision is recognized only when a loss is "probable"—and the threshold for "probable" is management's judgment.In other words, when this risk hits the financial statements depends on when management decides it is a problem. Together, these three items are the distance between Non-GAAP profit and true economic profit.
 
 ## Guidance and the three things to watch most closely
 

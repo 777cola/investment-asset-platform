@@ -28,7 +28,7 @@ Data sources: Microsoft FY2026Q4 earnings report and earnings call (2026/07/29);
 
 FY2026Q4 capital expenditure was RMB 41 billion, up 70% year on year, with about two-thirds going to short-lived assets such as CPUs and GPUs — roughly USD 27 billion flowed into the chip and server supply chain in a single quarter. Full-year cash capex was RMB 115.9 billion, and FY2027 is planned at RMB 175 billion.
 
-That scale is enough to make Microsoft one of Nvidia's largest customers, but it cannot change the pricing dynamic: **only one supplier can deliver the main training and inference chips at scale, so what Microsoft can negotiate is allocation and lead times, not price.** Hence its in-house Maia, long-term power contracts, and shifting part of its inference workload onto its own silicon — the goal of these moves is not leadership, but avoiding a chokehold.
+That scale is enough to make Microsoft one of Nvidia's largest customers, but it cannot change the pricing dynamic: only one supplier can deliver the main training and inference chips at scale, so what Microsoft can negotiate is allocation and lead times, not price. Hence its in-house Maia, long-term power contracts, and shifting part of its inference workload onto its own silicon — the goal of these moves is not leadership, but avoiding a chokehold.
 
 2026 adds a new bottleneck: power. Microsoft adds 88 data centers a year, and the first constraint on site selection is no longer land or capital but grid connection time. Bargaining power in this link sits with utilities and local governments; Microsoft can only lock in capacity in advance.
 
@@ -36,21 +36,21 @@ That scale is enough to make Microsoft one of Nvidia's largest customers, but it
 
 What cloud providers do is essentially "package upstream hardware and power and sell it downstream by the hour." Gross margins of 60%–65% sit below software but above hardware—a middle position that is both a moat and a ceiling.
 
-Scale effects are especially pronounced here: procurement discounts, data center utilization, self-built networks and software stack reuse all dilute with scale. The result is little room to survive outside the top three. Oracle squeezed in on a massive OpenAI order and CoreWeave rode a wave of pure GPU leasing, but neither position is stable—**one depends on a single customer, the other on financing costs.**
+Scale effects are especially pronounced here: procurement discounts, data center utilization, self-built networks and software stack reuse all dilute with scale. The result is little room to survive outside the top three. Oracle squeezed in on a massive OpenAI order and CoreWeave rode a wave of pure GPU leasing, but neither position is stable—one depends on a single customer, the other on financing costs.
 
 Microsoft's advantage at this layer is unique: it is both a cloud provider and an enterprise software vendor, so Azure compute can be sold directly to its own Office customers at near-zero acquisition cost. Neither AWS nor Google has that structure.
 
 ## Downstream: models are commoditizing, applications are collecting rent
 
-The downstream chain splits into two layers with opposite fates. **The model layer is commoditizing fast**: the gap between open-source and closed-source performance has shrunk from two years to six months, and inference prices halve every year or more. OpenAI and Anthropic survive on funding, and their gross margins sit far below software peers.
+The downstream chain splits into two layers with opposite fates. The model layer is commoditizing fast: the gap between open-source and closed-source performance has shrunk from two years to six months, and inference prices halve every year or more. OpenAI and Anthropic survive on funding, and their gross margins sit far below software peers.
 
-**The application layer collects steady rent**: M365 gross margin above 80%, Salesforce 77%, Adobe 88%. These products are embedded in customer workflows, so switching costs run high. **Microsoft occupies both layers at once—it sells models (via Azure) and applications (Office).** Model-layer commoditization is bad news for it (Azure premium gets compressed); application-layer stability is good news (cash flow underpins). The two forces offset each other, which is why its valuation will neither run wild like a pure model company nor stay flat like pure SaaS.
+The application layer collects steady rent: M365 gross margin above 80%, Salesforce 77%, Adobe 88%. These products are embedded in customer workflows, so switching costs run high. Microsoft occupies both layers at once—it sells models (via Azure) and applications (Office). Model-layer commoditization is bad news for it (Azure premium gets compressed); application-layer stability is good news (cash flow underpins). The two forces offset each other, which is why its valuation will neither run wild like a pure model company nor stay flat like pure SaaS.
 
 ## Cycle position: mid-stage of the capex cycle
 
 Three signals gauge where we are in the cycle: orders are still rising (RPO RMB 678 billion, +84%), prices have not fallen (cloud gross margin down only 1–2 points), and capacity is not yet in oversupply (management says demand still exceeds supply). All three point to "mid-cycle," not a top.
 
-The four major North American cloud providers are all raising 2026 capex, with Microsoft planning USD 175 billion for FY2027, equal to 53% of FY2026 revenue. That ratio has never exceeded 40% historically, showing the intensity of this investment round is unprecedented.**A cycle top typically appears at the moment order growth drops below 20% while capacity is still coming online; at the current pace, that is roughly 2028.**
+The four major North American cloud providers are all raising 2026 capex, with Microsoft planning USD 175 billion for FY2027, equal to 53% of FY2026 revenue. That ratio has never exceeded 40% historically, showing the intensity of this investment round is unprecedented.A cycle top typically appears at the moment order growth drops below 20% while capacity is still coming online; at the current pace, that is roughly 2028.
 
 Investment implication: the next 18 months will combine accelerating revenue with deteriorating cash flow, and cash flow will cap valuation; only after 2028 does the phase of peaking depreciation and free cash flow release begin. Buy early, sell late, and be patient in between.
 

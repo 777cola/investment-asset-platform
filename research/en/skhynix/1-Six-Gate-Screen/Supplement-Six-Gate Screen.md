@@ -24,7 +24,7 @@ Score consistent with the working papers (six gates 7/6/8/7/5/3, composite 36/60
 
 ## Gate one: the business is understandable, the inflection point is not
 
-Score: 7. The SK hynix model in three sentences: buy equipment and build cleanrooms, turn wafers into DRAM chips, sell them at contract prices to server makers and GPU makers. 2026Q1 revenue was KRW 52.58 trillion, up 60% QoQ, yet DRAM shipments were flat QoQ — **the entire incremental KRW 20 trillion of revenue was price**. The chain is short enough that you do not need to call the endgame of AI; you only need to call who is adding capacity over the next four quarters.
+Score: 7. The SK hynix model in three sentences: buy equipment and build cleanrooms, turn wafers into DRAM chips, sell them at contract prices to server makers and GPU makers. 2026Q1 revenue was KRW 52.58 trillion, up 60% QoQ, yet DRAM shipments were flat QoQ — the entire incremental KRW 20 trillion of revenue was price. The chain is short enough that you do not need to call the endgame of AI; you only need to call who is adding capacity over the next four quarters.
 
 The 3 points deducted are for the second layer: the inflection. CEO Kwak Noh-jung said on July 10 that 2027 will be the tightest supply year on record and that demand may still exceed supply after 2030, while the stock fell 38% over the same period. Both judgments cannot be right. Understanding the business is not the same as understanding when the market will believe whom.
 
@@ -32,7 +32,7 @@ The 3 points deducted are for the second layer: the inflection. CEO Kwak Noh-jun
 
 A marginal pass, 6 points. The good side is real: global DRAM is down to just Samsung, SK hynix, Micron and CXMT, and in Q1 2026 the three together accounted for roughly 90% of industry revenue; HBM is even more concentrated, with only three players able to make it, so pricing power sits entirely with the seller. Operating margin rose from 42% in Q1 2025 to 71.5%, with gross margin at 79%.
 
-The bad side is also real: **memory has never posted three consecutive years of high gross margin**. Operating profit was 6.8 trillion in 2022 and turned into an operating loss of 7.7 trillion in 2023, a 14 trillion swing in one year. The money this business earns must go straight back into capacity—2026 capex is 38–40 trillion, 1.3x the 30.2 trillion of 2025. The cash earned is not free cash flow; it is the entry fee for the next round.
+The bad side is also real: memory has never posted three consecutive years of high gross margin. Operating profit was 6.8 trillion in 2022 and turned into an operating loss of 7.7 trillion in 2023, a 14 trillion swing in one year. The money this business earns must go straight back into capacity—2026 capex is 38–40 trillion, 1.3x the 30.2 trillion of 2025. The cash earned is not free cash flow; it is the entry fee for the next round.
 
 ## Gate three: the moat is real, but only process remains
 
@@ -44,13 +44,13 @@ But three of its legs are thinning: first, exclusivity — on June 8 in Seoul, J
 
 7 points. When the whole industry cut capex in 2023, SK hynix did not halt HBM line conversions or MR-MUF packaging investment; in 2024 it was first to supply HBM3E. That was the most valuable decision of this cycle. In February this year it approved a KRW 12.2 trillion buyback and cancellation (2.1% of share capital) and raised the dividend per share by 25% — among Korean listed companies, cancelling treasury shares is a rare move.
 
-The deduction is on timing: on July 10 the ADR listed on Nasdaq at USD 149/ADR, raising USD 26.5 billion, the second-largest IPO in US history. Raising capital is not wrong in itself, but **near an all-time high in the share price while approving KRW 40 trillion of capex** is the standard combination of moves at a cycle top. The company calls it "expansion grounded in capex discipline" — whether that discipline holds through 2027 is the test.
+The deduction is on timing: on July 10 the ADR listed on Nasdaq at USD 149/ADR, raising USD 26.5 billion, the second-largest IPO in US history. Raising capital is not wrong in itself, but near an all-time high in the share price while approving KRW 40 trillion of capex is the standard combination of moves at a cycle top. The company calls it "expansion grounded in capex discipline" — whether that discipline holds through 2027 is the test.
 
 ## Gate Five: the 17x scam sits in the denominator
 
 5 points, a bare pass. KRW 1,291 trillion market cap ÷ trailing four-quarter net profit of KRW 75.2 trillion = 17.2x. On 2026 expectations (operating profit of about KRW 230 trillion) it is only a bit over 5x, and anyone looking at PE would call it cheap.
 
-But low PE on memory stocks is always a trap: **the denominator is peak profit**. Switch to a neutral 2027 scenario of KRW 180 trillion operating profit, a 6x multiple and KRW 95 trillion net cash, and you get a market cap of KRW 1,175 trillion, or KRW 1.65 million per share, 9% below the current price. In other words, after a 38% decline, the neutral scenario still offers no margin of safety. The real safety zone is below KRW 1.4 million, which corresponds to 5x 2027.
+But low PE on memory stocks is always a trap: the denominator is peak profit. Switch to a neutral 2027 scenario of KRW 180 trillion operating profit, a 6x multiple and KRW 95 trillion net cash, and you get a market cap of KRW 1,175 trillion, or KRW 1.65 million per share, 9% below the current price. In other words, after a 38% decline, the neutral scenario still offers no margin of safety. The real safety zone is below KRW 1.4 million, which corresponds to 5x 2027.
 
 ## Stage Six: The earnings report two days out is not a probability, it is a bet
 
@@ -60,13 +60,16 @@ The disagreement is clear: 60.4 or 65. A KRW 4.6 trillion gap equals 3.5% of mar
 
 ## Veto items and items to be verified
 
-**Veto items: none.** No risk of permanent capital loss — net cash, positive free cash flow, share leadership, customers are Nvidia and the four major cloud providers; there is no existential threat. The real risk is valuation compression, not the company disappearing.
+Veto items: none. No risk of permanent capital loss — net cash, positive free cash flow, share leadership, customers are Nvidia and the four major cloud providers; there is no existential threat. The real risk is valuation compression, not the company disappearing.
 
-**Four items to verify:**
+Four items to verify:
 
 - Whether Q2 blended DRAM ASP holds at +30% QoQ (TrendForce estimates commodity DRAM contract prices at +58%–63%; with HBM long-term agreements a high share of the mix, the company's blended ASP will be markedly below that);
+
 - Management's framing for 2027: still "tightest in history," or starting to flag "supply and demand moving toward balance";
+
 - Samsung's actual HBM4 supply share — July market talk had it winning roughly 20% of Nvidia's initial allocation; if that rises above 30% by year-end, the landscape changes;
+
 - The final 2026 capex figure and 2027 guidance; brokers estimate 38–40 trillion this year.
 
 ## Sources

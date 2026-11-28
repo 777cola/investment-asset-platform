@@ -10,33 +10,33 @@ The four role reports are four independent inferences from the same underlying w
 
 ## Four perspectives on one table
 
-All four reach broadly the same conclusion; they diverge only on "how much position to give it." The business analyst assigns an 8/10 business score but notes the ceiling has been reached; the financial analyst calculates a 3.4x ex-cash P/E and a 29% ex-cash shareholder yield, while grading capital allocation as failing; the industry researcher sees the position as not bad, but views regulation as a legislative shock that is irreversible; the risk assessor lists four tail risks and considers the discount broadly reasonable.
+All four reach broadly the same conclusion; they diverge only on how much position to give it. The business analyst assigns an 8/10 business score but notes the ceiling has been reached; the financial analyst calculates a 3.4x ex-cash P/E and a 29% ex-cash shareholder yield, while judging capital allocation as failing; the industry researcher sees the position as not bad, but regulation as a legislative shock that is irreversible; the risk assessor lists four tail risks and considers the discount broadly reasonable.
 
-What the four reports share is the same sentence: it is genuinely cheap, and the reasons it is cheap are equally genuine. Not one says "this is a mispricing"; all four say "this is the pricing."
+What the four reports share is the same sentence: the cheapness is real, and so are the reasons for it.Not one says "this is a mispricing"; all four say "this is the pricing".
 
 ## Disagreement one: what is Temu actually worth
 
-Business perspective: Temu is the only growth engine, with transaction services +13% holding up total revenue +8%, so it cannot simply be treated as a negative asset. Financial perspective: Temu is not disclosed by segment and cannot be valued, so it can only be counted at zero, leaving the RMB 456.4 billion in cash as the only certain asset.
+Business perspective: Temu is the only growth engine; transaction services +13% held total revenue at +8%, so it cannot simply be treated as a negative asset. Financial perspective: Temu is not disclosed as a separate segment and cannot be valued, so it can only be counted at zero, leaving RMB 456.4 billion in cash as the only certain asset.
 
-Verdict: treat it as "zero valuation, negative option." The reason is that uncertainty is too high—localization investment, compliance fines and tariff costs cannot be modeled. This means that if Temu succeeds, it is a free option; if it fails, it will not damage my valuation floor. Conservative valuation here is not prudence; it is the only feasible method.
+Verdict: treat it as "zero valuation, negative option." The reason is that uncertainty is too high—localization investment, regulatory fines and tariff costs cannot be modeled. This means that if Temu succeeds, it is a free option; if it fails, it will not damage my valuation floor. Conservative valuation here is not caution; it is the only feasible method.
 
 ## Disagreement two: how many points should management be docked
 
-Business perspective: Chen Lei built Temu in five years with first-class execution; his ability should not be dismissed because of the absence of a dividend. Risk perspective: governance is the source of tail risk — the VIX structure, super-voting rights, non-disclosure — all of these deserve a heavy penalty.
+Business perspective: Chen Lei built Temu in five years with first-class execution; his ability should not be dismissed for not paying dividends. Risk perspective: governance is the source of tail risk — the VIX structure, super-voting rights, non-disclosure — all deserve heavy penalties.
 
-Verdict: ability 8, attitude 3, scored separately, not averaged. Ability determines whether this business can be defended; attitude determines whether you get a return. The former is proven; the latter has not been proven in five years. The conclusion takes the form of a 3% position cap, not a refusal to buy.
+Verdict: ability 8, attitude 3, scored separately, not averaged. Ability determines whether this business can be defended; attitude determines whether you get a return. The former is proven; the latter is not after five years. The conclusion takes the form of a 3% position cap, not a decision not to buy.
 
 ## Disagreement 3: Buy now or wait for earnings
 
-Financial view: 3.4x is already cheap enough; waiting is a bet on timing. Risk view: Q3 results land in late November and transaction services growth could fall to single digits, so waiting two weeks removes one landmine.
+Financial view: 3.4x is cheap enough; waiting is a bet on timing. Risk view: Q3 results land in late November, transaction services growth could fall to single digits, and waiting two weeks removes one landmine.
 
-Verdict: build one-third first, decide after earnings. Valuation already offers a sufficient margin, but Q3 is the key window to validate Temu unit economics, and leaving room to add fits the discipline of scaling in better than buying in full at once.
+Verdict: build one-third first, decide after earnings. Valuation already offers sufficient margin, but Q3 is the key window to validate Temu's unit economics; keeping room to add fits the discipline of scaling in better than buying in full at once.
 
 ## My final judgment
 
-Buy, size the position, cap any single name at 3%, build over three to four quarters. This is not a "bullish on Chinese e-commerce" call; it is a call to buy a high-gross-margin business at a 70% discount while accepting that the cash may never come back.
+Buy, control position size, cap any single name at 3%, build over three to four quarters. This is not a "bullish on Chinese e-commerce" call. It is a call to buy a high-gross-margin business at a 70% discount while accepting that the cash may never come back.
 
-Three triggers, stated plainly: add — main-site advertising growth returns above 6%, or the company announces a meaningful buyback; trim — share price reaches USD 120 or above (more than 7x ex-cash); exit — advertising revenue turns negative year on year and transaction services growth drops below 5%.
+Three triggers, stated plainly: add — main-site advertising growth returns above 6%, or the company announces a meaningful buyback; trim — the stock reaches USD 120 or above (more than 7x ex-cash); exit — advertising revenue turns negative year on year and transaction services growth falls below 5%.
 
 ## Sources
 

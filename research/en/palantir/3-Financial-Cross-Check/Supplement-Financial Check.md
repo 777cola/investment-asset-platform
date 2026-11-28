@@ -25,27 +25,27 @@ Deviation calculation: (1) Free cash flow (1,187 − 1,220.4) / 1,220.4 = −2.7
 
 ## The largest deviation: free cash flow missed by USD 33 million
 
-The company's figure is RMB 1.22 billion; the data vendor's is RMB 1.187 billion — a gap of RMB 33.4 million. The breakdown makes it clear: the data vendor uses "operating cash flow − purchases of fixed assets," while the company deducts finance-lease principal and a data-center construction outlay on the same base. **Both numbers are right; they just answer different questions.**
+The company's figure is RMB 1.22 billion; the data vendor's is RMB 1.187 billion — a gap of RMB 33.4 million. The breakdown makes it clear: the data vendor uses "operating cash flow − purchases of fixed assets," while the company deducts finance-lease principal and a data-center construction outlay on the same base. Both numbers are right; they just answer different questions.
 
-This report uses the company's figure because it is consistent with the company's own "free cash flow margin of 63%" guidance and comparable across quarters. But readers should know: **on the stricter definition (deducting only capex), this company's free cash flow margin is 61.3%, not 63.1%.** The 1.8-percentage-point difference does not change the conclusion; what it changes is how solid the "63%" figure is.
+This report uses the company's figure because it is consistent with the company's own "free cash flow margin of 63%" guidance and comparable across quarters. But readers should know: on the stricter definition (deducting only capex), this company's free cash flow margin is 61.3%, not 63.1%. The 1.8-percentage-point difference does not change the conclusion; what it changes is how solid the "63%" figure is.
 
 A side note: for a software company with very low capex, free cash flow and operating cash flow should be roughly equal. The wider the gap between the two numbers, the more "adjustments" the definition contains. Palantir's gap is 1.6% — clean.
 
 ## Three framing traps more common than numerical misstatement
 
-**Type 1: Adjusted vs GAAP.** The company discloses both GAAP operating profit of 912 million (47.1%) and adjusted operating profit of 1.194 billion (61.7%); the 283 million gap is mainly 265 million of stock-based compensation. Many sell-side reports cite only 62%, which reads as if the margin were a notch higher than it actually is. This company's stock-based compensation is a real cost — 2% dilution a year is the evidence — so this report uses GAAP throughout.
+Type 1: Adjusted vs GAAP. The company discloses both GAAP operating profit of 912 million (47.1%) and adjusted operating profit of 1.194 billion (61.7%); the 283 million gap is mainly 265 million of stock-based compensation. Many sell-side reports cite only 62%, which reads as if the margin were a notch higher than it actually is. This company's stock-based compensation is a real cost — 2% dilution a year is the evidence — so this report uses GAAP throughout.
 
-**Type 2: Net income includes interest.** Q2 net income of 1.062 billion exceeds operating profit of 912 million; the extra 150 million comes from interest and investment income on USD 9.2 billion of cash. At a rough 4% short-end rate, annual interest income is about USD 370 million. If rates fall, this profit disappears.
+Type 2: Net income includes interest. Q2 net income of 1.062 billion exceeds operating profit of 912 million; the extra 150 million comes from interest and investment income on USD 9.2 billion of cash. At a rough 4% short-end rate, annual interest income is about USD 370 million. If rates fall, this profit disappears.
 
-**Type 3: TCV treated as revenue.** Q2 total contract value was 3.373 billion, up 49% year on year, while revenue was 1.935 billion, up 93% year on year. The growth rates differ by 44 percentage points, and a direct comparison yields completely opposite conclusions. TCV is signed contract value, recognized over multiple years; revenue is the amount recognized in the period. Their relationship should be read through the trend in the TCV / revenue ratio, not the absolute value in a single quarter.
+Type 3: TCV treated as revenue. Q2 total contract value was 3.373 billion, up 49% year on year, while revenue was 1.935 billion, up 93% year on year. The growth rates differ by 44 percentage points, and a direct comparison yields completely opposite conclusions. TCV is signed contract value, recognized over multiple years; revenue is the amount recognized in the period. Their relationship should be read through the trend in the TCV / revenue ratio, not the absolute value in a single quarter.
 
 ## Final basis adopted: three decisions
 
-**Revenue uses GAAP recognition; TTM sums four quarters.** TTM revenue of RMB 6.162 billion = full-year 2025 RMB 4.480 billion − H1 2025 RMB 1.886 billion + H1 2026 RMB 3.569 billion. The two 2025 half-year figures are back-solved from the company-disclosed year-over-year growth rates (Q1 +85%, Q2 +93%), not reconciled line by line to the original statements—the error is within 0.5% and does not affect the multiple assessment.
+Revenue uses GAAP recognition; TTM sums four quarters. TTM revenue of RMB 6.162 billion = full-year 2025 RMB 4.480 billion − H1 2025 RMB 1.886 billion + H1 2026 RMB 3.569 billion. The two 2025 half-year figures are back-solved from the company-disclosed year-over-year growth rates (Q1 +85%, Q2 +93%), not reconciled line by line to the original statements—the error is within 0.5% and does not affect the multiple assessment.
 
-**Margin uses GAAP operating profit, not adjusted, not net income.** Rationale: stock-based compensation is a real cost, and interest income is not sustainable. These two adjustments pull in opposite directions; using GAAP operating profit avoids both at once.
+Margin uses GAAP operating profit, not adjusted, not net income. Rationale: stock-based compensation is a real cost, and interest income is not sustainable. These two adjustments pull in opposite directions; using GAAP operating profit avoids both at once.
 
-**Valuation uses P/S, not P/E.** GAAP net income is distorted at both ends by interest income and stock-based compensation, so the 140x PE figure carries too much variance. P/S is clean in both numerator and denominator, and Palantir's margin structure is stable, making PS more comparable. The cost is that it ignores margin changes—so in the scenario valuation I give both revenue assumptions and net margin assumptions.
+Valuation uses P/S, not P/E. GAAP net income is distorted at both ends by interest income and stock-based compensation, so the 140x PE figure carries too much variance. P/S is clean in both numerator and denominator, and Palantir's margin structure is stable, making PS more comparable. The cost is that it ignores margin changes—so in the scenario valuation I give both revenue assumptions and net margin assumptions.
 
 ## Sources
 

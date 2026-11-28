@@ -27,7 +27,7 @@ Verification method: at least two independent sources per metric; any deviation 
 
 Q4 revenue guidance was USD 34.8 billion against a consensus of USD 35.03 billion, a 0.66% gap. Strictly speaking this falls short of the 1% threshold, but it is the only "difference" in this report that carries information, so it is addressed separately.
 
-Guidance and consensus are two different things: guidance is what the company says, consensus is what analysts guess. Guidance below consensus by 1% means the sell-side models were more optimistic than the company itself.**The market's reaction to this report was not "weak results" but "the company did not deliver an above-consensus next quarter."** The stock fell after the close on September 2 and closed at USD 357.16 on September 3, down 2.7%, on exactly this logic.
+Guidance and consensus are two different things: guidance is what the company says, consensus is what analysts guess. Guidance below consensus by 1% means the sell-side models were more optimistic than the company itself.The market's reaction to this report was not "weak results" but "the company did not deliver an above-consensus next quarter." The stock fell after the close on September 2 and closed at USD 357.16 on September 3, down 2.7%, on exactly this logic.
 
 One clarification: AI revenue of USD 16.7 billion appears in several media versions (16.68 billion, 16.7 billion, 16.72 billion), with the differences coming from rounding to USD 0.1 billion. This report uses USD 16,700 million throughout.
 
@@ -37,13 +37,13 @@ First, infrastructure software 8,751. The company discloses only total revenue a
 
 Second, the FY25Q3 segment data. Semiconductor 9,181 is back-solved from +127%, and AI 5,202 from +221%; the two sum to 14,383, and the derived non-AI semiconductor figure of 3,979 also squares with the common-sense view of "low single-digit growth in the legacy business" (4,140 this year, +4.05% YoY).
 
-Third, the FY26Q4 AI guidance of 21,700, up +236% YoY, implies AI revenue of 6,458 in the year-ago period, self-consistent with a full-year FY25 AI scale of around USD 20 billion. **The three back-solved values interlock, indicating no internal contradiction in this set of numbers.**
+Third, the FY26Q4 AI guidance of 21,700, up +236% YoY, implies AI revenue of 6,458 in the year-ago period, self-consistent with a full-year FY25 AI scale of around USD 20 billion. The three back-solved values interlock, indicating no internal contradiction in this set of numbers.
 
 ## The finally adopted methodology
 
 All margins and EPS in this report use the company's Non-GAAP basis; net assets and tax burden use the GAAP basis. Segment revenue uses company-disclosed figures; software revenue is an estimate and flagged as such. Market cap is USD 355.14 × 4.77 billion shares; the P/E denominator is the FY27 consensus EPS of USD 19.38.
 
-The reason for not using the media convention is practical: media often label Non-GAAP net income as "net income" and mix RMB 16.372 billion with the GAAP figure of RMB 13.1 billion, which turns a 44% net margin into 55%. **The same filing yields two net margins; the only difference is whether amortization and stock-based compensation are excluded.** This report gives both and labels the basis.
+The reason for not using the media convention is practical: media often label Non-GAAP net income as "net income" and mix RMB 16.372 billion with the GAAP figure of RMB 13.1 billion, which turns a 44% net margin into 55%. The same filing yields two net margins; the only difference is whether amortization and stock-based compensation are excluded. This report gives both and labels the basis.
 
 One final discipline: no information after the report date is used. All figures are as of the September 2, 2026 filing; the share price is as of the October 2 close.
 
@@ -51,7 +51,7 @@ One final discipline: no information after the report date is used. All figures 
 
 Cross-validation only works for figures confirmed by two or more independent sources. Three key figures in this report fail that test:
 
-**First, the USD 37 billion financing platform** rests on a Bank of America estimate alone; the company has neither confirmed nor denied it. Second, **XPU at 73% of AI revenue** comes from a single source, the earnings call, with no segment disclosure to check it against. Third, **customer deployment scale** (Anthropic 5GW in 2027, OpenAI 1.3GW, Meta 3GW cumulative by 2028) is entirely the company relaying customer plans; the customers have not publicly confirmed them.
+First, the USD 37 billion financing platform rests on a Bank of America estimate alone; the company has neither confirmed nor denied it. Second, XPU at 73% of AI revenue comes from a single source, the earnings call, with no segment disclosure to check it against. Third, customer deployment scale (Anthropic 5GW in 2027, OpenAI 1.3GW, Meta 3GW cumulative by 2028) is entirely the company relaying customer plans; the customers have not publicly confirmed them.
 
 These three figures happen to carry the greatest weight in the valuation. There is only one way to handle them: treat them as "management claims", not "verified data", and give them wider error bands in the scenario assumptions — which is why the bear case assigns AI revenue of just USD 85 billion, 26% below company guidance.
 

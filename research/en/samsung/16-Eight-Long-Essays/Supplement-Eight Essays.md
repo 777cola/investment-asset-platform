@@ -14,9 +14,9 @@ Historical data (2017–2018 gross margin peak, 2022 drawdown of 40%, 2023Q2 sem
 
 ## How to read the eight articles
 
-Read them in order, because each piece builds on the one before. If time is limited, read the first (cognitive reset) and the eighth (decision framework); the six in between are the argument.
+Read in order, as each piece builds on the previous one. If time is limited, read Part 1 (Cognitive Reset) and Part 8 (Decision Framework); the six in between are the argument.
 
-All figures across the eight pieces come from Samsung Electronics' 2026Q2 financial report (2026/07/30), TrendForce (2026/09/07), Counterpoint (2026/09/02) and the 2026/09/21 closing price. Every "estimate", "rough calculation" and "back-solve" is flagged in the text; no derived figure is presented as a disclosed figure.
+All figures across the eight pieces come from Samsung Electronics' 2026Q2 financial report (2026/07/30), TrendForce (2026/09/07), Counterpoint (2026/09/02) and the 2026/09/21 closing price. All "estimates", "rough calculations" and "back-solves" are flagged in the text; no derived figure is presented as a disclosed figure.
 
 The writing perspective stops at September 21, 2026, and excludes the Q3 financial report and any events or share-price moves after October.
 

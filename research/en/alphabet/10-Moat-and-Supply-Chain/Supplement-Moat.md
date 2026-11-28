@@ -37,39 +37,39 @@ Share data (Chrome at about two-thirds, Android at about 70%) are approximations
 
 Upstream is compute and power: in-house TPU (removing dependence on Nvidia, the biggest cost advantage over Microsoft and Meta), data centers (about 65% of Q3 capex was servers and networking, 35% data centers), long-term power contracts. Midstream is models and platforms: the Gemini 4 series, Search, YouTube, Android, Chrome, Google Cloud Platform. Downstream is advertisers, enterprise customers and consumers.
 
-Vertical integration is a huge advantage when capacity is tight—unconstrained by Nvidia quotas and not subject to its pricing; and a huge burden when demand is weak—fixed costs cannot be exited.**That is why the same company in October 2026 was both "the only one of the four to achieve a 32% operating margin" and "the only one with negative free cash flow."**
+Vertical integration is a huge advantage when capacity is tight—unconstrained by Nvidia quotas and not subject to its pricing; and a huge burden when demand is weak—fixed costs cannot be exited.That is why the same company in October 2026 was both "the only one of the four to achieve a 32% operating margin" and "the only one with negative free cash flow."
 
 ## The first moat: the default entry point, thinned but not dismantled
 
-Chrome holds about two-thirds of global browser share, Android about 70% of the global mobile operating system market, plus the default search agreement with Apple. **These three together form the structure in which "users use Google even without choosing to."** After the choice-screen obligation takes effect in April 2026, European users will be able to select a default search engine during setup—this will erode some default traffic, but will not change the fact that "most people will not go and change their settings."
+Chrome holds about two-thirds of global browser share, Android about 70% of the global mobile operating system market, plus the default search agreement with Apple. These three together form the structure in which "users use Google even without choosing to." After the choice-screen obligation takes effect in April 2026, European users will be able to select a default search engine during setup—this will erode some default traffic, but will not change the fact that "most people will not go and change their settings."
 
-The DOJ's December 2025 remedies ruling did not require divestiture of Chrome or Android—the lightest outcome obtainable. **Compared with the 2000 Microsoft case's ending (behavioral remedies rather than breakup), Alphabet this time received almost the same template.** Legal risk has therefore been cleared, leaving only compliance costs.
+The DOJ's December 2025 remedies ruling did not require divestiture of Chrome or Android—the lightest outcome obtainable. Compared with the 2000 Microsoft case's ending (behavioral remedies rather than breakup), Alphabet this time received almost the same template. Legal risk has therefore been cleared, leaving only compliance costs.
 
 ## The second moat: TPU, the most underrated one
 
-Globally, only Alphabet can hold all three layers—training chips, models and cloud services—without building its own fabs.**Q3 cloud revenue doubled, with external TPU sales a major contributor: it cuts its own costs and sells that cost advantage to others.** This is a cost moat, far harder to breach than a brand moat because it takes more than a decade to build.
+Globally, only Alphabet can hold all three layers—training chips, models and cloud services—without building its own fabs.Q3 cloud revenue doubled, with external TPU sales a major contributor: it cuts its own costs and sells that cost advantage to others. This is a cost moat, far harder to breach than a brand moat because it takes more than a decade to build.
 
-But this moat has a boundary: TSMC manufactures the TPU, leaving advanced-node capacity at others' mercy; and the TPU ecosystem (software stack) is less mature than CUDA, so switching costs are high for external customers.**So the ceiling on external TPU sales is not performance but ecosystem.** That is also why it currently sells mainly to a handful of large customers rather than opening up fully.
+But this moat has a boundary: TSMC manufactures the TPU, leaving advanced-node capacity at others' mercy; and the TPU ecosystem (software stack) is less mature than CUDA, so switching costs are high for external customers.So the ceiling on external TPU sales is not performance but ecosystem. That is also why it currently sells mainly to a handful of large customers rather than opening up fully.
 
 ## The most dangerous rival: not Microsoft, but depreciation
 
-Microsoft has OpenAI exclusively tied in, Amazon has the larger cloud share, and OpenAI has captured the mindshare for "conversational search." **But they all face the same problem as Alphabet: when does the money put in come back.** The real opponent is time — USD 200 billion in annual capex, depreciated over six years, becomes USD 33 billion of new cost each year, and that number will start to pressure operating margin in 2027.
+Microsoft has OpenAI exclusively tied in, Amazon has the larger cloud share, and OpenAI has captured the mindshare for "conversational search." But they all face the same problem as Alphabet: when does the money put in come back. The real opponent is time — USD 200 billion in annual capex, depreciated over six years, becomes USD 33 billion of new cost each year, and that number will start to pressure operating margin in 2027.
 
-The second threat is search cannibalizing itself: if AI answers directly and users stop clicking links, advertising's billing basis (clicks) will collapse before traffic does. **Q3 search +12% (expected +14%) shows this has not happened yet, but "not yet" does not mean "never."** Of the two threats, depreciation is certain and substitution is uncertain — so position sizing should be designed around the certain one.
+The second threat is search cannibalizing itself: if AI answers directly and users stop clicking links, advertising's billing basis (clicks) will collapse before traffic does. Q3 search +12% (expected +14%) shows this has not happened yet, but "not yet" does not mean "never." Of the two threats, depreciation is certain and substitution is uncertain — so position sizing should be designed around the certain one.
 
 ## The economic test of a moat: does ROIC exceed the cost of capital?
 
-The ultimate test of a moat is not "will users leave" but "can the capital invested earn a return above the cost of capital." **A rough calculation: 2026 invested capital of about RMB 200 billion (capex) plus existing assets, annualized operating profit of about RMB 160 billion, or about RMB 125 billion after tax.** On invested capital of RMB 600–700 billion, ROIC comes to 18%–20%, clearly above the 8%–9% weighted cost of capital.
+The ultimate test of a moat is not "will users leave" but "can the capital invested earn a return above the cost of capital." A rough calculation: 2026 invested capital of about RMB 200 billion (capex) plus existing assets, annualized operating profit of about RMB 160 billion, or about RMB 125 billion after tax. On invested capital of RMB 600–700 billion, ROIC comes to 18%–20%, clearly above the 8%–9% weighted cost of capital.
 
-The problem is at the margin: **if the new RMB 200 billion generates only a 15% pre-tax return, it dilutes overall ROIC.** Cloud operating margin rising from 23.7% to 36.2% shows new investment is currently earning a decent return, but whether it falls below 20% once depreciation ramps is the key question for 2027.
+The problem is at the margin: if the new RMB 200 billion generates only a 15% pre-tax return, it dilutes overall ROIC. Cloud operating margin rising from 23.7% to 36.2% shows new investment is currently earning a decent return, but whether it falls below 20% once depreciation ramps is the key question for 2027.
 
-**The test is fixed: if ROIC falls below 12% in 2028, the moat has failed to convert into economic returns—at that point, even if the business survives, the valuation should be that of a utility.**
+The test is fixed: if ROIC falls below 12% in 2028, the moat has failed to convert into economic returns—at that point, even if the business survives, the valuation should be that of a utility.
 
 ## The relationship between moat and price
 
-A moat score of 8.2 measures business quality, not stock quality. **Business quality determines whether the company can make money over the long run; price determines whether this investment makes money.** Buying an 8.2 moat at 21x EV/EBIT is reasonable; buying it at 35x means paying too much for the moat.
+A moat score of 8.2 measures business quality, not stock quality. Business quality determines whether the company can make money over the long run; price determines whether this investment makes money. Buying an 8.2 moat at 21x EV/EBIT is reasonable; buying it at 35x means paying too much for the moat.
 
-Working back from the dividend yield makes this clearer: **a quarterly dividend of USD 0.21, or USD 0.84 annualized, is 0.3% of the USD 279.84 share price**—almost no shareholder return. That means everything you pay for is "future growth + future buyback resumption." **The moat protects "growth can be delivered"; it does not protect "the price you paid is reasonable."**
+Working back from the dividend yield makes this clearer: a quarterly dividend of USD 0.21, or USD 0.84 annualized, is 0.3% of the USD 279.84 share price—almost no shareholder return. That means everything you pay for is "future growth + future buyback resumption." The moat protects "growth can be delivered"; it does not protect "the price you paid is reasonable."
 
 ## Sources
 

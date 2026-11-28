@@ -10,21 +10,21 @@ Shared source data across eight pieces: 2026Q2 revenue RMB 112.36 billion (+8%),
 
 ## Misreading 1: Treating it as a growth stock
 
-2026Q2 revenue +8%, advertising +3.5%, and the market says "growth has stalled." True, but the wrong framework. For a company with 57% gross margin, 24% net margin and zero interest-bearing debt, slower growth is not a flaw — it is a phase.
+2026Q2 revenue +8%, advertising +3.5%, and the market says "growth has stalled." True, but the wrong framework.A company with 57% gross margin, 24% net margin and zero interest-bearing debt — slow growth is not a flaw, it is a phase.
 
-When Apple's revenue went negative in 2016, its P/E was 10x, and it rose tenfold over the next decade — because it began buying back stock. Pinduoduo today looks a lot like that stage; what is missing is the buyback.
+When Apple's revenue went negative in 2016, it traded at 10x earnings and then rose tenfold over the next decade — because it began buying back stock. Pinduoduo sits almost exactly at that stage now; what it lacks is the buyback.
 
 ## The rent collector: the platform takes the most stable slice of the chain
 
-A product with a factory price of RMB 10 sells for RMB 40 at retail. The factory earns RMB 0.5 to 1.5, the courier earns RMB 1.5, the platform earns RMB 8 (RMB 2 commission + RMB 6 amortized advertising), and the rest goes to traffic and channels. The platform takes the thickest and most stable slice of the value chain.
+A product with a factory price of RMB 10 sells at retail for RMB 40. The factory earns RMB 0.5 to 1.5, the courier earns RMB 1.5, the platform earns RMB 8 (RMB 2 commission + RMB 6 amortized advertising), and the rest goes to traffic and channels. The platform takes the thickest, most stable slice of the value chain.
 
 This distribution is no coincidence. The platform holds two things: demand (800 million users) and rules (how traffic is allocated, how prices are set, when money is settled). Whoever holds the rules takes the excess profit.
 
 ## Layer one, low-price mindset: a real moat, but a "negative brand"
 
-In consumers' minds, the equation "Pinduoduo = cheap" is already established. Taobao and JD.com spent three years and tens of billions in subsidies without changing it. This is a genuine moat—sustained not by advertising but by habit.
+In consumers' minds, the equation "Pinduoduo = cheap" already holds. Taobao and JD.com spent three years and tens of billions in subsidies and still could not change it. This is a genuine moat—it is not sustained by advertising but by habit.
 
-Note, however, that it is a "negative brand": users take no pride in buying on Pinduoduo, only satisfaction in saving money. This caps average order value and prevents it from attacking the branded market from below.
+But note that it is a "negative brand": users feel no pride in buying on Pinduoduo, only satisfaction at saving money. This caps average order value, and it also means the company cannot move upmarket to attack the branded segment.
 
 ## Sources
 

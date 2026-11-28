@@ -39,7 +39,7 @@ Broadcom occupies two positions in the chain: custom ASIC design and AI networki
 
 The design segment runs on a project model: customers bring requirements, Broadcom handles architecture, tape-out and volume production, and charges NRE plus chip payments. The connectivity segment runs on a standard-product model: the Tomahawk switch chip family sells to anyone building clusters, priced per unit, with clear economies of scale.
 
-**The value of the bundle lies in cross-selling and lock-in.** A customer that buys XPU will most likely also use Broadcom for networking, because Broadcom tunes the SerDes and switch chip adaptation itself; conversely, once on Broadcom networking, switching suppliers for the next-generation XPU becomes harder. This two-way lock-in is its core advantage over Marvell.
+The value of the bundle lies in cross-selling and lock-in. A customer that buys XPU will most likely also use Broadcom for networking, because Broadcom tunes the SerDes and switch chip adaptation itself; conversely, once on Broadcom networking, switching suppliers for the next-generation XPU becomes harder. This two-way lock-in is its core advantage over Marvell.
 
 ## Industry-chain position (2): no bargaining power over upstream, partial bargaining power over downstream
 
@@ -47,7 +47,7 @@ Broadcom cannot bypass any of the three upstream bottlenecks: TSMC's 3nm and CoW
 
 Across its six downstream customers, Broadcom's pricing power depends on whether a second supplier exists. Google has MediaTek, so Broadcom's pricing is under pressure; Anthropic has no second supplier, so Broadcom can hold price. Its gross margin is therefore not determined by industry position but by customer mix.
 
-**This explains why the 73% gross margin guidance is more worrying than 75%: it reflects not only a rising hardware mix but possibly customers beginning to bring in second suppliers.**
+This explains why the 73% gross margin guidance is more worrying than 75%: it reflects not only a rising hardware mix but possibly customers beginning to bring in second suppliers.
 
 ## The most dangerous rival: not Marvell, but Nvidia
 
@@ -55,15 +55,15 @@ Marvell is a viable competitor, but its scale and IP depth are a tier behind; ne
 
 Nvidia's threat is structural. It has two weapons: first, the CUDA ecosystem, which locks in the vast majority of AI developers; second, NVLink, which locks in the interconnect standard within clusters. If Nvidia prices inference-specific GPUs at only 20% above ASICs, customers' incentive to build custom ASICs halves.
 
-**More critically, Nvidia can fight a price war; Broadcom cannot.** Nvidia's gross margin is around 70% and its scale is three times Broadcom's AI business, giving it the room to push prices down to near Broadcom's cost line; Broadcom's AI business has only just started, its gross margin is already declining, and it has no room to cut prices.
+More critically, Nvidia can fight a price war; Broadcom cannot. Nvidia's gross margin is around 70% and its scale is three times Broadcom's AI business, giving it the room to push prices down to near Broadcom's cost line; Broadcom's AI business has only just started, its gross margin is already declining, and it has no room to cut prices.
 
 ## Can the moat be bypassed: all three assumptions deserve scrutiny
 
 Assumption one: customers cannot build it themselves. This is the most solid — in-house silicon requires a 2,000-person team, five years, and a high probability of failure in the first generation. But it is weakening: Google's TPU team can now define architectures independently, and Broadcom's role has retreated from "co-design" to "implementation and mass production," with its value capture declining.
 
-Assumption two: switching suppliers takes two years. This is also solid, but "two years" can be compressed. If the customer brings in a second source from the first generation (as Google did with MediaTek), switching costs for the second generation are far lower.**A second source is not a spare tire; it is a bargaining chip.**
+Assumption two: switching suppliers takes two years. This is also solid, but "two years" can be compressed. If the customer brings in a second source from the first generation (as Google did with MediaTek), switching costs for the second generation are far lower.A second source is not a spare tire; it is a bargaining chip.
 
-Assumption three: Ethernet will win scale-up interconnect. This is the least certain. Nvidia's NVLink still leads on performance and maturity, and Broadcom's Ethernet solution depends on open standards such as UALink to gain traction.**If it loses the standards war, growth in the networking leg will halve.**
+Assumption three: Ethernet will win scale-up interconnect. This is the least certain. Nvidia's NVLink still leads on performance and maturity, and Broadcom's Ethernet solution depends on open standards such as UALink to gain traction.If it loses the standards war, growth in the networking leg will halve.
 
 ## Supply-chain risk: three single points
 
@@ -71,7 +71,7 @@ First, TSMC's CoWoS capacity. XPU packaging depends on CoWoS, and capacity is sp
 
 Second, HBM supply. HBM will be in short supply in 2026, and the three memory makers will prioritize Nvidia and cloud providers' in-house projects, leaving Broadcom's customers (such as Anthropic) to queue.
 
-Third, tape-out windows for advanced nodes. Capacity at 3nm and 2nm is limited; a one-quarter delay for a project means a one-quarter delay in revenue.**None of these three factors is within Broadcom's control, which is why its gross margin is under pressure from both sides.**
+Third, tape-out windows for advanced nodes. Capacity at 3nm and 2nm is limited; a one-quarter delay for a project means a one-quarter delay in revenue.None of these three factors is within Broadcom's control, which is why its gross margin is under pressure from both sides.
 
 ## Sources
 

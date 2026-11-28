@@ -36,33 +36,33 @@ Verification process: ① Extract the original figures from the consolidated inc
 
 ## Why these eight items need verification: they are the load-bearing walls of the entire report
 
-Every judgment later in this report rests on these eight numbers: cloud +103% supports "the second curve is real", a 32% operating margin supports "best-in-class business quality", FCF of -RMB 9.07 billion supports "what the market is selling", and 21x EV/EBIT supports "cheap". **Get any one number wrong by 10% and the conclusion changes.**
+Every judgment later in this report rests on these eight numbers: cloud +103% supports "the second curve is real", a 32% operating margin supports "best-in-class business quality", FCF of -RMB 9.07 billion supports "what the market is selling", and 21x EV/EBIT supports "cheap". Get any one number wrong by 10% and the conclusion changes.
 
-Verification method: first pull the company's original filings (the consolidated income statement and cash flow statement from the English 8-K/10-Q), then cross-check against Chinese financial media coverage, and finally use stockanalysis's quarterly pages as a third-party check. **A figure passes only if at least two of the three sources agree.** This time, six of the eight items matched across all three sources; two matched across only two (because the media did not publish the detail).
+Verification method: first pull the company's original filings (the consolidated income statement and cash flow statement from the English 8-K/10-Q), then cross-check against Chinese financial media coverage, and finally use stockanalysis's quarterly pages as a third-party check. A figure passes only if at least two of the three sources agree. This time, six of the eight items matched across all three sources; two matched across only two (because the media did not publish the detail).
 
 ## The first real divergence: the -25% net profit decline is accounting, not operations
 
-Net profit fell from last year's RMB 34.98 billion to RMB 26.17 billion, down 25% year on year, which clickbait headlines frame as a "profit slump." **But break it down: other income/loss swung from +RMB 12.76 billion last year to -RMB 8.22 billion this year, a USD 20.98 billion round trip, of which net fair value loss on equity securities was RMB 8.66 billion.** This line is the mark-to-market revaluation of listed and unlisted equity holdings and has nothing to do with how much advertising search sold or how much compute the cloud sold.
+Net profit fell from last year's RMB 34.98 billion to RMB 26.17 billion, down 25% year on year, which clickbait headlines frame as a "profit slump." But break it down: other income/loss swung from +RMB 12.76 billion last year to -RMB 8.22 billion this year, a USD 20.98 billion round trip, of which net fair value loss on equity securities was RMB 8.66 billion. This line is the mark-to-market revaluation of listed and unlisted equity holdings and has nothing to do with how much advertising search sold or how much compute the cloud sold.
 
-Excluding it, EPS was USD 2.67, higher than the same period last year. **So the "-25% net profit" headline should be downgraded to noise**—it affects GAAP PE (33x vs 25x) but not the judgment on the business. This report uses adjusted EPS throughout for valuation and flags it at every point.
+Excluding it, EPS was USD 2.67, higher than the same period last year. So the "-25% net profit" headline should be downgraded to noise—it affects GAAP PE (33x vs 25x) but not the judgment on the business. This report uses adjusted EPS throughout for valuation and flags it at every point.
 
 ## The second real discrepancy: two capex measures, a 2.9% gap
 
-"Purchases of property, plant and equipment" in the company's cash flow statement is USD 51.36 billion. This is the cash basis, and it is also the basis used to calculate FCF. Some data platforms add "equipment acquired under finance leases," arriving at roughly USD 52.8 billion. **The USD 1.4 billion difference is 2.9% — it looks small, but it determines the sign of FCF.**
+"Purchases of property, plant and equipment" in the company's cash flow statement is USD 51.36 billion. This is the cash basis, and it is also the basis used to calculate FCF. Some data platforms add "equipment acquired under finance leases," arriving at roughly USD 52.8 billion. The USD 1.4 billion difference is 2.9% — it looks small, but it determines the sign of FCF.
 
-On the cash basis, Q3 FCF is -USD 9.07 billion; if equipment under finance leases is also counted as investment, FCF would be more negative. This report adopts the cash basis because it aligns with the full-year guidance of USD 195–205 billion — the company's guidance itself is on a cash basis. **The basis must be applied consistently; otherwise ratios such as "capex/revenue of 40%" cannot be compared across quarters.**
+On the cash basis, Q3 FCF is -USD 9.07 billion; if equipment under finance leases is also counted as investment, FCF would be more negative. This report adopts the cash basis because it aligns with the full-year guidance of USD 195–205 billion — the company's guidance itself is on a cash basis. The basis must be applied consistently; otherwise ratios such as "capex/revenue of 40%" cannot be compared across quarters.
 
 ## What other figures have they not dared to use?
 
-Three categories of data were deliberately excluded: **1) Segment gross margin** — the company does not disclose gross profit for Search, YouTube or Cloud, only segment operating profit; the widely circulated "Cloud gross margin of 60%" is a sell-side model estimate with no primary basis; **2) Consensus for full-year revenue and full-year EPS** — definitions differ across data terminals (some adjust for Traffic Acquisition Costs), with discrepancies exceeding 2%, a misleading comparison; **3) Waymo unit economics** — Other Bets posted a quarterly loss of USD 2.05 billion in aggregate, and Waymo's standalone figures are not disclosed.
+Three categories of data were deliberately excluded: 1) Segment gross margin — the company does not disclose gross profit for Search, YouTube or Cloud, only segment operating profit; the widely circulated "Cloud gross margin of 60%" is a sell-side model estimate with no primary basis; 2) Consensus for full-year revenue and full-year EPS — definitions differ across data terminals (some adjust for Traffic Acquisition Costs), with discrepancies exceeding 2%, a misleading comparison; 3) Waymo unit economics — Other Bets posted a quarterly loss of USD 2.05 billion in aggregate, and Waymo's standalone figures are not disclosed.
 
-**Where there is no primary disclosure, this report offers only qualitative judgment or explicitly labels figures as "rough calculation/derived".**This is discipline: better to be one number short than to add one false number.
+Where there is no primary disclosure, this report offers only qualitative judgment or explicitly labels figures as "rough calculation/derived".This is discipline: better to be one number short than to add one false number.
 
 ## The limits of third-party data platforms: why one source is not enough
 
-Platforms like stockanalysis are fast and structurally consistent, but they carry two systematic biases. **First, data lag: quarterly pages update only 24–48 hours after earnings are released, so intraday checks may return the prior quarter's figures. Second, mixed definitions: GAAP and adjusted metrics sit in the same table with no distinction.**
+Platforms like stockanalysis are fast and structurally consistent, but they carry two systematic biases. First, data lag: quarterly pages update only 24–48 hours after earnings are released, so intraday checks may return the prior quarter's figures. Second, mixed definitions: GAAP and adjusted metrics sit in the same table with no distinction.
 
-The verification sequence must therefore be: **first anchor on the company's 8-K filing, then cross-check with media to see "whether anyone misread it," and finally use the data platform to check "whether any line items are missing."** Doing it in reverse (platform first, filing second) makes it easy to be led astray by the platform's default definitions.
+The verification sequence must therefore be: first anchor on the company's 8-K filing, then cross-check with media to see "whether anyone misread it," and finally use the data platform to check "whether any line items are missing." Doing it in reverse (platform first, filing second) makes it easy to be led astray by the platform's default definitions.
 
 ## Sources
 

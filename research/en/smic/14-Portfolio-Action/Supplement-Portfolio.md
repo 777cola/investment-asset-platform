@@ -28,15 +28,15 @@ Implication for the portfolio: either hold none, or size it so that a 30% drop d
 
 ## Add, trim, stop-loss: three price levels
 
-**Add:** RMB 100 (3%), RMB 80 (raise to 5%–6%). The two levels correspond to roughly 5x and 4x PB, both at the upper edge of the "reasonable range for cyclicals." If fundamentals improve in tandem (gross margin above 24%), the first tranche can be initiated at RMB 110. **Trim:** scale out above RMB 155 (bull-case target); exit fully above RMB 180 — that price already discounts 2030 capacity. **Stop-loss:** no price stop, a thesis stop — DUV ban enacted, utilization below 85%, gross margin below 18% for two consecutive quarters; any one triggers a cut to 0.0.
+Add: RMB 100 (3%), RMB 80 (raise to 5%–6%). The two levels correspond to roughly 5x and 4x PB, both at the upper edge of the "reasonable range for cyclicals." If fundamentals improve in tandem (gross margin above 24%), the first tranche can be initiated at RMB 110. Trim: scale out above RMB 155 (bull-case target); exit fully above RMB 180 — that price already discounts 2030 capacity. Stop-loss: no price stop, a thesis stop — DUV ban enacted, utilization below 85%, gross margin below 18% for two consecutive quarters; any one triggers a cut to 0.0.
 
 Why no price stop? Volatility is too high; a 10% stop would be knocked out by routine swings. For names like this, the only effective risk control is position sizing and thesis validation.
 
 ## Rebalancing: rising markets demand more discipline than falling ones
 
-Returns on this kind of stock tend to cluster in a few weeks. On 9 July alone it rose 13.74%; a 5% position would have added 0.7% to NAV in a single day, but the swings in the week before and the week after give back half of that gain. **So the discipline here is not "hold for the long term" but "trim once it hits target".**
+Returns on this kind of stock tend to cluster in a few weeks. On 9 July alone it rose 13.74%; a 5% position would have added 0.7% to NAV in a single day, but the swings in the week before and the week after give back half of that gain. So the discipline here is not "hold for the long term" but "trim once it hits target".
 
-The specific rules: cut a third at RMB 155, another third at RMB 170, exit fully above RMB 180. Those three levels correspond to 7x, 7.7x and 8.2x PB, all above the reasonable range for a cyclical growth stock. Conversely, only consider adding below RMB 100, and add to the position cap below RMB 80. **Between RMB 20 and RMB 100, do nothing.**
+The specific rules: cut a third at RMB 155, another third at RMB 170, exit fully above RMB 180. Those three levels correspond to 7x, 7.7x and 8.2x PB, all above the reasonable range for a cyclical growth stock. Conversely, only consider adding below RMB 100, and add to the position cap below RMB 80. Between RMB 20 and RMB 100, do nothing.
 
 Why no range grid? Because the driver is narrative and sentiment, not mean reversion. Running a grid between 100 and 155 means betting on volatility in an asset priced by headlines: the hit rate is low and the trading costs are not.
 

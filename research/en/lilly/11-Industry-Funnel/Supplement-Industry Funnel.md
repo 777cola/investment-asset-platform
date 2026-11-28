@@ -23,29 +23,29 @@ Screening process: about twenty innovative-drug companies in the whole market wi
 
 ## Initial screen: six of twenty retained
 
-Step one is a whole-market scan. There are roughly twenty innovative drugmakers with a global market cap above USD 5 billion. A rough screen on three criteria: **1) has a GLP-1 or metabolic-space asset; 2) gross margin above 60%; 3) revenue has not declined for four consecutive quarters.** Six of the twenty pass all three: Eli Lilly, Novo Nordisk, Amgen, Pfizer, Merck, and Innovent Biologics.
+Step one is a whole-market scan. There are roughly twenty innovative drugmakers with a global market cap above USD 5 billion. A rough screen on three criteria: 1) has a GLP-1 or metabolic-space asset; 2) gross margin above 60%; 3) revenue has not declined for four consecutive quarters. Six of the twenty pass all three: Eli Lilly, Novo Nordisk, Amgen, Pfizer, Merck, and Innovent Biologics.
 
 Of the fourteen eliminated, three types are most typical. The first is "has drugs but no metabolic assets" — several oncology-focused names, whose gross margins are irrelevant to this space no matter how high. The second is "has assets but too early" — preclinical or Phase I biotechs betting on a single binary outcome, which do not fall within the "first-tier company" category. The third is "revenue declining" — including several established pharma companies whose patent cliffs have already hit; their low PE is a value trap, not cheapness.
 
 ## Second screen: three hard criteria eliminate four companies
 
-Screen the six again. Criteria: **① metabolic revenue exceeds 30% of total (proof this is its main battlefield, not an option); ② commercialized products in both oral and injectable lines; ③ room to grow after discounting market cap/pipeline.**
+Screen the six again. Criteria: ① metabolic revenue exceeds 30% of total (proof this is its main battlefield, not an option); ② commercialized products in both oral and injectable lines; ③ room to grow after discounting market cap/pipeline.
 
-Merck fails the first test outright—it has no core GLP-1 asset, the Keytruda patent cliff is imminent, and a 10x PE is the market pricing in "revenue is about to fall," not cheapness. Pfizer and Amgen fail the second—oral GLP-1 is still in clinical trials and won't launch before 2027, so buying them means buying an option. Innovent passes the first and third, but its mazdutide is mainly a China market product, and the ceiling is set by centralized procurement—**this is a "regional champion," not a "global leader."** That leaves Lilly and Novo, both with injectable + oral and both centered on metabolic disease.
+Merck fails the first test outright—it has no core GLP-1 asset, the Keytruda patent cliff is imminent, and a 10x PE is the market pricing in "revenue is about to fall," not cheapness. Pfizer and Amgen fail the second—oral GLP-1 is still in clinical trials and won't launch before 2027, so buying them means buying an option. Innovent passes the first and third, but its mazdutide is mainly a China market product, and the ceiling is set by centralized procurement—this is a "regional champion," not a "global leader." That leaves Lilly and Novo, both with injectable + oral and both centered on metabolic disease.
 
 ## Final pick: why Eli Lilly, and why not buy now
 
-Eli Lilly wins on three fronts. **Growth**: Q3 revenue +38.6%, while Novo posted negative growth. **Share**: global weight-loss split 60% vs 40%, and still widening — Zepbound has already overtaken Wegovy in new US obesity prescriptions. **Pipeline**: retatrutide, a triple agonist, delivered 20.8%–25% weight loss at 80 weeks in Phase III; the company plans to file in Q1 2027, making it the mainstay of the 2030s; Novo's key backup (CagriSema) lags on progress.
+Eli Lilly wins on three fronts. Growth: Q3 revenue +38.6%, while Novo posted negative growth. Share: global weight-loss split 60% vs 40%, and still widening — Zepbound has already overtaken Wegovy in new US obesity prescriptions. Pipeline: retatrutide, a triple agonist, delivered 20.8%–25% weight loss at 80 weeks in Phase III; the company plans to file in Q1 2027, making it the mainstay of the 2030s; Novo's key backup (CagriSema) lags on progress.
 
-Novo wins on one front: **price**. A 10.6x PE reflects a blended valuation of "declining revenue + patent cliff + oral leadership." If oral Wegovy holds up, 10.6x is cheap; if it doesn't, 10.6x gets even cheaper. **This is a textbook case of "cheap for a reason."**
+Novo wins on one front: price. A 10.6x PE reflects a blended valuation of "declining revenue + patent cliff + oral leadership." If oral Wegovy holds up, 10.6x is cheap; if it doesn't, 10.6x gets even cheaper. This is a textbook case of "cheap for a reason."
 
-So the funnel's conclusion comes in two parts: **in this space, buy Eli Lilly (quality first), but Lilly's current price has already paid in full for "quality first."** 48.2x vs 10.6x — a 4.5x gap within the same industry. The market isn't unaware that Lilly is better; it has priced "better" too fully. Final pick: Eli Lilly, rating under review.
+So the funnel's conclusion comes in two parts: in this space, buy Eli Lilly (quality first), but Lilly's current price has already paid in full for "quality first." 48.2x vs 10.6x — a 4.5x gap within the same industry. The market isn't unaware that Lilly is better; it has priced "better" too fully. Final pick: Eli Lilly, rating under review.
 
 ## Why not choose the cheaper Novo
 
-Some will ask: if Novo trades at only 10.6x, why not pick Novo? **Because there are two kinds of low PE: one where the market is wrong, and one where the company is about to be wrong.** Novo is the latter: semaglutide contributes about 75% of revenue, its China patent expires in 2026, Zepbound is taking injectable share, and it can only defend volume by cutting price — first-quarter 2026 net sales fell 4% year on year. A company like this will keep a low PE until revenue stops declining.
+Some will ask: if Novo trades at only 10.6x, why not pick Novo? Because there are two kinds of low PE: one where the market is wrong, and one where the company is about to be wrong. Novo is the latter: semaglutide contributes about 75% of revenue, its China patent expires in 2026, Zepbound is taking injectable share, and it can only defend volume by cutting price — first-quarter 2026 net sales fell 4% year on year. A company like this will keep a low PE until revenue stops declining.
 
-Eli Lilly is the opposite: its PE will stay high until growth stops rising. **Both are single-molecule companies; the difference is that one molecule is in its upcycle and the other is in its defense phase.** The funnel selects for quality, so it picks Eli Lilly; if we ever want to play a distressed turnaround, Novo is the target — but that is a different framework.
+Eli Lilly is the opposite: its PE will stay high until growth stops rising. Both are single-molecule companies; the difference is that one molecule is in its upcycle and the other is in its defense phase. The funnel selects for quality, so it picks Eli Lilly; if we ever want to play a distressed turnaround, Novo is the target — but that is a different framework.
 
 ## Sources
 

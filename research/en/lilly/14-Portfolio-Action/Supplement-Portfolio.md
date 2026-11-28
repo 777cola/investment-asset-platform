@@ -34,25 +34,25 @@ Position sizing applies to the equity portfolio, not total assets; the 8% single
 
 ## Why it must be 0 now, not "start with a small allocation"
 
-"Just buy a small position first" is the most common way discipline breaks down. The logic is "what if it goes up," not "is this price worth it." **Do the math: buy at the current price, and the neutral case is -5%, the bear case -42%, the bull case +26%; equal-weighting the three gives an expected return of -7%.** A 3% position contributes an expected -0.2% to the portfolio — not much, but it consumes a slot and creates the psychological anchor of "I already own Li Auto," which makes you hesitate at the price where you should actually be buying.
+"Just buy a small position first" is the most common way discipline breaks down. The logic is "what if it goes up," not "is this price worth it." Do the math: buy at the current price, and the neutral case is -5%, the bear case -42%, the bull case +26%; equal-weighting the three gives an expected return of -7%. A 3% position contributes an expected -0.2% to the portfolio — not much, but it consumes a slot and creates the psychological anchor of "I already own Li Auto," which makes you hesitate at the price where you should actually be buying.
 
-Another version of the argument is "I'm bullish long term, short-term volatility doesn't matter." That holds at 20x PE; it does not hold at 48x — **48x means the next three years of returns have been pulled forward, and holding for the long term does not make this price any cheaper.**
+Another version of the argument is "I'm bullish long term, short-term volatility doesn't matter." That holds at 20x PE; it does not hold at 48x — 48x means the next three years of returns have been pulled forward, and holding for the long term does not make this price any cheaper.
 
 ## Specific price levels for adding to, trimming and stopping out positions
 
-**Adding to the position** follows four tiers, and the thesis must be re-examined at each tier: USD 1,200 (3%), USD 1,050 (6%), USD 825 (8% cap). The point of tiering is not to average down the cost; it is to "let the price do the judging for you" — if the stock falls to 825, the market is already pricing a bear case, and what needs confirming then is "whether the bear case can get worse," not "it has fallen this much, so I should add."
+Adding to the position follows four tiers, and the thesis must be re-examined at each tier: USD 1,200 (3%), USD 1,050 (6%), USD 825 (8% cap). The point of tiering is not to average down the cost; it is to "let the price do the judging for you" — if the stock falls to 825, the market is already pricing a bear case, and what needs confirming then is "whether the bear case can get worse," not "it has fallen this much, so I should add."
 
-**Trimming does not look at price; it looks at the thesis.** Three triggers: Foundayo below USD 300 million for two consecutive quarters; US realized selling price down more than 12% in a single quarter; 2027 revenue guidance below USD 105 billion (growth &lt;15%). Trigger any one, halve the position; trigger two, cut to a tracking position. **Long-term investing does not use price stops, because price stops will shake you out at the best buying points.**
+Trimming does not look at price; it looks at the thesis. Three triggers: Foundayo below USD 300 million for two consecutive quarters; US realized selling price down more than 12% in a single quarter; 2027 revenue guidance below USD 105 billion (growth <15%). Trigger any one, halve the position; trigger two, cut to a tracking position. Long-term investing does not use price stops, because price stops will shake you out at the best buying points.
 
-One more practical note: **do not set the intervals between tiered entries at 5%–10%; set them at 15% or more.** Eli Lilly's annualized volatility is 31.6%, and within three months it has seen both a -8.2% and a +26.6% move; tiers set too close together amount to trading in noise. 1,411.95 to 1,200 is -15%, 1,200 to 1,050 is -12.5%, and 1,050 to 825 is -21% — only this spacing matches its volatility.
+One more practical note: do not set the intervals between tiered entries at 5%–10%; set them at 15% or more. Eli Lilly's annualized volatility is 31.6%, and within three months it has seen both a -8.2% and a +26.6% move; tiers set too close together amount to trading in noise. 1,411.95 to 1,200 is -15%, 1,200 to 1,050 is -12.5%, and 1,050 to 825 is -21% — only this spacing matches its volatility.
 
 ## Correlation and portfolio role
 
-Eli Lilly's role in the portfolio is "defensive growth": rigid demand (chronic disease), stable cash flow, but expensive valuation. It has almost zero correlation with the AI compute chain (NVIDIA, TSMC)—one tracks patient penetration, the other tracks cloud capex; the two drivers do not overlap. **If the portfolio already holds a pile of AI hardware, Eli Lilly is a good diversifier; if the portfolio already holds Novo or a pharma ETF, Eli Lilly is just doubling down on the same factor.**
+Eli Lilly's role in the portfolio is "defensive growth": rigid demand (chronic disease), stable cash flow, but expensive valuation. It has almost zero correlation with the AI compute chain (NVIDIA, TSMC)—one tracks patient penetration, the other tracks cloud capex; the two drivers do not overlap. If the portfolio already holds a pile of AI hardware, Eli Lilly is a good diversifier; if the portfolio already holds Novo or a pharma ETF, Eli Lilly is just doubling down on the same factor.
 
-Rate sensitivity deserves separate mention: an asset at 48x PE has very long duration, and for every 50bp rise in long-end rates, its valuation center shifts down 5%–8%. **So the timing to buy Eli Lilly often coincides with "rates peaking"—that is not a coincidence; it is the discount rate at work.**
+Rate sensitivity deserves separate mention: an asset at 48x PE has very long duration, and for every 50bp rise in long-end rates, its valuation center shifts down 5%–8%. So the timing to buy Eli Lilly often coincides with "rates peaking"—that is not a coincidence; it is the discount rate at work.
 
-One last thing: **if the portfolio already holds a pharma ETF, the right way to add Eli Lilly is to "replace the Eli Lilly weight inside the ETF with the single stock," not to add another layer on top of the ETF.** Otherwise you are just levering up the same factor.
+One last thing: if the portfolio already holds a pharma ETF, the right way to add Eli Lilly is to "replace the Eli Lilly weight inside the ETF with the single stock," not to add another layer on top of the ETF. Otherwise you are just levering up the same factor.
 
 ## Sources
 

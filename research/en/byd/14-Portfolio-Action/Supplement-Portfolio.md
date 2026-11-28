@@ -24,35 +24,35 @@ Correlation coefficients are rough estimates based on industry attributes and hi
 
 ## First, correlation: how similar is it to your other holdings?
 
-Three factors drive BYD's share price: **NEV sales (largest beta), the China export chain (medium beta), and A-share growth-stock style (medium beta).** Any portfolio holding CATL, Tesla, XPeng, Li Auto or NEV ETFs is already exposed to the first factor.
+Three factors drive BYD's share price: NEV sales (largest beta), the China export chain (medium beta), and A-share growth-stock style (medium beta). Any portfolio holding CATL, Tesla, XPeng, Li Auto or NEV ETFs is already exposed to the first factor.
 
-Rough correlation coefficients (estimated on daily returns): **above 0.6 with CATL (same battery-OEM chain, shared cost drivers), above 0.8 with NEV ETFs, around 0.4 with the export chain (home appliances, shipping), and close to zero or even negative with Geely Automobile (share shifts between the two).**
+Rough correlation coefficients (estimated on daily returns): above 0.6 with CATL (same battery-OEM chain, shared cost drivers), above 0.8 with NEV ETFs, around 0.4 with the export chain (home appliances, shipping), and close to zero or even negative with Geely Automobile (share shifts between the two).
 
-So the first step is not valuation, it is checking your holdings. **If NEV exposure already exceeds 8%, buying BYD only enlarges the same risk and delivers no diversification benefit.**
+So the first step is not valuation, it is checking your holdings. If NEV exposure already exceeds 8%, buying BYD only enlarges the same risk and delivers no diversification benefit.
 
 ## Why is the initial position only 1.5%?
 
-Three reasons. **First, the risk/reward.** Downside 37%, upside 3% — any heavy position under this structure is a gamble; even at the trigger price of RMB 70, upside 29% against downside 21% (to RMB 55) is only 1.4:1 — enough to build a position, not enough to size it heavily.
+Three reasons. First, the risk/reward. Downside 37%, upside 3% — any heavy position under this structure is a gamble; even at the trigger price of RMB 70, upside 29% against downside 21% (to RMB 55) is only 1.4:1 — enough to build a position, not enough to size it heavily.
 
-**Second, volatility.** The 52-week range is RMB 77.84–110.63, an amplitude of 42%; the H-share low of HKD 71.4 in June to HKD 91.95 in August is 29% in two months. At this volatility, a 1.5% position already contributes 0.4%-level swings to the portfolio.
+Second, volatility. The 52-week range is RMB 77.84–110.63, an amplitude of 42%; the H-share low of HKD 71.4 in June to HKD 91.95 in August is 29% in two months. At this volatility, a 1.5% position already contributes 0.4%-level swings to the portfolio.
 
-**Third, uncertainty.** Three of the four assumptions are unverified (domestic, R&D, FX). **Unverified theses warrant only small positions; talk about adding after verification — that is discipline, not courage.**
+Third, uncertainty. Three of the four assumptions are unverified (domestic, R&D, FX). Unverified theses warrant only small positions; talk about adding after verification — that is discipline, not courage.
 
 ## Adding and trimming positions: pre-set price levels, no judgment calls in the moment
 
-**Add:** Build 1.5% at RMB 75, add to 3% at RMB 70. If domestic volume also turns positive, go to 4%. **Do not "top up a little" between RMB 85–90; that is emotional adding, not disciplined adding.**
+Add: Build 1.5% at RMB 75, add to 3% at RMB 70. If domestic volume also turns positive, go to 4%. Do not "top up a little" between RMB 85–90; that is emotional adding, not disciplined adding.
 
-**Trim:** Halve the position when the stock returns above RMB 105 (28x 2027 neutral net profit), as upside is consumed; halve when auto gross margin falls below 20%, as the first leg of the thesis is broken.
+Trim: Halve the position when the stock returns above RMB 105 (28x 2027 neutral net profit), as upside is consumed; halve when auto gross margin falls below 20%, as the first leg of the thesis is broken.
 
-**Stop-loss:** No price stop; use a logic stop. **Auto gross margin below 18% for two consecutive quarters, or R&D expense ratio below 5.5%, or export growth falling below 20% — exit fully on any one of these.** A price drop to RMB 60 with the logic intact is an adding opportunity, not a stop signal.
+Stop-loss: No price stop; use a logic stop. Auto gross margin below 18% for two consecutive quarters, or R&D expense ratio below 5.5%, or export growth falling below 20% — exit fully on any one of these. A price drop to RMB 60 with the logic intact is an adding opportunity, not a stop signal.
 
 ## Portfolio perspective: what role does it play in the portfolio
 
-If you must hold it, its role is **"a representative of Chinese manufacturing going global"**, not "a representative of new energy vehicles." The former maps to global capacity replication capability (four overseas plants, eight ro-ro ships); the latter maps to domestic penetration — and domestic penetration has already passed 50%, so that story is over.
+If you must hold it, its role is "a representative of Chinese manufacturing going global", not "a representative of new energy vehicles." The former maps to global capacity replication capability (four overseas plants, eight ro-ro ships); the latter maps to domestic penetration — and domestic penetration has already passed 50%, so that story is over.
 
-A more sensible portfolio structure, therefore: **new energy vehicle exposure via CATL (battery side, 40% global share) + BYD (vehicle side, global capacity), combined no more than 8%; if you want to buy the "going global" theme, group BYD with home appliances, shipping and construction machinery, not with domestic consumption.**
+A more sensible portfolio structure, therefore: new energy vehicle exposure via CATL (battery side, 40% global share) + BYD (vehicle side, global capacity), combined no more than 8%; if you want to buy the "going global" theme, group BYD with home appliances, shipping and construction machinery, not with domestic consumption.
 
-One last point: **if you want to buy only one Chinese automaker, BYD is the answer; if you already own CATL, BYD is a duplicate bet.** The two statements are not contradictory — the answer depends on what you already hold.
+One last point: if you want to buy only one Chinese automaker, BYD is the answer; if you already own CATL, BYD is a duplicate bet. The two statements are not contradictory — the answer depends on what you already hold.
 
 ## Sources
 

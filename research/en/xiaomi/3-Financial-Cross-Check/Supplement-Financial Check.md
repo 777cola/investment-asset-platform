@@ -26,17 +26,17 @@ Deviation calculation: |Source B - Source A| / Source A. Auto operating loss of 
 
 ## Basis gap 1: RMB 9.463 billion vs RMB 6.219 billion — where does the RMB 3.2 billion difference come from
 
-This is where misreading happens most easily. The same report contains two "profit" figures: net profit of RMB 9.463 billion and adjusted net profit of RMB 6.219 billion. **The RMB 3.2 billion gap is mainly fair value changes and disposal gains on investments** — Xiaomi holds large positions in ecosystem companies and listed equities, and these assets are marked to market: gains flow into profit, losses into loss.
+This is where misreading happens most easily. The same report contains two "profit" figures: net profit of RMB 9.463 billion and adjusted net profit of RMB 6.219 billion. The RMB 3.2 billion gap is mainly fair value changes and disposal gains on investments — Xiaomi holds large positions in ecosystem companies and listed equities, and these assets are marked to market: gains flow into profit, losses into loss.
 
-In 2026Q2 both Hong Kong and A-share markets rebounded (the Hang Seng Tech Index recovered from its lows during the quarter), contributing positive returns. **This is not operating income, and it could reverse next year.** This report therefore uses adjusted net profit as the denominator throughout: valuation, year-on-year and annualized figures all use RMB 6.219 billion, not RMB 9.463 billion.
+In 2026Q2 both Hong Kong and A-share markets rebounded (the Hang Seng Tech Index recovered from its lows during the quarter), contributing positive returns. This is not operating income, and it could reverse next year. This report therefore uses adjusted net profit as the denominator throughout: valuation, year-on-year and annualized figures all use RMB 6.219 billion, not RMB 9.463 billion.
 
-A cross-check: adjusted net profit fell 42.6% year on year, net profit fell 20.3% — a 22-point gap between the two declines. If the market only sees "net profit down 20%" it looks less bad, **but the core business was cut in half. That is the real reason the share price fell from 59.45 to 29.02.**
+A cross-check: adjusted net profit fell 42.6% year on year, net profit fell 20.3% — a 22-point gap between the two declines. If the market only sees "net profit down 20%" it looks less bad, but the core business was cut in half. That is the real reason the share price fell from 59.45 to 29.02.
 
 ## Basis difference two: whose basis is the -26.5% handset shipment figure?
 
-The company announced handset shipments down 26.5% year on year. Quarterly data from third-party agencies (IDC, Canalys) often fails to reconcile, because it is unclear whether they count "sell-in" (vendor shipments to channels) or "sell-through" (sales to consumers). **In 2026Q2 Xiaomi is actively destocking, so sell-in will run noticeably below sell-through, and the two measures can diverge by 5–8 points.**
+The company announced handset shipments down 26.5% year on year. Quarterly data from third-party agencies (IDC, Canalys) often fails to reconcile, because it is unclear whether they count "sell-in" (vendor shipments to channels) or "sell-through" (sales to consumers). In 2026Q2 Xiaomi is actively destocking, so sell-in will run noticeably below sell-through, and the two measures can diverge by 5–8 points.
 
-This distinction matters for the call: if the -26.5% reflects deliberate destocking, Q3 will claw it back; if demand has genuinely fallen, it is share loss. **I lean toward the former — because ASP rose 25.9% year on year over the same period to a record high, and the share of domestic sales above RMB 3,000 reached 32.1%. Selling fewer units at higher prices is a classic mix shift upmarket plus channel inventory clearance.**
+This distinction matters for the call: if the -26.5% reflects deliberate destocking, Q3 will claw it back; if demand has genuinely fallen, it is share loss. I lean toward the former — because ASP rose 25.9% year on year over the same period to a record high, and the share of domestic sales above RMB 3,000 reached 32.1%. Selling fewer units at higher prices is a classic mix shift upmarket plus channel inventory clearance.
 
 How I handle it: use only company-reported shipments for year-on-year comparisons, never mixed with third-party data; leave the share call for m11, to be discussed separately using third-party data.
 
@@ -44,7 +44,7 @@ How I handle it: use only company-reported shipments for year-on-year comparison
 
 Company announcement: the automotive and other innovation business segment posted an operating loss of RMB 2.6 billion. Sell-side analysts back out the figure as "segment revenue of RMB 23.9 billion × (1-19.2%) - allocated period expenses," arriving at -RMB 2.64 billion, a 1.6% deviation.
 
-The gap lies in expense allocation: sell-side analysts allocated part of group-level R&D and administrative expenses to the automotive segment by revenue proportion, while the company announcement counts only directly attributable portions.**1.6% is within an acceptable range, but it serves as a reminder — the RMB 2.6 billion loss is the "most conservative" number, and the true full-cost loss may be larger.**
+The gap lies in expense allocation: sell-side analysts allocated part of group-level R&D and administrative expenses to the automotive segment by revenue proportion, while the company announcement counts only directly attributable portions.1.6% is within an acceptable range, but it serves as a reminder — the RMB 2.6 billion loss is the "most conservative" number, and the true full-cost loss may be larger.
 
 So in valuation I use "automotive segment loss of RMB 2.6 billion + a portion of the group's RMB 9.2 billion in R&D" rather than simply treating RMB 2.6 billion as the full economic cost of the automotive business.
 
@@ -52,13 +52,13 @@ So in valuation I use "automotive segment loss of RMB 2.6 billion + a portion of
 
 Revenue, segment revenue, deliveries, segment gross margin: company filings. Profit: adjusted net profit (excluding investment fair value, equity incentives, M&A amortization). Market cap: HKD 29.02 × 25.741 billion shares = HKD 747.0 billion; the difference versus the HKD 746.8 billion on market data software comes from share count rounding. FX: HKD 1 = RMB 0.92.
 
-All derived figures are labeled: 2026 adjusted net profit of RMB 24.6 billion = first-half RMB 12.3 billion × 2 (rough calculation); 2026E PE of 28x = RMB 687.2 billion ÷ RMB 24.6 billion; target price calculated as "net profit × multiple ÷ 0.92 ÷ 25.741 billion shares." **All three steps can be checked; none is a guess.**
+All derived figures are labeled: 2026 adjusted net profit of RMB 24.6 billion = first-half RMB 12.3 billion × 2 (rough calculation); 2026E PE of 28x = RMB 687.2 billion ÷ RMB 24.6 billion; target price calculated as "net profit × multiple ÷ 0.92 ÷ 25.741 billion shares." All three steps can be checked; none is a guess.
 
 ## What data is still missing
 
-Two figures are unavailable this round; I am flagging them so they are not mistaken for knowns: **first, the specific operating cash flow amount for the first half of 2026** — the results summary gives only balance sheet and income statement highlights, and the full cash flow statement must wait for the interim report body; **second, the per-vehicle cost of the auto segment** — the company discloses only gross margin, not a breakdown of BOM and manufacturing expenses.
+Two figures are unavailable this round; I am flagging them so they are not mistaken for knowns: first, the specific operating cash flow amount for the first half of 2026 — the results summary gives only balance sheet and income statement highlights, and the full cash flow statement must wait for the interim report body; second, the per-vehicle cost of the auto segment — the company discloses only gross margin, not a breakdown of BOM and manufacturing expenses.
 
-These two gaps affect the judgment of the "structure of the loss," not the judgment of the "direction of the loss." **When the direction is clear but the structure is not, the valuation must be discounted — which is why I dare use only 20x for the neutral scenario.**
+These two gaps affect the judgment of the "structure of the loss," not the judgment of the "direction of the loss." When the direction is clear but the structure is not, the valuation must be discounted — which is why I dare use only 20x for the neutral scenario.
 
 ## Sources
 

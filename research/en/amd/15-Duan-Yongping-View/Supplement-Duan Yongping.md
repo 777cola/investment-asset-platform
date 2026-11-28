@@ -25,7 +25,7 @@ This module reasons within the framework of Duan Yongping's publicly stated inve
 
 Answer: Fine, 7 points. It does not need to build fabs, gross margin is 56%, its customers are among the richest companies in the world, and order visibility extends beyond a year. Few businesses in either the A-share or Hong Kong markets can match this.
 
-But it is not a 10. A 10-point business is one where "customers cannot leave you" — TSMC, for example: Apple wanted to switch to Samsung and spent three years trying without success. AMD's customers can leave it; they simply do not want to for now. **"Do not want to for now" and "cannot leave" differ by an entire valuation multiple.**
+But it is not a 10. A 10-point business is one where "customers cannot leave you" — TSMC, for example: Apple wanted to switch to Samsung and spent three years trying without success. AMD's customers can leave it; they simply do not want to for now. "Do not want to for now" and "cannot leave" differ by an entire valuation multiple.
 
 Duan Yongping has said the standard for a good business is "differentiation." AMD's differentiation is cost-effectiveness, and cost-effectiveness gets caught up with; true differentiation is "others cannot build it" — CUDA, for example, or EUV.
 
@@ -33,7 +33,7 @@ Duan Yongping has said the standard for a good business is "differentiation." AM
 
 Answer: Yes, and the position is roughly the same. Ten years from now AMD will still be the second choice behind Nvidia, with gross margin perhaps 58% or perhaps 52%, but it will not become 75%.
 
-This judgment matters because it determines the valuation method. If the position is unchanged ten years from now, the company is worth "industry-average profit × a reasonable multiple," that is, 20–25x, not 125x. **A company whose position is unchanged should see its valuation converge, not expand.**
+This judgment matters because it determines the valuation method. If the position is unchanged ten years from now, the company is worth "industry-average profit × a reasonable multiple," that is, 20–25x, not 125x. A company whose position is unchanged should see its valuation converge, not expand.
 
 Conversely, if it has changed ten years from now—Helios becomes the standard, ROCm becomes the developer default—then it is worth 40x. I put a 15% probability on that.
 
@@ -41,7 +41,7 @@ Conversely, if it has changed ten years from now—Helios becomes the standard, 
 
 Answer: I understand half. I understand how it makes money: it sells chips to cloud providers, which rent out the compute. What I do not understand: when MI450 yields will reach 80%, how much code must be rewritten to run a new model on ROCm, and whether HBM4 supply can keep up.
 
-These three things determine 2027 results, but all lie outside my circle of competence. Duan Yongping's approach: for the parts you do not understand, let the price compensate. **For a company you understand only halfway, the required price discount is 30%–40%, not 5%.**
+These three things determine 2027 results, but all lie outside my circle of competence. Duan Yongping's approach: for the parts you do not understand, let the price compensate. For a company you understand only halfway, the required price discount is 30%–40%, not 5%.
 
 So at USD 483, for an investor who "understands halfway," the price is not "a bit expensive" — it is "absurdly expensive."
 
@@ -49,7 +49,7 @@ So at USD 483, for an investor who "understands halfway," the price is not "a bi
 
 Answer: below USD 350. That price corresponds to 18x the 2027 neutral EPS of USD 19, and also to the pessimistic scenario where "share only reaches 15%".
 
-If MI450 truly ramps, buying at USD 350 doubles your money; if it does not ramp, buying at USD 350 still only loses 30%. **That is what a margin of safety does — it does not stop you from losing, it ensures you can afford the loss.**
+If MI450 truly ramps, buying at USD 350 doubles your money; if it does not ramp, buying at USD 350 still only loses 30%. That is what a margin of safety does — it does not stop you from losing, it ensures you can afford the loss.
 
 The other entry point is "evidence": if the Q4 results show MI450 at USD 3 billion in a single quarter with a 55% gross margin, then USD 450 is also a buy, because the uncertainty is gone. Buy on price, or buy on evidence — pick one.
 
@@ -57,7 +57,7 @@ The other entry point is "evidence": if the Q4 results show MI450 at USD 3 billi
 
 Answer: two things. First, Nvidia cutting prices. Its gross margin is 74.9%; at 60% it still makes money, while AMD at 50% stops making money. Second, cloud providers' in-house chips. Every point Google TPU and Amazon Trainium take is a point off AMD's target share.
 
-What these two things share: **neither requires AMD to make a mistake.** As long as it "executes to plan," these two forces will cap it. That is the fate of the second supplier—your ceiling is set by your rival, not by yourself.
+What these two things share: neither requires AMD to make a mistake. As long as it "executes to plan," these two forces will cap it. That is the fate of the second supplier—your ceiling is set by your rival, not by yourself.
 
 The third thing is the Taiwan Strait. No probabilities here, only position sizing: no single stock above 5% is the entire answer to this kind of risk.
 
@@ -65,13 +65,13 @@ The third thing is the Taiwan Strait. No probabilities here, only position sizin
 
 Answer: because a 1% position solves nothing. Double the stock and it contributes 1%; halve it and you lose 0.5%. It has no effect on the portfolio, but it will have you watching the stock every day and hunting for reasons to add every day.
 
-Duan Yongping's approach is "either don't buy, or buy enough." The definition of enough: you would still dare to add after a 50% drop. At AMD's current price, a 50% drop to 240 and I would dare to add; but if I bought at 483, a drop to 400 would have me starting to doubt myself. **A position that makes you doubt is the wrong position.**
+Duan Yongping's approach is "either don't buy, or buy enough." The definition of enough: you would still dare to add after a 50% drop. At AMD's current price, a 50% drop to 240 and I would dare to add; but if I bought at 483, a drop to 400 would have me starting to doubt myself. A position that makes you doubt is the wrong position.
 
-One more word on "benfen" (doing one's duty). What Duan Yongping means by benfen is "don't do things beyond your competence." The most benfen thing AMD did in these twelve years was sell its packaging and testing plants in 2016 and go all-in on Zen in 2017—no touching mobile chips, no touching memory, no touching foundry. **A company that does only one thing for a lifetime usually turns out fine; but a company that does only one thing, and that one thing is making substitutes for others, has a ceiling right there.**
+One more word on "benfen" (doing one's duty). What Duan Yongping means by benfen is "don't do things beyond your competence." The most benfen thing AMD did in these twelve years was sell its packaging and testing plants in 2016 and go all-in on Zen in 2017—no touching mobile chips, no touching memory, no touching foundry. A company that does only one thing for a lifetime usually turns out fine; but a company that does only one thing, and that one thing is making substitutes for others, has a ceiling right there.
 
-One more price reference: in 2024 AMD traded between USD 120 and 180, when data center quarterly revenue was USD 3 billion and gross margin 50%. Now it is USD 6.7 billion and 56%—fundamentals up 40%, the stock up 3x. **Fundamentals up 40%, stock up 200%: the extra 160% is valuation expansion.** Valuation expansion gives back; fundamentals do not.
+One more price reference: in 2024 AMD traded between USD 120 and 180, when data center quarterly revenue was USD 3 billion and gross margin 50%. Now it is USD 6.7 billion and 56%—fundamentals up 40%, the stock up 3x. Fundamentals up 40%, stock up 200%: the extra 160% is valuation expansion. Valuation expansion gives back; fundamentals do not.
 
-Finally, position sizing. Duan Yongping's approach is "buy as much as you understand." He probably understands about 60% of AMD—so buy a 60% position? No. His approach: the part you don't understand, you'd rather not buy. **"Don't do what you don't understand" isn't conservatism; it's knowing where you will make mistakes.**
+Finally, position sizing. Duan Yongping's approach is "buy as much as you understand." He probably understands about 60% of AMD—so buy a 60% position? No. His approach: the part you don't understand, you'd rather not buy. "Don't do what you don't understand" isn't conservatism; it's knowing where you will make mistakes.
 
 ## Sources
 

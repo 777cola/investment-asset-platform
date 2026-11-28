@@ -84,7 +84,7 @@ One easily overlooked cash-flow detail: Pinduoduo's working capital is negative 
 
 The expense structure has changed. Three years ago R&D expense was around 3% of revenue and administrative expense 1.5%; now they are 4.1% and 2.1% respectively. This is not one-off; it is the new normal after greater scale and tighter compliance. Half of the margin decline comes from here.
 
-**Putting the four layers of financials together, the conclusion is: the income statement is deteriorating, the balance sheet is thickening, and cash flow is strengthening.** These three things happening at once usually mean a company is switching from expansion to rent collection — and the market assigns a lower valuation multiple to that switch, which is exactly why it is cheap.
+Putting the four layers of financials together, the conclusion is: the income statement is deteriorating, the balance sheet is thickening, and cash flow is strengthening. These three things happening at once usually mean a company is switching from expansion to rent collection — and the market assigns a lower valuation multiple to that switch, which is exactly why it is cheap.
 
 ## V. Management
 
@@ -158,7 +158,7 @@ Difference from consensus: sell-side 2027 net profit forecasts cluster at RMB 10
 
 One operational detail: do not add the day before Q3 results. Earnings are the only certain, two-way risk event; wait for the print before deciding — the cost is only possibly missing a 3%–5% rally.
 
-**Recommendations differ by holder type:** those with existing China ADR exposure should treat Pinduoduo as a "like-for-like swap" rather than an addition — trim first, add later; those without China ADR exposure can build up to the 3% cap, because cash cushions the downside; those who cannot tolerate a 20% drawdown should not buy, because the bear case is −17%.
+Recommendations differ by holder type: those with existing China ADR exposure should treat Pinduoduo as a "like-for-like swap" rather than an addition — trim first, add later; those without China ADR exposure can build up to the 3% cap, because cash cushions the downside; those who cannot tolerate a 20% drawdown should not buy, because the bear case is −17%.
 
 ## XII. Appendix: Data Sources and Definitions
 

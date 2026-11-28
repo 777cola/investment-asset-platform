@@ -10,7 +10,7 @@ This module has 5 pages, covering business / financials / industry / risk / summ
 
 ## How to read this report
 
-Read the five pieces separately; each is a complete judgment and does not depend on the others. The summary piece goes last and does only three things: identify consensus, list disagreements, give actions.
+Read the five pieces separately; each is a complete judgment and does not depend on the others. The summary piece comes last and does only three things: identify consensus, list disagreements, and give actions.
 
 Every percentage, amount and customer name can be sourced from public materials; estimated values are marked "est." or "rough calc" in the table notes. Do not skip the risk piece—it is the only one that spells out "how much you lose."
 

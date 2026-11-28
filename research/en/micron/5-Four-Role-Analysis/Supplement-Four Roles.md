@@ -10,9 +10,9 @@ The five pages were written independently by four analysts. All figures are draw
 
 ## How to read these five reports
 
-Reports 1–4 were completed independently by four roles, each examining only the layer it cares about: Duan Yongping on whether the business itself is sustainable, Buffett on cash and capital intensity, Munger on industry structure and reversal conditions, Li Lu on the risk checklist and survivability. Report 5 is the Team Lead's synthesis, which lists the disagreements among the four reports and adjudicates them one by one, and sets out operating discipline.
+Reports 1–4 were completed independently by four roles, each examining only the layer it cares about: Duan Yongping looks at whether the business itself is sustainable, Buffett at cash and capital intensity, Munger at industry structure and reversal conditions, and Li Lu at the risk checklist and survivability. Report 5 is the Team Lead's synthesis, listing the disagreements among the four reports, adjudicating them one by one, and setting out operating discipline.
 
-None of the four reports altered the numbers or ratings in the underlying draft; disagreements are recorded on the summary page. If you want only the conclusions, read Report 5; if you want to verify the conclusions, read in the order "business → financials → industry → risk," which is the natural sequence from "business" to "price."
+None of the four reports altered the numbers or ratings in the underlying draft; disagreements are recorded on the summary page. If you want only the conclusions, read Report 5; if you want to verify the conclusions, read in the order business → financials → industry → risk, the natural progression from "business" to "price".
 
 ## Sources
 

@@ -23,25 +23,25 @@ Candidate pool screening criteria: first, an independently reconcilable cloud or
 
 ## Initial screen: first cut companies with only one engine
 
-The first layer of the funnel is not valuation; it is **business structure**. Returns on this round of AI investment can only be recouped from two places, cloud and advertising, so a candidate company must have at least one independently verifiable engine.
+The first layer of the funnel is not valuation; it is business structure. Returns on this round of AI investment can only be recouped from two places, cloud and advertising, so a candidate company must have at least one independently verifiable engine.
 
-Meta is the first to be cut: all of its AI capex serves ad recommendation, it has no external cloud business, and outside investors cannot verify "how much these chips earn." This is not to say it is a bad company, but that **you cannot reconcile it against the financials**. JD.com is cut: a single segment in the retail chain, no cloud, no high-margin advertising, cheap at 7.5x P/E but with no re-rating engine. Alibaba is cut: its number-one China cloud share is real, but cloud profit has never been disclosed separately, and the China internet discount and geopolitical risk render the valuation anchor ineffective.
+Meta is the first to be cut: all of its AI capex serves ad recommendation, it has no external cloud business, and outside investors cannot verify "how much these chips earn." This is not to say it is a bad company, but that you cannot reconcile it against the financials. JD.com is cut: a single segment in the retail chain, no cloud, no high-margin advertising, cheap at 7.5x P/E but with no re-rating engine. Alibaba is cut: its number-one China cloud share is real, but cloud profit has never been disclosed separately, and the China internet discount and geopolitical risk render the valuation anchor ineffective.
 
-The three that remain (Amazon, Microsoft, Alphabet) share one trait: **all can be reconciled using the two numbers "cloud revenue + cloud margin."** That is the necessary condition for reaching the final selection.
+The three that remain (Amazon, Microsoft, Alphabet) share one trait: all can be reconciled using the two numbers "cloud revenue + cloud margin." That is the necessary condition for reaching the final selection.
 
 ## Final pick: Why Amazon, not Microsoft
 
 This is the hardest comparison, because Microsoft is better on many dimensions: Azure +48% is faster than AWS +39.3%, enterprise customer relationships are deeper, and the asset base is lighter (capex was even cut by 5 billion). If the only question is "who is better," the answer is Microsoft.
 
-But buying a stock means buying the gap between price and expectations. Three sets of numbers: **One, valuation** — Amazon at 20.8x vs Microsoft at 25.8x, a 24% gap; **Two, business completeness** — Amazon has a retail traffic pool and advertising (RMB 19.64 billion, +12%), while Microsoft has no consumer traffic; **Three, expectation gap** — Microsoft's capex cut is read by the market as "rational," while Amazon's capex increase is read as "burning money," so pricing sentiment around the two is completely different.
+But buying a stock means buying the gap between price and expectations. Three sets of numbers: One, valuation — Amazon at 20.8x vs Microsoft at 25.8x, a 24% gap; Two, business completeness — Amazon has a retail traffic pool and advertising (RMB 19.64 billion, +12%), while Microsoft has no consumer traffic; Three, expectation gap — Microsoft's capex cut is read by the market as "rational," while Amazon's capex increase is read as "burning money," so pricing sentiment around the two is completely different.
 
-Alphabet is a third case: Google Cloud +103% is the standout number, but cloud is only a small share of group revenue (RMB 30.7 billion vs the group's hundred-billion level), and its valuation anchor is search advertising, not cloud. **Buying Alphabet means buying the present value of search plus an option on cloud; buying Amazon means buying the present value of cloud plus retail efficiency gains** — the latter is easier to underwrite.
+Alphabet is a third case: Google Cloud +103% is the standout number, but cloud is only a small share of group revenue (RMB 30.7 billion vs the group's hundred-billion level), and its valuation anchor is search advertising, not cloud. Buying Alphabet means buying the present value of search plus an option on cloud; buying Amazon means buying the present value of cloud plus retail efficiency gains — the latter is easier to underwrite.
 
 ## "Why it" and "when it is not"
 
-Three reasons: **One, scale** — AWS at USD 46 billion a quarter and USD 184 billion annualized remains the world's largest, and scale itself is a cost advantage; **two, structure** — the only company with three simultaneous cash flows from retail, advertising and cloud, so if any one falters the other two cushion it; **three, price** — 20.8x TTM (34x excluding unrealized gains) is the lowest of the three cloud players, with an upside/downside ratio of 1.63 to 1.
+Three reasons: One, scale — AWS at USD 46 billion a quarter and USD 184 billion annualized remains the world's largest, and scale itself is a cost advantage; two, structure — the only company with three simultaneous cash flows from retail, advertising and cloud, so if any one falters the other two cushion it; three, price — 20.8x TTM (34x excluding unrealized gains) is the lowest of the three cloud players, with an upside/downside ratio of 1.63 to 1.
 
-When does it stop being the answer? Two cases: **AWS growth below 30% for two consecutive quarters while Azure is still above 40%** (signaling share loss); **free cash flow negative for four consecutive quarters with capex still accelerating** (signaling a structural loss, not cyclical investment). If these two conditions appear, switch to Microsoft or exit the sector outright.
+When does it stop being the answer? Two cases: AWS growth below 30% for two consecutive quarters while Azure is still above 40% (signaling share loss); free cash flow negative for four consecutive quarters with capex still accelerating (signaling a structural loss, not cyclical investment). If these two conditions appear, switch to Microsoft or exit the sector outright.
 
 ## Sources
 

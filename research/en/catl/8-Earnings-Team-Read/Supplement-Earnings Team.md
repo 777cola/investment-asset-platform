@@ -10,7 +10,7 @@ Six articles derive from the same 2026 interim report (2026/07/24) and Q1 report
 
 ## One more point: why all four deep reads sidestepped the share price
 
-None of the four deep dives starts with the share price, because the share price is an outcome, not a cause. RMB 291.99, a 52-week low, -36.3% — these three numbers describe market sentiment; RMB 98/kWh, a 65.3% conversion rate, a 29.97% overseas gross margin — these three numbers describe the company. Read the company first, then the share price; reverse the order and you will mistake noise for signal.
+None of the four deep reads starts with the share price, because the share price is an outcome, not a cause. RMB 291.99, a 52-week low, -36.3% — these three numbers describe market sentiment; RMB 98/kWh, a 65.3% conversion rate, a 29.97% overseas gross margin — these three numbers describe the company. Read the company first, then the share price; reverse the order and you will mistake noise for signal.
 
 This is also what the four masters' frameworks share: they all ask "what is this business worth," not "will this stock rise tomorrow." For CATL, the answer to the first question is RMB 378 (neutral); no one can answer the second.
 

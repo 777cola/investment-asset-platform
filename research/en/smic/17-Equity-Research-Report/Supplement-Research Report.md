@@ -99,7 +99,7 @@ On related-party transactions, the counterparties in the RMB 40.6 billion acquis
 
 ## Chapter 6 Growth Drivers
 
-Four drivers: **capacity** (four new 12-inch lines at 100,000 wafers/month each, ramping in 2026–2027), **price hikes** (8-inch BCD +10%, TSMC plans to raise mature-node quotes in early 2027), **domestic substitution** (China revenue at 88.9%, share rising to 5%), **advanced nodes** (Huawei takes about 43% of N+2 capacity, Cambricon about 11%).
+Four drivers: capacity (four new 12-inch lines at 100,000 wafers/month each, ramping in 2026–2027), price hikes (8-inch BCD +10%, TSMC plans to raise mature-node quotes in early 2027), domestic substitution (China revenue at 88.9%, share rising to 5%), advanced nodes (Huawei takes about 43% of N+2 capacity, Cambricon about 11%).
 
 Of the four drivers, capacity and substitution are certain medium-term trends, price hikes are cyclical, and advanced nodes are constrained by equipment controls. 2026 revenue growth rests mainly on the first two; 2027 profit elasticity depends on price hikes and advanced nodes.
 
@@ -153,7 +153,7 @@ The H-share comparison is the valuation ceiling: as long as the A/H premium hold
 
 ## Chapter 11 Investment Recommendations
 
-Rating: **Watch, wait for a pullback**. Neutral target price RMB 120, 5% below the current price of RMB 126.25; bear case RMB 88 (-30%), bull case RMB 155 (+23%). Weighted 30/50/20, expected return -6.9%.
+Rating: Watch, wait for a pullback. Neutral target price RMB 120, 5% below the current price of RMB 126.25; bear case RMB 88 (-30%), bull case RMB 155 (+23%). Weighted 30/50/20, expected return -6.9%.
 
 Buy conditions: share price below RMB 100 (5x PB), or gross margin above 24% for two consecutive quarters with capex falling below USD 5 billion. Abandon conditions: DUV ban enacted, utilization falling below 85%, or gross margin below 18% for two consecutive quarters.
 

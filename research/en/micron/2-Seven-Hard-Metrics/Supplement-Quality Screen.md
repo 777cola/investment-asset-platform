@@ -24,11 +24,11 @@ The seven metrics follow the AI Berkshire negative-screening criteria, with thre
 
 ## The three that fall short all point to the same thing
 
-ROE ten-year average 9%: FY18 was 44%, driven by DRAM price increases; FY23 was -13%, also driven by DRAM price declines. The average of these two years is meaningless; what matters is that it shows **this company's return on capital is determined by price, not by operating efficiency**. Same fabs, same engineers: FY23 lost RMB 5.8 billion, FY26 earned over RMB 80 billion.
+ROE ten-year average 9%: FY18 was 44%, driven by DRAM price increases; FY23 was -13%, also driven by DRAM price declines. The average of these two years is meaningless; what matters is that it shows this company's return on capital is determined by price, not by operating efficiency. Same fabs, same engineers: FY23 lost RMB 5.8 billion, FY26 earned over RMB 80 billion.
 
-Gross margin 9%–85%: a ten-year range spanning 76 percentage points. Any valuation model that treats an "85% gross margin" as the norm will be wildly wrong. The way to judge this industry is to look at the **direction of change** in gross margin rather than its level — 2026Q4 guidance is 86%, and if some quarter in 2027 falls below 80% quarter-on-quarter, that marks the top of this cycle.
+Gross margin 9%–85%: a ten-year range spanning 76 percentage points. Any valuation model that treats an "85% gross margin" as the norm will be wildly wrong. The way to judge this industry is to look at the direction of change in gross margin rather than its level — 2026Q4 guidance is 86%, and if some quarter in 2027 falls below 80% quarter-on-quarter, that marks the top of this cycle.
 
-Cumulative ten-year free cash flow near zero: this is the most painful point. Micron is not unprofitable; the money it earns turns into fabs and equipment. FY23 operating cash flow was about USD 1.6 billion and capex USD 7.7 billion, for free cash flow of -USD 6.1 billion; FY24 capex remained elevated, with free cash flow of about -USD 1.2 billion. This cycle's FY26 single-quarter free cash flow of USD 18.3 billion is a historical extreme, **but FY27 capex guidance exceeds USD 40 billion, meaning the money earned gets plowed back in**.
+Cumulative ten-year free cash flow near zero: this is the most painful point. Micron is not unprofitable; the money it earns turns into fabs and equipment. FY23 operating cash flow was about USD 1.6 billion and capex USD 7.7 billion, for free cash flow of -USD 6.1 billion; FY24 capex remained elevated, with free cash flow of about -USD 1.2 billion. This cycle's FY26 single-quarter free cash flow of USD 18.3 billion is a historical extreme, but FY27 capex guidance exceeds USD 40 billion, meaning the money earned gets plowed back in.
 
 ## The four points it passed show it is not a bad company.
 
@@ -42,9 +42,9 @@ Share count basically flat over five years: around 1.13 billion shares, no relia
 
 ## But is it fatal: not fatal, but it determines the valuation method
 
-If this were a consumer goods company, failing three of the seven criteria would be an automatic reject. **But Micron is a cyclical stock, and screening it with the seven criteria for compounders is a methodological mismatch**—Buffett himself bought PetroChina and BYD, both cyclical or policy-driven; what matters is not whether the metrics look good, but where in the cycle the purchase price sits.
+If this were a consumer goods company, failing three of the seven criteria would be an automatic reject. But Micron is a cyclical stock, and screening it with the seven criteria for compounders is a methodological mismatch—Buffett himself bought PetroChina and BYD, both cyclical or policy-driven; what matters is not whether the metrics look good, but where in the cycle the purchase price sits.
 
-So the correct way to use the seven criteria is this: the four it passes tell you "it won't die," and the three it fails tell you "it can't command a high multiple." Combined, that is this report's conclusion—**holdable, but not to be priced as a growth stock; 6.5x 2027E earnings is not cheap, it is the market's normal discount for "unsustainable E."**
+So the correct way to use the seven criteria is this: the four it passes tell you "it won't die," and the three it fails tell you "it can't command a high multiple." Combined, that is this report's conclusion—holdable, but not to be priced as a growth stock; 6.5x 2027E earnings is not cheap, it is the market's normal discount for "unsustainable E."
 
 What truly warrants caution is something else: if one day Micron lifts SCA coverage above 50%, keeps free cash flow positive for three consecutive years, and stops breaking below a 25% gross margin trough, then these three failed metrics would improve simultaneously, and only then would a 12–15x multiple hold up. That day has not arrived.
 

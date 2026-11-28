@@ -21,15 +21,15 @@ Key-person biographies are compiled from public sources; shareholding percentage
 
 ## Three major capital allocation moves
 
-**The first was the February 2021 IPO.** Priced at HKD 115, it raised about HKD 41.3 billion, and market cap briefly reached HKD 1.7 trillion after listing. That money funded three years of content subsidies, e-commerce infrastructure and algorithm investment—by the outcome, the money went to the right places (DAU grew from 300 million to 400 million), but was sold at the wrong price (the IPO price is still 4x the current share price).
+The first was the February 2021 IPO. Priced at HKD 115, it raised about HKD 41.3 billion, and market cap briefly reached HKD 1.7 trillion after listing. That money funded three years of content subsidies, e-commerce infrastructure and algorithm investment—by the outcome, the money went to the right places (DAU grew from 300 million to 400 million), but was sold at the wrong price (the IPO price is still 4x the current share price).
 
-**The second was the contraction and buybacks after 2024.** Marketing expense ratio fell from above 50% in 2021 to just over 30%, and adjusted net profit turned positive in 2024. This is classic good capital allocation: stop buying growth, start buying profit.
+The second was the contraction and buybacks after 2024. Marketing expense ratio fell from above 50% in 2021 to just over 30%, and adjusted net profit turned positive in 2024. This is classic good capital allocation: stop buying growth, start buying profit.
 
-**The third was the July 2026 spin-off of Kling.** It raised USD 3 billion at a post-money valuation of USD 18 billion, diluting the parent by 16.67%. A smart move: pricing the AI asset separately when it is most expensive, securing cash without losing control. But it also moves the question of "how much is Kling worth" out of the financial statements—the parent will only report equity-method income going forward, with no visibility into standalone revenue and losses.
+The third was the July 2026 spin-off of Kling. It raised USD 3 billion at a post-money valuation of USD 18 billion, diluting the parent by 16.67%. A smart move: pricing the AI asset separately when it is most expensive, securing cash without losing control. But it also moves the question of "how much is Kling worth" out of the financial statements—the parent will only report equity-method income going forward, with no visibility into standalone revenue and losses.
 
 ## A small matter of buybacks reveals a judgment on intrinsic value
 
-HKD 880 million, 19.60 million shares, average price HKD 44.9. This trade carries more information than any earnings-call statement: **management believed Kuaishou at HKD 45 was undervalued.** Six months later the market put it at 29.26, which is to say they were 35% wrong.
+HKD 880 million, 19.60 million shares, average price HKD 44.9. This trade carries more information than any earnings-call statement: management believed Kuaishou at HKD 45 was undervalued. Six months later the market put it at 29.26, which is to say they were 35% wrong.
 
 The timing is the bigger problem. The Q2 buyback came before results, and Q2 delivered revenue +1.4% and net profit -30.3%. A company buying back stock at close to 20x forward PE one quarter before earnings decline shows that insiders have no forward visibility into their own business either.
 
@@ -39,7 +39,7 @@ This is not a moral issue, it is a competence issue. And competence in capital a
 
 Kuaishou uses a WVR structure in Hong Kong, with Class A shares carrying 10 votes each, giving the founders control. The upside is that strategy can be executed over the long term (a three-year money-losing investment like Kling would long ago have been voted down by ordinary shareholders); the downside is that minority shareholders have no checks and balances, and can only read the results in the annual report.
 
-More worrying is the narrowing of disclosure scope: **from 2026 it will no longer disclose e-commerce GMV by quarter, only merchant count; after the Kling spin-off it will no longer disclose revenue and losses separately; the live-streaming revenue-share ratio has never been disclosed.** Three of the most critical operating variables, each vaguer than the last.
+More worrying is the narrowing of disclosure scope: from 2026 it will no longer disclose e-commerce GMV by quarter, only merchant count; after the Kling spin-off it will no longer disclose revenue and losses separately; the live-streaming revenue-share ratio has never been disclosed. Three of the most critical operating variables, each vaguer than the last.
 
 Falling transparency is usually not a conspiracy but a defence — the company does not want to be scored quarter by quarter where it is deteriorating. But for investors the result is the same: less verifiable information means the valuation should be discounted. This directly affects the multiple we assign.
 
@@ -49,13 +49,13 @@ Five years after listing, there has been no financial fraud, no controlling-shar
 
 ## Incentives: change the KPI, and behavior changes
 
-Before 2024, Kuaishou's core KPIs were DAU and revenue; after 2025, the heaviest internal metrics became "AI revenue share" and "Kling ARR." When KPIs change, resource allocation changes: **the same algorithm team that once optimized ad CTR now optimizes video-generation availability; the same budget that once bought traffic now buys compute.**
+Before 2024, Kuaishou's core KPIs were DAU and revenue; after 2025, the heaviest internal metrics became "AI revenue share" and "Kling ARR." When KPIs change, resource allocation changes: the same algorithm team that once optimized ad CTR now optimizes video-generation availability; the same budget that once bought traffic now buys compute.
 
 This is not wrong, but it explains a counterintuitive phenomenon: in the year the company invested most aggressively in AI, core business revenue growth fell to 1.4%. Incentives pulled the best people away from the main battlefield, and the main battlefield is losing.
 
 ## Succession: not a near-term issue
 
-Cheng Yixiao was born in 1985 and turns 41 in 2026, so there is no near-term succession pressure. The real issue is organizational: **after the Kling spin-off, the most battle-hardened technical talent went with the subsidiary, leaving the parent company with a defensive team focused on advertising and livestreaming.** This is not a succession question; it is a question of who is still willing to stay in the core business.
+Cheng Yixiao was born in 1985 and turns 41 in 2026, so there is no near-term succession pressure. The real issue is organizational: after the Kling spin-off, the most battle-hardened technical talent went with the subsidiary, leaving the parent company with a defensive team focused on advertising and livestreaming. This is not a succession question; it is a question of who is still willing to stay in the core business.
 
 If Kling lists independently in the future, the parent company will become a holding platform—at which point its valuation logic shifts entirely from "growth stock" to "an advertising company that holds a stake in Kling," and its PE will step down further.
 

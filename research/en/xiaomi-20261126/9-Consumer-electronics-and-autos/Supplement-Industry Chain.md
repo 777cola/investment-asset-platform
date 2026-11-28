@@ -36,27 +36,27 @@ Gross margin ranges and BOM shares are approximations based on publicly availabl
 
 ## Upstream: this is where the money is taken
 
-Memory is the most profitable link in this chain and the most passive one for Xiaomi. In 2026, DRAM contract prices rise 60%–70% and NAND more than 100%, HBM is in short supply, and institutions expect the shortage to persist into 2027, with HBM prices possibly rising another 80%–100% in 2027. **The three major manufacturers (Samsung, SK hynix, Micron) plus China's YMTC and CXMT account for all global supply.**
+Memory is the most profitable link in this chain and the most passive one for Xiaomi. In 2026, DRAM contract prices rise 60%–70% and NAND more than 100%, HBM is in short supply, and institutions expect the shortage to persist into 2027, with HBM prices possibly rising another 80%–100% in 2027. The three major manufacturers (Samsung, SK hynix, Micron) plus China's YMTC and CXMT account for all global supply.
 
-Xiaomi has no countermeasure here. In-house memory would require RMB 100 billion-level capex; switching suppliers is useless because all are short of stock; pre-building inventory only locks in one quarter of pricing. The result is a -2.7 percentage point gross margin hit and RMB 4.24 billion less gross profit in Q3 2026. **That money has not disappeared; it has become the operating profit of Samsung and SK hynix.**
+Xiaomi has no countermeasure here. In-house memory would require RMB 100 billion-level capex; switching suppliers is useless because all are short of stock; pre-building inventory only locks in one quarter of pricing. The result is a -2.7 percentage point gross margin hit and RMB 4.24 billion less gross profit in Q3 2026. That money has not disappeared; it has become the operating profit of Samsung and SK hynix.
 
 Its position in the auto chain is similar but slightly better. Batteries account for 30%–40% of vehicle cost, CATL has a gross margin of around 20% and strong bargaining power; but Xiaomi can cut costs through model platformization and in-house structural components for battery packs, giving it a little more room to maneuver than in phones.
 
 ## Midstream: Xiaomi's position—integrator, not manufacturer
 
-Xiaomi does not make its own chips, memory or displays. It does three things: product definition, supply-chain integration and channel distribution. **The value of these three shows up in "same specs sold cheaper" and "same price with higher specs."**
+Xiaomi does not make its own chips, memory or displays. It does three things: product definition, supply-chain integration and channel distribution. The value of these three shows up in "same specs sold cheaper" and "same price with higher specs."
 
 The financial signature of this position: relatively asset-light (aside from the car plants), fast inventory turnover, mid-range gross margin, thin net margin. The Q3 2026 numbers fit exactly: gross margin 20.2%, net margin 3.6%, R&D expense ratio 8.4%.
 
-The car business pushes Xiaomi one step toward "heavy asset." Two plants, 300 stores, an after-sales network — these are fixed costs, and they turn against you once deliveries decline. **So the car cuts both ways for Xiaomi: it raises the ceiling on average selling price, and it dials operating leverage to a dangerous level.**
+The car business pushes Xiaomi one step toward "heavy asset." Two plants, 300 stores, an after-sales network — these are fixed costs, and they turn against you once deliveries decline. So the car cuts both ways for Xiaomi: it raises the ceiling on average selling price, and it dials operating leverage to a dangerous level.
 
 ## Downstream: brands can collect payment, but not a premium
 
-Xiaomi's channel efficiency is the industry benchmark: direct sales through Mi Home, uniform pricing online and offline, and inventory turnover days far below traditional channels. **This lets it earn a little more from turnover than rivals at the same gross margin.**
+Xiaomi's channel efficiency is the industry benchmark: direct sales through Mi Home, uniform pricing online and offline, and inventory turnover days far below traditional channels. This lets it earn a little more from turnover than rivals at the same gross margin.
 
 But brand premium has not been established. Q3 2026 auto revenue fell 19% with deliveries flat, implying average selling price per vehicle dropped nearly 20%—if the brand carried a premium, this should not happen. The same holds for phones: when memory prices rose, the company chose to absorb the cost rather than raise prices, showing it knows a price hike would cost it volume.
 
-**"Value for money" is a double-edged sword: it brings share, and it caps pricing.** This is Xiaomi's most fundamental constraint in the chain.
+"Value for money" is a double-edged sword: it brings share, and it caps pricing. This is Xiaomi's most fundamental constraint in the chain.
 
 ## Cycle positioning: two cycles converge in 2026
 
@@ -64,15 +64,15 @@ Memory cycle: began in the second half of 2024 and entered an acceleration phase
 
 Auto cycle: penetration passes 50% in 2026, shifting from "penetration-driven" to "replacement-driven." This phase is marked by price wars, player shakeout and falling per-vehicle profit, typically lasting 2–3 years and only converging in 2027–2028.
 
-**The troughs of the two cycles almost overlap in the second half of 2027.** That means first-half 2027 earnings will most likely still look ugly — if the market reacts six months ahead, the share-price bottom may come in Q1 2027; if it reacts to reported earnings, the bottom comes in Q3 2027. **This timing gap determines how long "waiting" has to last.**
+The troughs of the two cycles almost overlap in the second half of 2027. That means first-half 2027 earnings will most likely still look ugly — if the market reacts six months ahead, the share-price bottom may come in Q1 2027; if it reacts to reported earnings, the bottom comes in Q3 2027. This timing gap determines how long "waiting" has to last.
 
 ## Three specific sticking points: whether it can be swapped, whether it can be compressed, whether it can be bypassed
 
-First bottleneck: **can storage suppliers be swapped?** No. Global DRAM capacity is concentrated in Samsung, SK hynix and Micron; China's CXMT and YMTC can fill part of the gap, but advanced nodes and HBM still rely on imports. However large Xiaomi's purchase volume, it can only queue.
+First bottleneck: can storage suppliers be swapped? No. Global DRAM capacity is concentrated in Samsung, SK hynix and Micron; China's CXMT and YMTC can fill part of the gap, but advanced nodes and HBM still rely on imports. However large Xiaomi's purchase volume, it can only queue.
 
-Second bottleneck: **can battery prices be pushed down?** Very hard. CATL's share and bargaining power in power batteries are both strong, and lithium carbonate price swings pass straight through to battery quotes. Xiaomi can only platformize (one battery pack across multiple models) and develop structural parts in-house, savings that come to single-digit percentage points.
+Second bottleneck: can battery prices be pushed down? Very hard. CATL's share and bargaining power in power batteries are both strong, and lithium carbonate price swings pass straight through to battery quotes. Xiaomi can only platformize (one battery pack across multiple models) and develop structural parts in-house, savings that come to single-digit percentage points.
 
-Third bottleneck: **can channels be bypassed?** Already done. Mi Home direct sales plus online same-price selling pass the traditional channel's 20%–25% markup back to users — the root reason it can offer "cheaper at the same spec," and also the reason it cannot command a brand premium. **Cheapness and premium are two sides of the same coin.**
+Third bottleneck: can channels be bypassed? Already done. Mi Home direct sales plus online same-price selling pass the traditional channel's 20%–25% markup back to users — the root reason it can offer "cheaper at the same spec," and also the reason it cannot command a brand premium. Cheapness and premium are two sides of the same coin.
 
 ## Sources
 

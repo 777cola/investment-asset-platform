@@ -36,33 +36,33 @@ Rough Kelly check: f=(p×b−(1−p))/b, p=0.62 (upside probability estimated by
 
 ## Why 3%, not 8%
 
-On odds (62% upside, 17% downside, 3.6:1), the Kelly formula would give a sizable position — roughly f=(0.62×3.6−0.38)/3.6≈0.51, i.e. half the book. **That number is clearly unusable** — Kelly assumes known probabilities, and these probabilities are my own estimates.
+On odds (62% upside, 17% downside, 3.6:1), the Kelly formula would give a sizable position — roughly f=(0.62×3.6−0.38)/3.6≈0.51, i.e. half the book. That number is clearly unusable — Kelly assumes known probabilities, and these probabilities are my own estimates.
 
-Three things actually determine position size: **First, returns can only come from valuation repair**, with no dividend or buyback floor; **Second, tail risks cannot be hedged** (regulation, geopolitics, delisting); **Third, China ADR correlation is too high** — a 3% Pinduoduo position contributes more than 3% of actual China exposure to the portfolio. All three together mean 3% is a ceiling, not a starting point.
+Three things actually determine position size: First, returns can only come from valuation repair, with no dividend or buyback floor; Second, tail risks cannot be hedged (regulation, geopolitics, delisting); Third, China ADR correlation is too high — a 3% Pinduoduo position contributes more than 3% of actual China exposure to the portfolio. All three together mean 3% is a ceiling, not a starting point.
 
 ## The rhythm of the fourth batch: let earnings, not price, drive decisions
 
 Build the first 1% tranche now: the stock trades at 3.4x ex-cash, and cash cushions the downside. The second tranche waits for the Q3 report (late November) to see whether transaction services growth holds at 10%. The third tranche waits for a catalyst — a buyback, or advertising returning to 6%.
 
-**The key to this pacing is not adding to the same bet.**The first tranche buys "cheap"; the second buys "Temu hasn't collapsed"; the third buys "the valuation starts to repair." Three slugs of capital bet on three different things — if any one breaks, stop.
+The key to this pacing is not adding to the same bet.The first tranche buys "cheap"; the second buys "Temu hasn't collapsed"; the third buys "the valuation starts to repair." Three slugs of capital bet on three different things — if any one breaks, stop.
 
 ## Price triggers: trim above 120, add below 72
 
-**Trim line at USD 120**, equivalent to 7x ex-cash P/E — by then the risk-reward has already fallen from 3.6:1 to below 1.5:1, and holding on offers less value than switching into cash.
+Trim line at USD 120, equivalent to 7x ex-cash P/E — by then the risk-reward has already fallen from 3.6:1 to below 1.5:1, and holding on offers less value than switching into cash.
 
-**Add line at USD 72**, equivalent to 3.0x ex-cash — but adding requires that "cash has not shrunk." If the stock falls to USD 72 while cash drops 10% year on year, that is not cheapness but someone burning money; cut rather than add.
+Add line at USD 72, equivalent to 3.0x ex-cash — but adding requires that "cash has not shrunk." If the stock falls to USD 72 while cash drops 10% year on year, that is not cheapness but someone burning money; cut rather than add.
 
 ## Stop-loss: this is not an investment that can be stopped out by price
 
-**Price-based stop-losses kill you at the best moment.** A stock at 3.4x ex-cash falling 20% goes to 2.7x — that is when you add, not cut. So set stops on the logic: two consecutive quarters of negative advertising growth, transaction services dropping below 5%, cash down 10% year on year, audit problems.
+Price-based stop-losses kill you at the best moment. A stock at 3.4x ex-cash falling 20% goes to 2.7x — that is when you add, not cut. So set stops on the logic: two consecutive quarters of negative advertising growth, transaction services dropping below 5%, cash down 10% year on year, audit problems.
 
-**The only exception is position discipline.** If it rises above 5% of the portfolio (because it went up), unconditionally trim back to 3%. That is not a bearish view; it is capping the risk budget for a single name.
+The only exception is position discipline. If it rises above 5% of the portfolio (because it went up), unconditionally trim back to 3%. That is not a bearish view; it is capping the risk budget for a single name.
 
 ## Correlation: it diversifies less than you think
 
-PDD's correlation with the Hang Seng Tech Index is about 0.75, with Alibaba about 0.70, and with JD.com about 0.60. **In a portfolio it is essentially a synthetic exposure to "China internet e-commerce + China exports."**
+PDD's correlation with the Hang Seng Tech Index is about 0.75, with Alibaba about 0.70, and with JD.com about 0.60. In a portfolio it is essentially a synthetic exposure to "China internet e-commerce + China exports."
 
-If the portfolio already holds Alibaba, Tencent and Meituan, adding another 3% in PDD would markedly raise actual China internet concentration. **The right move here is not to skip the position, but to cut the other China internet holdings at the same time.**
+If the portfolio already holds Alibaba, Tencent and Meituan, adding another 3% in PDD would markedly raise actual China internet concentration. The right move here is not to skip the position, but to cut the other China internet holdings at the same time.
 
 Only cash and short-duration bonds can truly hedge it. Even gold does not necessarily work in extreme markets — during those few days in mid-November, all risk assets fell together.
 

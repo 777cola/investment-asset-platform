@@ -61,63 +61,63 @@ Shareholding structure: Ma Huateng holds 8.82% (805 million shares), Prosus/MIH 
 
 China's internet sector has entered a stock-market phase. Online advertising grows in the single digits to low double digits, domestic gaming in the single digits, overseas gaming in the double digits, public cloud in the double digits (accelerating on AI), and large models remain in early commercialization. Overall there is no high growth, but concentration keeps rising and leaders benefit.
 
-The biggest variable for the industry in 2026 is compute.** AI training and inference demand has exploded, GPUs and HBM are tight across the board, chipmakers' gross margins have risen to around 70%, and cloud providers have become queuers in a seller's market.** Tencent's first-half capex of RMB 84.72 billion, up 82% year on year, is a direct result of this variable.
+The biggest variable for the industry in 2026 is compute. AI training and inference demand has exploded, GPUs and HBM are tight across the board, chipmakers' gross margins have risen to around 70%, and cloud providers have become queuers in a seller's market. Tencent's first-half capex of RMB 84.72 billion, up 82% year on year, is a direct result of this variable.
 
-Another variable is liquidity. The Hang Seng Tech Index has fallen more than 25% year to date in 2026, and the market's main thread has shifted from the "AI narrative" to "cash flow and shareholder returns." This explains why results beat expectations while the share price fell—**the pricing anchor has switched from PE to FCF.**
+Another variable is liquidity. The Hang Seng Tech Index has fallen more than 25% year to date in 2026, and the market's main thread has shifted from the "AI narrative" to "cash flow and shareholder returns." This explains why results beat expectations while the share price fell—the pricing anchor has switched from PE to FCF.
 
 ## III. Business model
 
-Tencent's business model can be summed up as "one gateway, three monetization layers": **WeChat supplies the attention and social relationships of 1.439 billion people; gaming sells content, advertising sells traffic, and payments and cloud sell infrastructure.**
+Tencent's business model can be summed up as "one gateway, three monetization layers": WeChat supplies the attention and social relationships of 1.439 billion people; gaming sells content, advertising sells traffic, and payments and cloud sell infrastructure.
 
-The four businesses have different economic characteristics: advertising has near-zero marginal cost (57% gross margin), gaming has front-loaded costs (gross margin above 60%), payments is a toll booth (tracking consumption), and cloud is a landlord (asset-heavy, a utilization game). **This means advertising growth is worth more than gaming growth, and cloud growth cannot trigger a valuation re-rating.**
+The four businesses have different economic characteristics: advertising has near-zero marginal cost (57% gross margin), gaming has front-loaded costs (gross margin above 60%), payments is a toll booth (tracking consumption), and cloud is a landlord (asset-heavy, a utilization game). This means advertising growth is worth more than gaming growth, and cloud growth cannot trigger a valuation re-rating.
 
-What changes in the model in 2026 is the attempt at a "fourth monetization layer": AI products (WorkBuddy, CodeBuddy, Yuanbao, Xiaowei) begin charging. Together they currently drag on operating profit by about RMB 10.5 billion per quarter, but if they work, the company upgrades from "selling traffic" to "selling productivity." **This is the source of valuation upside, and the source of the current disagreement.**
+What changes in the model in 2026 is the attempt at a "fourth monetization layer": AI products (WorkBuddy, CodeBuddy, Yuanbao, Xiaowei) begin charging. Together they currently drag on operating profit by about RMB 10.5 billion per quarter, but if they work, the company upgrades from "selling traffic" to "selling productivity." This is the source of valuation upside, and the source of the current disagreement.
 
 ## IV. Financial analysis
 
-**Income statement:** Revenue RMB 204.785 billion (+11%, above the Bloomberg consensus of RMB 202.8 billion), gross profit RMB 118.433 billion (+13%), gross margin 57.8% (+1.0pct); G&A expenses RMB 38.808 billion (+22%), R&D RMB 27.28 billion (+35%), with the entire increment directed to AI; Non-IFRS operating profit RMB 75.64 billion (+9%), or RMB 86.1 billion (+19%) excluding new AI products.
+Income statement: Revenue RMB 204.785 billion (+11%, above the Bloomberg consensus of RMB 202.8 billion), gross profit RMB 118.433 billion (+13%), gross margin 57.8% (+1.0pct); G&A expenses RMB 38.808 billion (+22%), R&D RMB 27.28 billion (+35%), with the entire increment directed to AI; Non-IFRS operating profit RMB 75.64 billion (+9%), or RMB 86.1 billion (+19%) excluding new AI products.
 
-**Cash flow:** Operating cash flow RMB 52.710 billion (RMB 74.376 billion in the year-ago period, RMB 101.351 billion last quarter), capex payments RMB 59.3 billion, dividend payments RMB 41.6 billion, free cash flow -RMB 13.8 billion (+RMB 37.6 billion excluding prepayments for computing power).
+Cash flow: Operating cash flow RMB 52.710 billion (RMB 74.376 billion in the year-ago period, RMB 101.351 billion last quarter), capex payments RMB 59.3 billion, dividend payments RMB 41.6 billion, free cash flow -RMB 13.8 billion (+RMB 37.6 billion excluding prepayments for computing power).
 
-**Balance sheet:** Net cash of RMB 58.191 billion at end-June (RMB 146.860 billion at end-March), plus a listed investment portfolio of about USD 72 billion. First-half buybacks of 50.03 million shares for HKD 24.4 billion (average HKD 487.7), and RMB 41.6 billion paid in 2025 dividends. **Financial quality has not deteriorated; the use of cash has changed.**
+Balance sheet: Net cash of RMB 58.191 billion at end-June (RMB 146.860 billion at end-March), plus a listed investment portfolio of about USD 72 billion. First-half buybacks of 50.03 million shares for HKD 24.4 billion (average HKD 487.7), and RMB 41.6 billion paid in 2025 dividends. Financial quality has not deteriorated; the use of cash has changed.
 
 ## V. Management and governance
 
 Pony Ma (Chairman and CEO, 8.82% stake) sets strategy, proposing a three-layer AI architecture of intelligence, applications and infrastructure; Martin Lau (President) oversees capital allocation and defines capex as "a one-off startup investment in new AI-native businesses"; Ren Yuxin (COO) oversees gaming and platforms; Yao Shunyu (Chief AI Scientist, formerly of OpenAI) leads models, with Hy3 released on 2026/07/06.
 
-**Strong capital allocation record:** distributed JD shares in 2022 and Meituan shares in 2023, bought back HKD 80 billion in 2025 and HKD 24.4 billion in 2026H1, and paid a dividend of HKD 5.30 per share.**Governance risk:** Prosus/MIH holds 22.8% and has been slowly reducing over the long term; three key revenue lines (AI, Weixin Channels advertising, cloud profit) are not disclosed separately.
+Strong capital allocation record: distributed JD shares in 2022 and Meituan shares in 2023, bought back HKD 80 billion in 2025 and HKD 24.4 billion in 2026H1, and paid a dividend of HKD 5.30 per share.Governance risk: Prosus/MIH holds 22.8% and has been slowly reducing over the long term; three key revenue lines (AI, Weixin Channels advertising, cloud profit) are not disclosed separately.
 
 Assessment: capital allocation A, disclosure B, governance B+. Management and shareholder interests are aligned (founder ownership plus large buybacks), but insufficient transparency will keep weighing on the valuation.
 
 ## VI. Growth drivers
 
-**Driver 1: ad load.** WeChat Channels' ad load has long trailed peers; marketing services grew 22% this quarter and 14% QoQ, showing the ramp has only just begun. If ad load reaches half of peers' levels, annual revenue would rise by about RMB 86 billion and net profit by about RMB 37 billion.
+Driver 1: ad load. WeChat Channels' ad load has long trailed peers; marketing services grew 22% this quarter and 14% QoQ, showing the ramp has only just begun. If ad load reaches half of peers' levels, annual revenue would rise by about RMB 86 billion and net profit by about RMB 37 billion.
 
-**Driver 2: game pipeline.** Four domestic titles live simultaneously (Delta Force, Valorant, Legend of Kingdoms: World, Peacekeeper Elite), and Chaos Evolution drew 40 million pre-registrations in July; internationally, Miniclip anchors casual genres.
+Driver 2: game pipeline. Four domestic titles live simultaneously (Delta Force, Valorant, Legend of Kingdoms: World, Peacekeeper Elite), and Chaos Evolution drew 40 million pre-registrations in July; internationally, Miniclip anchors casual genres.
 
-**Driver 3: cloud and AI.** Cloud growth accelerated from high teens to low twenties, with a price increase in May; WorkBuddy ranked first in China with 20.97 million PC visits in June; Xiaowei is in grayscale testing.**Of the three drivers, the first is the most certain and the third has the most upside.**
+Driver 3: cloud and AI. Cloud growth accelerated from high teens to low twenties, with a price increase in May; WorkBuddy ranked first in China with 20.97 million PC visits in June; Xiaowei is in grayscale testing.Of the three drivers, the first is the most certain and the third has the most upside.
 
 ## II (Appendix), Industry Size and Structure
 
 China's online advertising market is roughly RMB 700 billion (public research basis), with growth down to single digits to low double digits; the mobile gaming market is roughly RMB 300 billion, with single-digit domestic growth and double-digit overseas growth; the public cloud market is growing at a double-digit rate, with AI-related demand the main increment; the large-model API market remains early-stage, with intense price competition.
 
-Structural change matters more than scale: **advertising budgets are shifting from "brand exposure" to "performance conversion," game revenue from "user-acquisition driven" to "content driven," and cloud from "resource leasing" to "model services."** All three shifts favor companies with scenarios and content.
+Structural change matters more than scale: advertising budgets are shifting from "brand exposure" to "performance conversion," game revenue from "user-acquisition driven" to "content driven," and cloud from "resource leasing" to "model services." All three shifts favor companies with scenarios and content.
 
-Tencent stands on the right side of all three shifts: WeChat's closed loop captures performance advertising, evergreen games capture content-driven growth, and Hunyuan + MaaS captures model services. **This is the structural reason its growth outpaces the industry.**
+Tencent stands on the right side of all three shifts: WeChat's closed loop captures performance advertising, evergreen games capture content-driven growth, and Hunyuan + MaaS captures model services. This is the structural reason its growth outpaces the industry.
 
 ## V (Appendix). Incentives and Organization
 
-Net headcount rose by 5,672 in 2025 and attrition fell to 15.9%; management explicitly stated there are no plans for major layoffs. **In a year when AI replaces white-collar work, "no layoffs" is a cost choice and an organizational signal.**
+Net headcount rose by 5,672 in 2025 and attrition fell to 15.9%; management explicitly stated there are no plans for major layoffs. In a year when AI replaces white-collar work, "no layoffs" is a cost choice and an organizational signal.
 
-R&D spend was RMB 27.28 billion, up 35% year on year; G&A expenses were RMB 38.808 billion, up 22%. All of the incremental spend went to large-model iteration and AI transformation across the entire product line. **Resources are tilting toward the technology side, and part of the slowdown in mature businesses is the result of deliberately reallocating resources.**
+R&D spend was RMB 27.28 billion, up 35% year on year; G&A expenses were RMB 38.808 billion, up 22%. All of the incremental spend went to large-model iteration and AI transformation across the entire product line. Resources are tilting toward the technology side, and part of the slowdown in mature businesses is the result of deliberately reallocating resources.
 
-The crux of incentives is "who is accountable for return on capital." Those who decide capex are currently assessed on model capability and call volume, while depreciation is borne by the whole company. **This is a common failing of large companies building new businesses, not unique to Tencent, but it will affect the discipline of AI investment.**
+The crux of incentives is "who is accountable for return on capital." Those who decide capex are currently assessed on model capability and call volume, while depreciation is borne by the whole company. This is a common failing of large companies building new businesses, not unique to Tencent, but it will affect the discipline of AI investment.
 
 ## VIII (Appendix). Stress test: three downside scenarios
 
-**Scenario 1 (capex does not fall):** capex stays at RMB 50 billion per quarter in 2027, depreciation rises by RMB 38 billion a year, Non-IFRS net profit RMB 270 billion, 11x → HKD 320, -27%. **Scenario 2 (advertising stalls):** marketing services growth drops to 8%, net profit RMB 260 billion, 12x → HKD 340, -23%. **Scenario 3 (both combined):** net profit RMB 240 billion, 10x → HKD 265, -40%.
+Scenario 1 (capex does not fall): capex stays at RMB 50 billion per quarter in 2027, depreciation rises by RMB 38 billion a year, Non-IFRS net profit RMB 270 billion, 11x → HKD 320, -27%. Scenario 2 (advertising stalls): marketing services growth drops to 8%, net profit RMB 260 billion, 12x → HKD 340, -23%. Scenario 3 (both combined): net profit RMB 240 billion, 10x → HKD 265, -40%.
 
-What the three bad scenarios share is that the multiple and net profit are cut at the same time — the most painful combination. **But all of them need 2027 to be verified — over the remaining two quarters of 2026, the worst case is HKD 370 (pessimistic scenario).**
+What the three bad scenarios share is that the multiple and net profit are cut at the same time — the most painful combination. But all of them need 2027 to be verified — over the remaining two quarters of 2026, the worst case is HKD 370 (pessimistic scenario).
 
 The point of a stress test is not to scare yourself, but to size the position: if the -40% scenario keeps you awake at night, then the 4% initial position is too heavy.
 
@@ -125,23 +125,23 @@ The point of a stress test is not to scare yourself, but to size the position: i
 
 Advertising: ByteDance first, Tencent second; Tencent is gaining share through Channels and the WeChat closed loop. Gaming: Tencent is global No. 1; NetEase is stronger in MMORPGs and anime-style games, miHoYo is stronger in open-world titles, but neither has Tencent's distribution network. Cloud: Alibaba Cloud is No. 1, Huawei Cloud is strong in government and enterprise, and Tencent Cloud differentiates on audio-video and the gaming ecosystem.
 
-Large models: Doubao (ByteDance), Qwen (Alibaba), DeepSeek and Hunyuan compete in the same arena. **Hunyuan follows a "parameter efficiency + low price" path (Hy3: 295B/21B, API RMB 0.25 per million tokens); it is not on a capability-leadership path.**
+Large models: Doubao (ByteDance), Qwen (Alibaba), DeepSeek and Hunyuan compete in the same arena. Hunyuan follows a "parameter efficiency + low price" path (Hy3: 295B/21B, API RMB 0.25 per million tokens); it is not on a capability-leadership path.
 
-The most dangerous rival is still ByteDance: the fight for time spent is the first layer, the AI entry point (Doubao) is the second. **Tencent's response is WeChat mini-programs — put AI inside WeChat, so the entry point remains WeChat.**
+The most dangerous rival is still ByteDance: the fight for time spent is the first layer, the AI entry point (Doubao) is the second. Tencent's response is WeChat mini-programs — put AI inside WeChat, so the entry point remains WeChat.
 
 ## VIII. Risk factors
 
-**①Capex normalization:** Sustaining above RMB 50 billion per quarter keeps free cash flow negative long term and drags the valuation multiple down to 11–12x. **②Depreciation and impairment:** Roughly RMB 38 billion of new depreciation in 2027; amortizing over 3 years doubles the impact. **③Advertising slowdown:** At +22%, a drop below 15% would cut off incremental profit. **④Gaming high base:** Domestic games face a high base of RMB 47.3 billion in 2027.
+①Capex normalization: Sustaining above RMB 50 billion per quarter keeps free cash flow negative long term and drags the valuation multiple down to 11–12x. ②Depreciation and impairment: Roughly RMB 38 billion of new depreciation in 2027; amortizing over 3 years doubles the impact. ③Advertising slowdown: At +22%, a drop below 15% would cut off incremental profit. ④Gaming high base: Domestic games face a high base of RMB 47.3 billion in 2027.
 
-**⑤AI entry point bypassed:** If AI assistants become the primary entry point and WeChat is relegated to a contact list, the valuation could fall to 8–10x. **⑥Regulation:** Game licenses, payment compliance, platform liability. **⑦Major shareholder selldown:** Prosus's 22.8% stake and prolonged selldown weigh on the valuation. **⑧FX and liquidity:** Shrinking Hong Kong market liquidity amplifies volatility.
+⑤AI entry point bypassed: If AI assistants become the primary entry point and WeChat is relegated to a contact list, the valuation could fall to 8–10x. ⑥Regulation: Game licenses, payment compliance, platform liability. ⑦Major shareholder selldown: Prosus's 22.8% stake and prolonged selldown weigh on the valuation. ⑧FX and liquidity: Shrinking Hong Kong market liquidity amplifies volatility.
 
 ## 9. Earnings forecast
 
 2026E: revenue RMB 827.0 billion (+10%), of which VAS RMB 395.0 billion (+7%), marketing services RMB 182.0 billion (+19%), fintech and business services RMB 245.0 billion (+9%); Non-IFRS net profit attributable to shareholders RMB 280.0 billion (+8%), RMB 30.8 per share.
 
-2027E: revenue RMB 895.0 billion (+8%), Non-IFRS net profit attributable to shareholders RMB 320.0 billion (+14%). **The jump in growth comes not from revenue but from narrowing AI losses:** assume losses on new AI products narrow from about RMB 40.0 billion in 2026 to about RMB 25.0 billion in 2027, while Non-IFRS operating profit in the core business holds 10% growth.
+2027E: revenue RMB 895.0 billion (+8%), Non-IFRS net profit attributable to shareholders RMB 320.0 billion (+14%). The jump in growth comes not from revenue but from narrowing AI losses: assume losses on new AI products narrow from about RMB 40.0 billion in 2026 to about RMB 25.0 billion in 2027, while Non-IFRS operating profit in the core business holds 10% growth.
 
-This assumption is the most fragile link in the entire report. **If AI losses do not narrow, 2027E should be RMB 305.0 billion and the base-case target price falls to HKD 510; if losses widen, RMB 290.0 billion and HKD 485.**
+This assumption is the most fragile link in the entire report. If AI losses do not narrow, 2027E should be RMB 305.0 billion and the base-case target price falls to HKD 510; if losses widen, RMB 290.0 billion and HKD 485.
 
 ## X. Valuation
 
@@ -149,15 +149,15 @@ Method: Non-IFRS net profit × target PE ÷ exchange rate ÷ share count. We use
 
 Target PE of 14x, based on three points: the lower-middle of Tencent's actual trading range of 11–23x since 2021; 10% revenue growth corresponding to 12–15x for a mature company; and AI uncertainty warranting a 4–6x discount to the historical midpoint of 18–20x.
 
-Target price: 3,200 × 14 ÷ 0.92 ÷ 91.03 = **HKD 535, +22% versus the current price**. Bear case (2,800 × 11) = HKD 370 (-16%); bull case (3,500 × 17) = HKD 700 (+59%). **Cross-check: sum-of-the-parts about HKD 520, consistent in magnitude with 535.**
+Target price: 3,200 × 14 ÷ 0.92 ÷ 91.03 = HKD 535, +22% versus the current price. Bear case (2,800 × 11) = HKD 370 (-16%); bull case (3,500 × 17) = HKD 700 (+59%). Cross-check: sum-of-the-parts about HKD 520, consistent in magnitude with 535.
 
 ## XI. Investment recommendation
 
-**Rating: Buy (staged).** Open the first tranche at HKD 440 (half the target position), fill out below HKD 400, stop adding above HKD 480, and cut by half at HKD 535 while keeping a core position. **Logic-based stop:** marketing services growth below 15% for two consecutive quarters; capex above RMB 50 billion for three consecutive quarters with cloud growth below 15%; Non-IFRS net profit turns negative year on year.
+Rating: Buy (staged). Open the first tranche at HKD 440 (half the target position), fill out below HKD 400, stop adding above HKD 480, and cut by half at HKD 535 while keeping a core position. Logic-based stop: marketing services growth below 15% for two consecutive quarters; capex above RMB 50 billion for three consecutive quarters with cloud growth below 15%; Non-IFRS net profit turns negative year on year.
 
 Why not "Strong Recommend": the fifth gate (margin of safety) scores only 6, and negative free cash flow means the margin of safety comes from "no earnings downgrade" rather than from assets. The shape of this investment is "hard floor below, sentiment above" — suited to trading time for upside, not to leverage.
 
-Expected return: 9% profit growth + 2.3% shareholder return + valuation re-rating from 13x to 14x, for 12%–15% annualized over three years. **This is not a life-changing investment; it is an investment that can beat the index.**
+Expected return: 9% profit growth + 2.3% shareholder return + valuation re-rating from 13x to 14x, for 12%–15% annualized over three years. This is not a life-changing investment; it is an investment that can beat the index.
 
 ## XII. Appendix: Data Sources and Definitions
 
@@ -165,53 +165,53 @@ Financial data: Tencent Holdings Q2 2026 results announcement and interim result
 
 Industry and events: Securities Times, Time Weekly, Ming Pao, Finet (2026/08/12); Citi China internet valuation report (2026/06/28); Goldman Sachs Tencent research report (2026/06/11); Hy3 launch coverage (2026/07/06).
 
-Basis of presentation: amounts in RMB (except share price and market cap); Non-IFRS is a company-defined non-International Financial Reporting Standards measure; 2026E/2027E are analyst forecasts, not company guidance; target price calculation uses HKD 1 = RMB 0.92 and 9.103 billion shares.**This report does not constitute investment advice.**
+Basis of presentation: amounts in RMB (except share price and market cap); Non-IFRS is a company-defined non-International Financial Reporting Standards measure; 2026E/2027E are analyst forecasts, not company guidance; target price calculation uses HKD 1 = RMB 0.92 and 9.103 billion shares.This report does not constitute investment advice.
 
 ## III (Appendix). Unit economics: RMB 142 and the headroom around it
 
 RMB 204.785 billion ÷ 1.439 billion = RMB 142 per user per quarter, or RMB 568 annualized. Breakdown: advertising RMB 30, gaming about RMB 46, payments and cloud about RMB 42, social networking RMB 23.
 
-Versus Meta: revenue per user per quarter is more than three times Tencent's. The gap is not in user count but in two things: **ad unit pricing (China eCPM is below Europe and the US) and payment habits (a low share of Chinese users pay for content).** Neither can change near term, but ad load can.
+Versus Meta: revenue per user per quarter is more than three times Tencent's. The gap is not in user count but in two things: ad unit pricing (China eCPM is below Europe and the US) and payment habits (a low share of Chinese users pay for content). Neither can change near term, but ad load can.
 
-Estimate: if marketing services revenue per user per quarter rises from RMB 30 to RMB 45 (ad load lifted to half the peer level), annual revenue increases by about RMB 86 billion; at a 57% gross margin and 25% tax rate, net profit rises by about RMB 37 billion, equivalent to 13% of 2026E Non-IFRS. **This is the most certain growth path in this report.**
+Estimate: if marketing services revenue per user per quarter rises from RMB 30 to RMB 45 (ad load lifted to half the peer level), annual revenue increases by about RMB 86 billion; at a 57% gross margin and 25% tax rate, net profit rises by about RMB 37 billion, equivalent to 13% of 2026E Non-IFRS. This is the most certain growth path in this report.
 
 ## IX (Appendix). Quarterly cadence and key milestones
 
-First-half revenue was RMB 401.243 billion; full-year RMB 827 billion implies RMB 425.757 billion in the second half: about RMB 207 billion in Q3 (+8%) and about RMB 219 billion in Q4 (+9%). **The Q3 focus is whether capex falls back from RMB 52.784 billion; the Q4 focus is the Singles' Day boost to advertising.**
+First-half revenue was RMB 401.243 billion; full-year RMB 827 billion implies RMB 425.757 billion in the second half: about RMB 207 billion in Q3 (+8%) and about RMB 219 billion in Q4 (+9%). The Q3 focus is whether capex falls back from RMB 52.784 billion; the Q4 focus is the Singles' Day boost to advertising.
 
 Cost side: if full-year capex is RMB 180 billion, the second half is about RMB 95 billion (Q3 RMB 45 billion, Q4 RMB 50 billion). Depreciation climbs markedly from Q1 2027, with limited impact on profit within 2026.
 
-Catalysts: November Q3 results (capex and advertising growth), March of the following year annual report (full-year capex landing point, whether AI revenue is broken out), May Q1 (Chinese New Year gross billings), August Q2 (tough gaming comparable). **Of the four catalysts, the annual report matters most.**
+Catalysts: November Q3 results (capex and advertising growth), March of the following year annual report (full-year capex landing point, whether AI revenue is broken out), May Q1 (Chinese New Year gross billings), August Q2 (tough gaming comparable). Of the four catalysts, the annual report matters most.
 
 ## IV (Appendix). Line-by-line breakdown of the three financial statements
 
-**Income statement:** Revenue RMB 204.785 billion, gross profit RMB 118.433 billion, gross margin 57.8%; G&A RMB 38.808 billion (19.0% of revenue), R&D RMB 27.28 billion (13.3%); non-IFRS operating profit RMB 75.64 billion (36.9%); net profit attributable to shareholders RMB 56.022 billion (27.4%), non-IFRS net profit attributable to shareholders RMB 68.415 billion (33.4%).
+Income statement: Revenue RMB 204.785 billion, gross profit RMB 118.433 billion, gross margin 57.8%; G&A RMB 38.808 billion (19.0% of revenue), R&D RMB 27.28 billion (13.3%); non-IFRS operating profit RMB 75.64 billion (36.9%); net profit attributable to shareholders RMB 56.022 billion (27.4%), non-IFRS net profit attributable to shareholders RMB 68.415 billion (33.4%).
 
-**Cash flow statement:** Operating cash flow RMB 52.710 billion (25.7% of revenue, below net margin, indicating collections lag recognition); investing outflow mainly capex payments of RMB 59.3 billion; financing includes dividends of RMB 41.6 billion and buybacks of about HKD 12 billion.
+Cash flow statement: Operating cash flow RMB 52.710 billion (25.7% of revenue, below net margin, indicating collections lag recognition); investing outflow mainly capex payments of RMB 59.3 billion; financing includes dividends of RMB 41.6 billion and buybacks of about HKD 12 billion.
 
-**Balance sheet:** Net cash RMB 58.191 billion (a very low share of total assets), plus a USD 72 billion listed investment portfolio not counted in net cash. **Key judgment: this company's "thickness" lies not in the balance sheet but in the income statement and cash flow — once cash flow is interrupted, the balance sheet cannot hold out for long.**
+Balance sheet: Net cash RMB 58.191 billion (a very low share of total assets), plus a USD 72 billion listed investment portfolio not counted in net cash. Key judgment: this company's "thickness" lies not in the balance sheet but in the income statement and cash flow — once cash flow is interrupted, the balance sheet cannot hold out for long.
 
 ## VI (Appendix). Quantifying advertising growth
 
 Marketing services revenue = DAU × ad impressions per user × eCPM. Of the three variables, eCPM is set by bidding (outside Tencent's control), impressions are set by load rate (controllable), and DAU has peaked (1.439 billion).
 
-So the decomposition of ad growth is: **load rate contributes 60%, eCPM 25%, DAU 15%.** Of this quarter's +22%, load rate and AI-driven efficiency gains (lifting conversion rates and thereby eCPM) were the main drivers; 618 was a seasonal factor.
+So the decomposition of ad growth is: load rate contributes 60%, eCPM 25%, DAU 15%. Of this quarter's +22%, load rate and AI-driven efficiency gains (lifting conversion rates and thereby eCPM) were the main drivers; 618 was a seasonal factor.
 
-This decomposition implies a sustainable growth rate of 15%–18%: load rate still has room but will not keep rising rapidly, and eCPM tracks the macro.**So in my 2027E I model marketing services at +16%, rather than extrapolating the +22%.**
+This decomposition implies a sustainable growth rate of 15%–18%: load rate still has room but will not keep rising rapidly, and eCPM tracks the macro.So in my 2027E I model marketing services at +16%, rather than extrapolating the +22%.
 
 ## X (Appendix). Comparable company valuation
 
 Citi's 1-year forward PE as of 2026/06/28: Tencent 12.3x (11.8x ex-cash), Alibaba 12.5x (10.4x), NetEase 12.0x (8.0x), Baidu 13.3x (2.8x), JD.com 5.3x ex-cash, Meituan 0.8x PS.
 
-Tencent's 12.3x is the lowest among the "platforms with growth": Alibaba at 12.5x but growth driven by cloud, NetEase at 12x but zero growth, Baidu at 13.3x but core business shrinking.**On a rough PEG basis, Tencent's 12.3x / 10% growth = 1.2, Alibaba 12.5x / 8% = 1.6, NetEase 12x / 3% = 4.0.**
+Tencent's 12.3x is the lowest among the "platforms with growth": Alibaba at 12.5x but growth driven by cloud, NetEase at 12x but zero growth, Baidu at 13.3x but core business shrinking.On a rough PEG basis, Tencent's 12.3x / 10% growth = 1.2, Alibaba 12.5x / 8% = 1.6, NetEase 12x / 3% = 4.0.
 
 This comparison supports the conclusion that "Tencent offers the best value for money among the six," and explains why this report assigns a target PE of 14x rather than 18x — peers' valuation centers all sit at 12–13x, so a higher multiple would be unrealistic.
 
 ## XI (Appendix). Suitability for different investors
 
-**Long-term allocation (3+ years):** Suitable. Buy at 13x, expect 12%–15% annualized; volatility is ignorable. **Absolute return (1 year):** Average. Upside 22%, downside 16%; the payoff is not high enough—wait for below HKD 400. **Trend-following:** Not suitable. This stock is now driven by earnings and capex, not by trend.
+Long-term allocation (3+ years): Suitable. Buy at 13x, expect 12%–15% annualized; volatility is ignorable. Absolute return (1 year): Average. Upside 22%, downside 16%; the payoff is not high enough—wait for below HKD 400. Trend-following: Not suitable. This stock is now driven by earnings and capex, not by trend.
 
-**Unsuitable investors:** Those who cannot tolerate a -25% drawdown, those who need leverage, and those who cannot stomach "good results but a falling share price." **The last group is the largest—they will doubt their own judgment because of the -4.46% on 8/13, then capitulate at HKD 400.**
+Unsuitable investors: Those who cannot tolerate a -25% drawdown, those who need leverage, and those who cannot stomach "good results but a falling share price." The last group is the largest—they will doubt their own judgment because of the -4.46% on 8/13, then capitulate at HKD 400.
 
 The core of suitability is not risk appetite, but "can you hold it." The holding experience in this stock will be poor: good earnings, falling share price, repeatedly.
 

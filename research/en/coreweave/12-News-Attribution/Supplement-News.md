@@ -24,31 +24,31 @@ In the event dates, 11/09, 11/10, 11/17, 11/18 and 11/20 are exact dates; mid-Au
 
 ## The nature of this selloff: a de-rating, not an earnings hit
 
-Put three months of operating news and the share price side by side and a contradiction emerges: **the company raised guidance twice in the period (August and November), revenue exceeded the upper end of guidance for three consecutive quarters, and orders rose from RMB 104 billion to RMB 132.5 billion — results kept beating expectations, yet the stock fell 71%.**
+Put three months of operating news and the share price side by side and a contradiction emerges: the company raised guidance twice in the period (August and November), revenue exceeded the upper end of guidance for three consecutive quarters, and orders rose from RMB 104 billion to RMB 132.5 billion — results kept beating expectations, yet the stock fell 71%.
 
-This shows the market was not killing the results but the valuation method. In 2025 the market priced it on "orders × multiple"; by November 2026 it had switched to "cash flow − debt". **The same company, measured with a different ruler, commands a 3x difference in price.** This is not sentiment fluctuation but a switch in pricing framework, which is usually irreversible.
+This shows the market was not killing the results but the valuation method. In 2025 the market priced it on "orders × multiple"; by November 2026 it had switched to "cash flow − debt". The same company, measured with a different ruler, commands a 3x difference in price. This is not sentiment fluctuation but a switch in pricing framework, which is usually irreversible.
 
 ## The three most important things, in order
 
-**The first is the cash flow in the Q3 report.** Free cash flow of -RMB 7.466 billion, with the shortfall widening each quarter (Q1 -4.71 billion, Q2 -5.74 billion, Q3 -7.47 billion), while RMB 2.127 billion of operating cash flow is customer prepayments—once the market sees this clearly, "growth" will need redefining. The line-by-line breakdown in the November 18 10-Q put this detail in front of everyone.
+The first is the cash flow in the Q3 report. Free cash flow of -RMB 7.466 billion, with the shortfall widening each quarter (Q1 -4.71 billion, Q2 -5.74 billion, Q3 -7.47 billion), while RMB 2.127 billion of operating cash flow is customer prepayments—once the market sees this clearly, "growth" will need redefining. The line-by-line breakdown in the November 18 10-Q put this detail in front of everyone.
 
-**The second is the November 17 bond.** An unsecured bond yield of 15% means the credit market is already pricing default. Equities can hold up on narrative; bonds cannot—**bond investors earn fixed income and cannot afford to lose, so their reading of the same financial report is usually closer to the truth**.
+The second is the November 17 bond. An unsecured bond yield of 15% means the credit market is already pricing default. Equities can hold up on narrative; bonds cannot—bond investors earn fixed income and cannot afford to lose, so their reading of the same financial report is usually closer to the truth.
 
-**The third is Microsoft's statement on November 18.** Nadella's line that "selling to only one or two customers isn't a business," plus the USD 80 billion external compute review and the cancellation of the USD 3.22 billion Nscale order, tells the market: **the biggest buyer is pulling outsourcing back in-house, and the middleman's spread is about to be erased.**
+The third is Microsoft's statement on November 18. Nadella's line that "selling to only one or two customers isn't a business," plus the USD 80 billion external compute review and the cancellation of the USD 3.22 billion Nscale order, tells the market: the biggest buyer is pulling outsourcing back in-house, and the middleman's spread is about to be erased.
 
 ## Which are noise
 
-**Noise 1: Raised guidance.** The market never worried about demand; the 132.5 billion order book already settled that. The guidance raise offers no support for the stock, because the problem is cash, not revenue.
+Noise 1: Raised guidance. The market never worried about demand; the 132.5 billion order book already settled that. The guidance raise offers no support for the stock, because the problem is cash, not revenue.
 
-**Noise 2: The "AI bubble" narrative behind the 12% one-day plunge.** November 20 was a systemic selloff (Nasdaq -5.28%, Nvidia -14%); attributing it to company fundamentals is wrong. But nor should one conclude that "the drop is over and done with" — **the systemic selloff only accelerated the de-rating; the direction was set long ago**.
+Noise 2: The "AI bubble" narrative behind the 12% one-day plunge. November 20 was a systemic selloff (Nasdaq -5.28%, Nvidia -14%); attributing it to company fundamentals is wrong. But nor should one conclude that "the drop is over and done with" — the systemic selloff only accelerated the de-rating; the direction was set long ago.
 
-**Noise 3: Share-price correlation with Neocloud peers.** Nebius and IREN rise and fall with it, misleading investors into seeing a "sector-wide opportunity." In reality their leverage and customers differ; **moving in lockstep is a liquidity phenomenon, not synchronized fundamentals**.
+Noise 3: Share-price correlation with Neocloud peers. Nebius and IREN rise and fall with it, misleading investors into seeing a "sector-wide opportunity." In reality their leverage and customers differ; moving in lockstep is a liquidity phenomenon, not synchronized fundamentals.
 
 ## Attribution conclusion: three independent lines of evidence point to the same thing
 
-Connect the three signals: widening cash-flow gap (operations) → 15% bond yield (financing) → Microsoft cancels orders (demand). **The three pieces of evidence are independent of one another but point to the same conclusion: in November 2026, this company's business model simultaneously lost "cheap money" and its "irreplaceable position."**
+Connect the three signals: widening cash-flow gap (operations) → 15% bond yield (financing) → Microsoft cancels orders (demand). The three pieces of evidence are independent of one another but point to the same conclusion: in November 2026, this company's business model simultaneously lost "cheap money" and its "irreplaceable position."
 
-This is also why it fell harder than Nvidia on November 20 (-12% vs -14%, but Nvidia was pulling back from a high while this stock kept falling from a -70% level): **the same bad news, landing on the most leveraged equity, produces the greatest elasticity**. In three months, not one piece of good news has changed this logic, and neither can a raised guidance.
+This is also why it fell harder than Nvidia on November 20 (-12% vs -14%, but Nvidia was pulling back from a high while this stock kept falling from a -70% level): the same bad news, landing on the most leveraged equity, produces the greatest elasticity. In three months, not one piece of good news has changed this logic, and neither can a raised guidance.
 
 ## Sources
 

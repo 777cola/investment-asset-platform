@@ -24,25 +24,25 @@ Event timing and share-price reaction sources: 21st Century Business Herald (202
 
 ## Signal one: the interim results turn "peak growth" from speculation into data
 
-Before August 20, the market's worry about Pop Mart was "will Labubu fade?" That was a qualitative question, open to debate. The interim results turned it into a quantitative one: **THE MONSTERS RMB 4.454 billion, -7.5%, share of revenue 34.7%→26.0%; overseas RMB 4.972 billion, -11.1%; net profit +10.1%, 13.7 percentage points slower than revenue.**
+Before August 20, the market's worry about Pop Mart was "will Labubu fade?" That was a qualitative question, open to debate. The interim results turned it into a quantitative one: THE MONSTERS RMB 4.454 billion, -7.5%, share of revenue 34.7%→26.0%; overseas RMB 4.972 billion, -11.1%; net profit +10.1%, 13.7 percentage points slower than revenue.
 
 Put the three numbers together and the story is complete: a single IP is fading, overseas is fading, and profit is being dragged down by the first two. Domestic +47.3% is real, but it cannot offset the first two—because the domestic base is small (RMB 12.2 billion vs overseas RMB 5.0 billion), and domestic growth is itself falling from 135.2%.
 
-That day the stock fell only to HKD 153.7, a modest decline. The reason is not that the market was unconcerned, but that **the market had already priced in "slowing growth"**—from HKD 288.2 in February to HKD 153.7 in August, a 47% drop. The interim results were confirmation, not surprise. The real surprise came the next day.
+That day the stock fell only to HKD 153.7, a modest decline. The reason is not that the market was unconcerned, but that the market had already priced in "slowing growth"—from HKD 288.2 in February to HKD 153.7 in August, a 47% drop. The interim results were confirmation, not surprise. The real surprise came the next day.
 
 ## Signal two: what the major banks cut is not the target price but the earnings model
 
 On August 20–21, four major banks moved at once, all in the same direction: JPMorgan cut from "Neutral" to "Underweight" with a target price of HKD 165→120; China Merchants Securities International rated it "Sell" with a target price of HKD 121, cutting 2026–2028 earnings forecasts by an average of 25%; HSBC set a target price of HKD 168.9→136.5; BofA moved from HKD 160→153, maintaining "Neutral."
 
-The four cited nearly identical reasons: **overseas sales to be revised down, gross margin to be revised down, and 2026 EPS to be revised down 17%–24%.** JPMorgan used the harshest language — "the second quarter was the real turning point, with revenue down -11% year on year, the first single-quarter decline since 2023, marking a shift from hypergrowth to normalization" — and forecast third-quarter revenue at -35% and fourth-quarter at -20%.
+The four cited nearly identical reasons: overseas sales to be revised down, gross margin to be revised down, and 2026 EPS to be revised down 17%–24%. JPMorgan used the harshest language — "the second quarter was the real turning point, with revenue down -11% year on year, the first single-quarter decline since 2023, marking a shift from hypergrowth to normalization" — and forecast third-quarter revenue at -35% and fourth-quarter at -20%.
 
-That is what drove the over 6% drop on August 21. Not the interim results themselves, but the fact that the interim results forced sell-side analysts to change their models. **Share prices react little to "bad news that has already happened" and strongly to "bad news still to come."** All four target prices sit below the current price, meaning the sell side believes the current price is still expensive.
+That is what drove the over 6% drop on August 21. Not the interim results themselves, but the fact that the interim results forced sell-side analysts to change their models. Share prices react little to "bad news that has already happened" and strongly to "bad news still to come." All four target prices sit below the current price, meaning the sell side believes the current price is still expensive.
 
 ## Noise 1: The World Cup, buybacks and Duan Yongping's stake increase do not change the algorithm
 
-The World Cup partnership is genuinely impressive: LABUBU became the first Chinese original IP ever invited to the World Cup, appearing at the opening ceremony, closing ceremony and official music video. But the financial impact will take three to five years to show, and it will most likely be "brand exposure" rather than "direct revenue." **News like this builds brand equity; it is not a reason to buy.**
+The World Cup partnership is genuinely impressive: LABUBU became the first Chinese original IP ever invited to the World Cup, appearing at the opening ceremony, closing ceremony and official music video. But the financial impact will take three to five years to show, and it will most likely be "brand exposure" rather than "direct revenue." News like this builds brand equity; it is not a reason to buy.
 
-The HKD 2–5 billion buyback is real money too, but the cap equals only 2.4% of market cap. It can support the share price short term; it cannot support falling profit. **A buyback signals that "management thinks the stock is cheap," not that "the company is getting better."** Moreover, the company already bought back HKD 1.74 billion in the first half at an average price of about HKD 155, roughly the current price — meaning management itself bought "halfway up the mountain."
+The HKD 2–5 billion buyback is real money too, but the cap equals only 2.4% of market cap. It can support the share price short term; it cannot support falling profit. A buyback signals that "management thinks the stock is cheap," not that "the company is getting better." Moreover, the company already bought back HKD 1.74 billion in the first half at an average price of about HKD 155, roughly the current price — meaning management itself bought "halfway up the mountain."
 
 Duan Yongping raising his stake to 7.65% is the item most easily misread. He built the position in 2024–2025 at a cost far below the current price; the July add was a "buy a little more on the dip" move, not a judgment that "this price is worth buying." After the interim results he said, "As a shareholder, I actually feel pretty good about it" — he was talking about the business, not the share price.
 
@@ -50,9 +50,9 @@ Duan Yongping raising his stake to 7.65% is the item most easily misread. He bui
 
 At 22:00 on August 20, Xingxingren's first vinyl plush series "Animal Farm" went on sale and sold out online within seconds. The buzz around this on social media ran higher than the interim results.
 
-It proves one thing: **the company's IP-creation capability is still intact.** Xingxingren did RMB 2.65 billion in the first half, +580.6%, vaulting from RMB 389 million in the year-earlier period to become the second-largest IP at 15.4% of the total. That is not luck; it is the system.
+It proves one thing: the company's IP-creation capability is still intact. Xingxingren did RMB 2.65 billion in the first half, +580.6%, vaulting from RMB 389 million in the year-earlier period to become the second-largest IP at 15.4% of the total. That is not luck; it is the system.
 
-But it is also a trap. The phrase "sold out in seconds" appeared countless times around Labubu in 2025, and the result was THE MONSTERS at -7.5% in 2026. **Selling out in seconds reflects "insufficient supply plus short-term heat," not "long-term demand."** The real test: three months from now, does this series still carry a premium in the resale market; six months from now, is the repeat purchase still there.
+But it is also a trap. The phrase "sold out in seconds" appeared countless times around Labubu in 2025, and the result was THE MONSTERS at -7.5% in 2026. Selling out in seconds reflects "insufficient supply plus short-term heat," not "long-term demand." The real test: three months from now, does this series still carry a premium in the resale market; six months from now, is the repeat purchase still there.
 
 ## Sources
 

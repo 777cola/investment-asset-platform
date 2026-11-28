@@ -10,7 +10,7 @@ All four close reads in this module draw on the August 7, 2026 interim report, t
 
 ## How to read these six articles
 
-The first four pieces are four independent readings, each answering one question without cross-referencing the others; the fifth brings them together to identify consensus and disagreement and delivers a verdict; the sixth is the finished product—jargon stripped out, ready to send as is. If you have only five minutes, read the sixth; if you want to see the reasoning, read the first four.
+The first four pieces are four independent readings, each answering one question without cross-referencing; the fifth brings them together to find consensus and disagreement and delivers a verdict; the sixth is the finished product—stripped of jargon, a version ready to send out. If you have only five minutes, read the sixth; if you want to see the reasoning, read the first four.
 
 ## Sources
 

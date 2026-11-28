@@ -10,9 +10,9 @@ This module has 8 pages, each 900–1300 words. Sources: AMD 2026Q2 earnings and
 
 ## The skeleton of part eight
 
-The first piece covers "cognition," the second "the business," the third "moats," the fourth "the numbers," the fifth "the industry," the sixth "people," the seventh "risk," and the eighth "action."
+The first piece covers "cognition," the second covers "the business," the third covers "the moat," the fourth covers "the numbers," the fifth covers "the industry," the sixth covers "the people," the seventh covers "risk," and the eighth covers "action."
 
-If you read only one, read the eighth; if you read only two, read the second and the seventh. The second tells you what the business is worth; the seventh tells you how much you could lose.
+If you read only one piece, read the eighth; if you read only two, read the second and the seventh.The second tells you what the business is worth; the seventh tells you how much you could lose.
 
 ## Sources
 

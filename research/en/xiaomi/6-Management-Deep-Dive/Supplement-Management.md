@@ -36,43 +36,43 @@ Shareholdings are approximate, based on the annual report and HKEX disclosure of
 
 ## Lei Jun: One Man, Four Fronts — Efficiency and Risk From the Same Source
 
-He is everything to this company: chairman, CEO, de facto head of the auto business, and its sole external brand personality. **When he announced the car push in March 2021, the market widely saw it as a distraction; in Q2 2026, quarterly deliveries reached 104,200 units, disproving that judgment.** In the same period, the Xuanjie O1 entered mass production and cumulative shipments exceeded one million units — the first time a mainland device maker has put a self-developed SoC into a mass-produced flagship.
+He is everything to this company: chairman, CEO, de facto head of the auto business, and its sole external brand personality. When he announced the car push in March 2021, the market widely saw it as a distraction; in Q2 2026, quarterly deliveries reached 104,200 units, disproving that judgment. In the same period, the Xuanjie O1 entered mass production and cumulative shipments exceeded one million units — the first time a mainland device maker has put a self-developed SoC into a mass-produced flagship.
 
-Capability is not the problem; structure is. Handsets, IoT, autos and chips are advancing simultaneously, each a world-class challenge, and he alone makes every call. **Q2 2026 R&D spending was RMB 9.2 billion, up 18.9% year on year, and no second person can check how that money is allocated across the four lines.**
+Capability is not the problem; structure is. Handsets, IoT, autos and chips are advancing simultaneously, each a world-class challenge, and he alone makes every call. Q2 2026 R&D spending was RMB 9.2 billion, up 18.9% year on year, and no second person can check how that money is allocated across the four lines.
 
-More critical is succession. Lu Weibing is the clear number two, running handsets and overseas; but autos have no external number two, and Lei Jun personally oversees the chip business. **If anything happens to Lei Jun, this company's valuation would be cut by 70%** — this is not alarmism, it is the pricing of the governance structure.
+More critical is succession. Lu Weibing is the clear number two, running handsets and overseas; but autos have no external number two, and Lei Jun personally oversees the chip business. If anything happens to Lei Jun, this company's valuation would be cut by 70% — this is not alarmism, it is the pricing of the governance structure.
 
 ## Lu Weibing and Lin Bin: one fights, one steadies the ship
 
-Lu Weibing joined from Gionee in 2019, took over Redmi, and built it into a standalone brand with a playbook of "extreme value for money + taking shots at competitors"; from 2024 he has overseen the phone division, and he is the direct executor behind the ASP rising from RMB 1,050 to RMB 1,322 in 2026 and the 32.1% share of the domestic above-RMB 3,000 segment.**He is the only person at this company proven able to independently run a major business line.**
+Lu Weibing joined from Gionee in 2019, took over Redmi, and built it into a standalone brand with a playbook of "extreme value for money + taking shots at competitors"; from 2024 he has overseen the phone division, and he is the direct executor behind the ASP rising from RMB 1,050 to RMB 1,322 in 2026 and the 32.1% share of the domestic above-RMB 3,000 segment.He is the only person at this company proven able to independently run a major business line.
 
-Lin Bin is a co-founder and former Google engineering director who built Xiaomi's early R&D system; after stepping down as president in 2019 he moved into strategy and investment, and is now the technical voice on the board.**His role is ballast, not driver.**
+Lin Bin is a co-founder and former Google engineering director who built Xiaomi's early R&D system; after stepping down as president in 2019 he moved into strategy and investment, and is now the technical voice on the board.His role is ballast, not driver.
 
 The problem with this pairing is a lack of depth: apart from Lei Jun and Lu Weibing, no third person is recognized by the market as able to independently carry a RMB 100 billion-scale business. Compared with BYD's Wang Chuanfu plus a bench of business-group general managers, or Huawei's rotating chairman system, Xiaomi's organizational depth is visibly thin.
 
 ## Capital allocation: one correct high-sell, low-buy move, but dividends are a blank
 
-In March 2025, it placed 800 million shares at HKD 53.25, raising HKD 42.5 billion; in Q1 2026, it bought back HKD 20 billion at HKD 28–32. **Within one year, the same company sold high and bought low — this round of moves earns credit** — the money went into cars and chips, not into plugging holes.
+In March 2025, it placed 800 million shares at HKD 53.25, raising HKD 42.5 billion; in Q1 2026, it bought back HKD 20 billion at HKD 28–32. Within one year, the same company sold high and bought low — this round of moves earns credit — the money went into cars and chips, not into plugging holes.
 
-But two issues need to be clear. First, **eight years since listing and never paid a dividend**, so shareholder returns depend entirely on the share price; second, the HKD 20 billion buyback is only 2.7% of market cap, not enough to offset the pace of profit decline. **For long-term shareholders, this is a company that reinvests all its profit — you have to accept that its returns come only from capital appreciation.**
+But two issues need to be clear. First, eight years since listing and never paid a dividend, so shareholder returns depend entirely on the share price; second, the HKD 20 billion buyback is only 2.7% of market cap, not enough to offset the pace of profit decline. For long-term shareholders, this is a company that reinvests all its profit — you have to accept that its returns come only from capital appreciation.
 
-The input-output ratio of carmaking cannot be calculated clearly right now: phase one 150,000 units/year, phase two double that, and cumulative investment has not been disclosed separately. What is known is that the auto segment lost RMB 2.6 billion in 2026Q2, with cumulative losses exceeding cumulative gross profit. **This account will only become clear when annual car sales exceed 500,000 units in 2027.**
+The input-output ratio of carmaking cannot be calculated clearly right now: phase one 150,000 units/year, phase two double that, and cumulative investment has not been disclosed separately. What is known is that the auto segment lost RMB 2.6 billion in 2026Q2, with cumulative losses exceeding cumulative gross profit. This account will only become clear when annual car sales exceed 500,000 units in 2027.
 
 ## Integrity and governance: three moments of challenge
 
-The first was in January 2021, when the US Department of Defense added the company to the CCMC list; it was removed in May of the same year, with the company cooperating throughout and concealing nothing. The second was in April 2022, when India's Enforcement Directorate froze about RMB 4.8 billion of funds; the company says the transactions were legal and is pursuing legal channels, and the matter remains unresolved.**Both were external shocks, not integrity issues at the company.**
+The first was in January 2021, when the US Department of Defense added the company to the CCMC list; it was removed in May of the same year, with the company cooperating throughout and concealing nothing. The second was in April 2022, when India's Enforcement Directorate froze about RMB 4.8 billion of funds; the company says the transactions were legal and is pursuing legal channels, and the matter remains unresolved.Both were external shocks, not integrity issues at the company.
 
-The third is different: in March 2025, a high-speed SU7 crash killed 3 people. The company's initial disclosure cadence was criticized as lagging, and only afterward did it gradually release smart-driving data and the liability determination.**The damage to the brand exceeds the damage to the financials, and it exposed the fragility of a structure where the founder is the brand — Lei Jun's personal Weibo became the sole crisis-communication channel.**
+The third is different: in March 2025, a high-speed SU7 crash killed 3 people. The company's initial disclosure cadence was criticized as lagging, and only afterward did it gradually release smart-driving data and the liability determination.The damage to the brand exceeds the damage to the financials, and it exposed the fragility of a structure where the founder is the brand — Lei Jun's personal Weibo became the sole crisis-communication channel.
 
-On governance, dual-class shares give Lei Jun over half the voting power with roughly 23% equity.**The benefit is that long-termism is not held hostage by short-term shareholders; the cost is that minority shareholders have no counterweight.**HKEX imposes a ten-year sunset clause on WVR companies — a point to keep on the risk list.
+On governance, dual-class shares give Lei Jun over half the voting power with roughly 23% equity.The benefit is that long-termism is not held hostage by short-term shareholders; the cost is that minority shareholders have no counterweight.HKEX imposes a ten-year sunset clause on WVR companies — a point to keep on the risk list.
 
 ## Successor: the only blank spot
 
-Lei Jun was born in 1969 and turns 57 in 2026; Lu Weibing is also a professional manager close to retirement age. **This means "wait for Lu Weibing to serve a full twenty years and then take over" does not hold up on timing.**
+Lei Jun was born in 1969 and turns 57 in 2026; Lu Weibing is also a professional manager close to retirement age. This means "wait for Lu Weibing to serve a full twenty years and then take over" does not hold up on timing.
 
-Yu Liguo of the auto business is an outside hire responsible for manufacturing and supply chain, not a general-management talent; the chip business has no publicly disclosed head. The real question is not "who succeeds Lei Jun" but **"whether this one-man decision-making mechanism can be institutionalized."**
+Yu Liguo of the auto business is an outside hire responsible for manufacturing and supply chain, not a general-management talent; the chip business has no publicly disclosed head. The real question is not "who succeeds Lei Jun" but "whether this one-man decision-making mechanism can be institutionalized."
 
-The indicators to watch are simple: within the next two years, does the auto business produce a clear number-two figure capable of speaking independently in public; does the board add genuinely independent industry experts. **If neither happens, Xiaomi's valuation should not carry a "governance premium."**
+The indicators to watch are simple: within the next two years, does the auto business produce a clear number-two figure capable of speaking independently in public; does the board add genuinely independent industry experts. If neither happens, Xiaomi's valuation should not carry a "governance premium."
 
 ## Sources
 

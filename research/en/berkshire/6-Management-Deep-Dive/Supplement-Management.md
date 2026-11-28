@@ -35,9 +35,9 @@ Key-person timeline: Abel becomes CEO on 2026/01/01; Buffett steps down as chair
 
 ## Abel's first test: a pass, but not a high score
 
-Three things stand out from this quarterly report. First, **the business judgment was sound**: the decline in underwriting profit reflects the industry cycle, and he did not dress it up with accounting maneuvers, and he explained the rebound in GEICO's claims costs. Second, **capital returns were more aggressive**: Q3 buybacks of 9.647 billion were more than double Q2's 4.527 billion, the most aggressive quarter since 2018. Third, **M&A remains small deals**: Taylor Morrison at 6.8 billion, plus another transaction for a combined 16.2 billion, neither large enough to change the company.
+Three things stand out from this quarterly report. First, the business judgment was sound: the decline in underwriting profit reflects the industry cycle, and he did not dress it up with accounting maneuvers, and he explained the rebound in GEICO's claims costs. Second, capital returns were more aggressive: Q3 buybacks of 9.647 billion were more than double Q2's 4.527 billion, the most aggressive quarter since 2018. Third, M&A remains small deals: Taylor Morrison at 6.8 billion, plus another transaction for a combined 16.2 billion, neither large enough to change the company.
 
-Together these three things form a portrait: **a steady operator, a cautious acquirer.** Not far from Buffett's portrait; the difference is that Buffett dared to swing hard when others did not (PCP for 32.1 billion in 2016, Goldman preferred for 5 billion in 2008), and Abel has yet to prove he would.
+Together these three things form a portrait: a steady operator, a cautious acquirer. Not far from Buffett's portrait; the difference is that Buffett dared to swing hard when others did not (PCP for 32.1 billion in 2016, Goldman preferred for 5 billion in 2008), and Abel has yet to prove he would.
 
 ## Governance structure: the chairman and CEO roles are separate, which is a positive
 
@@ -45,27 +45,27 @@ After September 18, Howard Buffett serves as chairman and Abel as CEO, with the 
 
 Howard's positioning is clear — non-executive, not involved in operations, with the primary duty of ensuring "the culture is not diluted." His background in agriculture and philanthropy means he will not intervene in BNSF's operating decisions. This is a deliberate design.
 
-The risk lies at the other end: **Buffett remains the largest shareholder (about 14% economic interest, about 30% voting power)**, and his views still carry decisive influence. The so-called "handover" is currently "handing over operating control, not influence." This ensures stability, but also means Abel's independence can only be verified once Buffett fully exits.
+The risk lies at the other end: Buffett remains the largest shareholder (about 14% economic interest, about 30% voting power), and his views still carry decisive influence. The so-called "handover" is currently "handing over operating control, not influence." This ensures stability, but also means Abel's independence can only be verified once Buffett fully exits.
 
 ## Track record: one blemish, six decades clean
 
-Berkshire's integrity record is broadly in the top tier of the S&P 500: six decades of shareholder letters, no stock options, no lavish severance for executives, a CEO salary of USD 100,000. **The only real blemish came in 2011** — David Sokol bought shares of Lubrizol himself while recommending that the company acquire it, pocketing about USD 3 million; Buffett only learned of it after the affair came to light, and Sokol ultimately resigned.
+Berkshire's integrity record is broadly in the top tier of the S&P 500: six decades of shareholder letters, no stock options, no lavish severance for executives, a CEO salary of USD 100,000. The only real blemish came in 2011 — David Sokol bought shares of Lubrizol himself while recommending that the company acquire it, pocketing about USD 3 million; Buffett only learned of it after the affair came to light, and Sokol ultimately resigned.
 
 The value of this episode is not the gossip but what it proves: ① Buffett's information-isolation mechanism had a hole; ② the aftermath was handled thoroughly — no one retained, no excuses, full public disclosure. The second matters more than the first.
 
-What to watch in 2026 is **buyback disclosure**. With USD 9.6 billion repurchased at 1.66 times book, if the annual report does not disclose the weighted average price of the range, shareholders cannot judge whether the money was well spent.
+What to watch in 2026 is buyback disclosure. With USD 9.6 billion repurchased at 1.66 times book, if the annual report does not disclose the weighted average price of the range, shareholders cannot judge whether the money was well spent.
 
 ## Succession: the real test comes in the next crisis
 
-Abel is now in his early 60s, with a normal tenure of 10–15 years. The situation he faces is entirely different from Buffett's: when Buffett took over, the company had a market cap of USD 20 million and could buy anything; when Abel takes over, the market cap is USD 1.26 trillion, **any acquisition capable of changing the company's scale must be USD 30 billion or more, and there are only a few dozen such targets worldwide**.
+Abel is now in his early 60s, with a normal tenure of 10–15 years. The situation he faces is entirely different from Buffett's: when Buffett took over, the company had a market cap of USD 20 million and could buy anything; when Abel takes over, the market cap is USD 1.26 trillion, any acquisition capable of changing the company's scale must be USD 30 billion or more, and there are only a few dozen such targets worldwide.
 
 So his test is not "stock picking" but "picking the right one from an extremely small opportunity set," and "acting when everyone else is afraid to move." Neither can be trained in advance.
 
-The reasonable expectation: **his first three years will be mainly about "defense"**—maintaining underwriting discipline, gradually increasing buybacks, and making small acquisitions below USD 10 billion. The real test comes in the next major market downturn, when he will either become the second Buffett or be proven to be merely an excellent operator.
+The reasonable expectation: his first three years will be mainly about "defense"—maintaining underwriting discipline, gradually increasing buybacks, and making small acquisitions below USD 10 billion. The real test comes in the next major market downturn, when he will either become the second Buffett or be proven to be merely an excellent operator.
 
 ## Compensation and incentives: no options is the biggest advantage
 
-Berkshire does not grant executives stock options; bonuses are tied to "the capital return of the business they run," not to KPIs management sets for itself. The consequence of this design: **management will not act for the sake of the short-term stock price, nor buy back stock or dress up quarterly reports to serve an exercise price.**
+Berkshire does not grant executives stock options; bonuses are tied to "the capital return of the business they run," not to KPIs management sets for itself. The consequence of this design: management will not act for the sake of the short-term stock price, nor buy back stock or dress up quarterly reports to serve an exercise price.
 
 This is especially scarce in 2026. Over the same period, tech companies use RSUs to turn employees into people who "can only get paid if the stock price rises," while Berkshire's management relies on cash salary and long-term shareholding.
 

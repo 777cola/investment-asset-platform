@@ -10,43 +10,43 @@ This piece restates the report's conclusions through Duan Yongping's investment 
 
 ## Question 1: Is this a good business?
 
-"Good, but hard. **Gross margin 46.59%, net margin 32.7%, RMB 13.65 billion earned in six months — those numbers are top-tier for manufacturing.** It shows what it makes is differentiated and customers will pay up — not because it knows how to sell, but because it can build what others cannot."
+"Good, but hard. Gross margin 46.59%, net margin 32.7%, RMB 13.65 billion earned in six months — those numbers are top-tier for manufacturing. It shows what it makes is differentiated and customers will pay up — not because it knows how to sell, but because it can build what others cannot."
 
-"Where's the hard part? **The hard part is having to prove it all over again every year.** This year you get 1.6T out first and sell it at RMB 2,178 apiece; next year a rival catches up, so you cut price and then pull it back up with 3.2T. This business never lets you finish and lie down. I don't like this kind of business, but I respect people who can run it well."
+"Where's the hard part? The hard part is having to prove it all over again every year. This year you get 1.6T out first and sell it at RMB 2,178 apiece; next year a rival catches up, so you cut price and then pull it back up with 3.2T. This business never lets you finish and lie down. I don't like this kind of business, but I respect people who can run it well."
 
 ## Question 2: Will it still be around in ten years?
 
-"It is, but I can't say it still will be. **In optical modules, I've watched this industry for years, and the leader has changed hands before.** At 100G it was one group of companies; at 400G and 800G it was another. It only got a seat at the table by acquiring Suzhou InnoLight in 2017; then it bet right twice, on 800G and 1.6T, and that is how it reached where it is today."
+"It is, but I can't say it still will be. In optical modules, I've watched this industry for years, and the leader has changed hands before. At 100G it was one group of companies; at 400G and 800G it was another. It only got a seat at the table by acquiring Suzhou InnoLight in 2017; then it bet right twice, on 800G and 1.6T, and that is how it reached where it is today."
 
-"If you ask me whether it will still be making money ten years from now, my answer is: **if converting electrical signals into optical signals is still needed then, the business will exist; but whether Zhongji Innolight is the one making that money depends on whether it can keep betting right once every two years.** I would look at a company like this, but I wouldn't hold it for ten years."
+"If you ask me whether it will still be making money ten years from now, my answer is: if converting electrical signals into optical signals is still needed then, the business will exist; but whether Zhongji Innolight is the one making that money depends on whether it can keep betting right once every two years. I would look at a company like this, but I wouldn't hold it for ten years."
 
 ## Question three: Can you understand it?
 
-"Half. **I understand the demand and the competitive landscape — the bigger the AI cluster, the more optical modules are used; you don't need a PhD to grasp that logic. The technology roadmap I don't understand.**"
+"Half. I understand the demand and the competitive landscape — the bigger the AI cluster, the more optical modules are used; you don't need a PhD to grasp that logic. The technology roadmap I don't understand."
 
-"Three paths now coexist: pluggable modules, CPO co-packaged optics, and OCS optical switching. Nvidia announced mass production of its CPO switch in March 2026, but is it replacing just that small block on the switch faceplate, or the entire rack's interconnect? That I can't say for sure. **When I can't say for sure, I generally don't bet big.**"
+"Three paths now coexist: pluggable modules, CPO co-packaged optics, and OCS optical switching. Nvidia announced mass production of its CPO switch in March 2026, but is it replacing just that small block on the switch faceplate, or the entire rack's interconnect? That I can't say for sure. When I can't say for sure, I generally don't bet big."
 
 "Duan Yongping said: don't do what you don't understand. That doesn't mean you can't buy — it means you can't take a heavy position. The parts you don't understand, you make up for with price — if the price is cheap enough, you can be half wrong and still make money."
 
 ## Question 4: At what price to buy?
 
-"At 925 yuan and 53x TTM PE, I won't buy. **Not because it's outrageously expensive, but because this price demands that everything go right.** On a neutral case — RMB 35 billion net profit in 2027 at 26x — it's worth 772 yuan, below today's price. To make money you have to bet on the optimistic scenario: cloud capex beating expectations again."
+"At 925 yuan and 53x TTM PE, I won't buy. Not because it's outrageously expensive, but because this price demands that everything go right. On a neutral case — RMB 35 billion net profit in 2027 at 26x — it's worth 772 yuan, below today's price. To make money you have to bet on the optimistic scenario: cloud capex beating expectations again."
 
-"When would I look at it? **Not when it's down 30%, but when nobody is talking about optical modules.** By then gross margin may be back to 35%, net profit may be halved, PE may be just 12x — but the business is still there, the share is still there, the customers are still there. That's the level where I'd be willing to act. **Buy good companies when they run into trouble, not when they run into a frenzy.**"
+"When would I look at it? Not when it's down 30%, but when nobody is talking about optical modules. By then gross margin may be back to 35%, net profit may be halved, PE may be just 12x — but the business is still there, the share is still there, the customers are still there. That's the level where I'd be willing to act. Buy good companies when they run into trouble, not when they run into a frenzy."
 
 ## Question 5: What is the biggest fear?
 
-"Two things worry me most. **The first: customers walk away.** Five customers account for 81.9%, the largest 25.1%. Customers do not walk away — they just will not give you exclusivity. They are wired to dual-source, non-negotiable. So you never gain pricing power."
+"Two things worry me most. The first: customers walk away. Five customers account for 81.9%, the largest 25.1%. Customers do not walk away — they just will not give you exclusivity. They are wired to dual-source, non-negotiable. So you never gain pricing power."
 
-"**The second: cash does not come back.** First-half profit of RMB 13.651 billion, operating cash flow of RMB 1.8 billion, inventory of RMB 19.8 billion and receivables of RMB 15 billion. I understand this — stocking materials, meeting delivery schedules, doing the right thing. But stocking out to 160 days starts to look like a bet. **Betting on demand, betting customers will not cut orders, betting 3.2T still commands a price in 2027. Three bets stacked on one quarter — that is not equanimity.**"
+"The second: cash does not come back. First-half profit of RMB 13.651 billion, operating cash flow of RMB 1.8 billion, inventory of RMB 19.8 billion and receivables of RMB 15 billion. I understand this — stocking materials, meeting delivery schedules, doing the right thing. But stocking out to 160 days starts to look like a bet. Betting on demand, betting customers will not cut orders, betting 3.2T still commands a price in 2027. Three bets stacked on one quarter — that is not equanimity."
 
 ## Question 6: How is the company's management?
 
-"I like the structure. **The controlling shareholder is from the original motor factory; the people doing the work are the technically trained team from Suzhou InnoLight.** They bought in in 2017 and handed over operating control that same year; by 2023 they had even handed over the chairmanship. That is not easy in the A-share market — many owners cannot bring themselves to do it."
+"I like the structure. The controlling shareholder is from the original motor factory; the people doing the work are the technically trained team from Suzhou InnoLight. They bought in in 2017 and handed over operating control that same year; by 2023 they had even handed over the chairmanship. That is not easy in the A-share market — many owners cannot bring themselves to do it."
 
-"Liu Sheng comes from a technical background, having done R&D all the way through Lucent, Pine Photonics and Opnext. He bet on 1.6T and got it right — that is capability. Where he loses points is capital allocation — **share count went from 800 million shares to 1.178 billion shares over five years, and in July 2026 the company issued another 54.50 million shares in Hong Kong, raising HKD 53.4 billion. It has been constantly raising capital to expand capacity, and shareholders have been constantly diluted.**"
+"Liu Sheng comes from a technical background, having done R&D all the way through Lucent, Pine Photonics and Opnext. He bet on 1.6T and got it right — that is capability. Where he loses points is capital allocation — share count went from 800 million shares to 1.178 billion shares over five years, and in July 2026 the company issued another 54.50 million shares in Hong Kong, raising HKD 53.4 billion. It has been constantly raising capital to expand capacity, and shareholders have been constantly diluted."
 
-"That is not a mistake; that is what an expansion phase looks like. **But the companies I prefer are the ones that can grow without raising capital.** On this criterion, it fails."
+"That is not a mistake; that is what an expansion phase looks like. But the companies I prefer are the ones that can grow without raising capital. On this criterion, it fails."
 
 ## Sources
 

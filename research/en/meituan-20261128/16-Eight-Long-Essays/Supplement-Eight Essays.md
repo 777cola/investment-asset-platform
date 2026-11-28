@@ -10,22 +10,31 @@ All eight long-form articles use 2026/11/28 as the cutoff date and rely only on 
 
 ## A guide to eight long reads
 
-The eight pieces form a whole and must be read in order—later judgments depend on earlier definitions. · ① Cognitive reset: dismantle three outdated beliefs (food delivery is the best business, subsidy wars will produce a winner, losses mean the business is deteriorating).
-· ② Business essence: Meituan sells time—delivery fee of RMB 4.1 per order against a cost of over RMB 7, with the gap covered by in-store gross profit.
-· ③ Moat anatomy: four moats ranked by "how much money and time it would take a rival to fill them"—fulfillment is hard, in-store is soft.
-· ④ Financial truth: RMB 2.071 billion = RMB 8.7 billion more gross profit + RMB 11.5 billion saved in expenses + RMB 360 million non-operating, with unit economics at RMB 0.3 net profit per order.
-· ⑤ Industry and competition: the steady state of 50/43/7 has formed, and Douyin's assault on in-store has not stopped.
-· ⑥ Management: two key choices (defending UE is proven, investing in Brazil is unproven), capital allocation across three lines weighted B.
-· ⑦ Risk list: six risks ranked by probability × impact—the biggest worry is "erosion of the profit foundation," not "the company collapsing."
-· ⑧ Decision framework: buy in three tranches, trim on facts, cut by half at HKD 98, and state the report's three biases.
+The eight pieces form a whole and must be read in order—later judgments depend on earlier definitions.
+
+- ① Cognitive reset: Dismantle three outdated beliefs (food delivery is the best business, subsidy wars will produce a winner, losses mean the business is deteriorating).
+
+- ② Business essence: Meituan sells time. Delivery fee per order is RMB 4.1 against a cost of over RMB 7, with the gap covered by in-store gross profit.
+
+- ③ Moat anatomy: Four moats ranked by how much money and time it would take a rival to close them—fulfillment is hard, in-store is soft.
+
+- ④ Financial truth: RMB 2.071 billion = RMB 8.7 billion more gross profit + RMB 11.5 billion cost savings + RMB 360 million non-operating, with unit economics at RMB 0.3 net profit per order.
+
+- ⑤ Industry and competition: The steady state of 50/43/7 has formed, and Douyin's assault on in-store has not stopped.
+
+- ⑥ Management: Two key choices (defending UE is proven, investing in Brazil is unproven), capital allocation across three lines weighted B.
+
+- ⑦ Risk list: Six risks ranked by probability × impact. The biggest worry is "erosion of the profit base," not "the company going under."
+
+- ⑧ Decision framework: Buy in three tranches, cut on facts, halve the position at HKD 98, and state the report's three biases.
 
 ## One thread runs through all eight chapters
 
-One number recurs across all eight pieces: a marketing expense ratio of 22.9%, versus 16% in 2024. Those 7 points are both the entire source of profit elasticity and the one thing a competitor can take back with a single sentence—it runs through the nature of the business (who sets prices), the moat (whether it can be defended), the financials (where profit comes from), the industry (how long the ceasefire lasts), risk (whether war restarts), and the decision (how much to buy).
+One number recurs across all eight pieces: marketing expense ratio of 22.9%, versus 16% in 2024. These 7 points are both the entire source of profit elasticity and the one thing a competitor can take back with a single sentence—it runs through the nature of the business (who sets prices), the moat (whether it can be defended), the financials (where profit comes from), the industry (how long the ceasefire lasts), risk (whether war restarts), and the decision (how much to buy).
 
-The second thread is "50% share has stopped falling but has not recovered." Stopped falling means the marginal effect of subsidies is exhausted; not recovered means competitors have not exited. Those two words—"stopped falling"—are Meituan's entire story right now: the war is not over, but the worst phase has passed.
+The second thread is "50% share has stopped falling but has not recovered." Stopping the fall shows the marginal effect of subsidies is exhausted; not recovering shows competitors have not exited. Those two words—"stopped falling"—are Meituan's entire story right now: the war is not over, but the worst phase has passed.
 
-The third thread is price: HKD 67.85, a market cap of HKD 419.0 billion, 11.5x after net cash. All eight pieces point to the same action—buy, but only a third.
+The third thread is price: HKD 67.85, HKD 419 billion market cap, 11.5x after net cash. All eight pieces point to the same action—buy, but only one-third.
 
 ## Sources
 

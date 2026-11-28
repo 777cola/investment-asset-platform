@@ -50,49 +50,51 @@ Data source: CATL 2026 interim report (2026/07/24), 2026 Q1 report (2026/04/15).
 
 ## Tier-one revenue structure: power is the base, energy storage the accelerator, materials the profit patch
 
-Power batteries posted RMB 192.125 billion, 69.4% of revenue, still the core base, but growth of 46.0% has fallen below total revenue growth of 54.8%. Energy storage posted RMB 53.261 billion, 19.2% of revenue, growing 87.5% — the only segment to outpace the total. Battery materials and recycling posted RMB 31.531 billion, 11.4% of revenue, with a gross margin of 27.04%, higher than both core businesses — **this "patch" contributed about RMB 8.5 billion of gross profit, 12.9% of consolidated gross profit.**
+Power batteries posted RMB 192.125 billion, 69.4% of revenue, still the core base, but growth of 46.0% has fallen below total revenue growth of 54.8%. Energy storage posted RMB 53.261 billion, 19.2% of revenue, growing 87.5% — the only segment to outpace the total. Battery materials and recycling posted RMB 31.531 billion, 11.4% of revenue, with a gross margin of 27.04%, higher than both core businesses — this "patch" contributed about RMB 8.5 billion of gross profit, 12.9% of consolidated gross profit.
 
-By geography there is a counterintuitive read: overseas RMB 87.129 billion, +42.4% YoY; domestic RMB 189.788 billion, +60.9% YoY (derived). **Domestic grew faster but earns less** — domestic gross margin about 21.2% versus 29.97% overseas. This shows that growth in the first half of 2026 came mainly from volume driven by the domestic price war, not from overseas premium.
+By geography there is a counterintuitive read: overseas RMB 87.129 billion, +42.4% YoY; domestic RMB 189.788 billion, +60.9% YoY (derived). Domestic grew faster but earns less — domestic gross margin about 21.2% versus 29.97% overseas. This shows that growth in the first half of 2026 came mainly from volume driven by the domestic price war, not from overseas premium.
 
-On volume: about 440GWh in the first half, +60% YoY, above revenue growth of 54.8%, implying **falling unit prices** (revenue per GWh fell from about RMB 660 million last year to RMB 629 million, rough calculation). Rising volume, falling price — that is the underlying fact of this earnings report.
+On volume: about 440GWh in the first half, +60% YoY, above revenue growth of 54.8%, implying falling unit prices (revenue per GWh fell from about RMB 660 million last year to RMB 629 million, rough calculation). Rising volume, falling price — that is the underlying fact of this earnings report.
 
 ## Second-layer gross profit: power batteries are paying on customers' behalf
 
-Power battery gross margin of 20.63%, down 1.78 points year on year, is the single most important line in this report. On revenue of RMB 192.125 billion, **that 1.78 points equals RMB 3.42 billion of forgone gross profit**, close to 8% of H1 net profit. Energy storage gross margin of 23.96%, down 1.56 points, shows the price war has spread from vehicles to the grid side.
+Power battery gross margin of 20.63%, down 1.78 points year on year, is the single most important line in this report. On revenue of RMB 192.125 billion, that 1.78 points equals RMB 3.42 billion of forgone gross profit, close to 8% of H1 net profit. Energy storage gross margin of 23.96%, down 1.56 points, shows the price war has spread from vehicles to the grid side.
 
-Why can't the gross margin hold? Two mechanisms. First, prices of raw materials such as lithium carbonate have rebounded, pressuring costs; second, once automakers bring in second and third suppliers, tenders become price comparisons, and CATL's quotes must follow the second tier. **Its cost advantage guarantees it earns more than the second tier, but cannot guarantee it earns more than last year.**
+Why can't the gross margin hold? Two mechanisms. First, prices of raw materials such as lithium carbonate have rebounded, pressuring costs; second, once automakers bring in second and third suppliers, tenders become price comparisons, and CATL's quotes must follow the second tier. Its cost advantage guarantees it earns more than the second tier, but cannot guarantee it earns more than last year.
 
 The only structural improvement comes from overseas: overseas gross margin is 29.97%, 8.8 points above domestic. A rough sensitivity check: every 10-point rise in the overseas share lifts blended gross margin by about 0.9 points. This is the most certain profit source over the next three years, and the entire rationale for the three bases in Hungary (initial 40GWh already booked), Indonesia and Spain.
 
 ## The third layer, costs and profit: R&D intensity is declining
 
-R&D spending was RMB 11.376 billion, up only 12.7% year on year, while revenue rose 54.8%, **pushing the R&D expense ratio down from 5.64% to 4.11%**. Two readings: the optimistic one is scale dilution and improving R&D efficiency; the pessimistic one is belt-tightening at the very moment when solid-state batteries most warrant heavy spending.
+R&D spending was RMB 11.376 billion, up only 12.7% year on year, while revenue rose 54.8%, pushing the R&D expense ratio down from 5.64% to 4.11%. Two readings: the optimistic one is scale dilution and improving R&D efficiency; the pessimistic one is belt-tightening at the very moment when solid-state batteries most warrant heavy spending.
 
-Given the fact that its solid-state progress is not leading, I lean half toward the latter and half toward the former. **Absolute R&D spending is still growing, but its growth is not keeping pace with revenue, which is not a good signal on the eve of a technology transition.** The key thing to watch is whether the R&D expense ratio can return above 4.5% in the second half of 2026.
+Given the fact that its solid-state progress is not leading, I lean half toward the latter and half toward the former. Absolute R&D spending is still growing, but its growth is not keeping pace with revenue, which is not a good signal on the eve of a technology transition. The key thing to watch is whether the R&D expense ratio can return above 4.5% in the second half of 2026.
 
-Net margin was 15.6%, down 1.4 points year on year. The quarterly picture is clearer: 16.1% in Q1 and 15.3% in Q2. The decline in net margin was smaller than that in gross margin (1.07pct), indicating that expenses and other income (government subsidies, investment gains) provided some support — **this part is not operating in nature and cannot be treated as the norm.**
+Net margin was 15.6%, down 1.4 points year on year. The quarterly picture is clearer: 16.1% in Q1 and 15.3% in Q2. The decline in net margin was smaller than that in gross margin (1.07pct), indicating that expenses and other income (government subsidies, investment gains) provided some support — this part is not operating in nature and cannot be treated as the norm.
 
 ## The fourth layer: cash flow and balance sheet — profits are real, but cash is tight
 
-The interim report summary does not disclose a full cash flow statement. Extrapolating from the historical 2023–2025 operating cash flow/net profit range of 1.8–2.1x, H1 operating cash flow should be RMB 78–90 billion (rough estimate). **Cash collection in the battery business is not bad — the customers are automakers; payment terms are long but bad debt is low.**
+The interim report summary does not disclose a full cash flow statement. Extrapolating from the historical 2023–2025 operating cash flow/net profit range of 1.8–2.1x, H1 operating cash flow should be RMB 78–90 billion (rough estimate). Cash collection in the battery business is not bad — the customers are automakers; payment terms are long but bad debt is low.
 
-The tight side is investment: 764GWh under construction, which at an intensity of RMB 300–400 million/GWh implies roughly RMB 230–310 billion of capex. That is why its five-year cumulative free cash flow only barely clears the threshold, and why it still needs to raise funds in Hong Kong in 2026. **It is not short of money; it has staked everything on capacity.**
+The tight side is investment: 764GWh under construction, which at an intensity of RMB 300–400 million/GWh implies roughly RMB 230–310 billion of capex. That is why its five-year cumulative free cash flow only barely clears the threshold, and why it still needs to raise funds in Hong Kong in 2026. It is not short of money; it has staked everything on capacity.
 
-On balance-sheet structure, the debt-to-assets ratio has long stood at 60%–65%, but the bulk is accounts payable and contract liabilities (operating float from suppliers and customers); interest-bearing debt is under 10% of the total, with interest coverage above 20x. The implication of this structure: **it has exceptionally strong float capacity with upstream suppliers (another manifestation of scale advantage), and it holds advance receipts from downstream customers (automakers must pay deposits to lock in capacity).** There is no near-term solvency risk.
+On balance-sheet structure, the debt-to-assets ratio has long stood at 60%–65%, but the bulk is accounts payable and contract liabilities (operating float from suppliers and customers); interest-bearing debt is under 10% of the total, with interest coverage above 20x. The implication of this structure: it has exceptionally strong float capacity with upstream suppliers (another manifestation of scale advantage), and it holds advance receipts from downstream customers (automakers must pay deposits to lock in capacity). There is no near-term solvency risk.
 
 ## The three most common mistakes when reading this earnings report
 
-**Error one: reading energy storage's share as 25%.** The correct figures are 19.2% of total revenue and 21.7% of battery revenue. A gap of 5 points leads you to overstate energy storage's contribution to gross profit, and in turn the speed at which the "second curve takes over." Energy storage gross profit was RMB 12.76 billion, 19.3% of consolidated gross profit—that is its true weight.
+Error one: reading energy storage's share as 25%. The correct figures are 19.2% of total revenue and 21.7% of battery revenue. A gap of 5 points leads you to overstate energy storage's contribution to gross profit, and in turn the speed at which the "second curve takes over." Energy storage gross profit was RMB 12.76 billion, 19.3% of consolidated gross profit—that is its true weight.
 
-**Error two: treating 525GWh as full-year capacity.** It is effective capacity for the first half (498÷94.86%), or roughly 1,050GWh annualized. Misreading it yields a "189% capacity utilization rate," and also counts the 764GWh under construction as 1.45x capacity (actually 0.73x), thereby doubling the estimated capex pressure.
+Error two: treating 525GWh as full-year capacity. It is effective capacity for the first half (498÷94.86%), or roughly 1,050GWh annualized. Misreading it yields a "189% capacity utilization rate," and also counts the 764GWh under construction as 1.45x capacity (actually 0.73x), thereby doubling the estimated capex pressure.
 
-**Error three: taking 42% as "strong growth."** Break it down: net profit growth of 42.0% Conversely, the report also holds an overlooked good number: overseas gross margin of 29.97%. Looking only at the 23.93% total gross margin, you would take CATL for an ordinary manufacturer; only by separating the two do you see it runs a different business in Europe.
+Error three: taking 42% as "strong growth." Break it down: net profit growth of 42.0% Put the three numbers together and the truth of this report emerges: scale is still expanding, unit profitability is contracting.
+
+Conversely, the report also holds an overlooked good number: overseas gross margin of 29.97%. Looking only at the 23.93% total gross margin, you would take CATL for an ordinary manufacturer; only by separating the two do you see it runs a different business in Europe.
 
 ## One addition: two numbers outside the financial statements
 
-Two figures absent from the statements but material to the judgment: **revenue per GWh of RMB 629 million (about RMB 660 million last year), gross profit per GWh of RMB 151 million** (662.66÷440, rough calculation). Unit price fell about 5%, unit gross profit fell more — indicating the price cut was not "passing on cost reductions" but "ceding profit".
+Two figures absent from the statements but material to the judgment: revenue per GWh of RMB 629 million (about RMB 660 million last year), gross profit per GWh of RMB 151 million (662.66÷440, rough calculation). Unit price fell about 5%, unit gross profit fell more — indicating the price cut was not "passing on cost reductions" but "ceding profit".
 
-The other is per capita: CATL's global workforce is on the order of 100,000, with first-half revenue per employee of about RMB 2.77 million and profit per employee of about RMB 430,000 (rough calculation). **In manufacturing this is very high efficiency**, and it explains why the company could hold net margin above 15% while cutting prices — it relies on automation and line cycle times, not on squeezing labor.
+The other is per capita: CATL's global workforce is on the order of 100,000, with first-half revenue per employee of about RMB 2.77 million and profit per employee of about RMB 430,000 (rough calculation). In manufacturing this is very high efficiency, and it explains why the company could hold net margin above 15% while cutting prices — it relies on automation and line cycle times, not on squeezing labor.
 
 ## Sources
 

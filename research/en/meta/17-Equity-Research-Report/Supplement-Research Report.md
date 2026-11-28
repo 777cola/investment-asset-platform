@@ -55,11 +55,11 @@ Users and monetization: 3.64 billion daily active users and global ARPU of about
 
 ## Chapter 2 Industry Analysis
 
-Global digital advertising has entered a stock-competition phase. In Q3 2026, Meta advertising revenue was USD 63.06 billion, Google USD 82.01 billion and Amazon USD 19.64 billion, or roughly USD 658.8 billion annualized across the three. Growth rates diverge sharply: Meta +25.9%, Google +10.6%, Amazon +10.9%. **The divergence stems from AI acting in opposite directions on ad formats — search is being eroded by summaries, while feeds are being strengthened by recommendations.**
+Global digital advertising has entered a stock-competition phase. In Q3 2026, Meta advertising revenue was USD 63.06 billion, Google USD 82.01 billion and Amazon USD 19.64 billion, or roughly USD 658.8 billion annualized across the three. Growth rates diverge sharply: Meta +25.9%, Google +10.6%, Amazon +10.9%. The divergence stems from AI acting in opposite directions on ad formats — search is being eroded by summaries, while feeds are being strengthened by recommendations.
 
 The capital side of the industry is overheating: the four major cloud players spent a combined USD 207.8 billion in capex in Q3 2026, up +115.5% year on year, with combined free cash flow of -USD 27.31 billion.
 
-On share, measured by third-quarter ad revenue, Google accounts for about 50% of the three-way total, Meta about 38% and Amazon about 12%. Incremental share runs the other way: Meta's single-quarter ad increment was about USD 13 billion, exceeding the combined USD 7.9 billion of Google and USD 1.9 billion of Amazon. **Look to Google for the stock, Meta for the increment.**
+On share, measured by third-quarter ad revenue, Google accounts for about 50% of the three-way total, Meta about 38% and Amazon about 12%. Incremental share runs the other way: Meta's single-quarter ad increment was about USD 13 billion, exceeding the combined USD 7.9 billion of Google and USD 1.9 billion of Amazon. Look to Google for the stock, Meta for the increment.
 
 The industry faces two common variables: first, AI recommendations have raised the efficiency of performance advertising; second, privacy regulation has weakened cross-site tracking. The former favors walled gardens, the latter favors platforms with first-party data — Meta has both.
 
@@ -71,13 +71,13 @@ Attention wholesale: users use it free, and the platform auctions impressions to
 
 The second monetization leg is Muse: the free tier gives about 100 million tokens per week, paid tiers cost USD 20/100 per month, plus a transaction commission. In 40 days since launch it reached 10 million accounts, with daily actives at 25%, but cost per user is about USD 37 per month, so unit economics remain negative.
 
-Revenue can be broken into a multiplication: daily actives × impressions per user × price per thousand impressions. In 2026Q3 the three factors moved +3%, +7% and +14% respectively (the 10% impression growth is determined by the product of user count and time spent). **Unit price is the only factor still accelerating, and it is the core of the margin.**
+Revenue can be broken into a multiplication: daily actives × impressions per user × price per thousand impressions. In 2026Q3 the three factors moved +3%, +7% and +14% respectively (the 10% impression growth is determined by the product of user count and time spent). Unit price is the only factor still accelerating, and it is the core of the margin.
 
 The cost side is a different curve: compute, depreciation, content moderation. In 2026 this curve steepened, directly pushing gross margin from 82.0% to 79.3%. The fragile point of the business model is not revenue, but the slope of the cost curve.
 
 The advertiser base is long-tail: many small and mid-sized merchants, with the top 100 advertisers accounting for a very low share. This means revenue is diversified and resilient to losing any single customer, but it also means high sensitivity to the health of small and mid-sized businesses.
 
-Inventory deserves separate mention. Reels monetization long lagged the feed, and from 2024 the recommendation model narrowed the gap; by 2026 Reels unit price has approached feed levels, one of the structural reasons unit price could rise 14%. **In other words, the price increase is not just "selling at a higher price" but also "upgrading cheap inventory into expensive inventory."**
+Inventory deserves separate mention. Reels monetization long lagged the feed, and from 2024 the recommendation model narrowed the gap; by 2026 Reels unit price has approached feed levels, one of the structural reasons unit price could rise 14%. In other words, the price increase is not just "selling at a higher price" but also "upgrading cheap inventory into expensive inventory."
 
 ## Chapter 4 Financial Analysis
 
@@ -91,7 +91,7 @@ Debt and liquidity: cash and marketable securities USD 82 billion, interest-bear
 
 By segment: Family of Apps revenue RMB 64.16 billion, contributing almost all profit; Reality Labs revenue RMB 443 million, loss RMB 4.13 billion. In other words, for every 100 of profit earned, 18 is eaten by the hardware division.
 
-Breaking down the negative free cash flow: operating cash flow of RMB 32.79 billion is itself still growing; the problem is entirely on the spending side. Of the RMB 33.94 billion in purchases of property and equipment, about RMB 20 billion is maintenance spend (server replacement, data center upkeep) and about RMB 14 billion is expansion spend (new clusters, new data centers). **The maintenance portion cannot stop; the expansion portion can stop—but stopping means exiting the race.** That is the real trade-off management faces, and the bill shareholders pay.
+Breaking down the negative free cash flow: operating cash flow of RMB 32.79 billion is itself still growing; the problem is entirely on the spending side. Of the RMB 33.94 billion in purchases of property and equipment, about RMB 20 billion is maintenance spend (server replacement, data center upkeep) and about RMB 14 billion is expansion spend (new clusters, new data centers). The maintenance portion cannot stop; the expansion portion can stop—but stopping means exiting the race. That is the real trade-off management faces, and the bill shareholders pay.
 
 ## Chapter 5 Management
 
@@ -103,7 +103,7 @@ Governance structure: Class B shares carry ten votes each; Zuckerberg controls 6
 
 Incentives: Zuckerberg's base salary is USD 1, and his wealth is almost entirely Meta stock; he has never sold down materially. This aligns his goals with the long-term share price, but not with shareholders' holding horizons.
 
-Two criteria are worth watching: first, whether he is willing to admit error in numbers (he did in 2023, setting explicit margin targets after layoffs); second, whether he ties his own economic interests to shareholders (almost his entire net worth is in stock — he does). **He passes both, but neither resolves the structural problem that shareholders cannot veto investment.**
+Two criteria are worth watching: first, whether he is willing to admit error in numbers (he did in 2023, setting explicit margin targets after layoffs); second, whether he ties his own economic interests to shareholders (almost his entire net worth is in stock — he does). He passes both, but neither resolves the structural problem that shareholders cannot veto investment.
 
 ## Chapter 6 Growth Drivers
 
@@ -119,7 +119,7 @@ The only real variable in 2027 is expenses. On revenue, the market has already p
 
 ## Chapter 7 Competitive Landscape
 
-The most dangerous competitor is Google, not TikTok. Google simultaneously has frontier models (Gemini), in-house chips (TPU), cloud (Q3 revenue RMB 30.71 billion, +102.6%) and distribution (Android, Chrome, search). **With the same capex, Google has cloud to recoup returns; Meta has only advertising.** The second-layer threat is the migration of the agent entry point.
+The most dangerous competitor is Google, not TikTok. Google simultaneously has frontier models (Gemini), in-house chips (TPU), cloud (Q3 revenue RMB 30.71 billion, +102.6%) and distribution (Android, Chrome, search). With the same capex, Google has cloud to recoup returns; Meta has only advertising. The second-layer threat is the migration of the agent entry point.
 
 ByteDance (TikTok): captures time spent, high penetration among 18 to 34 year olds, but its position in the US is subject to policy, and in 2026 it will not further squeeze Meta's daily active users. Amazon: advertising growth slowed from 26.2% to 10.9%, and it has begun blocking Muse from executing operations on its websites — a downstream counter-move against the entry point. OpenAI: Dots competes head-on with Muse, has no social graph, but leads in model capability.
 
@@ -129,21 +129,21 @@ On the time dimension, the short term (1 year) hinges on pressure from TikTok an
 
 First, unclear return on capital expenditure: 2027 costs are only described as "significantly increase," with no figure. Second, equity dilution: full issuance of the USD 95 billion financing dilutes about 6%. Third, depreciation squeezes profit: from 2027, annual depreciation rises by USD 23 to 28 billion. Fourth, advertising cyclicality: 97.6% of revenue depends on advertising. Fifth, regulation: changes to teen rules and EU fines. Sixth, gateway substitution: agents become the primary gateway.
 
-Sensitivity: every 5 percentage point decline in ad growth cuts 2027 EPS by about USD 2.5 (about 9%); every USD 20 billion increase in capital expenditure adds about USD 4 billion to annual depreciation and cuts EPS by about USD 1.2 (about 4%). **If both variables turn adverse at once, EPS could fall to USD 22, implying 28x the current price.**
+Sensitivity: every 5 percentage point decline in ad growth cuts 2027 EPS by about USD 2.5 (about 9%); every USD 20 billion increase in capital expenditure adds about USD 4 billion to annual depreciation and cuts EPS by about USD 1.2 (about 4%). If both variables turn adverse at once, EPS could fall to USD 22, implying 28x the current price.
 
 Regulatory detail: the USD 18.59 billion settlement is paid over ten years, averaging USD 1.86 billion a year; teen accounts default to time limits and privacy protection, changeable only with parental authorization, which will shift how the next generation of users behaves.
 
-One more rarely mentioned risk: accounting policy changes. If auditors require AI server depreciation lives to shorten from six years to four, 2027 depreciation could rise by a further USD 10 to 15 billion, directly cutting EPS by 5% to 7%. **Such risks are not announced in advance; they surface only in the annual report.** If Microsoft and Google adjust first, Meta will struggle not to follow.
+One more rarely mentioned risk: accounting policy changes. If auditors require AI server depreciation lives to shorten from six years to four, 2027 depreciation could rise by a further USD 10 to 15 billion, directly cutting EPS by 5% to 7%. Such risks are not announced in advance; they surface only in the annual report. If Microsoft and Google adjust first, Meta will struggle not to follow.
 
 ## Chapter 9 Earnings Forecast
 
-2026E revenue USD 256.2 billion (+27.5%), 2027E USD 294.6 billion (+15%), 2028E USD 335.8 billion (+14%). Adjusted EPS of USD 29, 28 and 32 respectively. **EPS falling rather than rising in 2027 is the biggest divergence between this report and the sell side**—the sell side broadly assumes above USD 30 and does not fully factor in depreciation and dilution.
+2026E revenue USD 256.2 billion (+27.5%), 2027E USD 294.6 billion (+15%), 2028E USD 335.8 billion (+14%). Adjusted EPS of USD 29, 28 and 32 respectively. EPS falling rather than rising in 2027 is the biggest divergence between this report and the sell side—the sell side broadly assumes above USD 30 and does not fully factor in depreciation and dilution.
 
 Key assumptions: 2027 advertising growth of 15%, non-advertising revenue of USD 15 billion, total expense growth of 18%, capex of USD 160 billion, a four-to-six-year depreciation life, and diluted share count of about 2.70 billion shares. If expense growth slows to 12%, EPS could reach USD 31; if it rises to 25%, EPS falls to USD 24.
 
 Quarterly cadence: Q4 revenue of USD 73–76 billion; the four quarters of 2027 are forecast at USD 68, 70, 76 and 80.6 billion, rising sequentially and consistent with advertising seasonality.
 
-Against the sell-side consensus, this report's 2027 EPS of USD 28 is low, with the gap driven by two items: first, depreciation, where the sell side largely extrapolates using the 2026 depreciation rate; second, dilution, where most models have yet to update the share count. **Together these two items account for about USD 4, exactly the gap between 28 and 32.** If the sell side is right, the current price implies 19x; if I am right, it implies 22x. That difference determines whether the stock is "cheap" or "fairly valued".
+Against the sell-side consensus, this report's 2027 EPS of USD 28 is low, with the gap driven by two items: first, depreciation, where the sell side largely extrapolates using the 2026 depreciation rate; second, dilution, where most models have yet to update the share count. Together these two items account for about USD 4, exactly the gap between 28 and 32. If the sell side is right, the current price implies 19x; if I am right, it implies 22x. That difference determines whether the stock is "cheap" or "fairly valued".
 
 ## Chapter 10 Valuation
 
@@ -151,19 +151,19 @@ Method: 2027 EPS × 17–26x PE. Base case USD 28 × 22x = USD 620; bear case 24
 
 No DCF, because free cash flow is negative and any DCF rests on post-2029 assumptions. P/S has limited reference value (capital structures differ too much).
 
-Comparables: Google about 14.8x, Amazon about 20.4x, Microsoft about 25.9x. Meta at 21x sits in the middle but has the highest growth. **The discount reflects negative cash flow and governance structure; the premium reflects ad share gains and the Muse option.** Netting the two, 21x is roughly fair.
+Comparables: Google about 14.8x, Amazon about 20.4x, Microsoft about 25.9x. Meta at 21x sits in the middle but has the highest growth. The discount reflects negative cash flow and governance structure; the premium reflects ad share gains and the Muse option. Netting the two, 21x is roughly fair.
 
 Historical range: Meta's TTM PE fluctuated between 18x and 30x in 2023–2025; 21x sits in the lower half of that range, but free cash flow was positive then.
 
 Valuation anchor: anchored on 2027 adjusted EPS of USD 28, 22x corresponds to USD 620. If the market is willing to pay an "AI platform" premium, 26x gives USD 730; if valued as an "asset-heavy advertising company" at 17x, USD 476.
 
-Why not EV/EBITDA: Meta's EBITDA is "artificially" inflated by depreciation, and depreciation is precisely the largest cost variable today; using EBITDA would systematically overstate its profitability. Likewise, P/S does not apply — its capital structure is shifting from "zero debt" to "equity + debt + preferred stock," and revenue multiples cannot capture these differences. **During an asset-heavy transition, only PE and free cash flow are viable, and the latter is now negative.**
+Why not EV/EBITDA: Meta's EBITDA is "artificially" inflated by depreciation, and depreciation is precisely the largest cost variable today; using EBITDA would systematically overstate its profitability. Likewise, P/S does not apply — its capital structure is shifting from "zero debt" to "equity + debt + preferred stock," and revenue multiples cannot capture these differences. During an asset-heavy transition, only PE and free cash flow are viable, and the latter is now negative.
 
 ## Chapter 11 Investment Recommendations
 
-Rating: Watch, wait for a pullback. 12-month target price USD 620 (current price USD 606.73, +2%). **Buy trigger: share price ≤USD 500, or 2027 expense growth guidance below revenue growth.** Abandon conditions: advertising growth below 10% for two consecutive quarters, or 2027 capex guidance above USD 170 billion.
+Rating: Watch, wait for a pullback. 12-month target price USD 620 (current price USD 606.73, +2%). Buy trigger: share price ≤USD 500, or 2027 expense growth guidance below revenue growth. Abandon conditions: advertising growth below 10% for two consecutive quarters, or 2027 capex guidance above USD 170 billion.
 
-Timeline: Class C shares take effect on January 19, 2027; late January Q4 results provide 2027 expense guidance; ATM may launch in Q1; April Q1 results show the depreciation slope. **Of the four milestones, the second is the decision point.**
+Timeline: Class C shares take effect on January 19, 2027; late January Q4 results provide 2027 expense guidance; ATM may launch in Q1; April Q1 results show the depreciation slope. Of the four milestones, the second is the decision point.
 
 Position sizing: 0% at the current price; 3% below USD 500; 5% below USD 450 (cap); a fundamental trigger can be acted on without waiting for price.
 

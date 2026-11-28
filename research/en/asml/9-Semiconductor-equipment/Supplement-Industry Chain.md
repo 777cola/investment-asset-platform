@@ -24,7 +24,7 @@ Gross margin ranges are industry-level estimates (near each company's most recen
 
 ## Value distribution: why equipment captures excess profit
 
-Under the smile curve, both ends (design, EDA) earn high margins while the middle (manufacturing, packaging and testing) earns thin ones. Equipment sits in the "middle" yet captures upstream margins because its monopoly structure is segmented: EUV lithography has one player, metrology is dominated by KLA, and etching is split among three. **The more exclusive the position, the higher the gross margin — KLA 60%, ASML 57%, Applied Materials 47%, Tokyo Electron 45% — a line that aligns almost perfectly.**
+Under the smile curve, both ends (design, EDA) earn high margins while the middle (manufacturing, packaging and testing) earns thin ones. Equipment sits in the "middle" yet captures upstream margins because its monopoly structure is segmented: EUV lithography has one player, metrology is dominated by KLA, and etching is split among three. The more exclusive the position, the higher the gross margin — KLA 60%, ASML 57%, Applied Materials 47%, Tokyo Electron 45% — a line that aligns almost perfectly.
 
 Contrast packaging and testing: ASE gross margin 20%, JCET 15%, because too many players compete and technical differentiation is small. Within the same supply chain, position determines margin, and the degree of monopoly determines how much that position is worth.
 

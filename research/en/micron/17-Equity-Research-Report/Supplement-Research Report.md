@@ -65,7 +65,7 @@ By revenue mix, the bit business still contributes about 90% of revenue; HBM4 ex
 
 The real change in the business model came in June 2026: 16 five-year strategic customer agreements, take-or-pay, with price floors and ceilings; 14 of them at floor prices correspond to roughly USD 100 billion of revenue, and customers have paid about USD 22 billion in cash deposits. This is the first time the memory industry has shifted from "prices set by the market" to "prices set by contract," but coverage is only about 20%.
 
-The cost structure determines operating leverage. Take FY26Q3: revenue 41.456 billion, gross profit 35.16 billion (84.9%), operating expenses about 4 billion, operating profit about 31.1 billion. Costs (depreciation, labor, R&D) are rigid in the short term, so each additional dollar of revenue drops about 0.95 dollars to gross profit—**which is why revenue can grow 4x and profit can grow 14x.**
+The cost structure determines operating leverage. Take FY26Q3: revenue 41.456 billion, gross profit 35.16 billion (84.9%), operating expenses about 4 billion, operating profit about 31.1 billion. Costs (depreciation, labor, R&D) are rigid in the short term, so each additional dollar of revenue drops about 0.95 dollars to gross profit—which is why revenue can grow 4x and profit can grow 14x.
 
 ## Chapter 4 Financial Analysis
 
@@ -110,11 +110,17 @@ Valuation cross-check: Micron at 6.5x 2027E, SK hynix at 3.6x 2027E, Samsung doe
 ## Chapter 8 Risk factors
 
 - DRAM contract prices turn negative in 2027: gross margin 85%→40%, 2027E EPS could fall from USD 166 to below USD 60
+
 - Supply floods the market in 2028: all three expand capacity simultaneously, industry gross margin could return to 25%–35%
+
 - AI capex slows: if cloud providers cut spending in the second half of 2027, server DRAM demand falls off a cliff
+
 - HBM share loss: Samsung has closed to 33%, Micron at 18%, down 3pct QoQ; a drop below 15% would undermine the product-mix upgrade thesis
+
 - SCA long-term contracts soften: take-or-pay terms are typically renegotiated in a downturn, and the price floor has never been truly tested
+
 - ChangXin gains share: rising from 9.5% toward 15%, pressuring mainstream DRAM prices
+
 - Valuation risk: the 6.5x multiple is on peak EPS; normalized, it implies 24–28x
 
 Two further tail risks: Taiwan Strait disruption (Micron has DRAM capacity in Taichung) and escalation of export controls (slowing construction of new US fabs). Neither can be modeled, only managed through position caps—no single memory stock above 10%–15% of equity positions.
@@ -133,7 +139,7 @@ Sensitivity analysis: based on FY27E EPS of USD 166, every 5 percentage point de
 
 Method: use FY2027 expected EPS of USD 166 as the denominator and apply 5–9x. Do not use PE (TTM), because current TTM profit includes two quarters of extreme price increases; do not use DCF, because prices after 2028 cannot be assumed.
 
-Results: bear case USD 400 (5x EPS 80), base case USD 1,120 (6.7x EPS 166), bull case USD 1,620 (9x EPS 180). Weighted at 25/50/25 probabilities, expected value is USD 1,065 versus the current price of USD 1,082.28—**expected return -1.6%, downside -63%.**
+Results: bear case USD 400 (5x EPS 80), base case USD 1,120 (6.7x EPS 166), bull case USD 1,620 (9x EPS 180). Weighted at 25/50/25 probabilities, expected value is USD 1,065 versus the current price of USD 1,082.28—expected return -1.6%, downside -63%.
 
 Comparison with sell-side: Citi 1,300, Wells Fargo 1,400, BofA 1,550, UBS 1,625. The difference is not "what multiple to apply" but "which year's earnings to use"—the sell-side uses 2028–2029, while this report uses 2027, because visibility for 2028 is below 50%.
 
@@ -141,7 +147,7 @@ Cross-check with normalized earnings: revenue RMB 150 billion, gross margin 45%,
 
 ## Chapter 11 Investment Recommendations
 
-**Rating: Hold, 12-month target price USD 1,120, no adding to position.** At the company level it is nearly flawless: the purest memory play, the lowest cost, HBM4 already in mass production, net cash of USD 30.2 billion, long-term contracts locking in five years. At the price level, investors have already paid for "the best case": 6.5x EPS is peak profit; normalized, it is 24–28x.Action plan: existing holders continue to hold (those with a low cost basis do not sell; those with a cost above USD 950 cut by half); those with no position wait for below USD 800 (about 4.8x 2027E), or wait for disclosed SCA coverage to exceed 30%. Three discipline lines: build at USD 800, trim at USD 1,300, cut exposure once contract prices turn negative month-on-month for two consecutive months.
+Rating: Hold, 12-month target price USD 1,120, no adding to position. At the company level it is nearly flawless: the purest memory play, the lowest cost, HBM4 already in mass production, net cash of USD 30.2 billion, long-term contracts locking in five years. At the price level, investors have already paid for "the best case": 6.5x EPS is peak profit; normalized, it is 24–28x.Action plan: existing holders continue to hold (those with a low cost basis do not sell; those with a cost above USD 950 cut by half); those with no position wait for below USD 800 (about 4.8x 2027E), or wait for disclosed SCA coverage to exceed 30%. Three discipline lines: build at USD 800, trim at USD 1,300, cut exposure once contract prices turn negative month-on-month for two consecutive months.
 
 Catalysts: FY26Q4 results on September 30 (consensus revenue RMB 50.8–51.4 billion, EPS 31.5–31.75), HBM4 supply guidance around CES in January 2027, quarterly contract prices. Risks: contract prices turn negative early, Samsung's HBM share breaks above 40%.
 

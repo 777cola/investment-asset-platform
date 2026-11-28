@@ -23,29 +23,29 @@ The funnel screen is a qualitative comparison; only Netflix uses verified 2026 f
 
 ## Coarse screen: three elimination lines — first cut those that cannot generate their own cash flow
 
-The first test is "can it generate its own cash." **The streaming business must produce positive free cash flow on its own, not rely on cash infusions from other group businesses.** By this test, Disney gets cut in half — its streaming business has only just turned profitable, margins are thin, and there is little room to raise prices (IP dependence means users leave once they finish watching).
+The first test is "can it generate its own cash." The streaming business must produce positive free cash flow on its own, not rely on cash infusions from other group businesses. By this test, Disney gets cut in half — its streaming business has only just turned profitable, margins are thin, and there is little room to raise prices (IP dependence means users leave once they finish watching).
 
-The second test is "does it have global distribution." **A company running streaming in only two or three markets cannot spread content costs thin enough.** Paramount and WBD both have this problem: their scale is insufficient to support global content investment, so one chose to merge and the other chose to be acquired.
+The second test is "does it have global distribution." A company running streaming in only two or three markets cannot spread content costs thin enough. Paramount and WBD both have this problem: their scale is insufficient to support global content investment, so one chose to merge and the other chose to be acquired.
 
-The third test is "is shareholder return positive." **This cuts out companies that survive on equity issuance and debt.** After acquiring WBD, Paramount carries high debt, and its cash flow over the next three years must go to debt repayment — buybacks are impossible.
+The third test is "is shareholder return positive." This cuts out companies that survive on equity issuance and debt. After acquiring WBD, Paramount carries high debt, and its cash flow over the next three years must go to debt repayment — buybacks are impossible.
 
 ## The four eliminated players: what killed each of them
 
-**Disney:** Killed by "streaming margins too thin." It owns the world's best IP, but IP is a double-edged sword—users come for one show, leave when it ends, and retention depends on "waiting for the next one." This model supports only 2%–3% pricing power, versus 5%–8% for Netflix. **Strong IP does not equal strong pricing power.**
+Disney: Killed by "streaming margins too thin." It owns the world's best IP, but IP is a double-edged sword—users come for one show, leave when it ends, and retention depends on "waiting for the next one." This model supports only 2%–3% pricing power, versus 5%–8% for Netflix. Strong IP does not equal strong pricing power.
 
-**Paramount Skydance:** Killed by leverage. Its roughly USD 110 billion acquisition of WBD in February 2026 loads on debt that must be repaid in coming years. Integration takes two years, during which it has no spare capacity for content investment or buybacks. **Bought right, but bought expensive.**
+Paramount Skydance: Killed by leverage. Its roughly USD 110 billion acquisition of WBD in February 2026 loads on debt that must be repaid in coming years. Integration takes two years, during which it has no spare capacity for content investment or buybacks. Bought right, but bought expensive.
 
-**WBD:** Killed by scale. Its streaming just turned profitable while cable is in rapid decline—stuck in the middle. Being acquired is the best outcome it could get.
+WBD: Killed by scale. Its streaming just turned profitable while cable is in rapid decline—stuck in the middle. Being acquired is the best outcome it could get.
 
-**Amazon and YouTube:** Not killed by fundamentals, but by "unpricability." Prime Video does not disclose financials separately, and YouTube sits inside Alphabet. **You can buy Alphabet and Amazon, but you cannot buy "pure streaming exposure."**
+Amazon and YouTube: Not killed by fundamentals, but by "unpricability." Prime Video does not disclose financials separately, and YouTube sits inside Alphabet. You can buy Alphabet and Amazon, but you cannot buy "pure streaming exposure."
 
 ## Why Netflix: it is the only one that meets all three conditions at once
 
-The final pick is not "it is the best" but "it is the only one that satisfies all three conditions at once." **Condition one: self-funding** — operating margin of 31.5%, FCF of RMB 12 billion, no reliance on parent-company capital injections. **Condition two: global distribution** — over 190 countries, nearly 1 billion viewers, content costs spread the thinnest. **Condition three: positive shareholder returns** — roughly RMB 19 billion in annual buybacks (rough estimate), share count down 6%–7% a year.
+The final pick is not "it is the best" but "it is the only one that satisfies all three conditions at once." Condition one: self-funding — operating margin of 31.5%, FCF of RMB 12 billion, no reliance on parent-company capital injections. Condition two: global distribution — over 190 countries, nearly 1 billion viewers, content costs spread the thinnest. Condition three: positive shareholder returns — roughly RMB 19 billion in annual buybacks (rough estimate), share count down 6%–7% a year.
 
 It is the only company in this industry that satisfies all three at once. Amazon satisfies one and three, but its video business cannot be priced; Disney satisfies two, but one is insufficient; Paramount satisfies none.
 
-But note: **none of the answers to "why this one" is "fastest-growing."** Its growth rate is below the middle of the six. That is the most important finding of this screen — in this industry, the current winner is not the fastest-growing, but the one with the highest margin and the steadiest cash flow. **That also explains why its valuation has fallen from 45x to 18x: the market has finally started to look at it by the same standard.**
+But note: none of the answers to "why this one" is "fastest-growing." Its growth rate is below the middle of the six. That is the most important finding of this screen — in this industry, the current winner is not the fastest-growing, but the one with the highest margin and the steadiest cash flow. That also explains why its valuation has fallen from 45x to 18x: the market has finally started to look at it by the same standard.
 
 ## Sources
 

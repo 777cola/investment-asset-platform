@@ -26,29 +26,29 @@ Events and dates are taken from public reports (TrendForce 2026/09/07, Counterpo
 
 The +226% year-to-date move is a process of "continuous re-rating," not the product of any single news item. Broken into three phases: the first was the March FY26Q2 results (revenue RMB 23.86 billion, gross margin 74.4%), which confirmed the pricing upcycle; the second was the June FY26Q3 results (revenue RMB 41.46 billion, gross margin 84.9%), which confirmed the earnings elasticity; the third is September's "methodology switch" — sell-side analysts began valuing the stock on 2029 earnings.
 
-The common driver across all three phases is the same: **earnings expectations were repeatedly revised upward, and the share price was revised upward even faster.** Mid-September PE (2027E) was 5.77x; it is now 6.5x — the multiple is rising, which shows this rally is no longer purely earnings-driven and now carries an element of "valuation expansion." That is where caution is warranted.
+The common driver across all three phases is the same: earnings expectations were repeatedly revised upward, and the share price was revised upward even faster. Mid-September PE (2027E) was 5.77x; it is now 6.5x — the multiple is rising, which shows this rally is no longer purely earnings-driven and now carries an element of "valuation expansion." That is where caution is warranted.
 
 ## Attribution 2: The share data is the most important information of the past three months
 
-Put the two share datasets together and the story is clear. TrendForce: Micron's DRAM share is 23.3%, revenue up 67% QoQ (company basis), share broadly stable; but CXMT rose from 7.6% to 9.5% with revenue up 99.3% QoQ, **growing at twice Micron's rate — it is taking the incremental volume in commodity DRAM.**
+Put the two share datasets together and the story is clear. TrendForce: Micron's DRAM share is 23.3%, revenue up 67% QoQ (company basis), share broadly stable; but CXMT rose from 7.6% to 9.5% with revenue up 99.3% QoQ, growing at twice Micron's rate — it is taking the incremental volume in commodity DRAM.
 
-Counterpoint: Micron's HBM share is 18%, down 3pct QoQ; Samsung jumped from 21% to 33%, SK hynix fell from 58% to 50%. **Samsung grabbed 12 points in a single quarter, the most substantive change in this round of HBM competition.** Micron's capability is not in question (12-layer HBM4 ramping twice as fast as the prior generation, monthly capacity doubling to 100,000 wafers, or 10.0, by year-end), the problem is that it is the defender in this share battle, not the attacker.
+Counterpoint: Micron's HBM share is 18%, down 3pct QoQ; Samsung jumped from 21% to 33%, SK hynix fell from 58% to 50%. Samsung grabbed 12 points in a single quarter, the most substantive change in this round of HBM competition. Micron's capability is not in question (12-layer HBM4 ramping twice as fast as the prior generation, monthly capacity doubling to 100,000 wafers, or 10.0, by year-end), the problem is that it is the defender in this share battle, not the attacker.
 
-Together, the two datasets imply for valuation: **Micron is holding on "total volume" and retreating at the "highest-end incremental" segment.** If HBM accounts for 35% of DRAM wafers in 2027 and Micron holds only a 15% HBM share, its product-mix upgrade will lag the industry average.
+Together, the two datasets imply for valuation: Micron is holding on "total volume" and retreating at the "highest-end incremental" segment. If HBM accounts for 35% of DRAM wafers in 2027 and Micron holds only a 15% HBM share, its product-mix upgrade will lag the industry average.
 
 ## Which are noise: CEO share sales, Burry's short, conflicting price targets
 
-CEO sold 40,000 shares and cashed out USD 38.76 million: this was a 10b5-1 plan set on January 30, 2026 — compliant and predictable. The 40,000 shares equal 4.6% of his 870,000-share holding and 0.0035% of the company's 1.13 billion shares.**It says "insiders see USD 970 as a fair price," not "insiders are bearish on the company."**
+CEO sold 40,000 shares and cashed out USD 38.76 million: this was a 10b5-1 plan set on January 30, 2026 — compliant and predictable. The 40,000 shares equal 4.6% of his 870,000-share holding and 0.0035% of the company's 1.13 billion shares.It says "insiders see USD 970 as a fair price," not "insiders are bearish on the company."
 
-Burry's short: his thesis is that "this DRAM tightness comes from a supply-side effect as capacity is diverted to HBM, not from structural demand." The thesis holds logically, but he gave no trigger condition on timing. And on the day he announced the short (9/22), Micron's stock rose 5% —**the market voted with its feet that he was early.**Shorting a company at 6.5x PE with USD 30.2 billion net cash and USD 28.2 billion of quarterly earnings power requires not a thesis but a timing catalyst.
+Burry's short: his thesis is that "this DRAM tightness comes from a supply-side effect as capacity is diverted to HBM, not from structural demand." The thesis holds logically, but he gave no trigger condition on timing. And on the day he announced the short (9/22), Micron's stock rose 5% —the market voted with its feet that he was early.Shorting a company at 6.5x PE with USD 30.2 billion net cash and USD 28.2 billion of quarterly earnings power requires not a thesis but a timing catalyst.
 
-Target prices clash: Citi 1,300, Wells Fargo 1,400, BofA 1,550, UBS 1,625 — a 25% spread. This is not "analysts being unprofessional"; it is "different years in the denominator" — UBS uses 8x on 2029, Citi uses a more conservative multiple on 2027.**The dispersion in target prices is itself evidence that a cyclical stock cannot be priced off a single multiple.**
+Target prices clash: Citi 1,300, Wells Fargo 1,400, BofA 1,550, UBS 1,625 — a 25% spread. This is not "analysts being unprofessional"; it is "different years in the denominator" — UBS uses 8x on 2029, Citi uses a more conservative multiple on 2027.The dispersion in target prices is itself evidence that a cyclical stock cannot be priced off a single multiple.
 
 ## One overlooked signal: the "accounting change" of September 16
 
 Most people read the "Wall Street is starting to change its valuation method" story as an explanation of the share-price move. In fact it is a change in valuation methodology: from "5–8x current-year profit" to "8–9x 2028–2029 profit", on the grounds that SCA long-term contracts lengthen revenue visibility.
 
-If this switch holds, Micron's valuation center will shift permanently higher. But it has one precondition: **long-term contracts must have been honored through a downcycle.** There is no evidence of that today, so the "methodology change" is currently just sell-side wishful thinking and has not become market consensus — the 6.5x 2027E multiple is the proof; if the market really had switched methods, it would be 9x now.
+If this switch holds, Micron's valuation center will shift permanently higher. But it has one precondition: long-term contracts must have been honored through a downcycle. There is no evidence of that today, so the "methodology change" is currently just sell-side wishful thinking and has not become market consensus — the 6.5x 2027E multiple is the proof; if the market really had switched methods, it would be 9x now.
 
 ## Sources
 

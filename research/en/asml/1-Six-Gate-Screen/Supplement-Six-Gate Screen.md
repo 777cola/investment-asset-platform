@@ -46,9 +46,9 @@ Q3 buybacks totaled EUR 4.1 billion, while cash rose from EUR 7.582 billion to E
 
 ## Gate 5: Margin of safety — 4/10 (the only one failed)
 
-The 41x TTM PE includes about EUR 500 million of revaluation gains on the Mistral AI stake; excluding that, it is about 43x. On 2027 EPS of EUR 46, the current price is about 31x. The base case assigns 32x, for a target price of USD 1,708, **only 4% above the current price**. That means: if the company does everything right, your expected one-year return is in the single digits.
+The 41x TTM PE includes about EUR 500 million of revaluation gains on the Mistral AI stake; excluding that, it is about 43x. On 2027 EPS of EUR 46, the current price is about 31x. The base case assigns 32x, for a target price of USD 1,708, only 4% above the current price. That means: if the company does everything right, your expected one-year return is in the single digits.
 
-Margin of safety is defined as "price below value." The current price equals value and has even priced in part of 2028. For a monopoly growing 25%–30% a year, 31x is not outrageous—**but "not outrageous" is not a margin of safety.** There is no gray area here. Score: 4.
+Margin of safety is defined as "price below value." The current price equals value and has even priced in part of 2028. For a monopoly growing 25%–30% a year, 31x is not outrageous—but "not outrageous" is not a margin of safety. There is no gray area here. Score: 4.
 
 ## Gate 6: Discipline — 6/10
 
@@ -58,9 +58,9 @@ But buying at the current price embeds two assumptions: AI capex does not stall 
 
 ## Veto items and items to be verified
 
-**Deal-breaker: price.** The company is not the problem; this valuation leaves no margin for error. Q3 was its best earnings report ever, yet the stock fell more than 2% after the October 13 release, then another 0.96% on October 16 to USD 1,641.52, down 17.5% from its 52-week high of USD 1,989.44 — the market did not misread the results; it had already priced in the good news.
+Deal-breaker: price. The company is not the problem; this valuation leaves no margin for error. Q3 was its best earnings report ever, yet the stock fell more than 2% after the October 13 release, then another 0.96% on October 16 to USD 1,641.52, down 17.5% from its 52-week high of USD 1,989.44 — the market did not misread the results; it had already priced in the good news.
 
-**Three items to verify:** ① Net order intake: not disclosed separately in this quarter's press release; 2025Q3 was EUR 5.4 billion (including EUR 3.6 billion from EUV), a leading indicator of 2027–2028 revenue; ② Mainland China share: rebounded to 23% in Q3 (19% in Q1, 14% in Q2), with full-year guidance around 20%; any escalation of export controls would directly cut a slice of revenue; ③ The actual scale of value-based price increases and customer acceptance.
+Three items to verify: ① Net order intake: not disclosed separately in this quarter's press release; 2025Q3 was EUR 5.4 billion (including EUR 3.6 billion from EUV), a leading indicator of 2027–2028 revenue; ② Mainland China share: rebounded to 23% in Q3 (19% in Q1, 14% in Q2), with full-year guidance around 20%; any escalation of export controls would directly cut a slice of revenue; ③ The actual scale of value-based price increases and customer acceptance.
 
 ## Sources
 

@@ -34,7 +34,7 @@ The comparison makes it clear: in the same cycle, memory makers' gross margins c
 
 ## Any borderline cases? Only interest coverage raises a question mark
 
-ASML has outstanding bonds (mostly euro-denominated), interest-bearing debt on the books in the low billions of euros, and cash and short-term investments of EUR 12.735 billion, leaving it in a net cash position. EBIT exceeds EUR 4 billion in a single quarter, interest expense is in the tens of millions of euros, and an interest coverage ratio above 50x is not in question. **The only caveat is that it is not a zero-debt company** — if rates stay high for long, refinancing costs will rise, but at this scale of cash flow that poses no risk.
+ASML has outstanding bonds (mostly euro-denominated), interest-bearing debt on the books in the low billions of euros, and cash and short-term investments of EUR 12.735 billion, leaving it in a net cash position. EBIT exceeds EUR 4 billion in a single quarter, interest expense is in the tens of millions of euros, and an interest coverage ratio above 50x is not in question. The only caveat is that it is not a zero-debt company — if rates stay high for long, refinancing costs will rise, but at this scale of cash flow that poses no risk.
 
 The other six criteria do not come close to the line. The screen yields "nothing to exclude," which is uncommon in our report set: most companies trip up on gross margin or share dilution.
 
@@ -44,7 +44,7 @@ What it means: this is not a company where you need to worry about "accounting f
 
 What it does not mean: that you can buy. None of the seven criteria touches valuation; passing all of them only shows it is a "first-class company," not a "first-class investment."
 
-The buying mistake with ASML was never the wrong company — it was the wrong timing. Anyone who bought at the November 2021 peak had to wait until 2024 to break even, with a drawdown of more than 50% in between, even though the company passed every single hard metric over those three years.**A good company + a bad price = a bad investment, and these seven criteria cannot detect that.**
+The buying mistake with ASML was never the wrong company — it was the wrong timing. Anyone who bought at the November 2021 peak had to wait until 2024 to break even, with a drawdown of more than 50% in between, even though the company passed every single hard metric over those three years.A good company + a bad price = a bad investment, and these seven criteria cannot detect that.
 
 ## Sources
 

@@ -23,41 +23,41 @@ Market cap: Pinduoduo 78.97 × 1.423 billion ADS = USD 112.4 billion; Alibaba 24
 
 ## Step 1 Initial screen: three hard criteria cut the list by half
 
-The funnel's three coarse screens are: understandable, positive free cash flow, and a valuation that does not pay for things we do not understand. **Three of the six are cut on the spot: Douyin E-commerce and SHEIN are unlisted and uninvestable; Amazon, at a USD 2.88 trillion market cap and 21.5x P/E, is outside the range we would discuss at this price.**
+The funnel's three coarse screens are: understandable, positive free cash flow, and a valuation that does not pay for things we do not understand. Three of the six are cut on the spot: Douyin E-commerce and SHEIN are unlisted and uninvestable; Amazon, at a USD 2.88 trillion market cap and 21.5x P/E, is outside the range we would discuss at this price.
 
 Three Chinese e-commerce names remain: all cheap, all profitable, all understandable.
 
 ## Step 2 Eliminate JD.com: good company, bad business
 
-JD.com 2026Q2 revenue RMB 346.4 billion, down 2.9% YoY; net profit attributable to shareholders RMB 7.1 billion, net margin 2.0%, TTM P/E 17x. **The problem isn't the valuation, it's the model** — the 1P business has to support hundreds of thousands of staff and thousands of warehouses, earns a 2% spread, and no amount of scale can conjure high gross margins.
+JD.com 2026Q2 revenue RMB 346.4 billion, down 2.9% YoY; net profit attributable to shareholders RMB 7.1 billion, net margin 2.0%, TTM P/E 17x. The problem isn't the valuation, it's the model — the 1P business has to support hundreds of thousands of staff and thousands of warehouses, earns a 2% spread, and no amount of scale can conjure high gross margins.
 
-Its moat is real (fulfillment speed, authentic-goods mindshare), but the moat has not turned into excess profit. **A company at 17x P/E with negative growth and a 2% net margin does not sit at the end of this funnel.**
+Its moat is real (fulfillment speed, authentic-goods mindshare), but the moat has not turned into excess profit. A company at 17x P/E with negative growth and a 2% net margin does not sit at the end of this funnel.
 
 ## Step 3 Eliminate Alibaba: half of its valuation is not e-commerce
 
 Alibaba's June 2026 quarter revenue was RMB 268.95 billion, +9%, but operating profit was RMB 15.16 billion, −57% YoY, and net profit −75% YoY. It is paying for AI cloud and instant retail; cloud revenue growth of 45% looks good, but profit is bleeding.
 
-The bigger problem is the valuation structure: within the 13.4x P/E, how much is e-commerce, how much is cloud, how much is Ant and investments? **To buy Alibaba, you have to understand cloud, instant retail, overseas and a pile of associates all at once.** That is not something this funnel can screen for.
+The bigger problem is the valuation structure: within the 13.4x P/E, how much is e-commerce, how much is cloud, how much is Ant and investments? To buy Alibaba, you have to understand cloud, instant retail, overseas and a pile of associates all at once. That is not something this funnel can screen for.
 
 ## Step 4 Final pick Pinduoduo: three conditions met simultaneously
 
-**Condition one: cheap.** 8.2x TTM, 3.4x ex-cash. Of the three Chinese e-commerce companies, it is the only one where "low valuation + net cash" both hold. Alibaba trades at 13.4x, JD at 17x, and neither has net cash at 60% of market cap.
+Condition one: cheap. 8.2x TTM, 3.4x ex-cash. Of the three Chinese e-commerce companies, it is the only one where "low valuation + net cash" both hold. Alibaba trades at 13.4x, JD at 17x, and neither has net cash at 60% of market cap.
 
-**Condition two: high gross margin.** 57.3% versus Alibaba's 38% and JD's 9%. On the same dollar of revenue, it keeps 57 cents; the others keep a dime. That gap is not efficiency, it is the model.
+Condition two: high gross margin. 57.3% versus Alibaba's 38% and JD's 9%. On the same dollar of revenue, it keeps 57 cents; the others keep a dime. That gap is not efficiency, it is the model.
 
-**Condition three: downside is floored.** RMB 456.4 billion in cash and short-term investments, 57% of market cap. In a bear case (RMB 70 billion net profit, 3x), the stock is at USD 66, down only 17%. **In a market full of 50% drawdowns, 17% downside is scarce.**
+Condition three: downside is floored. RMB 456.4 billion in cash and short-term investments, 57% of market cap. In a bear case (RMB 70 billion net profit, 3x), the stock is at USD 66, down only 17%. In a market full of 50% drawdowns, 17% downside is scarce.
 
 ## Why this one, not "the cheaper one"
 
-Some will argue JD is cheaper (P/S 0.19). **But cheapness depends on the denominator.** JD's 0.19x P/S corresponds to a 2% net margin, while Pinduoduo's 1.87x P/S corresponds to a 24% net margin. Converted to "how much you pay per dollar of profit," Pinduoduo is more than three times cheaper.
+Some will argue JD is cheaper (P/S 0.19). But cheapness depends on the denominator. JD's 0.19x P/S corresponds to a 2% net margin, while Pinduoduo's 1.87x P/S corresponds to a 24% net margin. Converted to "how much you pay per dollar of profit," Pinduoduo is more than three times cheaper.
 
-**That is the point of the funnel: not to find the stock that has fallen the most, but to find the lowest "price/earning power."** By this yardstick, Pinduoduo has no rival among the three Chinese e-commerce companies.
+That is the point of the funnel: not to find the stock that has fallen the most, but to find the lowest "price/earning power." By this yardstick, Pinduoduo has no rival among the three Chinese e-commerce companies.
 
 ## The boundaries of the funnel: what this screening method misses
 
-It misses three categories: loss-making but fast-growing companies (JD.com back then, Pinduoduo itself in 2018), unlisted ones (Douyin, SHEIN), and "expensive but excellent" ones (Amazon). **This screen is defensive: it looks for "opportunities that won't lose you big money," not "opportunities that can make you ten times your money."**
+It misses three categories: loss-making but fast-growing companies (JD.com back then, Pinduoduo itself in 2018), unlisted ones (Douyin, SHEIN), and "expensive but excellent" ones (Amazon). This screen is defensive: it looks for "opportunities that won't lose you big money," not "opportunities that can make you ten times your money."
 
-What this means for Pinduoduo: it is not the kind of company that makes you ten times your money; it is the kind that does not fall much and, once re-rated, can give you 60%. **A name screened with a defensive tool should be held in a defensive position size — 3%, not 30%.**
+What this means for Pinduoduo: it is not the kind of company that makes you ten times your money; it is the kind that does not fall much and, once re-rated, can give you 60%. A name screened with a defensive tool should be held in a defensive position size — 3%, not 30%.
 
 ## Sources
 

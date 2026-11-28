@@ -28,35 +28,35 @@ Historical drawdowns (-38% in 2018, -40% in 2022) are public market retrospectiv
 
 ## Three signals: all point to "peak profit"
 
-The first was the July 7 Q2 preliminary guidance: operating profit of KRW 89.4 trillion, above the consensus. **By any normal reading this was a big positive, yet the stock gave back the entire gain within a week** — the good news had already been bought before the guidance, and the July 6 level of KRW 362,500 was where expectations were fully priced in.
+The first was the July 7 Q2 preliminary guidance: operating profit of KRW 89.4 trillion, above the consensus. By any normal reading this was a big positive, yet the stock gave back the entire gain within a week — the good news had already been bought before the guidance, and the July 6 level of KRW 362,500 was where expectations were fully priced in.
 
-The second was the July 30 earnings call. The numbers were fine; the tone was the problem: **Q3 guidance was on the conservative side, the MX division swung to a loss, and management publicly raised "pressure from memory costs on the device business" for the first time.** The market got the message — if even Samsung says its device business cannot absorb it, then room for further price increases is limited.
+The second was the July 30 earnings call. The numbers were fine; the tone was the problem: Q3 guidance was on the conservative side, the MX division swung to a loss, and management publicly raised "pressure from memory costs on the device business" for the first time. The market got the message — if even Samsung says its device business cannot absorb it, then room for further price increases is limited.
 
-The third was the September 2 disclosure of a 33% HBM share. This was the only event that was both positive and accepted by the stock, because it answered a question that had hung over the company for two years: **whether Samsung is still viable in HBM. The answer is yes.** But it drove only a one-day gain and did not change the trend — the share improvement was structural, while the market at that point was trading a cyclical peak.
+The third was the September 2 disclosure of a 33% HBM share. This was the only event that was both positive and accepted by the stock, because it answered a question that had hung over the company for two years: whether Samsung is still viable in HBM. The answer is yes. But it drove only a one-day gain and did not change the trend — the share improvement was structural, while the market at that point was trading a cyclical peak.
 
 ## Three noise items: misread as positives or negatives
 
-The union strike is noise, but not irrelevant noise. The three-day strike did not affect production (memory lines are highly automated), so the stock price did not react; **but it marks the end of Samsung's "union-free" era, and labor costs will rise rigidly**. The impact of this will be felt in three years, not within three months.
+The union strike is noise, but not irrelevant noise. The three-day strike did not affect production (memory lines are highly automated), so the stock price did not react; but it marks the end of Samsung's "union-free" era, and labor costs will rise rigidly. The impact of this will be felt in three years, not within three months.
 
-TrendForce's September 7 data is noise, because it is a retrospective tally of Q2 that the market already knew from earnings reports in July. **This kind of "lagging-confirmation" data typically produces only one day of volatility and does not change the trend.**
+TrendForce's September 7 data is noise, because it is a retrospective tally of Q2 that the market already knew from earnings reports in July. This kind of "lagging-confirmation" data typically produces only one day of volatility and does not change the trend.
 
-The +5.77% on September 21 also needs to be viewed calmly. There was no company-specific news that day; the entire memory sector rose—foreign capital re-entry, short covering, and quarter-end rebalancing were all possible factors. **A single-day surge in cyclical stocks is often a "bounce" rather than a "reversal"; the test is whether the price can hold above the moving averages for three consecutive days.**
+The +5.77% on September 21 also needs to be viewed calmly. There was no company-specific news that day; the entire memory sector rose—foreign capital re-entry, short covering, and quarter-end rebalancing were all possible factors. A single-day surge in cyclical stocks is often a "bounce" rather than a "reversal"; the test is whether the price can hold above the moving averages for three consecutive days.
 
 ## Down 24%: valuation, not news
 
-Break down the three-month decline: **earnings upgrades contributed + (profit rose), valuation compression contributed - (multiple fell).** Q2 operating profit rose 1814% year on year, yet the stock fell 24%. The only explanation is that the valuation fell from "10x mid-cycle" to "7.5x cycle peak."
+Break down the three-month decline: earnings upgrades contributed + (profit rose), valuation compression contributed - (multiple fell). Q2 operating profit rose 1814% year on year, yet the stock fell 24%. The only explanation is that the valuation fell from "10x mid-cycle" to "7.5x cycle peak."
 
-Is that de-rating reasonable? Versus history: in the 2018 cycle, Samsung fell 38% from its high while operating profit was still hitting new records; in the 2022 cycle it fell 40%, with the decline starting two quarters before profit peaked. **This cycle's 24% drop is the shallowest of the three — a sign the market gives some credence to "structural AI memory demand."**
+Is that de-rating reasonable? Versus history: in the 2018 cycle, Samsung fell 38% from its high while operating profit was still hitting new records; in the 2022 cycle it fell 40%, with the decline starting two quarters before profit peaked. This cycle's 24% drop is the shallowest of the three — a sign the market gives some credence to "structural AI memory demand."
 
-In other words, -24% has already priced in "the cycle will turn," but not "how deep the turn will be." If 2027 brings merely flat prices (not a decline), the current price is cheap; if prices fall 30%, there is still 30%–40% downside. **That is why the position can only be 5%, not 15%.**
+In other words, -24% has already priced in "the cycle will turn," but not "how deep the turn will be." If 2027 brings merely flat prices (not a decline), the current price is cheap; if prices fall 30%, there is still 30%–40% downside. That is why the position can only be 5%, not 15%.
 
 ## What to watch next: three dates
 
-**Q3 preliminary guidance in early October** is the first checkpoint. The market expects operating profit above KRW 95 trillion; below 90 trillion would signal that price-hike pass-through has run its course and the stock would step down again; above 100 trillion would signal Q3 is still accelerating and a near-term rebound would follow.
+Q3 preliminary guidance in early October is the first checkpoint. The market expects operating profit above KRW 95 trillion; below 90 trillion would signal that price-hike pass-through has run its course and the stock would step down again; above 100 trillion would signal Q3 is still accelerating and a near-term rebound would follow.
 
-**The formal Q3 report in late October** is the second checkpoint. The focus is not profit but three structural data points: HBM as a share of memory revenue, whether the MX division stops losing money, and whether capex guidance is raised. **A capex increase is bad news**—it means more supply in 2028.
+The formal Q3 report in late October is the second checkpoint. The focus is not profit but three structural data points: HBM as a share of memory revenue, whether the MX division stops losing money, and whether capex guidance is raised. A capex increase is bad news—it means more supply in 2028.
 
-**The HBM4E certification result in December** is the third checkpoint and the most important of the year. A pass puts 2027 share at 40% and the bull case holds; a fail caps share at 33%, making the base case the ceiling.
+The HBM4E certification result in December is the third checkpoint and the most important of the year. A pass puts 2027 share at 40% and the bull case holds; a fail caps share at 33%, making the base case the ceiling.
 
 ## Sources
 

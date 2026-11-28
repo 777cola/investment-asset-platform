@@ -35,33 +35,33 @@ The moat score is a subjective rating; see the discussion in m04 and m05. The de
 
 ## Position in the supply chain (1): squeezed between Nvidia and hyperscalers
 
-Upstream are Nvidia (GPU), the three HBM makers and power-equipment vendors; downstream are buyers like Meta, OpenAI and Microsoft. **Both ends are strong and the middle is weakest**: Nvidia has pricing power, hyperscalers have bargaining power and in-house build capability, and CoreWeave can only trade "getting cards faster and getting power faster" for contracts.
+Upstream are Nvidia (GPU), the three HBM makers and power-equipment vendors; downstream are buyers like Meta, OpenAI and Microsoft. Both ends are strong and the middle is weakest: Nvidia has pricing power, hyperscalers have bargaining power and in-house build capability, and CoreWeave can only trade "getting cards faster and getting power faster" for contracts.
 
-Its gross margin is essentially the residual left after being squeezed from both ends. And that residual is still shrinking: adjusted operating margin fell from 15.9% a year earlier to 10.4%, showing that upstream price hikes (GPU, power equipment) and downstream price pressure (more customer self-build options) are happening at the same time. **Margins at sandwiched companies usually trend one way — down**, because they have no way to pass costs through.
+Its gross margin is essentially the residual left after being squeezed from both ends. And that residual is still shrinking: adjusted operating margin fell from 15.9% a year earlier to 10.4%, showing that upstream price hikes (GPU, power equipment) and downstream price pressure (more customer self-build options) are happening at the same time. Margins at sandwiched companies usually trend one way — down, because they have no way to pass costs through.
 
 ## Value-chain position (II): 4.6GW is an asset and a burden
 
-The 4.6GW of contracted power is the largest among global neoclouds and its hardest asset. But only 1.7GW is in operation; **the remaining 2.9GW is capacity that is "contracted, prepaid and reserved, but not yet generating revenue"** — the associated grid connection fees, capacity reservation fees and equipment prepayments are all consuming cash.
+The 4.6GW of contracted power is the largest among global neoclouds and its hardest asset. But only 1.7GW is in operation; the remaining 2.9GW is capacity that is "contracted, prepaid and reserved, but not yet generating revenue" — the associated grid connection fees, capacity reservation fees and equipment prepayments are all consuming cash.
 
-In an upcycle this structure is a moat (locking in scarce grid interconnection points first); in a downcycle it is a burden (paying fixed costs continuously for capacity that goes unused). **Whether the cycle turns up or down depends on whether customers keep paying for committed volumes — precisely the part it controls least.**
+In an upcycle this structure is a moat (locking in scarce grid interconnection points first); in a downcycle it is a burden (paying fixed costs continuously for capacity that goes unused). Whether the cycle turns up or down depends on whether customers keep paying for committed volumes — precisely the part it controls least.
 
 ## The real moat is "being able to borrow RMB 46.9 billion"
 
-Putting the six scores together, the only one that carries weight is supply chain (6/10), and the source of that supply chain advantage is Nvidia's strategic investment. **As for why it could borrow USD 46.873 billion and sign 4.6GW of power — that came from the capital markets, not from customers.**
+Putting the six scores together, the only one that carries weight is supply chain (6/10), and the source of that supply chain advantage is Nvidia's strategic investment. As for why it could borrow USD 46.873 billion and sign 4.6GW of power — that came from the capital markets, not from customers.
 
-This also explains its fragility: **its "moat" rests on two external conditions — Nvidia's willingness to keep supporting it, and the credit market's willingness to keep lending**. It controls neither condition, and both loosened in November 2026 (Nvidia placed under SEC investigation, bond yield at 15%).
+This also explains its fragility: its "moat" rests on two external conditions — Nvidia's willingness to keep supporting it, and the credit market's willingness to keep lending. It controls neither condition, and both loosened in November 2026 (Nvidia placed under SEC investigation, bond yield at 15%).
 
 ## The most dangerous competitor: Microsoft, because it is simultaneously a customer, a supplier and a rival
 
-Microsoft's capex this quarter was USD 45.2 billion, or about USD 170 billion for the full year. It is also reported to be reviewing more than USD 80 billion of external AI compute commitments and to have cancelled a USD 3.22 billion Nscale order. Its in-house Maia 300 is slated for mass production in 2027, with tokens per megawatt about 40% higher than mainstream GPU systems. **All three point the same way: bring outsourcing back in-house.**
+Microsoft's capex this quarter was USD 45.2 billion, or about USD 170 billion for the full year. It is also reported to be reviewing more than USD 80 billion of external AI compute commitments and to have cancelled a USD 3.22 billion Nscale order. Its in-house Maia 300 is slated for mass production in 2027, with tokens per megawatt about 40% higher than mainstream GPU systems. All three point the same way: bring outsourcing back in-house.
 
-The second threat is Nvidia's capacity release. In 2024–2025 the neocloud rental premium came from the card shortage; once supply catches up, **scarcity pricing disappears and rent and utilization fall together**, while its depreciation and interest are fixed. The third is peers such as Nebius and Crusoe winning orders with lower leverage—they can be more aggressive on price because they do not pay interest on USD 46.9 billion of debt.
+The second threat is Nvidia's capacity release. In 2024–2025 the neocloud rental premium came from the card shortage; once supply catches up, scarcity pricing disappears and rent and utilization fall together, while its depreciation and interest are fixed. The third is peers such as Nebius and Crusoe winning orders with lower leverage—they can be more aggressive on price because they do not pay interest on USD 46.9 billion of debt.
 
 ## Peers fell too—why did this one fall the hardest?
 
-From October to November the neocloud sector pulled back as a whole, with Nebius, IREN and CoreWeave moving in lockstep.** But CoreWeave fell the most (-71.4% from its high), and the reason is not the business but leverage**: for the same revenue downgrade, its equity absorbs 4x the hit (equity is only 26% of enterprise value).
+From October to November the neocloud sector pulled back as a whole, with Nebius, IREN and CoreWeave moving in lockstep. But CoreWeave fell the most (-71.4% from its high), and the reason is not the business but leverage: for the same revenue downgrade, its equity absorbs 4x the hit (equity is only 26% of enterprise value).
 
-This offers a judgment tool:** when the sector falls, the most levered company falls the most; when the sector rebounds, it rises the most**. Its stock is essentially a compute-sector ETF with 3–4x amplified beta, plus an option on the "credit window."** Buying it as a growth stock is using the wrong tool.**
+This offers a judgment tool: when the sector falls, the most levered company falls the most; when the sector rebounds, it rises the most. Its stock is essentially a compute-sector ETF with 3–4x amplified beta, plus an option on the "credit window." Buying it as a growth stock is using the wrong tool.
 
 ## Sources
 

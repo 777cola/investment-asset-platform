@@ -23,7 +23,7 @@ Q&A is a framework-based extrapolation, not statements by Duan Yongping himself;
 
 ## Q: Is this a good business?
 
-Answer: No. Foundry is the hardest kind of manufacturing business — a customer places an order, you spend on equipment first, and depreciation starts the moment the tools enter the fab, amortized over five years before profit slowly emerges. SMIC's 2026 depreciation is USD 5 billion; 2025 net profit is USD 685 million — depreciation is seven times net profit. **This is not a question of "how much it earns" but of "whether what it earns is enough to pay for the equipment."**
+Answer: No. Foundry is the hardest kind of manufacturing business — a customer places an order, you spend on equipment first, and depreciation starts the moment the tools enter the fab, amortized over five years before profit slowly emerges. SMIC's 2026 depreciation is USD 5 billion; 2025 net profit is USD 685 million — depreciation is seven times net profit. This is not a question of "how much it earns" but of "whether what it earns is enough to pay for the equipment."
 
 The standard for a good business is "it earns money without further capital outlay" — Moutai and Apple, for example. SMIC is the reverse: no investment means falling behind, investment means no profit. It is more like an airline: full seats when demand is good, but the money earned goes to buying aircraft.
 
@@ -43,7 +43,7 @@ Answer: I understand the business, not the technology. The business is buying eq
 
 The technology I do not understand. What the yields are on N+2 and N+3, what the cost per wafer is, how many exposures DUV multi-patterning requires, how many generations behind TSMC it is — the company does not disclose these, and I cannot verify them. So I do not know whether its advanced process is making money or losing money.
 
-What I do not understand does not stop me from judging "is this a good business", but it does stop me from judging "how much is it worth". **I do not value the parts I cannot understand.** That is also why I use P/B only, not P/E — at least P/B can be reconciled.
+What I do not understand does not stop me from judging "is this a good business", but it does stop me from judging "how much is it worth". I do not value the parts I cannot understand. That is also why I use P/B only, not P/E — at least P/B can be reconciled.
 
 ## Q: At what price would you buy?
 

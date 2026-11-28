@@ -32,11 +32,11 @@ So "H1 +60.3%" is the average of Q1's +200% and Q2's -40%. This is not growth; i
 
 Many say Laopu's 41.3% gross margin is "a record high and unsustainable." That is only half right.
 
-Look at the history: 41.2% in 2021, 41.9% in 2022, 41.9% in 2023, 41.2% in 2024, 37.6% in 2025. **41% is this company's norm; the 37.6% of 2025 is the anomaly.**
+Look at the history: 41.2% in 2021, 41.9% in 2022, 41.9% in 2023, 41.2% in 2024, 37.6% in 2025. 41% is this company's norm; the 37.6% of 2025 is the anomaly.
 
 Why was 2025 anomalous? Gold prices rose too fast, and its two price hikes in August and October both failed to catch up with costs, squeezing the gross margin by 3.6 percentage points. The return to 41.3% in the first half of 2026 rests on RMB 16 billion of cheap gold stockpiled at the end of 2025, plus the price increase in late February.
 
-This correction matters. If 41.3% were a historical peak, the risk would sit on the gross margin side; if it is a return to normal, the risk sits on the revenue side. **I lean toward the latter—what truly cannot hold up is not the gross margin but that RMB 19 billion quarterly sales figure.**
+This correction matters. If 41.3% were a historical peak, the risk would sit on the gross margin side; if it is a return to normal, the risk sits on the revenue side. I lean toward the latter—what truly cannot hold up is not the gross margin but that RMB 19 billion quarterly sales figure.
 
 ## III. The RMB 19 billion inventory is the real story behind this company
 
@@ -46,7 +46,7 @@ When gold rises, it amplifies profit; when gold falls, it becomes a source of im
 
 First-half operating cash flow was +RMB 2.01 billion, positive for the first time in three years — which sounds good. But on closer inspection, the improvement came not from earning more but from buying less: inventory growth slowed from 290% to 18.5%.
 
-More striking is the dividend: RMB 3.19 billion paid out, RMB 1.18 billion more than operating cash flow, with the gap covered from cash on the books. **A company paying out more in dividends than the cash it generates can only be explained by "there is still money on the books," not by "cash flow is strong."**
+More striking is the dividend: RMB 3.19 billion paid out, RMB 1.18 billion more than operating cash flow, with the gap covered from cash on the books. A company paying out more in dividends than the cash it generates can only be explained by "there is still money on the books," not by "cash flow is strong."
 
 ## IV. Is 7x PE a trap or an opportunity
 

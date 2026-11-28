@@ -10,21 +10,21 @@ All four close readings share the same 2026Q2 financial data (revenue RMB 112.36
 
 ## Three synthesized conclusions
 
-1. Business quality is intact; growth is gone. Gross margin up, cash flow strong, zero debt — none of these three has deteriorated. Advertising +3.5%, net profit −13% — these two show it has gone from growth stock to cash cow. The valuation method must change accordingly.
+1. Business quality intact, growth gone. Gross margin up, cash flow strong, zero debt — none of these three deteriorated. Advertising +3.5%, net profit −13% — these two show it has gone from growth stock to cash cow. The valuation method must change accordingly.
 
-2. Regulatory costs are starting to hit the financials, and the shift is irreversible. The EU's fixed cost of EUR 5 per category, the proposed US rules, the EUR 200 million fine — these are not one-off disturbances but a new cost baseline. Munger and Li Lu are in complete agreement on this point.
+2. Regulatory costs are entering the financials, and they are irreversible. The EU's fixed cost of EUR 5 per category, proposed US rules, the EUR 200 million fine — these are not one-off disturbances but a new cost baseline. Munger and Li Lu agree completely on this point.
 
-3. Cash is the only certainty, and also the thing most uncertain to be obtained. RMB 456.4 billion provides a valuation floor, and zero dividends and zero buybacks mean that floor can only be realized through the share price.
+3. Cash is the only certainty, and also the thing whose receipt is most uncertain. RMB 456.4 billion provides a valuation floor, but zero dividend and zero buyback mean that floor can only be realized through the share price.
 
 ## Synthetic operational implications
 
-Buy, but with only a 3% position, built over three to four quarters. The reason is not "bullish" — it is "3.6:1 payoff with a cash cushion on the downside."
+Buy, but with only a 3% position, phased over three to four quarters.The reason is not "bullish"; it is "3.6:1 payoff with a cash cushion on the downside."
 
-Do not use net cash as the reason to buy. Cash sits on the financial statements, not in your pocket. Its role is to limit downside, not to generate returns. Returns can only come from a re-rating, and the triggers for a re-rating are buybacks or a recovery in advertising growth — neither of which has happened yet.
+Do not use net cash as the reason to buy.Cash sits on the financial statements, not in your pocket. Its role is to limit downside, not to generate returns. Returns can only come from a re-rating, and the triggers for a re-rating are buybacks or a rebound in advertising growth — neither has happened yet.
 
 ## What to watch next
 
-Q3 results (late November): transaction services growth is the first read. A drop to single digits would signal Temu's unit economics have broken down; holding above 10% would show localization is working.
+Q3 results (late November): transaction services growth is the first read. A drop to single digits would signal that Temu's unit economics have broken down; holding above 10% would show localization is working.
 
 Annual report (March 2027): capital return policy. Even a USD 5 billion buyback authorization would mark the start of a re-rating.
 

@@ -24,9 +24,9 @@ ROE: annualized net profit RMB 77.19 billion ÷ average equity RMB 73.95 billion
 
 ## The first point, however: ROE 10.4%, but this is not a bad business
 
-The 15% ROE threshold is designed for companies that are asset-light and compound earnings. Berkshire has USD 761.4 billion of equity, of which 377.4 billion is cash and short-term bonds—**by definition this pile can only earn 4.4%, and it mathematically caps ROE**.
+The 15% ROE threshold is designed for companies that are asset-light and compound earnings. Berkshire has USD 761.4 billion of equity, of which 377.4 billion is cash and short-term bonds—by definition this pile can only earn 4.4%, and it mathematically caps ROE.
 
-Do the division: assume all the cash is bought into 4.5% Treasuries; the return on net assets for that portion is 4.5%. The remaining 384.0 billion of operating assets generate 50.8 billion of annualized operating profit, a return of about 13.2%. **The return on the physical assets is adequate; cash drags it down to 10.4%.**
+Do the division: assume all the cash is bought into 4.5% Treasuries; the return on net assets for that portion is 4.5%. The remaining 384.0 billion of operating assets generate 50.8 billion of annualized operating profit, a return of about 13.2%. The return on the physical assets is adequate; cash drags it down to 10.4%.
 
 So failing this test means "slower compounding," not "bad business." The valuation implication is direct: book value rises 8%–10% a year, and that number plus valuation swings is the ceiling on long-term stock returns.
 
@@ -34,23 +34,23 @@ So failing this test means "slower compounding," not "bad business." The valuati
 
 Underwriting profit was USD 1.352 billion, down 43% year on year, with a combined ratio of 91.4%. That means every dollar of premium still earned 8.6 cents, versus about 15 cents last year (roughly calculated on a comparable premium basis). GEICO profit was USD 982 million, down 45%, the main drag.
 
-The cause is the auto insurance cycle. From 2023 to 2025, auto insurance pricing rose faster than claims, and the industry earned three years of excess profit; in 2026, claims costs (repairs, used cars, medical) caught up and pricing began to soften. **This is not a problem unique to Berkshire; Progressive has the same issue.**
+The cause is the auto insurance cycle. From 2023 to 2025, auto insurance pricing rose faster than claims, and the industry earned three years of excess profit; in 2026, claims costs (repairs, used cars, medical) caught up and pricing began to soften. This is not a problem unique to Berkshire; Progressive has the same issue.
 
 The test is simple: a combined ratio below 95% is healthy; only above 100% is a real problem. At 91.4% now, there are still 8.6 points to the red line.
 
 ## Of the five criteria passed, the toughest are liabilities and share capital
 
-**Liabilities:** Interest-bearing debt is roughly USD 130 billion, all backed by specific assets—BNSF's locomotives and rail network, BHE's power plants, Clayton's mortgage portfolio. The parent company carries almost no net debt, which is the precondition for it to act as the "buyer of last resort."
+Liabilities: Interest-bearing debt is roughly USD 130 billion, all backed by specific assets—BNSF's locomotives and rail network, BHE's power plants, Clayton's mortgage portfolio. The parent company carries almost no net debt, which is the precondition for it to act as the "buyer of last resort."
 
-**Share capital:** Q3 buybacks totaled USD 9.647 billion and USD 14.4 billion for the first three quarters, shrinking the share count. This matters especially in 2026—a period when many tech companies are issuing equity at high prices, issuing convertible bonds, and granting stock to employees.
+Share capital: Q3 buybacks totaled USD 9.647 billion and USD 14.4 billion for the first three quarters, shrinking the share count. This matters especially in 2026—a period when many tech companies are issuing equity at high prices, issuing convertible bonds, and granting stock to employees.
 
-**Cash flow:** Insurance "collects first, pays claims later," so operating cash flow naturally exceeds net income. This quarter's net profit of USD 22.112 billion includes large unrealized investment gains and cannot be treated as cash, but operating profit of USD 12.705 billion is real.
+Cash flow: Insurance "collects first, pays claims later," so operating cash flow naturally exceeds net income. This quarter's net profit of USD 22.112 billion includes large unrealized investment gains and cannot be treated as cash, but operating profit of USD 12.705 billion is real.
 
 ## But is it fatal? Not fatal, but expectations should be lowered.
 
-Neither issue is fatal, because both point to the same thing: **this is an 8%–10% compounder, not a 15% growth stock.**
+Neither issue is fatal, because both point to the same thing: this is an 8%–10% compounder, not a 15% growth stock.
 
-The point of the negative screen is to filter out "structurally bad companies"—high leverage, share dilution, fabricated cash flow, ROE propped up by leverage. Berkshire touches none of these. Its problem is a different one: **good company + high price = mediocre returns**.
+The point of the negative screen is to filter out "structurally bad companies"—high leverage, share dilution, fabricated cash flow, ROE propped up by leverage. Berkshire touches none of these. Its problem is a different one: good company + high price = mediocre returns.
 
 So the conclusion at this gate is not "reject" but "passes, but don't expect surprises." The real decision belongs at the fifth gate: valuation.
 

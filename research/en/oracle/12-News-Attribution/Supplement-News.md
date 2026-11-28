@@ -23,27 +23,27 @@ Events and dates: FY26Q4 results on 2026/06/10, S&P downgrade on 2026/07/29 (as 
 
 ## First, a qualitative take: this is a valuation de-rating, not an earnings miss
 
-From USD 248.15 to USD 144.79, a 41.7% decline. What happened over the same period? Revenue growth rose from just over 20% in FY26Q4 to 30% in FY27Q1, OCI growth rose from the 60% range to 121%, and RPO rose from RMB 638 billion to RMB 664 billion. **Fundamentals are accelerating while the stock has halved — there is only one explanation: the market has re-rated its valuation multiple.**
+From USD 248.15 to USD 144.79, a 41.7% decline. What happened over the same period? Revenue growth rose from just over 20% in FY26Q4 to 30% in FY27Q1, OCI growth rose from the 60% range to 121%, and RPO rose from RMB 638 billion to RMB 664 billion. Fundamentals are accelerating while the stock has halved — there is only one explanation: the market has re-rated its valuation multiple.
 
-Why did the multiple change? Because the market finally understood the structure of these results: this is not a software company, it is an IDC that builds data centers with leverage. Software companies get 25x PE; IDCs get 10x EV/EBITDA. This re-rating is not sentiment — the pricing framework has changed. **Once the framework changes, even the best quarterly numbers cannot pull it back.**
+Why did the multiple change? Because the market finally understood the structure of these results: this is not a software company, it is an IDC that builds data centers with leverage. Software companies get 25x PE; IDCs get 10x EV/EBITDA. This re-rating is not sentiment — the pricing framework has changed. Once the framework changes, even the best quarterly numbers cannot pull it back.
 
 ## Real signal: rating and share placement
 
-S&P's downgrade to BBB- on 29 July was the single most important event of the past three months. It does not change current-period profit, but it changes **the return on every future project** — the rating determines the coupon, and the coupon determines whether a project can make money. BBB- is only one notch above junk, meaning the next downgrade would trigger mandatory-sale clauses at some funds (many investment-grade funds cannot hold high-yield debt).
+S&P's downgrade to BBB- on 29 July was the single most important event of the past three months. It does not change current-period profit, but it changes the return on every future project — the rating determines the coupon, and the coupon determines whether a project can make money. BBB- is only one notch above junk, meaning the next downgrade would trigger mandatory-sale clauses at some funds (many investment-grade funds cannot hold high-yield debt).
 
-The USD 20 billion share issuance in August is the second signal. It is Oracle's first large-scale equity financing in twenty years. A company that spent the past decade buying back hundreds of billions of dollars of stock with free cash flow has suddenly started selling stock — **the move itself says management believes cash is no longer sufficient, and will not be sufficient any time soon.**
+The USD 20 billion share issuance in August is the second signal. It is Oracle's first large-scale equity financing in twenty years. A company that spent the past decade buying back hundreds of billions of dollars of stock with free cash flow has suddenly started selling stock — the move itself says management believes cash is no longer sufficient, and will not be sufficient any time soon.
 
 ## Noise: why +353% and +121% fail to move the share price
 
 Database revenue +353% is a striking number, but it has two problems: the base is tiny, and it is not sustainable (the growth came from one-off large-customer signings and upgrades of existing customers). The market did not pay for it because the market knows it will not repeat next year.
 
-OCI +121% likewise failed to lift the stock, because it came alongside RMB 28.5 billion of capex.**The market has done the math clearly this time: every extra USD 1 of OCI gross profit requires USD 1.5 of capex first, and that arithmetic does not pay at a 5% interest rate.**This is not market short-termism; it is the market finally starting to do the math.
+OCI +121% likewise failed to lift the stock, because it came alongside RMB 28.5 billion of capex.The market has done the math clearly this time: every extra USD 1 of OCI gross profit requires USD 1.5 of capex first, and that arithmetic does not pay at a 5% interest rate.This is not market short-termism; it is the market finally starting to do the math.
 
 ## Which are the real signals, and what to watch going forward
 
-Three signals, in order of importance: **① Rating actions** — if Moody's and Fitch follow with downgrades, financing costs will jump, and that is the real inflection point; **② Funding method** — another share issuance next quarter would signal a cash-flow gap larger than disclosed; **③ RPO conversion** — whether 12-month conversion in the Q2 results reaches the pace implied by RMB 76.6 billion.
+Three signals, in order of importance: ① Rating actions — if Moody's and Fitch follow with downgrades, financing costs will jump, and that is the real inflection point; ② Funding method — another share issuance next quarter would signal a cash-flow gap larger than disclosed; ③ RPO conversion — whether 12-month conversion in the Q2 results reaches the pace implied by RMB 76.6 billion.
 
-**Noise can be ignored:** single-day moves, AI-sector β, broker target-price changes, and any rumor that "OpenAI signed another big deal" — none of these change cash flow. **The December Q2 results are the next real test; everything else is background noise.**
+Noise can be ignored: single-day moves, AI-sector β, broker target-price changes, and any rumor that "OpenAI signed another big deal" — none of these change cash flow. The December Q2 results are the next real test; everything else is background noise.
 
 ## Sources
 

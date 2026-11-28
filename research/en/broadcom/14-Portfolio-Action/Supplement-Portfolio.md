@@ -24,7 +24,7 @@ Position recommendations reflect judgment as of the report date and do not const
 
 Two constraints. First, correlation. Broadcom's correlation with Nvidia, TSMC and Micron runs between 0.6 and 0.8 (rule of thumb); if the portfolio already holds these, Broadcom's marginal diversification benefit is weak, and adding it amounts to adding leverage.
 
-Second, tail risk. The financing platform's exposure has no cap, and a single USD 50 billion guarantee loss would wipe out a year of free cash flow. This risk cannot be soothed away as "low probability"; only position limits can backstop it. **A 5% position going to zero inflicts 5 points of damage on the portfolio, which is bearable; a 20% position going to zero is a disaster.**
+Second, tail risk. The financing platform's exposure has no cap, and a single USD 50 billion guarantee loss would wipe out a year of free cash flow. This risk cannot be soothed away as "low probability"; only position limits can backstop it. A 5% position going to zero inflicts 5 points of damage on the portfolio, which is bearable; a 20% position going to zero is a disaster.
 
 If the portfolio holds no other AI exposure, the cap can be relaxed to 8% — but that is an asset-allocation question, not a question about this stock.
 
@@ -34,7 +34,7 @@ Add: USD 320 (about 16.5x), USD 300 (15.5x), USD 280 (14.4x). 1–2 points at ea
 
 Trim: if the FY27 AI guidance is cut by more than 15% after building the position, halve unconditionally, regardless of price. If gross margin stays below 70% for two consecutive quarters, exit fully.
 
-Stop-loss: no price stop, an event stop.**A price stop makes no sense for this kind of stock—40% swings are normal, and a stop only shakes you out.** An event stop does: guarantee brought back on balance sheet, major customer shifting orders, guidance cut—any one of these three and you leave.
+Stop-loss: no price stop, an event stop.A price stop makes no sense for this kind of stock—40% swings are normal, and a stop only shakes you out. An event stop does: guarantee brought back on balance sheet, major customer shifting orders, guidance cut—any one of these three and you leave.
 
 The key to this rule set: the reason to buy is "clear structure or cheap price"; the reason to sell is "structure deteriorating", not "it fell".
 
@@ -42,7 +42,7 @@ The key to this rule set: the reason to buy is "clear structure or cheap price";
 
 Broadcom has the highest correlation with Nvidia (around 0.8), as both share the same demand source—AI capex; 0.7 with TSMC, as it is TSMC's customer; 0.6 with Micron, due to HBM cost pass-through; and 0.5 with Microsoft, as cloud capex is a common variable.
 
-**This means buying Broadcom is not "diversification" but "betting on the same thing in a different way."**If AI exposure in the portfolio already exceeds 20%, the Broadcom position should be capped below 3%, otherwise the entire portfolio becomes an AI thematic fund.
+This means buying Broadcom is not "diversification" but "betting on the same thing in a different way."If AI exposure in the portfolio already exceeds 20%, the Broadcom position should be capped below 3%, otherwise the entire portfolio becomes an AI thematic fund.
 
 Correlation figures are empirical estimates (based on weekly returns from 2024–2026) without rigorous regression; actual correlations will shift with market conditions.
 
@@ -50,7 +50,7 @@ Correlation figures are empirical estimates (based on weekly returns from 2024�
 
 Three rules: first, no single AI-related position exceeds 8%, and total AI exposure does not exceed 20%; second, if Broadcom rises above USD 450 after the position is established (about 23x FY27), trim it to 2%; third, reassess positions after each quarterly earnings report, and do not hold out of "habit".
 
-This discipline sounds mechanical, but it serves to prevent two things: adding to positions when sentiment runs high, and liquidating in a panic.**A stock like Broadcom, with structural doubts but an inexpensive valuation, is the most prone to swinging between these two emotions.**
+This discipline sounds mechanical, but it serves to prevent two things: adding to positions when sentiment runs high, and liquidating in a panic.A stock like Broadcom, with structural doubts but an inexpensive valuation, is the most prone to swinging between these two emotions.
 
 ## Sources
 

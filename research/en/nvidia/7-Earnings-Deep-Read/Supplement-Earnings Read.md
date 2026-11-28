@@ -58,11 +58,11 @@ All figures are taken from NVIDIA's FY2027Q2 financial report and 10-Q (2026/08/
 
 Data center revenue was USD 89.023 billion, up 18% QoQ, accounting for 92.5% of total revenue. Breaking it down: hyperscale cloud came to USD 48.710 billion (up 102% YoY, up 13% QoQ), and ACIE USD 40.313 billion (up 138% YoY, up 25% QoQ). Edge computing was USD 7.200 billion (up 27% YoY). The two sum exactly to USD 89.023 billion, confirming the scope does not blend in edge business.
 
-The key number is not the USD 89 billion but the structure. **ACIE rose 25% QoQ and hyperscale cloud 13% QoQ — the faster-growing half is the half that was not on the customer list before.** Per company disclosure: sovereign AI revenue rose 35% QoQ and more than doubled YoY; NeoCloud installed capacity is targeted to go from 3GW at end-2025 to 8GW by end-2026.
+The key number is not the USD 89 billion but the structure. ACIE rose 25% QoQ and hyperscale cloud 13% QoQ — the faster-growing half is the half that was not on the customer list before. Per company disclosure: sovereign AI revenue rose 35% QoQ and more than doubled YoY; NeoCloud installed capacity is targeted to go from 3GW at end-2025 to 8GW by end-2026.
 
-But QoQ growth is converging. Data center revenue over the last four quarters was 51.2 → 62.3 → 75.2 → 89.0 billion, with QoQ growth of 21.7%, 20.7% and 18.4%. **Absolute dollars are accelerating while growth rates slow — the standard curve for a large platform entering its mature volume-ramp phase.** On this curve, QoQ growth falling below 10% in some quarter of 2027 is inevitable, not a surprise — knowing this in advance means it will not be mistaken for evidence of a collapse.
+But QoQ growth is converging. Data center revenue over the last four quarters was 51.2 → 62.3 → 75.2 → 89.0 billion, with QoQ growth of 21.7%, 20.7% and 18.4%. Absolute dollars are accelerating while growth rates slow — the standard curve for a large platform entering its mature volume-ramp phase. On this curve, QoQ growth falling below 10% in some quarter of 2027 is inevitable, not a surprise — knowing this in advance means it will not be mistaken for evidence of a collapse.
 
-The China treatment also deserves a note: H200 shipments under US government licenses in Q2 accounted for less than 1% of data center revenue, and Q3 guidance assumes zero China data center compute revenue. **A company that takes the relevant revenue from its second-largest market to zero and still guides to +12% QoQ is telling you demand genuinely comes from elsewhere.**
+The China treatment also deserves a note: H200 shipments under US government licenses in Q2 accounted for less than 1% of data center revenue, and Q3 guidance assumes zero China data center compute revenue. A company that takes the relevant revenue from its second-largest market to zero and still guides to +12% QoQ is telling you demand genuinely comes from elsewhere.
 
 ## Tier two: gross margin — 75% is the ceiling this cycle
 
@@ -70,17 +70,17 @@ Gross margin 75.0% (GAAP and non-GAAP identical, as non-GAAP no longer excludes 
 
 But the company itself guided a downward path: Q3 74%±50bp, bottoming at 71%–72% in Q4, then recovering to 72%–73% in FY2028 as price increases take effect. The reason: memory price hikes are "far exceeding prior expectations" and will continue rising next year.
 
-The implication needs stating clearly: **NVIDIA is trading gross margin for certainty.** It locked in memory and manufacturing capacity early, paying with higher costs; the benefit is that in 2026, with HBM and advanced packaging in full shortage, it secured the most supply. That trade is worthwhile in a shortage cycle—selling an extra dollar of product matters far more than preserving an extra point of gross margin.
+The implication needs stating clearly: NVIDIA is trading gross margin for certainty. It locked in memory and manufacturing capacity early, paying with higher costs; the benefit is that in 2026, with HBM and advanced packaging in full shortage, it secured the most supply. That trade is worthwhile in a shortage cycle—selling an extra dollar of product matters far more than preserving an extra point of gross margin.
 
-The risk lies in the timing of the trade. If demand weakens in 2027H2 while costs are already locked through FY2029 (supply commitments of USD 87 billion in FY2028 and USD 88 billion in FY2029), then 71% is not the bottom—it is the beginning. **This is the most easily overlooked sentence in the entire earnings report, because it sets the starting point for FY2028 EPS—a 2-point difference in gross margin means roughly USD 13 billion difference in FY2028 net income and USD 0.54 difference in EPS.**
+The risk lies in the timing of the trade. If demand weakens in 2027H2 while costs are already locked through FY2029 (supply commitments of USD 87 billion in FY2028 and USD 88 billion in FY2029), then 71% is not the bottom—it is the beginning. This is the most easily overlooked sentence in the entire earnings report, because it sets the starting point for FY2028 EPS—a 2-point difference in gross margin means roughly USD 13 billion difference in FY2028 net income and USD 0.54 difference in EPS.
 
 ## Layer 3: Costs and profits — operating leverage is already maxed out
 
-Operating expenses RMB 8.408 billion, +10% QoQ, +55% YoY, expense ratio 8.7%. R&D RMB 7.054 billion (+64% YoY), sales and administrative RMB 1.354 billion (+21% YoY). **An 8.7% expense ratio means every RMB 10 billion of revenue adds only RMB 870 million of expenses, with the rest dropping to operating profit.**
+Operating expenses RMB 8.408 billion, +10% QoQ, +55% YoY, expense ratio 8.7%. R&D RMB 7.054 billion (+64% YoY), sales and administrative RMB 1.354 billion (+21% YoY). An 8.7% expense ratio means every RMB 10 billion of revenue adds only RMB 870 million of expenses, with the rest dropping to operating profit.
 
 But that leverage is exhausted. Q3 guidance: operating expenses of RMB 9.2 billion GAAP, RMB 9.0 billion non-GAAP; full-year operating expense growth of "mid-to-high teens, around 50%". Expense growth will run well ahead of the past two years for two reasons: product matrix expansion (five lines — GPU, CPU, networking, LPU, robotics), and the compute and headcount costs of large-scale AI tool adoption.
 
-Other income RMB 7.773 billion, including RMB 7.771 billion of gains on equity securities (H1 total RMB 23.707 billion). This lifted net profit from RMB 53.2 billion to RMB 59.7 billion and net margin from 55.3% to 62.0%. **It is real but unstable: when the market falls, it bites back. Valuation should use the 55% net margin, not 62%.**
+Other income RMB 7.773 billion, including RMB 7.771 billion of gains on equity securities (H1 total RMB 23.707 billion). This lifted net profit from RMB 53.2 billion to RMB 59.7 billion and net margin from 55.3% to 62.0%. It is real but unstable: when the market falls, it bites back. Valuation should use the 55% net margin, not 62%.
 
 Tax: RMB 1.182 billion, effective tax rate 16.5%, within the 16%–18% guidance. Tax will not be a swing factor, which shows earnings are in fact highly predictable — as long as revenue and gross margin are predictable.
 
@@ -88,31 +88,31 @@ Tax: RMB 1.182 billion, effective tax rate 16.5%, within the 16%–18% guidance.
 
 Operating cash flow RMB 24.08 billion, net profit RMB 59.69 billion, a gap of RMB 35.6 billion. Three "+" signs explain it all: accounts receivable +RMB 22.35 billion (balance RMB 63.06 billion, 60-day terms), inventory +RMB 5.78 billion (balance RMB 31.58 billion), prepayments and other assets +RMB 5.50 billion; plus investment income of −RMB 7.77 billion (no cash impact).
 
-Investing side: capex RMB 2.68 billion, purchases of equity securities RMB 15.82 billion. **Money spent buying other companies' equity is 6x the money spent buying its own equipment.** H1 cumulative equity purchases RMB 42.40 billion; available-for-sale equity RMB 42.78 billion + unlisted equity RMB 51.16 billion = RMB 93.94 billion, 29.3% of total assets (16.3% at the start of the year).
+Investing side: capex RMB 2.68 billion, purchases of equity securities RMB 15.82 billion. Money spent buying other companies' equity is 6x the money spent buying its own equipment. H1 cumulative equity purchases RMB 42.40 billion; available-for-sale equity RMB 42.78 billion + unlisted equity RMB 51.16 billion = RMB 93.94 billion, 29.3% of total assets (16.3% at the start of the year).
 
-Financing side: bond issuance RMB 24.90 billion (long-term borrowings 7.47 → 32.37 billion), buybacks RMB 19.73 billion, dividends RMB 6.05 billion. **RMB 25.78 billion returned, exceeding free cash flow of RMB 21.34 billion for the quarter — the gap was borrowed.** The quarter also included RMB 2.94 billion of cash paid for the Groq asset transaction.
+Financing side: bond issuance RMB 24.90 billion (long-term borrowings 7.47 → 32.37 billion), buybacks RMB 19.73 billion, dividends RMB 6.05 billion. RMB 25.78 billion returned, exceeding free cash flow of RMB 21.34 billion for the quarter — the gap was borrowed. The quarter also included RMB 2.94 billion of cash paid for the Groq asset transaction.
 
-The balance sheet itself is solid: total assets RMB 320.27 billion, total liabilities RMB 91.29 billion, debt-to-asset ratio 28.5%, net cash RMB 23.22 billion. But the nature of the assets has changed: three-tenths are equity in customers and potential customers, and a quarter of next year's revenue must be supported by its own balance sheet. **In one sentence: it increasingly resembles a holding company, not a chip company.**
+The balance sheet itself is solid: total assets RMB 320.27 billion, total liabilities RMB 91.29 billion, debt-to-asset ratio 28.5%, net cash RMB 23.22 billion. But the nature of the assets has changed: three-tenths are equity in customers and potential customers, and a quarter of next year's revenue must be supported by its own balance sheet. In one sentence: it increasingly resembles a holding company, not a chip company.
 
 ## Layer five: how to read the three off-balance-sheet lines
 
 Three lines of numbers, three ways to read them.
 
-**Supply and capacity commitments of RMB 279 billion:** This is not debt; it is a purchase commitment to suppliers. The risk is not "cannot pay," but "bought it and cannot sell it." The remaining payments are RMB 92 billion in FY2027, RMB 87 billion in FY2028 and RMB 88 billion in FY2029—**the cost curve is already drawn; the revenue curve is not.** If demand falls 20% in 2027, the portion of the RMB 279 billion due in the latter two years will need impairment or renegotiation.
+Supply and capacity commitments of RMB 279 billion: This is not debt; it is a purchase commitment to suppliers. The risk is not "cannot pay," but "bought it and cannot sell it." The remaining payments are RMB 92 billion in FY2027, RMB 87 billion in FY2028 and RMB 88 billion in FY2029—the cost curve is already drawn; the revenue curve is not. If demand falls 20% in 2027, the portion of the RMB 279 billion due in the latter two years will need impairment or renegotiation.
 
-**Credit guarantees of RMB 108.5 billion:** A ceiling figure, triggered only by counterparty default or the satisfaction of agreed conditions. The company says this compute ultimately flows to investment-grade customers or customers backed by investment-grade entities—if true, real exposure is small; if not, it is a cohort of NeoClouds expanding on debt. **The key point is that the company has not disclosed the counterparty list; this is "uncertainty," not "risk."**
+Credit guarantees of RMB 108.5 billion: A ceiling figure, triggered only by counterparty default or the satisfaction of agreed conditions. The company says this compute ultimately flows to investment-grade customers or customers backed by investment-grade entities—if true, real exposure is small; if not, it is a cohort of NeoClouds expanding on debt. The key point is that the company has not disclosed the counterparty list; this is "uncertainty," not "risk."
 
-**Cloud service purchase commitments of RMB 36 billion:** Nvidia has committed to buying a portion of future cloud services. This line is the easiest to overlook, but it means the company appears on both the buy side and the sell side—buying cloud services for internal R&D and also to provide a floor for customers. The amount is not large, but the nature of it is worth noting.
+Cloud service purchase commitments of RMB 36 billion: Nvidia has committed to buying a portion of future cloud services. This line is the easiest to overlook, but it means the company appears on both the buy side and the sell side—buying cloud services for internal R&D and also to provide a floor for customers. The amount is not large, but the nature of it is worth noting.
 
 ## The three things to watch most closely
 
-**First, whether the 71% gross margin is the floor.** Q4 will settle it. If Q4 lands at the low end of 71%–72% and FY2028 cannot return above 72%, cost lock-in is starting to backfire and FY2028 EPS must be cut 5%–8%.
+First, whether the 71% gross margin is the floor. Q4 will settle it. If Q4 lands at the low end of 71%–72% and FY2028 cannot return above 72%, cost lock-in is starting to backfire and FY2028 EPS must be cut 5%–8%.
 
-**Second, whether receivables days of 60 will breach 70.** This is the only dividing line between a "payment-terms problem" and a "demand problem." Holding within 65 days points to a change in customer mix; breaching 75 days means someone is stalling on payment.
+Second, whether receivables days of 60 will breach 70. This is the only dividing line between a "payment-terms problem" and a "demand problem." Holding within 65 days points to a change in customer mix; breaching 75 days means someone is stalling on payment.
 
-**Third, whether inventory backing the RMB 279 billion supply commitment will be impaired.** Current inventory of RMB 31.575 billion, or 119 days of cost of sales, is a healthy stocking level. If revenue misses guidance next quarter while inventory keeps rising, that is the inflection point.
+Third, whether inventory backing the RMB 279 billion supply commitment will be impaired. Current inventory of RMB 31.575 billion, or 119 days of cost of sales, is a healthy stocking level. If revenue misses guidance next quarter while inventory keeps rising, that is the inflection point.
 
-The first two of these three questions will have answers by November 17. That is also why I put the nearest checkpoint on the Q3 report rather than the share price—**this company's problem is not in market sentiment; it is in the three financial statements and the three footnotes.**
+The first two of these three questions will have answers by November 17. That is also why I put the nearest checkpoint on the Q3 report rather than the share price—this company's problem is not in market sentiment; it is in the three financial statements and the three footnotes.
 
 ## Sources
 

@@ -24,13 +24,13 @@ Duan Yongping asks only three questions about a company: is the business model g
 
 The core of the business model is "I define the chip for you, and you can't switch away from me." Custom ASIC takes two years from architecture to mass production, involving deep coupling across SerDes, packaging, power and the software stack; a customer switching suppliers means redoing two years of engineering. The pricing power this relationship confers is real — a 75% Non-GAAP gross margin, 17 percentage points above TSMC, because it sells design and IP, not fab depreciation.
 
-The downside is equally clear: **six customers determine its fate**. Google, Meta, OpenAI, Anthropic, ByteDance, plus one undisclosed customer, underpin USD 16.7 billion in single-quarter AI revenue. Duan Yongping's habit is to treat "customer concentration" as a hard constraint, not as part of the growth story. He would ask: if Anthropic slows next year, who fills the gap? If Google hands its next-generation TPU to MediaTek, what happens to Broadcom? With no answers to these two questions, the position should be sized so it doesn't keep you up at night.
+The downside is equally clear: six customers determine its fate. Google, Meta, OpenAI, Anthropic, ByteDance, plus one undisclosed customer, underpin USD 16.7 billion in single-quarter AI revenue. Duan Yongping's habit is to treat "customer concentration" as a hard constraint, not as part of the growth story. He would ask: if Anthropic slows next year, who fills the gap? If Google hands its next-generation TPU to MediaTek, what happens to Broadcom? With no answers to these two questions, the position should be sized so it doesn't keep you up at night.
 
 ## Buffett: Full marks for capital allocation, deductions for off-balance-sheet commitments
 
 Buffett would look at capital allocation first, and on this measure Broadcom is almost textbook. Over twenty years, Hock Tan has done seven major acquisitions: LSI at USD 660 million, Brocade at USD 5.5 billion, CA at USD 18.9 billion, Symantec's enterprise business at USD 10.7 billion, and VMware at USD 61 billion. Each one bought assets "already installed in customer data centers and impossible to rip out," then used cash flow to pay down debt, buy back stock and pay dividends. This is not the growth-stock playbook; it is the classic "use someone else's company to generate your own cash flow."
 
-He would also immediately notice two things. First, the USD 59.6 billion of fixed-rate debt — that is not frightening, with interest coverage of 25x, it amounts to buying a 40% return asset with 4% money. Second, **the financing support provided for AI customers' purchases** — that is frightening. **Buffett's attitude toward off-balance-sheet commitments is zero tolerance**, because a guarantee is a promise in good times and a liability in a downturn, and at a turning point you cannot choose to exit.
+He would also immediately notice two things. First, the USD 59.6 billion of fixed-rate debt — that is not frightening, with interest coverage of 25x, it amounts to buying a 40% return asset with 4% money. Second, the financing support provided for AI customers' purchases — that is frightening. Buffett's attitude toward off-balance-sheet commitments is zero tolerance, because a guarantee is a promise in good times and a liability in a downturn, and at a turning point you cannot choose to exit.
 
 So he would most likely deliver this verdict: a first-class company, but I cannot understand its off-balance-sheet; wait until it explains the structure clearly, or until the price falls to where I can bear the worst case. 18x PE is not enough, because 18x rests on the premise that the guarantee does not blow up.
 
@@ -38,7 +38,7 @@ So he would most likely deliver this verdict: a first-class company, but I canno
 
 Munger wouldn't look at the model; he'd look at the incentives. Broadcom's incentive right now is "sell the chips," and it will take on customer credit risk to do so; the customers' incentive is "build compute as fast as possible," because falling behind means losing the race. Both incentives point the same way: grow the orders, push the risk out into the future.
 
-This is the most typical setup at a cycle top. Munger would cite the equipment makers of 2000 and the mortgage underwriters of 2008: **the business model itself is fine; the problem is the counterparty risk taken on for growth, taken on at precisely the moment it should least be taken.**
+This is the most typical setup at a cycle top. Munger would cite the equipment makers of 2000 and the mortgage underwriters of 2008: the business model itself is fine; the problem is the counterparty risk taken on for growth, taken on at precisely the moment it should least be taken.
 
 He would also give three specific triggers: ① capex at the six major customers peaks in 2028, and AI revenue growth falls from 100% to 20%; ② the first default appears on the financing platform, and the guarantees come back onto the balance sheet; ③ MediaTek's TPU V80 or Nvidia's open ecosystem takes away a major customer. If any one of these happens, the stock doesn't fall 26%; it falls by half.
 
@@ -48,17 +48,17 @@ His conclusion is usually short: good company, bad timing.
 
 Li Lu would look at it through technology evolution. AI compute is splitting from "general-purpose GPU" into "training GPU + inference ASIC": training needs flexibility, inference needs to be cheap. Inference is extremely cost-sensitive, and custom chips can be half the price — an irreversible structural change: once model architectures stabilize, dedicated chips will take share from general-purpose chips.
 
-Broadcom is best positioned in this trend because it does both XPU and the Ethernet switching that connects these chips (Tomahawk 6 already covers nearly all XPU customers). **Many sell compute; only Broadcom sells both compute and "the roads between compute."**
+Broadcom is best positioned in this trend because it does both XPU and the Ethernet switching that connects these chips (Tomahawk 6 already covers nearly all XPU customers). Many sell compute; only Broadcom sells both compute and "the roads between compute."
 
 But he would add a note on cyclicality: ASIC demand comes from the capex of six companies, and part of that money comes from financing. When financing costs rise, growth across the entire chain steps down. So his judgment is "right direction, right position, uncertain timing" — a judgment that calls for small positions, long holding periods, and waiting for price.
 
 ## Odds: symmetric upside, asymmetric certainty
 
-Three scenarios side by side: 37% downside, 42% upside, 9% neutral. **The range is roughly symmetric; the probabilities are not.**
+Three scenarios side by side: 37% downside, 42% upside, 9% neutral. The range is roughly symmetric; the probabilities are not.
 
 The upside path requires six things to hold at once: FY27 AI revenue of RMB 115 billion delivered, six customers spending as planned, gross margin held at 71%, software not decelerating, the financing platform not blowing up, and the market willing to pay 20x. The downside path requires only one thing: any one of them fails.
 
-On expected value: weighted at 25%/50%/25%, the target price is about USD 351, essentially the current price. **That is the mathematical meaning of "watch"—not bearish, just no positive expectancy.**
+On expected value: weighted at 25%/50%/25%, the target price is about USD 351, essentially the current price. That is the mathematical meaning of "watch"—not bearish, just no positive expectancy.
 
 Only two paths turn it into positive expectancy: the price falls below USD 300 (29% upside in the neutral scenario), or uncertainty over the financing structure clears (cutting the pessimistic scenario's probability from 25% to 10%). The first waits on the market, the second on earnings.
 
@@ -68,7 +68,7 @@ One gap runs through all four analyses: nobody can say where the gross margin fl
 
 What is known: FY25Q4 78%, FY26Q2 77.1%, FY26Q3 75.0%, FY26Q4 guidance 73%. On the AI revenue path of RMB 58 billion in FY26 and RMB 115 billion in FY27, the XPU mix will keep rising and the HBM cost share will keep rising, so 73% is most likely not the floor.
 
-**Rough estimate: if 66% of FY27 revenue of USD 173.5 billion is AI chips and 34% is software and non-AI, blended gross margin will fall another 2–3 points from FY26 to around 71%.** That number is not a disaster—a 71% gross margin still exceeds that of any large semiconductor company—but it changes how the stock is valued: the market will no longer apply a "software company" multiple, but a "hardware company plus software attach" multiple.
+Rough estimate: if 66% of FY27 revenue of USD 173.5 billion is AI chips and 34% is software and non-AI, blended gross margin will fall another 2–3 points from FY26 to around 71%. That number is not a disaster—a 71% gross margin still exceeds that of any large semiconductor company—but it changes how the stock is valued: the market will no longer apply a "software company" multiple, but a "hardware company plus software attach" multiple.
 
 That is also why 18x is reasonable: the market is already pricing in gross margin decline. The real risk is not gross margin falling to 71%, but falling below 68% while still being called a "structural issue." That would signal pricing power is being lost.
 

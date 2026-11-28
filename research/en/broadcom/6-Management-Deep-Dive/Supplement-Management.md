@@ -38,21 +38,21 @@ Hock Tan is not a technical CEO but a financial one. His methodology has four st
 
 This playbook worked at CA and Symantec: revenue at both companies declined after the acquisitions, but operating margins and free cash flow rose sharply. VMware is a scaled-up version of the same logic—the deal closed in November 2023, and by 2024 perpetual licenses had been converted to subscriptions. Customers complained loudly, but software revenue rose from USD 21.5 billion in fiscal 2024 to around USD 35 billion in FY26 (rough calculation).
 
-**The premise of this playbook is that the customers you buy cannot walk away.** VMware's virtualization runs in enterprise data centers, and replacing it means rebuilding the entire IT architecture, so it can raise prices. The same premise holds for the chip business, except the counterparty shifts from IT departments to six AI labs.
+The premise of this playbook is that the customers you buy cannot walk away. VMware's virtualization runs in enterprise data centers, and replacing it means rebuilding the entire IT architecture, so it can raise prices. The same premise holds for the chip business, except the counterparty shifts from IT departments to six AI labs.
 
 ## Integrity and governance: three controversies brought into the open
 
 The first was in 2018. Broadcom launched a hostile USD 117 billion bid for Qualcomm, which CFIUS blocked on national-security grounds, and Trump signed an executive order prohibiting the deal. That episode defined Broadcom's political identity: incorporated in Singapore and headquartered in California, it is treated as "foreign," and major M&A must clear political hurdles.
 
-The second was VMware's pricing. From 2024, perpetual licenses shifted to subscriptions, products were bundled, and some customers saw price increases of several multiples; AT&T sued, and regulators in Europe and the UK also voiced concerns. **This is not an accounting issue but a commercial credibility issue** — revenue rose in the short term, while customer relationships were damaged over the long term.
+The second was VMware's pricing. From 2024, perpetual licenses shifted to subscriptions, products were bundled, and some customers saw price increases of several multiples; AT&T sued, and regulators in Europe and the UK also voiced concerns. This is not an accounting issue but a commercial credibility issue — revenue rose in the short term, while customer relationships were damaged over the long term.
 
-The third was in September 2026, when the media questioned whether the company provides financing support to AI customers and whether its exposure is opaque. The company did not respond directly, stressing only on its earnings call that "orders are locked in." **What the three controversies share: none is fraud; all are choices to "trade structure for growth."**
+The third was in September 2026, when the media questioned whether the company provides financing support to AI customers and whether its exposure is opaque. The company did not respond directly, stressing only on its earnings call that "orders are locked in." What the three controversies share: none is fraud; all are choices to "trade structure for growth."
 
 ## Succession: the most easily overlooked risk
 
 Hock Tan was born in 1952 and will be 74 in 2026. The company has no public succession plan. The most likely internal candidate is Charlie Kawwas, President of Semiconductor Solutions, but he has never independently run a merger integration and has no capital-markets credibility.
 
-Much of this company's value hangs on Hock Tan: the judgment behind six acquisitions, the instinct for whether a customer "can walk away," and Wall Street's trust in him. **Once he leaves, Broadcom's valuation multiple drops a notch first, and only then do you get to judge whether the new CEO is up to it.**
+Much of this company's value hangs on Hock Tan: the judgment behind six acquisitions, the instinct for whether a customer "can walk away," and Wall Street's trust in him. Once he leaves, Broadcom's valuation multiple drops a notch first, and only then do you get to judge whether the new CEO is up to it.
 
 This is not alarmism. When Buffett buys a company, he asks whether it can still make money with a mediocre CEO in charge. Broadcom can — its customer relationships and IP will not disappear when the person changes. But the ability to "buy another VMware-scale company" will disappear, and that is precisely the source of the valuation expansion of the past decade.
 
@@ -62,9 +62,9 @@ Broadcom's board is small, with an independent-director ratio that meets Nasdaq 
 
 This structure is an advantage in the "buy cash flow" phase: decisions are fast, there is no wrangling, and it is not held hostage by short-term performance. In the "take on off-balance-sheet risk" phase, it is a hidden hazard: no one can block an invisible guarantee before the fact.
 
-**So the rating in this report carries an implicit judgment: we trust Tan Hock Eng's judgment, but we do not trust anyone's self-restraint over off-balance-sheet exposure.** Trusting a person's ability and trusting the boundaries of a mechanism are two different things.
+So the rating in this report carries an implicit judgment: we trust Tan Hock Eng's judgment, but we do not trust anyone's self-restraint over off-balance-sheet exposure. Trusting a person's ability and trusting the boundaries of a mechanism are two different things.
 
-One more detail is worth noting: Tan Hock Eng's compensation is almost entirely tied to the share price and free cash flow, with no metric tied to "off-balance-sheet exposure." Incentives determine behavior — he pushes financing arrangements because they lift orders and the share price at the same time, while the risk only surfaces two or three years later.**By the time he leaves, the next person will have to own that bill.**
+One more detail is worth noting: Tan Hock Eng's compensation is almost entirely tied to the share price and free cash flow, with no metric tied to "off-balance-sheet exposure." Incentives determine behavior — he pushes financing arrangements because they lift orders and the share price at the same time, while the risk only surfaces two or three years later.By the time he leaves, the next person will have to own that bill.
 
 ## Sources
 

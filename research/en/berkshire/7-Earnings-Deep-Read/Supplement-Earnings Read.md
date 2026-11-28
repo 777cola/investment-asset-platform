@@ -52,37 +52,37 @@ Segment share = each segment's pre-tax profit ÷ total segment pre-tax profit of
 
 ## Tier 1 revenue structure: half premiums, half real economy
 
-Of the five segments, the two insurance businesses combined posted RMB 4.086 billion (pre-tax), 35.6% of the segment total; the three physical businesses posted RMB 7.383 billion, 64.4%. **This is where Berkshire least resembles an "insurance company" — two-thirds of its profit comes from railroads, power and manufacturing.**
+Of the five segments, the two insurance businesses combined posted RMB 4.086 billion (pre-tax), 35.6% of the segment total; the three physical businesses posted RMB 7.383 billion, 64.4%. This is where Berkshire least resembles an "insurance company" — two-thirds of its profit comes from railroads, power and manufacturing.
 
 That structure saved it in Q3 2026. Insurance alone would have shown a 26.4% profit decline — an ugly quarter; adding the physical businesses' +12.6% narrowed it to -5.8%.
 
-The structure carries risk too: all three physical businesses are asset-heavy, regulated or bound by industrial cycles, with a growth ceiling of 5%–10%. **Getting overall growth back to double digits requires M&A, and M&A has not closed a big deal in three years.**
+The structure carries risk too: all three physical businesses are asset-heavy, regulated or bound by industrial cycles, with a growth ceiling of 5%–10%. Getting overall growth back to double digits requires M&A, and M&A has not closed a big deal in three years.
 
 ## Tier 2 — Profit quality: underwriting margin 8.6%, still profitable
 
-Underwriting profit was USD 1.352 billion; grossing back from a 91.4% combined ratio implies premium volume of about USD 15.7 billion. **For every USD 100 of premium collected, USD 91.4 goes out in losses and expenses, leaving USD 8.6 of profit.** A year ago that figure was about USD 15 (rough calculation on the same basis).
+Underwriting profit was USD 1.352 billion; grossing back from a 91.4% combined ratio implies premium volume of about USD 15.7 billion. For every USD 100 of premium collected, USD 91.4 goes out in losses and expenses, leaving USD 8.6 of profit. A year ago that figure was about USD 15 (rough calculation on the same basis).
 
 The underwriting margin falling from 15% to 8.6% is the most substantive deterioration in this report. The cause is GEICO: profit of USD 982 million, -45%. Auto insurance claims costs (repair labor hours, used-car residual values, medical) kept rising through 2025–2026, while premiums began to soften after fully repricing in 2024; the two moved in opposite directions and compressed the margin.
 
-Margins at the operating businesses are improving: BNSF +19.3% on volume recovery diluting fixed costs, BHE +8.3% on rate base expansion, Manufacturing +11.8% on restocking. **Together the three rose +12.6%, the only bright spot this quarter.**
+Margins at the operating businesses are improving: BNSF +19.3% on volume recovery diluting fixed costs, BHE +8.3% on rate base expansion, Manufacturing +11.8% on restocking. Together the three rose +12.6%, the only bright spot this quarter.
 
 ## Tier 3 Costs and investment income: short-term bond yields are a hidden deduction
 
-Insurance investment income of RMB 2.734 billion, -14.1%, is a line many analyses skip. It comes mainly from interest on USD 377.4 billion of cash and short-term bonds — **short-term bond yields slid from a 2024 high of 5.25% to 4.4%–4.6%, so the same principal earns 15% less**. This is the inevitable result of falling rates, unrelated to operating capability.
+Insurance investment income of RMB 2.734 billion, -14.1%, is a line many analyses skip. It comes mainly from interest on USD 377.4 billion of cash and short-term bonds — short-term bond yields slid from a 2024 high of 5.25% to 4.4%–4.6%, so the same principal earns 15% less. This is the inevitable result of falling rates, unrelated to operating capability.
 
 Another angle: 377.4 billion × 4.5% ÷ 4 ≈ USD 4.2 billion per quarter of interest income (rough calculation, including taxable versus tax-exempt structural differences); the gap versus the actual 2.734 billion comes from part of the funds being railroad/energy working capital and from the duration structure of the bond portfolio. The order of magnitude checks out.
 
-The RMB 9.4 billion gap between GAAP net profit of RMB 22.112 billion and operating profit of RMB 12.705 billion is entirely investment gains and losses (mark-to-market on equities). **The sign of this item can reverse every quarter and should not be used to judge operations.**
+The RMB 9.4 billion gap between GAAP net profit of RMB 22.112 billion and operating profit of RMB 12.705 billion is entirely investment gains and losses (mark-to-market on equities). The sign of this item can reverse every quarter and should not be used to judge operations.
 
 ## Layer 4 Cash flow and balance sheet: cash is piling up, assets are getting heavier
 
-Cash plus short-term debt stood at RMB 377.4 billion, up again from the second quarter; over the same period buybacks totaled RMB 9.647 billion and M&A spend RMB 16.2 billion (first three quarters). **Spending heavily while cash still rises means operating cash flow far exceeds the sum of these two items.**
+Cash plus short-term debt stood at RMB 377.4 billion, up again from the second quarter; over the same period buybacks totaled RMB 9.647 billion and M&A spend RMB 16.2 billion (first three quarters). Spending heavily while cash still rises means operating cash flow far exceeds the sum of these two items.
 
 This is the arithmetic proof of an "asset shortage": money compounds faster than it can be spent. Berkshire is not unwilling to buy; there are simply no targets large enough, or prices are not right.
 
-The asset side is getting heavier: total assets USD 1.304 trillion, equity USD 761.4 billion, leverage 1.7x. For an insurer this leverage is abnormally low — **it has deliberately switched off "insurer leverage" in exchange for the ability to never be forced to sell assets**. The cost is an ROE of just 10.4%.
+The asset side is getting heavier: total assets USD 1.304 trillion, equity USD 761.4 billion, leverage 1.7x. For an insurer this leverage is abnormally low — it has deliberately switched off "insurer leverage" in exchange for the ability to never be forced to sell assets. The cost is an ROE of just 10.4%.
 
-Book value per Class A share USD 536,590, up 10.5% year on year — the cleanest line of all: **even with profit declining, net assets still compound at a double-digit annual rate.**
+Book value per Class A share USD 536,590, up 10.5% year on year — the cleanest line of all: even with profit declining, net assets still compound at a double-digit annual rate.
 
 ## Sources
 

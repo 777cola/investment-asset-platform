@@ -24,13 +24,13 @@ Data sources: Meta 2026Q3 earnings (post-market on 2026/10/21), the October 26 f
 
 ## The first three hurdles: understandable, quantifiable, defensible
 
-The advertising business can be summed up in one sentence: users come back on their own every day, the platform sells that attention by the thousand impressions, and advertisers bid up the price based on conversion performance. Q3 2026 advertising revenue was USD 63.06 billion, 97.6% of total revenue, with impressions up 10% year over year and average price per ad up 14%. **Volume and price rising together shows advertisers are bidding for slots, not the platform cutting prices to buy volume.** This combination has appeared only two or three times in the past five years; Q2 2026 was impressions +14% and average price +12%. Two consecutive quarters of simultaneous volume and price gains is not seasonality.
+The advertising business can be summed up in one sentence: users come back on their own every day, the platform sells that attention by the thousand impressions, and advertisers bid up the price based on conversion performance. Q3 2026 advertising revenue was USD 63.06 billion, 97.6% of total revenue, with impressions up 10% year over year and average price per ad up 14%. Volume and price rising together shows advertisers are bidding for slots, not the platform cutting prices to buy volume. This combination has appeared only two or three times in the past five years; Q2 2026 was impressions +14% and average price +12%. Two consecutive quarters of simultaneous volume and price gains is not seasonality.
 
 Gross margin 79.3%, net margin 15.3%, operating cash flow USD 32.79 billion. Put those three together and you cannot find ten companies in the world. The moat scores 8, not 10, with the deduction for brand: Facebook's brand strength among younger users is slowly aging, Instagram still holds up, but the shift in user mix is a ten-year risk.
 
 ## Gate 4: Capability is not the problem; checks and balances are
 
-Zuckerberg held 13.4% as of October 1, and controls 60.6% of voting power through Class B shares carrying ten votes each. On October 21 the board approved the creation of non-voting Class C common stock, effective January 19, 2027, distributed 1:1 — in substance a two-for-one split. **This split changes no one's voting rights, but it institutionalizes the principle that shares can be printed without asking shareholders.**
+Zuckerberg held 13.4% as of October 1, and controls 60.6% of voting power through Class B shares carrying ten votes each. On October 21 the board approved the creation of non-voting Class C common stock, effective January 19, 2027, distributed 1:1 — in substance a two-for-one split. This split changes no one's voting rights, but it institutionalizes the principle that shares can be printed without asking shareholders.
 
 Five days later, on October 26, the company put it to use: USD 25 billion of Class A common stock (priced at USD 625) plus USD 12.5 billion of mandatory convertible preferred stock (6.5% coupon), for a total of USD 37.5 billion, alongside a Class C ATM program of up to USD 60 billion, launching as early as Q1 2027. Nvidia, AMD and Broadcom intend to subscribe up to USD 5 billion in aggregate, non-binding. Management says there are "no specific financing plans at present," but the tools and the window are in place.
 
@@ -38,15 +38,15 @@ This is not fraud; it is structure. The founder bets the advertising cash flow o
 
 ## Gate 5: The margin-of-safety math, recalculated for the share issuance
 
-The neutral assumption in the working paper is 2027 EPS of USD 28 at a 22x P/E, giving USD 620, flat with the current price. This calculation has one flaw: **it uses the share count before the equity issuance.**
+The neutral assumption in the working paper is 2027 EPS of USD 28 at a 22x P/E, giving USD 620, flat with the current price. This calculation has one flaw: it uses the share count before the equity issuance.
 
-USD 37.5 billion issued at USD 625 adds about 60 million shares, or 2.3% of 2.596 billion shares; if the full USD 60 billion ATM is used at an average price of USD 600, that adds about another 100 million shares, or 3.9%. Total dilution of 6% takes 2027 EPS from USD 28 to USD 26.4; at the same 22x, fair value is USD 580 — 4% below the current price. **In other words, after October 26, the expected return on buying at the current price goes from "zero" to "negative 4%."**
+USD 37.5 billion issued at USD 625 adds about 60 million shares, or 2.3% of 2.596 billion shares; if the full USD 60 billion ATM is used at an average price of USD 600, that adds about another 100 million shares, or 3.9%. Total dilution of 6% takes 2027 EPS from USD 28 to USD 26.4; at the same 22x, fair value is USD 580 — 4% below the current price. In other words, after October 26, the expected return on buying at the current price goes from "zero" to "negative 4%."
 
 Of course, the money raised will become compute capacity, and compute capacity will become revenue, so it may not dilute value in the long run. But that is a 2028 story. 2027 EPS is a certain subtraction; revenue is a probabilistic addition — that is why the margin of safety does not exist.
 
 ## Stage six: discipline, and two verifiable premises
 
-The sixth gate asks: can you write the buy thesis as a single sentence that can be falsified? Right now you can't. "Muse will monetize in three years" can't be verified, and "AI spending will pay off" even less so. Only one thing can be verified: **in 2027, total expense growth will be lower than revenue growth.**
+The sixth gate asks: can you write the buy thesis as a single sentence that can be falsified? Right now you can't. "Muse will monetize in three years" can't be verified, and "AI spending will pay off" even less so. Only one thing can be verified: in 2027, total expense growth will be lower than revenue growth.
 
 The 2026 expense guidance is USD 175–179 billion, capex guidance is USD 135–145 billion, and 83.06 billion was already spent in the first three quarters. Management said only "significant increase" for 2027, without a number. Until that number comes out, every earnings forecast is a guess.
 
@@ -54,9 +54,9 @@ The discipline gate scores 3, not because it will necessarily lose money, but be
 
 ## Beyond the six gates, two easily overlooked details
 
-**First, fewer people, more money.** Headcount stood at 66,775 at the end of September, down about 12,000 (1.2 万) year on year; over the same period R&D expense rose 32% and capital expenditure rose 85.6%. The company has swapped labor cost for compute cost — the standard move of capital substituting for labor. The upside is a more variable cost structure; the downside is that once depreciation begins, it does not stop when revenue slows.
+First, fewer people, more money. Headcount stood at 66,775 at the end of September, down about 12,000 (12,000) year on year; over the same period R&D expense rose 32% and capital expenditure rose 85.6%. The company has swapped labor cost for compute cost — the standard move of capital substituting for labor. The upside is a more variable cost structure; the downside is that once depreciation begins, it does not stop when revenue slows.
 
-**Second, future commitments are already heavy.** The company disclosed about USD 825 billion in signed lease and purchase commitments, most tied to AI compute and energy infrastructure. That money is not on the balance sheet, but it must be paid out of cash flow in 2027–2030. **Looking at Meta means looking not just at capital expenditure but at the total curve of "capex + off-balance-sheet commitments"** — it sets the ceiling on free cash flow for the next three years.
+Second, future commitments are already heavy. The company disclosed about USD 825 billion in signed lease and purchase commitments, most tied to AI compute and energy infrastructure. That money is not on the balance sheet, but it must be paid out of cash flow in 2027–2030. Looking at Meta means looking not just at capital expenditure but at the total curve of "capex + off-balance-sheet commitments" — it sets the ceiling on free cash flow for the next three years.
 
 ## Sources
 

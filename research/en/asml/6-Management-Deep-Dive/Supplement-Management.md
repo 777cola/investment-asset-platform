@@ -52,7 +52,7 @@ There is a defensible read from another angle: ASML's customers are treating AI 
 
 ASML's governance record ranks in the top tier among European equities: a Dutch two-tier board, an independent supervisory board, a 4% shareholding disclosure threshold, and fully staffed audit and remuneration committees. The past decade brought no financial restatements, no related-party scandals, no insider-trading penalties against management.
 
-The one item worth noting is the 2024 "Dutch business climate" episode: the company publicly complained that Eindhoven's power grid, housing and talent visas could not keep pace with its expansion, and it even discussed expanding abroad. The Dutch government then launched the roughly EUR 2.5 billion "Project Beethoven" to upgrade infrastructure and keep the headquarters in the country. **The lesson: a company's capacity plans can be held hostage by a country's housing policy.**
+The one item worth noting is the 2024 "Dutch business climate" episode: the company publicly complained that Eindhoven's power grid, housing and talent visas could not keep pace with its expansion, and it even discussed expanding abroad. The Dutch government then launched the roughly EUR 2.5 billion "Project Beethoven" to upgrade infrastructure and keep the headquarters in the country. The lesson: a company's capacity plans can be held hostage by a country's housing policy.
 
 ## Succession: the biggest uncertainty of the next five years
 

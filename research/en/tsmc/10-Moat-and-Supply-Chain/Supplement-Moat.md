@@ -56,7 +56,7 @@ Conversely, lacking this moat is not fatal—because the other four are solid en
 
 Samsung's 2nm still trails by one to two years on yield, and SMIC is locked at the 7nm-class node by equipment controls; neither is a threat near term. Intel, with US government backing and 18A ramping, is the only rival that could reshape the landscape after 2028—but it lacks customer trust and scale, and both take time to earn.
 
-The real worry is not rivals but customers building their own capacity: Nvidia and Apple are both evaluating moving some mature-node orders elsewhere. That will not shake the leading-edge position, but it will thin the buffer in capacity utilization.**The moat's biggest fear is not being breached, but being bypassed.**
+The real worry is not rivals but customers building their own capacity: Nvidia and Apple are both evaluating moving some mature-node orders elsewhere. That will not shake the leading-edge position, but it will thin the buffer in capacity utilization.The moat's biggest fear is not being breached, but being bypassed.
 
 One more point: what reshapes the landscape may not be any single company but "alternative routes in advanced packaging." If glass substrates or panel-level packaging mature by 2028, CoWoS's exclusivity will erode—this risk deserves closer watching than either Samsung or Intel.
 
@@ -66,13 +66,13 @@ Evidence 1: 2026 2nm quotes are 30%–50% higher than 3nm, and customers accept 
 
 Evidence 2: Customers prepay capacity deposits (contract liabilities grow). The foundry norm is payment on delivery; prepayment shows scarcity sits with the seller.
 
-Evidence 3: Price increases do not affect share. TSMC's 2026 share is about 70%, higher than in 2024—normal commercial logic says price increases lose share; it did not. **Taken together, the three pieces of evidence show its pricing power is not a temporary gift from the cycle but structural.**
+Evidence 3: Price increases do not affect share. TSMC's 2026 share is about 70%, higher than in 2024—normal commercial logic says price increases lose share; it did not. Taken together, the three pieces of evidence show its pricing power is not a temporary gift from the cycle but structural.
 
 ## VI. Quantifying supply-chain risk
 
 Three single points of failure: EUV lithography tools (ASML sole supplier, 18-month lead time), advanced packaging interposer materials (mainly Japanese suppliers), and specialty gases and photoresists (mainly Japanese suppliers). Disruption at any one halts advanced-node production. This is not a theoretical risk—when Japan restricted photoresist exports to Korea in 2019, Samsung's lines ran tight for six months.
 
-TSMC's response is "multi-sourcing + safety stock + cultivating local suppliers," alongside strategic investments in key equipment vendors. But there is no second supplier of EUV—this is structural. **For investors, this means "supply chain disruption" is a risk that diversification cannot eliminate; only position sizing can.**
+TSMC's response is "multi-sourcing + safety stock + cultivating local suppliers," alongside strategic investments in key equipment vendors. But there is no second supplier of EUV—this is structural. For investors, this means "supply chain disruption" is a risk that diversification cannot eliminate; only position sizing can.
 
 ## Sources
 

@@ -25,27 +25,27 @@ Reconciliation method: for each metric, take two independent sources, "company a
 
 ## The only deviation above 1%: 2025 net margin
 
-30.28% and 28.24% differ by 7.2% — that is not a decimal-point issue, it is two different bases. **RMB 10.797 billion is net profit attributable to shareholders; RMB 38.240 billion is operating revenue; dividing one by the other necessarily gives 28.24%.** The platform shows 30.28%, implying the numerator used total net profit (including minority interests) — but Zhongji Innolight's minority interest is very small, so a 7-percentage-point gap looks more like the platform conflating pre/post non-recurring or including other businesses. 
+30.28% and 28.24% differ by 7.2% — that is not a decimal-point issue, it is two different bases. RMB 10.797 billion is net profit attributable to shareholders; RMB 38.240 billion is operating revenue; dividing one by the other necessarily gives 28.24%. The platform shows 30.28%, implying the numerator used total net profit (including minority interests) — but Zhongji Innolight's minority interest is very small, so a 7-percentage-point gap looks more like the platform conflating pre/post non-recurring or including other businesses. 
 
-The fix is simple: **for any ratio, recalculate using the numerator and denominator from the same table; never cite a third-party pre-computed ratio.** Same for the 2026H1 net margin: 136.51/417.78 = 32.68%, versus 32.7% in the working papers — consistent after rounding.
+The fix is simple: for any ratio, recalculate using the numerator and denominator from the same table; never cite a third-party pre-computed ratio. Same for the 2026H1 net margin: 136.51/417.78 = 32.68%, versus 32.7% in the working papers — consistent after rounding.
 
 ## One item differs in scope: which date's total share count to use
 
-The half-year report cover shows 1,169,734,641 shares (including 54.50 million H shares), which is the figure as of June 30. The H shares listed on July 30, and the over-allotment of 8.175 million shares was completed on August 31, bringing total share capital to about 1.178 billion shares. **Valuation must use the latest 1.178 billion shares; otherwise market cap will be understated by RMB 7 billion.**
+The half-year report cover shows 1,169,734,641 shares (including 54.50 million H shares), which is the figure as of June 30. The H shares listed on July 30, and the over-allotment of 8.175 million shares was completed on August 31, bringing total share capital to about 1.178 billion shares. Valuation must use the latest 1.178 billion shares; otherwise market cap will be understated by RMB 7 billion.
 
 Cross-check: RMB 925.236 × 1.178 billion shares = RMB 10,899 billion, consistent with the working paper's "about RMB 1.09 trillion"; using 1.1697 billion shares by mistake gives RMB 10,822 billion, a 0.7% difference that is still within an acceptable range but would feed through to the target price.
 
 ## Self-consistency check: TTM vs. single-quarter breakdown
 
-Three figures must reconcile; if they do not, one has been copied wrong. **TTM net profit = full-year 2025 107.97 − 2025H1 39.95 + 2026H1 136.51 = RMB 20.453 billion**, matching the RMB 20.45 billion in the working papers; EPS = 204.53/11.78 = RMB 17.36, and 53.3x PE = 925.24/17.36, so it closes.
+Three figures must reconcile; if they do not, one has been copied wrong. TTM net profit = full-year 2025 107.97 − 2025H1 39.95 + 2026H1 136.51 = RMB 20.453 billion, matching the RMB 20.45 billion in the working papers; EPS = 204.53/11.78 = RMB 17.36, and 53.3x PE = 925.24/17.36, so it closes.
 
-The quarterly breakdown also closes: Q1 revenue RMB 19.496 billion (disclosed in the Q1 report, +192.12%), H1 RMB 41.778 billion, Q2 = RMB 22.282 billion, up 14.3% QoQ; Q1 net profit RMB 5.735 billion (+262.28%), Q2 = RMB 7.916 billion, up 38.0% QoQ.**Q2 profit grew far faster than revenue QoQ, showing that the 1.6T structural upgrade only truly reached gross margin in Q2.**
+The quarterly breakdown also closes: Q1 revenue RMB 19.496 billion (disclosed in the Q1 report, +192.12%), H1 RMB 41.778 billion, Q2 = RMB 22.282 billion, up 14.3% QoQ; Q1 net profit RMB 5.735 billion (+262.28%), Q2 = RMB 7.916 billion, up 38.0% QoQ.Q2 profit grew far faster than revenue QoQ, showing that the 1.6T structural upgrade only truly reached gross margin in Q2.
 
 ## Final adopted basis
 
-Conventions: **Revenue and profit use consolidated attributable-to-parent figures; all ratios are self-calculated; total shares 1.178 billion; market cap RMB 1.09 trillion; PE 53.3x (TTM); full-year 2026 net profit of RMB 31 billion is a rough estimate (H1 already delivered RMB 13.651 billion, assuming H2 slightly better than H1), used only for forward PE, not as a forecast.**
+Conventions: Revenue and profit use consolidated attributable-to-parent figures; all ratios are self-calculated; total shares 1.178 billion; market cap RMB 1.09 trillion; PE 53.3x (TTM); full-year 2026 net profit of RMB 31 billion is a rough estimate (H1 already delivered RMB 13.651 billion, assuming H2 slightly better than H1), used only for forward PE, not as a forecast.
 
-One point must be made clear: **customer concentration of 81.9% and largest customer at 25.1% are on the 2026Q1 disclosure basis**; the interim report did not update these figures. This report uses the Q1 basis throughout and flags it, does not use it for quarter-on-quarter comparison, and cites it only as evidence of structural risk.
+One point must be made clear: customer concentration of 81.9% and largest customer at 25.1% are on the 2026Q1 disclosure basis; the interim report did not update these figures. This report uses the Q1 basis throughout and flags it, does not use it for quarter-on-quarter comparison, and cites it only as evidence of structural risk.
 
 ## Sources
 

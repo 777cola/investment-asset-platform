@@ -35,25 +35,25 @@ Scored on a subjective 10-point scale, five equally weighted dimensions, weighte
 
 ## Position in the value chain: it is the buyer's buyer
 
-An ordinary company sits in the middle of the "supplier—itself—customer" chain, and its bargaining power depends on how many substitutes exist. Berkshire is not on this chain; it sits **above** it: it buys a slice of the entire chain (railroads, electricity, manufacturing) while providing insurance and capital to the entire chain.
+An ordinary company sits in the middle of the "supplier—itself—customer" chain, and its bargaining power depends on how many substitutes exist. Berkshire is not on this chain; it sits above it: it buys a slice of the entire chain (railroads, electricity, manufacturing) while providing insurance and capital to the entire chain.
 
-This confers an advantage others lack: **it can use money from insurance liabilities to buy physical assets**, at a negative cost of capital. A railroad issuing bonds to build track pays 5% interest; Berkshire builds with float at a cost of -1%. On the same asset, that is a 6-point difference in return.
+This confers an advantage others lack: it can use money from insurance liabilities to buy physical assets, at a negative cost of capital. A railroad issuing bonds to build track pays 5% interest; Berkshire builds with float at a cost of -1%. On the same asset, that is a 6-point difference in return.
 
 The disadvantage is that it must manage two kinds of business at once: underwriting discipline (no price cuts for the sake of scale) and capital discipline (no reckless buying for the sake of growth). Historically, its mistakes have fallen into both categories.
 
 ## The Thinnest Link: Switching Costs of Just 5 Cents
 
-Auto insurance is Berkshire's largest "non-sticky" business. When customers renew each year, they open a comparison site and switch for USD 50 more. GEICO retains customers through price and claims experience, not contracts. **This means its profit will always be compressed back to the industry average by competition.**
+Auto insurance is Berkshire's largest "non-sticky" business. When customers renew each year, they open a comparison site and switch for USD 50 more. GEICO retains customers through price and claims experience, not contracts. This means its profit will always be compressed back to the industry average by competition.
 
 Railroads are slightly stickier: building dedicated lines, signing multi-year agreements and integrating dispatch systems means switching suppliers takes months. But bulk shippers (coal, grain) are extremely sensitive to freight rates and use trucks to push prices down.
 
-The stickiness of manufacturing businesses depends on the specific company: PCP's aerospace forging certification cycle is 3–5 years, so stickiness is strong; Clayton's prefabricated-home customers focus on price, so stickiness is weak. **An overall score of 5, the weakest link in this portfolio, and one reason its ROE is only 10.4%.**
+The stickiness of manufacturing businesses depends on the specific company: PCP's aerospace forging certification cycle is 3–5 years, so stickiness is strong; Clayton's prefabricated-home customers focus on price, so stickiness is weak. An overall score of 5, the weakest link in this portfolio, and one reason its ROE is only 10.4%.
 
 ## The most dangerous competitor: not an insurer, but Progressive plus 4.5% Treasuries
 
-**Layer one: Progressive.** In auto insurance it uses usage-based insurance (UBI) to hold its loss ratio 3–5 points below GEICO's, while grabbing share through advertising and direct sales. GEICO's profit fell 45% this quarter — partly cyclical, partly a deliberate cession of share. **If GEICO's in-force policy count falls for three consecutive quarters, that is structural defeat.**
+Layer one: Progressive. In auto insurance it uses usage-based insurance (UBI) to hold its loss ratio 3–5 points below GEICO's, while grabbing share through advertising and direct sales. GEICO's profit fell 45% this quarter — partly cyclical, partly a deliberate cession of share. If GEICO's in-force policy count falls for three consecutive quarters, that is structural defeat.
 
-**Layer two: 4.5% US short-term Treasuries.** This is the truly lethal competitor. When the risk-free rate is 4.5%, an equity yielding 8%–10% annualized with 15% volatility does not win on a risk-adjusted basis. Berkshire itself has 377.4 billion parked in short-term Treasuries — **a de facto admission that the opportunity cost is high.**
+Layer two: 4.5% US short-term Treasuries. This is the truly lethal competitor. When the risk-free rate is 4.5%, an equity yielding 8%–10% annualized with 15% volatility does not win on a risk-adjusted basis. Berkshire itself has 377.4 billion parked in short-term Treasuries — a de facto admission that the opportunity cost is high.
 
 The two competitors differ in nature: Progressive is taking profit, short-term Treasuries are taking capital. The latter is harder to fight because it is macro.
 

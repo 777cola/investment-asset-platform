@@ -42,7 +42,7 @@ SK Square holds 20.5%, a control channel rather than an operator. The structure 
 
 ## Capital allocation: three big bets, two wins
 
-The first was the USD 9 billion purchase of Intel's NAND business in 2021. At the time, the market widely viewed it as overpaying — NAND was the worst segment of the cycle, and Solidigm lost money for three straight years. In hindsight, the deal bought enterprise SSD customer relationships and QLC technology, which became an asset in 2026 when AI servers needed high-capacity storage.**But it also shows management is willing to pay a premium for "strategic position"** — that is both a strength and a risk.
+The first was the USD 9 billion purchase of Intel's NAND business in 2021. At the time, the market widely viewed it as overpaying — NAND was the worst segment of the cycle, and Solidigm lost money for three straight years. In hindsight, the deal bought enterprise SSD customer relationships and QLC technology, which became an asset in 2026 when AI servers needed high-capacity storage.But it also shows management is willing to pay a premium for "strategic position" — that is both a strength and a risk.
 
 The second was the contrarian bet on HBM in 2023, which paid off and was the single most critical step of the whole cycle. The third is the two-track move in 2026: approving KRW 12.2 trillion in buybacks and cancellation on one hand, while raising USD 26.5 billion at the July peak on the other. Financially the two are not contradictory (one boosts per-share value, the other replenishes expansion funding), but the signals conflict — the buyback says "the stock is cheap," while the offering says "the stock is high enough, a good time to raise capital."
 
@@ -58,13 +58,13 @@ Another governance detail: choosing to cancel treasury shares rather than hold t
 
 Kwak Noh-jung took office in 2022, with a three-year term under corporate governance rules; there is no public information on whether he will be reappointed in 2026. None of Chey Tae-won's three children sits on SK hynix's board, and the group's succession plan has not been disclosed.
 
-For investment judgment this is neutral information: SK hynix's core assets are its production lines, process technology and customer qualifications, not any one person's charisma. A CEO change affects the pace of capital expenditure, but it will not make HBM4 yields disappear. **What really matters is not who succeeds, but the capex preferences of the person who does**—whether they continue to "pull the schedule forward" or revert to "wait for the industry to recover before investing."
+For investment judgment this is neutral information: SK hynix's core assets are its production lines, process technology and customer qualifications, not any one person's charisma. A CEO change affects the pace of capital expenditure, but it will not make HBM4 yields disappear. What really matters is not who succeeds, but the capex preferences of the person who does—whether they continue to "pull the schedule forward" or revert to "wait for the industry to recover before investing."
 
 ## Incentive structure: why Korean executives do not rely on options
 
 The compensation structure for SK hynix executives is entirely different from Silicon Valley: base salary dominates, bonuses are tied to operating profit (with a cap), and there are no large option packages. This has two consequences.
 
-The upside: management won't take short-term actions to pump the share price, nor buy back stock to prop up the market for option exercise. The downside: **the correlation between their personal payoff and shareholder returns is weak**. For getting the HBM decision right, Kwak Noh-jung's bonus may be just a few times his annual salary, not billions of won.
+The upside: management won't take short-term actions to pump the share price, nor buy back stock to prop up the market for option exercise. The downside: the correlation between their personal payoff and shareholder returns is weak. For getting the HBM decision right, Kwak Noh-jung's bonus may be just a few times his annual salary, not billions of won.
 
 This also explains why capital allocation at large Korean companies is often "right on the industry, mediocre for shareholders" — incentives are tied not to the share price but to scale and status. SK hynix's cancellation-style buyback in February 2026 is an exception within this incentive system, and worth noting.
 

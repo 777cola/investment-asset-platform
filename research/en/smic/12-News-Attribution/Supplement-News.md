@@ -35,17 +35,17 @@ Share-price reactions are taken from exchange daily quotes (A-share 688981, H-sh
 
 ## Three themes: price hikes, consolidation, narrative
 
-**Price hikes are a real signal.** A May 20 report confirmed two things: Q1 ASP rose 2.5% QoQ while shipments fell 0.2% QoQ, and "foundry prices for some products in advantageous segments rose steadily." This directly supports Q2 guidance of 14%–16% QoQ growth; the A-share rose 12.62% that day on RMB 29 billion turnover.
+Price hikes are a real signal. A May 20 report confirmed two things: Q1 ASP rose 2.5% QoQ while shipments fell 0.2% QoQ, and "foundry prices for some products in advantageous segments rose steadily." This directly supports Q2 guidance of 14%–16% QoQ growth; the A-share rose 12.62% that day on RMB 29 billion turnover.
 
-**Consolidation is a real signal.** The RMB 40.6 billion acquisition of 49% of SMIC North passed review on May 11, was registered on May 20 and completed in early July — the largest restructuring in STAR Market history. It buys back minority interests in a cash cow, accretive to net profit attributable to parent, but also 7% dilutive. The stock reacted positively because the deal was also read as "greater state support."
+Consolidation is a real signal. The RMB 40.6 billion acquisition of 49% of SMIC North passed review on May 11, was registered on May 20 and completed in early July — the largest restructuring in STAR Market history. It buys back minority interests in a cash cow, accretive to net profit attributable to parent, but also 7% dilutive. The stock reacted positively because the deal was also read as "greater state support."
 
-**The narrative is sentiment.** On May 25 Huawei unveiled the "Tao Law," proposing logic folding and time scaling in place of geometric scaling, and claiming the equivalent of 1.4nm within five years. SMIC's A-share rose 18.78% that day; its H-share intraday hit HKD 93 the next day. **The speech brought SMIC not one new order, but it gave the market a story that SMIC can bypass EUV.**
+The narrative is sentiment. On May 25 Huawei unveiled the "Tao Law," proposing logic folding and time scaling in place of geometric scaling, and claiming the equivalent of 1.4nm within five years. SMIC's A-share rose 18.78% that day; its H-share intraday hit HKD 93 the next day. The speech brought SMIC not one new order, but it gave the market a story that SMIC can bypass EUV.
 
 ## Which moves are noise: none of the three selloffs was company-specific
 
-On 17 July A-shares fell -7.85% and H-shares -9.97%; on 30 July -6.04% / -7.74%; on 3 August -6.04%. What the three selloffs had in common: **no company-specific bad news** — all of it was cooling in the global AI trade and profit-taking in semiconductors. Hua Hong fell 11.9% and over 8% over the same period, with Cambricon and Montage falling in tandem.
+On 17 July A-shares fell -7.85% and H-shares -9.97%; on 30 July -6.04% / -7.74%; on 3 August -6.04%. What the three selloffs had in common: no company-specific bad news — all of it was cooling in the global AI trade and profit-taking in semiconductors. Hua Hong fell 11.9% and over 8% over the same period, with Cambricon and Montage falling in tandem.
 
-On 9 August UBS upgraded the H-shares from Neutral to Buy and raised its target price from HKD 76 to HKD 96.2 — the only positive sell-side report in three months. The result: on 10 August A-shares fell -1.75% and H-shares -1.05%, with volume shrinking to 42.8 万手 (the July peak was 250 万手). **The sell-side report created no buying, which shows that whoever wanted to buy has already bought.**
+On 9 August UBS upgraded the H-shares from Neutral to Buy and raised its target price from HKD 76 to HKD 96.2 — the only positive sell-side report in three months. The result: on 10 August A-shares fell -1.75% and H-shares -1.05%, with volume shrinking to 42.8 million shares (the July peak was 250 million shares). The sell-side report created no buying, which shows that whoever wanted to buy has already bought.
 
 The test for noise is simple: after the news breaks, if the fundamental numbers (ASP, utilization, depreciation) have not changed, it is noise. Three selloffs and one analyst upgrade all meet that test.
 
@@ -55,7 +55,7 @@ Lay out three months of events and the correlation between the share price and e
 
 A sentiment-priced market has one characteristic: it rises fast, falls fast, and needs no reason. From July 9 to August 10 the stock fell 27%, and the company issued no negative announcement in that window and left Q2 guidance unchanged. That decline was not "fundamental deterioration" but "valuation mean reversion."
 
-**What it means for holders:** if you bought on the "domestic substitution" thesis, these three months of volatility are irrelevant to you — what matters is 2027 capacity and depreciation; if you bought because "the stock will go up," you did not buy SMIC, you bought sentiment, and you need a stop-loss. **What it means for those on the sidelines:** wait for sentiment to clear, not for news to improve.
+What it means for holders: if you bought on the "domestic substitution" thesis, these three months of volatility are irrelevant to you — what matters is 2027 capacity and depreciation; if you bought because "the stock will go up," you did not buy SMIC, you bought sentiment, and you need a stop-loss. What it means for those on the sidelines: wait for sentiment to clear, not for news to improve.
 
 One more practical observation: volume in this rally clustered in late May and early July, both news-driven, with single-day turnover of RMB 25–37 billion, then rapidly shrinking to RMB 4–6 billion. This "pulse-style volume expansion" is typical of sentiment money — in fast, out fast, and no basis for long-term buying. Real long-term money entering usually shows up as weeks of moderate volume expansion, not a one-day spike.
 

@@ -50,7 +50,7 @@ You take on 36% downside to capture 4% upside at the midpoint. That is not inves
 
 The "supply shortage through 2028" story did not originate with this earnings report. The share-price gains since 2025 had already priced it in. The report only stated it more clearly; it added not a single dollar of present value.
 
-This is the familiar predicament of a good company: **everyone knows it is good, so its goodness is already in the price.** What you can still earn is only the "better than everyone expects" portion—and this quarter, there was none.
+This is the familiar predicament of a good company: everyone knows it is good, so its goodness is already in the price. What you can still earn is only the "better than everyone expects" portion—and this quarter, there was none.
 
 There is also a simpler explanation: the stock rose sharply from 2025 through the first half of 2026, and half of that gain was valuation expansion, not earnings. Valuation expansion rests on the premise that "everyone believes supply will be short through 2028." The company has now confirmed that premise itself—confirmation is realization, and realization is the sell signal.
 

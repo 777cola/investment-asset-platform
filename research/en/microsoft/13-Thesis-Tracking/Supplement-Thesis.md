@@ -22,40 +22,45 @@ Sources: Microsoft FY2026Q4 earnings release and earnings call (2026/07/29); Sha
 
 ## Three things that still hold: demand, orders and gross margin
 
-**Azure growth of 43%** is the hardest datapoint. It not only exceeds last quarter's 40%, but also comes with guidance of 45% for next quarter—management would not overstate a number to the market that it cannot deliver, because that number will be reconciled next quarter.
+Azure growth of 43% is the hardest datapoint. It not only exceeds last quarter's 40%, but also comes with guidance of 45% for next quarter—management would not overstate a number to the market that it cannot deliver, because that number will be reconciled next quarter.
 
-**RPO of RMB 678 billion, +84% YoY**, still +25% excluding OpenAI, shows order sources are broadening. The value of this datapoint is not the total, but that it rebuts the most popular challenge: that "Microsoft's AI revenue is a related-party transaction."
+RPO of RMB 678 billion, +84% YoY, still +25% excluding OpenAI, shows order sources are broadening. The value of this datapoint is not the total, but that it rebuts the most popular challenge: that "Microsoft's AI revenue is a related-party transaction."
 
-**Cloud gross margin of 65%**, though down YoY, remains above 60%. Given that Azure's share of compute is rising fast, holding 65% shows pricing power remains intact.
+Cloud gross margin of 65%, though down YoY, remains above 60%. Given that Azure's share of compute is rising fast, holding 65% shows pricing power remains intact.
 
 ## Partially holds: Copilot has volume but no pricing power
 
 30 million seats, net new seats doubling quarter on quarter — the volume side beat expectations. But the price side is a complete blank: no ARPU disclosed, no renewal rate disclosed, no disclosure of the revenue contribution from usage-based billing.
 
-At a rough annualized USD 10.8 billion based on the USD 30 list price, that is 3.3% of revenue — **a magnitude that is not enough to change the valuation, but enough to prove demand.** So the status is set as "partially confirmed": the direction of the hypothesis was right, but the validating metrics have not yet been obtained. If ARPU is still not disclosed in the next earnings report, this item should be downgraded from "pending verification" to "unverifiable".
+At a rough annualized USD 10.8 billion based on the USD 30 list price, that is 3.3% of revenue — a magnitude that is not enough to change the valuation, but enough to prove demand. So the status is set as "partially confirmed": the direction of the hypothesis was right, but the validating metrics have not yet been obtained. If ARPU is still not disclosed in the next earnings report, this item should be downgraded from "pending verification" to "unverifiable".
 
 ## One point that did not hold: no sign that capex has peaked
 
 The original assumption was that "FY2026 is the capex peak, and FY2027 begins to decline." In reality, FY2027 is planned at RMB 175 billion, 51% higher than FY2026's RMB 115.9 billion. Free cash flow is -23% year over year, negative growth for two consecutive quarters.
 
-This assumption must be rewritten, not discarded. The rewritten version is: **capex peaks in FY2027, depreciation peaks in FY2028, and free cash flow begins to be released in FY2029.** The entire timeline shifts back two years—meaning the holding period must be calculated as five years, not three. The purchase price must reflect this delay; this is the mathematical rationale for "phasing in."
+This assumption must be rewritten, not discarded. The rewritten version is: capex peaks in FY2027, depreciation peaks in FY2028, and free cash flow begins to be released in FY2029. The entire timeline shifts back two years—meaning the holding period must be calculated as five years, not three. The purchase price must reflect this delay; this is the mathematical rationale for "phasing in."
 
 ## Falsification conditions: when to abandon the thesis entirely
 
 Three triggers: cut the position if any one appears; exit fully if two appear at the same time:
 
-- **Azure growth below 30% for two consecutive quarters**, with management attributing it to "slowing demand" rather than "capacity constraints".
-- **RPO year-on-year growth falls below 20%**, with the 12-month conversion rate below 25% — the order book starts leaking.
-- **Cloud gross margin breaks below 55%**, signaling a real price war and exposing the 6-point weakness in cost advantage.
+- Azure growth below 30% for two consecutive quarters, with management attributing it to "slowing demand" rather than "capacity constraints".
+
+- RPO year-on-year growth falls below 20%, with the 12-month conversion rate below 25% — the order book starts leaking.
+
+- Cloud gross margin breaks below 55%, signaling a real price war and exposing the 6-point weakness in cost advantage.
 
 Note: a falling share price is not a falsification condition. A 30% drop with intact fundamentals is an opportunity to add; intact price with broken fundamentals is the real danger.
 
 ## Watch calendar for next steps
 
-- **Late October 2026 (FY2027Q1)**: Whether Azure growth is ≥40% (the first checkpoint against the 45% guidance), whether quarterly capex exceeds 45 billion, and whether Copilot seats reach 40 million.
-- **Late January 2027 (FY2027Q2)**: Year-over-year depreciation growth (to judge whether the depreciation curve is steep) and whether cloud gross margin holds at 62%.
-- **Late April 2027 (FY2027Q3)**: The final landing point for FY2027 capex — whether it truly comes in at 175 billion.
-- **July 2027 (FY2027 annual report)**: FY2028 capex guidance — the only evidence for whether the "peak" thesis holds.
+- Late October 2026 (FY2027Q1): Whether Azure growth is ≥40% (the first checkpoint against the 45% guidance), whether quarterly capex exceeds 45 billion, and whether Copilot seats reach 40 million.
+
+- Late January 2027 (FY2027Q2): Year-over-year depreciation growth (to judge whether the depreciation curve is steep) and whether cloud gross margin holds at 62%.
+
+- Late April 2027 (FY2027Q3): The final landing point for FY2027 capex — whether it truly comes in at 175 billion.
+
+- July 2027 (FY2027 annual report): FY2028 capex guidance — the only evidence for whether the "peak" thesis holds.
 
 ## Sources
 

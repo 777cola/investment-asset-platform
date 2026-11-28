@@ -23,37 +23,41 @@ Assumptions as of the 2026/10/30 close. The cloud revenue base of RMB 15.157 bil
 
 ## Hypothesis 1: Cloud growth — green, but this is the most easily misread one
 
-Q3 cloud revenue was RMB 30.71 billion, up 103% YoY — seemingly unstoppable. **But last year's comparable base was RMB 15.16 billion, meaning half of the growth came from a "low base."** If every quarter in 2027 sustained 100% growth, Q3 2027 cloud revenue would have to reach RMB 120 billion — unrealistic. So the real assumption is not "sustaining 103%" but "still above 50% after deceleration."
+Q3 cloud revenue was RMB 30.71 billion, up 103% YoY — seemingly unstoppable. But last year's comparable base was RMB 15.16 billion, meaning half of the growth came from a "low base." If every quarter in 2027 sustained 100% growth, Q3 2027 cloud revenue would have to reach RMB 120 billion — unrealistic. So the real assumption is not "sustaining 103%" but "still above 50% after deceleration."
 
-The evidence supporting this lies in backlog: RMB 56.1 billion, slightly above 55% of which is confirmed within 24 months. **That figure covers only 13% of quarterly cloud revenue, indicating growth comes mainly from immediate demand — high elasticity but low predictability.** So this assumption is "green," but not "solidly green."
+The evidence supporting this lies in backlog: RMB 56.1 billion, slightly above 55% of which is confirmed within 24 months. That figure covers only 13% of quarterly cloud revenue, indicating growth comes mainly from immediate demand — high elasticity but low predictability. So this assumption is "green," but not "solidly green."
 
 ## Assumption 2: depreciation — negative, because it is the only bad thing that is "certain to happen"
 
-RMB 200 billion of capex depreciated over six years is RMB 33.3 billion a year; by 2027 total depreciation doubles to over RMB 50 billion, equal to 10 percentage points of annualized revenue of RMB 500 billion. **If gross margin does not improve, operating margin falls from 32% to 22% — that is the most bearish calculation.** Reality will be somewhat better, because the scale effect from doubling cloud revenue absorbs part of it.
+RMB 200 billion of capex depreciated over six years is RMB 33.3 billion a year; by 2027 total depreciation doubles to over RMB 50 billion, equal to 10 percentage points of annualized revenue of RMB 500 billion. If gross margin does not improve, operating margin falls from 32% to 22% — that is the most bearish calculation. Reality will be somewhat better, because the scale effect from doubling cloud revenue absorbs part of it.
 
-Base case 30%, bear case 26%, bull case 32%. **The key question in this assumption is not "whether it falls" but "how far it falls"** — a fall to 30% is normal asset-heavy transformation; a fall to 26% means the valuation method has to change. The checkpoint is the depreciation detail in the 10-Q, not the language in the press release.
+Base case 30%, bear case 26%, bull case 32%. The key question in this assumption is not "whether it falls" but "how far it falls" — a fall to 30% is normal asset-heavy transformation; a fall to 26% means the valuation method has to change. The checkpoint is the depreciation detail in the 10-Q, not the language in the press release.
 
 ## Assumption 3: Free cash flow — red, but the nature of the red flag needs to be clear
 
-Q3 was -RMB 9.07 billion, negative for two consecutive quarters, with TTM at only RMB 19.7 billion. This assumption is now clearly falsified. **I want to distinguish two kinds of red flags: one is "the business doesn't make money," the other is "all the money it makes is being invested back out." Alphabet is the latter**—operating cash flow was positive at RMB 42.29 billion, it's just that capex of RMB 51.36 billion was larger.
+Q3 was -RMB 9.07 billion, negative for two consecutive quarters, with TTM at only RMB 19.7 billion. This assumption is now clearly falsified. I want to distinguish two kinds of red flags: one is "the business doesn't make money," the other is "all the money it makes is being invested back out." Alphabet is the latter—operating cash flow was positive at RMB 42.29 billion, it's just that capex of RMB 51.36 billion was larger.
 
-But a red flag is a red flag; it doesn't turn green just because it can be explained. **It means: anyone buying now must accept at least 4–6 quarters without seeing positive free cash flow.** If that timeframe exceeds your holding patience, this stock isn't for you—that's not a problem with the company, it's a problem of fit.
+But a red flag is a red flag; it doesn't turn green just because it can be explained. It means: anyone buying now must accept at least 4–6 quarters without seeing positive free cash flow. If that timeframe exceeds your holding patience, this stock isn't for you—that's not a problem with the company, it's a problem of fit.
 
 ## Assumptions four to six: search, regulation, option pricing
 
-**Search (Yellow).** Q3 +12% versus consensus +14%, a 2-percentage-point gap. This is not a collapse; it is the first observable signal that AI answers are starting to affect clicks. **The threshold is set at **Regulation (Green).** DOJ remedies exclude a breakup, the EU has only imposed fines, and appeals are underway. **The worst structural risk (AdX divestiture) affects 3% of market cap.** This can be downgraded from "core risk" to "background noise."
+Search (Yellow). Q3 +12% versus consensus +14%, a 2-percentage-point gap. This is not a collapse; it is the first observable signal that AI answers are starting to affect clicks. The threshold is set at —at that point it becomes a business-model problem, not a valuation problem.
 
-**Option pricing (Green).** Search at 15x EBIT is worth RMB 2.2 trillion, cloud at 25x 2027 EBIT is worth RMB 1 trillion; together RMB 3.2 trillion, close to the RMB 3.42 trillion market cap. **Gemini, Waymo and external TPU sales are genuinely not priced in—this is the source of the margin of safety, and also the source of risk if Waymo keeps losing RMB 8 billion a year.**
+Regulation (Green). DOJ remedies exclude a breakup, the EU has only imposed fines, and appeals are underway. The worst structural risk (AdX divestiture) affects 3% of market cap. This can be downgraded from "core risk" to "background noise."
+
+Option pricing (Green). Search at 15x EBIT is worth RMB 2.2 trillion, cloud at 25x 2027 EBIT is worth RMB 1 trillion; together RMB 3.2 trillion, close to the RMB 3.42 trillion market cap. Gemini, Waymo and external TPU sales are genuinely not priced in—this is the source of the margin of safety, and also the source of risk if Waymo keeps losing RMB 8 billion a year.
 
 ## Falsification conditions and monitoring calendar
 
-**Three falsification conditions; halve the position if any one triggers:**
+Three falsification conditions; halve the position if any one triggers:
 
 - Cloud revenue growth below 30% for two consecutive quarters while capex guidance is not cut — meaning the compute being bought cannot be sold.
+
 - Operating margin below 26% for two consecutive quarters — meaning depreciation has swallowed the scale effect.
+
 - Search and other revenue growth below 8% for two consecutive quarters — meaning AI diversion has moved from "affecting growth" to "eroding the existing base".
 
-**Watch calendar:** February 2027 Q4 results (full-year capex landing point + 2027 guidance + cloud growth); April 2027 Q1 results (first full disclosure of depreciation detail); July 2027 Q2 results (whether FCF turns positive); DOJ appeal ruling during 2027; check each quarter whether buybacks resume.**Make one decision per quarter, complete it within 48 hours, and do not watch the market the rest of the time.**
+Watch calendar: February 2027 Q4 results (full-year capex landing point + 2027 guidance + cloud growth); April 2027 Q1 results (first full disclosure of depreciation detail); July 2027 Q2 results (whether FCF turns positive); DOJ appeal ruling during 2027; check each quarter whether buybacks resume.Make one decision per quarter, complete it within 48 hours, and do not watch the market the rest of the time.
 
 ## Sources
 

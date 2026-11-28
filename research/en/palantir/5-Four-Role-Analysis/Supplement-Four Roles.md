@@ -10,9 +10,9 @@ The five perspectives in this module were written independently for this report 
 
 ## How to read these five reports
 
-The sequence runs from business to price: business (what this business sells) → financials (is the money real) → industry (how long can this position be held) → risk (what would make the investment lose money) → synthesis (disagreements and verdict).
+The order runs from business to price: business (what this business sells) → financials (is the money real) → industry (how long can this position hold) → risk (what would make the investment lose money) → synthesis (disagreements and verdict).
 
-The first four are independent and may not cite each other's conclusions—that is the point of parallel analysis, to avoid one person setting the tone and the rest echoing it. Only the fifth cross-references them. If you have only ten minutes, read the fifth; if you want to judge whether my judgment is right, read the first four.
+The first four are independent and may not cite each other's conclusions—that is the point of parallel analysis: to prevent one person setting the tone and the rest echoing it. Only the fifth cross-references. If you have only ten minutes, read the fifth; if you want to judge whether my judgment is right, read the first four.
 
 ## Sources
 

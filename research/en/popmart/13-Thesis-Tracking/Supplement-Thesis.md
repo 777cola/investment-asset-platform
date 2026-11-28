@@ -23,17 +23,17 @@ Assumptions and sources of evidence: 2026 interim results announcement, 2025 ann
 
 ## Three pillars of the setup: core business, IP matrix, gross margin
 
-**H1 Domestic base.**RMB 12.201 billion, +47.3%; online +62.7% (RMB 4.78 billion); the box-drawing machine app alone at RMB 2.06 billion; 82.44 million members with a 51.6% repurchase rate. This is the most solid of all the assumptions — it depends on no external variable, only on the company's own operations.**But watch the slope: domestic growth was 135.2% in the same period last year versus 47.3% this year, a drop of 88 percentage points over four quarters.**
+H1 Domestic base.RMB 12.201 billion, +47.3%; online +62.7% (RMB 4.78 billion); the box-drawing machine app alone at RMB 2.06 billion; 82.44 million members with a 51.6% repurchase rate. This is the most solid of all the assumptions — it depends on no external variable, only on the company's own operations.But watch the slope: domestic growth was 135.2% in the same period last year versus 47.3% this year, a drop of 88 percentage points over four quarters.
 
-**H3 IP matrix.**Twinkle Twinkle rose from RMB 389 million to RMB 2.650 billion; CRYBABY RMB 1.633 billion (+34%), DIMOO RMB 1.615 billion (+45%), SKULLPANDA RMB 1.551 billion (+27.1%), Hirono RMB 1.009 billion (+38.5%). The five mid-tier IPs together are 1.89x THE MONSTERS.**This is the hardest evidence of de-concentration away from a single IP**, and the fundamental difference between this company and Funko.
+H3 IP matrix.Twinkle Twinkle rose from RMB 389 million to RMB 2.650 billion; CRYBABY RMB 1.633 billion (+34%), DIMOO RMB 1.615 billion (+45%), SKULLPANDA RMB 1.551 billion (+27.1%), Hirono RMB 1.009 billion (+38.5%). The five mid-tier IPs together are 1.89x THE MONSTERS.This is the hardest evidence of de-concentration away from a single IP, and the fundamental difference between this company and Funko.
 
-**H4 Gross margin.**69.7%, down only 0.6 percentage points. Holding above 69% in a half-year when the category mix shifted from figures to plush (57.2%) shows both pricing power and cost control remain intact. The threshold for this assumption is 68%, leaving 1.7 points of buffer.
+H4 Gross margin.69.7%, down only 0.6 percentage points. Holding above 69% in a half-year when the category mix shifted from figures to plush (57.2%) shows both pricing power and cost control remain intact. The threshold for this assumption is 68%, leaving 1.7 points of buffer.
 
 ## Two falsification points: overseas growth and profit growth
 
-**H2 overseas growth.**This was the most expensive assumption in the 2025 valuation. Overseas revenue in 2025 was RMB 16.27 billion (Asia-Pacific 8.01, Americas 6.81, Europe 1.45), all growing at triple-digit rates, with the Americas up 748.4%. In H1 2026 it was RMB 4.972 billion, down 11.1%.**From +748% to -11% took twelve months.**And the decline is concentrated online (Shopee -62.1%), indicating the traffic dividend has ended, not seasonality.
+H2 overseas growth.This was the most expensive assumption in the 2025 valuation. Overseas revenue in 2025 was RMB 16.27 billion (Asia-Pacific 8.01, Americas 6.81, Europe 1.45), all growing at triple-digit rates, with the Americas up 748.4%. In H1 2026 it was RMB 4.972 billion, down 11.1%.From +748% to -11% took twelve months.And the decline is concentrated online (Shopee -62.1%), indicating the traffic dividend has ended, not seasonality.
 
-**H5 profit growth.**Net profit +10.1% vs revenue +23.8%, a 13.7 percentage point gap. Excluding FX, it is about 28%, but the market does not price off the ex-FX number. More importantly:**net margin fell from 33.0% to 29.3%, and this is structural**—the share of high-margin overseas revenue is falling, store-opening costs are front-loaded, and FX will persist long term. None of the three will disappear within a quarter.
+H5 profit growth.Net profit +10.1% vs revenue +23.8%, a 13.7 percentage point gap. Excluding FX, it is about 28%, but the market does not price off the ex-FX number. More importantly:net margin fell from 33.0% to 29.3%, and this is structural—the share of high-margin overseas revenue is falling, store-opening costs are front-loaded, and FX will persist long term. None of the three will disappear within a quarter.
 
 These two assumptions being disproven means the 2025 valuation framework of "globalization + high growth" no longer holds. The new framework is "China consumer stock + overseas option," which corresponds to a multiple of 12–15x, not 25x.
 
@@ -41,17 +41,17 @@ These two assumptions being disproven means the 2025 valuation framework of "glo
 
 HKD 2–5 billion over 6 months, cap equal to 2.4% of market cap. In the first half it already repurchased HKD 1.74 billion and cancelled 11.22 million shares at HKD 140.9–194.9.
 
-Buybacks do two things: first, they reduce share count and lift EPS (11.22 million shares is about 0.8% of total shares, a very small effect); second, they send the market a signal that "management thinks it is cheap." **The first effect is arithmetic, the second is psychological.** For a company whose profit may be revised down, the psychological effect can hold for only one quarter.
+Buybacks do two things: first, they reduce share count and lift EPS (11.22 million shares is about 0.8% of total shares, a very small effect); second, they send the market a signal that "management thinks it is cheap." The first effect is arithmetic, the second is psychological. For a company whose profit may be revised down, the psychological effect can hold for only one quarter.
 
 The verification metrics are specific: the amount in each monthly HKEX buyback announcement, and the ceiling on the buyback price. If the company keeps buying near HKD 150, it believes that is the bottom; if the stock falls to HKD 130 and it stops buying, then HKD 150 was only "supporting the price," not a "value judgment."
 
 ## Falsification conditions and monitoring calendar
 
-**Full thesis invalidation (exit signal):** ① Domestic same-store sales turn negative; ② gross margin falls below 66%; ③ overseas revenue declines more than 20% YoY for two consecutive quarters; ④ inventory turnover exceeds 240 days.
+Full thesis invalidation (exit signal): ① Domestic same-store sales turn negative; ② gross margin falls below 66%; ③ overseas revenue declines more than 20% YoY for two consecutive quarters; ④ inventory turnover exceeds 240 days.
 
-**Full thesis confirmation (add signal):** ① overseas revenue grows QoQ for two consecutive quarters; ② non-THE MONSTERS revenue exceeds 80% of the total while total revenue still grows; ③ inventory turnover returns below 150 days and the net cash ratio returns to 0.9x.
+Full thesis confirmation (add signal): ① overseas revenue grows QoQ for two consecutive quarters; ② non-THE MONSTERS revenue exceeds 80% of the total while total revenue still grows; ③ inventory turnover returns below 150 days and the net cash ratio returns to 0.9x.
 
-**Calendar:** Mid-October 2026, Q3 operating data (most important — watch overseas QoQ and domestic growth); November 2026, Double 11 results (watch whether domestic online can sustain +60%); March 2027, 2026 annual report (watch whether full-year net profit holds at RMB 10 billion and whether inventory falls back); April–May 2027, 2027Q1 data (watch the true growth rate after the high base).
+Calendar: Mid-October 2026, Q3 operating data (most important — watch overseas QoQ and domestic growth); November 2026, Double 11 results (watch whether domestic online can sustain +60%); March 2027, 2026 annual report (watch whether full-year net profit holds at RMB 10 billion and whether inventory falls back); April–May 2027, 2027Q1 data (watch the true growth rate after the high base).
 
 ## Sources
 

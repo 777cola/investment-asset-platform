@@ -10,9 +10,9 @@ The four close readings are written for this report according to each role's met
 
 ## How are these six pages organized?
 
-The first four pages are four individuals' independent close readings, with no cross-references. The fifth page synthesizes them, setting out clearly where the four agree and where they diverge. The sixth page is the finished draft, with the methodology stripped out and only judgments and numbers left, ready to send as is.
+The first four pages are four individuals' independent close readings, with no cross-references. Page five synthesizes them, setting out clearly where the four agree and where they diverge. Page six is the finished draft, with the methodology stripped out and only judgments and numbers left, ready to send as is.
 
-If you want to know "how to read this earnings report," read the first four pages; if you only want to know "what the conclusion is," read the sixth page.
+If you want to know "how to read this earnings report," read the first four pages; if you only want to know "what the conclusion is," read page six.
 
 ## Sources
 

@@ -24,7 +24,7 @@ The six-gate score follows the AI Berkshire pre-purchase checklist standard, wit
 
 ## Gate one: the business is understandable, the price is not
 
-Score: 9. Micron's business model in three sentences: buy equipment and build fabs, turn silicon wafers into DRAM and NAND dies, sell them at contract and spot prices to server makers, phone makers and automakers. In FY26Q3, DRAM revenue was USD 31.3 billion, 76% of the total, and NAND USD 9.9 billion, 24%, **with no foundry, handset or advertising business to dilute the leverage** — DRAM rises 60% and profit multiplies more than tenfold; that is the advantage of its business model.
+Score: 9. Micron's business model in three sentences: buy equipment and build fabs, turn silicon wafers into DRAM and NAND dies, sell them at contract and spot prices to server makers, phone makers and automakers. In FY26Q3, DRAM revenue was USD 31.3 billion, 76% of the total, and NAND USD 9.9 billion, 24%, with no foundry, handset or advertising business to dilute the leverage — DRAM rises 60% and profit multiplies more than tenfold; that is the advantage of its business model.
 
 The 1 point deducted sits at the second layer of judgment: buying it is essentially a bet on 2027 DRAM contract prices. No one can see that layer clearly, including management — on the call they said they "can't see when supply will catch up with demand," not "we know what the price will be in 2027." Understanding the business is not the same as understanding the price, and on memory stocks the two must be assessed separately.
 
@@ -32,7 +32,7 @@ The 1 point deducted sits at the second layer of judgment: buying it is essentia
 
 A marginal pass, 6 points. The good side is real: global DRAM is down to just Samsung, SK hynix, Micron and one CXMT, and in 2026Q2 the three together accounted for 88.7% of industry revenue (TrendForce basis). With three oligopolists plus one AI customer buying at any cost, pricing power sits entirely with sellers for now, and gross margin climbed from 39% in FY25Q3 all the way to 84.9%.
 
-The bad side is also real: **memory has never posted three consecutive years of high gross margin**. In the last cycle gross margin was 45% in FY22, fell below 10% in FY23, revenue halved from USD 30.7 billion to USD 15.5 billion, and the full year brought a net loss of USD 5.8 billion. And the cash from this business must go straight back into capacity: FY26 capex is USD 27 billion, FY27 guidance exceeds USD 40 billion, and Q3 alone spent USD 7.1 billion. The cash earned is not free cash flow; it is the entry fee for the next round.
+The bad side is also real: memory has never posted three consecutive years of high gross margin. In the last cycle gross margin was 45% in FY22, fell below 10% in FY23, revenue halved from USD 30.7 billion to USD 15.5 billion, and the full year brought a net loss of USD 5.8 billion. And the cash from this business must go straight back into capacity: FY26 capex is USD 27 billion, FY27 guidance exceeds USD 40 billion, and Q3 alone spent USD 7.1 billion. The cash earned is not free cash flow; it is the entry fee for the next round.
 
 ## Gate three: three moats, none of which can stop price cuts
 
@@ -44,7 +44,7 @@ But none of these three stops prices from falling. Low cost only guarantees bein
 
 Score 8, the highest in the entire company. The first time was in 2023: while the whole industry cut capex and laid off 10% of staff, Micron did not stop HBM R&D and production line conversion; in 2025 HBM3E won Nvidia certification, and in 2026 HBM4 ramped alongside Vera Rubin. At the time this decision looked like "burning money against the tide"; now it looks like the most valuable step of the entire cycle.
 
-The second was the June 2026 SCA long-term contracts: 16 strategic customer agreements, five-year terms (three years for automotive), take-or-pay, committed volumes, price floors and ceilings, of which 14 correspond to roughly USD 100 billion in revenue at the floor price, with customers having paid about USD 22 billion in cash deposits and financial commitments.**This is the first time the memory industry has changed "price set by the market" to "price set by contract"**, and the only legitimate reason the valuation can be re-rated.
+The second was the June 2026 SCA long-term contracts: 16 strategic customer agreements, five-year terms (three years for automotive), take-or-pay, committed volumes, price floors and ceilings, of which 14 correspond to roughly USD 100 billion in revenue at the floor price, with customers having paid about USD 22 billion in cash deposits and financial commitments.This is the first time the memory industry has changed "price set by the market" to "price set by contract", and the only legitimate reason the valuation can be re-rated.
 
 The deduction: on August 21, CEO Mehrotra sold 40,000 shares under a 10b5-1 plan, cashing out about USD 38.76 million, cutting his holding to 871,600 shares (about 0.08%). This is routine under a pre-set plan and does not constitute a governance issue, but it also shows insiders will not add at this price.
 
@@ -52,7 +52,7 @@ The deduction: on August 21, CEO Mehrotra sold 40,000 shares under a 10b5-1 plan
 
 3 points — a fatal flaw. The current USD 1,082.28 corresponds to 6.5x the 2027 consensus EPS of about USD 166 — in mid-September it was still 5.77x, so the multiple was passively pushed up 13% in a month because the share price rose faster than earnings expectations. On the surface this is the cheapest semiconductor stock in the S&P 500.
 
-But swap the denominator for a normal year: assume a return to mid-cycle in 2029, revenue of USD 150 billion (about 1.16x FY26), a 45% gross margin and a 30% net margin, giving EPS of about USD 39 and 28x the current price; if revenue only returns to USD 110 billion with a 35% gross margin, EPS is about USD 19, or 57x. **The difference between 6x and 28x is not a valuation method, it is the cycle position**. The market gives it 6x precisely because it knows this E is unsustainable; if the market believed 2027 profits could hold, it would not give only 6x.
+But swap the denominator for a normal year: assume a return to mid-cycle in 2029, revenue of USD 150 billion (about 1.16x FY26), a 45% gross margin and a 30% net margin, giving EPS of about USD 39 and 28x the current price; if revenue only returns to USD 110 billion with a 35% gross margin, EPS is about USD 19, or 57x. The difference between 6x and 28x is not a valuation method, it is the cycle position. The market gives it 6x precisely because it knows this E is unsustainable; if the market believed 2027 profits could hold, it would not give only 6x.
 
 The margin of safety on cyclicals is the cruelest: in a downturn EPS and the multiple contract at the same time. In the 2022 cycle, the share price fell more than 50%, revenue was halved, and the gross margin dropped from 45% to below 10%.
 
@@ -60,16 +60,20 @@ The margin of safety on cyclicals is the cruelest: in a downturn EPS and the mul
 
 4 points. There is only one reason to buy Micron now: belief that "AI demand keeps memory in shortage through 2028." That call may be right—SK hynix's CEO said in July that 2027 would be the tightest year for supply, with DRAM bit growth ex-HBM at about 15% versus demand growth of 22%, a 7 percentage point gap; meaningful supply growth does not arrive until 2028. But no earnings report can verify it.
 
-The bigger problem is timing. FY26Q4 results land after the close on September 30. Consensus expects revenue of about USD 50.8–51.4 billion and EPS of USD 31.5–31.75; company guidance is USD 50 billion ±1 billion and EPS USD 31 ±1. One number five days out decides moves on the order of "USD 800 or USD 1,200." **Staking an add-to-position decision on an earnings report five days away is not discipline, it is gambling.**
+The bigger problem is timing. FY26Q4 results land after the close on September 30. Consensus expects revenue of about USD 50.8–51.4 billion and EPS of USD 31.5–31.75; company guidance is USD 50 billion ±1 billion and EPS USD 31 ±1. One number five days out decides moves on the order of "USD 800 or USD 1,200." Staking an add-to-position decision on an earnings report five days away is not discipline, it is gambling.
 
-Meanwhile the other side of the market is active: on September 22 Michael Burry said he had "substantially increased" short positions in Micron, SOXX and Nebius, arguing the current DRAM tightness comes from a supply-side effect as capacity is diverted to HBM, not from structural demand. The thesis may not be right, but it is a reminder: **bulls and bears use the same data set; the disagreement is over how long it lasts.**
+Meanwhile the other side of the market is active: on September 22 Michael Burry said he had "substantially increased" short positions in Micron, SOXX and Nebius, arguing the current DRAM tightness comes from a supply-side effect as capacity is diverted to HBM, not from structural demand. The thesis may not be right, but it is a reminder: bulls and bears use the same data set; the disagreement is over how long it lasts.
 
 ## Veto items and items to be verified
 
-**Veto item: margin of safety.** On FY26 expected net profit of about USD 83 billion, the current market cap is 15x; on the 2027 consensus, 6.5x. The entire gap between the two numbers comes from "can 2027 profit still grow". This is not a valuation question, it is a cycle-judgment question, and cycle judgment cannot be protected by a margin of safety—you cannot apply a discount to an E that is peaking.- FY27Q1 guidance at the September 30 earnings: whether revenue and EPS come in above the consensus of about USD 35–37, and whether gross margin peaks near 86%
+Veto item: margin of safety. On FY26 expected net profit of about USD 83 billion, the current market cap is 15x; on the 2027 consensus, 6.5x. The entire gap between the two numbers comes from "can 2027 profit still grow". This is not a valuation question, it is a cycle-judgment question, and cycle judgment cannot be protected by a margin of safety—you cannot apply a discount to an E that is peaking.- FY27Q1 guidance at the September 30 earnings: whether revenue and EPS come in above the consensus of about USD 35–37, and whether gross margin peaks near 86%
+
 - SCA coverage: management said long-term agreements carry minimum volumes at minimum prices; can actual coverage rise from the current roughly 20% of DRAM volume to 50%
+
 - 2027 industry bit supply growth: the three players' plans combined already approach demand growth; above 20% is a cycle-reversal signal
+
 - HBM share: Counterpoint 2026Q2 has Micron at 18%, down 3pct QoQ, and Samsung up from 21% to 33%; continued share loss would show the HBM4 certification dividend has not been captured
+
 - Capex discipline: whether FY27 guidance above USD 40 billion is raised again, and the 2028 supply consequences
 
 ## Sources

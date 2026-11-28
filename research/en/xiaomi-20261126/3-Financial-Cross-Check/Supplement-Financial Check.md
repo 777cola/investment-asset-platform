@@ -6,7 +6,7 @@
 
 ## Notes
 
-Verification method: anchor on company announcements, use media alerts for cross-checking, use consensus to gauge the magnitude of "above expectations," and use back-solved values to fill in absolute figures the announcements do not provide. All deviations are calculated as |B−A|/A, rounded to one decimal place. Data not used: sell-side forecasts for 2027 vehicle deliveries (range 55–75 万辆, too wide a dispersion) and quarterly handset shipments (not separately disclosed in announcements, inconsistent across media sources).
+Verification method: anchor on company announcements, use media alerts for cross-checking, use consensus to gauge the magnitude of "above expectations," and use back-solved values to fill in absolute figures the announcements do not provide. All deviations are calculated as |B−A|/A, rounded to one decimal place. Data not used: sell-side forecasts for 2027 vehicle deliveries (range 550,000–750,000 units, too wide a dispersion) and quarterly handset shipments (not separately disclosed in announcements, inconsistent across media sources).
 
 ## Key data cross-checked against two sources (2026Q3)
 
@@ -29,11 +29,11 @@ Let us first lay out the facts. The announcement only says "the Smart EV and AI 
 
 The gap comes from three places. First, the scope of the denominator: the company's segment includes AI innovation businesses (chips, robotics and so on), with revenue of about RMB 300-500 million and meaningful expenses, which sell-side analysts often strip out. Second, expense allocation: the company gives no rules for how shared procurement between autos and phones, cloud services and store costs are allocated. Third, one-off items: 2026Q2 included one-off provisions related to stores and capacity (the market broadly reads it this way), which normalized in Q3; this item may have contributed more to the "swing to positive on a sequential basis" than gross margin improvement did.
 
-**The approach is to cite no absolute figures.**The text uses only the directional statement "first single-quarter operating profit"; the m07 breakdown explicitly states that "profit came from expenses normalizing, not from gross margin expansion," and sets out what it would mean if that judgment is wrong—if the auto gross margin really is above 25%, that is better news and does not affect the "Watch" conclusion.
+The approach is to cite no absolute figures.The text uses only the directional statement "first single-quarter operating profit"; the m07 breakdown explicitly states that "profit came from expenses normalizing, not from gross margin expansion," and sets out what it would mean if that judgment is wrong—if the auto gross margin really is above 25%, that is better news and does not affect the "Watch" conclusion.
 
 ## Three items with zero deviation: revenue, deliveries, total share capital
 
-Revenue of RMB 107.24 billion versus the consensus of RMB 106.4 billion — a 0.8% difference. This is the only "beat" this quarter — **but it beat a downwardly revised estimate.** Over the past three months, sell-side analysts cut Q3 revenue forecasts from RMB 112 billion all the way to RMB 106.4 billion, so the "beat" actually means "didn't fall as much."
+Revenue of RMB 107.24 billion versus the consensus of RMB 106.4 billion — a 0.8% difference. This is the only "beat" this quarter — but it beat a downwardly revised estimate. Over the past three months, sell-side analysts cut Q3 revenue forecasts from RMB 112 billion all the way to RMB 106.4 billion, so the "beat" actually means "didn't fall as much."
 
 Deliveries of 108,800 units match the sum of monthly announcements. This is the hardest item to get wrong, since the company discloses it on the 1st of every month. Total shares of 25.741 billion versus 25.736 billion on HKEXnews — a 0.02% difference stemming from the timing of buyback cancellations. We use the announcement figure, because market cap calculation requires the latest share count.
 
@@ -41,7 +41,7 @@ Deliveries of 108,800 units match the sum of monthly announcements. This is the 
 
 The announcement only gives year-on-year growth rates, not the absolute figures for the same period last year, so the base must be derived: revenue 1,072.39÷0.948 = RMB 113.12 billion; net profit 38.76÷0.316 = RMB 12.27 billion; adjusted net profit 48.84÷0.432 = RMB 11.31 billion.
 
-These three figures cross-check each other: 2025Q3 net margin 122.7÷1,131.2 = 10.85%, adjusted net margin 10.0%, consistent with the basis disclosed in the 2025 third-quarter report (the market consensus at the time was "RMB 11.3 billion profit in the quarter, 10% net margin"). **The derived figures match the public record and can be used.**
+These three figures cross-check each other: 2025Q3 net margin 122.7÷1,131.2 = 10.85%, adjusted net margin 10.0%, consistent with the basis disclosed in the 2025 third-quarter report (the market consensus at the time was "RMB 11.3 billion profit in the quarter, 10% net margin"). The derived figures match the public record and can be used.
 
 Gross profit of RMB 25.90 billion is calculated as 1,131.2×22.9%; the error depends on the decimal places of the gross margin — if the actual figure is 22.85%, gross profit differs by RMB 60 million, which does not affect the conclusion that gross profit fell by RMB 4.24 billion.
 

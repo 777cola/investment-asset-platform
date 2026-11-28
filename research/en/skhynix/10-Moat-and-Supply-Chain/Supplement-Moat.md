@@ -29,7 +29,7 @@ Scores are subjective ratings using the unified dimensions of this report collec
 | SK hynix | HBM share 54%–56%, No. 1 globally | The 12-layer version has entered mass production, with yields on par with the previous generation, and will ramp from Q2 | KRW 38–40 trillion: Yongin + M15X + EUV | — |
 | Samsung Electronics | HBM share about 28%, roughly 20% in 2025 | Fastest validation progress (leading since February 2026), already certified by Nvidia | Step up HBM and advanced-node capacity to catch up | High: the only player that can double HBM supply within a year |
 | Micron | HBM share around 18%, second North American supplier | Twelve-layer 36GB HBM4 has entered mass production and shipped for Vera Rubin | US domestic capacity + 1γ process node | Capture Nvidia's second-supplier share with strong cost control |
-| ChangXin Memory Technologies | Does not participate in HBM | — | General-purpose DRAM: 32万 wafers/month → 42万 wafers/month | Mid-to-low end: betting on the price floor for commodity DRAM |
+| ChangXin Memory Technologies | Does not participate in HBM | — | General-purpose DRAM: 320,000 wafers/month → 420,000 wafers/month | Mid-to-low end: betting on the price floor for commodity DRAM |
 | Yangtze Memory Technologies | Does not participate in HBM | — | NAND capacity expansion, 294-layer products | Low: NAND price competitor |
 | Kioxia | Does not participate in HBM | — | Post-integration capacity with Western Digital | Low: NAND peers |
 
@@ -45,7 +45,7 @@ How valuable is this position? A rough calculation: in an AI server with 8 GPUs,
 
 Technical leadership decays; switching costs do not. HBM is not a plug-and-play component: it must be tuned alongside the GPU's packaging substrate, power delivery, thermal design and firmware, and a customer changing suppliers must redo full-system validation, a cycle of three to six months. Nvidia will not risk supply disruption to save 5% on cost.
 
-But switching costs have a ceiling: they only guarantee that "a customer will not easily replace you," not that "a customer will not add a second supplier." Samsung winning about 20% of Nvidia's initial HBM4 allocation in 2026 and rising to 28% for the full year is the second-supplier mechanism at work. **Switching costs protect existing share, not pricing power**.
+But switching costs have a ceiling: they only guarantee that "a customer will not easily replace you," not that "a customer will not add a second supplier." Samsung winning about 20% of Nvidia's initial HBM4 allocation in 2026 and rising to 28% for the full year is the second-supplier mechanism at work. Switching costs protect existing share, not pricing power.
 
 ## The most dangerous rival: Samsung, not because of technology, but because of capacity
 

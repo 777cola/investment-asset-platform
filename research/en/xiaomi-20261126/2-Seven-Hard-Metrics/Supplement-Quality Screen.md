@@ -24,31 +24,31 @@ Thresholds are set for this report and align with the "seven hard criteria for s
 
 ## The only one that genuinely doesn't hold up: net margin 3.6%
 
-Laying out all seven, item ⑥ stands out most. Q3 2026 net profit RMB 3.876 billion, revenue RMB 107.239 billion, net margin 3.6%; the year-earlier figure was 10.8% (122.7÷1,131.2). Even on adjusted net profit, it is only 4.6%, also below the 5% threshold. **This is not rhetoric about "the worst quarter of the year" — it pushes the five-year floor down another notch.**
+Laying out all seven, item ⑥ stands out most. Q3 2026 net profit RMB 3.876 billion, revenue RMB 107.239 billion, net margin 3.6%; the year-earlier figure was 10.8% (122.7÷1,131.2). Even on adjusted net profit, it is only 4.6%, also below the 5% threshold. This is not rhetoric about "the worst quarter of the year" — it pushes the five-year floor down another notch.
 
-Why this matters. The other six items in the elimination framework are all "will it die" questions; only net margin is a "does it make money" question. **A hardware company with a 3.6% net margin has zero risk tolerance**: a 1-point FX swing, memory prices rising another 10%, or another car price cut — any one of them wipes out profit. In Q3 2026, all three happened at once.
+Why this matters. The other six items in the elimination framework are all "will it die" questions; only net margin is a "does it make money" question. A hardware company with a 3.6% net margin has zero risk tolerance: a 1-point FX swing, memory prices rising another 10%, or another car price cut — any one of them wipes out profit. In Q3 2026, all three happened at once.
 
-To be clear, though: failing this item does not mean the company is in trouble. Xiaomi has net cash on the balance sheet, very low interest-bearing debt and positive operating cash flow, so there is no near-term solvency risk. **"Fails" means "you cannot buy it at a good company's price", not "something will blow up".**
+To be clear, though: failing this item does not mean the company is in trouble. Xiaomi has net cash on the balance sheet, very low interest-bearing debt and positive operating cash flow, so there is no near-term solvency risk. "Fails" means "you cannot buy it at a good company's price", not "something will blow up".
 
 ## The questionable one: cash flow eaten up by inventory build
 
-Item ⑤ is marked "questionable" rather than "fail" because the data is incomplete. Memory contract prices rose steadily through the first half of 2026; to lock in cost and supply, Xiaomi extended its inventory build cycle from the usual 6–8 weeks to more than 12 weeks, turning cash into inventory. As a result, operating cash flow coverage of net profit fell below 1x — this is an **active choice**, not cash that cannot be collected.
+Item ⑤ is marked "questionable" rather than "fail" because the data is incomplete. Memory contract prices rose steadily through the first half of 2026; to lock in cost and supply, Xiaomi extended its inventory build cycle from the usual 6–8 weeks to more than 12 weeks, turning cash into inventory. As a result, operating cash flow coverage of net profit fell below 1x — this is an active choice, not cash that cannot be collected.
 
 Two pieces of evidence support this. First, receivables turnover has not deteriorated: Xiaomi sells to channels on cash or short credit terms, and that has not changed in ten years. Second, inventory has risen, but the mix is memory chips and finished devices, not slow-moving models — although 2026 handset shipments face pressure, there are no signs of channel stuffing.
 
-**The real risk is Q4 and Q1 2027:** if memory prices peak and roll over in the first half of 2027, this high-cost inventory will require write-downs in the financials, and that is when cash flow and profit get hit together. This is the item to watch.
+The real risk is Q4 and Q1 2027: if memory prices peak and roll over in the first half of 2027, this high-cost inventory will require write-downs in the financials, and that is when cash flow and profit get hit together. This is the item to watch.
 
 ## The five criteria it passed: showing it belongs to the category that "won't be phased out"
 
-The ten-year average ROE is 8.5%, falling to around 7.5% annualized in 2026 — just above the 8% threshold, achieved through "barely any borrowing + fast turnover," not high margins. Interest coverage is well above 10x, because the company has almost no interest-bearing debt and holds net cash on the balance sheet. **In an industry that requires continuous investment, a clean balance sheet is the most practical moat.**
+The ten-year average ROE is 8.5%, falling to around 7.5% annualized in 2026 — just above the 8% threshold, achieved through "barely any borrowing + fast turnover," not high margins. Interest coverage is well above 10x, because the company has almost no interest-bearing debt and holds net cash on the balance sheet. In an industry that requires continuous investment, a clean balance sheet is the most practical moat.
 
-The long-term gross margin range of 17%–22% is stable: 13.9% in 2019 (price war), 17.7% in 2021, 20.9% in 2024, 22.5% in 2025. The 20.2% in Q3 2026 remains within the range, merely back at the lower bound. Share count has expanded only 3% over five years (the March 2025 placement of HKD 42.5 billion was the main source), while HKD 20 billion of buybacks in 2026 are actually shrinking it on a net basis — **this counts as excellent among Hong Kong-listed hardware companies.**
+The long-term gross margin range of 17%–22% is stable: 13.9% in 2019 (price war), 17.7% in 2021, 20.9% in 2024, 22.5% in 2025. The 20.2% in Q3 2026 remains within the range, merely back at the lower bound. Share count has expanded only 3% over five years (the March 2025 placement of HKD 42.5 billion was the main source), while HKD 20 billion of buybacks in 2026 are actually shrinking it on a net basis — this counts as excellent among Hong Kong-listed hardware companies.
 
 ## Conclusion: the de-rating screen passed, but only barely
 
-Five of seven criteria met. By the framework, that qualifies as "can move to the next round of research," not "first-class company." **The seventeen folders that follow in this report all answer the same question: is a company with a 3.6% net margin and 20% gross margin worth 32x?**
+Five of seven criteria met. By the framework, that qualifies as "can move to the next round of research," not "first-class company." The seventeen folders that follow in this report all answer the same question: is a company with a 3.6% net margin and 20% gross margin worth 32x?
 
-My answer is no, not now. Not because the one failed criterion is fatal, but because the one it fails is precisely the one valuation depends on most — **net margin is the denominator of every PE, and when the denominator is falling, no multiple, however reasonable, can help.**
+My answer is no, not now. Not because the one failed criterion is fatal, but because the one it fails is precisely the one valuation depends on most — net margin is the denominator of every PE, and when the denominator is falling, no multiple, however reasonable, can help.
 
 ## Sources
 

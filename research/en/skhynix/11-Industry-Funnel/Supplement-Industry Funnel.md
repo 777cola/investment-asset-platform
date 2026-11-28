@@ -35,7 +35,7 @@ Fourth, valuation calculability. Samsung does not disclose memory segment P&L se
 
 Both are pure-play memory makers, both have passed HBM4 certification, and both run gross margins around 80%. The differences come down to three things. First, share: SK hynix at 54% and Micron at 18%, so when HBM prices rise, SK hynix captures three times the upside. Second, customers: SK hynix is tied to Nvidia (about 70% of HBM4 orders), while Micron is a second or third supplier with one notch less pricing power. Third, capacity timing: SK hynix's Yongin Phase 1 comes online in February 2027, while Micron's new US fab will not arrive until end-2027.
 
-Conversely, Micron's strengths: it has US domestic capacity (CHIPS Act subsidies), so geopolitical risk is lower; its higher NAND mix means it benefits more when NAND prices rise; and its valuation has consistently been one notch cheaper than SK hynix's. **If you want the one you can "sleep well" holding in this segment, it is Micron; if you want the one with the most upside elasticity, it is SK hynix**.
+Conversely, Micron's strengths: it has US domestic capacity (CHIPS Act subsidies), so geopolitical risk is lower; its higher NAND mix means it benefits more when NAND prices rise; and its valuation has consistently been one notch cheaper than SK hynix's. If you want the one you can "sleep well" holding in this segment, it is Micron; if you want the one with the most upside elasticity, it is SK hynix.
 
 ## Why it, and why not buy now
 
@@ -49,7 +49,7 @@ So the end of the funnel is not "buy" but "put on the top pick list and wait for
 
 Suppose someone rejects "wait" and wants to build a position in this theme now. Then the ranking is: Micron > SK hynix > Samsung.
 
-Micron ranks first not because it is better, but because it is cheaper and safer: its HBM share is only 18%, so narrowing HBM premiums hurt it less; it has US domestic capacity and low geopolitical risk; and its valuation has consistently sat a notch below SK hynix's. **In a downturn, low share is an advantage**.
+Micron ranks first not because it is better, but because it is cheaper and safer: its HBM share is only 18%, so narrowing HBM premiums hurt it less; it has US domestic capacity and low geopolitical risk; and its valuation has consistently sat a notch below SK hynix's. In a downturn, low share is an advantage.
 
 SK hynix ranks second: it has the most upside, but the current price already prices that in. Samsung ranks last: its business is too diversified, diluting memory upside, and the conglomerate governance discount will not disappear near term.
 

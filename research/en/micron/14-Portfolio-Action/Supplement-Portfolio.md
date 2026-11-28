@@ -23,13 +23,13 @@ Correlation coefficients are approximate judgments based on daily returns in 202
 
 ## Three price-level rules
 
-**Trim line USD 1,300 (+20%)**: about 7.8x 2027E, close to the low end of sell-side targets (Citi 1,300). At that level the 7x neutral case is already priced in, risk/reward deteriorates, cut a third. **Entry line USD 800 (-26%)**: about 4.8x 2027E, slightly richer than SK hynix's 3.6x, but 26% cheaper than now — a reasonable entry price before the cycle turns. **Hard stop USD 700 (-35%) with contract prices turning negative QoQ**: both conditions must be met to exit fully. Price alone is not enough — if the stock falls to 700 but contract prices are still rising, that is sentiment, not fundamentals; if contract prices turn negative but the stock is still at 1,000, the market has not caught up and you should actively trim.
+Trim line USD 1,300 (+20%): about 7.8x 2027E, close to the low end of sell-side targets (Citi 1,300). At that level the 7x neutral case is already priced in, risk/reward deteriorates, cut a third. Entry line USD 800 (-26%): about 4.8x 2027E, slightly richer than SK hynix's 3.6x, but 26% cheaper than now — a reasonable entry price before the cycle turns. Hard stop USD 700 (-35%) with contract prices turning negative QoQ: both conditions must be met to exit fully. Price alone is not enough — if the stock falls to 700 but contract prices are still rising, that is sentiment, not fundamentals; if contract prices turn negative but the stock is still at 1,000, the market has not caught up and you should actively trim.
 
 ## Correlation: it is the beta of the AI trade, not a diversification tool
 
 Micron's correlation with Nvidia, AMD, SK hynix and SOXX exceeds 0.8 — on 22 September 2026, the same day Burry announced his short on Micron and SOXX, this logic played out. Its correlation with TSMC is moderate (around 0.6), because TSMC's customer base is more diversified; its correlation with consumer stocks and utilities is very low.
 
-This means: if you already hold Nvidia + TSMC + a semiconductor ETF, buying Micron will not reduce portfolio volatility — it will only amplify exposure to the single factor of "AI capex". **The right approach is to count it within the total exposure of the "AI hardware" bucket, not treat it as a new diversifying position.**
+This means: if you already hold Nvidia + TSMC + a semiconductor ETF, buying Micron will not reduce portfolio volatility — it will only amplify exposure to the single factor of "AI capex". The right approach is to count it within the total exposure of the "AI hardware" bucket, not treat it as a new diversifying position.
 
 Correlation with Samsung and SK hynix is higher (the same variable in the same industry), but they trade in different markets and different currencies and cannot truly hedge — they rise and fall together, only by different magnitudes.
 
@@ -37,13 +37,13 @@ Correlation with Samsung and SK hynix is higher (the same variable in the same i
 
 If you are genuinely bullish but do not want to chase the price at USD 1,082, consider "selling a put with an USD 800 strike" — collect the premium, take delivery if it falls to 800, and keep the premium if it does not. This turns "waiting for a pullback" into a paid wait.
 
-Two caveats: first, option liquidity (Micron options are active, so this is not a major issue); second, position sizing — selling a put is a commitment to buy at USD 800, so you must work out in advance whether you will have the cash and whether you are willing to hold at that price.**Without that preparation, do not sell the put — just wait for the price.**
+Two caveats: first, option liquidity (Micron options are active, so this is not a major issue); second, position sizing — selling a put is a commitment to buy at USD 800, so you must work out in advance whether you will have the cash and whether you are willing to hold at that price.Without that preparation, do not sell the put — just wait for the price.
 
 ## Rebalancing discipline: quarterly reviews, not monthly
 
 Position sizing in cyclicals should not be adjusted daily by price; it should be adjusted quarterly, in line with earnings reports. The specific cadence: after the September 30 earnings report, watch gross margin and FY27Q1 guidance; after the mid-December FY27Q1 report, check whether SCA coverage is disclosed; after the March 2027 FY27Q2 report, check whether gross margin is still above 85%. Each time, look at only one thing, and do not add or trim on share-price moves.
 
-The only exception is a "price trigger": a break below 800 or a move above 1,300 is executed on discipline regardless of earnings dates. The benefit is that it separates "judgment" from "emotion"—**judgment is updated quarterly; emotion has no trading authority.**
+The only exception is a "price trigger": a break below 800 or a move above 1,300 is executed on discipline regardless of earnings dates. The benefit is that it separates "judgment" from "emotion"—judgment is updated quarterly; emotion has no trading authority.
 
 ## Sources
 

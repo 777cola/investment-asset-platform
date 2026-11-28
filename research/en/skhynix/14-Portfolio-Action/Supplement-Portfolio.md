@@ -6,7 +6,7 @@
 
 ## Notes
 
-相关性为依据 2026 年上半年日度收益率粗算，未做精确回归。目标价与情景假设与 m04 一致（悲观 88 万、中性 165 万、乐观 260 万）。证伪条件与 m13 一致。杠杆 ETF 风险提示基于 2026/07/13 南方两倍做多海力士单日跌超 30% 的事实。
+Correlations are rough estimates based on daily returns in the first half of 2026, without precise regression. Target prices and scenario assumptions are consistent with m04 (bear case 880,000, base case 1.65 million, bull case 2.6 million). Falsification conditions are consistent with m13. The leveraged ETF risk warning is based on the fact that the CSOP 2x Long SK hynix ETF fell more than 30% in a single day on 2026/07/13.
 
 ## Positioning recommendations (by scenario and cost)
 
@@ -28,7 +28,7 @@ First, 1.65 million is the price at which you can start buying, not the price at
 
 Second, 1.40 million is the price at which you can build a heavy position. It corresponds to 5x 2027, and the bear case (110 trillion operating profit × 4.6x + net cash) works out to 880,000, at which point the bear case is only -37%, the base case +18%, and expected value turns positive.
 
-Third, set falsification-based stops, not mechanical stops. **Price stops on cyclical stocks are the easiest way to get shaken out**—in the 2022 cycle, the stock fell 60% from its high and staged three rebounds of more than 20% along the way. Stops should be tied to the thesis: contract prices turning down and share loss are more reliable signals than price.
+Third, set falsification-based stops, not mechanical stops. Price stops on cyclical stocks are the easiest way to get shaken out—in the 2022 cycle, the stock fell 60% from its high and staged three rebounds of more than 20% along the way. Stops should be tied to the thesis: contract prices turning down and share loss are more reliable signals than price.
 
 ## Correlation: it is the beta of the AI trade, not a diversification tool
 
@@ -36,13 +36,13 @@ SK hynix's daily correlation with Nvidia, AMD, TSMC and Micron exceeds 0.7, and 
 
 What genuinely diversifies: utilities with stable cash flow, consumer staples, and assets unrelated to AI capex (e.g. pharma, some financials). If the portfolio already holds more than 20% in the AI compute chain (GPUs, optical modules, memory, servers), adding SK hynix is putting all eggs in one basket.
 
-July 13 was a good example: SK hynix -15.4%, Samsung -11%, A-share memory names limit-down, US memory stocks down 6%–9% premarket. **Same supply chain, no diversification**.
+July 13 was a good example: SK hynix -15.4%, Samsung -11%, A-share memory names limit-down, US memory stocks down 6%–9% premarket. Same supply chain, no diversification.
 
 ## Rebalancing discipline: quarterly reviews, not monthly
 
 Memory stocks move on a weekly basis, so monthly rebalancing gets dragged around by noise. Do three things each quarter: first, check the status of H1 and H2 assumptions (contract prices, share); second, recalculate 2027 operating profit and target price; third, if a position has risen above 1.5x its target weight, trim it back to target.
 
-One more practical suggestion: if the only way to gain exposure is through an ETF (such as the CSOP 2x Long SK hynix), don't use it. Leveraged ETFs suffer heavy decay in choppy markets; the 30% single-day drop on 13 July is one example. **If you buy, buy the common stock or the ADR**.
+One more practical suggestion: if the only way to gain exposure is through an ETF (such as the CSOP 2x Long SK hynix), don't use it. Leveraged ETFs suffer heavy decay in choppy markets; the 30% single-day drop on 13 July is one example. If you buy, buy the common stock or the ADR.
 
 ## If the portfolio already holds AI-chain exposure
 

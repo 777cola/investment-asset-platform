@@ -27,15 +27,15 @@ Method: compare the same metric across two independent sources and take the diff
 
 Revenue of RMB 11.536 billion, data center revenue of RMB 6.718 billion, gross margin of 56.0%, GAAP net income of RMB 2.297 billion, non-GAAP EPS of USD 1.66, and Q3 guidance of RMB 13 billion ±300 million — these six items match exactly across the two sources, or differ only in the last digit due to rounding. Earnings releases from large-cap US companies are synchronized: the 8-K, press release, conference call materials and IR website all go live in the same minute, and Chinese media republish the same day, so the probability of conflicting numbers is very low.
 
-The only item worth noting is the non-GAAP basis. The company disclosed non-GAAP net income of RMB 2.76 billion and EPS of USD 1.66, versus GAAP net income of RMB 2.297 billion and EPS of USD 1.39 — a gap of RMB 463 million. The difference comes mainly from stock-based compensation (about RMB 400 million) and amortization of acquired intangibles (about RMB 100 million). **This report uses GAAP for all valuation; non-GAAP is used only to gauge operating trends** — the 125x figure is on a GAAP basis; on a non-GAAP basis it becomes 104x, a 21x difference, enough to change the conclusion.
+The only item worth noting is the non-GAAP basis. The company disclosed non-GAAP net income of RMB 2.76 billion and EPS of USD 1.66, versus GAAP net income of RMB 2.297 billion and EPS of USD 1.39 — a gap of RMB 463 million. The difference comes mainly from stock-based compensation (about RMB 400 million) and amortization of acquired intangibles (about RMB 100 million). This report uses GAAP for all valuation; non-GAAP is used only to gauge operating trends — the 125x figure is on a GAAP basis; on a non-GAAP basis it becomes 104x, a 21x difference, enough to change the conclusion.
 
 ## Two items exceeded the threshold: one rounded up, one back-solved
 
-Capex of RMB 808 million vs. media reports of "about RMB 800 million," a 1.0% deviation. This stems from rounding, not a data error. But the direction of this USD 8 million matters: the market expected RMB 299 million, and the actual RMB 808 million is 2.7x expectations. **A fabless company pulling capex to this level admits only two explanations—locking in dedicated capacity, or prepaying TSMC for advanced packaging**. Both point to 2027 orders already scheduled, and this is the single most informative number in this quarter's report; using the rounded figure would weaken that signal.
+Capex of RMB 808 million vs. media reports of "about RMB 800 million," a 1.0% deviation. This stems from rounding, not a data error. But the direction of this USD 8 million matters: the market expected RMB 299 million, and the actual RMB 808 million is 2.7x expectations. A fabless company pulling capex to this level admits only two explanations—locking in dedicated capacity, or prepaying TSMC for advanced packaging. Both point to 2027 orders already scheduled, and this is the single most informative number in this quarter's report; using the rounded figure would weaken that signal.
 
 2025Q2 segment revenue is a derived figure, and the deviation cannot be quantified. The method: divide 2026Q2 segment revenue by (1 + YoY growth) to get 3,240 / 2,490 / 1,129 / 826, which sum to 7,685 and match 2025Q2 total revenue exactly, confirming the derivation is internally consistent; but individual line items may carry 1%–2% error, since the growth rates themselves are rounded to integers.
 
-What does this deviation affect? Only the precision of growth rates like "gaming -31%," not the conclusion that "data center contributed 90% of the increment"—the RMB 3.48 billion incremental gap far exceeds a 2% error band. **So the approach is: keep the derived values in the tables with a note, and use only magnitude language like "doubled" or "down about 30%" in the body text.**
+What does this deviation affect? Only the precision of growth rates like "gaming -31%," not the conclusion that "data center contributed 90% of the increment"—the RMB 3.48 billion incremental gap far exceeds a 2% error band. So the approach is: keep the derived values in the tables with a note, and use only magnitude language like "doubled" or "down about 30%" in the body text.
 
 ## Final basis and three estimates
 
@@ -43,7 +43,7 @@ Three estimates must be spelled out. First, TTM net profit of USD 6.4 billion: t
 
 The market cap basis must also be explained: USD 483.36 × 1.66 billion shares = USD 802.4 billion. Using diluted share capital of 1.67 billion shares gives USD 807.2 billion, a 0.6% difference, with an impact on PE of less than 1x. If all OpenAI warrants are exercised (capped at 160 million shares), share capital would rise 9.6%, and both market cap and EPS would need to be recalculated — that is a matter for after 2027, and for now is merely noted in the risk list.
 
-**In one sentence: the numbers in this report contain no case of "two sources that do not reconcile", only cases of "one source is an estimate", and all estimates are flagged.**That matters more than chasing two decimal places.
+In one sentence: the numbers in this report contain no case of "two sources that do not reconcile", only cases of "one source is an estimate", and all estimates are flagged.That matters more than chasing two decimal places.
 
 ## Sources
 

@@ -22,35 +22,35 @@ The assumptions and verification indicators are set for this report and are not 
 
 ## Hypothesis 1 and 2: the cloud story, half supported by evidence
 
-Cloud is the entire focus of the investment thesis this round (48% of the neutral valuation). It requires two conditions to hold simultaneously: **growth does not falter, and profit does not collapse.** Growth currently has data (RMB 48.44 billion, +45%), and margin has one quarter of data (11.6%, +133%), but both have only a single quarter of sample.
+Cloud is the entire focus of the investment thesis this round (48% of the neutral valuation). It requires two conditions to hold simultaneously: growth does not falter, and profit does not collapse. Growth currently has data (RMB 48.44 billion, +45%), and margin has one quarter of data (11.6%, +133%), but both have only a single quarter of sample.
 
-The verification method is simple: **FY2027Q2 (released in November) — watch two numbers: whether growth is ≥40% and whether EBITA margin is ≥12%.** If both are met, the assumption holds, the cloud multiple is raised from 6x PS to 8x, and the target price is lifted from HKD 129 to above HKD 150; if either one is not met, the assumption is void, the multiple reverts to 4x, and the target price falls below HKD 95.
+The verification method is simple: FY2027Q2 (released in November) — watch two numbers: whether growth is ≥40% and whether EBITA margin is ≥12%. If both are met, the assumption holds, the cloud multiple is raised from 6x PS to 8x, and the target price is lifted from HKD 129 to above HKD 150; if either one is not met, the assumption is void, the multiple reverts to 4x, and the target price falls below HKD 95.
 
-**Falsification line: quarterly growth <30%, or EBITA margin <9%.** Once these two numbers appear, cloud reverts from a "growth asset" to a "heavy asset," and the entire SOTP must be recalculated.
+Falsification line: quarterly growth  Once these two numbers appear, cloud reverts from a "growth asset" to a "heavy asset," and the entire SOTP must be recalculated.
 
 ## Assumption 3: AI applications will narrow losses — currently zero evidence
 
 This is the most fragile of all the assumptions. Current evidence points the other way: a loss of RMB 13.86 billion, a loss ratio of -415%, and a 330% year-on-year widening. The company gave no path to narrowing losses, no timetable, and no target loss ratio.
 
-What would count as "starting to narrow losses"? Three signals: **1) sequential decline in the quarterly loss (even just 5%); 2) loss ratio narrowing from -415% to within -300%; 3) revenue growth rising from +16% to above +30% (showing commercialization is scaling).** Two of the three must appear before this segment can be valued at 0x rather than -3x.
+What would count as "starting to narrow losses"? Three signals: 1) sequential decline in the quarterly loss (even just 5%); 2) loss ratio narrowing from -415% to within -300%; 3) revenue growth rising from +16% to above +30% (showing commercialization is scaling). Two of the three must appear before this segment can be valued at 0x rather than -3x.
 
-**Falsification line: quarterly loss exceeds RMB 16 billion, or the loss ratio widens further to -500%.** That would mean commercialization is completely failing to keep pace with investment, and the multiple should move from 3x to 5x, cutting the target price by another HKD 12. **If by the end of fiscal 2027 (March 2027) the loss still shows no sequential narrowing, this assumption should be judged "permanently invalid" and treated as a pure expense in valuation.**
+Falsification line: quarterly loss exceeds RMB 16 billion, or the loss ratio widens further to -500%. That would mean commercialization is completely failing to keep pace with investment, and the multiple should move from 3x to 5x, cutting the target price by another HKD 12. If by the end of fiscal 2027 (March 2027) the loss still shows no sequential narrowing, this assumption should be judged "permanently invalid" and treated as a pure expense in valuation.
 
 ## Assumptions 4 and 5: e-commerce and capex, two pieces of counter-evidence
 
-**E-commerce monetization rate:** Customer management revenue -7% as reported, +1% on a like-for-like basis; neither basis supports a recovery. The validation metric for this assumption is "like-for-like positive growth for two consecutive quarters," with growth >3% (only meaningful if it keeps pace with inflation). **Falsification line: like-for-like negative growth for two consecutive quarters, or China e-commerce revenue decline widening beyond -10%.** That would mean the moat around the core business is materially thinning, and the e-commerce 9x EBITA multiple would need to drop to 7x.
+E-commerce monetization rate: Customer management revenue -7% as reported, +1% on a like-for-like basis; neither basis supports a recovery. The validation metric for this assumption is "like-for-like positive growth for two consecutive quarters," with growth >3% (only meaningful if it keeps pace with inflation). Falsification line: like-for-like negative growth for two consecutive quarters, or China e-commerce revenue decline widening beyond -10%. That would mean the moat around the core business is materially thinning, and the e-commerce 9x EBITA multiple would need to drop to 7x.
 
-**Capex:** This is the only assumption where current evidence contradicts the thesis. The assumption is "capex will decelerate"; actual capex was RMB 67.68 billion, +75%, and the company did not disclose a capex ceiling for FY2027. Validation metric: quarter-on-quarter decline in quarterly capex, or management giving an explicit annual ceiling on the earnings call.
+Capex: This is the only assumption where current evidence contradicts the thesis. The assumption is "capex will decelerate"; actual capex was RMB 67.68 billion, +75%, and the company did not disclose a capex ceiling for FY2027. Validation metric: quarter-on-quarter decline in quarterly capex, or management giving an explicit annual ceiling on the earnings call.
 
-**Falsification line: capex rising quarter-on-quarter for three consecutive quarters, with the free cash flow gap exceeding -RMB 50 billion.** That would mean "asset-heavy transformation" is irreversible, the valuation framework shifts entirely toward an infrastructure stock, the multiple center moves down 20%, and the target price falls from 129 to below 105.
+Falsification line: capex rising quarter-on-quarter for three consecutive quarters, with the free cash flow gap exceeding -RMB 50 billion. That would mean "asset-heavy transformation" is irreversible, the valuation framework shifts entirely toward an infrastructure stock, the multiple center moves down 20%, and the target price falls from 129 to below 105.
 
 ## Watch calendar: what to watch over the next 12 months
 
-**October–November 2026 (FY2027Q2 results)**: a one-off test of three hypotheses — cloud growth and margins, QoQ losses in AI applications, and customer management growth on a like-for-like basis. This is the single most important checkpoint of the year. **January–February 2027 (FY2027Q3 results)**: watch whether capex has peaked and whether instant retail losses narrow. **March 2027 (FY2027 annual report)**: watch full-year free cash flow, whether there is a second round of financing, and the scale of depreciation.
+October–November 2026 (FY2027Q2 results): a one-off test of three hypotheses — cloud growth and margins, QoQ losses in AI applications, and customer management growth on a like-for-like basis. This is the single most important checkpoint of the year. January–February 2027 (FY2027Q3 results): watch whether capex has peaked and whether instant retail losses narrow. March 2027 (FY2027 annual report): watch full-year free cash flow, whether there is a second round of financing, and the scale of depreciation.
 
-Beyond earnings, three unscheduled events warrant attention: **1) expiry of the 90-day lock-up on placed shares (late November)** — concentrated selling by placees would create overhang; **2) changes to Nvidia export controls**, which directly affect the substitution value of Pingtouge; **3) Alibaba Cloud's quarterly share data (Omdia, every quarter)** — if 38.1% falls below 35%, the cloud pricing logic changes.
+Beyond earnings, three unscheduled events warrant attention: 1) expiry of the 90-day lock-up on placed shares (late November) — concentrated selling by placees would create overhang; 2) changes to Nvidia export controls, which directly affect the substitution value of Pingtouge; 3) Alibaba Cloud's quarterly share data (Omdia, every quarter) — if 38.1% falls below 35%, the cloud pricing logic changes.
 
-The point of writing down the calendar: **do not change your judgment because the share price moves; change it because the data arrives.** The next data point lands in November; the moves in the two months in between are noise.
+The point of writing down the calendar: do not change your judgment because the share price moves; change it because the data arrives. The next data point lands in November; the moves in the two months in between are noise.
 
 ## Sources
 

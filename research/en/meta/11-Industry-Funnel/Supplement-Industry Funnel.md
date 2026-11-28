@@ -25,37 +25,37 @@ Comparable company data: Meta figures from its Q3 2026 earnings report; Google, 
 
 Set the criteria before looking at the data, otherwise it becomes "conclusion first, justification second." Four rules: first, advertising or core business must account for more than half of total revenue, ensuring the same kind of business is being studied; second, revenue scale of USD 50 billion or more per year, excluding long-tail small companies; third, advertising growth positive in the trailing four quarters, excluding those in structural decline; fourth, free cash flow must not be negative for four consecutive quarters — this is an exclusion criterion, not a weighted one.
 
-**The fourth rule flags Meta itself** — its Q3 free cash flow was -USD 2.12 billion, negative for the first time, and not yet "four consecutive quarters," so it stays under observation. If free cash flow remains negative through the first half of 2027, it too will be screened out by its own funnel. That is the point of discipline: the criteria apply equally to everyone.
+The fourth rule flags Meta itself — its Q3 free cash flow was -USD 2.12 billion, negative for the first time, and not yet "four consecutive quarters," so it stays under observation. If free cash flow remains negative through the first half of 2027, it too will be screened out by its own funnel. That is the point of discipline: the criteria apply equally to everyone.
 
 ## First round: start by cutting those that are "not big enough"
 
 Snap posted RMB 1.72 billion in a single quarter (Q2 basis), Pinterest RMB 1.17 billion, Reddit RMB 895 million — combined, less than 6% of Meta. Their growth is not bad (Reddit +53%), but their business models are too one-dimensional: advertising only, no second growth curve, no in-house compute. In the AI era they will be forced to buy inference capacity from cloud providers.
 
-**The reason for elimination is not that they are "bad," but that they are "not in the same weight class."**Their value to research lies in reading industry signals (Pinterest fell 14% after earnings, showing advertisers are pulling back experimental budgets), not in serving as investment targets.
+The reason for elimination is not that they are "bad," but that they are "not in the same weight class."Their value to research lies in reading industry signals (Pinterest fell 14% after earnings, showing advertisers are pulling back experimental budgets), not in serving as investment targets.
 
 ## Round two: why Amazon and Microsoft are out
 
-Amazon advertising: USD 19.64 billion, +10.9%, decelerating from 26.2% in the second quarter, signaling that retail-media advertising has hit its ceiling. Capex is USD 200–220 billion, but AWS generates cash to offset it, so cash-flow pressure is lighter than at Meta. **The reason for exclusion: advertising is not its main business; studying it means studying retail plus cloud, which drifts off topic.**
+Amazon advertising: USD 19.64 billion, +10.9%, decelerating from 26.2% in the second quarter, signaling that retail-media advertising has hit its ceiling. Capex is USD 200–220 billion, but AWS generates cash to offset it, so cash-flow pressure is lighter than at Meta. The reason for exclusion: advertising is not its main business; studying it means studying retail plus cloud, which drifts off topic.
 
-Microsoft is even more extreme: revenue +18.8%, cloud +48.2%, operating margin 49.8%, free cash flow +USD 18.63 billion — the only one of the four with positive cash flow. But its advertising business is too small, and AI monetization runs through Copilot subscriptions and Azure, a different lane from Meta. **It is the best vehicle for "selling shovels" in AI, not a vehicle for "advertising platforms."**
+Microsoft is even more extreme: revenue +18.8%, cloud +48.2%, operating margin 49.8%, free cash flow +USD 18.63 billion — the only one of the four with positive cash flow. But its advertising business is too small, and AI monetization runs through Copilot subscriptions and Azure, a different lane from Meta. It is the best vehicle for "selling shovels" in AI, not a vehicle for "advertising platforms."
 
 ## Final pick: Meta vs Google, a trade-off between growth and price
 
 Both are worth tracking. Meta wins on growth: advertising +25.9% versus +10.6%, with share expanding; it loses on price and cash flow: 21x versus 14.8x, free cash flow -RMB 212 million versus (also negative but a different scale).
 
-Google's problem is an income statement dragged down by non-recurring investment losses (SpaceX and other equity stakes); the stock fell 13% after its October 29 earnings, wiping out USD 500 billion in market value.**The market's tolerance for "AI spending that doesn't translate into profit" suddenly dropped at the end of October.** That is a cautionary tale for Meta: it may be next to be treated this way.
+Google's problem is an income statement dragged down by non-recurring investment losses (SpaceX and other equity stakes); the stock fell 13% after its October 29 earnings, wiping out USD 500 billion in market value.The market's tolerance for "AI spending that doesn't translate into profit" suddenly dropped at the end of October. That is a cautionary tale for Meta: it may be next to be treated this way.
 
 ## Why Meta (if you had to pick one company in this race)
 
 Three reasons: first, it is the only advertising platform still gaining share, growing 2.4x faster than peers; second, it trades at 21x, below Microsoft at 25.9x and near Amazon at 20.4x, yet has the highest growth; third, it is also betting on the next-generation entry point (Muse), and if that succeeds, its valuation framework will be re-rated.
 
-None of the three reasons solves one problem: **cash flow.** So at the final step of the funnel, the verdict is "add to watchlist," not "buy." A funnel can screen for good companies, not good prices—prices have to be waited for.
+None of the three reasons solves one problem: cash flow. So at the final step of the funnel, the verdict is "add to watchlist," not "buy." A funnel can screen for good companies, not good prices—prices have to be waited for.
 
 ## There is another option beyond the funnel: buy nothing
 
 The purpose of the industry funnel is to identify "the best company in this lane," not "something that must be bought." If the best one is priced wrong, the correct answer is to hold cash and wait, not to settle for the second-best.
 
-Buy Google? 14.8x is indeed cheap, but its ad growth is only 10.6%, AI summaries are still eroding search clicks, and the 13% drop on October 29 shows the market hasn't figured it out either. **Buying a "cheap but unclear" stock is essentially trading price for certainty—that is not how value investing works.**
+Buy Google? 14.8x is indeed cheap, but its ad growth is only 10.6%, AI summaries are still eroding search clicks, and the 13% drop on October 29 shows the market hasn't figured it out either. Buying a "cheap but unclear" stock is essentially trading price for certainty—that is not how value investing works.
 
 ## Sources
 

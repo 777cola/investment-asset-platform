@@ -10,7 +10,7 @@ All four role reports are based on public information available as of 2026/08/17
 
 ## How to read the four reports
 
-The business section answers "does this business make money"; the financials section answers "where the money made sits"; the industry section answers "how long can this position be held"; the risk section answers "which variables break first." Each of the four stands alone, with no cross-references; only the fifth section draws the threads together. Read in order, it is four analysts; read backwards, it is four kinds of doubt.
+The business section answers "does this business make money"; the financials section answers "where the money made sits"; the industry section answers "how long this position can be held"; the risk section answers "which variables break first". The four pieces stand alone and do not cross-reference each other; only the fifth piece does the cross-cutting. Read in order, it is four analysts; read backwards, it is four kinds of doubt.
 
 ## Sources
 

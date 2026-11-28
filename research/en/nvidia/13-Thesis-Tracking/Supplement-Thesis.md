@@ -23,45 +23,53 @@ The assumptions and verification indicators are proprietary to this report and a
 
 ## Four validated: the thesis skeleton holds
 
-**Demand diffusion** is the hardest data point. Hyperscale cloud RMB 48.71 billion (+102% YoY, +13% QoQ), ACIE RMB 40.313 billion (+138% YoY, +25% QoQ). **The fast-growing half is the half that was not on the customer list before.** Sovereign AI +35% QoQ and more than 2x YoY, NeoCloud installed capacity from 3GW to 8GW — these are not platitudes in the earnings release, but volumes that can be verified again next quarter.
+Demand diffusion is the hardest data point. Hyperscale cloud RMB 48.71 billion (+102% YoY, +13% QoQ), ACIE RMB 40.313 billion (+138% YoY, +25% QoQ). The fast-growing half is the half that was not on the customer list before. Sovereign AI +35% QoQ and more than 2x YoY, NeoCloud installed capacity from 3GW to 8GW — these are not platitudes in the earnings release, but volumes that can be verified again next quarter.
 
-**Supply bottlenecks** are confirmed too. Q3 guidance of RMB 108 billion was given on the premise of "zero China data-center compute revenue," and still implies +12% QoQ. Management says real demand is about 100% while guidance assumes only 70%; the gap is entirely capacity: wafers, HBM, power and data-center space are all tight, with shortages extending to the end of FY2028.
+Supply bottlenecks are confirmed too. Q3 guidance of RMB 108 billion was given on the premise of "zero China data-center compute revenue," and still implies +12% QoQ. Management says real demand is about 100% while guidance assumes only 70%; the gap is entirely capacity: wafers, HBM, power and data-center space are all tight, with shortages extending to the end of FY2028.
 
-**Pricing power**: Q2 gross margin 75.0%, operating margin 66.2%, opex ratio 8.7%. Even if Q4 falls to 71%–72%, that is still far above any peer. **Ecosystem**: AMD has chased for three years with the same growth rate and no share gain; its data-center revenue remains one-thirteenth the size.
+Pricing power: Q2 gross margin 75.0%, operating margin 66.2%, opex ratio 8.7%. Even if Q4 falls to 71%–72%, that is still far above any peer. Ecosystem: AMD has chased for three years with the same growth rate and no share gain; its data-center revenue remains one-thirteenth the size.
 
 ## Article 5 is fracturing: this is the one to watch most closely
 
 The assumption that "profit turns into cash" showed clear contrary data this quarter: operating cash flow of RMB 24.077 billion vs. net profit of RMB 59.688 billion, a conversion rate of 40.3%, versus 58.1% last year; free cash flow of RMB 21.341 billion, a conversion rate of 35.8%, versus 50.9% last year.
 
-Breaking it down, two of the three reasons are natural consequences of "the business getting bigger," and one is a "structural change": **accounts receivable +RMB 22.346 billion (payment terms 45 → 60 days) is the structural change**; inventory +RMB 5.784 billion (stockpiling for Rubin) is natural; prepayments +RMB 5.497 billion (locking in capacity) are natural; investment income of RMB 7.771 billion not flowing into cash is accounting.
+Breaking it down, two of the three reasons are natural consequences of "the business getting bigger," and one is a "structural change": accounts receivable +RMB 22.346 billion (payment terms 45 → 60 days) is the structural change; inventory +RMB 5.784 billion (stockpiling for Rubin) is natural; prepayments +RMB 5.497 billion (locking in capacity) are natural; investment income of RMB 7.771 billion not flowing into cash is accounting.
 
-To judge whether the thesis is "cracking" or "not cracking," watch two numbers: whether payment terms keep rising (65 days is a warning, 75 days is confirmation), and whether next quarter's OCF/net profit returns above 50%. **If in Q3 payment terms hold at 60 days and the conversion rate returns to 50%, this assumption goes from "cracking" back to "validated"; if payment terms breach 70 days, the thesis needs rewriting.**
+To judge whether the thesis is "cracking" or "not cracking," watch two numbers: whether payment terms keep rising (65 days is a warning, 75 days is confirmation), and whether next quarter's OCF/net profit returns above 50%. If in Q3 payment terms hold at 60 days and the conversion rate returns to 50%, this assumption goes from "cracking" back to "validated"; if payment terms breach 70 days, the thesis needs rewriting.
 
 ## Article 6 must wait until 2027: guarantees are the tail risk in the thesis
 
 The assumption that "customers can afford to pay" cannot be verified in 2026. The company gave three numbers: a guarantee ceiling of USD 108.5 billion, supply commitments of USD 279 billion, and cloud service purchase commitments of USD 36 billion. It also gave the single most important line: next year, AI lab business requiring support from Nvidia's balance sheet will account for about a quarter of total business.
 
-What does a quarter mean? On FY2028 revenue of RMB 641.3 billion, that is USD 160 billion of revenue, backed by a group of labs and NeoClouds that are not yet profitable. **If these customers cannot raise money in 2027, Nvidia's problem is not "can't sell" but "can't collect."**
+What does a quarter mean? On FY2028 revenue of RMB 641.3 billion, that is USD 160 billion of revenue, backed by a group of labs and NeoClouds that are not yet profitable. If these customers cannot raise money in 2027, Nvidia's problem is not "can't sell" but "can't collect."
 
-Verification point: the first half of 2027. Watch three leading indicators — NeoCloud bond spreads, capex guidance from CoreWeave and Nebius, and whether Nvidia adds a "guarantee performance" line item in its 10-Q. **Until then, this assumption can only be treated as "uncertainty," managed through position limits rather than a valuation discount.**
+Verification point: the first half of 2027. Watch three leading indicators — NeoCloud bond spreads, capex guidance from CoreWeave and Nebius, and whether Nvidia adds a "guarantee performance" line item in its 10-Q. Until then, this assumption can only be treated as "uncertainty," managed through position limits rather than a valuation discount.
 
 ## Falsification conditions and monitoring calendar
 
-**Falsification conditions (cut position on two, exit on three):**
+Falsification conditions (cut position on two, exit on three):
 
 - Quarterly revenue turns negative sequentially (data center revenue declines sequentially for two consecutive quarters).
+
 - Receivables days exceed 75.
+
 - Q4 gross margin below 71%, and FY2028 guidance no longer mentions a "recovery" in gross margin.
+
 - First actual compensation payment on the RMB 108.5 billion guarantee.
+
 - Any two of the four major cloud providers cut 2027 capex by more than 10%.
 
-**Watch calendar:**
+Watch calendar:
 
-- **2026/10/01:** Quarterly dividend of USD 0.25/share paid (record date 9/10); watch whether buybacks continue.
-- **2026/10/21:** GTC keynote in Berlin; watch the Rubin roadmap and LPU customer progress.
-- **2026/11/17:** FY2027Q3 results — the most important checkpoint this period. Watch three numbers: revenue vs the USD 108 billion guidance, whether gross margin lands at 74%, and whether receivables days hold at 65.
-- **2027/02:** FY2027Q4 results — the quarter gross margin bottoms; watch whether 71%–72% holds and whether FY2028 guidance reiterates 70%.
-- **2027/05:** FY2028Q1 results — the quarter price increases take effect; watch whether gross margin actually returns to 72%–73%.
+- 2026/10/01: Quarterly dividend of USD 0.25/share paid (record date 9/10); watch whether buybacks continue.
+
+- 2026/10/21: GTC keynote in Berlin; watch the Rubin roadmap and LPU customer progress.
+
+- 2026/11/17: FY2027Q3 results — the most important checkpoint this period. Watch three numbers: revenue vs the USD 108 billion guidance, whether gross margin lands at 74%, and whether receivables days hold at 65.
+
+- 2027/02: FY2027Q4 results — the quarter gross margin bottoms; watch whether 71%–72% holds and whether FY2028 guidance reiterates 70%.
+
+- 2027/05: FY2028Q1 results — the quarter price increases take effect; watch whether gross margin actually returns to 72%–73%.
 
 ## Sources
 

@@ -24,33 +24,33 @@ The value distribution ratios are industry-level estimates (GPU and complete sys
 
 ## Value distribution: where in the chain the money is made
 
-The cost structure of a GB300 rack breaks down roughly as: GPU and full system 70%–75%, networking and optical modules 8%–10%, power and cooling 8%–10%, facility and land 5%–8%. **CoreWeave earns the operating spread on the last 20%–30%**, yet bears 100% of the capex and debt for it.
+The cost structure of a GB300 rack breaks down roughly as: GPU and full system 70%–75%, networking and optical modules 8%–10%, power and cooling 8%–10%, facility and land 5%–8%. CoreWeave earns the operating spread on the last 20%–30%, yet bears 100% of the capex and debt for it.
 
-That is why its financials look the way they do: revenue of RMB 3.661 billion, adjusted EBITDA of RMB 2.256 billion (62%), GAAP operating income of RMB 207 million (5.7%). **The 62% is the cash portion of the "operating spread"; the 5.7% is the true residual after equipment depreciation**. Value is captured upstream along the chain; what CoreWeave gets is an operating fee.
+That is why its financials look the way they do: revenue of RMB 3.661 billion, adjusted EBITDA of RMB 2.256 billion (62%), GAAP operating income of RMB 207 million (5.7%). The 62% is the cash portion of the "operating spread"; the 5.7% is the true residual after equipment depreciation. Value is captured upstream along the chain; what CoreWeave gets is an operating fee.
 
 ## CoreWeave's true position in the chain
 
-It plays three roles at once: **one of Nvidia's largest customers** (GPU allocation priority is its core asset), **an outsourced supplier to hyperscalers** (Microsoft and Meta outsource peak demand to it), and **a direct supplier to AI labs** (the USD 6.5 billion OpenAI contract). In none of these roles does it own the end-customer relationship.
+It plays three roles at once: one of Nvidia's largest customers (GPU allocation priority is its core asset), an outsourced supplier to hyperscalers (Microsoft and Meta outsource peak demand to it), and a direct supplier to AI labs (the USD 6.5 billion OpenAI contract). In none of these roles does it own the end-customer relationship.
 
-Most awkward is its substitutability in the chain. Upstream can switch buyers (Nvidia's GPUs sell themselves), downstream can switch suppliers (Nebius, Crusoe and IREN offer identical rack specifications), **and only it cannot switch upstream or downstream**. This is the classic "stuck in the middle" position, with weak bargaining power at both ends.
+Most awkward is its substitutability in the chain. Upstream can switch buyers (Nvidia's GPUs sell themselves), downstream can switch suppliers (Nebius, Crusoe and IREN offer identical rack specifications), and only it cannot switch upstream or downstream. This is the classic "stuck in the middle" position, with weak bargaining power at both ends.
 
 ## Cycle position: from chip shortage to power shortage, middlemen lose out
 
-The bottleneck in 2024–2025 was GPUs: whoever secured the cards made money, which gave neoclouds scarce-resource pricing power. In 2026 the bottleneck shifts to power and grid interconnection: **of 4.6GW of contracted power, only 1.7GW is operating, and the remaining 2.9GW is stuck on transformers, gas turbines and grid-connection approvals**.
+The bottleneck in 2024–2025 was GPUs: whoever secured the cards made money, which gave neoclouds scarce-resource pricing power. In 2026 the bottleneck shifts to power and grid interconnection: of 4.6GW of contracted power, only 1.7GW is operating, and the remaining 2.9GW is stuck on transformers, gas turbines and grid-connection approvals.
 
-The direct consequence of the bottleneck shifting is that bargaining power shifts. Power resources are allocated by local governments and grid companies, and hyperscalers compete for the same land with larger investment amounts and longer tax commitments. **When the scarce resource shifts from "cards" to "power," CoreWeave's first-mover advantage is erased**—because its rivals can bid 10x its capacity on power.
+The direct consequence of the bottleneck shifting is that bargaining power shifts. Power resources are allocated by local governments and grid companies, and hyperscalers compete for the same land with larger investment amounts and longer tax commitments. When the scarce resource shifts from "cards" to "power," CoreWeave's first-mover advantage is erased—because its rivals can bid 10x its capacity on power.
 
 ## Cash-flow characteristics by segment: who fronts the money
 
-Line up the value chain by "who pays first" and the answer is clear. **Upstream gets prepayment or short payment terms**: Nvidia collects on delivery of its cards, and the three HBM makers take prepayments and long-term contracts; **downstream pays later**: AI labs pay by usage, and customers like Meta get 30–60 day terms; **the middle front-loads the cash**: CoreWeave spends first to buy cards and build data centers, then collects rent monthly, with a 3–5 year payback period.
+Line up the value chain by "who pays first" and the answer is clear. Upstream gets prepayment or short payment terms: Nvidia collects on delivery of its cards, and the three HBM makers take prepayments and long-term contracts; downstream pays later: AI labs pay by usage, and customers like Meta get 30–60 day terms; the middle front-loads the cash: CoreWeave spends first to buy cards and build data centers, then collects rent monthly, with a 3–5 year payback period.
 
-Cash flow along this chain runs "from the middle into the upstream, and on credit to the downstream." **It bears both capex risk and customer credit risk, yet earns only a 5.7% operating margin.** For any intermediary to make money in this position, there are only two paths: secure an extremely low cost of capital (Microsoft at 4.85%, versus its 7.9%), or lock in extremely long contracts at fixed prices (its contracts are maximum commitment amounts, not floors). With neither, the position is condemned to thin margins.
+Cash flow along this chain runs "from the middle into the upstream, and on credit to the downstream." It bears both capex risk and customer credit risk, yet earns only a 5.7% operating margin. For any intermediary to make money in this position, there are only two paths: secure an extremely low cost of capital (Microsoft at 4.85%, versus its 7.9%), or lock in extremely long contracts at fixed prices (its contracts are maximum commitment amounts, not floors). With neither, the position is condemned to thin margins.
 
 ## Cycle view: mid-expansion, before the shakeout
 
-Three signals simultaneously point to mid-cycle rather than a bottom: **① leading players are still levering up to expand capacity** (CoreWeave's full-year capex guidance of USD 37–39 billion); **② prices are still rising** (a 25% price increase in July); **③ customers are tightening outsourcing** (Microsoft reviewing USD 8 billion of external compute).
+Three signals simultaneously point to mid-cycle rather than a bottom: ① leading players are still levering up to expand capacity (CoreWeave's full-year capex guidance of USD 37–39 billion); ② prices are still rising (a 25% price increase in July); ③ customers are tightening outsourcing (Microsoft reviewing USD 8 billion of external compute).
 
-Historically this combination usually means "the last stretch of prosperity at the top" — prices are still rising, but the smartest buyers have already begun to withdraw. A true bottom requires three conditions: capex peaking, prices falling, and weaker players being flushed out. None is present now. **Implication for CoreWeave: it must repay USD 13.4 billion of maturing debt during a downturn.**
+Historically this combination usually means "the last stretch of prosperity at the top" — prices are still rising, but the smartest buyers have already begun to withdraw. A true bottom requires three conditions: capex peaking, prices falling, and weaker players being flushed out. None is present now. Implication for CoreWeave: it must repay USD 13.4 billion of maturing debt during a downturn.
 
 ## Sources
 

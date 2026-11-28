@@ -51,13 +51,13 @@ Financial data sources: company 2026Q1 report (2026/04/22, revenue 52.5763 trill
 
 2026Q1 revenue was 52.58 trillion, roughly 80% DRAM and 20% NAND (rough estimate). Within DRAM, HBM accounts for around 40%, with the remainder split between server DDR5, LPDDR5X, GDDR7 and consumer products. Within NAND, enterprise SSDs and high-capacity QLC products are gaining share, and 321-layer products have become the highest-volume product by output share.
 
-The key to the mix shift is not the ratio but **capacity allocation**: the company explicitly states that "capacity is prioritized for HBM and high-density server modules of 128GB and above." In plain terms: the best capacity goes to the most profitable customers, and only the remainder flows to the consumer market. That is why consumer DRAM contract prices can rise 45%–50% while the company's own blended ASP rises only 30% — it ceded the market with the steepest price increases in exchange for the long-term contract stability of HBM.
+The key to the mix shift is not the ratio but capacity allocation: the company explicitly states that "capacity is prioritized for HBM and high-density server modules of 128GB and above." In plain terms: the best capacity goes to the most profitable customers, and only the remainder flows to the consumer market. That is why consumer DRAM contract prices can rise 45%–50% while the company's own blended ASP rises only 30% — it ceded the market with the steepest price increases in exchange for the long-term contract stability of HBM.
 
 ## Second layer: gross margin at 79%, no upside left in that number
 
 A 79% gross margin means that out of every RMB 100 of revenue, materials, labor, depreciation and electricity together account for only RMB 21. Memory's historical gross margin peak was around 55%; this cycle it has gone straight to 79%, driven by two things combined: the structural premium on HBM (unit price roughly 3x) plus a broad shortage of commodity DRAM.
 
-Is there room to go higher? Almost none. Wafer cost is rigid; a further 10% price increase would lift gross margin only to 81%. And to the downside? A 30% price decline would push gross margin below 65% and halve operating profit. **The significance of 79% is not "it can go higher" but "it can only go lower"**.
+Is there room to go higher? Almost none. Wafer cost is rigid; a further 10% price increase would lift gross margin only to 81%. And to the downside? A 30% price decline would push gross margin below 65% and halve operating profit. The significance of 79% is not "it can go higher" but "it can only go lower".
 
 One more detail: this quarter's depreciation is calculated on the old production lines. Yongin Phase 1 starts production in 2027 and M15X reaches full production by end-2026, so depreciation will step up markedly from 2028. By then, even with prices flat, depreciation will consume 3–5 percentage points of gross margin.
 
@@ -67,7 +67,7 @@ Gross margin 79%, operating margin 71.5% — a gap of just 7.5 percentage points
 
 The upside is operating leverage: revenue up 60%, operating profit up 96% (19.17 → 37.61). The downside is the same leverage: revenue down 30%, operating profit down more than 70%. Low expense rigidity means costs are almost entirely variable costs (materials) and quasi-fixed costs (depreciation), with no "soft cost" buffer to cut.
 
-Net profit of KRW 40.35 trillion is KRW 2.7 trillion higher than operating profit, the difference coming from revaluation of equity investments (indirect Kioxia stake held through a consortium) and tax items. The two measures must be read separately: **operating profit measures the business, net profit measures per-share value**.
+Net profit of KRW 40.35 trillion is KRW 2.7 trillion higher than operating profit, the difference coming from revaluation of equity investments (indirect Kioxia stake held through a consortium) and tax items. The two measures must be read separately: operating profit measures the business, net profit measures per-share value.
 
 ## Tier four: cash flow matches profit, but will thin in the second half
 
@@ -75,21 +75,21 @@ Single-quarter free cash flow was RMB 1.867 trillion, up 582% year on year. Cape
 
 The balance sheet holds no hidden concerns: the company turned net cash in 2025, with net cash of about RMB 5.8 trillion in 2026Q1 (rough estimate), rising to around RMB 9.5 trillion after the USD 26.5 billion ADR raise in July, equivalent to 7% of market cap. Inventory and receivables are both rising, but that is normal during a price upcycle—inventory is carried at cost, so market-price gains are not yet reflected on the books, effectively concealing part of profit.
 
-The real risk is not cash-flow quality but **cash-flow sustainability**: a substantial portion of this quarter's RMB 2.8 trillion in operating cash flow is "passive working-capital appreciation from price increases," not volume growth. Volumes did not grow while cash flow surged; money of this kind reverses the moment the cycle turns.
+The real risk is not cash-flow quality but cash-flow sustainability: a substantial portion of this quarter's RMB 2.8 trillion in operating cash flow is "passive working-capital appreciation from price increases," not volume growth. Volumes did not grow while cash flow surged; money of this kind reverses the moment the cycle turns.
 
 ## Three accounting details beyond the four layers
 
-**Detail 1: Inventory valuation.** DRAM is carried at the lower of cost or net realizable value. In a rising-price period, market price exceeds cost, book value is not written up, so part of profit stays hidden; in a falling-price period, write-downs must be taken and profit is hit twice. In the 2022–2023 downturn, inventory write-downs were one of the main drivers of widening losses.
+Detail 1: Inventory valuation. DRAM is carried at the lower of cost or net realizable value. In a rising-price period, market price exceeds cost, book value is not written up, so part of profit stays hidden; in a falling-price period, write-downs must be taken and profit is hit twice. In the 2022–2023 downturn, inventory write-downs were one of the main drivers of widening losses.
 
-**Detail 2: FX.** Revenue is denominated in USD, costs in KRW. When the won depreciates, the same USD revenue translates into more won and margins improve passively; appreciation does the opposite. The won was weak in the first half of 2026, an invisible tailwind.
+Detail 2: FX. Revenue is denominated in USD, costs in KRW. When the won depreciates, the same USD revenue translates into more won and margins improve passively; appreciation does the opposite. The won was weak in the first half of 2026, an invisible tailwind.
 
-**Detail 3: Government grants and tax credits.** The Korean government offers tax credits for semiconductor investment, and the US CHIPS Act provides subsidies. These lower the effective tax rate and make net profit look better than operating profit. To judge true profitability, look at operating profit.
+Detail 3: Government grants and tax credits. The Korean government offers tax credits for semiconductor investment, and the US CHIPS Act provides subsidies. These lower the effective tax rate and make net profit look better than operating profit. To judge true profitability, look at operating profit.
 
 ## A reminder after reading
 
 The easiest way to misread this earnings report is to treat it as evidence that "the company has become stronger." In fact, every record in 2026Q1 can be decomposed into two factors: a price factor and a structural factor. The price factor (DRAM +60%, NAND +70%) contributed more than 80% of the increment, while the structural factor (HBM mix, 1c yield, 321-layer NAND) contributed the remaining 20%.
 
-The price factor will reverse; the structural factor will not. So to judge this company's future, watch the progress of the structural factor—the ramp speed of HBM4, the proportion of 1c capacity conversion, the cost advantage of 321-layer NAND—not how much money it made this quarter.**Quarterly profit is the result; structural change is the cause**.
+The price factor will reverse; the structural factor will not. So to judge this company's future, watch the progress of the structural factor—the ramp speed of HBM4, the proportion of 1c capacity conversion, the cost advantage of 321-layer NAND—not how much money it made this quarter.Quarterly profit is the result; structural change is the cause.
 
 ## Sources
 

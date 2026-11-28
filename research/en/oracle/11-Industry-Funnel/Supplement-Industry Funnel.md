@@ -24,33 +24,33 @@ Market caps are approximate as of early September 2026; PE is GAAP TTM; ROE is n
 
 ## Round one: positive cash flow — cut two
 
-This round is the crudest and also the most effective: **if a company has negative free cash flow, its valuation has no anchor.** Oracle posted -RMB 5.396 billion for the quarter and CoreWeave -RMB 7.466 billion; both were cut. The remaining five, including Amazon with equally huge capex, still have positive free cash flow — the difference is not "how much they invest" but "whether the money they invest is money they earned themselves."
+This round is the crudest and also the most effective: if a company has negative free cash flow, its valuation has no anchor. Oracle posted -RMB 5.396 billion for the quarter and CoreWeave -RMB 7.466 billion; both were cut. The remaining five, including Amazon with equally huge capex, still have positive free cash flow — the difference is not "how much they invest" but "whether the money they invest is money they earned themselves."
 
-This round will cut the sexiest names, and that is precisely its value. **The two fastest-growing companies in AI infrastructure happen to be the two with the worst cash flow; this is no coincidence but structure: trading financing for growth.**
+This round will cut the sexiest names, and that is precisely its value. The two fastest-growing companies in AI infrastructure happen to be the two with the worst cash flow; this is no coincidence but structure: trading financing for growth.
 
 ## Round two: AI revenue share and growth — three remain
 
 Microsoft's AI revenue is already in the financial statements proper, Azure growth is around 30%, and Copilot is delivering real seat growth; Amazon's AWS is growing around 20%, and its in-house Trainium chip is already in its third generation; Google Cloud is growing around 28%, TPU is its own, and Gemini has its own distribution channels. All three have a closed loop of "compute + models + distribution."
 
-Salesforce and SAP are left behind by this cycle: AI revenue share is low, growth is around 10%, and they are "AI beneficiaries" rather than "AI suppliers." **This is not to say they are bad companies, but that they do not offer the exposure this theme is looking for.**
+Salesforce and SAP are left behind by this cycle: AI revenue share is low, growth is around 10%, and they are "AI beneficiaries" rather than "AI suppliers." This is not to say they are bad companies, but that they do not offer the exposure this theme is looking for.
 
 ## Round Three: Valuation and Moat — Why Microsoft
 
-Microsoft at 33x PE is not cheap, but its free cash flow covers capex, it is rated AAA, customer switching costs are extremely high (Office + Entra + Azure form one stack), and AI revenue can already be tracked separately. **It is the only company that is both selling shovels and using shovels to make money.** For capital that wants AI compute exposure without leverage risk, it is the default answer.
+Microsoft at 33x PE is not cheap, but its free cash flow covers capex, it is rated AAA, customer switching costs are extremely high (Office + Entra + Azure form one stack), and AI revenue can already be tracked separately. It is the only company that is both selling shovels and using shovels to make money. For capital that wants AI compute exposure without leverage risk, it is the default answer.
 
-Google at 26x PE is cheaper, and the cost advantage of its in-house TPU is more pronounced, but its problem lies in distribution—Gemini has the technology but not the channel, and its cloud market share ranks third. **If you can only pick one, Microsoft; if you can pick two, add Google.**
+Google at 26x PE is cheaper, and the cost advantage of its in-house TPU is more pronounced, but its problem lies in distribution—Gemini has the technology but not the channel, and its cloud market share ranks third. If you can only pick one, Microsoft; if you can pick two, add Google.
 
 ## Why Oracle drops out of the funnel first
 
-Its growth (+30%) ranks second among the seven, OCI growth (+121%) ranks first, and RPO (RMB 664 billion) ranks first. Ranked by "growth," it should make the final cut. **But the first filter in the funnel is quality, not growth.**
+Its growth (+30%) ranks second among the seven, OCI growth (+121%) ranks first, and RPO (RMB 664 billion) ranks first. Ranked by "growth," it should make the final cut. But the first filter in the funnel is quality, not growth.
 
-The more fundamental problem: **its growth was bought with the balance sheet, and its moat does not extend to the side that is being built.** The database's customer dependence does nothing for OCI's pricing power; OCI's scale does nothing for the database's contraction (-3%). A company that leads on neither side does not survive the second round of the funnel. **That is the complete answer to "why not it."**
+The more fundamental problem: its growth was bought with the balance sheet, and its moat does not extend to the side that is being built. The database's customer dependence does nothing for OCI's pricing power; OCI's scale does nothing for the database's contraction (-3%). A company that leads on neither side does not survive the second round of the funnel. That is the complete answer to "why not it."
 
 ## If forced to pick one "turnaround candidate" from this group
 
 It is not Oracle, it is Amazon. The reason: its free cash flow, though compressed by capital expenditure, remains positive; AWS growth of 20% is below OCI's 121%, but its base is ten times larger, its customers are diversified, and its in-house chips are already in mass production; its 35x PE valuation already reflects the drag from the retail business, making the AI exposure a "free option."
 
-An Oracle turnaround requires three conditions to hold simultaneously (cash flow turning positive, rating stability, customer diversification); Amazon needs only one (AWS growth holding steady). **Both are "waiting for a turnaround," but waiting on one condition is far more cost-effective than waiting on three.**
+An Oracle turnaround requires three conditions to hold simultaneously (cash flow turning positive, rating stability, customer diversification); Amazon needs only one (AWS growth holding steady). Both are "waiting for a turnaround," but waiting on one condition is far more cost-effective than waiting on three.
 
 ## Sources
 

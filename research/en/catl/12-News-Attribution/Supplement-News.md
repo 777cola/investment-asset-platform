@@ -24,43 +24,43 @@ Events and dates: interim report (2026/07/24), consumption tax policy (effective
 
 ## The most important one: Li Auto's capital injection into Sunwoda turns "de-CATL-ization" into a template
 
-RMB 2.65 billion and 11.17% are two modest numbers, but they carry outsized significance. They mean automakers are no longer just "adding another supplier" — they are **becoming direct shareholders in suppliers and locking costs into equity**. Li Auto's new L8 switching entirely to Sunwoda is the result of this shift, not the cause.
+RMB 2.65 billion and 11.17% are two modest numbers, but they carry outsized significance. They mean automakers are no longer just "adding another supplier" — they are becoming direct shareholders in suppliers and locking costs into equity. Li Auto's new L8 switching entirely to Sunwoda is the result of this shift, not the cause.
 
-Why is this the most important point? Because it is replicable. Any automaker that runs the numbers — RMB 50 billion and five years to build its own battery plant, versus a few billion and two years to take a stake in a second-tier player — will follow. **This is a transfer of supply-chain power, not a one-off procurement decision.**
+Why is this the most important point? Because it is replicable. Any automaker that runs the numbers — RMB 50 billion and five years to build its own battery plant, versus a few billion and two years to take a stake in a second-tier player — will follow. This is a transfer of supply-chain power, not a one-off procurement decision.
 
-The scale does not warrant panic: Li Auto and Xiaomi together account for 13.6% of domestic installations. **They can compress CATL's gross margin, but they cannot crush its share.** Once the paradigm takes hold, however, it will spread to 25%–30% of domestic installations in 2027–2028.
+The scale does not warrant panic: Li Auto and Xiaomi together account for 13.6% of domestic installations. They can compress CATL's gross margin, but they cannot crush its share. Once the paradigm takes hold, however, it will spread to 25%–30% of domestic installations in 2027–2028.
 
 ## The overestimated one: consumption tax
 
 Effective September 1, at 2%, rising to 4% in September 2027. The market treats this as "profit about to halve"; the actual magnitude: first-half battery revenue of RMB 245.386 billion, annualized RMB 490.8 billion, 2% is about RMB 9.8 billion, equal to 10% of the RMB 95.2 billion expected net profit for 2026; at 4% it is about RMB 19.6 billion, 20% (before pass-through).
 
-The real issue is not the tax rate but **structural unfairness**: BYD uses its batteries in-house, so the tax falls at the vehicle-assembly stage and the impact is diluted; CATL sells cells externally, so the tax lands directly on it. The same policy imposes unequal burdens on the two.
+The real issue is not the tax rate but structural unfairness: BYD uses its batteries in-house, so the tax falls at the vehicle-assembly stage and the impact is diluted; CATL sells cells externally, so the tax lands directly on it. The same policy imposes unequal burdens on the two.
 
-Can it be passed through? Domestically most likely not (tier-2 players are undercutting for orders); overseas it can be (European customers accept a premium). So the actual impact is 5%–10%, not 20%. **This is "genuinely bad news", not "fatally bad news".**
+Can it be passed through? Domestically most likely not (tier-2 players are undercutting for orders); overseas it can be (European customers accept a premium). So the actual impact is 5%–10%, not 20%. This is "genuinely bad news", not "fatally bad news".
 
 ## The third genuine signal: growth steps down
 
-Q1 net profit +48.5%, Q2 +36.5% — a 12-point drop in a single quarter. This is not a base effect — Q2 revenue was still accelerating (+56.9%). **Accelerating revenue with decelerating profit means price concessions are widening.**
+Q1 net profit +48.5%, Q2 +36.5% — a 12-point drop in a single quarter. This is not a base effect — Q2 revenue was still accelerating (+56.9%). Accelerating revenue with decelerating profit means price concessions are widening.
 
-The market's reaction to this has been the most rational: it simply reclassified the valuation from "growth stock" to "manufacturer." **The 14x PE is not the product of a selloff; it is the product of a re-rating.**
+The market's reaction to this has been the most rational: it simply reclassified the valuation from "growth stock" to "manufacturer." The 14x PE is not the product of a selloff; it is the product of a re-rating.
 
 ## What counts as noise: the new low itself, and the "flight" narrative
 
-The September 15 piece "Stock Hits New Low for the Year: 'Flight' from CATL" carried almost zero information — it described the price, not the company. The 52-week low on September 28, with the stock down just 0.51% that day on no pickup in volume, shows that **selling was persistent, not panicked**: institutions were trimming slowly, not rushing for the exits.
+The September 15 piece "Stock Hits New Low for the Year: 'Flight' from CATL" carried almost zero information — it described the price, not the company. The 52-week low on September 28, with the stock down just 0.51% that day on no pickup in volume, shows that selling was persistent, not panicked: institutions were trimming slowly, not rushing for the exits.
 
-This kind of noise is self-reinforcing: the stock falls → the media reports → more holders have doubts → it keeps falling. **It does not change the fundamentals, but it does change the price you pay.** For anyone building a position in tranches, noise is a gift, not a risk.
+This kind of noise is self-reinforcing: the stock falls → the media reports → more holders have doubts → it keeps falling. It does not change the fundamentals, but it does change the price you pay. For anyone building a position in tranches, noise is a gift, not a risk.
 
 ## The transmission chain from event to valuation
 
-Put these seven events together and the transmission chain looks like this: **growth steps down (7/24) → valuation de-rates from growth stock to manufacturer (multiple 25x→14x) → de-CATLization narrative takes shape (9/18) → consumption tax confirms the cost (9/1) → share price hits a 52-week low (9/28).** Each step gives the next a reason to happen — that is "narrative self-reinforcement."
+Put these seven events together and the transmission chain looks like this: growth steps down (7/24) → valuation de-rates from growth stock to manufacturer (multiple 25x→14x) → de-CATLization narrative takes shape (9/18) → consumption tax confirms the cost (9/1) → share price hits a 52-week low (9/28). Each step gives the next a reason to happen — that is "narrative self-reinforcement."
 
-Breaking the chain takes only one counterexample: an automaker switching a second supplier back to the primary, or growth returning above 40% in a quarter. **No one announces this in advance; you can only wait for the quarterly report.** The right stance now is "hold and watch," not "add and average down."
+Breaking the chain takes only one counterexample: an automaker switching a second supplier back to the primary, or growth returning above 40% in a quarter. No one announces this in advance; you can only wait for the quarterly report. The right stance now is "hold and watch," not "add and average down."
 
 ## One more contrarian indicator: who is buying
 
-It hit a 52-week low on September 28, falling just 0.51% that day without a pickup in volume—**this is "sustained de-risking," not "panic selling."** Panic selling usually brings heavy volume and a long bearish candle, whereas a slow bleed shows institutions trimming positions by their models (a lower valuation center), not a rejection of the company.
+It hit a 52-week low on September 28, falling just 0.51% that day without a pickup in volume—this is "sustained de-risking," not "panic selling." Panic selling usually brings heavy volume and a long bearish candle, whereas a slow bleed shows institutions trimming positions by their models (a lower valuation center), not a rejection of the company.
 
-The real bottom signal often shows up on the day when "earnings beat the consensus but the stock stops falling."**That hasn't happened yet, so for now buy only the first tranche.**
+The real bottom signal often shows up on the day when "earnings beat the consensus but the stock stops falling."That hasn't happened yet, so for now buy only the first tranche.
 
 ## Sources
 

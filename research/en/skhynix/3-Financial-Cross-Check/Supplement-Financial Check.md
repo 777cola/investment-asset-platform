@@ -26,7 +26,7 @@ Source A: company filings and disclosures (2026/01/27, 2026/04/22); Source B: Yo
 
 ## Seven items reconcile, which shows the working papers rest on solid financial foundations
 
-Revenue, operating profit, net profit and full-year revenue all match the company's disclosures exactly; the discrepancies in media reprints are all within 0.2%. The market cap line is useful: multiplying the June 22 closing price of RMB 2.919 million by 711 million shares gives RMB 2,075 trillion, a 0.14% difference from the RMB 2,072 trillion reported that day—**which confirms the share count basis is correct**, and all subsequent per-share calculations rest on this figure.
+Revenue, operating profit, net profit and full-year revenue all match the company's disclosures exactly; the discrepancies in media reprints are all within 0.2%. The market cap line is useful: multiplying the June 22 closing price of RMB 2.919 million by 711 million shares gives RMB 2,075 trillion, a 0.14% difference from the RMB 2,072 trillion reported that day—which confirms the share count basis is correct, and all subsequent per-share calculations rest on this figure.
 
 The 5.4% operating profit beat also deserves note: the first-quarter consensus was RMB 35.7 trillion versus an actual RMB 37.61 trillion. Revenue, however, came in slightly below the consensus of RMB 53.6 trillion, at RMB 52.58 trillion. Revenue missing while profit beat indicates that costs and product mix were better than the market expected.
 
@@ -34,7 +34,7 @@ The 5.4% operating profit beat also deserves note: the first-quarter consensus w
 
 KIS's July 13 report said Q2 blended ASP rose about +30% QoQ; TrendForce's April survey said Q2 commodity DRAM contract prices rose +58%–63% QoQ and NAND +70%–75%. The 28-percentage-point gap is not an error by either side.
 
-The difference is structural: SK hynix has a high HBM revenue share, and most HBM moves under long-term agreements (LTAs) with prices locked in advance and fixed increases; commodity DRAM and NAND are far more elastic in the spot market. **So industry contract prices rise 60% while the company's blended ASP rises only 30% — the cost of a high HBM mix**. KIS uses exactly this logic to cut Q2 operating profit to KRW 60.4 trillion and trim its 2026/2027 forecasts by 9%/11%.
+The difference is structural: SK hynix has a high HBM revenue share, and most HBM moves under long-term agreements (LTAs) with prices locked in advance and fixed increases; commodity DRAM and NAND are far more elastic in the spot market. So industry contract prices rise 60% while the company's blended ASP rises only 30% — the cost of a high HBM mix. KIS uses exactly this logic to cut Q2 operating profit to KRW 60.4 trillion and trim its 2026/2027 forecasts by 9%/11%.
 
 How to handle it: present both side by side in the table, and use the conservative 30% for valuation. If TrendForce is right and blended ASP actually rises more than 45%, Q2 operating profit lands at KRW 65–70 trillion and the current price is clearly cheap. That is the first thing to verify on July 29.
 

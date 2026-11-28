@@ -23,33 +23,33 @@ Position sizing shows recommended share of the equity portfolio, not investment 
 
 ## Why is the initial position only 2%?
 
-Three reasons. First, the stock is in a high-volume downtrend, hit a 52-week low on September 28 and fell another 0.51% that day; **the first tranche of any falling-knife purchase must be small enough that being wrong does not hurt**. Second, Q3 results are due around October 20, only about three weeks away—the cost of waiting for one data point is low. **Third, 14x is "reasonably cheap," not "clearly mispriced," so there is no reason to buy the full position at once.**
+Three reasons. First, the stock is in a high-volume downtrend, hit a 52-week low on September 28 and fell another 0.51% that day; the first tranche of any falling-knife purchase must be small enough that being wrong does not hurt. Second, Q3 results are due around October 20, only about three weeks away—the cost of waiting for one data point is low. Third, 14x is "reasonably cheap," not "clearly mispriced," so there is no reason to buy the full position at once.
 
 What 2% means: if the stock falls 30% after purchase, the drag on the portfolio is 0.6%—tolerable; if it rises 30%, the contribution is 0.6%—not a missed opportunity. That is the math behind "get on board first, add later."
 
 ## Two gates for adding to a position: one on profit, one on share
 
-The first gate is profit: Q3 single-quarter net profit must grow at least 25% year on year. The pace in the first half was Q1 +48.5%, Q2 +36.5%. **If Q3 falls below 25%, the deceleration is accelerating, and 14x becomes 18x.** Only after clearing this gate do we discuss adding to the position.
+The first gate is profit: Q3 single-quarter net profit must grow at least 25% year on year. The pace in the first half was Q1 +48.5%, Q2 +36.5%. If Q3 falls below 25%, the deceleration is accelerating, and 14x becomes 18x. Only after clearing this gate do we discuss adding to the position.
 
-The second gate is share: domestic passenger-car installations of at least 44%. The current figure is 46.7%, with Li Auto and Xiaomi accounting for 13.6%. **Share is the only hard read on "de-CATL-ification", more reliable than any research view.** If both gates are cleared, add to 6%.
+The second gate is share: domestic passenger-car installations of at least 44%. The current figure is 46.7%, with Li Auto and Xiaomi accounting for 13.6%. Share is the only hard read on "de-CATL-ification", more reliable than any research view. If both gates are cleared, add to 6%.
 
-Do not chase the price when adding: RMB 260 (about 10x 2027E) is the ideal level for the second tranche, and RMB 240 (about 9.5x) is the level to fill the position. **If the stock first rises to RMB 350 before the data arrives, do not add — better not to buy than to chase.**
+Do not chase the price when adding: RMB 260 (about 10x 2027E) is the ideal level for the second tranche, and RMB 240 (about 9.5x) is the level to fill the position. If the stock first rises to RMB 350 before the data arrives, do not add — better not to buy than to chase.
 
 ## Stop-loss: replace price-based stop-loss with fundamental stop-loss
 
-Battery stocks are highly volatile, and price-based stop-losses will repeatedly whipsaw you (458.60 to 291.99 is already -36%). **The right approach is a fundamental stop-loss: power battery gross margin falling below 19% (currently 20.63%), or domestic share falling below 40% (currently 46.7%).**
+Battery stocks are highly volatile, and price-based stop-losses will repeatedly whipsaw you (458.60 to 291.99 is already -36%). The right approach is a fundamental stop-loss: power battery gross margin falling below 19% (currently 20.63%), or domestic share falling below 40% (currently 46.7%).
 
-Why these two numbers? A 19% gross margin means "trading price for volume" has spiraled out of control, and CATL's cost advantage no longer converts into profit; a 40% share means its "one superpower" status is eroding, and its valuation center will shift down permanently. **These two numbers are the foundation of the thesis; if the foundation cracks, walk away, regardless of the share price at the time.**
+Why these two numbers? A 19% gross margin means "trading price for volume" has spiraled out of control, and CATL's cost advantage no longer converts into profit; a 40% share means its "one superpower" status is eroding, and its valuation center will shift down permanently. These two numbers are the foundation of the thesis; if the foundation cracks, walk away, regardless of the share price at the time.
 
-Price reference levels: RMB 230 (about 9x 2027E) is the stress-test level; if it falls here without fundamentals deteriorating, you should add rather than trim — **but only if position discipline allows (the initial position is only 2%, so there is room).**
+Price reference levels: RMB 230 (about 9x 2027E) is the stress-test level; if it falls here without fundamentals deteriorating, you should add rather than trim — but only if position discipline allows (the initial position is only 2%, so there is room).
 
 ## Correlation: how it fits with everything else in the portfolio
 
-Highly correlated with new-energy vehicle ETFs (same industry chain), positively correlated with the energy storage chain (same customer base), **negatively correlated with lithium prices** (cost side), and lowly correlated with the semiconductor/AI compute chain (different capital cycles).
+Highly correlated with new-energy vehicle ETFs (same industry chain), positively correlated with the energy storage chain (same customer base), negatively correlated with lithium prices (cost side), and lowly correlated with the semiconductor/AI compute chain (different capital cycles).
 
-So its role in the portfolio is "exposure to the manufacturing cycle," not "growth exposure." **If the portfolio already holds BYD or a new-energy vehicle ETF, CATL's marginal diversification benefit is very weak; positions must be calculated on a combined basis, totaling no more than 10%.**
+So its role in the portfolio is "exposure to the manufacturing cycle," not "growth exposure." If the portfolio already holds BYD or a new-energy vehicle ETF, CATL's marginal diversification benefit is very weak; positions must be calculated on a combined basis, totaling no more than 10%.
 
-Correlation with holdings such as TSMC and Nvidia is close to zero—one is the AI capex cycle, the other the electrification penetration cycle, and their inflection points are not synchronized. **This is CATL's only "structural value" in the portfolio: it can provide a bit of uncorrelated cash flow when the AI trade collapses.**
+Correlation with holdings such as TSMC and Nvidia is close to zero—one is the AI capex cycle, the other the electrification penetration cycle, and their inflection points are not synchronized. This is CATL's only "structural value" in the portfolio: it can provide a bit of uncorrelated cash flow when the AI trade collapses.
 
 ## Sources
 

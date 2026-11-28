@@ -14,7 +14,7 @@ On September 28, CATL closed at RMB 291.99, down 0.51%, a 52-week low. From RMB 
 
 I bought my first tranche at this level, one-third of my planned position. Not much, because I know I don't know where the bottom is.
 
-Before buying, I went through the interim report three times. The conclusion is simple: **not a single quarter of this company's fundamentals has been bad; what's bad is expectations.**
+Before buying, I went through the interim report three times. The conclusion is simple: not a single quarter of this company's fundamentals has been bad; what's bad is expectations.
 
 ## II. How good was the interim report
 
@@ -32,11 +32,11 @@ Two things.
 
 First, de-CATL-ization. Li Auto's new L8 lineup switches entirely to Sunwoda; Li Auto also injected RMB 2.65 billion into Sunwoda Power for an 11.17% stake. Xiaomi's "Longjia Battery" cells come from CALB and Sunwoda. AITO brought in CALB and Gotion.
 
-It looks alarming. But look at what these moves really are: **not "dropping CATL," but "not letting CATL be the sole supplier."** Automakers want pricing power, not to replace their best supplier. Li Auto plus Xiaomi account for only 13.6% of domestic installations. They can squeeze CATL's gross margin, but they cannot crush its share.
+It looks alarming. But look at what these moves really are: not "dropping CATL," but "not letting CATL be the sole supplier." Automakers want pricing power, not to replace their best supplier. Li Auto plus Xiaomi account for only 13.6% of domestic installations. They can squeeze CATL's gross margin, but they cannot crush its share.
 
 Second, consumption tax. From September 1, 2026, lithium-ion batteries will again be subject to a 2% consumption tax, rising to 4% in September 2027. CATL mainly sells cells externally, so the tax hits it directly; BYD uses its batteries in-house, so the tax falls at the vehicle level, with a far smaller impact. The same policy carries unequal burdens — a real structural disadvantage.
 
-Size it: first-half battery revenue was RMB 245.386 billion, or RMB 490.8 billion annualized; 2% is RMB 9.8 billion, equal to 10% of expected 2026 net profit. At 4% it doubles. Pass through half and the actual impact is 5%–10%. **This is real bad news, not fatal bad news.**
+Size it: first-half battery revenue was RMB 245.386 billion, or RMB 490.8 billion annualized; 2% is RMB 9.8 billion, equal to 10% of expected 2026 net profit. At 4% it doubles. Pass through half and the actual impact is 5%–10%. This is real bad news, not fatal bad news.
 
 ## IV. One number the market is not watching
 
@@ -46,13 +46,13 @@ In plain terms: the same battery cell earns nearly half again as much gross prof
 
 This is the real gap between CATL and second-tier makers. Second-tier players can fight price wars in China, but they cannot get into Europe's automotive-grade supply chain. The Hungary plant starts production this year, and its initial 40GWh is already fully booked; Indonesia begins mass production by year-end; the joint venture with Stellantis in Spain is advancing.
 
-Rough sensitivity: every 10 percentage point rise in the overseas share lifts blended gross margin by 0.9 percentage points. Moving from the current 31.5% to 45% would offset a full year of margin erosion from the domestic price war. **This is the only certain source of profit over the next three years.**
+Rough sensitivity: every 10 percentage point rise in the overseas share lifts blended gross margin by 0.9 percentage points. Moving from the current 31.5% to 45% would offset a full year of margin erosion from the domestic price war. This is the only certain source of profit over the next three years.
 
 ## V. 14x — expensive or cheap?
 
 RMB 291.99, market cap RMB 1.35 trillion. 2026E net profit RMB 95.2 billion, PE 14.2x; 2027E RMB 116.5 billion, PE 11.6x.
 
-Many point to the 100x PE of 2021 and say "it's at a 75% discount now, far too cheap." That reference frame is wrong. **In 2021 the market treated it as a growth stock; now it treats it as a manufacturer. This is not a discount, it is a different ruler.**
+Many point to the 100x PE of 2021 and say "it's at a 75% discount now, far too cheap." That reference frame is wrong. In 2021 the market treated it as a growth stock; now it treats it as a manufacturer. This is not a discount, it is a different ruler.
 
 Measured with the manufacturing ruler: 15x normalized profit implies RMB 378 for 2027, 29% above the current price. Bear case RMB 190, 35% below. Bull case RMB 562, 92% above. Odds of 2.6 to 1, skewed positive, but it requires patience.
 
@@ -62,11 +62,11 @@ One number to watch: in the first half it earned RMB 98 per 1kWh sold. Q1 was RM
 
 The first third of the position is what has already been bought.
 
-When the Q3 report comes out in late October, watch two numbers: whether single-quarter net profit holds 25% year on year, and whether domestic passenger-vehicle share holds 44%. If both hold, add the second tranche. If share falls below 40%, or power-battery gross margin drops below 19%, cut half the position—**these two conditions are the foundation of the thesis; if the foundation cracks, walk away, regardless of the share price at the time.**
+When the Q3 report comes out in late October, watch two numbers: whether single-quarter net profit holds 25% year on year, and whether domestic passenger-vehicle share holds 44%. If both hold, add the second tranche. If share falls below 40%, or power-battery gross margin drops below 19%, cut half the position—these two conditions are the foundation of the thesis; if the foundation cracks, walk away, regardless of the share price at the time.
 
 If it rises above RMB 450 (18x 2027), halve the position. A manufacturer should not command 18x.
 
-One honest note to close: this is not a bottom-fishing story. CATL will not return to 40x; it will be a 15–20x manufacturing leader going forward. **What you earn from owning it is profit growth, not multiple re-rating.** Be clear on that before deciding whether to buy.
+One honest note to close: this is not a bottom-fishing story. CATL will not return to 40x; it will be a 15–20x manufacturing leader going forward. What you earn from owning it is profit growth, not multiple re-rating. Be clear on that before deciding whether to buy.
 
 ## Seven, where I could be wrong
 
@@ -78,7 +78,7 @@ Second, automakers building their own batteries becomes the norm. BYD has alread
 
 Third, CATL absorbs the full 4% consumption tax itself, cutting net profit by 15%–20% and taking the multiple from 14x to 17x.
 
-I cannot verify any of these three in advance, so I can only control position size. **Earn more when right, lose less when wrong—that is the entire point of scaling in.**
+I cannot verify any of these three in advance, so I can only control position size. Earn more when right, lose less when wrong—that is the entire point of scaling in.
 
 ## Sources
 

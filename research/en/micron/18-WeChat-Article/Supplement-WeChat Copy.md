@@ -10,7 +10,7 @@ This article is ready-to-publish WeChat official account copy that can be copied
 
 ## Title and alternatives
 
-**Main headline:** "85% gross margin, 6.5x PE: This company looks too cheap to be real" **Alternative 1:** "Micron earned USD 28.2 billion and the market gives it just 6x PE — why" **Alternative 2:** "The memory super-cycle: a company with gross margins above Nvidia's is being discounted by the market" Summary (WeChat intro box): A USD 41.4 billion quarterly report, a 6.5x valuation, and something no one in the memory industry has ever done.
+Main headline: "85% gross margin, 6.5x PE: This company looks too cheap to be real" Alternative 1: "Micron earned USD 28.2 billion and the market gives it just 6x PE — why" Alternative 2: "The memory super-cycle: a company with gross margins above Nvidia's is being discounted by the market" Summary (WeChat intro box): A USD 41.4 billion quarterly report, a 6.5x valuation, and something no one in the memory industry has ever done.
 
 ## Body
 
@@ -28,11 +28,11 @@ Put the three numbers together, and anyone's first reaction is: this makes no se
 
 The market is not blind. The 6.5x denominator is earnings at an 84.9% gross margin. That margin is not normal; it is a cyclical extreme.
 
-Micron itself published the breakdown: this quarter DRAM shipments rose only "low single digits" from the prior quarter, while prices rose just over 60%; NAND shipments rose mid single digits, while prices rose about 85%. In other words, **without the price increases, revenue this quarter would have been roughly USD 25 billion, not 41.4 billion.** The extra 15-plus billion was entirely price.
+Micron itself published the breakdown: this quarter DRAM shipments rose only "low single digits" from the prior quarter, while prices rose just over 60%; NAND shipments rose mid single digits, while prices rose about 85%. In other words, without the price increases, revenue this quarter would have been roughly USD 25 billion, not 41.4 billion. The extra 15-plus billion was entirely price.
 
 And prices rose because of shortages. Shortages stem from AI data centers needing HBM, which consumes a large share of wafer capacity (on the same wafer, HBM bit output is only one-third to one-half that of ordinary DRAM), so ordinary DRAM ran short as well. In the first quarter of 2026, DRAM contract prices rose 90% to 95% year on year, and HBM rose more than 200%.
 
-So 6.5x is not the market making a mistake; it is the market saying: **I know this profit is unsustainable.** Swap in a mid-cycle 45% gross margin and the same share price implies 24x to 28x — not cheap at all.
+So 6.5x is not the market making a mistake; it is the market saying: I know this profit is unsustainable. Swap in a mid-cycle 45% gross margin and the same share price implies 24x to 28x — not cheap at all.
 
 ## What is truly worth examining is that contract.
 
@@ -42,7 +42,7 @@ Micron signed five-year strategic customer agreements with 16 customers: take-or
 
 In plain terms: customers pay first, lock in five years of volume, and agree that "even if prices fall, they will not go below a certain level." This is the first time in the storage industry's decades-long history that anyone has changed "prices set by the market" to "prices set by contract."
 
-If this path works, Micron's revenue visibility will extend from 3 months to 5 years, and its valuation multiple could rise from 6x to more than 10x. But there is a problem now: **coverage is only 20%**. USD 100 billion divided by five years is USD 20 billion a year, while FY26 revenue is about USD 129 billion. The remaining 80% of revenue is still exposed to price volatility.
+If this path works, Micron's revenue visibility will extend from 3 months to 5 years, and its valuation multiple could rise from 6x to more than 10x. But there is a problem now: coverage is only 20%. USD 100 billion divided by five years is USD 20 billion a year, while FY26 revenue is about USD 129 billion. The remaining 80% of revenue is still exposed to price volatility.
 
 So the long-term contracts "shave the peaks," not "fill the troughs." They can reduce losses in a downturn; they cannot prevent a downturn.
 
@@ -56,7 +56,7 @@ Base case: still in shortage in 2027, EPS USD 166, 6.7x multiple — USD 1,120, 
 
 Bull case: long-term contracts cover more than half of output, EPS USD 180, multiple re-rates to 9x — USD 1,620, up 50%.
 
-Weighted at 25%, 50% and 25%, the expected value is USD 1,065, 1.6% below the current price. **This is not a trade to chase.**
+Weighted at 25%, 50% and 25%, the expected value is USD 1,065, 1.6% below the current price. This is not a trade to chase.
 
 But it is not a trade to sell either. If you already hold it with a cost basis below USD 500, selling triggers capital gains tax and forfeits the free option that long-term contracts change the industry's rules. Hold, don't add.
 
@@ -68,7 +68,7 @@ On September 22, Michael Burry said he had significantly increased his short pos
 
 The argument is not necessarily right, but it is worth hearing. Bulls and bears are working from the same data set; the only disagreement is how long this shortage can last. My judgment: fundamentals hold up through the first half of 2027, while the share price may peak earlier, in Q4 2026 to Q1 2027.
 
-**So my conclusion is "hold, do not add" — not because the business is poor, but because at this level the risk-reward is unattractive.**(This article is a research note and does not constitute investment advice. Data sources: Micron FY26Q3 results, TrendForce, Counterpoint, batchdata, as of September 25, 2026.)
+So my conclusion is "hold, do not add" — not because the business is poor, but because at this level the risk-reward is unattractive.(This article is a research note and does not constitute investment advice. Data sources: Micron FY26Q3 results, TrendForce, Counterpoint, batchdata, as of September 25, 2026.)
 
 ## Sources
 

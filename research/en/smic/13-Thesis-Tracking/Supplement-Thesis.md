@@ -35,7 +35,7 @@ But it has boundaries: the sustainability of AI capex is itself an assumption. T
 
 "Price increases can cover depreciation and wafer costs" is only half proven. First-quarter gross margin rose 0.9 points quarter on quarter, showing price increases are working; but it fell 2.4 points year on year, showing the coverage is insufficient. The additional USD 1.2 billion of depreciation in 2026 equals 12.9% of 2025 revenue, while ASP rose only 2.5% in the first quarter — the gap remains wide.
 
-If these two points do not hold, valuation has no upside. The signal that they do hold is the same for both: **gross margin above 24% for two consecutive quarters, and the quarter-on-quarter increase in depreciation begins to narrow.**
+If these two points do not hold, valuation has no upside. The signal that they do hold is the same for both: gross margin above 24% for two consecutive quarters, and the quarter-on-quarter increase in depreciation begins to narrow.
 
 ## Two points in doubt: share and premium
 
@@ -51,7 +51,7 @@ Of these five, ① and ② are the easiest to observe, ③ is the most critical,
 
 ## Watch calendar for next steps
 
-**2026/08/13:** Q2 results — watch whether revenue reaches USD 2.86–2.91 billion, whether gross margin exceeds 21%, and Q3 guidance. **Late October 2026:** Q3 results — watch whether gross margin holds above 24% and the quarter-on-quarter change in depreciation. **November 2026:** Q3 briefing and full-year capex guidance — watch whether the USD 8.1 billion figure is maintained. **February 2027:** Q4 and full-year guidance — the key window for judging whether depreciation peaks in 2027. **Weekly:** A/H premium, southbound fund flows, and policy developments on DUV controls.
+2026/08/13: Q2 results — watch whether revenue reaches USD 2.86–2.91 billion, whether gross margin exceeds 21%, and Q3 guidance. Late October 2026: Q3 results — watch whether gross margin holds above 24% and the quarter-on-quarter change in depreciation. November 2026: Q3 briefing and full-year capex guidance — watch whether the USD 8.1 billion figure is maintained. February 2027: Q4 and full-year guidance — the key window for judging whether depreciation peaks in 2027. Weekly: A/H premium, southbound fund flows, and policy developments on DUV controls.
 
 ## Sources
 

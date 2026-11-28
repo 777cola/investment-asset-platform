@@ -10,7 +10,7 @@ This module has 5 pages, covering business / financials / industry / risk / summ
 
 ## How to read this report
 
-Read the five pieces separately; each stands as a complete judgment and does not depend on the others. The summary piece comes last and does only three things: identify consensus, list disagreements, and give actions. All figures share the same sources (FY2027Q2 earnings report and conference call, 10-Q notes), and the four pieces do not contradict one another.
+Read the five pieces separately; each stands as a complete judgment and does not depend on the others. The summary piece comes last and does only three things: identify consensus, list disagreements, give actions. All figures share one source (FY2027Q2 earnings and conference call, 10-Q notes), and the four pieces do not contradict one another.
 
 ## Sources
 

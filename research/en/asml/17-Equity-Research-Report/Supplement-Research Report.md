@@ -27,7 +27,7 @@ This report is an initiation of coverage as of 16 October 2026, with all data as
 
 ## Chapter 1 Company Overview
 
-ASML Holding N.V. (NASDAQ: ASML) was spun off from Philips in 1984 and is headquartered in Veldhoven, the Netherlands. It is the only company in the world capable of producing EUV lithography machines. The business has two segments: system sales (EUV, DUV, metrology) and installed base management (upgrades, spare parts, services). In 2026 it employs about 44,000 people (4.4 万) and has a market cap of about USD 624 billion (about EUR 538 billion). Its customers are TSMC, Samsung, Intel, SK hynix, Micron and SMIC.
+ASML Holding N.V. (NASDAQ: ASML) was spun off from Philips in 1984 and is headquartered in Veldhoven, the Netherlands. It is the only company in the world capable of producing EUV lithography machines. The business has two segments: system sales (EUV, DUV, metrology) and installed base management (upgrades, spare parts, services). In 2026 it employs about 44,000 people and has a market cap of about USD 624 billion (about EUR 538 billion). Its customers are TSMC, Samsung, Intel, SK hynix, Micron and SMIC.
 
 Ownership is dispersed with no controlling shareholder, and the stock trades in the US as ADRs. In Q3 2026 revenue was EUR 11.662 billion, net profit EUR 4.960 billion and EPS EUR 12.93.
 
@@ -43,7 +43,7 @@ Demand splits into three blocks: advanced logic (AI chips), memory (HBM/DRAM), a
 
 The key variable for the industry is not total demand but the share of advanced-node capex in total capex. That share rises in 2026 — AI chips need 3nm/2nm, HBM needs advanced DRAM capacity, and both crowd into the most advanced segment. That segment happens to be the one ASML monopolizes, so its growth (+36%) runs well above WFE overall (about +25%, rough estimate).
 
-The industry risk is synchronization: three buyers watch the same signal (AI demand); when the signal is consistent, orders surge, and when it turns, they brake together. This is what happened in 2022 when memory makers collectively cut orders. **The equipment cycle is not a demand cycle but a cycle of synchronized decisions.**
+The industry risk is synchronization: three buyers watch the same signal (AI demand); when the signal is consistent, orders surge, and when it turns, they brake together. This is what happened in 2022 when memory makers collectively cut orders. The equipment cycle is not a demand cycle but a cycle of synchronized decisions.
 
 In one sentence: this is the only link in the semiconductor chain where supply determines revenue; everywhere else, demand determines revenue. That difference shows up as gross margin in an upcycle and as downside resilience in a downcycle.
 
@@ -107,7 +107,7 @@ Conclusion: the Five Forces model answers "a near-perfect industry structure," w
 
 Turn the risks into scenarios: bear case (AI capex peaks in 2027 + tighter controls) → 2027 EPS EUR 38, 24x, USD 1,058; base case → EUR 46, 32x, USD 1,708; bull case (value-based pricing fully realized) → EUR 54, 38x, USD 2,380. The three scenarios carry roughly 25% / 50% / 25% probability, giving a weighted target price of about USD 1,619 — essentially flat with the current price.
 
-That weighted result is telling: **the probability-weighted fair value is today's price.** The market is not wrong; it has simply folded the three possibilities into the current price by probability.
+That weighted result is telling: the probability-weighted fair value is today's price. The market is not wrong; it has simply folded the three possibilities into the current price by probability.
 
 ## Chapter 9 Earnings Forecast
 
@@ -133,7 +133,7 @@ A final methodological note: for an asset with such high certainty and limited g
 
 ## Chapter 11 Investment Recommendations
 
-Initiation: **Watch, wait for a pullback**. Rationale: business scores 10, price scores 4; the base case offers only 4% upside, so the risk/reward is asymmetric. Buy levels: USD 1,300 (25x 2027) to build 2%, USD 1,150 (22x) to add up to 4%–5%, cap 6%. Existing holders should keep holding, with no price stop, but event stops (gross margin below 55% for two consecutive quarters, order growth turning negative year on year, China mix below 10%).
+Initiation: Watch, wait for a pullback. Rationale: business scores 10, price scores 4; the base case offers only 4% upside, so the risk/reward is asymmetric. Buy levels: USD 1,300 (25x 2027) to build 2%, USD 1,150 (22x) to add up to 4%–5%, cap 6%. Existing holders should keep holding, with no price stop, but event stops (gross margin below 55% for two consecutive quarters, order growth turning negative year on year, China mix below 10%).
 
 Catalysts: 2027 guidance at the January 2027 Q4 results; the first full quarter of value-based pricing in April 2027; High-NA customer adoption progress.
 

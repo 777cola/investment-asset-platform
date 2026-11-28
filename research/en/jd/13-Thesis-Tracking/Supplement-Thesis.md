@@ -24,11 +24,11 @@ The free cash flow threshold of RMB 25 billion in Assumption ① is analyst-set 
 
 Only the first and second criteria can currently be checked off. Operating cash flow of RMB 37.8 billion, free cash flow of RMB 31.8 billion, and RMB 31.4 billion on a trailing 12-month basis — these have been verified across three consecutive financial reports, not a single-quarter fluctuation. Cash plus short-term investments of RMB 235.1 billion against a market cap of RMB 256.9 billion gives 91.5% coverage.
 
-But the second criterion comes with a condition: **the only precondition for a "valuation floor" to hold is that cash is no longer being deployed in large amounts.** If food delivery loses another RMB 30 billion next year, cash will fall below RMB 200 billion, coverage will drop to 78%, and the floor shifts down by 13%. So these two criteria hold, but they protect against "losing big money," not against "failing to make money."
+But the second criterion comes with a condition: the only precondition for a "valuation floor" to hold is that cash is no longer being deployed in large amounts. If food delivery loses another RMB 30 billion next year, cash will fall below RMB 200 billion, coverage will drop to 78%, and the floor shifts down by 13%. So these two criteria hold, but they protect against "losing big money," not against "failing to make money."
 
 ## A marginal one: the slope of food delivery
 
-147.8 → 103.5 → 98.5, three numbers that trace a flattening curve. The first quarter narrowed by 4.4 billion (seasonality + deliberate contraction), the second quarter narrowed by only 0.5 billion. **If the third quarter is still in the 0.5 billion range, it means full-year 2027 will still lose more than 35 billion, and the 36 billion net profit in the base case is simply unattainable.**
+147.8 → 103.5 → 98.5, three numbers that trace a flattening curve. The first quarter narrowed by 4.4 billion (seasonality + deliberate contraction), the second quarter narrowed by only 0.5 billion. If the third quarter is still in the 0.5 billion range, it means full-year 2027 will still lose more than 35 billion, and the 36 billion net profit in the base case is simply unattainable.
 
 So what to watch here is not "whether losses are shrinking" but "whether the pace of shrinkage is accelerating." Verifiable thresholds: sequential quarterly narrowing of more than 1 billion, and below 7 billion before 2027Q1. If not met, the base-case target price must be cut from 125 to 105.
 
@@ -36,15 +36,15 @@ So what to watch here is not "whether losses are shrinking" but "whether the pac
 
 Management said Q3 retail revenue is "expected to return to positive growth." The credibility of this guidance hinges on two things: whether the high base from national subsidies has been absorbed by Q3 (Q3 2025 was the subsidy peak, so the base is theoretically higher and a return to positive growth harder), and whether daily necessities and services revenue can keep holding up (+5.6% and +6.8% respectively in Q2).
 
-Stack these two factors together and a Q3 return to positive growth is in fact no small challenge—**if management dares to guide "expected to turn positive" in a quarter with an even higher base, it means the July and August operating data support it.** That is a positive signal, but only the earnings report can confirm it. The Q3 report lands in mid-November, almost simultaneous with the close of Double 11 (11/14), so two variables resolve within two weeks.
+Stack these two factors together and a Q3 return to positive growth is in fact no small challenge—if management dares to guide "expected to turn positive" in a quarter with an even higher base, it means the July and August operating data support it. That is a positive signal, but only the earnings report can confirm it. The Q3 report lands in mid-November, almost simultaneous with the close of Double 11 (11/14), so two variables resolve within two weeks.
 
 ## One unverified item, and the only one that matters
 
-The fifth point has no data to verify it; it can only be assessed through behavioral observation. Its importance exceeds the sum of the first four: **the first four determine whether JD.com is worth 105 or 125; the fifth determines whether it becomes 70.**
+The fifth point has no data to verify it; it can only be assessed through behavioral observation. Its importance exceeds the sum of the first four: the first four determine whether JD.com is worth 105 or 125; the fifth determines whether it becomes 70.
 
 Why put it this way: JD.com's asset quality (RMB 235.1 billion in cash, 1,500 warehouses, 600 million users) will not go to zero under any scenario, so its floor is determined by "how much cash gets burned," not by "how much the business deteriorates." A company that generates RMB 30 billion in free cash flow each year will certainly be worth more in ten years than it is now, as long as it does not invest recklessly; if it burns RMB 30 billion a year, it could be worth nothing in ten years. That is the weight of the fifth point.
 
-Three observable behavioral indicators: **whether the food-delivery team is downsized, whether it exits some cities, and whether Q4 brings an announcement of a new round of subsidies or new business investment.** If none of the three occurs, the fifth point can be upgraded from "unconfirmed" to "preliminarily established" — only then does the discussion turn to how much to buy.
+Three observable behavioral indicators: whether the food-delivery team is downsized, whether it exits some cities, and whether Q4 brings an announcement of a new round of subsidies or new business investment. If none of the three occurs, the fifth point can be upgraded from "unconfirmed" to "preliminarily established" — only then does the discussion turn to how much to buy.
 
 ## Sources
 

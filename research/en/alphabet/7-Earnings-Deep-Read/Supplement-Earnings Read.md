@@ -55,47 +55,49 @@ Basis notes: (1) The sum of segment operating profit (RMB 39.157 billion + RMB 1
 
 ## Tier one: revenue mix — advertising decelerating, cloud accelerating
 
-Total revenue RMB 127.58 billion, +25%, below the market consensus of RMB 128.2 billion — a gap of RMB 400 million, or 0.3%, which is noise. The mix carries more important information: **Search +12% (expected +14%), YouTube +9.2%, Network flat, Cloud +103%.** The three advertising lines combined came to RMB 82.61 billion, with growth slowing to just over 10%; Cloud alone was RMB 30.71 billion, growing at a triple-digit rate.
+Total revenue RMB 127.58 billion, +25%, below the market consensus of RMB 128.2 billion — a gap of RMB 400 million, or 0.3%, which is noise. The mix carries more important information: Search +12% (expected +14%), YouTube +9.2%, Network flat, Cloud +103%. The three advertising lines combined came to RMB 82.61 billion, with growth slowing to just over 10%; Cloud alone was RMB 30.71 billion, growing at a triple-digit rate.
 
-This shift in mix means the "quality" of revenue is changing: advertising carries zero marginal cost and high cash flow; Cloud carries heavy capex and high growth. Cloud rose from 14.8% of total revenue last year to 24.1%, **meaning a quarter of revenue now has to be "repaid" through depreciation.** That is not a bad thing, but the valuation method must change accordingly — you cannot price the Cloud business at a pure advertising company's multiple.
+This shift in mix means the "quality" of revenue is changing: advertising carries zero marginal cost and high cash flow; Cloud carries heavy capex and high growth. Cloud rose from 14.8% of total revenue last year to 24.1%, meaning a quarter of revenue now has to be "repaid" through depreciation. That is not a bad thing, but the valuation method must change accordingly — you cannot price the Cloud business at a pure advertising company's multiple.
 
 ## Layer two: gross profit and expenses — depreciation has yet to bite, and that is the key
 
-Operating margin 31.8%, up 1.3 percentage points from last year. Doing this in a quarter with capex up 114% year on year admits only two explanations: **first, the new compute immediately generated revenue (cloud +103% supports this); second, depreciation recognition lags capex (an accounting-rule outcome).** Both are true, and the second matters more—it means the current margin is not a "new normal" but a "timing gap."
+Operating margin 31.8%, up 1.3 percentage points from last year. Doing this in a quarter with capex up 114% year on year admits only two explanations: first, the new compute immediately generated revenue (cloud +103% supports this); second, depreciation recognition lags capex (an accounting-rule outcome). Both are true, and the second matters more—it means the current margin is not a "new normal" but a "timing gap."
 
-Two cost lines are worth watching: traffic acquisition cost (TAC) grows with search revenue and is a rigid expense; AI R&D spending sits in "corporate items," and the Q3 corporate-items loss was USD 7.66 billion, larger than last year's scale. **This expense will not be diluted by revenue growth; it is permanent investment.**
+Two cost lines are worth watching: traffic acquisition cost (TAC) grows with search revenue and is a rigid expense; AI R&D spending sits in "corporate items," and the Q3 corporate-items loss was USD 7.66 billion, larger than last year's scale. This expense will not be diluted by revenue growth; it is permanent investment.
 
 ## Tier 3: Profit and tax — the -25% net profit is accounting noise
 
-Net profit RMB 26.17 billion, -25%, EPS 2.12 versus 2.87. Ugly on the surface, meaningless once broken down: **other gains/losses swung from +RMB 12.76 billion last year to -RMB 8.22 billion this year, a RMB 20.98 billion round trip, including a net fair value loss of RMB 8.66 billion on equity securities.** This is the mark-to-market revaluation of equity holdings (including unlisted companies), unrelated to operations and with no cash impact.
+Net profit RMB 26.17 billion, -25%, EPS 2.12 versus 2.87. Ugly on the surface, meaningless once broken down: other gains/losses swung from +RMB 12.76 billion last year to -RMB 8.22 billion this year, a RMB 20.98 billion round trip, including a net fair value loss of RMB 8.66 billion on equity securities. This is the mark-to-market revaluation of equity holdings (including unlisted companies), unrelated to operations and with no cash impact.
 
-Excluding this, EPS is USD 2.67, higher than a year earlier. **The correct reading: operating profit grew 30%, book profit fell 25% — both true, but only the former has anything to do with the business.** The market's reaction that day (down as much as 10% after hours) shows many read only the headline — which is where the opportunity comes from.
+Excluding this, EPS is USD 2.67, higher than a year earlier. The correct reading: operating profit grew 30%, book profit fell 25% — both true, but only the former has anything to do with the business. The market's reaction that day (down as much as 10% after hours) shows many read only the headline — which is where the opportunity comes from.
 
 ## Layer four: cash flow and balance sheet — this is why the share price fell
 
-Operating cash flow RMB 42.29 billion (RMB 48.41 billion last year, -12.6%), capex RMB 51.36 billion (RMB 23.95 billion last year), free cash flow -RMB 9.07 billion (+RMB 24.46 billion last year). **Two one-off factors drove the decline in operating cash flow: cash tied up in TPU inventory build, and the USD 5.2 billion EU fine payment.** Even adding both back, FCF only roughly breaks even.
+Operating cash flow RMB 42.29 billion (RMB 48.41 billion last year, -12.6%), capex RMB 51.36 billion (RMB 23.95 billion last year), free cash flow -RMB 9.07 billion (+RMB 24.46 billion last year). Two one-off factors drove the decline in operating cash flow: cash tied up in TPU inventory build, and the USD 5.2 billion EU fine payment. Even adding both back, FCF only roughly breaks even.
 
-Balance sheet: cash and securities RMB 265.1 billion, long-term debt RMB 125.1 billion, net cash RMB 140 billion. **No near-term solvency risk, but the direction has changed** — the company has shifted from "steadily growing net cash" to "net cash consumed by capex and topped up with debt." FCF over the past 12 months was just RMB 19.7 billion, a 0.6% yield on a RMB 3.42 trillion market cap. **A company growing 25% with only a 0.6% FCF yield — that is the entire reason for the market's repricing.**
+Balance sheet: cash and securities RMB 265.1 billion, long-term debt RMB 125.1 billion, net cash RMB 140 billion. No near-term solvency risk, but the direction has changed — the company has shifted from "steadily growing net cash" to "net cash consumed by capex and topped up with debt." FCF over the past 12 months was just RMB 19.7 billion, a 0.6% yield on a RMB 3.42 trillion market cap. A company growing 25% with only a 0.6% FCF yield — that is the entire reason for the market's repricing.
 
 ## The three things to watch most closely
 
-- **The slope of cloud growth.** Q3 +103% had a low base (RMB 15.1 billion last year) and a one-off contribution from external TPU sales. Whether it can hold 50% in 2027 will be clear within two quarters.
-- **The depreciation curve.** Annual depreciation on RMB 200 billion of capex doubles to over RMB 50 billion in 2027; can the operating margin hold at 28%–30%? That number is in the depreciation detail of the 10-Q, not in the press release.
-- **When free cash flow turns positive.** This is the only hard metric for judging whether AI capex is investment or cash burn. Management says capex will "increase significantly" in 2027; if FCF is still negative at the same time, the valuation has to be recalculated as an asset-heavy company.
+- The slope of cloud growth. Q3 +103% had a low base (RMB 15.1 billion last year) and a one-off contribution from external TPU sales. Whether it can hold 50% in 2027 will be clear within two quarters.
+
+- The depreciation curve. Annual depreciation on RMB 200 billion of capex doubles to over RMB 50 billion in 2027; can the operating margin hold at 28%–30%? That number is in the depreciation detail of the 10-Q, not in the press release.
+
+- When free cash flow turns positive. This is the only hard metric for judging whether AI capex is investment or cash burn. Management says capex will "increase significantly" in 2027; if FCF is still negative at the same time, the valuation has to be recalculated as an asset-heavy company.
 
 ## Viewed across four consecutive quarters: the trend matters more than any single quarter
 
-Single-quarter data is easily distorted by base effects; the trend only becomes reliable when four quarters are viewed together. **Three observable trends: ① cloud revenue share rises each quarter (14.8% last year → 24.1% this year); ② capex/revenue rises each quarter (23.4% last year → 40.2% this year); ③ free cash flow weakens each quarter (+RMB 24.46 billion last year → -RMB 9.07 billion this year).**
+Single-quarter data is easily distorted by base effects; the trend only becomes reliable when four quarters are viewed together. Three observable trends: ① cloud revenue share rises each quarter (14.8% last year → 24.1% this year); ② capex/revenue rises each quarter (23.4% last year → 40.2% this year); ③ free cash flow weakens each quarter (+RMB 24.46 billion last year → -RMB 9.07 billion this year).
 
-The three trends move in the same direction, indicating this is not "a one-quarter anomaly" but a structural change. **The implication for investors: do not judge by "will next quarter be better" but by "when will this structure stabilize."** The marker of stabilization is capex/revenue ceasing to rise—given management's statement of a "significant increase in 2027," that means the second half of 2027 at the earliest.
+The three trends move in the same direction, indicating this is not "a one-quarter anomaly" but a structural change. The implication for investors: do not judge by "will next quarter be better" but by "when will this structure stabilize." The marker of stabilization is capex/revenue ceasing to rise—given management's statement of a "significant increase in 2027," that means the second half of 2027 at the earliest.
 
-One more easily overlooked trend: **operating cash flow growth is slowing (Q3 -12.6%).** If this slowdown is structural (slower ad growth + working capital drag), FCF turning positive will come later; if it is one-off (fines + TPU stockpiling), it will recover in 2027. **I lean toward the latter but cannot be certain—this is the question I most want to press management on in this earnings report.**
+One more easily overlooked trend: operating cash flow growth is slowing (Q3 -12.6%). If this slowdown is structural (slower ad growth + working capital drag), FCF turning positive will come later; if it is one-off (fines + TPU stockpiling), it will recover in 2027. I lean toward the latter but cannot be certain—this is the question I most want to press management on in this earnings report.
 
 ## Two details on the balance sheet
 
-Detail one: **A substantial portion of the RMB 265.1 billion in cash and securities is long-held equity (including unlisted assets), not readily available cash.** So "net cash of RMB 140 billion" is an accounting figure; the true liquidity buffer is smaller. Detail two: **The RMB 28.7 billion of new debt issued in Q3 skews long in tenor (over ten years), indicating the company is locking in long-term funding costs rather than addressing short-term working capital.** This is a classic move to prepare for multi-year capital expenditure.
+Detail one: A substantial portion of the RMB 265.1 billion in cash and securities is long-held equity (including unlisted assets), not readily available cash. So "net cash of RMB 140 billion" is an accounting figure; the true liquidity buffer is smaller. Detail two: The RMB 28.7 billion of new debt issued in Q3 skews long in tenor (over ten years), indicating the company is locking in long-term funding costs rather than addressing short-term working capital. This is a classic move to prepare for multi-year capital expenditure.
 
-Taken together, the conclusion: **no near-term liquidity risk, but the impression of "lots of money on the books" needs correcting — freely deployable cash is not RMB 265.1 billion.** This also explains why a net-cash company would issue debt.
+Taken together, the conclusion: no near-term liquidity risk, but the impression of "lots of money on the books" needs correcting — freely deployable cash is not RMB 265.1 billion. This also explains why a net-cash company would issue debt.
 
 ## Sources
 

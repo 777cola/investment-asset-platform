@@ -61,7 +61,7 @@ Share capital and market cap: about 7.42 billion shares (backed out from USD 3.4
 
 Global cloud computing is an oligopoly: AWS ranks first by share, Azure second, Google Cloud third, Oracle has squeezed into fourth on large AI orders, and new clouds such as CoreWeave are capturing a wave through GPU leasing. The industry's core variable shifted between 2024 and 2026 from "who has the lowest price" to "who has capacity" — GPUs, power and racks became the bottleneck, and supply rather than demand determines growth.
 
-In 2026 the four major North American cloud providers collectively raised capex. Microsoft plans USD 175 billion for FY2027, equivalent to 53% of FY2026 revenue.**Historically cloud capex has never exceeded 40% of revenue; the intensity of this round is unprecedented.** The industry has shifted from a "steady-state oligopoly" to an "arms race": participants must invest, and those that do not will lose share.
+In 2026 the four major North American cloud providers collectively raised capex. Microsoft plans USD 175 billion for FY2027, equivalent to 53% of FY2026 revenue.Historically cloud capex has never exceeded 40% of revenue; the intensity of this round is unprecedented. The industry has shifted from a "steady-state oligopoly" to an "arms race": participants must invest, and those that do not will lose share.
 
 Cycle assessment: orders are still rising (RPO up 84% year on year), prices have not fallen (cloud gross margin 65%), and capacity is not in excess (management says demand still exceeds supply), placing the cycle mid-stage. The top signal is "order growth dropping below 20% while capacity is still coming online," which on the current pace would be around 2028.
 
@@ -103,10 +103,13 @@ On incentives, Nadella's pay is almost entirely stock, tied to three-year shareh
 
 ## Chapter 6 Growth Drivers
 
-- **Azure supply unlock**: Faster capacity onboarding and higher GPU utilization lifted Azure growth from 40% to 43%, with guidance of 45% next quarter (constant currency).
-- **Order book conversion**: RPO of RMB 678 billion, up 84% YoY, with 30% to be recognized within 12 months, implying roughly USD 203.4 billion of revenue over the next four quarters (rough calculation); still up 25% excluding OpenAI.
-- **Copilot penetration**: 30 million seats (20 million last quarter), roughly 7.5% penetration of the more than 400 million M365 seats (rough calculation), or about USD 10.8 billion annualized at list price.
-- **AI consumption-based pricing**: Usage in customer-service scenarios rose 4x QoQ; a shift from per-seat to per-seat plus consumption-based pricing would move the TAM from headcount to call volume.
+- Azure supply unlock: Faster capacity onboarding and higher GPU utilization lifted Azure growth from 40% to 43%, with guidance of 45% next quarter (constant currency).
+
+- Order book conversion: RPO of RMB 678 billion, up 84% YoY, with 30% to be recognized within 12 months, implying roughly USD 203.4 billion of revenue over the next four quarters (rough calculation); still up 25% excluding OpenAI.
+
+- Copilot penetration: 30 million seats (20 million last quarter), roughly 7.5% penetration of the more than 400 million M365 seats (rough calculation), or about USD 10.8 billion annualized at list price.
+
+- AI consumption-based pricing: Usage in customer-service scenarios rose 4x QoQ; a shift from per-seat to per-seat plus consumption-based pricing would move the TAM from headcount to call volume.
 
 Three-to-five-year growth path: Azure sustains above 30% on capacity and orders, M365 sustains 10%–12% on Copilot price increases, and gaming and search contribute steady single-digit growth. Overall revenue growth of 13%–15% a year is achievable.
 
@@ -116,7 +119,7 @@ One often overlooked driver: price increases. Azure unit prices were raised once
 
 Four main rivals. Amazon: leads in scale and cost, broadest customer base, but weak at the application layer; it is chasing incremental workloads. Google: the only company developing in-house at all three layers — models (Gemini), chips (TPU) and cloud — with the best cost structure and the weakest enterprise sales. Oracle: entered via a mega-deal with OpenAI, high order elasticity, but customer concentration and delivery doubts. OpenAI: largest customer and partner; its multi-cloud strategy erodes Microsoft's exclusivity.
 
-**Google is the most dangerous rival.** Microsoft's AI stack relies on OpenAI for models and Nvidia for chips — paying at both ends; Google pays at neither. If inference cost becomes the core competitive variable, Microsoft's structural disadvantage will become more evident each year.
+Google is the most dangerous rival. Microsoft's AI stack relies on OpenAI for models and Nvidia for chips — paying at both ends; Google pays at neither. If inference cost becomes the core competitive variable, Microsoft's structural disadvantage will become more evident each year.
 
 The second threat is open-source models: they commoditize the model layer to rock-bottom prices, leaving Azure's premium to come only from compute and compliance, no longer from "exclusive models." These two threats combined are the fundamental reason Microsoft's valuation multiple cannot exceed 30x.
 
@@ -124,12 +127,17 @@ Share data: Azure holds about 25% of global cloud share (rough estimate), AWS ab
 
 ## Chapter 8 Risk factors
 
-- **Capex mismatch**: RMB 290 billion invested over two years, asset payback period of 5–8 years, RPO weighted duration of only 2.3 years — a maturity mismatch.
-- **AI demand peaking**: if demand growth falls to 15% in 2028, capacity sits idle and operating margin could be compressed to 38%.
-- **Price war**: cloud gross margin falling below 60% is the signal; open-source models accelerate commoditization.
-- **Regulation**: the EU cloud licensing probe and UK/US scrutiny of the Microsoft-OpenAI relationship; extreme scenarios call for business separation.
-- **Accounting policy**: extended depreciation lives and changes in reporting basis affect earnings quality and market trust.
-- **Customer concentration**: OpenAI accounts for a high share of RPO growth; a shift to another cloud would visibly slow Azure growth.
+- Capex mismatch: RMB 290 billion invested over two years, asset payback period of 5–8 years, RPO weighted duration of only 2.3 years — a maturity mismatch.
+
+- AI demand peaking: if demand growth falls to 15% in 2028, capacity sits idle and operating margin could be compressed to 38%.
+
+- Price war: cloud gross margin falling below 60% is the signal; open-source models accelerate commoditization.
+
+- Regulation: the EU cloud licensing probe and UK/US scrutiny of the Microsoft-OpenAI relationship; extreme scenarios call for business separation.
+
+- Accounting policy: extended depreciation lives and changes in reporting basis affect earnings quality and market trust.
+
+- Customer concentration: OpenAI accounts for a high share of RPO growth; a shift to another cloud would visibly slow Azure growth.
 
 Of the six, the first two determine whether this investment makes money; the last four determine how much. The risks are poorly hedgeable — the entire tech sector is betting on the same thing, and the only tool is position sizing.
 
@@ -151,7 +159,7 @@ The current price of USD 464.72 corresponds to 25.8x FY2026, 23.0x FY2027E and 1
 
 Method: anchor on FY2028 EPS (avoiding the distortion of FY2027 capex peak on profit) and assign 24x — the lower-middle of the company's 22–32x range over the past five years. The lower-middle assignment reflects rising capital intensity, ROIC drifting from 31% to 22%, and a free cash flow yield below 2%.
 
-Cross-check: post-earnings sell-side target prices of USD 560–640 (Citi 600, Goldman Sachs 640), averaging about 561, broadly in line with this report's neutral 564. **This shows the valuation assumptions are not aggressive but consensus.** Sensitivity tests show multiple elasticity exceeds EPS elasticity: EPS ±10% maps to ±USD 57 on the target price, multiple ±3x maps to ±USD 70.
+Cross-check: post-earnings sell-side target prices of USD 560–640 (Citi 600, Goldman Sachs 640), averaging about 561, broadly in line with this report's neutral 564. This shows the valuation assumptions are not aggressive but consensus. Sensitivity tests show multiple elasticity exceeds EPS elasticity: EPS ±10% maps to ±USD 57 on the target price, multiple ±3x maps to ±USD 70.
 
 Historical comparison: Microsoft's median PE was about 30x in 2019–2024, when capex was 12% of revenue. It is now 35%, so the multiple should shift from 30x toward 24x — not a bearish call, but an acknowledgment that the business has become heavier.
 
@@ -159,7 +167,7 @@ Peer valuation comparison: Alphabet about 24x, Amazon about 38x, Oracle about 45
 
 ## Chapter 11 Investment Recommendations
 
-**Buy (initiation), 12-month target price USD 564, implying +21%.** Bear case USD 400 (-14%), bull case USD 700 (+51%), risk-reward 1.5:1, expected return +8%–10% on a 55%–60% win rate.
+Buy (initiation), 12-month target price USD 564, implying +21%. Bear case USD 400 (-14%), bull case USD 700 (+51%), risk-reward 1.5:1, expected return +8%–10% on a 55%–60% win rate.
 
 Execution in three tranches: build 2% at the current price of 464.72, add to 4% below USD 430 (21x FY2027, risk-reward 4.5:1), top up to 5% after FY2027Q1 results confirm Azure ≥40%; stop adding above 560. Cap the position at 5% because the risk-reward does not justify a heavy position.
 

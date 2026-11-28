@@ -10,7 +10,9 @@ This module runs a four-role parallel analysis, with five standalone pages. All 
 
 ## How to read these five reports
 
-The first four are done independently, without cross-communication: business analysis looks only at business structure, financial analysis only at the three statements, industry research only at the competitive landscape, and risk assessment only at the downside. The fifth is the synthesis, specifically handling points of conflict. The benefit of this approach is that it avoids starting with a conclusion and then hunting for evidence; the drawback is duplication—the same number may appear in different reports, but interpreted from different angles. If reading only one, go to the risk section; if reading only the conclusion, go to the final section of this report.
+The first four were done independently, without cross-communication: the business analysis looks only at business structure, the financial analysis only at the three statements, the industry research only at the competitive landscape, and the risk assessment only at the downside. The fifth is a synthesis, specifically handling the points of conflict.
+
+The advantage of this approach is that it avoids "conclusion first, evidence second." The drawback is duplication—the same number may appear four times across the four, but each time interpreted from a different angle. If you read only one, I suggest the risk one; if you read only the conclusion, read the final section of this one.
 
 ## Sources
 

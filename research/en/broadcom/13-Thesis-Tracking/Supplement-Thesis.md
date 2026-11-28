@@ -37,13 +37,13 @@ Selection criteria for the six assumptions: verifiable with public data within a
 
 Three things are now validated: software revenue, net debt ratio and customer capex. Software came in at RMB 8.75 billion, up 30% year on year, showing that the VMware subscription conversion has not driven customers away; net debt/EBITDA is 0.85x, and USD 59.6 billion of debt is no burden against USD 70 billion of EBITDA; customer deployment plans are being revised upward, with Anthropic rising from 1GW to 5GW and OpenAI targeting 1.3GW.
 
-The significance of these three validations: **Broadcom is not a company betting on the future; its current cash flow and customer relationships are already enough to support an 18x valuation.** Even if AI revenue falls short, software plus non-AI semiconductors is a USD 52 billion business that can hold the floor.
+The significance of these three validations: Broadcom is not a company betting on the future; its current cash flow and customer relationships are already enough to support an 18x valuation. Even if AI revenue falls short, software plus non-AI semiconductors is a USD 52 billion business that can hold the floor.
 
 ## Two observations: gross margin and AI revenue
 
 Gross margin is the line to watch most closely. Q3 came in at 75.0% and Q4 guidance is 73%, down from 78% four quarters ago — a one-way trend. The assumption is "no lower than 71%", and the logic behind it: XPU hardware gross margin is low but will not fall below 55%, while software gross margin of 90% lifts the blended figure.
 
-The AI revenue line of RMB 115 billion is harder to verify because it depends on customers. Current evidence is Q4 guidance of RMB 21.7 billion (RMB 86.8 billion annualized) plus customer deployment plans.**Getting from RMB 86.8 billion to RMB 115 billion requires +32% — not unachievable, but it needs both the Anthropic and OpenAI projects to ramp at the same time.**
+The AI revenue line of RMB 115 billion is harder to verify because it depends on customers. Current evidence is Q4 guidance of RMB 21.7 billion (RMB 86.8 billion annualized) plus customer deployment plans.Getting from RMB 86.8 billion to RMB 115 billion requires +32% — not unachievable, but it needs both the Anthropic and OpenAI projects to ramp at the same time.
 
 The relationship between these two lines: the more AI revenue meets expectations, the more likely gross margin misses. They are not independent — it is a trade-off.
 
@@ -51,7 +51,7 @@ The relationship between these two lines: the more AI revenue meets expectations
 
 This is the only "failing" assumption. The company provides credit support for AI customers' procurement, with scale, tenor and recourse terms all undisclosed; BofA estimates up to USD 370 billion in senior debt could accumulate by mid-2029.
 
-Why classify it as an "assumption" rather than a "risk"? Because a risk can be priced; an assumption can only be verified. It cannot be verified now, so this item in the thesis is blank. **A blank assumption means the entire thesis has a hole.**
+Why classify it as an "assumption" rather than a "risk"? Because a risk can be priced; an assumption can only be verified. It cannot be verified now, so this item in the thesis is blank. A blank assumption means the entire thesis has a hole.
 
 How to handle it: make this a "veto item" — until it is disclosed, no matter how cheap the price, position size stays at no more than 5%; if disclosure confirms limited recourse and a quantifiable exposure, the cap can be raised to 8%.
 
@@ -60,11 +60,14 @@ How to handle it: make this a "veto item" — until it is disclosed, no matter h
 The most important thing in writing an investment thesis is not the assumptions, but the falsification conditions. Broadcom has four falsification conditions:
 
 - FY27 AI revenue guidance cut by more than 15% (from RMB 115 billion to below RMB 98 billion), indicating customers are cutting orders;
+
 - Non-GAAP gross margin below 70% for two consecutive quarters, indicating pricing power is being lost — not just a mix issue;
+
 - The first default on the financing platform or guarantees returning to the balance sheet, indicating the worst case has begun to materialize;
+
 - A single large customer (Google or Meta) publicly confirms it has awarded its next-generation project to a second supplier.
 
-**If any one of these occurs, the thesis is void and valuation is no longer discussed.**All four can be verified through public information; no guesswork is required.
+If any one of these occurs, the thesis is void and valuation is no longer discussed.All four can be verified through public information; no guesswork is required.
 
 Conversely, if none of the four occurs by 2027, the thesis upgrades from "watch" to "buy" — not because the stock has risen, but because time has proven the risk does not exist. That is how a watchlist works: trade time for certainty, not price. A watchlist is not a list of "waiting to buy" — it is a list of "waiting to judge."
 

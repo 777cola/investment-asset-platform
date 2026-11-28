@@ -35,7 +35,7 @@ The shareholding ratio is an approximate figure calculated from the 2025 annual 
 
 ## I. C.C. Wei: Treating "conservatism" as a capability
 
-C.C. Wei's public style can be summed up in one sentence: **never promise what you cannot deliver.** In the 2023 semiconductor downturn, he refused to give full-year growth guidance at the earnings call, saying only that "customers are adjusting inventory." In 2024, as AI demand first emerged, he said "the demand is real, but we need to see whether customers can get paid." When raising capex in 2026, he stressed at the same time that "depreciation will weigh on gross margin, and we need to make that clear in advance."
+C.C. Wei's public style can be summed up in one sentence: never promise what you cannot deliver. In the 2023 semiconductor downturn, he refused to give full-year growth guidance at the earnings call, saying only that "customers are adjusting inventory." In 2024, as AI demand first emerged, he said "the demand is real, but we need to see whether customers can get paid." When raising capex in 2026, he stressed at the same time that "depreciation will weigh on gross margin, and we need to make that clear in advance."
 
 This communication style is rare for investors. Semiconductor management teams generally like to tell stories — Samsung talks about "overtaking," Intel talks about "returning to leadership," and both end in delays. In TSMC's earnings call records, the guidance delivery rate is above 90%, and this can be quantitatively verified.
 
@@ -49,7 +49,7 @@ Counter-evidence exists: the Arizona fab's costs far exceed Taiwan's (labor, sup
 
 The first was the 2024–2025 overseas fab controversy: US unions accused TSMC of favoring Taiwanese employees and of falling behind schedule at its Arizona plant. The company's response was to subcontract part of the engineering work to local firms and hire more locally, avoiding a direct confrontation.
 
-The second was the 2025 export-control controversy over customer flows—reports said the US was investigating whether certain chips reached restricted customers via third parties, and TSMC's response was to cooperate with the investigation and tighten customer screening. Such incidents have limited substantive impact on TSMC, but they make one thing clear: **geopolitics has entered the company's day-to-day operations; it is no longer a tail risk.**
+The second was the 2025 export-control controversy over customer flows—reports said the US was investigating whether certain chips reached restricted customers via third parties, and TSMC's response was to cooperate with the investigation and tighten customer screening. Such incidents have limited substantive impact on TSMC, but they make one thing clear: geopolitics has entered the company's day-to-day operations; it is no longer a tail risk.
 
 ## IV. Governance structure: dispersed shareholding with no major shareholder
 
@@ -61,11 +61,11 @@ In practice, checks and balances come from customers and the market—customers 
 
 C.C. Wei was born in 1952 and will be 74 in 2026. TSMC's succession path is already laid out: co-COOs Y.J. Mii (R&D) and Y.P. Chyn (manufacturing) were both promoted in 2024, a classic "dual-leader" arrangement—one runs the technology roadmap, the other runs global capacity.
 
-The upside of this arrangement is complementarity; the downside is blurred lines of authority. TSMC's historical precedent (Morris Chang's 2018 retirement) was a split model—C.C. Wei as president, Mark Liu as chairman—which ran for six years. If the company again uses dual COOs and then promotes one of them, two things bear watching: **who owns the customer relationships (Apple, Nvidia), and who owns the government relationships (US, Japan, Germany).** Over the next five years, these two matter more than process technology.
+The upside of this arrangement is complementarity; the downside is blurred lines of authority. TSMC's historical precedent (Morris Chang's 2018 retirement) was a split model—C.C. Wei as president, Mark Liu as chairman—which ran for six years. If the company again uses dual COOs and then promotes one of them, two things bear watching: who owns the customer relationships (Apple, Nvidia), and who owns the government relationships (US, Japan, Germany). Over the next five years, these two matter more than process technology.
 
 Compensation and incentives deserve separate mention. TSMC's total remuneration to directors and managers is an extremely low share of after-tax net profit (under 0.1%); the chairman's annual pay is in the range of several hundred million New Taiwan dollars—against net profit of TWD 2.75 trillion, the incentive intensity rests on "industry reputation + long-term shareholding," not cash. The advantage of this structure is that management won't do foolish things for a short-term bonus; the drawback is that equity can't bind the core team especially tightly—in 2021–2022, some process executives were indeed poached by competitors.
 
-Another governance detail: TSMC discloses related-party transactions in fine detail, listing dealings with the TSMC Education and Culture Foundation and with suppliers separately. This is a high standard among listed companies in Taiwan. **For long-term investors, predictability of governance matters more than perfection of governance.**
+Another governance detail: TSMC discloses related-party transactions in fine detail, listing dealings with the TSMC Education and Culture Foundation and with suppliers separately. This is a high standard among listed companies in Taiwan. For long-term investors, predictability of governance matters more than perfection of governance.
 
 ## Sources
 

@@ -21,7 +21,7 @@ All five pages in this module are derived from the 2026Q2 earnings report (2026/
 
 ## How to read these five reports
 
-The first four are independent assignments, each reasoning from a different angle—business model, financials, industry, risk—with no access to the others' conclusions. The fifth is the synthesis, tasked with finding disagreements and adjudicating them. What the four reports share is that all start from the numbers; not one starts from "Tesla is great."
+The first four are independent assignments, each reasoning from a different angle—business model, financials, industry, risk—with no access to the others' conclusions. The fifth is a synthesis, tasked with identifying disagreements and making judgments. What the four reports share is that all start from the numbers; not one starts from "Tesla is great."
 
 ## Sources
 

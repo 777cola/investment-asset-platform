@@ -26,15 +26,15 @@ Industry-chain gross margin ranges are industry estimates, based on each company
 
 ## Upstream: Amazon is the largest buyer, and the buyer with the least bargaining power
 
-Profit distribution along the compute chain is clear: the money sits with memory and chips. 2026 DRAM contract prices rise 60%–70%, NAND more than doubles, HBM is in short supply, and institutions expect the shortage to persist into 2027. The CFO said plainly on the call that "component pricing remains a headwind," and Jassy also flagged "rising costs for components such as memory." **This is a company with a market cap of RMB 2.8 trillion bowing to three memory makers.**
+Profit distribution along the compute chain is clear: the money sits with memory and chips. 2026 DRAM contract prices rise 60%–70%, NAND more than doubles, HBM is in short supply, and institutions expect the shortage to persist into 2027. The CFO said plainly on the call that "component pricing remains a headwind," and Jassy also flagged "rising costs for components such as memory." This is a company with a market cap of RMB 2.8 trillion bowing to three memory makers.
 
 It responds on two fronts: first, in-house chips — Graviton delivers 30%–40% better price-performance than peers, Trainium matches Nvidia in inference scenarios, and customers saved over USD 2 billion this quarter as a result; second, it scales procurement volume beyond what others can match — but volume does not equal low prices, and when capacity is constrained, volume only means "priority supply," not "discount."
 
-So we give it 4 points (out of 10) on bargaining power in the upstream segment. **Its only real leverage is time: waiting for memory capacity expansion (2027), waiting for in-house chips to scale (external sales by end-2027).** For the next two years, it can only endure.
+So we give it 4 points (out of 10) on bargaining power in the upstream segment. Its only real leverage is time: waiting for memory capacity expansion (2027), waiting for in-house chips to scale (external sales by end-2027). For the next two years, it can only endure.
 
 ## Midstream: it has turned both logistics and cloud into its own infrastructure
 
-The midstream is where Amazon is genuinely strong. It has internalized logistics: a million robots, regionalized warehousing, same-day delivery coverage, 1.5 billion same-day or next-day units in a single quarter, and Amazon Now covering more than 450 towns and cities. **The result is shipping cost growth running 400 basis points below unit volume growth—direct evidence of turning "external costs" into "internal efficiency."**
+The midstream is where Amazon is genuinely strong. It has internalized logistics: a million robots, regionalized warehousing, same-day delivery coverage, 1.5 billion same-day or next-day units in a single quarter, and Amazon Now covering more than 450 towns and cities. The result is shipping cost growth running 400 basis points below unit volume growth—direct evidence of turning "external costs" into "internal efficiency."
 
 In cloud it is the global leader, at USD 46 billion in a single quarter and USD 184 billion annualized. But mind the structure: its advantage is the migration cost once enterprises move their core systems onto it, not the newest models. So it must ride both Anthropic and OpenAI—after March, when Microsoft's OpenAI exclusivity ended, Amazon immediately brought GPT-6 Astra, Kimi and GLM onto Bedrock, and Fortune 500 spending on Bedrock rose nearly 7x year over year.
 
@@ -42,15 +42,15 @@ Midstream bargaining power: 8 points. The deduction is power: data centers can b
 
 ## Downstream: 300 million members are both demand and a source of bargaining power
 
-Downstream fragmentation is Amazon's talisman. On the retail side, hundreds of millions of Prime members and millions of third-party sellers (contributing 61% of paid unit sales); on the cloud side, customers range from startups to Fortune 500 companies, and no single customer can threaten it. **A fragmented customer base means it can raise prices on any individual customer without losing the business.**
+Downstream fragmentation is Amazon's talisman. On the retail side, hundreds of millions of Prime members and millions of third-party sellers (contributing 61% of paid unit sales); on the cloud side, customers range from startups to Fortune 500 companies, and no single customer can threaten it. A fragmented customer base means it can raise prices on any individual customer without losing the business.
 
-But there is one concentration risk: AI demand increasingly depends on a handful of model companies. Anthropic is its largest external shareholder (and source of unrealized gains), and OpenAI is a newly signed 2026 partner at the USD 50 billion level. The compute decisions of these two will directly affect AWS's growth — **this is the only link in the value chain where "the customer is stronger than the supplier."**
+But there is one concentration risk: AI demand increasingly depends on a handful of model companies. Anthropic is its largest external shareholder (and source of unrealized gains), and OpenAI is a newly signed 2026 partner at the USD 50 billion level. The compute decisions of these two will directly affect AWS's growth — this is the only link in the value chain where "the customer is stronger than the supplier."
 
 ## Cycle position: early-to-mid stage of the capex super-cycle
 
-Four coordinates locate where we are now. First, **capex**: Amazon at 220 billion, Microsoft at 170 billion, Alphabet at 195–205 billion; the four combined exceed 200 billion per quarter, and 2026 is the second year of the ramp. Second, **memory**: DRAM up 60%–70%, with the shortage expected to persist into 2027, and HBM possibly up another 80%–100% in 2027. Third, **power**: grid connection queues in some US regions run three to five years, with 2027–2028 the peak for grid connections. Fourth, **demand**: inference already accounts for more than half of AWS AI revenue, and enterprise-scale adoption is "still in the very early stages" (Jassy's words).
+Four coordinates locate where we are now. First, capex: Amazon at 220 billion, Microsoft at 170 billion, Alphabet at 195–205 billion; the four combined exceed 200 billion per quarter, and 2026 is the second year of the ramp. Second, memory: DRAM up 60%–70%, with the shortage expected to persist into 2027, and HBM possibly up another 80%–100% in 2027. Third, power: grid connection queues in some US regions run three to five years, with 2027–2028 the peak for grid connections. Fourth, demand: inference already accounts for more than half of AWS AI revenue, and enterprise-scale adoption is "still in the very early stages" (Jassy's words).
 
-Taken together, the four coordinates say this: we are in the front half of the middle of the cycle, not the end. **The hallmarks of the end are flat capex, price wars and falling utilization — none of which is present.** But concede this too: the front half of the middle means the steepest stretch of the climb is already half done, and valuations should no longer carry a "starting from zero" premium.
+Taken together, the four coordinates say this: we are in the front half of the middle of the cycle, not the end. The hallmarks of the end are flat capex, price wars and falling utilization — none of which is present. But concede this too: the front half of the middle means the steepest stretch of the climb is already half done, and valuations should no longer carry a "starting from zero" premium.
 
 ## Sources
 

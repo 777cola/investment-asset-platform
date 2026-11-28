@@ -10,7 +10,9 @@ This module's six pieces draw on the same earnings release (Meituan 2026Q2 and i
 
 ## How should the six articles be ordered?
 
-The order is deliberate: Duan Yongping starts with users (does this business still hold up), Buffett looks at the financials (is the money real), Munger works backward from losses (where is the risk), and Li Lu looks at ten years (where is the ceiling). After reading all four, you realize what they are debating is not data but time horizon. The fifth piece tabulates where the four agree and diverge, and the sixth is a version you can send out directly—no slogans, just numbers and conditions.
+The order is deliberate: Duan Yongping starts with users (does this business still hold up), Buffett looks at the financials (is the money real), Munger works backward from losses (where is the risk), and Li Lu looks at ten years (where is the ceiling). After reading all four, you realize what they are debating is not data but time horizon.
+
+The fifth piece tabulates where the four agree and diverge; the sixth is a version ready to send out as is—no slogans, just numbers and conditions.
 
 ## Sources
 

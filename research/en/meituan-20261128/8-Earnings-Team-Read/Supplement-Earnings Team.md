@@ -10,18 +10,25 @@ This module presents the earnings team's interpretation: each of the four master
 
 ## This module's structure: four close readings → synthesis → publishable draft
 
-Six pages form one pipeline: four people each read the same quarterly report (about 1,000 words each), the editor synthesizes their views into a matrix, and a final polish turns it into a publishable article. · Duan Yongping close read: users first, profit second — all three revenue lines accelerating at once, costs reined in, buyback too small.
-· Buffett close read: all three statements pass — thin income statement, good cash flow, clean balance sheet, capital allocation C+.
-· Munger close read: first ask whether this profit can repeat — the three preconditions (rivals hold prices, rider costs stay flat, in-store holds share) are none of them in Meituan's hands.
-· Li Lu close read: look at ten years — category expansion, overseas replicability, regulatory risk landing; people are the biggest worry.
-· View synthesis: three points of consensus, two disagreements, three uses for holders / watchers / heavy positions.
-· Editor's polished version: a publishable long read, conclusion "the inflection is real, but it is not the inflection that ends the war".
+Six pages form one pipeline: four people each read the same quarterly report (about 1,000 words each), an editor synthesizes the views into a matrix, and a final polish turns it into a publishable article.
+
+- Duan Yongping close read: users first, profit second — all three revenue lines accelerating at once, costs reined in, buyback too small.
+
+- Buffett close read: all three statements pass — thin income statement, good cash flow, clean balance sheet, capital allocation C+.
+
+- Munger close read: first ask whether this profit can repeat — three preconditions (rivals hold prices, rider costs stay flat, in-store holds) are all outside Meituan's control.
+
+- Li Lu close read: look at ten years — category expansion, overseas replicability, regulatory risk landing; people are the biggest worry.
+
+- View synthesis: three points of consensus, two disagreements, with three uses for holders, watchers and heavy positions.
+
+- Editor's polished version: a publishable long read, conclusion "the inflection is real, but it is not the inflection that ends the war".
 
 ## The three synthesized conclusions
 
-Consensus one: the inflection point is real. Revenue +21.6%, net profit RMB 2.071 billion, core local commerce profitable at the operating level for two consecutive quarters, marketing expense ratio 40%→22.9% — four people seeing the same thing from different angles.
+Consensus one: the inflection point is real. Revenue +21.6%, net profit RMB 2.071 billion, core local commerce profitable at the operating level for two consecutive quarters, marketing expense ratio 40%→22.9% — four people saw the same thing from different angles.
 
-Consensus two: profit quality is mediocre. Operating profit was only RMB 1.71 billion, a 1.5% margin, and roughly RMB 360 million of the RMB 2.071 billion net profit did not come from operations. Single-quarter profit cannot be annualized — 2.071×4 = RMB 8.28 billion implies 46x, which is an absurd valuation.
+Consensus two: profit quality is mediocre. Operating profit was only RMB 1.71 billion, a 1.5% margin; of the RMB 2.071 billion net profit, about RMB 360 million did not come from operations. Single-quarter profit cannot be annualized — 20.71×4 = RMB 8.28 billion implies 46x, an absurd valuation.
 
 Consensus three: capital allocation is conservative. RMB 120 billion net cash, buybacks only 0.4% of market cap, no dividend, and USD 1 billion going to Brazil.
 

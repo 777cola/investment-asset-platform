@@ -10,7 +10,9 @@ This module contains five parallel independent analyses, drawing on the same dat
 
 ## How to read this module
 
-The five pages are five independent reports, each standing alone: business (Duan Yongping), financials (Buffett), industry (Munger), risk (Li Lu), and a Team Lead summary. Read the summary first, then go back to the four source reports—because three places in the four reports use different numerical bases, and the summary has already adjudicated them. Every report's conclusion comes with conditions; do not take the conclusion alone. For example, the business analysis says "it is a good business," but the very next sentence says "no pricing power"; the financial analysis says "the company will not die," but the very next sentence says "the income statement is thin." Strip out the conditions and these conclusions all become meaningless.
+The five pages are five standalone reports, each complete in itself: business (Duan Yongping), financials (Buffett), industry (Munger), risk (Li Lu), and the Team Lead summary. Read the summary first, then go back to the four source reports — because three figures are defined differently across the four reports, and the summary has already adjudicated them.
+
+Every report's conclusion comes with conditions; do not take the conclusion alone. For example, the business analysis says "it is a good business," but the very next line says "no pricing power"; the financial analysis says "the company will not die," but the very next line says "the income statement is thin." Strip out the conditions and these conclusions all become empty talk.
 
 ## Sources
 

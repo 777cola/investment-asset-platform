@@ -30,7 +30,7 @@ Customers are already discussing orders for 2029–2030 — if true, this means 
 
 Three reasons. First, expectations were already maxed out: the market expected Q3 revenue of RMB 11–12 billion and a gross margin of 55%–57%, and the actual results landed at the top of that range — above the consensus but within the frame. Second, part of the net profit beat came from a EUR 500 million revaluation gain, which institutions saw through immediately. Third, AI trades became more volatile in October, and equipment stocks were sold off along with them as "shadows of AI capex."
 
-A more fundamental layer: **the share price gains from 2025 through the first half of 2026 had already priced in "supply falling short of demand through 2028."** The earnings report only stated this more clearly; it added no new present value.
+A more fundamental layer: the share price gains from 2025 through the first half of 2026 had already priced in "supply falling short of demand through 2028." The earnings report only stated this more clearly; it added no new present value.
 
 ## Which are noise
 
@@ -40,7 +40,7 @@ Noise is characterized by this: a month later no one remembers it, but on the da
 
 ## The ratio of signal to noise determines what to do
 
-Of the seven items, one is a signal (capacity remains insufficient through 2028) and six are noise or already known. That ratio says: **there is no "surprise" to dig out of this company; its value shifts slowly and predictably.** For a company like this, trading returns do not come from "guessing news" but from "waiting on price."
+Of the seven items, one is a signal (capacity remains insufficient through 2028) and six are noise or already known. That ratio says: there is no "surprise" to dig out of this company; its value shifts slowly and predictably. For a company like this, trading returns do not come from "guessing news" but from "waiting on price."
 
 So the near-term share-price decline (-0.96%, -17.5% from the high) is no reason to buy. A 17.5% drawdown on a stock at 41x PE only squeezes out a bit of the overbought froth; it is still more than 20% away from "cheap."
 
@@ -48,7 +48,7 @@ So the near-term share-price decline (-0.96%, -17.5% from the high) is no reason
 
 The results were released pre-market. Act one: the stock spiked at the open, as revenue of RMB 11.662 billion and a 57.5% gross margin both beat guidance; act two: it faded once the call began, as management's 2027 commentary, though upbeat, contained no upside numbers, and analysts pressed on the EUR 500 million revaluation embedded in net profit; act three: it weakened into the close and the next day, falling more than 2% cumulatively over two sessions.
 
-This pattern matches the post-earnings reactions in 2024 and 2025 — **ASML's share price has become desensitized to "beats" and responds only to the size of guidance raises.** This time guidance was raised only at the low end (EUR 43 billion to EUR 44 billion), a "modest in-line raise" not enough to move the stock.
+This pattern matches the post-earnings reactions in 2024 and 2025 — ASML's share price has become desensitized to "beats" and responds only to the size of guidance raises. This time guidance was raised only at the low end (EUR 43 billion to EUR 44 billion), a "modest in-line raise" not enough to move the stock.
 
 The further 0.96% decline on October 16 continued broad AI-sector volatility and had nothing to do with the company. Reading it as "the market is bearish" is a misread; reading it as "now it's cheap" is also a misread.
 
