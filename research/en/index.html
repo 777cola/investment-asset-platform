@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research · Kaihao Capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue-300: #66a3ff;
+  --blue-400: #3385ff;
+  --blue-500: #0052ff;
+  --blue-600: #0041c7;
+  --orange-300: #ffb366;
+  --orange-400: #ff9933;
+  --orange-500: #ff7d00;
+  --font-body: 'DM Sans','Noto Sans SC','Microsoft YaHei',sans-serif;
+  --font-mono: 'DM Mono','Times New Roman',monospace;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --t-fast: 160ms var(--ease);
+  --max-w: 1100px;
+}
+[data-theme="dark"] {
+  --bg: #0a0e14;
+  --bg-2: #111827;
+  --surface: rgba(17,24,39,0.96);
+  --surface-2: rgba(31,41,55,0.8);
+  --border: rgba(255,255,255,0.08);
+  --border-hover: rgba(0,82,255,0.35);
+  --text-primary: #f9fafb;
+  --text-secondary: rgba(255,255,255,0.55);
+  --text-tertiary: rgba(255,255,255,0.35);
+  --text-dim: rgba(255,255,255,0.25);
+  --header-bg: linear-gradient(135deg, #0a0e14 0%, #111827 100%);
+  --header-border: rgba(255,255,255,0.06);
+  --card-bg: rgba(17,24,39,0.96);
+  --card-border: rgba(255,255,255,0.08);
+  --orb-1: rgba(0,82,255,0.12);
+  --orb-2: rgba(255,125,0,0.08);
+  --back-color: rgba(255,255,255,0.5);
+  --back-hover: #66a3ff;
+  --brand-color: rgba(255,255,255,0.35);
+  --stat-color: #66a3ff;
+  --stat-lbl: rgba(255,255,255,0.4);
+  --mvalue-color: #e5e7eb;
+}
+[data-theme="light"] {
+  --bg: #f8fafc;
+  --bg-2: #e2e8f0;
+  --surface: rgba(255,255,255,0.98);
+  --surface-2: rgba(248,250,252,0.95);
+  --border: rgba(15,23,42,0.1);
+  --border-hover: rgba(0,82,255,0.3);
+  --text-primary: #0f172a;
+  --text-secondary: rgba(15,23,42,0.55);
+  --text-tertiary: rgba(15,23,42,0.4);
+  --text-dim: rgba(15,23,42,0.25);
+  --header-bg: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  --header-border: rgba(15,23,42,0.08);
+  --card-bg: #ffffff;
+  --card-border: rgba(15,23,42,0.08);
+  --orb-1: rgba(0,82,255,0.05);
+  --orb-2: rgba(255,125,0,0.03);
+  --back-color: rgba(15,23,42,0.5);
+  --back-hover: #0052ff;
+  --brand-color: rgba(15,23,42,0.4);
+  --stat-color: #0052ff;
+  --stat-lbl: rgba(15,23,42,0.45);
+  --mvalue-color: #1e293b;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg); color: var(--text-primary);
+  line-height: 1.7; min-height: 100vh;
+  transition: background var(--t-fast), color var(--t-fast);
+}
+
+/* === Header === */
+.header {
+  position: relative; overflow: hidden;
+  padding: 2.5rem 2rem; text-align: center;
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--header-border);
+  transition: background var(--t-fast), border var(--t-fast);
+}
+.header::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 40% at 20% -10%, var(--orb-1), transparent),
+             radial-gradient(ellipse 50% 35% at 90% 20%, var(--orb-2), transparent);
+  pointer-events: none;
+}
+.header > * { position: relative; z-index: 1; }
+.header-top {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: var(--max-w); margin: 0 auto 1.2rem; gap: 8px;
+}
+.header-top .back { margin-bottom: 0; }
+.header-top .icon-btn { margin-bottom: 0; }
+.header-actions { display: flex; align-items: center; gap: 8px; }
+.header .back {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--back-color); text-decoration: none; font-size: 0.82rem;
+  transition: color 0.2s ease;
+}
+.header .back:hover { color: var(--back-hover); }
+.icon-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface); color: var(--text-tertiary);
+  cursor: pointer; transition: all var(--t-fast);
+  flex-shrink: 0;
+}
+.icon-btn:hover { border-color: rgba(0,82,255,0.3); color: var(--blue-400); }
+.icon-btn svg { width: 16px; height: 16px; }
+[data-theme="dark"] .icon-sun { display: none; }
+[data-theme="dark"] .icon-moon { display: block; }
+[data-theme="light"] .icon-sun { display: block; }
+[data-theme="light"] .icon-moon { display: none; }
+.header .brand { font-size: 0.78rem; color: var(--brand-color); letter-spacing: 0.06em; margin-bottom: 0.4rem; }
+.header h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; }
+.header h1 .hl-blue { color: var(--blue-400); }
+.header .subtitle { font-size: 0.9rem; color: var(--text-tertiary); font-weight: 300; margin-top: 0.3rem; }
+
+/* === Container === */
+.container { max-width: var(--max-w); margin: 0 auto; padding: 3rem 2rem; }
+
+/* === Stats bar === */
+.stats { display: flex; justify-content: center; gap: 3rem; margin-bottom: 3rem; flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat-num { font-family: var(--font-mono); font-size: 1.6rem; font-weight: 700; color: var(--stat-color); font-variant-numeric: tabular-nums; }
+.stat-lbl { font-size: 0.78rem; color: var(--stat-lbl); margin-top: 2px; letter-spacing: 0.04em; }
+
+/* === Company grid === */
+.company-grid { display: grid; gap: 1.2rem; }
+
+.company-card {
+  display: flex; text-decoration: none; color: inherit;
+  border-radius: 16px; overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  transition: all 0.3s var(--ease);
+  position: relative;
+  min-height: 160px;
+}
+.company-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+/* Logo area */
+.card-logo {
+  width: 180px; min-height: 160px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  background: var(--surface-2);
+}
+.card-logo img {
+  width: 100%; height: 100%; object-fit: contain;
+  padding: 1.8rem;
+  position: relative; z-index: 1;
+  transition: transform 0.3s ease;
+}
+.company-card:hover .card-logo img { transform: scale(1.06); }
+.card-logo::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 60%, var(--card-bg) 100%);
+  pointer-events: none; z-index: 2;
+}
+
+/* Content area */
+.card-body {
+  flex: 1; padding: 1.3rem 1.8rem;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; z-index: 1; min-width: 0;
+}
+.card-top { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.4rem; flex-wrap: wrap; }
+.card-ticker {
+  font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700;
+  color: var(--blue-400); letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.card-company { font-size: 1.2rem; font-weight: 700; white-space: nowrap; }
+.card-date { font-size: 0.75rem; color: var(--text-dim); margin-left: auto; white-space: nowrap; }
+.card-tags { display: flex; gap: 0.4rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+.tag {
+  display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px;
+  font-size: 0.7rem; font-weight: 600;
+}
+.tag-green { background: rgba(34,197,94,0.12); color: #22c55e; }
+.tag-yellow { background: rgba(255,183,77,0.12); color: #d97706; }
+.tag-blue { background: rgba(102,163,255,0.12); color: var(--blue-300); }
+.card-metrics { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+.metric { }
+.metric .mlabel { font-size: 0.68rem; color: var(--text-dim); letter-spacing: 0.03em; }
+.metric .mvalue { font-family: var(--font-mono); font-size: 0.92rem; font-weight: 600; color: var(--mvalue-color); font-variant-numeric: tabular-nums; }
+.metric .mvalue .green { color: #22c55e; }
+.card-summary { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6; }
+
+/* Arrow indicator */
+.card-arrow {
+  display: flex; align-items: center; padding: 0 1.8rem;
+  color: var(--text-dim);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+.company-card:hover .card-arrow { color: var(--blue-400); transform: translateX(4px); }
+.card-arrow svg { width: 20px; height: 20px; }
+
+/* === Footer === */
+.footer {
+  text-align: center; padding: 2rem;
+  color: var(--text-dim); font-size: 0.78rem;
+  border-top: 1px solid var(--header-border);
+}
+
+/* === Responsive === */
+@media (max-width: 900px) {
+  .card-logo { width: 120px; min-height: 130px; }
+  .card-logo img { padding: 1.2rem; }
+  .card-body { padding: 1rem 1.2rem; }
+  .card-arrow { display: none; }
+  .card-metrics { gap: 0.8rem; }
+}
+@media (max-width: 640px) {
+  .container { padding: 1.5rem 1rem; }
+  .header { padding: 1.5rem 1rem; }
+  .header h1 { font-size: 1.5rem; }
+  .stats { gap: 1.5rem; margin-bottom: 2rem; }
+  .stat-num { font-size: 1.2rem; }
+  .company-card { flex-direction: column; min-height: auto; }
+  .card-logo { width: 100%; min-height: 100px; }
+  .card-logo img { padding: 1rem; max-height: 60px; }
+  .card-logo::after { background: linear-gradient(0deg, transparent 60%, var(--card-bg) 100%); }
+  .card-top { gap: 0.5rem; }
+  .card-ticker { font-size: 0.95rem; }
+  .card-company { font-size: 1rem; }
+  .card-date { margin-left: 0; }
+  .card-summary { font-size: 0.78rem; }
+}
+
+.lang-switch{display:flex;gap:2px;background:var(--surface);border:1px solid var(--card-border);border-radius:14px;padding:3px;margin-right:.6rem}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;width:92px;height:26px;border-radius:11px;text-decoration:none;color:var(--text-secondary);font-size:12px;line-height:1;white-space:nowrap;overflow:hidden;transition:background .2s ease,color .2s ease}
+.lang-switch a.active{background:var(--card-bg);color:var(--brand-color);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.lang-switch .full{display:inline-grid;grid-template-columns:0fr;transition:grid-template-columns .3s var(--ease);margin-left:2px}
+.lang-switch a.active .full{grid-template-columns:1fr}
+.lang-switch .full>span{overflow:hidden;white-space:nowrap}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <a href="../index.html" class="back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      <span id="back-text">Back to home</span>
+    </a>
+    <div class="header-actions">
+<div class="lang-switch" data-lang-switch>
+<a class="lang zh" data-lang="zh" href="/research/index.html"><span>简</span><span class="full"><span>简体中文</span></span></a>
+<a class="lang hant" data-lang="hant" href="/research/hant/index.html"><span>繁</span><span class="full"><span>繁體中文</span></span></a>
+<a class="lang en active" data-lang="en" href="/research/en/index.html"><span>EN</span><span class="full"><span>English</span></span></a>
+</div>
+
+
+    <button class="icon-btn" id="theme-toggle" title="Toggle theme">
+      <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <button class="icon-btn" id="lang-toggle" title="语言" style="display:none">
+      <span id="lang-label" style="font-size:0.75rem;font-weight:700">简体</span>
+    </button>
+    </div>
+  </div>
+  <div class="brand" id="brand-text">Kaihao Capital · 研究驱动 Asset management</div>
+  <h1 id="page-title">研究<span class="hl-blue">报告</span></h1>
+  <div class="subtitle" id="page-subtitle">Deep company analysis on a value-investing framework · 17 dimensions · always updating</div>
+</div>
+
+<div class="container">
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">38</div><div class="stat-lbl" id="stat-co">Companies</div></div>
+    <div class="stat"><div class="stat-num">17</div><div class="stat-lbl" id="stat-dim">Frameworks</div></div>
+    <div class="stat"><div class="stat-num">1331+</div><div class="stat-lbl" id="stat-reports">Reports</div></div>
+    <div class="stat"><div class="stat-num" id="stat-progress-num">Ongoing</div><div class="stat-lbl" id="stat-progress">Status</div></div>
+  </div>
+
+  <div class="company-grid">
+<!-- NEW-CARDS-START -->
+    <!-- Meituan 2026-11-28 -->
+    <a href="/research/en/meituan-20261128/00-Meituan-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="/research/logos/meituan.png" alt="Meituan logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">03690</span>
+          <span class="card-company">Meituan</span>
+          <span class="card-date">2026/11/28</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-green">Returned to profit in Q3</span><span class="tag tag-green">Revenue +21.6%</span><span class="tag tag-green">Share stabilizes at 50%</span><span class="tag tag-green">Subsidy phase-out</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">HK$67.85</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">Approximately HKD 419 billion (6.175 billion shares)</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q3 revenue</div><div class="mvalue">RMB 115.56 billion (+21.6% YoY)</div></div></div>
+        <div class="card-summary">Revenue RMB 115.56 billion, +21.6%; net profit RMB 2.071 billion, a swing back to profit, but share stalled at 50%: the ceasefire is real, peace has not arrived.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Xiaomi Corporation 2026-11-26 -->
+    <a href="/research/en/xiaomi-20261126/00-Xiaomi Corporation-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/1810.HK.png" alt="Xiaomi Corporation logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">01810</span>
+          <span class="card-company">Xiaomi Corporation</span>
+          <span class="card-date">2026/11/26</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">Memory squeeze</span><span class="tag tag-yellow">Auto sector turns positive</span><span class="tag tag-yellow">Profit halved</span><span class="tag tag-yellow">Pengcheng ramps up volume</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">HK$26.60</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">Approximately HKD 685 billion (25.741 billion shares)</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q3 revenue</div><div class="mvalue">RMB 107.24 billion (YoY -5.2%)</div></div></div>
+        <div class="card-summary">Profit down 68.4% yet autos profitable for the first time in a single quarter: Xiaomi is paying down the memory makers&#x27; debt.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Baidu 2026-11-23 -->
+    <a href="/research/en/baidu/00-Baidu-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/9888.HK.png" alt="Baidu logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">9888.HK</span>
+          <span class="card-company">Baidu</span>
+          <span class="card-date">2026/11/23</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">Five-year low</span><span class="tag tag-yellow">AI cloud +94%</span><span class="tag tag-yellow">Advertising -22%</span><span class="tag tag-yellow">Market cap near net cash</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">HK$63.55</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">Approximately HKD 168 billion (approximately USD 21.5 billion)</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q3 total revenue</div><div class="mvalue">RMB 30.81 billion (YoY -1.1%)</div></div></div>
+        <div class="card-summary">AI cloud revenue reached RMB 8.2 billion in the quarter, up 94% year on year, while advertising revenue fell 22% and total revenue fell 1%; market cap has dropped to half of total cash and investments.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- CoreWeave 2026-11-20 -->
+    <a href="/research/en/coreweave/00-CoreWeave-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/CRWV.png" alt="CoreWeave logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">CRWV</span>
+          <span class="card-company">CoreWeave</span>
+          <span class="card-date">2026/11/20</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-red">Center of the AI bubble</span><span class="tag tag-red">Debt RMB 46.9 billion</span><span class="tag tag-red">Fell below the IPO price</span><span class="tag tag-red">Customers are creditors</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">$39.51</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About USD 22 billion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q3 revenue</div><div class="mvalue">USD 3.661 billion (YoY +168%)</div></div></div>
+        <div class="card-summary">Revenue +168%, orders USD 132.5 billion, but quarterly free cash flow -USD 7.47 billion, and interest expense of USD 846 million already exceeds adjusted operating profit.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Berkshire 2026-11-16 -->
+    <a href="/research/en/berkshire/00-Berkshire-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="/research/logos/berkshire.png" alt="Berkshire logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">BRK.B</span>
+          <span class="card-company">Berkshire</span>
+          <span class="card-date">2026/11/16</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">Defensive premium</span><span class="tag tag-yellow">RMB 377.4 billion in cash</span><span class="tag tag-yellow">Buyback restart</span><span class="tag tag-yellow">Abel&#x27;s first test</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">$592.85</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About USD 1.26 trillion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q3 operating profit</div><div class="mvalue">USD 12.705 billion (YoY -5.8%)</div></div></div>
+        <div class="card-summary">The share price sits just 0.02% below its 52-week high, yet operating profit fell 5.8% year on year and underwriting profit dropped 43% — the defensive case is already priced in.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Pinduoduo 2026-11-13 -->
+    <a href="/research/en/pdd-20261113/00-Pinduoduo-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/PDD.png" alt="Pinduoduo logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">PDD</span>
+          <span class="card-company">Pinduoduo</span>
+          <span class="card-date">2026/11/13</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-green">Net cash equals 60% of market cap</span><span class="tag tag-green">No dividend, no buyback</span><span class="tag tag-green">Temu compliance costs</span><span class="tag tag-green">Ad revenue growth slowed to 3.5%</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">$78.97</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About USD 112.4 billion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q2 revenue</div><div class="mvalue">RMB 112.36 billion (YoY +8%)</div></div></div>
+        <div class="card-summary">Strip out RMB 456.4 billion in cash and the core business trades at just 3.4x earnings; the market assigns no valuation because that cash was never intended to be returned to shareholders.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Eli Lilly 2026-11-09 -->
+    <a href="/research/en/lilly/00-Eli Lilly-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/LLY.png" alt="Eli Lilly logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">LLY</span>
+          <span class="card-company">Eli Lilly</span>
+          <span class="card-date">2026/11/09</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">Tirzepatide hits USD 16.1 billion in a single quarter</span><span class="tag tag-yellow">Full-year guidance raised three times</span><span class="tag tag-yellow">Oral drug falls below expectations</span><span class="tag tag-yellow">Valuation ceiling</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">$1,411.95</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About USD 1.33 trillion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q3 revenue</div><div class="mvalue">USD 24.397 billion (+39% YoY)</div></div></div>
+        <div class="card-summary">Tirzepatide posted USD 16.1 billion in a single quarter, 66% of revenue, and full-year guidance was raised for the third time; but a 48x P/E already prices in a smooth run through 2028.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Amazon 2026-11-06 -->
+    <a href="/research/en/amazon/00-Amazon-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/AMZN.png" alt="Amazon logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">AMZN</span>
+          <span class="card-company">Amazon</span>
+          <span class="card-date">2026/11/06</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-green">AWS growth 39%</span><span class="tag tag-green">Operating margin 13.9%, a new high</span><span class="tag tag-green">Free cash flow -RMB 42.4 billion</span><span class="tag tag-green">Capital expenditure RMB 220 billion</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">$259.30</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">Approximately USD 2.80 trillion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026 Q3 net sales</div><div class="mvalue">USD 201.94 billion (+12% YoY)</div></div></div>
+        <div class="card-summary">AWS accelerated to 39% and operating margin hit a record-high 13.9%, but spending USD 77.2 billion in a single quarter pushed free cash flow into negative territory.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Meta 2026-11-02 -->
+    <a href="/research/en/meta/00-Meta-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/META.png" alt="Meta logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">META</span>
+          <span class="card-company">Meta</span>
+          <span class="card-date">2026/11/02</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">Advertising volume and pricing both rise</span><span class="tag tag-yellow">Free cash flow turns negative</span><span class="tag tag-yellow">Capex RMB 140 billion</span><span class="tag tag-yellow">Muse monetization unproven</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">$606.73</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About USD 1.58 trillion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q3 revenue</div><div class="mvalue">USD 64.60 billion (YoY +26%)</div></div></div>
+        <div class="card-summary">Ad revenue is still rising on both volume and price, but with quarterly capex of USD 34.9 billion and free cash flow negative for the first time since going public, the market is starting to discount the AI bill.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Alphabet 2026-10-30 -->
+    <a href="/research/en/alphabet/00-Alphabet-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/GOOGL.png" alt="Alphabet logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">GOOGL</span>
+          <span class="card-company">Alphabet</span>
+          <span class="card-date">2026/10/30</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-green">Cloud +103%</span><span class="tag tag-green">Free cash flow turns negative</span><span class="tag tag-green">Capital expenditure RMB 200 billion</span><span class="tag tag-green">Antitrust case concluded</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">$279.84</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About USD 3.42 trillion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q3 revenue</div><div class="mvalue">USD 127.58 billion (+25% YoY)</div></div></div>
+        <div class="card-summary">Cloud revenue doubled and margins hit 36%, yet free cash flow came in at negative RMB 9.1 billion — what the market is punishing is a USD 200 billion bet.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- JD.com 2026-10-26 -->
+    <a href="/research/en/jd/00-JD.com-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/9618.HK.png" alt="JD.com logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">9618.HK</span>
+          <span class="card-company">JD.com</span>
+          <span class="card-date">2026/10/26</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">Third place in food delivery</span><span class="tag tag-yellow">Q2 profit turns positive</span><span class="tag tag-yellow">Double 11 with increased investment</span><span class="tag tag-yellow">7x PE</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">HK$99.40</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About HKD 280 billion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q2 revenue</div><div class="mvalue">RMB 346.4 billion (YoY -2.9%)</div></div></div>
+        <div class="card-summary">After a year and a half of food-delivery fighting, share fell from 31% to 7%–15%; Q2 profit just turned positive, and Double 11 means more spending ahead.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Netflix 2026-10-23 -->
+    <a href="/research/en/netflix/00-Netflix-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/NFLX.png" alt="Netflix logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">NFLX</span>
+          <span class="card-company">Netflix</span>
+          <span class="card-date">2026/10/23</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-green">Post 10-for-1 split basis</span><span class="tag tag-green">Q3 above expectations</span><span class="tag tag-green">Advertising guidance cut</span><span class="tag tag-green">Two-year low</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">$65.85</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About USD 270 billion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q3 revenue</div><div class="mvalue">USD 12.874 billion (YoY +11.8%)</div></div></div>
+        <div class="card-summary">Q3 profit rose 44% and a record USD 4.8 billion buyback was announced, yet the stock sits at a two-year low—the market is repricing for growth slowing to 12%.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Hon Hai Precision 2026-10-19 -->
+    <a href="/research/en/foxconn/00-Hon Hai Precision-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/2317.TW.png" alt="Hon Hai Precision logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">2317.TW</span>
+          <span class="card-company">Hon Hai Precision</span>
+          <span class="card-date">2026/10/19</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">AI racks</span><span class="tag tag-yellow">Gross margin 6%</span><span class="tag tag-yellow">Revenue tops TWD 1 trillion</span><span class="tag tag-yellow">The foundry&#x27;s fate</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">NT$240</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">Approximately TWD 3.37 trillion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q3 revenue</div><div class="mvalue">TWD 3.03 trillion (+47.1% YoY)</div></div></div>
+        <div class="card-summary">September revenue tops TWD 1 trillion for the first time and Q3 rises 47% YoY, yet gross margin is only 6.12%—scale doubles while profit grows just 30%.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- ASML 2026-10-16 -->
+    <a href="/research/en/asml/00-ASML-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/ASML.png" alt="ASML logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">ASML</span>
+          <span class="card-company">ASML</span>
+          <span class="card-date">2026/10/16</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">Q3 revenue +55%</span><span class="tag tag-yellow">Oversupplied demand through 2028</span><span class="tag tag-yellow">China accounts for 23%</span><span class="tag tag-yellow">41x PE</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">$1,641.52</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About USD 624 billion (about EUR 538 billion)</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q3 net sales</div><div class="mvalue">EUR 11.662 billion (up 55.2% YoY)</div></div></div>
+        <div class="card-summary">Quarterly revenue hit a record EUR 11.7 billion, capacity is sold out through 2028; no discount in the 41x PE.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Kuaishou 2026-10-12 -->
+    <a href="/research/en/kuaishou/00-Kuaishou-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/1024.HK.png" alt="Kuaishou logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">01024</span>
+          <span class="card-company">Kuaishou</span>
+          <span class="card-date">2026/10/12</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-red">Revenue up just 1.4%</span><span class="tag tag-red">Kling spin-off</span><span class="tag tag-red">Advertising stalls</span><span class="tag tag-red">Share price hits new low</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">HK$29.26</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About HKD 126.7 billion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q2 revenue</div><div class="mvalue">RMB 35.54 billion (YoY +1.4%)</div></div></div>
+        <div class="card-summary">Total revenue rose only 1.4%, with nearly all the增量 coming from Kling — an AI story cannot prop up an advertising platform that is losing momentum.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Laopu Gold 2026-10-09 -->
+    <a href="/research/en/laopu/00-Laopu Gold-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="/research/logos/laopu.png" alt="Laopu Gold logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">06181</span>
+          <span class="card-company">Laopu Gold</span>
+          <span class="card-date">2026/10/09</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">Interim net profit +88%</span><span class="tag tag-yellow">-60% from the high</span><span class="tag tag-yellow">6.9x PE</span><span class="tag tag-yellow">Inventory gains</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">HK$337.00</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About HKD 59.6 billion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026H1 revenue</div><div class="mvalue">RMB 19.81 billion (up 60.3% YoY)</div></div></div>
+        <div class="card-summary">Net profit up 88%, PE down to just 6.9x — but the denominator is gifted by the gold price: the market is pricing in peak earnings.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Palantir 2026-10-05 -->
+    <a href="/research/en/palantir/00-Palantir-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/PLTR.png" alt="Palantir logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">PLTR</span>
+          <span class="card-company">Palantir</span>
+          <span class="card-date">2026/10/05</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-red">Q2 growth 93%</span><span class="tag tag-red">74x price-to-sales ratio</span><span class="tag tag-red">Government accounts for 40%</span><span class="tag tag-red">Leading AI application player</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">$189.40</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About USD 456 billion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q2 revenue</div><div class="mvalue">USD 1.935 billion (YoY +93%)</div></div></div>
+        <div class="card-summary">93% growth and 47% margins are real; so is the 74x price-to-sales ratio—a good company with no margin of safety.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Broadcom 2026-10-02 -->
+    <a href="/research/en/broadcom/00-Broadcom-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/AVGO.png" alt="Broadcom logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">AVGO</span>
+          <span class="card-company">Broadcom</span>
+          <span class="card-date">2026/10/02</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">AI revenue +221%</span><span class="tag tag-yellow">XPU replaces GPU</span><span class="tag tag-yellow">Off-balance-sheet financing controversy</span><span class="tag tag-yellow">Gross margin diluted by hardware</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">$355.14</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">Approximately USD 1.69 trillion (based on a rough count of 477 million shares)</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">FY26Q3 revenue</div><div class="mvalue">USD 29.591 billion (up 86% YoY)</div></div></div>
+        <div class="card-summary">AI revenue of USD 16.7 billion, up 221% year on year, yet Q4 guidance came in below the consensus by one percentage point; what the market punished was not the results but the fact that it borrows money on behalf of its customers.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- CATL 2026-09-28 -->
+    <a href="/research/en/catl/00-CATL-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/300750.SZ.png" alt="CATL logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">300750.SZ</span>
+          <span class="card-company">CATL</span>
+          <span class="card-date">2026/09/28</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-green">Global share 40%</span><span class="tag tag-green">De-Ninghua anxiety</span><span class="tag tag-green">Consumption tax takes effect</span><span class="tag tag-green">52-week low</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">¥291.99</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">Approximately RMB 1.35 trillion (A+H combined 4.627 billion shares)</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026H1 revenue</div><div class="mvalue">RMB 276.92 billion (YoY +54.8%)</div></div></div>
+        <div class="card-summary">Net profit RMB 43.28 billion, energy storage +87.5%, yet the stock hit a 52-week low: is 14x PE a panic price, or a fair price for &quot;de-CATL-ification&quot;</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Micron Technology 2026-09-25 -->
+    <a href="/research/en/micron/00-Micron Technology-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/MU.png" alt="Micron Technology logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">MU</span>
+          <span class="card-company">Micron Technology</span>
+          <span class="card-date">2026/09/25</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-green">A pure-play memory name</span><span class="tag tag-green">Gross margin 85%</span><span class="tag tag-green">Long-term contract price lock</span><span class="tag tag-green">Valuation at the cycle peak</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">$1,082.28</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About USD 1.22 trillion (rough calculation based on 1.13 billion shares)</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">FY26Q3 revenue</div><div class="mvalue">USD 41.46 billion (+346% YoY)</div></div></div>
+        <div class="card-summary">FY26Q3 gross margin 84.9%, HBM4 ramping; at 6.5x 2027 expected earnings, the question is not whether it is expensive but how much of the cycle remains.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Samsung Electronics 2026-09-21 -->
+    <a href="/research/en/samsung/00-Samsung Electronics-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="/research/logos/samsung.png" alt="Samsung Electronics logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">005930.KS</span>
+          <span class="card-company">Samsung Electronics</span>
+          <span class="card-date">2026/09/21</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-green">Catching up on HBM4</span><span class="tag tag-green">Memory super-cycle</span><span class="tag tag-green">Quarterly profit tops Nvidia</span><span class="tag tag-green">Low-PE trap?</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">₩275,000</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">Approximately KRW 1,793 trillion (about USD 1.20 trillion, roughly calculated at 6.52 billion shares and KRW 1,500/USD)</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q2 revenue</div><div class="mvalue">KRW 171.5 trillion (+130% YoY)</div></div></div>
+        <div class="card-summary">HBM share rose from 21% to 33%, and operating profit of KRW 89.5 trillion exceeded Nvidia&#x27;s; the stock sits 24% below its high as the market discounts a cycle peak.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Zhongji Innolight 2026-09-18 -->
+    <a href="/research/en/innolight/00-Zhongji Innolight-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/300308.SZ.png" alt="Zhongji Innolight logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">300308</span>
+          <span class="card-company">Zhongji Innolight</span>
+          <span class="card-date">2026/09/18</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">1.6T volume ramp</span><span class="tag tag-yellow">Net profit up 241%</span><span class="tag tag-yellow">Cash flow at just 13%</span><span class="tag tag-yellow">Customer concentration 81.9%</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">¥925.24</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About RMB 1.09 trillion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026H1 revenue</div><div class="mvalue">RMB 41.78 billion (YoY +182.5%)</div></div></div>
+        <div class="card-summary">Net profit growth of 241% is real, but operating cash flow is only 13% of net profit, and the top five customers account for 81.9%.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Oracle 2026-09-14 -->
+    <a href="/research/en/oracle/00-Oracle-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/ORCL.png" alt="Oracle logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">ORCL</span>
+          <span class="card-company">Oracle</span>
+          <span class="card-date">2026/09/14</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-red">RPO RMB 664 billion</span><span class="tag tag-red">Free cash flow was negative</span><span class="tag tag-red">Liabilities RMB 129.5 billion</span><span class="tag tag-red">Orders concentrated at OpenAI</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">$144.79</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About USD 440 billion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">FY27Q1 revenue</div><div class="mvalue">USD 19.35 billion (+30% YoY)</div></div></div>
+        <div class="card-summary">Orders USD 664 billion, but quarterly capex is 1.47 times revenue, and free cash flow is -USD 5.4 billion.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- TSMC 2026-09-11 -->
+    <a href="/research/en/tsmc/00-TSMC-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/2330.TW.png" alt="TSMC logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">2330.TW</span>
+          <span class="card-company">TSMC</span>
+          <span class="card-date">2026/09/11</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-green">AI shovel seller</span><span class="tag tag-green">August revenue hits record high</span><span class="tag tag-green">Gross margin 67.7%</span><span class="tag tag-green">Close to historical highs</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">NT$2,410</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">Approximately TWD 62.5 trillion (about USD 1.95 trillion)</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q2 revenue</div><div class="mvalue">NTD 1.27 trillion (YoY +36.0%)</div></div></div>
+        <div class="card-summary">August revenue up 53% year on year, with no slowdown in AI demand; but the 67.7% gross margin marks a cyclical peak, and a 22x PE already prices it in.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Pop Mart 2026-09-07 -->
+    <a href="/research/en/popmart/00-Pop Mart-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/9992.HK.png" alt="Pop Mart logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">09992</span>
+          <span class="card-company">Pop Mart</span>
+          <span class="card-date">2026/09/07</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">Labubu&#x27;s retreat</span><span class="tag tag-yellow">Overseas negative growth</span><span class="tag tag-yellow">14x PE</span><span class="tag tag-yellow">Buyback support</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">HK$156.20</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About HKD 209 billion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026H1 revenue</div><div class="mvalue">RMB 17.17 billion (YoY +23.8%)</div></div></div>
+        <div class="card-summary">Revenue rose 23.8% while profit grew only 10.1%, and overseas posted its first negative growth — hard evidence that growth has peaked.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- BYD 2026-09-04 -->
+    <a href="/research/en/byd/00-BYD-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/002594.SZ.png" alt="BYD logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">002594</span>
+          <span class="card-company">BYD</span>
+          <span class="card-date">2026/09/04</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">Domestic sales -15.7%</span><span class="tag tag-yellow">Overseas revenue exceeds half</span><span class="tag tag-yellow">Q2 profit turns positive</span><span class="tag tag-yellow">Price war</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">¥87.40</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">Approximately RMB 796.8 billion (91.17 billion total shares, A+H)</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026H1 revenue</div><div class="mvalue">RMB 344.82 billion (YoY -7.1%)</div></div></div>
+        <div class="card-summary">Overseas revenue exceeded domestic for the first time, and second-quarter net profit per vehicle recovered to RMB 0.72 million; but domestic sales fell 15.7% while the industry grew 7.3%.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- NVIDIA 2026-08-31 -->
+    <a href="/research/en/nvidia/00-NVIDIA-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/NVDA.png" alt="NVIDIA logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">NVDA</span>
+          <span class="card-company">NVIDIA</span>
+          <span class="card-date">2026/08/31</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-green">Quarterly revenue of RMB 96.2 billion</span><span class="tag tag-green">Q3 guidance of RMB 108 billion</span><span class="tag tag-green">Supply commitment RMB 279 billion</span><span class="tag tag-green">Credit exposure of RMB 108.5 billion</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">$220.78</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">Approximately USD 5.33 trillion (24.15 billion shares)</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">FY2027Q2 revenue</div><div class="mvalue">USD 96.22 billion (YoY +106%)</div></div></div>
+        <div class="card-summary">Q3 guidance of USD 108 billion and a further 70% increase in FY2028, but the USD 279 billion supply commitment shows this growth round is already tied to customer credit.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Meituan 2026-08-28 -->
+    <a href="/research/en/meituan-20260828/00-Meituan-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="/research/logos/meituan.png" alt="Meituan logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">03690</span>
+          <span class="card-company">Meituan</span>
+          <span class="card-date">2026/08/28</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-green">Returned to profit in the second quarter</span><span class="tag tag-green">Share held at 51%</span><span class="tag tag-green">Subsidies not yet withdrawn</span><span class="tag tag-green">Overseas operations turn profitable</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">HK$77.50</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">Approximately HKD 478.6 billion (6.175 billion shares)</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q2 revenue</div><div class="mvalue">RMB 104.64 billion (+14.4% YoY)</div></div></div>
+        <div class="card-summary">Q2 operating profit turned positive at RMB 2.69 billion, but a 2.6% margin says this is not profit won back—it is profit saved.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Alibaba 2026-08-24 -->
+    <a href="/research/en/alibaba-20260824/00-Alibaba-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/9988.HK.png" alt="Alibaba logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">09988</span>
+          <span class="card-company">Alibaba</span>
+          <span class="card-date">2026/08/24</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">Cloud growth 45%</span><span class="tag tag-yellow">Free cash flow was negative</span><span class="tag tag-yellow">RMB 80 billion rights issue</span><span class="tag tag-yellow">Profit -76%</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">HK$112.50</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">Approximately HKD 2.30 trillion (approximately 20.46 billion shares after the placement)</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2027Q1 revenue</div><div class="mvalue">RMB 268.95 billion (YoY +9%)</div></div></div>
+        <div class="card-summary">Cloud growth of 45% hits a 22-quarter high; free cash flow of -RMB 44.7 billion in the quarter, with an RMB 80 billion rights issue keeping capex alive.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Xiaomi Corporation 2026-08-21 -->
+    <a href="/research/en/xiaomi/00-Xiaomi Corporation-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/1810.HK.png" alt="Xiaomi Corporation logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">01810</span>
+          <span class="card-company">Xiaomi Corporation</span>
+          <span class="card-date">2026/08/21</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">Auto volume ramp-up</span><span class="tag tag-yellow">Memory price hikes</span><span class="tag tag-yellow">Profit halved</span><span class="tag tag-yellow">Valuation re-rating</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">HK$29.02</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">Approximately HKD 747 billion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q2 revenue</div><div class="mvalue">RMB 108.92 billion (YoY -6.1%)</div></div></div>
+        <div class="card-summary">Auto deliveries +28%, smartphone ASP at a record high, yet profit fell 43% — the market is not punishing the story, but the quality of the profit.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Cambricon 2026-08-17 -->
+    <a href="/research/en/cambricon/00-Cambricon-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/688256.SS.png" alt="Cambricon logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">688256</span>
+          <span class="card-company">Cambricon</span>
+          <span class="card-date">2026/08/17</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-red">Domestic computing power</span><span class="tag tag-red">Scarcity premium</span><span class="tag tag-red">Growth shifting gears</span><span class="tag tag-red">Valuation is extremely expensive</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">¥1,156.00</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">Approximately RMB 727.1 billion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026H1 operating revenue</div><div class="mvalue">RMB 5.996 billion (YoY +108.13%)</div></div></div>
+        <div class="card-summary">First-half revenue doubled and net profit reached RMB 2.3 billion, but second-quarter growth was only 7.8% quarter on quarter. At 218 times earnings, investors are paying for scarcity, not cash flow.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Tencent Holdings 2026-08-14 -->
+    <a href="/research/en/tencent-20260814/00-Tencent Holdings-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/0700.HK.png" alt="Tencent Holdings logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">00700</span>
+          <span class="card-company">Tencent Holdings</span>
+          <span class="card-date">2026/08/14</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-green">AI capital expenditure</span><span class="tag tag-green">Advertising acceleration</span><span class="tag tag-green">Cash flow under pressure</span><span class="tag tag-green">Valuation at a low level</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">HK$440.00</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">Approximately HKD 4.01 trillion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q2 revenue</div><div class="mvalue">RMB 204.79 billion (YoY +11%)</div></div></div>
+        <div class="card-summary">Net profit rose just 0.7% while capex jumped 176%. The 30% share-price drop does not reflect broken fundamentals; it reflects the unwinding of the AI option premium.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- SMIC 2026-08-10 -->
+    <a href="/research/en/smic/00-SMIC-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/688981.SS.png" alt="SMIC logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">688981</span>
+          <span class="card-company">SMIC</span>
+          <span class="card-date">2026/08/10</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">Domestic substitution</span><span class="tag tag-yellow">Price-hike cycle</span><span class="tag tag-yellow">Depreciation drag</span><span class="tag tag-yellow">Valuation is extremely expensive</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">¥126.25</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About RMB 1.08 trillion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q1 sales revenue</div><div class="mvalue">USD 2.506 billion (YoY +11.5%)</div></div></div>
+        <div class="card-summary">Q1 revenue rose 11.5% year on year while gross margin fell 2.4 points; a 205x PE has already priced in the boom in domestic substitution.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- AMD 2026-08-07 -->
+    <a href="/research/en/amd/00-AMD-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/AMD.png" alt="AMD logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">AMD</span>
+          <span class="card-company">AMD</span>
+          <span class="card-date">2026/08/07</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">Data center capacity doubles</span><span class="tag tag-yellow">MI450 yet to ramp</span><span class="tag tag-yellow">Valuation overstretched</span><span class="tag tag-yellow">Challenging Nvidia</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">$483.36</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About USD 802 billion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q2 revenue</div><div class="mvalue">USD 11.536 billion (YoY +50%)</div></div></div>
+        <div class="card-summary">Data center revenue doubled to USD 6.7 billion, one-eleventh of Nvidia&#x27;s. The USD 483 price buys delivery in 2027.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Apple 2026-08-03 -->
+    <a href="/research/en/apple/00-Apple-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/AAPL.png" alt="Apple logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">AAPL</span>
+          <span class="card-company">Apple</span>
+          <span class="card-date">2026/08/03</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">iPhone&#x27;s strongest June quarter</span><span class="tag tag-yellow">Services stall</span><span class="tag tag-yellow">Memory price hikes squeeze gross margin</span><span class="tag tag-yellow">Cook hands over the baton</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">$303.42</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About USD 4.41 trillion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">FY26Q3 revenue</div><div class="mvalue">USD 109.42 billion (+16% YoY)</div></div></div>
+        <div class="card-summary">iPhone revenue came in at USD 54.2 billion, up 22% year on year, yet the stock fell 9% over three days. The problem is not demand; it is the gross margin guidance of 47%–48%.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Microsoft 2026-07-31 -->
+    <a href="/research/en/microsoft/00-Microsoft-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/MSFT.png" alt="Microsoft logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">MSFT</span>
+          <span class="card-company">Microsoft</span>
+          <span class="card-date">2026/07/31</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-green">Azure reaccelerates</span><span class="tag tag-green">Copilot monetization</span><span class="tag tag-green">Capital expenditure RMB 41 billion</span><span class="tag tag-green">Free cash flow turns to negative growth</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">$464.72</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">About USD 3.45 trillion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">FY26Q4 revenue</div><div class="mvalue">USD 90.01 billion (up 18% year on year)</div></div></div>
+        <div class="card-summary">Azure growth returned to 43% from 40%, with guidance of 45% for next quarter. AI has proven itself on the revenue side, not yet on the cost side.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- SK hynix 2026-07-27 -->
+    <a href="/research/en/skhynix/00-SK hynix-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/000660.KS.png" alt="SK hynix logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">000660.KS</span>
+          <span class="card-company">SK hynix</span>
+          <span class="card-date">2026/07/27</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">HBM leader</span><span class="tag tag-yellow">The debate over whether the cycle has peaked</span><span class="tag tag-yellow">Best earnings, worst share price</span><span class="tag tag-yellow">PE 17x</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">₩1,816,000</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">Approximately KRW 1,291 trillion (approximately USD 920 billion)</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q1 revenue</div><div class="mvalue">KRW 52.58 trillion (+198% YoY)</div></div></div>
+        <div class="card-summary">Quarterly operating margin 72%, yet the stock is down 38% from its high. What the market is selling is not Q2 but 2027 supply.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+    <!-- Tesla 2026-07-22 -->
+    <a href="/research/en/tesla/00-Tesla-Research-Hub.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://financialmodelingprep.com/image-stock/TSLA.png" alt="Tesla logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">TSLA</span>
+          <span class="card-company">Tesla</span>
+          <span class="card-date">2026/07/22</span>
+        </div>
+        <div class="card-tags"><span class="tag tag-yellow">Record deliveries</span><span class="tag tag-yellow">Profit under pressure</span><span class="tag tag-yellow">Robotaxi</span><span class="tag tag-yellow">Valuation rests on narrative</span></div>
+        <div class="card-metrics"><div class="metric"><div class="mlabel">Price</div><div class="mvalue">$374.01</div></div><div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">Approximately USD 1.48 trillion</div></div><div class="metric"><div class="mlabel">vs 52-wk high</div><div class="mvalue">—</div></div><div class="metric"><div class="mlabel">2026Q2 revenue</div><div class="mvalue">USD 28.24 billion (+26% YoY)</div></div></div>
+        <div class="card-summary">Revenue hit USD 28.2 billion, the fastest growth in three years, but net profit fell 5% year on year, with automotive gross margin squeezed from both sides by the price war and AI investment.</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+<!-- NEW-CARDS-END -->
+
+    <!-- CXMT (newest) -->
+    <a href="cxmt/00-长鑫科技Research总目录.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://www.cxmt.com/statics/shuwon//assets/img/svg/logo.svg" alt="CXMT logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">CXMT</span>
+          <span class="card-company">长鑫科技</span>
+          <span class="card-date">2026/07/19</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-yellow">科创板IPO中</span>
+          <span class="tag tag-blue">国产替代核心</span>
+          <span class="tag tag-yellow">周期高点</span>
+        </div>
+        <div class="card-metrics">
+          <div class="metric"><div class="mlabel">发行价</div><div class="mvalue">8.66元</div></div>
+          <div class="metric"><div class="mlabel">Market cap</div><div class="mvalue">~5,792亿</div></div>
+          <div class="metric"><div class="mlabel">发行PE</div><div class="mvalue">308x</div></div>
+          <div class="metric"><div class="mlabel">DRAM份额</div><div class="mvalue">7.67%</div></div>
+        </div>
+        <div class="card-summary">中国唯一DRAM制造商，全球第四。2026H1净利预告500-570亿，但EUV被禁+1-2代技术差距+周期风险并存。建议观望等回调。</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+
+    <!-- 德明利 -->
+    <a href="demingli/00-德明利Research总目录.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://www.twsc.com.cn/vancheercmsresource/image/20240807/1005873114589954048.png" alt="德明利 logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">001309</span>
+          <span class="card-company">德明利</span>
+          <span class="card-date">2026/07/19</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-green">Q1净利+4,943%</span>
+          <span class="tag tag-red">存货122亿/66%</span>
+          <span class="tag tag-red">现金流为负</span>
+        </div>
+        <div class="card-metrics">
+          <div class="metric"><div class="mlabel">Price</div><div class="mvalue">536.54元</div></div>
+          <div class="metric"><div class="mlabel">PE(TTM)</div><div class="mvalue">29.66x</div></div>
+          <div class="metric"><div class="mlabel">毛利率</div><div class="mvalue">57.4%</div></div>
+          <div class="metric"><div class="mlabel">PB</div><div class="mvalue">18.37x</div></div>
+        </div>
+        <div class="card-summary">2026Q1营收75亿净利33亿同比+4,943%，表面爆炸。但经营现金流-2.4亿、存货122亿占资产66%、PB 18倍。建议不参与，观望中报验证。</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+
+    <!-- Alibaba -->
+    <a href="alibaba/00-阿里巴巴Research总目录.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://companieslogo.com/img/orig/BABA-2884ac04.png?t=1720244490" alt="Alibaba logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">BABA</span>
+          <span class="card-company">阿里巴巴</span>
+          <span class="card-date">2026/07/07</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-blue">估值合理偏低</span>
+          <span class="tag tag-yellow">竞争加剧</span>
+          <span class="tag tag-blue">云业务反弹</span>
+        </div>
+        <div class="card-metrics">
+          <div class="metric"><div class="mlabel">Price</div><div class="mvalue">$81.00</div></div>
+          <div class="metric"><div class="mlabel">PE</div><div class="mvalue">~12x</div></div>
+          <div class="metric"><div class="mlabel">FCF Yield</div><div class="mvalue">~10%</div></div>
+          <div class="metric"><div class="mlabel">净现金</div><div class="mvalue">~$650亿</div></div>
+        </div>
+        <div class="card-summary">电商+云计算双引擎，云业务重回增长。核心电商面临拼多多和抖音竞争，但AliExpress+Temu差异化出海。</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+
+    <!-- Tencent -->
+    <a href="tencent/00-腾讯Research总目录.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://companieslogo.com/img/orig/TCEHY-8aa1e38d.png?t=1720244494" alt="Tencent logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">00700</span>
+          <span class="card-company">腾讯</span>
+          <span class="card-date">2026/07/07</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-green">护城河极深</span>
+          <span class="tag tag-yellow">游戏周期</span>
+          <span class="tag tag-blue">视频号增长</span>
+        </div>
+        <div class="card-metrics">
+          <div class="metric"><div class="mlabel">Price</div><div class="mvalue">HKD 418</div></div>
+          <div class="metric"><div class="mlabel">PE</div><div class="mvalue">~18x</div></div>
+          <div class="metric"><div class="mlabel">投资组合</div><div class="mvalue">~$1,500亿</div></div>
+          <div class="metric"><div class="mlabel">回购</div><div class="mvalue">持续</div></div>
+        </div>
+        <div class="card-summary">微信生态护城河极深，视频号广告+小游戏贡献增量。游戏业务周期性波动，全球布局稳固。投资组合隐含巨大折价。</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+
+    <!-- Meituan -->
+    <a href="meituan/00-美团Research总目录.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://companieslogo.com/img/orig/3690.HK-a1f4c236.png?t=1720244490" alt="Meituan logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">03690</span>
+          <span class="card-company">美团</span>
+          <span class="card-date">2026/07/07</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-blue">壁垒深厚</span>
+          <span class="tag tag-yellow">到店竞争</span>
+          <span class="tag tag-green">新业务减亏</span>
+        </div>
+        <div class="card-metrics">
+          <div class="metric"><div class="mlabel">Price</div><div class="mvalue">HKD 125</div></div>
+          <div class="metric"><div class="mlabel">PE</div><div class="mvalue">~22x</div></div>
+          <div class="metric"><div class="mlabel">营收增长</div><div class="mvalue">~20%</div></div>
+          <div class="metric"><div class="mlabel">到店竞争</div><div class="mvalue">抖音</div></div>
+        </div>
+        <div class="card-summary">本地生活绝对龙头，外卖+到店双轮驱动。面临抖音到店业务冲击，但配送网络壁垒难以复制。新业务减亏见效。</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+
+    <!-- PDD (oldest) -->
+    <a href="pdd/00-拼多多Research总目录.html" class="company-card">
+      <div class="card-logo">
+        <img src="https://companieslogo.com/img/orig/PDD-8d01fe07.png?t=1720244493" alt="PDD Holdings logo" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-ticker">PDD</span>
+          <span class="card-company">拼多多</span>
+          <span class="card-date">2026/07/05</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-green">极度低估</span>
+          <span class="tag tag-yellow">Temu期权</span>
+          <span class="tag tag-green">安全边际充裕</span>
+        </div>
+        <div class="card-metrics">
+          <div class="metric"><div class="mlabel">Price</div><div class="mvalue">$82.39</div></div>
+          <div class="metric"><div class="mlabel">PE</div><div class="mvalue">8.98x <span class="green">低估</span></div></div>
+          <div class="metric"><div class="mlabel">FCF Yield</div><div class="mvalue">17.8%</div></div>
+          <div class="metric"><div class="mlabel">净现金/Market cap</div><div class="mvalue">~50%</div></div>
+        </div>
+        <div class="card-summary">净现金占总Market cap一半，FCF年超千亿。三情景估值$84.9–$209.2，下行有限上行可期。</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<div class="footer">
+  <span id="footer-text">© 2026 Kaihao Capital KaiHao Capital · Research仅供参考，不构成投资建议</span>
+</div>
+
+<script>
+(function() {
+  // Theme
+  const THEME_KEY = "cj-theme";
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem(THEME_KEY, theme);
+  }
+  function switchTheme() {
+    var current = document.documentElement.getAttribute("data-theme");
+    applyTheme(current === "dark" ? "light" : "dark");
+  }
+
+  // i18n
+  const LANG_KEY = "cj-lang";
+  const langLabel = {zh:"简体", "zh-hant":"繁體", en:"EN"};
+  const pageTitles = {zh:"Research · Kaihao Capital", "zh-hant":"研究報告 · 愷皓資本", en:"Research Reports · KaiHao Capital"};
+  const i18n = {
+    zh: {
+      brandText: "Kaihao Capital · 研究驱动 Asset management",
+      pageTitle: '研究<span class="hl-blue">报告</span>',
+      pageSubtitle: "Deep company analysis on a value-investing framework · 17 dimensions · always updating",
+      backText: "Back to home",
+      statCo: "Companies", statDim: "Frameworks", statReports: "Reports", statProgress: "Status", statProgressNum: "Ongoing",
+      footerText: "© 2026 Kaihao Capital KaiHao Capital · Research仅供参考，不构成投资建议",
+    },
+    "zh-hant": {
+      brandText: "愷皓資本 · 研究驅動 資產管理",
+      pageTitle: '研究<span class="hl-blue">報告</span>',
+      pageSubtitle: "基於價值投資框架的深度公司分析 · 17個維度 · 持續更新",
+      backText: "返回首頁",
+      statCo: "Companies", statDim: "分析維度", statReports: "獨立報告", statProgress: "研究進度", statProgressNum: "持續中",
+      footerText: "© 2026 愷皓資本 KaiHao Capital · 研究報告僅供參考，不構成投資建議",
+    },
+    en: {
+      brandText: "KaiHao Capital · Research-Driven Asset Management",
+      pageTitle: 'Research <span class="hl-blue">Reports</span>',
+      pageSubtitle: "Deep company analysis powered by value investing framework · 17 dimensions · Continuously updated",
+      backText: "Back to Home",
+      statCo: "Companies", statDim: "Dimensions", statReports: "Reports", statProgress: "In Progress", statProgressNum: "Ongoing",
+      footerText: "© 2026 KaiHao Capital · Research reports are for reference only and do not constitute investment advice",
+    }
+  };
+  const idMap = {
+    brandText:"brand-text", pageTitle:"page-title", pageSubtitle:"page-subtitle", backText:"back-text",
+    statCo:"stat-co", statDim:"stat-dim", statReports:"stat-reports", statProgress:"stat-progress", statProgressNum:"stat-progress-num",
+    footerText:"footer-text"
+  };
+
+  function applyLang(lang) {
+    var t = i18n[lang] || i18n.zh;
+    for (var key in t) {
+      var id = idMap[key] || key;
+      var el = document.getElementById(id);
+      if (el) el.innerHTML = t[key];
+    }
+    document.getElementById("lang-label").textContent = langLabel[lang] || "简体";
+    document.title = pageTitles[lang] || pageTitles.zh;
+    document.documentElement.lang = lang === "zh-hant" ? "zh-TW" : lang === "en" ? "en" : "zh-CN";
+  }
+
+  function switchLang() {
+    var langs = ["zh", "zh-hant", "en"];
+    var current = localStorage.getItem(LANG_KEY) || "zh";
+    var idx = (langs.indexOf(current) + 1) % langs.length;
+    var next = langs[idx];
+    localStorage.setItem(LANG_KEY, next);
+    applyLang(next);
+  }
+
+  // Init
+  var savedTheme = localStorage.getItem(THEME_KEY) || "light";
+  applyTheme(savedTheme);
+  var savedLang = localStorage.getItem(LANG_KEY) || "zh";
+  applyLang(savedLang);
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var tb = document.getElementById("theme-toggle");
+    if (tb) tb.addEventListener("click", switchTheme);
+    var lb = document.getElementById("lang-toggle");
+    if (lb) lb.addEventListener("click", switchLang);
+  });
+})();
+</script>
+</body>
+</html>
