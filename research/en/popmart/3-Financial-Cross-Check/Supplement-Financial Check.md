@@ -45,7 +45,7 @@ Market cap is another figure easily confused. At the August 20 close on the repo
 
 ## Final adopted basis: one checklist
 
-Revenue and profit: as reported by the company, in RMB billion, two decimal places. Segment revenue: regional figures disclosed by the company, with YoY growth on the company's basis. IP revenue: revenue from artist IP series disclosed by the company, with share calculated. Stores: period-end count, including overseas, excluding pop-ups. Members: "domestic registered members" and "cumulative global registered members" are kept separate and never mixed. Market cap and P/E: market cap uses the September 7 closing price multiplied by total shares, converted to RMB at the 0.914 exchange rate; P/E uses TTM net profit attributable to parent.
+Revenue and profit: as reported by the company, in RMB billion, two decimal places. Segment revenue: regional figures disclosed by the company, with YoY growth on the company's basis. IP revenue: revenue from artist IP series disclosed by the company, with share calculated. Stores: period-end count, including overseas, excluding pop-ups. Members: "domestic registered members" and "cumulative global registered members" are kept separate and never mixed. Market cap and P/E: market cap uses the September 7 closing price multiplied by total shares, converted to RMB at the 0.914 exchange rate; P/E uses TTM net profit attributable to shareholders.
 
 All derived figures are flagged in the text as "rough calculation" or "back-solved", including revenue per store, net cash ratio, full-year 2026 net profit and target price. These do not enter the "company figures" column of the tables and are used only in judgment statements.
 

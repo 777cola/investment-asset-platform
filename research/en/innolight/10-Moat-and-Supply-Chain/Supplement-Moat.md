@@ -32,7 +32,7 @@ Moat scores are subjective; weights are set out in the table notes. Competitor d
 | Coherent | — (US fiscal-year basis) | — | Vertical integration, in-house EML | — | ★★★★ (upstream and module double hit) |
 | Lumentum | — (US fiscal-year basis) | — | Supplying EML optical chips | — | ★★★ (bottleneck at the upstream) |
 
-> Cash flow to net profit ratio = operating cash flow/net profit attributable to parent: Zhongji 18.00/136.51 = 13.2%; Eoptolink 16.16/75.29 = 21.5%. Coherent and Lumentum report on different fiscal year conventions (June/September year-end), so we do not list specific figures and make only a qualitative comparison.
+> Cash flow to net profit ratio = operating cash flow/net profit attributable to shareholders: Zhongji 18.00/136.51 = 13.2%; Eoptolink 16.16/75.29 = 21.5%. Coherent and Lumentum report on different fiscal year conventions (June/September year-end), so we do not list specific figures and make only a qualitative comparison.
 
 ## Position in the value chain: confined to the "design and packaging" layer
 

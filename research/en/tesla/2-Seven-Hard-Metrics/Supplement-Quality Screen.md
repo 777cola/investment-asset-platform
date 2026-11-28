@@ -18,7 +18,7 @@ The thresholds are taken from the seven-metric hard screen for weeding out weak 
 | Debt-to-asset ratio | About 40% (no interest-bearing debt pressure; net cash position) | ≤50% | Through |
 | Operating cash flow/net profit | 4.2x (RMB 4.697 billion ÷ RMB 1.114 billion) | ≥1x | Passed |
 | Free cash flow | -USD 1.092 billion (capex USD 5.789 billion) | Positive | However |
-| Revenue and profit grow in tandem | Revenue +25.5%, net profit attributable to parent -4.9% | Same direction, with profit growth no lower than revenue growth | However |
+| Revenue and profit grow in tandem | Revenue +25.5%, net profit attributable to shareholders -4.9% | Same direction, with profit growth no lower than revenue growth | However |
 
 > Data source: Tesla 2026Q2 financial report. The equity base for ROE is a rough estimate of shareholders' equity at end-2025 of about USD 73 billion, not checked line by line against the 10-Q; TTM net profit of USD 3.804 billion = 2025Q3 1.373 + 2025Q4 0.840 + 2026Q1 0.477 + 2026Q2 1.114.
 

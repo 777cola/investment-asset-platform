@@ -19,7 +19,7 @@ Verification: Source A is the company's 2026 interim results announcement and in
 | Inventory | RMB 19.02 billion (interim report) | RMB 19.02 billion (cited in commentary) | 0.01% | Adopt 190.18 |
 | Operating cash flow | +20.08 billion (interim report) | Brokers only say "turned positive" | No second source | Use company value; flag single-source |
 | Market cap | HKD 59.6 billion (337 × 176.75 million shares) | HKD 59.56 billion (converted at closing price) | 0.07% | Adopt 596 |
-| PE(TTM) | 6.9x (working paper, TTM RMB 7.93 billion) | 7.9x (recalculated TTM RMB 6.90 billion) | 13% | Internally switched to 7.9x |
+| P/E (TTM) | 6.9x (working paper, TTM RMB 7.93 billion) | 7.9x (recalculated TTM RMB 6.90 billion) | 13% | Internally switched to 7.9x |
 
 > Source A: Laopu Gold 2026 interim results announcement (2026/08/24) and interim report (2026/09/22). Source B: Guosheng Securities, China Post Securities and China Merchants Securities research notes from August–September 2026, plus Cailian Press and Securities Times news flashes. Market cap is HKD 337 × 176,750,000 shares; share capital basis per the 2026 interim report.
 
@@ -51,7 +51,7 @@ Third, payout ratio of about 75%. RMB 3.185 billion ÷ RMB 4.267 billion = 74.6%
 
 ## Final adopted basis
 
-All 17 modules that follow use the same basis: 2026H1 revenue of RMB 19.808 billion, net profit of RMB 4.267 billion, gross margin of 41.3% and net margin of 21.5%; 2025 full-year revenue of RMB 27.303 billion and net profit attributable to parent of RMB 4.868 billion (profit for the year of RMB 4.90 billion); market cap of HKD 59.6 billion on a share price of HKD 337 and 176.75 million shares; P/E on the calculated 7.9x, with the working-paper 6.9x retained for external presentation; and a three-tier valuation applying 8x/10x/13x to 2027 net profit of RMB 45/57/74 billion at an exchange rate of RMB 1 = HKD 1.092.
+All 17 modules that follow use the same basis: 2026H1 revenue of RMB 19.808 billion, net profit of RMB 4.267 billion, gross margin of 41.3% and net margin of 21.5%; 2025 full-year revenue of RMB 27.303 billion and net profit attributable to shareholders of RMB 4.868 billion (profit for the year of RMB 4.90 billion); market cap of HKD 59.6 billion on a share price of HKD 337 and 176.75 million shares; P/E on the calculated 7.9x, with the working-paper 6.9x retained for external presentation; and a three-tier valuation applying 8x/10x/13x to 2027 net profit of RMB 45/57/74 billion at an exchange rate of RMB 1 = HKD 1.092.
 
 The 2025H1 revenue of RMB 12.36 billion and net profit of RMB 2.268 billion are both back-solved from YoY growth rates and match the figures disclosed in the company's 2025 interim report, confirming the back-solving method is reliable. Q2 single-quarter revenue of RMB 2.3–3.95 billion and net profit of RMB 510–760 million are back-solved by brokers from the profit-alert range; only a range, not point values, is available, so the range must be preserved when cited.
 

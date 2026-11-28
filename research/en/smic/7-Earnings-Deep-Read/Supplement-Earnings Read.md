@@ -10,14 +10,14 @@ All USD figures are sourced from SMIC's 2026Q1 results announcement (2026/05/14,
 
 ## Key income statement items (USD million, IFRS)
 
-| Project | 2026Q1 | 2025Q1 | Year on year |
+| Project | 2026Q1 | 2025Q1 | YoY |
 |---|---|---|---|
 | Sales revenue | 2,505.5 | 2,247.2 | +11.5% |
 | Gross profit | 503.6 | 505.9 | -0.5% |
 | Gross margin | 20.1% | 22.5% | -2.4pct |
 | Depreciation and amortization | 1,088.0 | 865.6 | +25.7% |
 | EBITDA margin | 57.3% | 56.5% | +0.8pct |
-| Net profit attributable to parent | 197 | 188 | +5.0% |
+| Net profit attributable to shareholders | 197 | 188 | +5.0% |
 | Net margin | 7.9% | 8.4% | -0.5pct |
 | A-share revenue | RMB 17.62 billion | RMB 16.30 billion | +8.1% |
 
@@ -68,7 +68,7 @@ One point needs to be clear, however: the depreciation ratio will keep rising. F
 
 ## Tier 3: Costs and profit — net profit propped up by subsidies and financial expenses
 
-Net profit attributable to parent came in at USD 197 million, up 5% YoY, for a net margin of 7.9%. Revenue rose 11.5% while net profit grew only 5%, with the gap absorbed by three items: depreciation (USD 223 million incremental), silicon wafer price increases (12-inch cumulative up 15%–25%) and R&D spend (USD 774 million for full-year 2025, 8.3% of revenue).
+Net profit attributable to shareholders came in at USD 197 million, up 5% YoY, for a net margin of 7.9%. Revenue rose 11.5% while net profit grew only 5%, with the gap absorbed by three items: depreciation (USD 223 million incremental), silicon wafer price increases (12-inch cumulative up 15%–25%) and R&D spend (USD 774 million for full-year 2025, 8.3% of revenue).
 
 Net profit was actually held up by two non-core items: other income (government subsidies) of about RMB 350 million, and lower finance costs (RMB appreciation plus higher interest income). A-share net profit was RMB 1.361 billion, up 0.36% YoY — essentially zero growth. That is the true operating result after stripping out FX effects.
 

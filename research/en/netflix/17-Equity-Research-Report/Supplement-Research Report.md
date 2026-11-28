@@ -33,7 +33,7 @@ This is the full 12-chapter broker-grade report. Sources: (1) Netflix 2026Q3 res
 
 ## Segment revenue and 2026 guidance (USD million)
 
-| Project | 2026Q3 / Guidance | Year on year | Note |
+| Project | 2026Q3 / Guidance | YoY | Note |
 |---|---|---|---|
 | United States and Canada | 5,628 | +11% | 43.7% of revenue |
 | Europe, Middle East and Africa | 4,107 | +11% (currency-neutral +9%) | Accounts for 31.9% |

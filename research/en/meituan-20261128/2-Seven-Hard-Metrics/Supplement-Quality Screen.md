@@ -6,7 +6,7 @@
 
 ## Notes
 
-Basis: ROE = net profit attributable to parent / parent equity at period end; net margin = net profit attributable to parent / operating revenue; operating cash flow multiple = single-quarter operating cash flow / single-quarter net profit attributable to parent. Net profit attributable to parent for the first three quarters of 2026 of -RMB 2.60 billion = Q1 -6.83 billion + Q2 2.16 billion + Q3 2.071 billion (Q1 and Q2 on an interim report basis, Q3 on a third-quarter report basis). 2025 annual report data: revenue RMB 364.85 billion, net loss RMB 23.355 billion, operating loss RMB 17.0 billion, operating cash flow -RMB 13.815 billion. Gross margin and free cash flow are estimates; the company's Q3 announcement did not separately disclose cost of sales and capex.
+Basis: ROE = net profit attributable to shareholders / parent equity at period end; net margin = net profit attributable to shareholders / operating revenue; operating cash flow multiple = single-quarter operating cash flow / single-quarter net profit attributable to shareholders. Net profit attributable to shareholders for the first three quarters of 2026 of -RMB 2.60 billion = Q1 -6.83 billion + Q2 2.16 billion + Q3 2.071 billion (Q1 and Q2 on an interim report basis, Q3 on a third-quarter report basis). 2025 annual report data: revenue RMB 364.85 billion, net loss RMB 23.355 billion, operating loss RMB 17.0 billion, operating cash flow -RMB 13.815 billion. Gross margin and free cash flow are estimates; the company's Q3 announcement did not separately disclose cost of sales and capex.
 
 ## Seven hard metrics (2026/11/28, based on the 2026Q3 financial report)
 

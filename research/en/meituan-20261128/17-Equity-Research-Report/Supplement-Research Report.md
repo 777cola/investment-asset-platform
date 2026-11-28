@@ -13,12 +13,12 @@ This report follows a sell-side research report format; all forecasts are assump
 | Project | 2024A | 2025A | 2026E | 2027E |
 |---|---|---|---|---|
 | Operating revenue | 3,375.9 | 3,648.5 | 4,292 | 4,900 |
-| Year on year | +22.0% | +8.1% | +17.6% | +14.2% |
+| YoY | +22.0% | +8.1% | +17.6% | +14.2% |
 | Core local commerce revenue | 2,514 | 2,687 | 3,120 | 3,450 |
 | New business revenue | 862 | 961 | 1,172 | 1,450 |
 | Operating profit | 451 | -170 | 24 | 275 |
 | Operating margin | 13.4% | -4.7% | 0.6% | 5.6% |
-| Net profit attributable to parent | 358 | -233.55 | -1 | 230 |
+| Net profit attributable to shareholders | 358 | -233.55 | -1 | 230 |
 | Net margin | 10.6% | -6.4% | 0.0% | 4.7% |
 | Adjusted net profit | 438 | -215 | 15 | 255 |
 
@@ -26,7 +26,7 @@ This report follows a sell-side research report format; all forecasts are assump
 
 ## Three-scenario valuation (2027E as base)
 
-| Scenario | 2027E net profit | Target PE | Net cash | Target price | Space |
+| Scenario | 2027E net profit | Target P/E | Net cash | Target price | Space |
 |---|---|---|---|---|---|
 | Pessimistic | RMB 11 billion | 16x | RMB 120 billion | HKD 52 | -23% |
 | Neutral | RMB 23 billion | 19x | RMB 120 billion | HKD 98 | +44% |

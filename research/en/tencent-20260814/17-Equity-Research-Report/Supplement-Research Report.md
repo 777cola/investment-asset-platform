@@ -16,7 +16,7 @@ This is the full 12-chapter AI Berkshire broker-grade report. Financial forecast
 | Year-on-year | — | +10% | +8% |
 | Gross margin | Approximately 56% | 57.5% | 57.0% |
 | Non-IFRS net profit attributable to shareholders | Approximately 2,590 | 2,800 | 3,200 |
-| Year on year | — | +8% | +14% |
+| YoY | — | +8% | +14% |
 | Non-IFRS per share (RMB) | Approximately 28.4 | 30.8 | 35.2 |
 | P/E (at HKD 440) | 15.0x（TTM） | 13.2x | 11.5x |
 | Dividend + buyback yield | About 2.3% | About 2.3% | Approximately 2.3% |

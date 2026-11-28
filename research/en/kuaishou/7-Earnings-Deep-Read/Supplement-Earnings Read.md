@@ -10,7 +10,7 @@ All figures in this chapter are sourced from Kuaishou's 2026Q2 and interim resul
 
 ## Income statement breakdown (RMB 100 million, 2026Q2)
 
-| Project | 2026Q2 | 2025Q2 | Year on year | Explanation |
+| Project | 2026Q2 | 2025Q2 | YoY | Explanation |
 |---|---|---|---|---|
 | Online marketing services | 206 | 197.3 (back-solved) | +4.4% | 58.0% of revenue, below the consensus of 6.3% |
 | Livestreaming | 87 | 100.6 (back-solved) | -13.5% | Contracted for two consecutive years |

@@ -13,7 +13,7 @@ Financials: 2026Q2 revenue RMB 112.36 billion, advertising RMB 57.6 billion, tra
 | Project | 2024A | 2025A | 2026E | 2027E |
 |---|---|---|---|---|
 | Operating revenue | 3,925 | 4,318 | 4,600 | 4,900 |
-| Year on year | — | +10.0% | +6.5% | +6.5% |
+| YoY | — | +10.0% | +6.5% | +6.5% |
 | Gross margin | About 60% | Approximately 59% | 57.5% | 57.0% |
 | Non-GAAP net profit | 1,219 | 1,073 | 995 | 900 |
 | YoY | — | −12.0% | −7.3% | −9.5% |

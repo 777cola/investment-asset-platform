@@ -28,7 +28,7 @@ Data source: CATL 2026 interim report (2026/07/24) and 2026 Q1 report (2026/04/1
 | Project | 2026Q2 | 2026Q1 | QoQ | Explanation |
 |---|---|---|---|---|
 | Operating revenue (RMB billion) | 1,477.86 | 1,291.31 | +14.4% | Q2 YoY +56.9% (derived) |
-| Net profit attributable to parent (RMB billion) | 225.46 | 207.38 | +8.7% | Q2 up 36.5% YoY, Q1 up 48.5% |
+| Net profit attributable to shareholders (RMB billion) | 225.46 | 207.38 | +8.7% | Q2 up 36.5% YoY, Q1 up 48.5% |
 | Net margin | 15.3% | 16.1% | -0.8pct | Single-quarter profitability is retreating |
 | Battery sales volume (GWh) | Approximately 240 | Approximately 200 | +20% | H1 total of approximately 440GWh |
 | Unit net profit (RMB/kWh) | About 94 | Approximately 104 | -10% | Net profit ÷ sales volume (rough calculation) |
@@ -46,7 +46,7 @@ Data source: CATL 2026 interim report (2026/07/24) and 2026 Q1 report (2026/04/1
 | Less: net selling/admin/finance expenses, tax and minority interest (derived as the balancing figure) | 229.82 | Including other income, investment income, income tax and minority interests, not broken out item by item |
 | Net profit attributable to shareholders | 432.84 | 662.66 − 113.76 − 229.82 |
 
-> The bridge table is indicative only: gross profit, R&D and net profit attributable to parent are the sole disclosed figures, with intermediate items derived as residuals that do not reflect the company's cost structure. The interim report summary does not break out selling expenses or administrative expenses line by line, so they are excluded here.
+> The bridge table is indicative only: gross profit, R&D and net profit attributable to shareholders are the sole disclosed figures, with intermediate items derived as residuals that do not reflect the company's cost structure. The interim report summary does not break out selling expenses or administrative expenses line by line, so they are excluded here.
 
 ## Tier-one revenue mix: power is the base, energy storage the accelerator, materials the profit patch
 

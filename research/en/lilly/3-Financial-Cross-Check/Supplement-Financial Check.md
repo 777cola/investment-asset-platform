@@ -23,7 +23,7 @@ Verification method: company filings and press releases serve as source A, finan
 
 We raise our 2026E/2027E EPS to USD 35.00–36.00 (including USD 4.57 for acquired IPR&D) | Cailian Press: cut to 35.00–36.00 from 35.50–36.50 | 0.00% | Use 35.00–36.00, with a midpoint valuation of 35.50 |
 | Market cap | 1,411.95 × 941 million shares = USD 1.3287 trillion | East Money / Meta: about USD 1.33 trillion | 0.10% | Adopt approximately USD 1.33 trillion |
-| PE(TTM) | 1,411.95 ÷ 29.32 = 48.2x | Meta: about 48x | 0.42% | Apply 48x; use 48.2 for the valuation range |
+| P/E (TTM) | 1,411.95 ÷ 29.32 = 48.2x | Meta: about 48x | 0.42% | Apply 48x; use 48.2 for the valuation range |
 
 > Sources: Eli Lilly 2026Q3 earnings report and company press release (2026/10/29), Cailian Press (2026/10/29), Zhitong Finance (2026/10/28), Stockstar (2026/10/29), Jiemian News/Pojian Bio (2026/11/09), East Money stock page (readings as of 2026/11).
 

@@ -24,7 +24,7 @@ This report follows the 12-chapter sell-side format, with data definitions consi
 
 ## 2026Q3 segment revenue (RMB billion)
 
-| Segment | Revenue | Year on year | As a share of total revenue |
+| Segment | Revenue | YoY | As a share of total revenue |
 |---|---|---|---|
 | Online marketing services | 119 | -22% | 39% |
 | AI cloud infrastructure | 82 | +94% | 27% |

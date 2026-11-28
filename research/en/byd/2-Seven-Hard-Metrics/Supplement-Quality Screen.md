@@ -6,7 +6,7 @@
 
 ## Notes
 
-The thresholds are negative screens: ROE > 8%, 5-year cumulative FCF > 0, EBIT/interest > 2x, gross margin > 15%, OCF/net profit > 0.7, net margin > 5% and 5-year share count expansion < 20%. BYD: 2026H1 revenue RMB 344.82 billion, net profit attributable to parent RMB 12.33 billion, gross margin 18.85% and operating cash flow RMB 37.3 billion (all on a half-year report basis); 2025 net profit RMB 32.619 billion, down 18.97% YoY; total shares 9.117 billion (A+H). ROE, interest coverage and FCF are range estimates and qualitative judgments, flagged in the table notes and not cited as precise disclosed figures.
+The thresholds are negative screens: ROE > 8%, 5-year cumulative FCF > 0, EBIT/interest > 2x, gross margin > 15%, OCF/net profit > 0.7, net margin > 5% and 5-year share count expansion < 20%. BYD: 2026H1 revenue RMB 344.82 billion, net profit attributable to shareholders RMB 12.33 billion, gross margin 18.85% and operating cash flow RMB 37.3 billion (all on a half-year report basis); 2025 net profit RMB 32.619 billion, down 18.97% YoY; total shares 9.117 billion (A+H). ROE, interest coverage and FCF are range estimates and qualitative judgments, flagged in the table notes and not cited as precise disclosed figures.
 
 ## Seven hard metrics (negative screening, 2026H1 basis)
 

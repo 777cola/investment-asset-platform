@@ -47,7 +47,7 @@ Profit derives from "technology-generation rent": when 1.6T was in short supply,
 
 Cash flow is the weak spot: operating cash flow RMB 1.80 billion (−44.1%), net cash ratio 13.2%; inventory RMB 19.83 billion (+56.3%), receivables RMB 15.00 billion (+138.98%). Cash went into materials, capacity and payment terms. Full-year 2025 net cash ratio was 101% and operating cash flow RMB 10.90 billion, so the model itself generates cash; 2026H1 is a one-period anomaly driven by stockpiling.
 
-Balance sheet: total assets RMB 68.94 billion, net assets attributable to parent RMB 39.86 billion, liability ratio 42.2% (30.18% at end-2025), low interest-bearing debt, long-term payables RMB 5.06 billion. With H-share proceeds received, cash is ample and solvency risk is negligible; the main risk is inventory realization.
+Balance sheet: total assets RMB 68.94 billion, net assets attributable to shareholders RMB 39.86 billion, liability ratio 42.2% (30.18% at end-2025), low interest-bearing debt, long-term payables RMB 5.06 billion. With H-share proceeds received, cash is ample and solvency risk is negligible; the main risk is inventory realization.
 
 ## V. Management: technical team holds sway, capital allocation skews to expansion
 

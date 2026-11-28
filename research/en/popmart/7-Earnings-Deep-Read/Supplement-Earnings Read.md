@@ -27,7 +27,7 @@ Data sources: Pop Mart 2026 interim results announcement (2026/08/20); BT Financ
 
 ## Segment and channel (RMB 100 million)
 
-| Regional | 2026H1 revenue | Year on year | Online channel YoY |
+| Regional | 2026H1 revenue | YoY | Online channel YoY |
 |---|---|---|---|
 | Mainland China | 122.01 | +47.3% | Online RMB 4.78 billion, up 62.7%, of which the box-drawing machine app contributed RMB 2.06 billion |
 | Asia-Pacific | 25.80 | -9.7% | -39.8% |

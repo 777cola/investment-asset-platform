@@ -13,11 +13,11 @@ The seven thresholds follow the AI Berkshire negative-screen framework: gross ma
 | Indicator | Company figures | Threshold | Determination |
 |---|---|---|---|
 | Gross margin | 57.8% (+1.0pct YoY) | ≥40% | Exceeded |
-| ROE | ~23% (2025 net profit attributable to parent of RMB 224.84bn / rough equity calculation) | ≥15% | Past |
+| ROE | ~23% (2025 net profit attributable to shareholders of RMB 224.84bn / rough equity calculation) | ≥15% | Past |
 | Net cash | RMB 58.19 billion (RMB 146.86 billion at the end of March) | >0 | Past |
-| Operating cash flow / net profit attributable to parent | 0.94（527.10／560.22） | ≥1.0 | However |
+| Operating cash flow / net profit attributable to shareholders | 0.94（527.10／560.22） | ≥1.0 | However |
 | Revenue growth | +11% (RMB 204.79 billion) | ≥10% | Passed |
-| Growth in net profit attributable to parent | +0.7%（Non-IFRS +9%） | ≥10% | However |
+| Growth in net profit attributable to shareholders | +0.7%（Non-IFRS +9%） | ≥10% | However |
 | Shareholder returns / market cap | ~2.3% (annualised buyback of HKD 48.8 billion plus RMB 41.6 billion of dividends) | ≥2% | Past |
 
 > ROE and shareholder returns are rough estimates. We put attributable equity at approximately RMB 970 billion at end-2025, annualise buybacks from HKD 24.4 billion in the first half, and use the RMB 41.6 billion final dividend paid for fiscal 2025. Thresholds are the AI Berkshire negative-screen framework defaults.

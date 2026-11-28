@@ -10,7 +10,7 @@ Broadcom FY26Q3 results and earnings call (2026/09/02), quarter ended 2026/08/02
 
 ## Income statement (USD million)
 
-| Project | FY26Q3 | FY25Q3 | Year on year |
+| Project | FY26Q3 | FY25Q3 | YoY |
 |---|---|---|---|
 | Total revenue | 29,591 | 15,909 | +86% |
 | Semiconductor solutions | 20,840 | 9,181 | +127% |

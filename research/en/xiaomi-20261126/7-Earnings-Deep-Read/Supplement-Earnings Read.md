@@ -10,7 +10,7 @@ Data source: Xiaomi 2026Q3 results announcement (2026/11/24) and earnings call; 
 
 ## Key income statement items (RMB 100 million)
 
-| Project | 2026Q3 | 2026Q2 | 2025Q3 | Year on year | QoQ |
+| Project | 2026Q3 | 2026Q2 | 2025Q3 | YoY | QoQ |
 |---|---|---|---|---|---|
 | Total revenue | 1,072.39 | 1,089.22 | 1,131.2 | -5.2% | -1.5% |
 | Gross profit | 216.6 | 215.7 | 259.0 | -16.4% | +0.4% |

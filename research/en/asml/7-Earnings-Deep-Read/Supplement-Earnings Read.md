@@ -10,7 +10,7 @@ ASML 2026Q3 earnings report and earnings call (2026/10/13). Gross profit 6,706 =
 
 ## Income statement (EUR million)
 
-| Project | 2026Q3 | 2025Q3 | Year on year | Note |
+| Project | 2026Q3 | 2025Q3 | YoY | Note |
 |---|---|---|---|---|
 | Net sales | 11,662 | 7,516 | +55.2% | Guidance at the high end of RMB 11–12 billion |
 | Gross profit | 6,706 | — | Gross margin 57.5% | Calculated value, guidance upper limit 57% |

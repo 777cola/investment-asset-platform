@@ -6,7 +6,7 @@
 
 ## Notes
 
-Position sizing is shown as a share of the equity portfolio. RMB 180 corresponds to 2027E EPS of RMB 18 (a 20% discount to the neutral RMB 22.5) × 10x; RMB 160 corresponds to 8x × 2027E RMB 20. P/B is approximate, based on equity attributable to parent at 2026Q2 (market cap of RMB 3.37 trillion / equity of about RMB 2.2 trillion ≈ 1.5x, about 1.15x at RMB 180). Correlation is a rough estimate from historical daily returns versus peers and the AI theme, not a precise regression result.
+Position sizing is shown as a share of the equity portfolio. RMB 180 corresponds to 2027E EPS of RMB 18 (a 20% discount to the neutral RMB 22.5) × 10x; RMB 160 corresponds to 8x × 2027E RMB 20. P/B is approximate, based on equity attributable to shareholders at 2026Q2 (market cap of RMB 3.37 trillion / equity of about RMB 2.2 trillion ≈ 1.5x, about 1.15x at RMB 180). Correlation is a rough estimate from historical daily returns versus peers and the AI theme, not a precise regression result.
 
 ## Positioning recommendation (by scenario, not by sentiment)
 

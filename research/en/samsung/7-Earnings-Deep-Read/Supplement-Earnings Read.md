@@ -14,7 +14,7 @@ Historical comparison: Samsung's gross margin peaked at roughly 55% during the 2
 
 ## Consolidated income statement (KRW trillion)
 
-| Project | 2026Q2 | 2026Q1 (estimated) | QoQ | 2025Q2 | Year on year |
+| Project | 2026Q2 | 2026Q1 (estimated) | QoQ | 2025Q2 | YoY |
 |---|---|---|---|---|---|
 | Revenue | 171.5 | 140.0 | +22.5% | 74.6 | +130% |
 | Gross profit | 119.4 | Approximately 91.3 | +30.8% | 25.5 | +368% |

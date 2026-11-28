@@ -16,7 +16,7 @@ Basis: 2026Q2 revenue TWD 2,525.9 billion, gross margin 6.12%, operating margin 
 | Gross profit | 113 | 131.0 | 154.5 | +36% |
 | Operating expenses | 56 | 55.3 | 59.7 | +6% |
 | Operating profit | 57 | 75.7 | 94.8 | +68% |
-| Net profit after tax (attributable to parent) | 44.4 | 49.9 | 60.0 | +35% |
+| Net profit after tax (attributable to shareholders) | 44.4 | 49.9 | 60.0 | +35% |
 | EPS (RMB) | 3.19 | 3.56 | 4.27 | +34% |
 | Gross margin | 6.33% | 6.18% | 6.12% | -0.21pct |
 | Operating margin | 3.16% | 3.57% | 3.75% | +0.6pct |
@@ -26,7 +26,7 @@ Basis: 2026Q2 revenue TWD 2,525.9 billion, gross margin 6.12%, operating margin 
 
 ## Monthly and quarterly revenue (TWD billion)
 
-| Period | Revenue | Year on year | Note |
+| Period | Revenue | YoY | Note |
 |---|---|---|---|
 | July 2026 | 946.5 | +54.19% | First time above RMB 900 billion in a single month |
 | August 2026 | 921.8 | +51.98% | Highest in August over the years |

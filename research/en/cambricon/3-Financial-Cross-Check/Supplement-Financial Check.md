@@ -14,11 +14,11 @@ Sources: A = Cambricon 2026 interim report and summary (2026/08/07, SSE); B = cn
 |---|---|---|---|---|
 | Operating revenue | Interim report summary (SSE) 59.96 | China Securities Network / Sina Finance 59.96 | 0.00% | Adopt 59.96 |
 | Net profit attributable to shareholders | Interim report 23.11 | Shanghai Securities News / Sohu Finance 23.11 | 0.00% | Adopt 23.11 |
-| Net profit attributable to parent excl. non-recurring items | Interim report 21.66 (YoY +137.30%) | Earnings briefing press release 21.66 | 0.00% | Adopt 21.66 |
+| Net profit attributable to shareholders excl. non-recurring items | Interim report 21.66 (YoY +137.30%) | Earnings briefing press release 21.66 | 0.00% | Adopt 21.66 |
 | R&D investment | Interim report accounts for 11.72% of revenue | Tencent News / Interim Report Summary 7.02 | 0.10% (implied 7.027) | Using 7.02, accounting for 11.72% |
 | Inventory | Interim report book value 82.48 | Broker comment on "inventory balance 90.15" | 9.30% | Basis difference: the balance includes roughly RMB 767 million of impairment provisions, on an 82.48 basis |
 | Net cash flow from operating activities | Interim report 3.11 (YoY -65.83%) | International Financial News / Brokerage 3.11 (9.11 of the previous year) | 0.00% | Adopted 3.11; net profit cash content 0.135 |
-| Total assets / net assets attributable to parent | Interim report 181.99 / 135.55 | Jiufang Zhitou summary 181.99 / 135.55 | 0.00% | Inventory accounts for 45.32% of total assets and 60.84% of net assets |
+| Total assets / net assets attributable to shareholders | Interim report 181.99 / 135.55 | Jiufang Zhitou summary 181.99 / 135.55 | 0.00% | Inventory accounts for 45.32% of total assets and 60.84% of net assets |
 | Total market cap | batchdata snapshot 7,271 | 1,156 × 6.2829 billion shares = 7,263 | 0.11% | Use 7,263 and note that the difference comes from share count and market data source |
 
 > Source A is Cambricon's 2026 interim report and summary (2026/08/07, SSE); Source B is public media and broker commentary (2026/08/07–08/13). Deviation = |A−B| / A.

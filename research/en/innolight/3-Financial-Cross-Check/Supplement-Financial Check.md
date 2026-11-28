@@ -13,7 +13,7 @@ Reconciliation: each metric is cross-checked against two independent sources, "c
 | Metric | Source A | Source B | Deviation | Processing |
 |---|---|---|---|---|
 | 2026H1 operating revenue 417.78 | 2026 Interim Report (2026/08/21) | 21st Century Business Herald (2026/08/24) | 0% | Adopt 417.78 |
-| 2026H1 net profit attributable to parent RMB 13.65 billion | 2026 Interim Report | BT Finance (2026/09/07) | 0% | Adopt 136.51 |
+| 2026H1 net profit attributable to shareholders RMB 13.65 billion | 2026 Interim Report | BT Finance (2026/09/07) | 0% | Adopt 136.51 |
 | Optical module gross margin 46.59% | 2026 Interim Report | Brokerage commentary (2026/09/08) | 0% | Adopt 46.59% |
 | Operating cash flow 18.00 (YoY −44.08%) | 2026 Interim Report | Caixin / Business Times (2026/08/24) | 0.05% | Working paper takes −44.1%, rounding difference |
 | Full-year 2025 revenue 382.40 / net profit 107.97 | 2025 Annual Report (2026/03/30) | CSI Intelligent Financial News (2026/03/31) | 0% | Adopts annual report |

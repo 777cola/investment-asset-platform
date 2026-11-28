@@ -10,7 +10,7 @@ Data source: AMD 2026Q2 earnings release (after market close on 2026/08/04) and 
 
 ## Key income statement items (USD million, GAAP)
 
-| Project | 2026Q2 | 2025Q2 | Year on year |
+| Project | 2026Q2 | 2025Q2 | YoY |
 |---|---|---|---|
 | Revenue | 11,536 | 7,685 | +50.1% |
 | Gross profit | 6,463 | 3,319 | +94.7% |
@@ -25,7 +25,7 @@ Data source: AMD 2026Q2 earnings release (after market close on 2026/08/04) and 
 
 ## Segment revenue and profitability (USD million)
 
-| Segment | 2026Q2 | 2025Q2 | Year on year | Share | Segment operating profit |
+| Segment | 2026Q2 | 2025Q2 | YoY | Share | Segment operating profit |
 |---|---|---|---|---|---|
 | Data center | 6,718 | 3,240 | +107% | 58% | 2,103 |
 | Client | 3,062 | 2,490 | +23% | 27% | Not separately disclosed |

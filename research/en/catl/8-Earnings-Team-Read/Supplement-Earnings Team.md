@@ -6,7 +6,7 @@
 
 ## Notes
 
-Six articles draw on the same 2026 interim report (2026/07/24) and Q1 report (2026/04/15), with figures consistent across all of them: revenue RMB 276.917 billion, net profit attributable to parent RMB 43.284 billion, power batteries RMB 192.125 billion (gross margin 20.63%), energy storage RMB 53.261 billion (23.96%), overseas RMB 87.129 billion (29.97%) and blended gross margin 23.93%. Estimated values — unit net profit RMB 98/kWh, revenue per GWh RMB 629 million, domestic gross margin 21.2% and overseas share sensitivity 0.9pct/10pct — are all flagged as rough calculations. The four masters' views are inferences drawn from their public frameworks.
+Six articles draw on the same 2026 interim report (2026/07/24) and Q1 report (2026/04/15), with figures consistent across all of them: revenue RMB 276.917 billion, net profit attributable to shareholders RMB 43.284 billion, power batteries RMB 192.125 billion (gross margin 20.63%), energy storage RMB 53.261 billion (23.96%), overseas RMB 87.129 billion (29.97%) and blended gross margin 23.93%. Estimated values — unit net profit RMB 98/kWh, revenue per GWh RMB 629 million, domestic gross margin 21.2% and overseas share sensitivity 0.9pct/10pct — are all flagged as rough calculations. The four masters' views are inferences drawn from their public frameworks.
 
 ## One more point: why all four deep reads sidestepped the share price
 

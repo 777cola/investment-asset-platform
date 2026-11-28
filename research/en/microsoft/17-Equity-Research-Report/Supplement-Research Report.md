@@ -37,7 +37,7 @@ Data sources: Microsoft FY2026Q4 earnings release and press release (after marke
 
 ## Three-scenario valuation (FY2028 EPS × target PE)
 
-| Scenario | FY2028 EPS | Target PE | Target price | Relative to the current price |
+| Scenario | FY2028 EPS | Target P/E | Target price | Relative to the current price |
 |---|---|---|---|---|
 | Pessimistic | USD 21.0 | 19x | USD 400 | -14% |
 | Neutral | USD 23.5 | 24x | USD 564 | +21% |

@@ -10,7 +10,7 @@ Sources: Baidu 2026Q3 results (2026/11/16); The Paper, "Li Yanhong: AI cloud inv
 
 ## Income statement (2026Q3, RMB 100 million)
 
-| Project | 2026Q3 | As a share of revenue | Year on year |
+| Project | 2026Q3 | As a share of revenue | YoY |
 |---|---|---|---|
 | Total revenue | 308.07 | 100% | -1.1% |
 | Cost of sales | 199 | 64.6% | +9% |
@@ -26,7 +26,7 @@ Sources: Baidu 2026Q3 results (2026/11/16); The Paper, "Li Yanhong: AI cloud inv
 
 ## Segment revenue (2026Q3, RMB 100 million)
 
-| Segment | Revenue | Share of total revenue | Year on year |
+| Segment | Revenue | Share of total revenue | YoY |
 |---|---|---|---|
 | Online marketing services | 119 | 39% | -22% |
 | AI cloud infrastructure | 82 | 27% | +94% |

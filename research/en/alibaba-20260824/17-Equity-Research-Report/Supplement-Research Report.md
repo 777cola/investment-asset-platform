@@ -10,12 +10,12 @@ This report reflects research as of 24 August 2026 and uses no information after
 
 ## Financial summary (RMB 100 million)
 
-| Project | FY2026 | FY2027Q1 | Year on year |
+| Project | FY2026 | FY2027Q1 | YoY |
 |---|---|---|---|
 | Operating revenue | 10,236.7 | 2,689.5 | +9% |
 | Gross margin | 39.8% | — | — |
 | Operating profit | 629.8 | 151.6 | -57% |
-| Net profit attributable to parent | 1,059.0 | 105.4 | -76% |
+| Net profit attributable to shareholders | 1,059.0 | 105.4 | -76% |
 | Adjusted net profit | — | 207.2 | -38% |
 | Adjusted EBITA | — | 273.0 | -30% |
 | Capital expenditure | — | 676.8 | +75% |
@@ -26,7 +26,7 @@ This report reflects research as of 24 August 2026 and uses no information after
 
 ## Earnings forecast (Non-GAAP, RMB billion)
 
-| Fiscal year | Non-GAAP net profit | Year on year | Corresponding PE |
+| Fiscal year | Non-GAAP net profit | YoY | Corresponding PE |
 |---|---|---|---|
 | FY2026 (actual) | 1,059.0（GAAP） | — | — |
 | FY2027E | 1,058.1 | Roughly flat | 20.0x |

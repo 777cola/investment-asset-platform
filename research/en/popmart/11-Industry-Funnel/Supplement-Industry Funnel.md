@@ -10,7 +10,7 @@ Data sources: Pop Mart 2026 interim report and 2026/09/07 close; MINISO 2026 int
 
 ## Comparison of pop-toy sector names (early September 2026)
 
-| Company | Market cap | 2026H1 revenue growth | Gross margin | PE(TTM) | ROE | Conclusion |
+| Company | Market cap | 2026H1 revenue growth | Gross margin | P/E (TTM) | ROE | Conclusion |
 |---|---|---|---|---|---|---|
 | Pop Mart (09992) | About HKD 209 billion | +23.8% | 69.7% | 14.2x | About 35% (rough estimate) | Final selection |
 | MINISO (09896) | Approximately HKD 22.5 billion | Approximately +20% (H1 revenue tops RMB 10 billion) | About 40% | Approximately 9x (rough estimate) | Approximately 15% | Core business is retail; trendy toys are only a small slice |

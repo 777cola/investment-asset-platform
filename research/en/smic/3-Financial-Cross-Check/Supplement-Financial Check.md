@@ -14,9 +14,9 @@ FX: RMB/USD central parity 6.7367 as of 2026/08/10 (China Foreign Exchange Trade
 |---|---|---|---|---|
 | 2026Q1 sales revenue | USD 2,505.5 million (company earnings announcement) | USD 2.505 billion (CICC/Sina broker commentary) | 0.0% | Adopt 2,505.5 |
 | 2026Q1 gross margin | 20.1% (company announcement, guidance 18%–20%) | 20.1%, up 0.9pct QoQ (CICC) | 0.0% | Adopt 20.1% |
-| 2026Q1 net profit attributable to parent | USD 197 million (IFRS) | RMB 1.361 billion, up 0.36% YoY (A-share Q1 report) | 2.5% | In USD terms, assuming a conversion rate of approximately 6.91 |
+| 2026Q1 net profit attributable to shareholders | USD 197 million (IFRS) | RMB 1.361 billion, up 0.36% YoY (A-share Q1 report) | 2.5% | In USD terms, assuming a conversion rate of approximately 6.91 |
 | Full-year 2025 net profit | USD 685 million, +39.0% YoY (Hong Kong annual report) | RMB 5.041 billion, +36.29% YoY (A-share annual report) | 3.0% | Using USD 685 million; A-share basis as the standard for differences |
-| PE(TTM) | Approximately 205x (market software) | 219x (market cap RMB 1.08 trillion ÷ TTM net profit RMB 4.94 billion) | 6.8% | Maintain ~205x, recalculated on disclosed basis |
+| P/E (TTM) | Approximately 205x (market software) | 219x (market cap RMB 1.08 trillion ÷ TTM net profit RMB 4.94 billion) | 6.8% | Maintain ~205x, recalculated on disclosed basis |
 | A/H premium | 107% (working paper, at HKD 1 = RMB 0.92) | 121.8% (etnet 2026/08/10, H shares HKD 66.05) | 14.0pct | Adopted approximately 121%; see below for the exchange-rate basis |
 | 2025Q4 monthly production capacity | 1.059 million wafers (annual report / Sinolink Securities) | 1.02275 million wafers (as relayed by some media) | 3.4% | Adopted 1.059 million wafers; the figure cited in the media was a typo |
 | 2026 depreciation | Approximately USD 5 billion, +30% YoY (company guidance) | USD 4.95 billion (rough calculation: 38.1 × 1.3) | 1.0% | Adopt USD 5 billion |
@@ -34,9 +34,9 @@ FX: RMB/USD central parity 6.7367 as of 2026/08/10 (China Foreign Exchange Trade
 
 ## The three items with a deviation >1%, explained one by one
 
-1. Net profit attributable to parent (2.5%). IFRS statements are denominated in USD, whereas A-share statements are translated into RMB at the quarterly average exchange rate. That rate averaged about 6.91 in 2026Q1, while the August 10 central parity had already reached 6.7367. RMB appreciation translates the same USD profit into fewer RMB and vice versa, so the two bases naturally do not reconcile. Analyse on the USD basis and convert back to RMB only for A-share valuation, always stating the exchange rate used.
+1. Net profit attributable to shareholders (2.5%). IFRS statements are denominated in USD, whereas A-share statements are translated into RMB at the quarterly average exchange rate. That rate averaged about 6.91 in 2026Q1, while the August 10 central parity had already reached 6.7367. RMB appreciation translates the same USD profit into fewer RMB and vice versa, so the two bases naturally do not reconcile. Analyse on the USD basis and convert back to RMB only for A-share valuation, always stating the exchange rate used.
 
-2. P/E (6.8%). The 205x is what market software calculates as "total market cap ÷ net profit attributable to parent for the last four quarters," on TTM net profit of RMB 5.2–5.3 billion. I use full-year 2025 of USD 685 million − 2025Q1 USD 188 million + 2026Q1 USD 197 million = USD 694 million, converted at 7.12 to RMB 4.94 billion, giving 219x. The gap reflects the exchange rate and whether non-recurring gains and losses are excluded. Both figures are "around 200x," so the conclusion is unchanged.
+2. P/E (6.8%). The 205x is what market software calculates as "total market cap ÷ net profit attributable to shareholders for the last four quarters," on TTM net profit of RMB 5.2–5.3 billion. I use full-year 2025 of USD 685 million − 2025Q1 USD 188 million + 2026Q1 USD 197 million = USD 694 million, converted at 7.12 to RMB 4.94 billion, giving 219x. The gap reflects the exchange rate and whether non-recurring gains and losses are excluded. Both figures are "around 200x," so the conclusion is unchanged.
 
 3. A/H premium (14 percentage points). This is the most important correction in this report. The working paper used an exchange rate of 0.92, converting HKD 66.20 to RMB 60.9 for a premium of 107%; but by 2026 the RMB had appreciated to 6.7367, so 1 HKD is worth only RMB 0.865 and HKD 66.20 converts to RMB 57.2, making the premium 121%. The same set of share prices differs by 14 percentage points on a different exchange rate, which is why cross-border valuation must state the exchange rate date.
 

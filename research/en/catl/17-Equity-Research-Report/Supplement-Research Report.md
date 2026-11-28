@@ -6,7 +6,7 @@
 
 ## Notes
 
-Core data: revenue RMB 276.917 billion (+54.8%), net profit attributable to parent RMB 43.284 billion (+42.0%). Power batteries RMB 192.125 billion (+46.0%, gross margin 20.63%); energy storage RMB 53.261 billion (+87.5%, 23.96%); overseas RMB 87.129 billion (+42.4%, 29.97%); materials RMB 31.531 billion (27.04%). Blended gross margin 23.93%, net margin 15.6%. R&D RMB 11.376 billion (+12.7%). Output 498GWh, capacity utilisation 94.86%, under construction 764GWh. Market cap RMB 1.35 trillion = 291.99 × 4.627 billion shares. Forecast: 2026–2028 consensus of RMB 95.2/116.5/143.2 billion (Huachuang, 2026/07); this report's neutral assumptions RMB 93.0/110.0/133.0 billion. Sensitivity: each 1pct of gross margin ≈ RMB 3.8 billion of net profit (rough calculation: annualised power battery revenue of RMB 380 billion × 1% × after-tax factor).
+Core data: revenue RMB 276.917 billion (+54.8%), net profit attributable to shareholders RMB 43.284 billion (+42.0%). Power batteries RMB 192.125 billion (+46.0%, gross margin 20.63%); energy storage RMB 53.261 billion (+87.5%, 23.96%); overseas RMB 87.129 billion (+42.4%, 29.97%); materials RMB 31.531 billion (27.04%). Blended gross margin 23.93%, net margin 15.6%. R&D RMB 11.376 billion (+12.7%). Output 498GWh, capacity utilisation 94.86%, under construction 764GWh. Market cap RMB 1.35 trillion = 291.99 × 4.627 billion shares. Forecast: 2026–2028 consensus of RMB 95.2/116.5/143.2 billion (Huachuang, 2026/07); this report's neutral assumptions RMB 93.0/110.0/133.0 billion. Sensitivity: each 1pct of gross margin ≈ RMB 3.8 billion of net profit (rough calculation: annualised power battery revenue of RMB 380 billion × 1% × after-tax factor).
 
 ## Key financials and valuation (RMB)
 

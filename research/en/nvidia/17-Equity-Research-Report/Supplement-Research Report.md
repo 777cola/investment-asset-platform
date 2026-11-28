@@ -25,7 +25,7 @@ This report comprises 12 chapters. Financial data are sourced from NVIDIA's FY20
 
 ## Valuation (12-month target price)
 
-| Scenario | FY2028 EPS | Target PE | Target price | Relative to the current price |
+| Scenario | FY2028 EPS | Target P/E | Target price | Relative to the current price |
 |---|---|---|---|---|
 | Pessimistic | USD 11.22 | 15x | $168 | -24% |
 | Neutral | USD 14.61 | 17x | $248 | +12% |

@@ -17,7 +17,7 @@ All financial data are sourced from JD.com's Q2 and interim 2026 results announc
 | JD Logistics revenue | 641 | 516 | +24.3% | — |
 | New business revenue | 72.6 | 138.5 | -47.6% | — |
 | Operating profit | 45 | -9 | Turnaround to profit | — |
-| Net profit attributable to parent | 71 | 62 | +14.5% | — |
+| Net profit attributable to shareholders | 71 | 62 | +14.5% | — |
 | Non-GAAP net profit attributable to shareholders | 89 | 74 | +20.3% | — |
 | New business operating loss | -98.5 | -147.8 | Narrowed 33% | -103.5 |
 

@@ -41,7 +41,7 @@ Reporting period: Q3 FY2026 (July–September 2026), released after market close
 
 ## Revenue and growth, trailing four quarters (USD million)
 
-| Quarter | Revenue | Year on year | Advertising revenue | Key events |
+| Quarter | Revenue | YoY | Advertising revenue | Key events |
 |---|---|---|---|---|
 | 2025Q4 | 59,893 | +24% | 58,137 | Full-year capital expenditure RMB 72.2 billion |
 | 2026Q1 | 56,310 | +33% | — | Capex guidance raised by RMB 10 billion |

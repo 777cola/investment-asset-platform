@@ -22,7 +22,7 @@ Net profit ÷ 25.93 billion shares = 27.25
 | August consolidated revenue: monthly revenue announcement 5,148.06 | Commercial Times 514.806 billion (YoY +53.3%)", "0.00% | Adopt 5,148.06 |
 | 2026 capex: USD 60–64 billion (earnings call); media midpoint USD 62 billion; range basis; full text: 60–64 billion |
 | Market cap: 2,410 × 25.93bn shares = TWD 62.5tn. Working papers and some flash reports show TWD 6.25tn, a 10x unit typo. Use TWD 62.5tn. |
-| PE(TTM) | 62.5 trillion ÷ TTM net profit 2.24 trillion = 27.9x | Working paper 27.9x | 0.00% | Using 27.9x |
+| P/E (TTM) | 62.5 trillion ÷ TTM net profit 2.24 trillion = 27.9x | Working paper 27.9x | 0.00% | Using 27.9x |
 
 > Source A comprises company disclosure (earnings call presentation, monthly revenue announcement); Source B is secondary reporting by Chinese financial media. Deviation is calculated as |A−B|÷A. The market cap section is the most material issue identified in this check; its treatment is set out in the main text.
 

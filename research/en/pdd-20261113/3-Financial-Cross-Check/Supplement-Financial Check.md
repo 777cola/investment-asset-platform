@@ -13,7 +13,7 @@ Deviation calculation: net profit (285−271.8)/271.8=4.86%; cash (4,564−4,169
 | Metric | Source A | Source B | Deviation | Processing |
 |---|---|---|---|---|
 | 2026Q2 total revenue | RMB 112.36 billion (company financial report) | RMB 112.36 billion (Economic Observer, August 25) | 0.0% | Use it directly |
-| 2026Q2 net profit attributable to parent | RMB 27.18 billion (GAAP, company filings) | Approximately RMB 28.5 billion (some broker summaries) | −4.9% | Basis confusion: 285 is Non-GAAP (284.9); both figures are listed |
+| 2026Q2 net profit attributable to shareholders | RMB 27.18 billion (GAAP, company filings) | Approximately RMB 28.5 billion (some broker summaries) | −4.9% | Basis confusion: 285 is Non-GAAP (284.9); both figures are listed |
 | 2026Q2 gross margin | 57.3% (company disclosure) | 57.26% (recalculated as 643.4 ÷ 1,123.6) | 0.1% | Adoption rate 57.3%, recalculated value confirms |
 | Cash and short-term investments | RMB 456.4 billion (2026/6/30) | RMB 416.9 billion (a brokerage's July 2026 research report) | +9.5% | Timing and scope differences: the latter is a reading around end-2025, using 4,564 with the timing noted |
 | Market cap | USD 112.4 billion (78.97 × 1.423 billion ADS) | About USD 115 billion (some quote pages) | −2.3% | ADS count and FX basis differ; USD 112.4 billion is used |

@@ -19,7 +19,7 @@ Sources: ASML 2026Q3 results and earnings call (2026/10/13); AWP/Alliance News (
 | EUV system sales | Zhitong Finance approximately RMB 4.1 billion (YoY +94%) | The report does not break out this line item separately | Single source | Labeled "single source, media figures" |
 | Mainland China accounts for net system sales | Earnings 23% (single quarter) | Chinese media 20% (full-year guidance) | 3pct (definitional difference) | Keep both figures and state them separately |
 | Market cap | Market cap: 1,641.52 × 380 million shares = USD 623.8 billion | EUR 538 billion × 1.16 = USD 624.1 billion | 0.05% | Use "approximately USD 624 billion" |
-| PE(TTM) | 6,240 ÷ TTM net profit of RMB 15.2 billion ≈ 41x | ≈ 43x excluding one-off items | 5% | Headline 41x, footnote 43x |
+| P/E (TTM) | 6,240 ÷ TTM net profit of RMB 15.2 billion ≈ 41x | ≈ 43x excluding one-off items | 5% | Headline 41x, footnote 43x |
 
 ## First discrepancy: EUR 500 million in net profit
 

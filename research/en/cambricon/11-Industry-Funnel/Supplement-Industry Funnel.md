@@ -20,7 +20,7 @@ Valuation bases differ: Hygon is on "dynamic P/E" (current-period annualised), C
 
 ## Domestic AI chip peer comparison (2026 interim report basis)
 
-| The company | Market cap | 2026H1 revenue | Year on year | Gross margin | PE | ROE |
+| The company | Market cap | 2026H1 revenue | YoY | Gross margin | PE | ROE |
 |---|---|---|---|---|---|---|
 | Cambricon | RMB 726.3 billion | RMB 5.996 billion | +108.13% | 55.25% | 218x（TTM） | 18.2% (half-year) |
 | Hygon Information Technology | RMB 687.4 billion (8/10) | RMB 9.10 billion | +66.52% | 55.21% | ~250x (forward) | 7.56% (weighted) |

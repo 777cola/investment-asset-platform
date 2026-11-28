@@ -18,7 +18,7 @@ Data sources: Tencent 2026Q2 results announcement and interim results (2026/08/1
 | General and administrative expenses | 388.08 | 318 | +22% | All incremental investment goes to AI |
 | R&D spending | 272.8 | 202 | +35% | Included in administrative expenses |
 | Non-IFRS operating profit | 756.4 | 694 | +9% | Excluding new AI products, it was RMB 86.1 billion, +19% |
-| Net profit attributable to parent | 560.22 | 556 | +0.7% | Non-operating items drag down RMB 12.4 billion |
+| Net profit attributable to shareholders | 560.22 | 556 | +0.7% | Non-operating items drag down RMB 12.4 billion |
 | Non-IFRS net profit attributable to shareholders | 684.15 | 628 | +9% | Closer to the true profitability of the core business |
 | Basic earnings per share | 6.207 yuan | — | — | Based on a rough calculation using 9.103 billion shares |
 
@@ -26,7 +26,7 @@ Data sources: Tencent 2026Q2 results announcement and interim results (2026/08/1
 
 ## Segment revenue and gross margin (Q2 2026, RMB 100 million)
 
-| Segment | Revenue | Year on year | Sector gross margin | Note |
+| Segment | Revenue | YoY | Sector gross margin | Note |
 |---|---|---|---|---|
 | Value-added services | 984.14 | +8% | — | Gaming + social networking |
 | Domestic market games | 473 | +17% | High | Delta Force, Valorant, Roco Kingdom: World |

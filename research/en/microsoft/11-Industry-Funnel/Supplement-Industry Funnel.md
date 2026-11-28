@@ -10,7 +10,7 @@ Data source: Microsoft FY2026Q4 earnings (2026/07/29) is the sole verified sourc
 
 ## Peer comparison (mid-2026; market cap and P/E as of end-July)
 
-| The company | Market cap (approx.) | Revenue growth | Gross margin | PE(TTM) | ROE | Funnel determination |
+| The company | Market cap (approx.) | Revenue growth | Gross margin | P/E (TTM) | ROE | Funnel determination |
 |---|---|---|---|---|---|---|
 | Microsoft | USD 3.45 trillion | +17.8%（FY26Q4） | 67.2% | 25.8x | About 39% | Final selection |
 | Alphabet | About USD 3.3 trillion | Approximately +14% | About 58% | Approximately 24x | About 32% | Final shortlist |

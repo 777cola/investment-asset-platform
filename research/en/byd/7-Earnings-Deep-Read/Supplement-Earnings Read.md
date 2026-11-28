@@ -70,7 +70,7 @@ The key question is whether this gross margin can hold. If domestic volume keeps
 
 ## Tier 3 Costs and Profit: Where Did the Missing RMB 3.2 Billion Go
 
-Net profit attributable to parent fell RMB 3.18 billion. A rough bridge: gross profit down RMB 1.9 billion (-19); R&D expense down RMB 6.3 billion (+63); finance costs swung from net income of RMB 3.2 billion to net expense of RMB 5.1 billion (-83); investment income swung from +RMB 1.38 billion to -RMB 180 million (-15.6). Those four items sum to -RMB 5.46 billion, yet the actual decline was only RMB 3.18 billion; the roughly +RMB 2.3 billion gap comes from selling expense, other income and income tax (derived as a residual).
+Net profit attributable to shareholders fell RMB 3.18 billion. A rough bridge: gross profit down RMB 1.9 billion (-19); R&D expense down RMB 6.3 billion (+63); finance costs swung from net income of RMB 3.2 billion to net expense of RMB 5.1 billion (-83); investment income swung from +RMB 1.38 billion to -RMB 180 million (-15.6). Those four items sum to -RMB 5.46 billion, yet the actual decline was only RMB 3.18 billion; the roughly +RMB 2.3 billion gap comes from selling expense, other income and income tax (derived as a residual).
 
 The bridge shows three things. First, the core business is not as bad as it looks: gross profit fell only 2.8%, with FX and investment income doing the damage. Second, the RMB 6.3 billion cut in R&D offset exactly three-quarters of the FX loss — an ugly hedge that trades future product strength for today's reported numbers. Third, FX is a new, structural variable: with overseas revenue now over half the total, swings in the renminbi against the euro, real and baht will hit the income statement every year.
 

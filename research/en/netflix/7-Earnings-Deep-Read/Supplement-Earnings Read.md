@@ -24,7 +24,7 @@ All three tables in this module are drawn from Netflix's Q3 2026 financial state
 
 ## Segment revenue and full-year guidance (USD million)
 
-| Project | 2026Q3/guidance | Year on year | Note |
+| Project | 2026Q3/guidance | YoY | Note |
 |---|---|---|---|
 | United States and Canada | 5,628 | +11% | 43.7% of revenue |
 | Europe, Middle East and Africa | 4,107 | +11% (constant currency +9%) | Accounts for 31.9% |

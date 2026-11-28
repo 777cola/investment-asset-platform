@@ -37,7 +37,7 @@ Share-price reactions are based on exchange daily quotes (A-share 688981, H-shar
 
 Price hikes are a real signal. A May 20 report confirmed two things: Q1 ASP rose 2.5% QoQ even as shipments fell 0.2% QoQ, and "foundry prices for some products in advantageous segments rose steadily." That directly underpins Q2 guidance of 14%–16% QoQ growth; the A-share rose 12.62% that day on RMB 29 billion turnover.
 
-Consolidation is a real signal. The RMB 40.6 billion acquisition of the remaining 49% of SMIC North cleared review on May 11, was registered on May 20 and closed in early July — the largest restructuring in STAR Market history. It buys in minority interests in a cash cow, accretive to net profit attributable to parent but 7% dilutive. The stock reacted positively because the deal was also read as "greater state support."
+Consolidation is a real signal. The RMB 40.6 billion acquisition of the remaining 49% of SMIC North cleared review on May 11, was registered on May 20 and closed in early July — the largest restructuring in STAR Market history. It buys in minority interests in a cash cow, accretive to net profit attributable to shareholders but 7% dilutive. The stock reacted positively because the deal was also read as "greater state support."
 
 The narrative is sentiment. On May 25 Huawei unveiled the "Tao Law," proposing logic folding and time scaling in place of geometric scaling and claiming the equivalent of 1.4nm within five years. SMIC's A-share rose 18.78% that day; its H-share hit HKD 93 intraday the next day. The speech brought SMIC not one new order, but it gave the market a story that SMIC can bypass EUV.
 

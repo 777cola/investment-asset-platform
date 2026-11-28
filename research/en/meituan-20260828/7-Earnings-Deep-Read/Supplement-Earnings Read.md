@@ -25,7 +25,7 @@ All figures are sourced from Meituan's 2026Q2 and interim results announcement (
 
 ## Segment operating performance (RMB 100 million)
 
-| Segment | 2026Q2 revenue | Year on year | Q2 operating profit | 2026H1 operating profit |
+| Segment | 2026Q2 revenue | YoY | Q2 operating profit | 2026H1 operating profit |
 |---|---|---|---|---|
 | Core local commerce | 715.3 | +10.1% | 56.7 | 36.4 |
 | Among these, delivery services | 267.8 | +13.1% | — | — |

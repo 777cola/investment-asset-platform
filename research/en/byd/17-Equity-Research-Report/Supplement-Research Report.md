@@ -143,9 +143,9 @@ Two other secondary risks: a rebound in raw material prices (lithium, copper) an
 
 ## Chapter 9 Earnings Forecast
 
-2026E: revenue of about RMB 715 billion (H1 344.8 + H2 about 370, roughly -3% YoY), net profit attributable to parent of about RMB 27.5 billion (H1 12.33 + H2 about 15.2), net margin 3.8%, EPS about RMB 3.02. Assumptions: Q3/Q4 improve QoQ but still decline YoY; R&D expense ratio holds at about 6.8%.
+2026E: revenue of about RMB 715 billion (H1 344.8 + H2 about 370, roughly -3% YoY), net profit attributable to shareholders of about RMB 27.5 billion (H1 12.33 + H2 about 15.2), net margin 3.8%, EPS about RMB 3.02. Assumptions: Q3/Q4 improve QoQ but still decline YoY; R&D expense ratio holds at about 6.8%.
 
-2027E: revenue of about RMB 780 billion (+9%), net profit attributable to parent of about RMB 34 billion, net margin 4.4%, EPS about RMB 3.73. Assumptions: domestic volume stops falling (0% to +5% YoY), overseas growth slows to below 50%, R&D expense ratio recovers to 7%, and FX no longer turns sharply adverse.
+2027E: revenue of about RMB 780 billion (+9%), net profit attributable to shareholders of about RMB 34 billion, net margin 4.4%, EPS about RMB 3.73. Assumptions: domestic volume stops falling (0% to +5% YoY), overseas growth slows to below 50%, R&D expense ratio recovers to 7%, and FX no longer turns sharply adverse.
 
 Sensitivity: every 5pp shortfall in domestic volume cuts 2027E net profit by about RMB 1.5 billion; every 10pp shortfall in overseas growth cuts it by about RMB 1.2 billion; every 1pp lower R&D expense ratio adds about RMB 2.5 billion. Of the three variables, domestic volume matters most.
 

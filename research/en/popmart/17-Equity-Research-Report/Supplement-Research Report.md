@@ -15,7 +15,7 @@ This report is the full 12-chapter sell-side version, with data fully consistent
 | Operating revenue | 130.4 | 371.2 | 171.73 | 352 |
 | Year-on-year | +106.9% | +184.7% | +23.8% | -5.2% |
 | Gross margin | 66.8% | Approximately 72% | 69.7% | 69.5% |
-| Net profit attributable to parent | 31.3 | 127.76 | 50.38 | 110 |
+| Net profit attributable to shareholders | 31.3 | 127.76 | 50.38 | 110 |
 | Net margin | 24.0% | 34.4% | 29.3% | 31.3% |
 | Operating cash flow | — | — | Approximately 35 (rough estimate) | — |
 

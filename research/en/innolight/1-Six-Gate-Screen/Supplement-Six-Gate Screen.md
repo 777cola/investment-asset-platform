@@ -6,7 +6,7 @@
 
 ## Notes
 
-The six-gate scores follow the working papers (7/7/6/7/3/4) and sum to 34 points; the 35-point total in the working papers' summary row is an addition error, so this report uses 34 points and flags the discrepancy in the table. Financial data are from the company's 2026 interim report (disclosed 2026/08/21); full-year 2025 figures are from the 2025 annual report (disclosed 2026/03/30; revenue RMB 38.24 billion, net profit attributable to parent RMB 10.797 billion). TTM net profit of RMB 20.453 billion is derived as full-year 2025 − 2025H1 + 2026H1; market cap = RMB 925.236 × 1.178 billion shares ≈ RMB 1,089.9 billion. Customer concentration is on the 2026Q1 disclosure basis.
+The six-gate scores follow the working papers (7/7/6/7/3/4) and sum to 34 points; the 35-point total in the working papers' summary row is an addition error, so this report uses 34 points and flags the discrepancy in the table. Financial data are from the company's 2026 interim report (disclosed 2026/08/21); full-year 2025 figures are from the 2025 annual report (disclosed 2026/03/30; revenue RMB 38.24 billion, net profit attributable to shareholders RMB 10.797 billion). TTM net profit of RMB 20.453 billion is derived as full-year 2025 − 2025H1 + 2026H1; market cap = RMB 925.236 × 1.178 billion shares ≈ RMB 1,089.9 billion. Customer concentration is on the 2026Q1 disclosure basis.
 
 ## Six-gate score (2026/09/18)
 

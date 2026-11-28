@@ -17,7 +17,7 @@ Verification: company quarterly reports/10-Q are the primary source; Quartr summ
 | Shareholders' equity | USD 761.4 billion (10-Q) | RMB 76.14 billion (Quartr summary, unit missing) | 100x | Ruled a clerical error; RMB 761.4 billion used |
 | Book value per share | A-share USD 536,590 (10-Q) | Discounting B shares at USD 357.7 (÷1,500) | 0.0% | Adopt USD 357.7 |
 | Market cap | USD 1.26 trillion (592.85 × 2.13 billion shares) | RMB 1.23 trillion (stockanalysis, mid-November) | -2.4% | Use HKD 1.26 trillion, noting recalculation based on the November 16 close |
-| PE(TTM) | 16.6x (RMB 1.26 trillion / approx. RMB 76 billion) | 16.11x（stockanalysis） | -3.0% | Using 16.6x |
+| P/E (TTM) | 16.6x (RMB 1.26 trillion / approx. RMB 76 billion) | 16.11x（stockanalysis） | -3.0% | Using 16.6x |
 | PB | 1.66x（592.85/357.7） | 1.61x（stockanalysis） | -3.1% | Using 1.66x |
 | Share buybacks in the first three quarters | USD 14.4 billion (10-Q) | Q3 alone RMB 9.65 billion plus Q2 RMB 4.53 billion = RMB 14.17 billion | -1.6% | Use RMB 14.4 billion, with the difference being the first quarter |
 

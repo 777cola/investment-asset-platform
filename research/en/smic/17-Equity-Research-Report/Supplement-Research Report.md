@@ -13,9 +13,9 @@ Data sources: SMIC 2025 annual report (2026/03/25), Q1 2026 results announcement
 | Project | 2023A | 2024A | 2025A | 2026Q1 |
 |---|---|---|---|---|
 | Sales revenue | 6,322 | 8,030 | 9,327 | 2,505.5 |
-| Year on year | -13.1% | +27.0% | +16.2% | +11.5% |
+| YoY | -13.1% | +27.0% | +16.2% | +11.5% |
 | Gross margin | 19.3% | 18.0% | 21.0% | 20.1% |
-| Net profit attributable to parent | 902 | 493 | 685 | 197 |
+| Net profit attributable to shareholders | 902 | 493 | 685 | 197 |
 | Depreciation and amortization | — | — | 3,810 | 1,088 |
 | Capital expenditure | — | — | 8,100 | 1,563 |
 | EBITDA | — | 4,380 | 5,256 | — |
@@ -28,7 +28,7 @@ Data sources: SMIC 2025 annual report (2026/03/25), Q1 2026 results announcement
 |---|---|---|---|
 | Sales revenue (USD billion) | Approximately 114 | Approximately 135 | Approximately 118 |
 | Gross margin | Approximately 21% | Approximately 26% | Approximately 20% |
-| Net profit attributable to parent (RMB billion) | Approximately 60 | Approximately 150 | Approximately 100 |
+| Net profit attributable to shareholders (RMB billion) | Approximately 60 | Approximately 150 | Approximately 100 |
 | Net asset value per share (RMB) | Approximately 21.0 | Approximately 21.8 | Approximately 21.2 |
 | Target PB | — | 5.5x | 4.0x |
 | Target price (RMB) | — | 120 | 88 |
@@ -167,7 +167,7 @@ A final note on timing: all judgments in this report rest on information availab
 
 Currency: the company reports in USD and our financial analysis is in USD. A-share valuation is translated into RMB at the 2026/08/10 midpoint rate of 6.7367; HKD is converted to USD at 7.80, implying HKD 1 ≈ RMB 0.865.
 
-Market cap: A-share price of 126.25 × 8.561 billion total shares = RMB 1.08 trillion; pricing A and H shares separately gives roughly RMB 690 billion (approximate). The 205x P/E is the quote-software basis; on TTM net profit attributable to parent of RMB 4.94 billion it recalculates to 219x.
+Market cap: A-share price of 126.25 × 8.561 billion total shares = RMB 1.08 trillion; pricing A and H shares separately gives roughly RMB 690 billion (approximate). The 205x P/E is the quote-software basis; on TTM net profit attributable to shareholders of RMB 4.94 billion it recalculates to 219x.
 
 Note: the RMB 40.6 billion share-issue acquisition completed in July 2026 raised total shares from about 7.96 billion to 8.561 billion, so per-share data spanning July are not directly comparable. The Q2 report is scheduled for disclosure on 2026/08/13 and this report does not cite its data.
 

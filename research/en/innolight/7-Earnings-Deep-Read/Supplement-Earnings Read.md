@@ -10,7 +10,7 @@ Data sources: the company's 2026 interim report (disclosed 2026/08/21), 2025 ann
 
 ## Key income statement items (RMB billion)
 
-| Project | 2026H1 | 2025H1 | Year on year |
+| Project | 2026H1 | 2025H1 | YoY |
 |---|---|---|---|
 | Operating revenue | 417.78 | 147.89 | +182.5% |
 | Optical communication transceiver module revenue | 413.55 | 144.32 | +186.6% |
@@ -37,7 +37,7 @@ Data sources: the company's 2026 interim report (disclosed 2026/08/21), 2025 ann
 | Net assets attributable to shareholders of the parent company | 398.59 | 297.65 | +33.91% |
 | Goodwill | 19.39 | 19.39 | Unchanged |
 
-> Long-term payables of RMB 5.06 billion at end-2026Q2 (up c.RMB 4.16 billion from end-Q1) are earmarked for key material arrangements beyond one year; the end-Q1 figure is derived. The debt-to-asset ratio, calculated as (total assets − net assets attributable to parent)/total assets, is c.42.2%; including minority interests, the actual figure is slightly lower.
+> Long-term payables of RMB 5.06 billion at end-2026Q2 (up c.RMB 4.16 billion from end-Q1) are earmarked for key material arrangements beyond one year; the end-Q1 figure is derived. The debt-to-asset ratio, calculated as (total assets − net assets attributable to shareholders)/total assets, is c.42.2%; including minority interests, the actual figure is slightly lower.
 
 ## Revenue structure (2026H1)
 

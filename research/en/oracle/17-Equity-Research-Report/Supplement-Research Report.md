@@ -24,7 +24,7 @@ Oracle's fiscal year ends 31 May, so FY2027 spans June 2026–May 2027. FY2026A 
 
 ## Three-scenario valuation
 
-| Scenario | FY28 EPS | Target PE | Target price | Space |
+| Scenario | FY28 EPS | Target P/E | Target price | Space |
 |---|---|---|---|---|
 | Bearish | USD 7.5 | 13x | USD 98 | -32% |
 | Neutral | USD 9.5 | 17x | USD 162 | +12% |

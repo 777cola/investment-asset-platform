@@ -6,7 +6,7 @@
 
 ## Notes
 
-The six-gate score follows the working paper "BYD 2026-09-04 Six-Gate Quick Screen" and totals 36/60. Financials are from BYD's 2026 interim report (2026/08/28): revenue RMB 344.82 billion (-7.1%), net profit attributable to parent RMB 12.33 billion (-20.5%), gross margin 18.85%, R&D expense RMB 23.3 billion (-21.2%). TTM net profit of RMB 29.44 billion is derived as 32.619 (full-year 2025) − 15.51 (2025H1) + 12.33 (2026H1). Industry growth of +7.3% is the 2026H1 YoY growth in China's new energy passenger vehicle wholesale volumes, per a broker's interim report review. Target prices of RMB 55/90/124 are based on a diluted 9.117 billion shares; methodology in Module 4.
+The six-gate score follows the working paper "BYD 2026-09-04 Six-Gate Quick Screen" and totals 36/60. Financials are from BYD's 2026 interim report (2026/08/28): revenue RMB 344.82 billion (-7.1%), net profit attributable to shareholders RMB 12.33 billion (-20.5%), gross margin 18.85%, R&D expense RMB 23.3 billion (-21.2%). TTM net profit of RMB 29.44 billion is derived as 32.619 (full-year 2025) − 15.51 (2025H1) + 12.33 (2026H1). Industry growth of +7.3% is the 2026H1 YoY growth in China's new energy passenger vehicle wholesale volumes, per a broker's interim report review. Target prices of RMB 55/90/124 are based on a diluted 9.117 billion shares; methodology in Module 4.
 
 ## Six-gate screen (2026/09/04, share price RMB 87.4)
 

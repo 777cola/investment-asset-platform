@@ -10,7 +10,7 @@ BYD trades at a market cap of roughly RMB 850 billion (RMB 93.47 at the 2026/07/
 
 ## Peer comparison (mid-July 2026)
 
-| The company | Market cap (approx.) | 2026H1 scale | Gross margin | PE(TTM) | ROE | Funnel conclusion |
+| The company | Market cap (approx.) | 2026H1 scale | Gross margin | P/E (TTM) | ROE | Funnel conclusion |
 |---|---|---|---|---|---|---|
 | Tesla | USD 1.48 trillion | Delivered 83.8 million units (+16%) | 16.8% | About 389x | Approximately 5% | Final pick, but the price is wrong |
 | BYD | Around RMB 850 billion | Sales volume: 1.809 million vehicles (-15.7%) | Approximately 18% | About 30x | Approximately 15% | Eliminated: growth turns negative |

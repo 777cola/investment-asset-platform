@@ -35,7 +35,7 @@ Segment YoY: advertising 576/556.5−1=3.5%; transaction services 547/484.1−1=
 
 ## Costs and cash flow (RMB 100 million)
 
-| Project | 2026Q2 | 2025Q2 | Year on year | Note |
+| Project | 2026Q2 | 2025Q2 | YoY | Note |
 |---|---|---|---|---|
 | Cash flow from operating activities | 257 | 216 | +19.0% | Generated RMB 25.7 billion in cash in a single quarter |
 | R&D expenses | 46 | 36 | +27.8% | Expense ratio 4.1%, with spend directed mainly at algorithms and compliance systems |

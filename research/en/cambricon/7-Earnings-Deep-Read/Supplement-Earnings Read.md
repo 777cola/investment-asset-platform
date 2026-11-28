@@ -16,7 +16,7 @@ Sources: Cambricon 2026 interim report and summary (2026/08/07), 2026 Q1 report 
 | Gross profit | 33.13 | 16.11 | +105.62% |
 | Gross margin | 55.25% | 55.93% | −0.68pct |
 | Net profit attributable to shareholders | 23.11 | 10.38 | +122.61% |
-| Net profit attributable to parent excluding non-recurring items | 21.66 | 9.13 | +137.30% |
+| Net profit attributable to shareholders excluding non-recurring items | 21.66 | 9.13 | +137.30% |
 | Net margin | 38.54% | 36.04% | +2.50pct |
 | R&D investment | 7.02 | 5.42 | 11.72% of revenue (18.81% prior year) |
 | Basic earnings per share | RMB 3.68 | RMB 1.79 | +105.6% |
@@ -51,7 +51,7 @@ Two other line items merit attention: non-recurring gains and losses were only R
 
 Operating cash flow was RMB 311 million, down 65.83% YoY from RMB 911 million in the prior-year period, with net profit cash content of 0.135. The gap is easy to trace: inventory rose from RMB 4.944 billion to RMB 8.248 billion (+RMB 3.304 billion), of which raw materials accounted for RMB 5.749 billion and consigned processing materials RMB 2.537 billion; prepayments reached RMB 2.914 billion (+291.37%). The company converted cash into wafers, HBM and work-in-progress chips.
 
-The balance sheet has been reshaped accordingly: total assets of RMB 18.199 billion (+35.43%), net assets attributable to parent of RMB 13.555 billion (+14.53%), inventory at 45.32% of total assets and 60.84% of net assets, and a debt-to-asset ratio of about 25% (our calculation). This is an asset-heavy Fabless balance sheet—no fabs are built in name, but in practice capacity deposits have been paid to the extreme.
+The balance sheet has been reshaped accordingly: total assets of RMB 18.199 billion (+35.43%), net assets attributable to shareholders of RMB 13.555 billion (+14.53%), inventory at 45.32% of total assets and 60.84% of net assets, and a debt-to-asset ratio of about 25% (our calculation). This is an asset-heavy Fabless balance sheet—no fabs are built in name, but in practice capacity deposits have been paid to the extreme.
 
 On the positive side, contract liabilities surged from RMB 610,000 at the start of the year to RMB 188 million, indicating customers are paying advances and the orders are real. On the negative side, RMB 188 million covers only 2.3% of the RMB 8.248 billion of inventory, so the stockpiling is almost entirely self-funded. If customer acceptance slips by a quarter, this RMB 8.2 billion will sit on the statements for three more months—and the write-down risk will extend by three months with it.
 

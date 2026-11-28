@@ -35,7 +35,7 @@ Data sources: Xiaomi 2026Q3 results announcement (2026/11/24), 2026Q2 results an
 
 ## Valuation (12-month target price)
 
-| Scenario | 2027E adjusted net profit | Target PE | Target price | Relative to the current price |
+| Scenario | 2027E adjusted net profit | Target P/E | Target price | Relative to the current price |
 |---|---|---|---|---|
 | Bearish | RMB 18 billion | 16x | HK$12.2 | -54% |
 | Neutral | RMB 25 billion | 22x | HK$23.2 | -13% |

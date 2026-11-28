@@ -24,14 +24,14 @@ All derived figures can be recomputed from the announced numbers and are not pre
 | Selling and marketing expenses | 265.0 | 380.1 | 217.0 | -30.3% |
 | General and administrative expenses | 32.0 | 33.8 | 29.9 | -5.3% |
 | Operating profit | 17.1 | -178.0 | 26.9 | Turning profitable |
-| Net profit (attributable to parent) | 20.71 | -186.32 | 21.6 | Turning profitable |
+| Net profit (attributable to shareholders) | 20.71 | -186.32 | 21.6 | Turning profitable |
 | Adjusted net profit | 18.50 | Approximately -180 | 25.2 | Turning positive |
 
 > Bold figures: revenue, net profit, adjusted net profit and R&D growth are as disclosed in the company announcement. Cost of sales, gross profit, selling and marketing, general and administrative, and operating profit are estimated in this report, with cost of sales based on the Q2 cost ratio adjusted for the cost uplift from nationwide coverage of the "new occupational injury" insurance for riders from July. The sum of the three expense lines and operating profit is consistent with the operating profit range back-solved from the announced net profit. 2025Q3 adjusted net profit is an approximate figure cited by the media.
 
 ## Segment operating performance (RMB 100mn, single quarter)
 
-| Segment | 2026Q3 revenue | Year on year | Q3 operating profit | Operating margin |
+| Segment | 2026Q3 revenue | YoY | Q3 operating profit | Operating margin |
 |---|---|---|---|---|
 | Core local commerce | 800.2 | +17.9% | 45.2 | 5.6% |
 | Among these, delivery services | Approximately 300 | Approximately +20% | — | — |

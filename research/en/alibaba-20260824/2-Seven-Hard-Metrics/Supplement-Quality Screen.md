@@ -6,7 +6,7 @@
 
 ## Notes
 
-Basis: FY2026 (April 2025–March 2026) revenue of RMB 1,023.67 billion, gross profit of RMB 407.53 billion, operating profit of RMB 62.98 billion and net profit attributable to parent of RMB 105.90 billion, all per the company's annual report. Net cash of RMB 35.1 billion is defined as cash and investments of RMB 316.8 billion less interest-bearing debt of RMB 281.7 billion (March 31, 2026, stockanalysis aggregate basis) and is not directly comparable with the company-disclosed "cash and other current investments" of RMB 474.505 billion.
+Basis: FY2026 (April 2025–March 2026) revenue of RMB 1,023.67 billion, gross profit of RMB 407.53 billion, operating profit of RMB 62.98 billion and net profit attributable to shareholders of RMB 105.90 billion, all per the company's annual report. Net cash of RMB 35.1 billion is defined as cash and investments of RMB 316.8 billion less interest-bearing debt of RMB 281.7 billion (March 31, 2026, stockanalysis aggregate basis) and is not directly comparable with the company-disclosed "cash and other current investments" of RMB 474.505 billion.
 
 ## Seven hard metrics (FY2027 Q1 / FY2026, RMB)
 

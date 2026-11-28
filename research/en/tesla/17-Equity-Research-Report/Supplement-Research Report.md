@@ -17,7 +17,7 @@ This report is independent research and does not constitute investment advice. F
 | Deliveries (10,000 vehicles) | 178.9 | 163.6 | 175.0 | 190.0 |
 | Gross margin | 17.9% | — | 17.0% | 17.5% |
 | Operating profit | 71 | — | 65 | 95 |
-| Net profit attributable to parent | 71 | 38 | 42 | 55 |
+| Net profit attributable to shareholders | 71 | 38 | 42 | 55 |
 | Diluted EPS (USD) | 2.04 | 1.08 | 1.20 | 1.55 |
 | Free cash flow | 36 | — | -30 | 10 |
 

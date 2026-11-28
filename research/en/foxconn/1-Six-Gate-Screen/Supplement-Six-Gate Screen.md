@@ -30,7 +30,7 @@ The 2 points are deducted on the demand side. Cloud and networking products were
 
 ## Stage two: a good business — RMB 2.4 of profit per RMB 100 of revenue
 
-2026Q2 breakdown: revenue TWD 2,525.9 billion, gross profit TWD 154.5 billion (6.12%), operating expenses TWD 59.7 billion, operating profit TWD 94.8 billion (3.75%), net profit attributable to parent TWD 59.97 billion (2.37%), EPS TWD 4.27. Every TWD 1 of revenue growth leaves just 2.4 cents behind. This is not operational mismanagement: the most expensive GPUs, HBM and high-capacity storage in the racks are customer-specified and booked at market prices, and the foundry merely handles them without ever owning them.
+2026Q2 breakdown: revenue TWD 2,525.9 billion, gross profit TWD 154.5 billion (6.12%), operating expenses TWD 59.7 billion, operating profit TWD 94.8 billion (3.75%), net profit attributable to shareholders TWD 59.97 billion (2.37%), EPS TWD 4.27. Every TWD 1 of revenue growth leaves just 2.4 cents behind. This is not operational mismanagement: the most expensive GPUs, HBM and high-capacity storage in the racks are customer-specified and booked at market prices, and the foundry merely handles them without ever owning them.
 
 The longer view is clearer still. Full-year 2025 EPS was TWD 12.09 and foreign brokers estimate TWD 19.06 for 2026; the +58% growth looks impressive, yet net margin moved from 2.3% in 2025Q2 to 2.37% in 2026Q2 — less than 0.1 percentage point in a year. All profit growth comes from scale; not a cent comes from pricing. This is a business that generates revenue with its balance sheet: in good years it earns hard money, and in bad years it cannot even hold on to that.
 

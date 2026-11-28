@@ -13,7 +13,7 @@ This is "as-of" research, with information cut off at 2026/10/09 and subsequent 
 | Project | 2023 | 2024 | 2025 | 2026H1 |
 |---|---|---|---|---|
 | Operating revenue | 31.80 | 85.06 | 273.03 | 198.08 |
-| Year on year | +145.7% | +167.5% | +221.0% | +60.3% |
+| YoY | +145.7% | +167.5% | +221.0% | +60.3% |
 | Gross margin | 41.9% | 41.2% | 37.6% | 41.3% |
 | Net profit | 4.16 | 14.73 | 48.68 | 42.67 |
 | Net margin | 13.1% | 17.3% | 17.8% | 21.5% |

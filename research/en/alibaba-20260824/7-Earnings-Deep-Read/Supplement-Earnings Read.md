@@ -25,7 +25,7 @@ Income statement and segment data are sourced from Alibaba's FY2027 Q1 results a
 
 ## Segment revenue and adjusted EBITA (RMB 100 million)
 
-| Segment | Revenue | Year-on-year | Adjusted EBITA | Year on year |
+| Segment | Revenue | Year-on-year | Adjusted EBITA | YoY |
 |---|---|---|---|---|
 | E-commerce group | 2,058.6 | +4% | 397.5 | -1% |
 | Chinese e-commerce | 1,109.0 | -8% | — | — |
@@ -41,7 +41,7 @@ Income statement and segment data are sourced from Alibaba's FY2027 Q1 results a
 
 ## Three-year revenue and profit trend (RMB 100mn, fiscal year ending March)
 
-| Fiscal year | Revenue | Year-on-year | Operating profit | Net profit attributable to parent |
+| Fiscal year | Revenue | Year-on-year | Operating profit | Net profit attributable to shareholders |
 |---|---|---|---|---|
 | FY2023 | 8,686.9 | +1.8% | 1,061.2 | 725.1 |
 | FY2024 | 9,411.7 | +8.3% | 1,387.2 | 797.4 |

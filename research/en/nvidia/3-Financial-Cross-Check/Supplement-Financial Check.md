@@ -18,7 +18,7 @@ Reconciliation method: Source A draws on the company's original disclosures (pre
 | Non-GAAP EPS | USD 2.22 | USD 2.22 (same as above) | 0 | Adopt 2.22 |
 | GAAP net profit | 59,688 | USD 59.7 billion (same as above) | 0.02% | Adopt 59,688 |
 | Market cap (8/31) | 5.332 trillion (220.78 × 2.419 billion shares) | 5.3 trillion (terminal) | 0.06% | Use 5.33 trillion, noting basic share capital |
-| PE(TTM) | 27.9x (based on TTM net profit of RMB 191.0 billion) | 28x (terminal) | 0.4% | Using approximately 28x |
+| P/E (TTM) | 27.9x (based on TTM net profit of RMB 191.0 billion) | 28x (terminal) | 0.4% | Using approximately 28x |
 | FY2027 full-year revenue | RMB 400.8 billion (Q1+Q2+Q3 guidance+Q4 estimated at 1,150) | RMB 410.8 billion (if Q4 = 1,250) | <b>2.5%</b> | Use 4,008 as the base case and run a separate sensitivity analysis |
 
 > Source A is NVIDIA's FY2027Q2 earnings release and 10-Q (filed 2026/08/26); Source B comprises Cailian Press (2026/08/27), NetEase Finance (2026/08/26), an AAStocks snapshot (2026/08/26) and market data terminals. Deviation = |A−B| / A.

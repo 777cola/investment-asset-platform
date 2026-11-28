@@ -10,7 +10,7 @@ Screening process: roughly twenty innovative-drug companies market-wide with mar
 
 ## Six-peer comparison (Q3 2026)
 
-| Company | Market cap | Revenue growth | Gross margin | PE(TTM) | ROE | Metabolic-pipeline positioning |
+| Company | Market cap | Revenue growth | Gross margin | P/E (TTM) | ROE | Metabolic-pipeline positioning |
 |---|---|---|---|---|---|---|
 | Eli Lilly | About USD 1.33 trillion | +38.6% | 84.4% | 48.2x | 74.6%（2024） | Eli Lilly (LLY) 2026Q3: tirzepatide USD 16.075 billion in a single quarter, 60% share |
 | Novo Nordisk | About USD 182 billion | Net sales under pressure (-4% in Q1 2026) | Approximately 84% | 10.6x | Around 30% | 40% share, oral Wegovy leads |

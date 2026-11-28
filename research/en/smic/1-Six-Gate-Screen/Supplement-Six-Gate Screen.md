@@ -6,7 +6,7 @@
 
 ## Notes
 
-Scoring follows the Folder 18 standard: six gates at 10 points each. Financials are sourced from SMIC's 2026Q1 results announcement (2026/05/14) and 2025 annual report (2026/03/25); 2026 depreciation of USD 5 billion and capex of USD 8.1 billion are company guidance (2026/02/10 earnings call). Market cap is A-share price × 8.561 billion total shares = RMB 1.08 trillion; pricing A and H separately gives roughly RMB 690 billion (approximate), the entire gap reflecting the A-share premium. The 205x P/E is the quote-terminal figure; on TTM net profit attributable to parent of RMB 4.94 billion it recalculates to 219x, a discrepancy discussed in Part 3.
+Scoring follows the Folder 18 standard: six gates at 10 points each. Financials are sourced from SMIC's 2026Q1 results announcement (2026/05/14) and 2025 annual report (2026/03/25); 2026 depreciation of USD 5 billion and capex of USD 8.1 billion are company guidance (2026/02/10 earnings call). Market cap is A-share price × 8.561 billion total shares = RMB 1.08 trillion; pricing A and H separately gives roughly RMB 690 billion (approximate), the entire gap reflecting the A-share premium. The 205x P/E is the quote-terminal figure; on TTM net profit attributable to shareholders of RMB 4.94 billion it recalculates to 219x, a discrepancy discussed in Part 3.
 
 ## Six-gate score (August 10, 2026 close)
 
@@ -54,7 +54,7 @@ Three points off for the capital-allocation stance: no dividend for 2025, and th
 
 ## Gate Five: Margin of Safety — 1/10
 
-RMB 126.25 × 8.561 billion shares = RMB 1.08 trillion market cap; net assets per share RMB 20.19, PB 6.3x; TTM net profit attributable to parent of about RMB 5.2–5.3 billion, PE about 205x. Put the three numbers together and only one explanation holds: the market is pricing the stock on 2029 capacity and price hikes.
+RMB 126.25 × 8.561 billion shares = RMB 1.08 trillion market cap; net assets per share RMB 20.19, PB 6.3x; TTM net profit attributable to shareholders of about RMB 5.2–5.3 billion, PE about 205x. Put the three numbers together and only one explanation holds: the market is pricing the stock on 2029 capacity and price hikes.
 
 The H-share closed the same day at HKD 66.20, about RMB 57 — an A-share premium of about 121%. Same class of shares, same rights, same financial report, yet the two prices differ by more than double. On 9 August UBS upgraded the H-share to Buy with a target price of HKD 96.2 (3.3x average 2027–2028 PB), about RMB 83 — the foreign target price for the H-share is still 34% below the current A-share price.
 

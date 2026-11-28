@@ -20,7 +20,7 @@ All financial data is sourced from JD.com's Q2 and interim 2026 results announce
 | — Platforms and advertising | 309 | 285 | +8.3% |
 | — Logistics and other services | 484 | 457 | +5.9% |
 | Operating profit | 45 | -9 | Turnaround to profit |
-| Net profit attributable to parent | 71 | 62 | +14.5% |
+| Net profit attributable to shareholders | 71 | 62 | +14.5% |
 | Non-GAAP net profit attributable to shareholders | 89 | 74 | +20.3% |
 
 > JD.com 2026Q2 results announcement (2026/08/13). 2025Q2 figures for each line item are back-calculated from the YoY growth rates disclosed in the announcement (derived values, not original reported figures). Platform advertising and logistics services are split by their share of service revenue and are estimates.

@@ -15,7 +15,7 @@ This is a full brokerage-format research report built around a 12-chapter struct
 | Revenue | Approximately 7,600 (back-solved) | 10,800 (rough estimate) | 13,000 (rough estimate) |
 | Gross margin | About 6.2% | 6.1% | 6.2% |
 | Operating margin | Approximately 3.4% | 3.8% | 3.9% |
-| Net profit after tax (attributable to parent) | Approximately 1,676 (rough estimate) | Approximately 2,680 (rough estimate) | Approximately 3,160 (rough estimate) |
+| Net profit after tax (attributable to shareholders) | Approximately 1,676 (rough estimate) | Approximately 2,680 (rough estimate) | Approximately 3,160 (rough estimate) |
 | EPS (RMB) | 12.09 | 19.06 | 22.50 |
 | PE (current price RMB 239.5) | 19.8x | 12.6x | 10.6x |
 

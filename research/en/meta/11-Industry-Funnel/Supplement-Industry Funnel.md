@@ -10,7 +10,7 @@ Comparable company data: Meta figures from its Q3 2026 earnings report; Google, 
 
 ## Peer comparison (2026Q3 data; market cap and P/E as of end-October)
 
-| The company | Market cap (approx.) | Revenue growth | Advertising/core growth | PE(TTM) | Free cash flow | Funnel determination |
+| The company | Market cap (approx.) | Revenue growth | Advertising/core growth | P/E (TTM) | Free cash flow | Funnel determination |
 |---|---|---|---|---|---|---|
 | Meta | USD 1.58 trillion | +26.1% | Advertising +25.9% | 21x | -USD 2.12 billion | Final selection (watch) |
 | Google | USD 3.47 trillion | +24.7% | Advertising +10.6% | Approximately 14.8x | Negative | Final selection (comparison) |

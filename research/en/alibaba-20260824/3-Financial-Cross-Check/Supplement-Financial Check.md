@@ -23,7 +23,7 @@
 | Customer management revenue growth rate | -7% (announced segment table) | +1% (same paragraph of the announcement, "like-for-like") | 8.0pp | Write both, noting the reclassification |
 | Placement discount | 8.4% (calculated from the HKD 123.0 close on 8/21) | 3.6% (some media use the reference price) | 4.8pp | Use 8.4%, state the benchmark explicitly |
 | Placement dilution ratio | 3.47% (of 20.46 billion shares after the placing) | 3.57% (announcement: of the issued shares upon completion) | 0.10pp | Use 3.47%, state the denominator |
-| PE(TTM) | ~31x (back-solved from the model) | 29.2x (HKD 2.30 trillion × 0.92 ÷ RMB 72.54 billion) | 5.8% | Give a range of about 29–31x |
+| P/E (TTM) | ~31x (back-solved from the model) | 29.2x (HKD 2.30 trillion × 0.92 ÷ RMB 72.54 billion) | 5.8% | Give a range of about 29–31x |
 
 > Sources A/B cover company announcements and sell-side/media interpretation respectively. TTM net profit attributable to shareholders = FY2026 full-year RMB 105.90 billion − FY2026 Q1 RMB 43.90 billion + FY2027 Q1 RMB 10.54 billion = RMB 72.54 billion (approximate).
 

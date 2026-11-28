@@ -23,7 +23,7 @@
 
 ## Three-scenario valuation (12 months)
 
-| Scenario | 2027E EPS | Target PE | Target price | Relative to the current price |
+| Scenario | 2027E EPS | Target P/E | Target price | Relative to the current price |
 |---|---|---|---|---|
 | Pessimistic | USD 33 | 25x | USD 825 | -42% |
 | Neutral | USD 42 | 32x | USD 1,344 | -5% |

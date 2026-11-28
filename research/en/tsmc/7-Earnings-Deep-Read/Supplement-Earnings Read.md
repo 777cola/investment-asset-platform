@@ -10,7 +10,7 @@ Of the three tables in this module, revenue, net profit, gross margin, EPS, cape
 
 ## Consolidated income statement (TWD billion)
 
-| Project | 2026Q2 | 2026Q1 | 2025Q2 | Year on year |
+| Project | 2026Q2 | 2026Q1 | 2025Q2 | YoY |
 |---|---|---|---|---|
 | Consolidated revenue | 12,703.8 | 11,341.0 | 9,341 | +36.0% |
 | Gross profit | 8,600 (rough estimate, 67.7%) | 7,507 (rough estimate, 66.2%) | 5,474 (rough estimate) | +57.1% |

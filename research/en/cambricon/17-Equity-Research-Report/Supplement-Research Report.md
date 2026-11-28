@@ -16,7 +16,7 @@ This is the full 12-chapter broker-grade report. The rating is consistent with t
 | Year-on-year | +453.21% | +100.1% | +34.6% | +25.7% |
 | Gross margin | 55.15% | 55.0% | 52.0% | 50.0% |
 | Net margin | 31.70% | 37.7% | 37.1% | 35.9% |
-| Net profit attributable to parent | 20.59 | 49 | 65 | 79 |
+| Net profit attributable to shareholders | 20.59 | 49 | 65 | 79 |
 | EPS (RMB) | 4.93 | 7.80 | 10.34 | 12.57 |
 | Corresponding PE (RMB 1,156) | — | 148x | 112x | 92x |
 
@@ -60,9 +60,9 @@ One industry fact is easily overlooked: the "usability" of domestic AI chips has
 
 ## Chapter 4 Financial Analysis
 
-1H26: revenue RMB 5.996 billion (+108.13%), gross profit RMB 3.313 billion (55.25%), net profit attributable to parent RMB 2.311 billion (+122.61%), non-recurring-adjusted net profit RMB 2.166 billion (+137.30%), R&D RMB 702 million (11.72% of revenue vs 18.81% a year earlier). Profit quality is high — non-recurring-adjusted profit accounts for 93.7% — and growth is revenue-driven rather than cost compression.
+1H26: revenue RMB 5.996 billion (+108.13%), gross profit RMB 3.313 billion (55.25%), net profit attributable to shareholders RMB 2.311 billion (+122.61%), non-recurring-adjusted net profit RMB 2.166 billion (+137.30%), R&D RMB 702 million (11.72% of revenue vs 18.81% a year earlier). Profit quality is high — non-recurring-adjusted profit accounts for 93.7% — and growth is revenue-driven rather than cost compression.
 
-Balance sheet: total assets RMB 18.199 billion (+35.43%), net assets attributable to parent RMB 13.555 billion (+14.53%), inventory RMB 8.248 billion, prepayments RMB 2.914 billion, contract liabilities RMB 188 million (RMB 610,000 at the start of the year), debt-to-asset ratio about 25.5% (our rough calculation, with almost no interest-bearing debt). Cash flow: operating cash flow RMB 311 million (−65.83%), financing cash flow −RMB 657 million. Cash content of net profit is 0.135 — the biggest blemish in this report.
+Balance sheet: total assets RMB 18.199 billion (+35.43%), net assets attributable to shareholders RMB 13.555 billion (+14.53%), inventory RMB 8.248 billion, prepayments RMB 2.914 billion, contract liabilities RMB 188 million (RMB 610,000 at the start of the year), debt-to-asset ratio about 25.5% (our rough calculation, with almost no interest-bearing debt). Cash flow: operating cash flow RMB 311 million (−65.83%), financing cash flow −RMB 657 million. Cash content of net profit is 0.135 — the biggest blemish in this report.
 
 The peer comparison sharpens the picture: Hygon posted a 2026H1 net margin of 22.69% with R&D at 29.15% of revenue, versus Cambricon's 38.54% net margin and 11.72% R&D. Cambricon's margins are higher, but it parks more capital in inventory and prepayments (RMB 11.16 billion combined, 61% of total assets), whereas Hygon runs a lighter asset base and steadier cash flow. Each model carries a cost: the former offers more upside, the latter more certainty.
 

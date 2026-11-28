@@ -12,7 +12,7 @@ Total assets of USD 52.271 billion and total liabilities of USD 17.250 billion a
 
 | Metric | Company figures | Threshold | Determination |
 |---|---|---|---|
-| ROE | About 2.7% (2025 net profit attributable to parent of USD 685 million ÷ parent equity at period-end of approximately USD 25 billion) | ≥15% | However |
+| ROE | About 2.7% (2025 net profit attributable to shareholders of USD 685 million ÷ parent equity at period-end of approximately USD 25 billion) | ≥15% | However |
 | Gross margin | 20.1% (2026Q1), 21.0% in 2025 | ≥30% and stable | However |
 | Debt-to-asset ratio | 33.0% (total liabilities USD 17.25 billion / total assets USD 52.27 billion) | ＜50% | Exceeded |
 | Operating cash flow / net profit | 3.8x (Q1 2026 operating cash flow of RMB 5.132 billion vs net profit attributable to shareholders of RMB 1.361 billion) | ≥1.0 | Exceeded |

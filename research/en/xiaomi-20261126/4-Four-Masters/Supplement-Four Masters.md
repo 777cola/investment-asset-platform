@@ -10,7 +10,7 @@ Valuation basis: target price = 2027 adjusted net profit × target P/E ÷ 0.92 (
 
 ## Three-scenario valuation (2027, 12 months)
 
-| Scenario | Core assumptions | 2027 adjusted net profit | Target PE | Target price | Relative to the current price |
+| Scenario | Core assumptions | 2027 adjusted net profit | Target P/E | Target price | Relative to the current price |
 |---|---|---|---|---|---|
 | Bearish | Memory upcycle runs to end-2027; handset gross margin steps down again. EV price war returns, Pengcheng monthly deliveries stall at 15,000 units | RMB 18 billion | 16x | HK$12.2 | -54% |
 | Neutral | Memory prices fall in H2 2027, smartphone gross margin recovers to 9%–10%; 480,000 vehicles delivered annually, segment modestly profitable | RMB 25 billion | 22x | HK$23.2 | -13% |

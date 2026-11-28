@@ -6,7 +6,7 @@
 
 ## Notes
 
-2025 data: revenue RMB 38.24 billion, net profit attributable to parent RMB 10.80 billion, operating cash flow RMB 10.90 billion (+244.31%), cash paid for construction of long-term assets RMB 2.76 billion, debt-to-asset ratio 30.18%; all from the 2025 annual report (2026/03/30). 2024 operating cash flow RMB 3.17 billion, capital expenditure RMB 2.87 billion. 2026H1 data from the interim report (2026/08/21). Total share count milestones: 800 million shares after the November 2021 private placement, 1.12 billion shares at 2026/06/30, 1.18 billion shares at 2026/09/01. Average ROE is a rough calculation.
+2025 data: revenue RMB 38.24 billion, net profit attributable to shareholders RMB 10.80 billion, operating cash flow RMB 10.90 billion (+244.31%), cash paid for construction of long-term assets RMB 2.76 billion, debt-to-asset ratio 30.18%; all from the 2025 annual report (2026/03/30). 2024 operating cash flow RMB 3.17 billion, capital expenditure RMB 2.87 billion. 2026H1 data from the interim report (2026/08/21). Total share count milestones: 800 million shares after the November 2021 private placement, 1.12 billion shares at 2026/06/30, 1.18 billion shares at 2026/09/01. Average ROE is a rough calculation.
 
 ## Seven hard metrics (as of the 2026 interim report)
 

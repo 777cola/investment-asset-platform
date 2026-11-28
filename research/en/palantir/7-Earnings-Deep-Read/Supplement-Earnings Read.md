@@ -10,7 +10,7 @@
 
 ## Key income statement items (USD million)
 
-| Project | 2026Q2 | 2025Q2 | Year on year | As a share of revenue |
+| Project | 2026Q2 | 2025Q2 | YoY | As a share of revenue |
 |---|---|---|---|---|
 | Total revenue | 1,935.5 | 1,003.7 | +93% | 100% |
 | Gross profit (about 80%) | Approximately 1,548 | Approximately 800 | +94% | 80% |
@@ -24,7 +24,7 @@
 
 ## Revenue breakdown (USD million, 2026Q2)
 
-| Segment | Revenue | Year on year | As a share of revenue | Reading |
+| Segment | Revenue | YoY | As a share of revenue | Reading |
 |---|---|---|---|---|
 | US commercial | 764 | +149% | 39.5% | AIP remains the key battleground and has now accelerated for a second consecutive period |
 | The US government | 809 | +90% | 41.8% | Stable, large, politically sensitive |

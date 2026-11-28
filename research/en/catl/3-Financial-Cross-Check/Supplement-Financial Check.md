@@ -42,7 +42,7 @@ The 764GWh under construction, at a rough investment intensity of RMB 300–400 
 
 ## Final adopted basis
 
-All financials are as reported in the interim results: revenue RMB 276.917bn, net profit attributable to parent RMB 43.284bn, power batteries RMB 192.125bn, energy storage RMB 53.261bn, overseas RMB 87.129bn, blended gross margin 23.93%, R&D RMB 11.376bn. Quarterly figures are derived by subtracting the Q1 report from the interim report (Q2 revenue RMB 147.786bn, net profit RMB 22.546bn); YoY growth is calculated from back-solved prior-year comparatives and marked "back-solved".
+All financials are as reported in the interim results: revenue RMB 276.917bn, net profit attributable to shareholders RMB 43.284bn, power batteries RMB 192.125bn, energy storage RMB 53.261bn, overseas RMB 87.129bn, blended gross margin 23.93%, R&D RMB 11.376bn. Quarterly figures are derived by subtracting the Q1 report from the interim report (Q2 revenue RMB 147.786bn, net profit RMB 22.546bn); YoY growth is calculated from back-solved prior-year comparatives and marked "back-solved".
 
 Valuation is based on combined A+H shares of 4.627bn and 2026 consensus net profit of RMB 95.2bn (Huachuang Securities, 2026/07), implying a P/E of 14.2x. Market cap is RMB 1.35trn including H shares; looking only at A-share free-float market cap would understate it by about 30%. All estimated figures (unit net profit RMB 98/kWh, consumption tax RMB 9.8bn/year, capex under construction RMB 230–310bn) are marked "rough calculation" in the text.
 

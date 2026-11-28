@@ -6,11 +6,11 @@
 
 ## Notes
 
-Market cap and valuation basis are set out in the table notes. P/E and ROE figures that cannot be verified before August 2026 are deliberately left blank in the comparison, to avoid backfilling with post-report-date TTM data; any ROE marked "rough" approximates net profit attributable to parent ÷ shareholders' equity.
+Market cap and valuation basis are set out in the table notes. P/E and ROE figures that cannot be verified before August 2026 are deliberately left blank in the comparison, to avoid backfilling with post-report-date TTM data; any ROE marked "rough" approximates net profit attributable to shareholders ÷ shareholders' equity.
 
 ## Comparison of six funnel companies (August 2026 basis)
 
-| The company | Market cap | Latest quarterly revenue growth | Operating margin | PE(TTM) | ROE | Funnel conclusion |
+| The company | Market cap | Latest quarterly revenue growth | Operating margin | P/E (TTM) | ROE | Funnel conclusion |
 |---|---|---|---|---|---|---|
 | Alibaba | HKD 2.30 trillion | +9% | 5.6% | Approximately 29–31x (distorted profit) | 9.7% (FY2026 rough estimate) | Final pick: the only full-stack AI play |
 | Tencent Holdings | Approximately RMB 3.49 trillion | — | — | — | 18.9% (rough estimate) | Final pick: steadiest cash flow |

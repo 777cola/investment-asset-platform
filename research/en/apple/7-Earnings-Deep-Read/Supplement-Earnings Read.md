@@ -10,7 +10,7 @@ Income statement and segment tables are sourced from Apple's FY2026Q3 results (r
 
 ## Income statement (USD million, GAAP)
 
-| Project | FY26Q3 | FY25Q3 | Year on year |
+| Project | FY26Q3 | FY25Q3 | YoY |
 |---|---|---|---|
 | Total revenue | 109,417 | 94,036 | +16.4% |
 | Product revenue | 78,678 | 66,613 | +18.1% |
@@ -25,7 +25,7 @@ Income statement and segment tables are sourced from Apple's FY2026Q3 results (r
 
 ## Segment and regional revenue (USD million)
 
-| Project | FY26Q3 | FY25Q3 | Year on year | Valuation |
+| Project | FY26Q3 | FY25Q3 | YoY | Valuation |
 |---|---|---|---|---|
 | iPhone | 54,252 | 44,582 | +21.7% | Record high for the June quarter |
 | Mac | 10,352 | 8,046 | +28.7% | M5 refresh, demand outstrips supply |

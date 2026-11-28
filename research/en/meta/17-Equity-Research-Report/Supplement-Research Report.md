@@ -34,7 +34,7 @@ This report is point-in-time research as of November 2, 2026; all data reflect i
 
 ## Three-scenario valuation
 
-| Scenario | 2027 EPS | Target PE | Target price | Relative to the current price |
+| Scenario | 2027 EPS | Target P/E | Target price | Relative to the current price |
 |---|---|---|---|---|
 | Pessimistic | 24 USD | 17x | USD 410 | -32% |
 | Neutral | USD 28 | 22x | USD 620 | +2% |

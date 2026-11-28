@@ -10,7 +10,7 @@ All figures are taken from Amazon's published 2026Q3 consolidated income stateme
 
 ## Consolidated income statement (USD million)
 
-| Project | 2026Q3 | 2025Q3 | Year on year | First three quarters of 2026 | Year-on-year |
+| Project | 2026Q3 | 2025Q3 | YoY | First three quarters of 2026 | Year-on-year |
 |---|---|---|---|---|---|
 | Net sales | 201,944 | 180,169 | +12.1% | 584,069 | +16.0% |
 | Of which: merchandise sales | 75,296 | 74,058 | +1.7% | 224,202 | +8.7% |
@@ -30,7 +30,7 @@ All figures are taken from Amazon's published 2026Q3 consolidated income stateme
 
 ## Segment (USD million)
 
-| Segments | Revenue | Year on year | Operating profit | Profit margin | Share of profit |
+| Segments | Revenue | YoY | Operating profit | Profit margin | Share of profit |
 |---|---|---|---|---|---|
 | North America | 112,852 | +6.0% | 8,723 | 7.7% | 31.1% |
 | International | 43,108 | +5.0% (+8% at constant currency) | 1,580 | 3.7% | 5.6% |
@@ -41,7 +41,7 @@ All figures are taken from Amazon's published 2026Q3 consolidated income stateme
 
 ## Revenue mix by business line (USD million)
 
-| Business lines | 2026Q3 | Year on year | Share |
+| Business lines | 2026Q3 | YoY | Share |
 |---|---|---|---|
 | Online store | 68,470 | +2% | 33.9% |
 | Third-party seller services | 46,492 | +9% | 23.0% |

@@ -18,7 +18,7 @@ Verification scope: primarily 2026Q3 single-quarter data. Deviation formula |A�
 | Net profit attributable to shareholders | 13.95 (company financial report) | 13.9 (People's Daily Online, November 16) | 0.4% | Adopt 13.95 |
 | Non-GAAP net profit | 23.95 (company financial report) | 23.9 (back-calculated from HKEJ's "36% less profit") | 0.2% | Adopt 23.95 |
 | Market cap | HKD 168 billion (63.55 × 2.64 billion shares) | HKD 164.3 billion (stockanalysis, late November) | 2.1% | Using HKD 168 billion, see below |
-| PE(TTM) | 19.7x (1,680 ÷ implied TTM net profit of HKD 8.53 billion) | 19.31x（stockanalysis） | 2.0% | Use 19.7x and label it "distorted by impairment" |
+| P/E (TTM) | 19.7x (1,680 ÷ implied TTM net profit of HKD 8.53 billion) | 19.31x（stockanalysis） | 2.0% | Use 19.7x and label it "distorted by impairment" |
 | PB | 0.52x（stockanalysis） | 0.52x (RMB 153.0 billion ÷ implied net assets of RMB 294.2 billion) | 0 | Adopt 0.52x |
 
 > Source A is the company's FY2026 Q3 results (released 16 November 2026) and earnings commentary; Source B is same-day/next-day media coverage and third-party databases. Deviation = |A−B| / B. RMB/HKD conversions use HKD 1 ≈ RMB 0.911.
